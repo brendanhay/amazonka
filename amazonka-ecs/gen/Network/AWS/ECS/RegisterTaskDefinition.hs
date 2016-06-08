@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a new task definition from the supplied 'family' and
--- 'containerDefinitions'. Optionally, you can add data volumes to your
--- containers with the 'volumes' parameter. For more information about task
--- definition parameters and defaults, see
--- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
--- in the /Amazon EC2 Container Service Developer Guide/.
+-- Registers a new task definition from the supplied 'family' and 'containerDefinitions'. Optionally, you can add data volumes to your containers with the 'volumes' parameter. For more information about task definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
     -- * Creating a Request
@@ -75,20 +70,15 @@ registerTaskDefinition pFamily_ =
     , _rtdContainerDefinitions = mempty
     }
 
--- | A list of volume definitions in JSON format that containers in your task
--- may use.
+-- | A list of volume definitions in JSON format that containers in your task may use.
 rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
 rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default . _Coerce;
 
--- | You must specify a 'family' for a task definition, which allows you to
--- track multiple versions of the same task definition. The 'family' is
--- used as a name for your task definition. Up to 255 letters (uppercase
--- and lowercase), numbers, hyphens, and underscores are allowed.
+-- | You must specify a 'family' for a task definition, which allows you to track multiple versions of the same task definition. The 'family' is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 rtdFamily :: Lens' RegisterTaskDefinition Text
 rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 
--- | A list of container definitions in JSON format that describe the
--- different containers that make up your task.
+-- | A list of container definitions in JSON format that describe the different containers that make up your task.
 rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
 rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a}) . _Coerce;
 

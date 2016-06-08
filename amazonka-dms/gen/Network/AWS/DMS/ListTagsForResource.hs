@@ -61,8 +61,7 @@ listTagsForResource pResourceARN_ =
     { _ltfrResourceARN = pResourceARN_
     }
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the AWS
--- DMS resource.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS resource.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 

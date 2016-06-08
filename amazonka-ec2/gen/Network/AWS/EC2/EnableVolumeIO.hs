@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables I\/O operations for a volume that had I\/O operations disabled
--- because the data on the volume was potentially inconsistent.
+-- Enables I\/O operations for a volume that had I\/O operations disabled because the data on the volume was potentially inconsistent.
 module Network.AWS.EC2.EnableVolumeIO
     (
     -- * Creating a Request
@@ -65,10 +64,7 @@ enableVolumeIO pVolumeId_ =
     , _evioVolumeId = pVolumeId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
 evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a});
 

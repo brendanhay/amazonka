@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS
--- cloud.
+-- Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 --
 -- You cannot take snapshots of AD Connector directories.
 module Network.AWS.DirectoryService.CreateSnapshot

@@ -20,8 +20,7 @@
 --
 -- Deletes the specified receipt rule.
 --
--- For information about managing receipt rules, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteReceiptRule
@@ -70,8 +69,7 @@ deleteReceiptRule pRuleSetName_ pRuleName_ =
     , _delRuleName = pRuleName_
     }
 
--- | The name of the receipt rule set that contains the receipt rule to
--- delete.
+-- | The name of the receipt rule set that contains the receipt rule to delete.
 delRuleSetName :: Lens' DeleteReceiptRule Text
 delRuleSetName = lens _delRuleSetName (\ s a -> s{_delRuleSetName = a});
 

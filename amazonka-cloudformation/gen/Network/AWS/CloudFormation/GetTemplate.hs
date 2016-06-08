@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the template body for a specified stack. You can get the
--- template for running or deleted stacks.
+-- Returns the template body for a specified stack. You can get the template for running or deleted stacks.
 --
--- For deleted stacks, GetTemplate returns the template for up to 90 days
--- after the stack has been deleted.
+-- For deleted stacks, GetTemplate returns the template for up to 90 days after the stack has been deleted.
 --
 -- If the template does not exist, a 'ValidationError' is returned.
 module Network.AWS.CloudFormation.GetTemplate
@@ -68,11 +66,9 @@ getTemplate pStackName_ =
     { _gtStackName = pStackName_
     }
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- -   Running stacks: You can specify either the stack\'s name or its
---     unique stack ID.
+-- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
@@ -129,9 +125,7 @@ getTemplateResponse pResponseStatus_ =
     , _gtrsResponseStatus = pResponseStatus_
     }
 
--- | Structure containing the template body. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.)
+-- | Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
 gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 

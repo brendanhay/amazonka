@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the IAM role that Amazon Inspector uses to list your EC2
--- instances at the start of the assessment run or when you call the
--- < PreviewAgents> action.
+-- Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the < PreviewAgents> action.
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -59,9 +57,7 @@ registerCrossAccountAccessRole pRoleARN_ =
     { _rcaarRoleARN = pRoleARN_
     }
 
--- | The ARN of the IAM role that Amazon Inspector uses to list your EC2
--- instances during the assessment run or when you call the
--- < PreviewAgents> action.
+-- | The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the < PreviewAgents> action.
 rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
 rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
 

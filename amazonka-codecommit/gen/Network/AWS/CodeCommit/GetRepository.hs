@@ -20,12 +20,7 @@
 --
 -- Returns information about a repository.
 --
--- The description field for a repository accepts all HTML characters and
--- all valid Unicode characters. Applications that do not HTML-encode the
--- description and display it in a web page could expose users to
--- potentially malicious code. Make sure that you HTML-encode the
--- description field in any application that uses this API to display the
--- repository description on a web page.
+-- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
 module Network.AWS.CodeCommit.GetRepository
     (
     -- * Creating a Request

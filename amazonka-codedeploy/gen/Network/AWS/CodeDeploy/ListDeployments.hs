@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the deployments in a deployment group for an application
--- registered with the applicable IAM user or AWS account.
+-- Lists the deployments in a deployment group for an application registered with the applicable IAM user or AWS account.
 module Network.AWS.CodeDeploy.ListDeployments
     (
     -- * Creating a Request
@@ -83,13 +82,11 @@ listDeployments =
     , _ldDeploymentGroupName = Nothing
     }
 
--- | A time range (start and end) for returning a subset of the list of
--- deployments.
+-- | A time range (start and end) for returning a subset of the list of deployments.
 ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
 ldCreateTimeRange = lens _ldCreateTimeRange (\ s a -> s{_ldCreateTimeRange = a});
 
--- | An identifier returned from the previous list deployments call. It can
--- be used to return the next set of deployments in the list.
+-- | An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
 ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
@@ -104,8 +101,7 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default . _Coerce;
 
--- | The name of an AWS CodeDeploy application associated with the applicable
--- IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ldApplicationName :: Lens' ListDeployments (Maybe Text)
 ldApplicationName = lens _ldApplicationName (\ s a -> s{_ldApplicationName = a});
 
@@ -184,9 +180,7 @@ listDeploymentsResponse pResponseStatus_ =
     , _ldrsResponseStatus = pResponseStatus_
     }
 
--- | If a large amount of information is returned, an identifier is also
--- returned. It can be used in a subsequent list deployments call to return
--- the next set of deployments in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
 ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 

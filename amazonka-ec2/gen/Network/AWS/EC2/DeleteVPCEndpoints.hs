@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes one or more specified VPC endpoints. Deleting the endpoint also
--- deletes the endpoint routes in the route tables that were associated
--- with the endpoint.
+-- Deletes one or more specified VPC endpoints. Deleting the endpoint also deletes the endpoint routes in the route tables that were associated with the endpoint.
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
     -- * Creating a Request
@@ -68,10 +66,7 @@ deleteVPCEndpoints =
     , _dveVPCEndpointIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
 dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 

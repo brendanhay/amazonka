@@ -118,8 +118,7 @@ listAvailableSolutionStacksResponse pResponseStatus_ =
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce;
 
--- | A list of available solution stacks and their
--- < SolutionStackDescription>.
+-- | A list of available solution stacks and their < SolutionStackDescription>.
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 

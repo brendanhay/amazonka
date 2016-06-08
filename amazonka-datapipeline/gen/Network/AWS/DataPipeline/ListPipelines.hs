@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the pipeline identifiers for all active pipelines that you have
--- permission to access.
+-- Lists the pipeline identifiers for all active pipelines that you have permission to access.
 --
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.ListPipelines
@@ -67,10 +66,7 @@ listPipelines =
     { _lpMarker = Nothing
     }
 
--- | The starting point for the results to be returned. For the first call,
--- this value should be empty. As long as there are more results, continue
--- to call 'ListPipelines' with the marker value from the previous call to
--- retrieve the next set of results.
+-- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call 'ListPipelines' with the marker value from the previous call to retrieve the next set of results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
@@ -147,14 +143,11 @@ listPipelinesResponse pResponseStatus_ =
     , _lprsPipelineIdList = mempty
     }
 
--- | Indicates whether there are more results that can be obtained by a
--- subsequent call.
+-- | Indicates whether there are more results that can be obtained by a subsequent call.
 lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
 lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = a});
 
--- | The starting point for the next page of results. To view the next page
--- of results, call 'ListPipelinesOutput' again with this marker value. If
--- the value is null, there are no more results.
+-- | The starting point for the next page of results. To view the next page of results, call 'ListPipelinesOutput' again with this marker value. If the value is null, there are no more results.
 lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
@@ -162,9 +155,7 @@ lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
--- | The pipeline identifiers. If you require additional information about
--- the pipelines, you can use these identifiers to call
--- < DescribePipelines> and < GetPipelineDefinition>.
+-- | The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call < DescribePipelines> and < GetPipelineDefinition>.
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;
 

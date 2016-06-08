@@ -42,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about the current
--- < Account> resource.
+-- | Requests Amazon API Gateway to change information about the current < Account> resource.
 --
 -- /See:/ 'updateAccount' smart constructor.
 newtype UpdateAccount = UpdateAccount'
@@ -62,8 +61,7 @@ updateAccount =
     { _uaPatchOperations = Nothing
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 uaPatchOperations :: Lens' UpdateAccount [PatchOperation]
 uaPatchOperations = lens _uaPatchOperations (\ s a -> s{_uaPatchOperations = a}) . _Default . _Coerce;
 

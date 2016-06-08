@@ -20,11 +20,7 @@
 --
 -- Tests whether an event pattern matches the provided event.
 --
--- __Note:__ Most services in AWS treat : or \/ as the same character in
--- Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact
--- match in event patterns and rules. Be sure to use the correct ARN
--- characters when creating event patterns so that they match the ARN
--- syntax in the event you want to match.
+-- __Note:__ Most services in AWS treat : or \/ as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
 module Network.AWS.CloudWatchEvents.TestEventPattern
     (
     -- * Creating a Request

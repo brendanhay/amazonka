@@ -70,8 +70,7 @@ modifyHAPG pHAPGARN_ =
     , _mhHAPGARN = pHAPGARN_
     }
 
--- | The list of partition serial numbers to make members of the
--- high-availability partition group.
+-- | The list of partition serial numbers to make members of the high-availability partition group.
 mhPartitionSerialList :: Lens' ModifyHAPG [Text]
 mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default . _Coerce;
 

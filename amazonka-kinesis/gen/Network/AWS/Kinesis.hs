@@ -13,8 +13,7 @@
 --
 -- Amazon Kinesis Streams Service API Reference
 --
--- Amazon Kinesis Streams is a managed service that scales elastically for
--- real time processing of streaming big data.
+-- Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
 module Network.AWS.Kinesis
     (
     -- * Service Configuration

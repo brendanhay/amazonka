@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers instances with a specified stack that were created outside of
--- AWS OpsWorks.
+-- Registers instances with a specified stack that were created outside of AWS OpsWorks.
 --
--- We do not recommend using this action to register instances. The
--- complete registration operation has two primary steps, installing the
--- AWS OpsWorks agent on the instance and registering the instance with the
--- stack. 'RegisterInstance' handles only the second step. You should
--- instead use the AWS CLI 'register' command, which performs the entire
--- registration operation. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
+-- We do not recommend using this action to register instances. The complete registration operation has two primary steps, installing the AWS OpsWorks agent on the instance and registering the instance with the stack. 'RegisterInstance' handles only the second step. You should instead use the AWS CLI 'register' command, which performs the entire registration operation. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.RegisterInstance
     (
     -- * Creating a Request
@@ -125,8 +114,7 @@ riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a});
 riRsaPublicKeyFingerprint :: Lens' RegisterInstance (Maybe Text)
 riRsaPublicKeyFingerprint = lens _riRsaPublicKeyFingerprint (\ s a -> s{_riRsaPublicKeyFingerprint = a});
 
--- | The instances public RSA key. This key is used to encrypt communication
--- between the instance and the service.
+-- | The instances public RSA key. This key is used to encrypt communication between the instance and the service.
 riRsaPublicKey :: Lens' RegisterInstance (Maybe Text)
 riRsaPublicKey = lens _riRsaPublicKey (\ s a -> s{_riRsaPublicKey = a});
 

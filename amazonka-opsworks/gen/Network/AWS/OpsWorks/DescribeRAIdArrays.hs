@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeRAIdArrays
     (
     -- * Creating a Request
@@ -77,14 +73,11 @@ describeRAIdArrays =
     , _draiaStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns
--- descriptions of the RAID arrays associated with the specified instance.
+-- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns descriptions of the RAID arrays associated with the specified instance.
 draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
 draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
 
--- | An array of RAID array IDs. If you use this parameter,
--- 'DescribeRaidArrays' returns descriptions of the specified arrays.
--- Otherwise, it returns a description of every array.
+-- | An array of RAID array IDs. If you use this parameter, 'DescribeRaidArrays' returns descriptions of the specified arrays. Otherwise, it returns a description of every array.
 draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
 draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
 

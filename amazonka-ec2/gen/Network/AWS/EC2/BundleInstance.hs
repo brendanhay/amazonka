@@ -20,14 +20,11 @@
 --
 -- Bundles an Amazon instance store-backed Windows instance.
 --
--- During bundling, only the root device volume (C:\\) is bundled. Data on
--- other instance store volumes is not preserved.
+-- During bundling, only the root device volume (C:\\) is bundled. Data on other instance store volumes is not preserved.
 --
--- This action is not applicable for Linux\/Unix instances or Windows
--- instances that are backed by Amazon EBS.
+-- This action is not applicable for Linux\/Unix instances or Windows instances that are backed by Amazon EBS.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request
@@ -82,10 +79,7 @@ bundleInstance pInstanceId_ pStorage_ =
     , _biStorage = pStorage_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 biDryRun :: Lens' BundleInstance (Maybe Bool)
 biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 
@@ -99,10 +93,7 @@ biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 biInstanceId :: Lens' BundleInstance Text
 biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
 
--- | The bucket in which to store the AMI. You can specify a bucket that you
--- already own or a new bucket that Amazon EC2 creates on your behalf. If
--- you specify a bucket that belongs to someone else, Amazon EC2 returns an
--- error.
+-- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an 'Evaluation' that includes metadata as well as the current
--- status of the 'Evaluation'.
+-- Returns an 'Evaluation' that includes metadata as well as the current status of the 'Evaluation'.
 module Network.AWS.MachineLearning.GetEvaluation
     (
     -- * Creating a Request
@@ -72,9 +71,7 @@ getEvaluation pEvaluationId_ =
     { _geEvaluationId = pEvaluationId_
     }
 
--- | The ID of the 'Evaluation' to retrieve. The evaluation of each 'MLModel'
--- is recorded and cataloged. The ID provides the means to access the
--- information.
+-- | The ID of the 'Evaluation' to retrieve. The evaluation of each 'MLModel' is recorded and cataloged. The ID provides the means to access the information.
 geEvaluationId :: Lens' GetEvaluation Text
 geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a});
 
@@ -123,8 +120,7 @@ instance ToPath GetEvaluation where
 instance ToQuery GetEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a < GetEvaluation> operation and describes an
--- 'Evaluation'.
+-- | Represents the output of a < GetEvaluation> operation and describes an 'Evaluation'.
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
@@ -192,51 +188,37 @@ getEvaluationResponse pResponseStatus_ =
     , _gersResponseStatus = pResponseStatus_
     }
 
--- | The status of the evaluation. This element can have one of the following
--- values:
+-- | The status of the evaluation. This element can have one of the following values:
 --
--- -   'PENDING' - Amazon Machine Language (Amazon ML) submitted a request
---     to evaluate an 'MLModel'.
+-- -   'PENDING' - Amazon Machine Language (Amazon ML) submitted a request to evaluate an 'MLModel'.
 -- -   'INPROGRESS' - The evaluation is underway.
--- -   'FAILED' - The request to evaluate an 'MLModel' did not run to
---     completion. It is not usable.
+-- -   'FAILED' - The request to evaluate an 'MLModel' did not run to completion. It is not usable.
 -- -   'COMPLETED' - The evaluation process completed successfully.
 -- -   'DELETED' - The 'Evaluation' is marked as deleted. It is not usable.
 gersStatus :: Lens' GetEvaluationResponse (Maybe EntityStatus)
 gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a});
 
--- | Measurements of how well the 'MLModel' performed using observations
--- referenced by the 'DataSource'. One of the following metric is returned
--- based on the type of the 'MLModel':
+-- | Measurements of how well the 'MLModel' performed using observations referenced by the 'DataSource'. One of the following metric is returned based on the type of the 'MLModel':
 --
--- -   BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC)
---     technique to measure performance.
+-- -   BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique to measure performance.
 --
--- -   RegressionRMSE: A regression 'MLModel' uses the Root Mean Square
---     Error (RMSE) technique to measure performance. RMSE measures the
---     difference between predicted and actual values for a single
---     variable.
+-- -   RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.
 --
--- -   MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score
---     technique to measure performance.
+-- -   MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to measure performance.
 --
--- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 gersPerformanceMetrics :: Lens' GetEvaluationResponse (Maybe PerformanceMetrics)
 gersPerformanceMetrics = lens _gersPerformanceMetrics (\ s a -> s{_gersPerformanceMetrics = a});
 
--- | The time of the most recent edit to the 'BatchPrediction'. The time is
--- expressed in epoch time.
+-- | The time of the most recent edit to the 'BatchPrediction'. The time is expressed in epoch time.
 gersLastUpdatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
 gersLastUpdatedAt = lens _gersLastUpdatedAt (\ s a -> s{_gersLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the 'Evaluation' was created. The time is expressed in
--- epoch time.
+-- | The time that the 'Evaluation' was created. The time is expressed in epoch time.
 gersCreatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
 gersCreatedAt = lens _gersCreatedAt (\ s a -> s{_gersCreatedAt = a}) . mapping _Time;
 
--- | The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
+-- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 gersInputDataLocationS3 :: Lens' GetEvaluationResponse (Maybe Text)
 gersInputDataLocationS3 = lens _gersInputDataLocationS3 (\ s a -> s{_gersInputDataLocationS3 = a});
 
@@ -244,9 +226,7 @@ gersInputDataLocationS3 = lens _gersInputDataLocationS3 (\ s a -> s{_gersInputDa
 gersMLModelId :: Lens' GetEvaluationResponse (Maybe Text)
 gersMLModelId = lens _gersMLModelId (\ s a -> s{_gersMLModelId = a});
 
--- | The AWS user account that invoked the evaluation. The account type can
--- be either an AWS root account or an AWS Identity and Access Management
--- (IAM) user account.
+-- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gersCreatedByIAMUser :: Lens' GetEvaluationResponse (Maybe Text)
 gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMUser = a});
 
@@ -254,8 +234,7 @@ gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMU
 gersName :: Lens' GetEvaluationResponse (Maybe Text)
 gersName = lens _gersName (\ s a -> s{_gersName = a});
 
--- | A link to the file that contains logs of the < CreateEvaluation>
--- operation.
+-- | A link to the file that contains logs of the < CreateEvaluation> operation.
 gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
 gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a});
 

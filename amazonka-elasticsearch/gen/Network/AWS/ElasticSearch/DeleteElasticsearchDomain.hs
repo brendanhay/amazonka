@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes the specified Elasticsearch domain and all of its
--- data. Once a domain is deleted, it cannot be recovered.
+-- Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.
 module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
     (
     -- * Creating a Request
@@ -43,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteElasticsearchDomain'
--- operation. Specifies the name of the Elasticsearch domain that you want
--- to delete.
+-- | Container for the parameters to the 'DeleteElasticsearchDomain' operation. Specifies the name of the Elasticsearch domain that you want to delete.
 --
 -- /See:/ 'deleteElasticsearchDomain' smart constructor.
 newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
@@ -65,8 +62,7 @@ deleteElasticsearchDomain pDomainName_ =
     { _dDomainName = pDomainName_
     }
 
--- | The name of the Elasticsearch domain that you want to permanently
--- delete.
+-- | The name of the Elasticsearch domain that you want to permanently delete.
 dDomainName :: Lens' DeleteElasticsearchDomain Text
 dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
@@ -95,9 +91,7 @@ instance ToPath DeleteElasticsearchDomain where
 instance ToQuery DeleteElasticsearchDomain where
         toQuery = const mempty
 
--- | The result of a 'DeleteElasticsearchDomain' request. Contains the status
--- of the pending deletion, or no status if the domain and all of its
--- resources have been deleted.
+-- | The result of a 'DeleteElasticsearchDomain' request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.
 --
 -- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'

@@ -135,8 +135,7 @@ instance ToQuery
                "MaxItems" =: _demahMaxItems,
                "EnvironmentId" =: _demahEnvironmentId]
 
--- | A result message containing a list of completed and failed managed
--- actions.
+-- | A result message containing a list of completed and failed managed actions.
 --
 -- /See:/ 'describeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
@@ -168,9 +167,7 @@ describeEnvironmentManagedActionHistoryResponse pResponseStatus_ =
 demahrsManagedActionHistoryItems :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe (NonEmpty ManagedActionHistoryItem))
 demahrsManagedActionHistoryItems = lens _demahrsManagedActionHistoryItems (\ s a -> s{_demahrsManagedActionHistoryItems = a}) . mapping _List1;
 
--- | A pagination token that you pass to
--- < DescribeEnvironmentManagedActionHistory> to get the next page of
--- results.
+-- | A pagination token that you pass to < DescribeEnvironmentManagedActionHistory> to get the next page of results.
 demahrsNextToken :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
 demahrsNextToken = lens _demahrsNextToken (\ s a -> s{_demahrsNextToken = a});
 

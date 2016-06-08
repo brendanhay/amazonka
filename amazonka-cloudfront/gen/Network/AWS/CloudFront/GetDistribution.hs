@@ -119,8 +119,7 @@ getDistributionResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the distribution\'s information. For example:
--- E2QWRUHAPOMQZL.
+-- | The current version of the distribution\'s information. For example: E2QWRUHAPOMQZL.
 gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 

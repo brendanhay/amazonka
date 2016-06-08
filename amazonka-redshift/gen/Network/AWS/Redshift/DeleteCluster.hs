@@ -18,25 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a previously provisioned cluster. A successful response from the
--- web service indicates that the request was received correctly. Use
--- < DescribeClusters> to monitor the status of the deletion. The delete
--- operation cannot be canceled or reverted once submitted. For more
--- information about managing clusters, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
--- in the /Amazon Redshift Cluster Management Guide/ .
+-- Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly. Use < DescribeClusters> to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 --
--- If you want to shut down the cluster and retain it for future use, set
--- /SkipFinalClusterSnapshot/ to 'false' and specify a name for
--- /FinalClusterSnapshotIdentifier/. You can later restore this snapshot to
--- resume using the cluster. If a final cluster snapshot is requested, the
--- status of the cluster will be \"final-snapshot\" while the snapshot is
--- being taken, then it\'s \"deleting\" once Amazon Redshift begins
--- deleting the cluster.
+-- If you want to shut down the cluster and retain it for future use, set /SkipFinalClusterSnapshot/ to 'false' and specify a name for /FinalClusterSnapshotIdentifier/. You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be \"final-snapshot\" while the snapshot is being taken, then it\'s \"deleting\" once Amazon Redshift begins deleting the cluster.
 --
--- For more information about managing clusters, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
--- in the /Amazon Redshift Cluster Management Guide/ .
+-- For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Creating a Request
@@ -90,21 +76,15 @@ deleteCluster pClusterIdentifier_ =
     , _delClusterIdentifier = pClusterIdentifier_
     }
 
--- | Determines whether a final snapshot of the cluster is created before
--- Amazon Redshift deletes the cluster. If 'true', a final cluster snapshot
--- is not created. If 'false', a final cluster snapshot is created before
--- the cluster is deleted.
+-- | Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If 'true', a final cluster snapshot is not created. If 'false', a final cluster snapshot is created before the cluster is deleted.
 --
--- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
--- /SkipFinalClusterSnapshot/ is 'false'.
+-- The /FinalClusterSnapshotIdentifier/ parameter must be specified if /SkipFinalClusterSnapshot/ is 'false'.
 --
 -- Default: 'false'
 delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 delSkipFinalClusterSnapshot = lens _delSkipFinalClusterSnapshot (\ s a -> s{_delSkipFinalClusterSnapshot = a});
 
--- | The identifier of the final snapshot that is to be created immediately
--- before deleting the cluster. If this parameter is provided,
--- /SkipFinalClusterSnapshot/ must be 'false'.
+-- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be 'false'.
 --
 -- Constraints:
 --

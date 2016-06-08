@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the detailed parameter list for a particular DB cluster
--- parameter group.
+-- Returns the detailed parameter list for a particular DB cluster parameter group.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DescribeDBClusterParameters
     (
     -- * Creating a Request
@@ -92,17 +89,11 @@ describeDBClusterParameters pDBClusterParameterGroupName_ =
 ddcpFilters :: Lens' DescribeDBClusterParameters [Filter]
 ddcpFilters = lens _ddcpFilters (\ s a -> s{_ddcpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBClusterParameters' request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBClusterParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddcpMarker :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -110,13 +101,11 @@ ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 ddcpMaxRecords :: Lens' DescribeDBClusterParameters (Maybe Int)
 ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 
--- | A value that indicates to return only parameters for a specific source.
--- Parameter sources can be 'engine', 'service', or 'customer'.
+-- | A value that indicates to return only parameters for a specific source. Parameter sources can be 'engine', 'service', or 'customer'.
 ddcpSource :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
 
--- | The name of a specific DB cluster parameter group to return parameter
--- details for.
+-- | The name of a specific DB cluster parameter group to return parameter details for.
 --
 -- Constraints:
 --
@@ -164,8 +153,7 @@ instance ToQuery DescribeDBClusterParameters where
                "DBClusterParameterGroupName" =:
                  _ddcpDBClusterParameterGroupName]
 
--- | Provides details about a DB cluster parameter group including the
--- parameters in the DB cluster parameter group.
+-- | Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.
 --
 -- /See:/ 'describeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
@@ -193,10 +181,7 @@ describeDBClusterParametersResponse pResponseStatus_ =
     , _ddcprsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous
--- DescribeDBClusterParameters request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 ddcprsMarker :: Lens' DescribeDBClusterParametersResponse (Maybe Text)
 ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
 

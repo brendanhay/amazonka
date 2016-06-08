@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all buckets owned by the authenticated sender of the
--- request.
+-- Returns a list of all buckets owned by the authenticated sender of the request.
 module Network.AWS.S3.ListBuckets
     (
     -- * Creating a Request

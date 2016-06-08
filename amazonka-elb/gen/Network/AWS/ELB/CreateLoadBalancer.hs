@@ -20,18 +20,9 @@
 --
 -- Creates a load balancer.
 --
--- If the call completes successfully, a new load balancer is created with
--- a unique Domain Name Service (DNS) name. The load balancer receives
--- incoming traffic and routes it to the registered instances. For more
--- information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html How Elastic Load Balancing Works>
--- in the /Elastic Load Balancing Developer Guide/.
+-- If the call completes successfully, a new load balancer is created with a unique Domain Name Service (DNS) name. The load balancer receives incoming traffic and routes it to the registered instances. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html How Elastic Load Balancing Works> in the /Elastic Load Balancing Developer Guide/.
 --
--- You can create up to 20 load balancers per region per account. You can
--- request an increase for the number of load balancers for your account.
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
--- in the /Elastic Load Balancing Developer Guide/.
+-- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Creating a Request
@@ -107,59 +98,41 @@ createLoadBalancer pLoadBalancerName_ =
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default . _Coerce;
 
--- | The IDs of the subnets in your VPC to attach to the load balancer.
--- Specify one subnet per Availability Zone specified in
--- 'AvailabilityZones'.
+-- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in 'AvailabilityZones'.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce;
 
--- | One or more Availability Zones from the same region as the load
--- balancer. Traffic is equally distributed across all specified
--- Availability Zones.
+-- | One or more Availability Zones from the same region as the load balancer. Traffic is equally distributed across all specified Availability Zones.
 --
 -- You must specify at least one Availability Zone.
 --
--- You can add more Availability Zones after you create the load balancer
--- using < EnableAvailabilityZonesForLoadBalancer>.
+-- You can add more Availability Zones after you create the load balancer using < EnableAvailabilityZonesForLoadBalancer>.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
--- By default, Elastic Load Balancing creates an Internet-facing load
--- balancer with a publicly resolvable DNS name, which resolves to public
--- IP addresses. For more information about Internet-facing and Internal
--- load balancers, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers>
--- in the /Elastic Load Balancing Developer Guide/.
+-- By default, Elastic Load Balancing creates an Internet-facing load balancer with a publicly resolvable DNS name, which resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.
 --
--- Specify 'internal' to create an internal load balancer with a DNS name
--- that resolves to private IP addresses.
+-- Specify 'internal' to create an internal load balancer with a DNS name that resolves to private IP addresses.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 
 -- | A list of tags to assign to the load balancer.
 --
--- For more information about tagging your load balancer, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.
 clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
 clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
 
 -- | The name of the load balancer.
 --
--- This name must be unique within your set of load balancers for the
--- region, must have a maximum of 32 characters, must contain only
--- alphanumeric characters or hyphens, and cannot begin or end with a
--- hyphen.
+-- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
 clbLoadBalancerName :: Lens' CreateLoadBalancer Text
 clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName = a});
 
 -- | The listeners.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a}) . _Coerce;
 

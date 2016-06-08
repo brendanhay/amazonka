@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- uses the acl subresource to set the access control list (ACL)
--- permissions for an object that already exists in a bucket
+-- uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
 module Network.AWS.S3.PutObjectACL
     (
     -- * Creating a Request
@@ -137,8 +136,7 @@ poaGrantWriteACP = lens _poaGrantWriteACP (\ s a -> s{_poaGrantWriteACP = a});
 poaGrantRead :: Lens' PutObjectACL (Maybe Text)
 poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a});
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 poaGrantFullControl :: Lens' PutObjectACL (Maybe Text)
 poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a});
 
@@ -150,8 +148,7 @@ poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a});
 poaAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
 poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a});
 
--- | Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- | Allows grantee to create, overwrite, and delete any object in the bucket.
 poaGrantWrite :: Lens' PutObjectACL (Maybe Text)
 poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a});
 

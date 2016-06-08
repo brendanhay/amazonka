@@ -13,9 +13,7 @@
 --
 -- Amazon WorkSpaces Service
 --
--- This is the /Amazon WorkSpaces API Reference/. This guide provides
--- detailed information about Amazon WorkSpaces operations, data types,
--- parameters, and errors.
+-- This is the /Amazon WorkSpaces API Reference/. This guide provides detailed information about Amazon WorkSpaces operations, data types, parameters, and errors.
 module Network.AWS.WorkSpaces
     (
     -- * Service Configuration

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a log stream and permanently deletes all the archived log events
--- associated with it.
+-- Deletes a log stream and permanently deletes all the archived log events associated with it.
 module Network.AWS.CloudWatchLogs.DeleteLogStream
     (
     -- * Creating a Request

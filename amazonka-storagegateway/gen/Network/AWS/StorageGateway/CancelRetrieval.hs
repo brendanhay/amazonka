@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to
--- a gateway after the retrieval process is initiated. The virtual tape is
--- returned to the VTS.
+-- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated. The virtual tape is returned to the VTS.
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Creating a Request
@@ -74,8 +72,7 @@ cancelRetrieval pGatewayARN_ pTapeARN_ =
 crGatewayARN :: Lens' CancelRetrieval Text
 crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
 
--- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
--- retrieval for.
+-- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
 crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
 
@@ -139,8 +136,7 @@ cancelRetrievalResponse pResponseStatus_ =
     , _crrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
--- was canceled.
+-- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 

@@ -62,8 +62,7 @@ readJob pId_ =
     { _rjId = pId_
     }
 
--- | The identifier of the job for which you want to get detailed
--- information.
+-- | The identifier of the job for which you want to get detailed information.
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\ s a -> s{_rjId = a});
 

@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the AWS Directory Service directories in the
--- region that are registered with Amazon WorkSpaces and are available to
--- your account.
+-- Retrieves information about the AWS Directory Service directories in the region that are registered with Amazon WorkSpaces and are available to your account.
 --
--- This operation supports pagination with the use of the 'NextToken'
--- request and response parameters. If more results are available, the
--- 'NextToken' response member contains a token that you pass in the next
--- call to this operation to retrieve the next set of items.
+-- This operation supports pagination with the use of the 'NextToken' request and response parameters. If more results are available, the 'NextToken' response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
     -- * Creating a Request
@@ -74,13 +69,11 @@ describeWorkspaceDirectories =
     , _dwdDirectoryIds = Nothing
     }
 
--- | The 'NextToken' value from a previous call to this operation. Pass null
--- if this is the first call.
+-- | The 'NextToken' value from a previous call to this operation. Pass null if this is the first call.
 dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
 dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
 
--- | An array of strings that contains the directory identifiers to retrieve
--- information for. If this member is null, all directories are retrieved.
+-- | An array of strings that contains the directory identifiers to retrieve information for. If this member is null, all directories are retrieved.
 dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
 dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1;
 
@@ -156,10 +149,7 @@ describeWorkspaceDirectoriesResponse pResponseStatus_ =
 dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
 dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the
--- 'NextToken' parameter in a subsequent call to this operation to retrieve
--- the next set of items. This token is valid for one day and must be used
--- within that timeframe.
+-- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that timeframe.
 dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 

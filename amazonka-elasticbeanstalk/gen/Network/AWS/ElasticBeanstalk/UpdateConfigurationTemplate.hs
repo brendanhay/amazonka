@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified configuration template to have the specified
--- properties or configuration option values.
+-- Updates the specified configuration template to have the specified properties or configuration option values.
 --
--- If a property (for example, 'ApplicationName') is not provided, its
--- value remains unchanged. To clear such properties, specify an empty
--- string.
+-- If a property (for example, 'ApplicationName') is not provided, its value remains unchanged. To clear such properties, specify an empty string.
 --
 -- Related Topics
 --
@@ -62,8 +59,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The result message containing the options for the specified solution
--- stack.
+-- | The result message containing the options for the specified solution stack.
 --
 -- /See:/ 'updateConfigurationTemplate' smart constructor.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
@@ -106,8 +102,7 @@ updateConfigurationTemplate pApplicationName_ pTemplateName_ =
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
 
--- | A list of configuration option settings to update with the new specified
--- option value.
+-- | A list of configuration option settings to update with the new specified option value.
 uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
 uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default . _Coerce;
 
@@ -115,18 +110,15 @@ uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a})
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
 uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a});
 
--- | The name of the application associated with the configuration template
--- to update.
+-- | The name of the application associated with the configuration template to update.
 --
--- If no application is found with this name, 'UpdateConfigurationTemplate'
--- returns an 'InvalidParameterValue' error.
+-- If no application is found with this name, 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a});
 
 -- | The name of the configuration template to update.
 --
--- If no configuration template is found with this name,
--- 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
+-- If no configuration template is found with this name, 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
 

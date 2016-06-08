@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a
--- cache security group. Use this action to disallow access from an Amazon
--- EC2 security group that had been previously authorized.
+-- The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a cache security group. Use this action to disallow access from an Amazon EC2 security group that had been previously authorized.
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
     -- * Creating a Request
@@ -84,9 +82,7 @@ rcsgiCacheSecurityGroupName = lens _rcsgiCacheSecurityGroupName (\ s a -> s{_rcs
 rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
 rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
 
--- | The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- | The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
 rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
 

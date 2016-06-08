@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation sets the transfer lock on the domain (specifically the
--- 'clientTransferProhibited' status) to prevent domain transfers.
--- Successful submission returns an operation ID that you can use to track
--- the progress and completion of the action. If the request is not
--- completed successfully, the domain registrant will be notified by email.
+-- This operation sets the transfer lock on the domain (specifically the 'clientTransferProhibited' status) to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
     -- * Creating a Request
@@ -72,9 +68,7 @@ enableDomainTransferLock pDomainName_ =
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 edtlDomainName :: Lens' EnableDomainTransferLock Text
@@ -144,8 +138,7 @@ enableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
 edtlrsResponseStatus :: Lens' EnableDomainTransferLockResponse Int
 edtlrsResponseStatus = lens _edtlrsResponseStatus (\ s a -> s{_edtlrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --

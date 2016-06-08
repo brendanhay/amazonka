@@ -18,26 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the 'notification-configuration' subresource of
--- the specified vault.
+-- This operation retrieves the 'notification-configuration' subresource of the specified vault.
 --
--- For information about setting a notification configuration on a vault,
--- see < SetVaultNotifications>. If a notification configuration for a
--- vault is not set, the operation returns a '404 Not Found' error. For
--- more information about vault notifications, see
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>.
+-- For information about setting a notification configuration on a vault, see < SetVaultNotifications>. If a notification configuration for a vault is not set, the operation returns a '404 Not Found' error. For more information about vault notifications, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>.
 --
--- An AWS account has full permission to perform all operations (actions).
--- However, AWS Identity and Access Management (IAM) users don\'t have any
--- permissions by default. You must grant them explicit permission to
--- perform specific actions. For more information, see
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
+-- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
 --
--- For conceptual information and underlying REST API, go to
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>
--- and
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration>
--- in the /Amazon Glacier Developer Guide/.
+-- For conceptual information and underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration> in the /Amazon Glacier Developer Guide/.
 module Network.AWS.Glacier.GetVaultNotifications
     (
     -- * Creating a Request
@@ -62,8 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Provides options for retrieving the notification configuration set on an
--- Amazon Glacier vault.
+-- | Provides options for retrieving the notification configuration set on an Amazon Glacier vault.
 --
 -- /See:/ 'getVaultNotifications' smart constructor.
 data GetVaultNotifications = GetVaultNotifications'
@@ -88,11 +74,7 @@ getVaultNotifications pAccountId_ pVaultName_ =
     , _gvnVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the
--- vault. You can either specify an AWS account ID or optionally a single
--- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
--- ID associated with the credentials used to sign the request. If you use
--- an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 gvnAccountId :: Lens' GetVaultNotifications Text
 gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a});
 

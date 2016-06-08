@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation removes one or more tags from the set of tags attached to
--- a vault. For more information about tags, see
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
--- This operation is idempotent. The operation will be successful, even if
--- there are no tags attached to the vault.
+-- This operation removes one or more tags from the set of tags attached to a vault. For more information about tags, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>. This operation is idempotent. The operation will be successful, even if there are no tags attached to the vault.
 module Network.AWS.Glacier.RemoveTagsFromVault
     (
     -- * Creating a Request
@@ -78,11 +74,7 @@ removeTagsFromVault pAccountId_ pVaultName_ =
 rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
 rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default . _Coerce;
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the
--- vault. You can either specify an AWS account ID or optionally a single
--- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
--- ID associated with the credentials used to sign the request. If you use
--- an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 rtfvAccountId :: Lens' RemoveTagsFromVault Text
 rtfvAccountId = lens _rtfvAccountId (\ s a -> s{_rtfvAccountId = a});
 

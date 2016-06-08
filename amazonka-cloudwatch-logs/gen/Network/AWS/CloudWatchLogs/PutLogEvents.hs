@@ -20,24 +20,16 @@
 --
 -- Uploads a batch of log events to the specified log stream.
 --
--- Every PutLogEvents request must include the 'sequenceToken' obtained
--- from the response of the previous request. An upload in a newly created
--- log stream does not require a 'sequenceToken'.
+-- Every PutLogEvents request must include the 'sequenceToken' obtained from the response of the previous request. An upload in a newly created log stream does not require a 'sequenceToken'.
 --
 -- The batch of events must satisfy the following constraints:
 --
--- -   The maximum batch size is 1,048,576 bytes, and this size is
---     calculated as the sum of all event messages in UTF-8, plus 26 bytes
---     for each log event.
--- -   None of the log events in the batch can be more than 2 hours in the
---     future.
--- -   None of the log events in the batch can be older than 14 days or the
---     retention period of the log group.
--- -   The log events in the batch must be in chronological ordered by
---     their 'timestamp'.
+-- -   The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
+-- -   None of the log events in the batch can be more than 2 hours in the future.
+-- -   None of the log events in the batch can be older than 14 days or the retention period of the log group.
+-- -   The log events in the batch must be in chronological ordered by their 'timestamp'.
 -- -   The maximum number of log events in a batch is 10,000.
--- -   A batch of log events in a single PutLogEvents request cannot span
---     more than 24 hours. Otherwise, the PutLogEvents operation will fail.
+-- -   A batch of log events in a single PutLogEvents request cannot span more than 24 hours. Otherwise, the PutLogEvents operation will fail.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Creating a Request
@@ -97,8 +89,7 @@ putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     , _pleLogEvents = _List1 # pLogEvents_
     }
 
--- | A string token that must be obtained from the response of the previous
--- 'PutLogEvents' request.
+-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 

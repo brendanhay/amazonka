@@ -78,8 +78,7 @@ staAttributeValue = lens _staAttributeValue (\ s a -> s{_staAttributeValue = a})
 staTopicARN :: Lens' SetTopicAttributes Text
 staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
 
--- | The name of the attribute you want to set. Only a subset of the topic\'s
--- attributes are mutable.
+-- | The name of the attribute you want to set. Only a subset of the topic\'s attributes are mutable.
 --
 -- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'
 staAttributeName :: Lens' SetTopicAttributes Text

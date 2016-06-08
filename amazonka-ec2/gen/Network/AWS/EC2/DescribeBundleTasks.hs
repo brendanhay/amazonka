@@ -20,10 +20,7 @@
 --
 -- Describes one or more of your bundling tasks.
 --
--- Completed bundle tasks are listed for only a limited time. If your
--- bundle task is no longer in the list, you can still register an AMI from
--- it. Just use 'RegisterImage' with the Amazon S3 bucket name and image
--- manifest name you provided to the bundle task.
+-- Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use 'RegisterImage' with the Amazon S3 bucket name and image manifest name you provided to the bundle task.
 module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Creating a Request
@@ -92,28 +89,22 @@ dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default . _
 --
 -- -   'instance-id' - The ID of the instance.
 --
--- -   'progress' - The level of task completion, as a percentage (for
---     example, 20%).
+-- -   'progress' - The level of task completion, as a percentage (for example, 20%).
 --
 -- -   's3-bucket' - The Amazon S3 bucket to store the AMI.
 --
 -- -   's3-prefix' - The beginning of the AMI name.
 --
--- -   'start-time' - The time the task started (for example,
---     2013-09-15T17:15:20.000Z).
+-- -   'start-time' - The time the task started (for example, 2013-09-15T17:15:20.000Z).
 --
--- -   'state' - The state of the task ('pending' | 'waiting-for-shutdown'
---     | 'bundling' | 'storing' | 'cancelling' | 'complete' | 'failed').
+-- -   'state' - The state of the task ('pending' | 'waiting-for-shutdown' | 'bundling' | 'storing' | 'cancelling' | 'complete' | 'failed').
 --
 -- -   'update-time' - The time of the most recent update for the task.
 --
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
 dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
 

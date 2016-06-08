@@ -18,15 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables a VPC for ClassicLink. You can then link EC2-Classic instances
--- to your ClassicLink-enabled VPC to allow communication over private IP
--- addresses. You cannot enable your VPC for ClassicLink if any of your
--- VPC\'s route tables have existing routes for address ranges within the
--- '10.0.0.0\/8' IP address range, excluding local routes for VPCs in the
--- '10.0.0.0\/16' and '10.1.0.0\/16' IP address ranges. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the Amazon Elastic Compute Cloud User Guide.
+-- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC\'s route tables have existing routes for address ranges within the '10.0.0.0\/8' IP address range, excluding local routes for VPCs in the '10.0.0.0\/16' and '10.1.0.0\/16' IP address ranges. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
 module Network.AWS.EC2.EnableVPCClassicLink
     (
     -- * Creating a Request
@@ -75,10 +67,7 @@ enableVPCClassicLink pVPCId_ =
     , _evclVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
 evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a});
 

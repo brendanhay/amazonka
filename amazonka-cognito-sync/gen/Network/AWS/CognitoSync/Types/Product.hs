@@ -52,19 +52,15 @@ cognitoStreams =
 --
 -- ENABLED - Streaming of updates to identity pool is enabled.
 --
--- DISABLED - Streaming of updates to identity pool is disabled. Bulk
--- publish will also fail if StreamingStatus is DISABLED.
+-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
 csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
 csStreamingStatus = lens _csStreamingStatus (\ s a -> s{_csStreamingStatus = a});
 
--- | The name of the Cognito stream to receive updates. This stream must be
--- in the developers account and in the same region as the identity pool.
+-- | The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
 csStreamName :: Lens' CognitoStreams (Maybe Text)
 csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
 
--- | The ARN of the role Amazon Cognito can assume in order to publish to the
--- stream. This role must grant access to Amazon Cognito (cognito-sync) to
--- invoke PutRecord on your Cognito stream.
+-- | The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
 csRoleARN :: Lens' CognitoStreams (Maybe Text)
 csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
 
@@ -88,11 +84,7 @@ instance ToJSON CognitoStreams where
                   ("StreamName" .=) <$> _csStreamName,
                   ("RoleArn" .=) <$> _csRoleARN])
 
--- | A collection of data for an identity pool. An identity pool can have
--- multiple datasets. A dataset is per identity and can be general or
--- associated with a particular entity in an application (like a saved
--- game). Datasets are automatically created if they don\'t exist. Data is
--- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 --
 -- /See:/ 'dataset' smart constructor.
 data Dataset = Dataset'
@@ -147,8 +139,7 @@ dNumRecords = lens _dNumRecords (\ s a -> s{_dNumRecords = a});
 dDataStorage :: Lens' Dataset (Maybe Integer)
 dDataStorage = lens _dDataStorage (\ s a -> s{_dDataStorage = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 dDatasetName :: Lens' Dataset (Maybe Text)
 dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a});
 
@@ -160,9 +151,7 @@ dCreationDate = lens _dCreationDate (\ s a -> s{_dCreationDate = a}) . mapping _
 dLastModifiedBy :: Lens' Dataset (Maybe Text)
 dLastModifiedBy = lens _dLastModifiedBy (\ s a -> s{_dLastModifiedBy = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 dIdentityId :: Lens' Dataset (Maybe Text)
 dIdentityId = lens _dIdentityId (\ s a -> s{_dIdentityId = a});
 
@@ -217,9 +206,7 @@ identityPoolUsage =
 ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
 ipuLastModifiedDate = lens _ipuLastModifiedDate (\ s a -> s{_ipuLastModifiedDate = a}) . mapping _Time;
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ipuIdentityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
 ipuIdentityPoolId = lens _ipuIdentityPoolId (\ s a -> s{_ipuIdentityPoolId = a});
 
@@ -284,9 +271,7 @@ identityUsage =
 iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
 iuLastModifiedDate = lens _iuLastModifiedDate (\ s a -> s{_iuLastModifiedDate = a}) . mapping _Time;
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 iuIdentityPoolId :: Lens' IdentityUsage (Maybe Text)
 iuIdentityPoolId = lens _iuIdentityPoolId (\ s a -> s{_iuIdentityPoolId = a});
 
@@ -298,9 +283,7 @@ iuDatasetCount = lens _iuDatasetCount (\ s a -> s{_iuDatasetCount = a});
 iuDataStorage :: Lens' IdentityUsage (Maybe Integer)
 iuDataStorage = lens _iuDataStorage (\ s a -> s{_iuDataStorage = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 iuIdentityId :: Lens' IdentityUsage (Maybe Text)
 iuIdentityId = lens _iuIdentityId (\ s a -> s{_iuIdentityId = a});
 
@@ -346,8 +329,7 @@ pushSync =
 psApplicationARNs :: Lens' PushSync [Text]
 psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default . _Coerce;
 
--- | A role configured to allow Cognito to call SNS on behalf of the
--- developer.
+-- | A role configured to allow Cognito to call SNS on behalf of the developer.
 psRoleARN :: Lens' PushSync (Maybe Text)
 psRoleARN = lens _psRoleARN (\ s a -> s{_psRoleARN = a});
 

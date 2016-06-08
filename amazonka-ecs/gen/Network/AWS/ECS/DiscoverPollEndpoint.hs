@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and
--- it is not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
 --
--- Returns an endpoint for the Amazon EC2 Container Service agent to poll
--- for updates.
+-- Returns an endpoint for the Amazon EC2 Container Service agent to poll for updates.
 module Network.AWS.ECS.DiscoverPollEndpoint
     (
     -- * Creating a Request
@@ -73,12 +71,7 @@ discoverPollEndpoint =
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the
--- container instance. The ARN contains the 'arn:aws:ecs' namespace,
--- followed by the region of the container instance, the AWS account ID of
--- the container instance owner, the 'container-instance' namespace, and
--- then the container instance ID. For example,
--- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_ID/.
+-- | The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_ID/.
 dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
 

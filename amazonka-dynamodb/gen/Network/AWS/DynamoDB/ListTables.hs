@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of table names associated with the current account and
--- endpoint. The output from /ListTables/ is paginated, with each page
--- returning a maximum of 100 table names.
+-- Returns an array of table names associated with the current account and endpoint. The output from /ListTables/ is paginated, with each page returning a maximum of 100 table names.
 --
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.ListTables
@@ -72,14 +70,11 @@ listTables =
     , _ltLimit = Nothing
     }
 
--- | The first table name that this operation will evaluate. Use the value
--- that was returned for /LastEvaluatedTableName/ in a previous operation,
--- so that you can obtain the next page of results.
+-- | The first table name that this operation will evaluate. Use the value that was returned for /LastEvaluatedTableName/ in a previous operation, so that you can obtain the next page of results.
 ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a});
 
--- | A maximum number of table names to return. If this parameter is not
--- specified, the limit is 100.
+-- | A maximum number of table names to return. If this parameter is not specified, the limit is 100.
 ltLimit :: Lens' ListTables (Maybe Natural)
 ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat;
 
@@ -158,21 +153,15 @@ listTablesResponse pResponseStatus_ =
     , _ltrsResponseStatus = pResponseStatus_
     }
 
--- | The name of the last table in the current page of results. Use this
--- value as the /ExclusiveStartTableName/ in a new request to obtain the
--- next page of results, until all the table names are returned.
+-- | The name of the last table in the current page of results. Use this value as the /ExclusiveStartTableName/ in a new request to obtain the next page of results, until all the table names are returned.
 --
--- If you do not receive a /LastEvaluatedTableName/ value in the response,
--- this means that there are no more table names to be retrieved.
+-- If you do not receive a /LastEvaluatedTableName/ value in the response, this means that there are no more table names to be retrieved.
 ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsLastEvaluatedTableName = a});
 
--- | The names of the tables associated with the current account at the
--- current endpoint. The maximum size of this array is 100.
+-- | The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
 --
--- If /LastEvaluatedTableName/ also appears in the output, you can use this
--- value as the /ExclusiveStartTableName/ parameter in a subsequent
--- /ListTables/ request and obtain the next page of results.
+-- If /LastEvaluatedTableName/ also appears in the output, you can use this value as the /ExclusiveStartTableName/ parameter in a subsequent /ListTables/ request and obtain the next page of results.
 ltrsTableNames :: Lens' ListTablesResponse [Text]
 ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
 

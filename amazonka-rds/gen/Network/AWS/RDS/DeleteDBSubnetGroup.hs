@@ -20,8 +20,7 @@
 --
 -- Deletes a DB subnet group.
 --
--- The specified database subnet group must not be associated with any DB
--- instances.
+-- The specified database subnet group must not be associated with any DB instances.
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Creating a Request
@@ -68,8 +67,7 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 --
 -- Constraints:
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text

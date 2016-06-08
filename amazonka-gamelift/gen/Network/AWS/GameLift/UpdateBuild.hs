@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates metadata in a build record, including the build name and
--- version. To update the metadata, specify the build ID to update and
--- provide the new values. If successful, a build object containing the
--- updated metadata is returned.
+-- Updates metadata in a build record, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
 module Network.AWS.GameLift.UpdateBuild
     (
     -- * Creating a Request
@@ -75,13 +72,11 @@ updateBuild pBuildId_ =
     , _ubBuildId = pBuildId_
     }
 
--- | Descriptive label associated with this build. Build names do not need to
--- be unique.
+-- | Descriptive label associated with this build. Build names do not need to be unique.
 ubName :: Lens' UpdateBuild (Maybe Text)
 ubName = lens _ubName (\ s a -> s{_ubName = a});
 
--- | Version associated with this build. Version strings do not need to be
--- unique to a build.
+-- | Version associated with this build. Version strings do not need to be unique to a build.
 ubVersion :: Lens' UpdateBuild (Maybe Text)
 ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a});
 

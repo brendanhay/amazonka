@@ -61,8 +61,7 @@ describeRefreshSchemasStatus pEndpointARN_ =
     { _drssEndpointARN = pEndpointARN_
     }
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 drssEndpointARN :: Lens' DescribeRefreshSchemasStatus Text
 drssEndpointARN = lens _drssEndpointARN (\ s a -> s{_drssEndpointARN = a});
 

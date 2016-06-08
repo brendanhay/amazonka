@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the user settings like multi-factor authentication (MFA). If MFA is
--- to be removed for a particular attribute pass the attribute with code
--- delivery as null. If null list is passed, all MFA options are removed.
+-- Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.
 module Network.AWS.CognitoIdentityProvider.SetUserSettings
     (
     -- * Creating a Request

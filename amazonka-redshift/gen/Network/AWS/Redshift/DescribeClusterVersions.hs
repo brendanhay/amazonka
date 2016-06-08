@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns descriptions of the available Amazon Redshift cluster versions.
--- You can call this operation even before creating any clusters to learn
--- more about the Amazon Redshift versions. For more information about
--- managing clusters, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
--- in the /Amazon Redshift Cluster Management Guide/
+-- Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterVersions
@@ -85,8 +80,7 @@ describeClusterVersions =
     , _dcvClusterVersion = Nothing
     }
 
--- | The name of a specific cluster parameter group family to return details
--- for.
+-- | The name of a specific cluster parameter group family to return details for.
 --
 -- Constraints:
 --
@@ -96,20 +90,11 @@ describeClusterVersions =
 dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterParameterGroupFamily = lens _dcvClusterParameterGroupFamily (\ s a -> s{_dcvClusterParameterGroupFamily = a});
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a < DescribeClusterVersions>
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- | An optional parameter that specifies the starting point to return a set of response records. When the results of a < DescribeClusterVersions> request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by providing the returned marker value in the 'Marker' parameter and retrying the request.
 dcvMarker :: Lens' DescribeClusterVersions (Maybe Text)
 dcvMarker = lens _dcvMarker (\ s a -> s{_dcvMarker = a});
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
+-- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified 'MaxRecords' value, a value is returned in a 'marker' field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
 -- Default: '100'
 --
@@ -197,12 +182,7 @@ describeClusterVersionsResponse pResponseStatus_ =
 dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
 dcvrsClusterVersions = lens _dcvrsClusterVersions (\ s a -> s{_dcvrsClusterVersions = a}) . _Default . _Coerce;
 
--- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for
--- the request.
+-- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the 'Marker' parameter and retrying the command. If the 'Marker' field is empty, all response records have been retrieved for the request.
 dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 

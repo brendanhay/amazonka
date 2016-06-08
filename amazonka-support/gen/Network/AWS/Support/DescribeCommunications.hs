@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns communications (and attachments) for one or more support cases.
--- You can use the 'AfterTime' and 'BeforeTime' parameters to filter by
--- date. You can use the 'CaseId' parameter to restrict the results to a
--- particular case.
+-- Returns communications (and attachments) for one or more support cases. You can use the 'AfterTime' and 'BeforeTime' parameters to filter by date. You can use the 'CaseId' parameter to restrict the results to a particular case.
 --
--- Case data is available for 12 months after creation. If a case was
--- created more than 12 months ago, a request for data might cause an
--- error.
+-- Case data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error.
 --
--- You can use the 'MaxResults' and 'NextToken' parameters to control the
--- pagination of the result set. Set 'MaxResults' to the number of cases
--- you want displayed on each page, and use 'NextToken' to specify the
--- resumption of pagination.
+-- You can use the 'MaxResults' and 'NextToken' parameters to control the pagination of the result set. Set 'MaxResults' to the number of cases you want displayed on each page, and use 'NextToken' to specify the resumption of pagination.
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
@@ -96,14 +88,11 @@ describeCommunications pCaseId_ =
     , _dCaseId = pCaseId_
     }
 
--- | The start date for a filtered date search on support case
--- communications. Case communications are available for 12 months after
--- creation.
+-- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dAfterTime :: Lens' DescribeCommunications (Maybe Text)
 dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a});
 
--- | The end date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
+-- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
 
@@ -115,9 +104,7 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
--- case-/12345678910-2013-c4c1d2bf33c5cf47/
+-- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 dCaseId :: Lens' DescribeCommunications Text
 dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
 

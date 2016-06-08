@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the assessment run that is specified by the ARN of the
--- assessment run.
+-- Deletes the assessment run that is specified by the ARN of the assessment run.
 module Network.AWS.Inspector.DeleteAssessmentRun
     (
     -- * Creating a Request

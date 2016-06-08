@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new DB security group. DB security groups control access to a
--- DB instance.
+-- Creates a new DB security group. DB security groups control access to a DB instance.
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Creating a Request
@@ -78,8 +77,7 @@ createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 
--- | The name for the DB security group. This value is stored as a lowercase
--- string.
+-- | The name for the DB security group. This value is stored as a lowercase string.
 --
 -- Constraints:
 --

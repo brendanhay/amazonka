@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of the specified configuration recorder. If a
--- configuration recorder is not specified, this action returns the status
--- of all configuration recorder associated with the account.
+-- Returns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorder associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
@@ -65,9 +63,7 @@ describeConfigurationRecorderStatus =
     { _dcrsConfigurationRecorderNames = Nothing
     }
 
--- | The name(s) of the configuration recorder. If the name is not specified,
--- the action returns the current status of all the configuration recorders
--- associated with the account.
+-- | The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account.
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
 dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce;
 
@@ -114,8 +110,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | The output for the < DescribeConfigurationRecorderStatus> action in JSON
--- format.
+-- | The output for the < DescribeConfigurationRecorderStatus> action in JSON format.
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'

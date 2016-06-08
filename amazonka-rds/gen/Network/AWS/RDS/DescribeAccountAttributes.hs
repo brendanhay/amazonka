@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the attributes for a customer account. The attributes
--- include Amazon RDS quotas for the account, such as the number of DB
--- instances allowed. The description for a quota includes the quota name,
--- current usage toward that quota, and the quota\'s maximum value.
+-- Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota\'s maximum value.
 --
 -- This command does not take any parameters.
 module Network.AWS.RDS.DescribeAccountAttributes
@@ -112,9 +109,7 @@ describeAccountAttributesResponse pResponseStatus_ =
     , _daarsResponseStatus = pResponseStatus_
     }
 
--- | A list of < AccountQuota> objects. Within this list, each quota has a
--- name, a count of usage toward the quota maximum, and a maximum value for
--- the quota.
+-- | A list of < AccountQuota> objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 

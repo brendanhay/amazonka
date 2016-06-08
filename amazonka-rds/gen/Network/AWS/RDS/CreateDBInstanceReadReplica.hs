@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DB instance for a DB instance running MySQL, MariaDB, or
--- PostgreSQL that acts as a Read Replica of a source DB instance.
+-- Creates a DB instance for a DB instance running MySQL, MariaDB, or PostgreSQL that acts as a Read Replica of a source DB instance.
 --
--- All Read Replica DB instances are created as Single-AZ deployments with
--- backups disabled. All other DB instance attributes (including DB
--- security groups and DB parameter groups) are inherited from the source
--- DB instance, except as specified below.
+-- All Read Replica DB instances are created as Single-AZ deployments with backups disabled. All other DB instance attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance, except as specified below.
 --
 -- The source DB instance must have backup retention enabled.
 module Network.AWS.RDS.CreateDBInstanceReadReplica
@@ -139,81 +135,52 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
     , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     }
 
--- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS
--- name, which resolves to a public IP address. A value of false specifies
--- an internal instance with a DNS name that resolves to a private IP
--- address.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
 --
--- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each
--- case.
+-- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__true
 -- -   __VPC:__false
 --
--- If no DB subnet group has been specified as part of the request and the
--- PubliclyAccessible value has not been set, the DB instance will be
--- publicly accessible. If a specific DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set,
--- the DB instance will be private.
+-- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 cdirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrPubliclyAccessible = lens _cdirrPubliclyAccessible (\ s a -> s{_cdirrPubliclyAccessible = a});
 
--- | Indicates that minor engine upgrades will be applied automatically to
--- the Read Replica during the maintenance window.
+-- | Indicates that minor engine upgrades will be applied automatically to the Read Replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
 cdirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_cdirrAutoMinorVersionUpgrade = a});
 
--- | Specifies a DB subnet group for the DB instance. The new DB instance
--- will be created in the VPC associated with the DB subnet group. If no DB
--- subnet group is specified, then the new DB instance is not created in a
--- VPC.
+-- | Specifies a DB subnet group for the DB instance. The new DB instance will be created in the VPC associated with the DB subnet group. If no DB subnet group is specified, then the new DB instance is not created in a VPC.
 --
 -- Constraints:
 --
--- -   Can only be specified if the source DB instance identifier specifies
---     a DB instance in another region.
--- -   The specified DB subnet group must be in the same region in which
---     the operation is running.
--- -   All Read Replicas in one region that are created from the same
---     source DB instance must either:
---     -   Specify DB subnet groups from the same VPC. All these Read
---         Replicas will be created in the same VPC.
---     -   Not specify a DB subnet group. All these Read Replicas will be
---         created outside of any VPC.
+-- -   Can only be specified if the source DB instance identifier specifies a DB instance in another region.
+-- -   The specified DB subnet group must be in the same region in which the operation is running.
+-- -   All Read Replicas in one region that are created from the same source DB instance must either:
+--     -   Specify DB subnet groups from the same VPC. All these Read Replicas will be created in the same VPC.
+--     -   Not specify a DB subnet group. All these Read Replicas will be created outside of any VPC.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
 
--- | The ARN for the IAM role that permits RDS to send enhanced monitoring
--- metrics to CloudWatch Logs. For example,
--- 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a
--- monitoring role, go to
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
 --
--- If 'MonitoringInterval' is set to a value other than 0, then you must
--- supply a 'MonitoringRoleArn' value.
+-- If 'MonitoringInterval' is set to a value other than 0, then you must supply a 'MonitoringRoleArn' value.
 cdirrMonitoringRoleARN :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrMonitoringRoleARN = lens _cdirrMonitoringRoleARN (\ s a -> s{_cdirrMonitoringRoleARN = a});
 
--- | The amount of Provisioned IOPS (input\/output operations per second) to
--- be initially allocated for the DB instance.
+-- | The amount of Provisioned IOPS (input\/output operations per second) to be initially allocated for the DB instance.
 cdirrIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 
--- | The interval, in seconds, between points when Enhanced Monitoring
--- metrics are collected for the Read Replica. To disable collecting
--- Enhanced Monitoring metrics, specify 0. The default is 60.
+-- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 60.
 --
--- If 'MonitoringRoleArn' is specified, then you must also set
--- 'MonitoringInterval' to a value other than 0.
+-- If 'MonitoringRoleArn' is specified, then you must also set 'MonitoringInterval' to a value other than 0.
 --
 -- Valid Values: '0, 1, 5, 10, 15, 30, 60'
 cdirrMonitoringInterval :: Lens' CreateDBInstanceReadReplica (Maybe Int)
@@ -221,30 +188,25 @@ cdirrMonitoringInterval = lens _cdirrMonitoringInterval (\ s a -> s{_cdirrMonito
 
 -- | The compute and memory capacity of the Read Replica.
 --
--- Valid Values:
--- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- Valid Values: 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 --
 -- Default: Inherits from the source DB instance.
 cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceClass = a});
 
--- | The Amazon EC2 Availability Zone that the Read Replica will be created
--- in.
+-- | The Amazon EC2 Availability Zone that the Read Replica will be created in.
 --
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- region.
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s region.
 --
 -- Example: 'us-east-1d'
 cdirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabilityZone = a});
 
--- | The option group the DB instance will be associated with. If omitted,
--- the default option group for the engine specified will be used.
+-- | The option group the DB instance will be associated with. If omitted, the default option group for the engine specified will be used.
 cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
 
--- | True to copy all tags from the Read Replica to snapshots of the Read
--- Replica; otherwise false. The default is false.
+-- | True to copy all tags from the Read Replica to snapshots of the Read Replica; otherwise false. The default is false.
 cdirrCopyTagsToSnapshot :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrCopyTagsToSnapshot = lens _cdirrCopyTagsToSnapshot (\ s a -> s{_cdirrCopyTagsToSnapshot = a});
 
@@ -264,39 +226,26 @@ cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
 --
 -- Valid values: 'standard | gp2 | io1'
 --
--- If you specify 'io1', you must also include a value for the 'Iops'
--- parameter.
+-- If you specify 'io1', you must also include a value for the 'Iops' parameter.
 --
--- Default: 'io1' if the 'Iops' parameter is specified; otherwise
--- 'standard'
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 cdirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
 
--- | The DB instance identifier of the Read Replica. This identifier is the
--- unique key that identifies a DB instance. This parameter is stored as a
--- lowercase string.
+-- | The DB instance identifier of the Read Replica. This identifier is the unique key that identifies a DB instance. This parameter is stored as a lowercase string.
 cdirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDBInstanceIdentifier = a});
 
--- | The identifier of the DB instance that will act as the source for the
--- Read Replica. Each DB instance can have up to five Read Replicas.
+-- | The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas.
 --
 -- Constraints:
 --
--- -   Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL
---     DB instance.
--- -   Can specify a DB instance that is a MySQL Read Replica only if the
---     source is running MySQL 5.6.
--- -   Can specify a DB instance that is a PostgreSQL Read Replica only if
---     the source is running PostgreSQL 9.3.5.
--- -   The specified DB instance must have automatic backups enabled, its
---     backup retention period must be greater than 0.
--- -   If the source DB instance is in the same region as the Read Replica,
---     specify a valid DB instance identifier.
--- -   If the source DB instance is in a different region than the Read
---     Replica, specify a valid DB instance ARN. For more information, go
---     to
---     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
+-- -   Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.
+-- -   Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.
+-- -   Can specify a DB instance that is a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5.
+-- -   The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.
+-- -   If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.
+-- -   If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
 cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 

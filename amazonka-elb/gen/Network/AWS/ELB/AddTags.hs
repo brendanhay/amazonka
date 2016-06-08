@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified tags to the specified load balancer. Each load
--- balancer can have a maximum of 10 tags.
+-- Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.
 --
--- Each tag consists of a key and an optional value. If a tag with the same
--- key is already associated with the load balancer, 'AddTags' updates its
--- value.
+-- Each tag consists of a key and an optional value. If a tag with the same key is already associated with the load balancer, 'AddTags' updates its value.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.AddTags
     (
     -- * Creating a Request

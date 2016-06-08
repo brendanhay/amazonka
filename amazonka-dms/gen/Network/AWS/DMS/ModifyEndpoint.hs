@@ -122,8 +122,7 @@ meEndpointType = lens _meEndpointType (\ s a -> s{_meEndpointType = a});
 meUsername :: Lens' ModifyEndpoint (Maybe Text)
 meUsername = lens _meUsername (\ s a -> s{_meUsername = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
--- POSTGRES.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES.
 meEngineName :: Lens' ModifyEndpoint (Maybe Text)
 meEngineName = lens _meEngineName (\ s a -> s{_meEngineName = a});
 
@@ -135,9 +134,7 @@ mePassword = lens _mePassword (\ s a -> s{_mePassword = a}) . mapping _Sensitive
 meDatabaseName :: Lens' ModifyEndpoint (Maybe Text)
 meDatabaseName = lens _meDatabaseName (\ s a -> s{_meDatabaseName = a});
 
--- | The database endpoint identifier. Identifiers must begin with a letter;
--- must contain only ASCII letters, digits, and hyphens; and must not end
--- with a hyphen or contain two consecutive hyphens.
+-- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 meEndpointIdentifier :: Lens' ModifyEndpoint (Maybe Text)
 meEndpointIdentifier = lens _meEndpointIdentifier (\ s a -> s{_meEndpointIdentifier = a});
 
@@ -145,8 +142,7 @@ meEndpointIdentifier = lens _meEndpointIdentifier (\ s a -> s{_meEndpointIdentif
 mePort :: Lens' ModifyEndpoint (Maybe Int)
 mePort = lens _mePort (\ s a -> s{_mePort = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 meEndpointARN :: Lens' ModifyEndpoint Text
 meEndpointARN = lens _meEndpointARN (\ s a -> s{_meEndpointARN = a});
 

@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Obtains information about the directory snapshots that belong to this
--- account.
+-- Obtains information about the directory snapshots that belong to this account.
 --
--- This operation supports pagination with the use of the /NextToken/
--- request and response parameters. If more results are available, the
--- /DescribeSnapshots.NextToken/ member contains a token that you pass in
--- the next call to < DescribeSnapshots> to retrieve the next set of items.
+-- This operation supports pagination with the use of the /NextToken/ request and response parameters. If more results are available, the /DescribeSnapshots.NextToken/ member contains a token that you pass in the next call to < DescribeSnapshots> to retrieve the next set of items.
 --
--- You can also specify a maximum number of return results with the /Limit/
--- parameter.
+-- You can also specify a maximum number of return results with the /Limit/ parameter.
 module Network.AWS.DirectoryService.DescribeSnapshots
     (
     -- * Creating a Request
@@ -86,19 +81,15 @@ describeSnapshots =
     , _dsLimit = Nothing
     }
 
--- | The identifier of the directory for which to retrieve snapshot
--- information.
+-- | The identifier of the directory for which to retrieve snapshot information.
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
 dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 
--- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
--- < DescribeSnapshots>. Pass null if this is the first call.
+-- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to < DescribeSnapshots>. Pass null if this is the first call.
 dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
 dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 
--- | A list of identifiers of the snapshots to obtain the information for. If
--- this member is null or empty, all snapshots are returned using the
--- /Limit/ and /NextToken/ members.
+-- | A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the /Limit/ and /NextToken/ members.
 dsSnapshotIds :: Lens' DescribeSnapshots [Text]
 dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default . _Coerce;
 
@@ -174,17 +165,13 @@ describeSnapshotsResponse pResponseStatus_ =
     , _dssrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value in the
--- /NextToken/ member of a subsequent call to < DescribeSnapshots>.
+-- | If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to < DescribeSnapshots>.
 dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 
 -- | The list of < Snapshot> objects that were retrieved.
 --
--- It is possible that this list contains less than the number of items
--- specified in the /Limit/ member of the request. This occurs if there are
--- less than the requested number of items left to retrieve, or if the
--- limitations of the operation have been exceeded.
+-- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 

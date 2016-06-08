@@ -135,8 +135,7 @@ getIdentityPoolRolesResponse pResponseStatus_ =
     , _giprrsResponseStatus = pResponseStatus_
     }
 
--- | The map of roles associated with this pool. Currently only authenticated
--- and unauthenticated roles are supported.
+-- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
 giprrsRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
 giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map;
 

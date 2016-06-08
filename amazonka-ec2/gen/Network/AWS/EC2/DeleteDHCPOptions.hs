@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified set of DHCP options. You must disassociate the set
--- of DHCP options before you can delete it. You can disassociate the set
--- of DHCP options by associating either a new set of options or the
--- default set of options with the VPC.
+-- Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.
 module Network.AWS.EC2.DeleteDHCPOptions
     (
     -- * Creating a Request
@@ -67,10 +64,7 @@ deleteDHCPOptions pDHCPOptionsId_ =
     , _ddhcpoDHCPOptionsId = pDHCPOptionsId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ddhcpoDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
 ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified VPC. You can specify
--- only one attribute at a time.
+-- Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.
 module Network.AWS.EC2.DescribeVPCAttribute
     (
     -- * Creating a Request
@@ -76,10 +75,7 @@ describeVPCAttribute pVPCId_ pAttribute_ =
     , _dvpcaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
 dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
 
@@ -154,16 +150,11 @@ describeVPCAttributeResponse pResponseStatus_ =
     , _dvpcarsResponseStatus = pResponseStatus_
     }
 
--- | Indicates whether the instances launched in the VPC get DNS hostnames.
--- If this attribute is 'true', instances in the VPC get DNS hostnames;
--- otherwise, they do not.
+-- | Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is 'true', instances in the VPC get DNS hostnames; otherwise, they do not.
 dvpcarsEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
 dvpcarsEnableDNSHostnames = lens _dvpcarsEnableDNSHostnames (\ s a -> s{_dvpcarsEnableDNSHostnames = a});
 
--- | Indicates whether DNS resolution is enabled for the VPC. If this
--- attribute is 'true', the Amazon DNS server resolves DNS hostnames for
--- your instances to their corresponding IP addresses; otherwise, it does
--- not.
+-- | Indicates whether DNS resolution is enabled for the VPC. If this attribute is 'true', the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
 dvpcarsEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
 dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnableDNSSupport = a});
 

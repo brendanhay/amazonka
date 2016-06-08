@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To update the hosted zone comment, send a 'POST' request to the
--- '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The
--- request body must include a document with a
--- 'UpdateHostedZoneCommentRequest' element. The response to this request
--- includes the modified 'HostedZone' element.
+-- To update the hosted zone comment, send a 'POST' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The request body must include a document with a 'UpdateHostedZoneCommentRequest' element. The response to this request includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
 module Network.AWS.Route53.UpdateHostedZoneComment
@@ -49,8 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to update a
--- hosted zone comment.
+-- | A complex type that contains information about the request to update a hosted zone comment.
 --
 -- /See:/ 'updateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
@@ -115,8 +110,7 @@ instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
           = mconcat ["Comment" @= _uhzcComment]
 
--- | A complex type containing information about the specified hosted zone
--- after the update.
+-- | A complex type containing information about the specified hosted zone after the update.
 --
 -- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'

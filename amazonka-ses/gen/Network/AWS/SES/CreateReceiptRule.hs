@@ -20,8 +20,7 @@
 --
 -- Creates a receipt rule.
 --
--- For information about setting up receipt rules, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
+-- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.CreateReceiptRule
@@ -75,9 +74,7 @@ createReceiptRule pRuleSetName_ pRule_ =
     , _crrRule = pRule_
     }
 
--- | The name of an existing rule after which the new rule will be placed. If
--- this parameter is null, the new rule will be inserted at the beginning
--- of the rule list.
+-- | The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
 crrAfter :: Lens' CreateReceiptRule (Maybe Text)
 crrAfter = lens _crrAfter (\ s a -> s{_crrAfter = a});
 
@@ -85,8 +82,7 @@ crrAfter = lens _crrAfter (\ s a -> s{_crrAfter = a});
 crrRuleSetName :: Lens' CreateReceiptRule Text
 crrRuleSetName = lens _crrRuleSetName (\ s a -> s{_crrRuleSetName = a});
 
--- | A data structure that contains the specified rule\'s name, actions,
--- recipients, domains, enabled status, scan status, and TLS policy.
+-- | A data structure that contains the specified rule\'s name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 crrRule :: Lens' CreateReceiptRule ReceiptRule
 crrRule = lens _crrRule (\ s a -> s{_crrRule = a});
 

@@ -64,8 +64,7 @@ deleteStreamingDistribution pId_ =
     , _dsdId = pId_
     }
 
--- | The value of the ETag header you received when you disabled the
--- streaming distribution. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a});
 

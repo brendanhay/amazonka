@@ -18,18 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the specified domain contact\'s privacy setting.
--- When the privacy option is enabled, personal information such as postal
--- or email address is hidden from the results of a public WHOIS query. The
--- privacy services are provided by the AWS registrar, Gandi. For more
--- information, see the
--- <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi privacy features>.
+-- This operation updates the specified domain contact\'s privacy setting. When the privacy option is enabled, personal information such as postal or email address is hidden from the results of a public WHOIS query. The privacy services are provided by the AWS registrar, Gandi. For more information, see the <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi privacy features>.
 --
--- This operation only affects the privacy of the specified contact type
--- (registrant, administrator, or tech). Successful acceptance returns an
--- operation ID that you can use with GetOperationDetail to track the
--- progress and completion of the action. If the request is not completed
--- successfully, the domain registrant will be notified by email.
+-- This operation only affects the privacy of the specified contact type (registrant, administrator, or tech). Successful acceptance returns an operation ID that you can use with GetOperationDetail to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Creating a Request
@@ -88,10 +79,7 @@ updateDomainContactPrivacy pDomainName_ =
     , _udcpDomainName = pDomainName_
     }
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS (\"who is\") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter.
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
 --
 -- Type: Boolean
 --
@@ -103,10 +91,7 @@ updateDomainContactPrivacy pDomainName_ =
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS (\"who is\") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter.
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
 --
 -- Type: Boolean
 --
@@ -118,10 +103,7 @@ udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantPrivacy = a});
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS (\"who is\") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter.
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
 --
 -- Type: Boolean
 --
@@ -139,9 +121,7 @@ udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a});
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
@@ -215,8 +195,7 @@ updateDomainContactPrivacyResponse pResponseStatus_ pOperationId_ =
 udcprsResponseStatus :: Lens' UpdateDomainContactPrivacyResponse Int
 udcprsResponseStatus = lens _udcprsResponseStatus (\ s a -> s{_udcprsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --

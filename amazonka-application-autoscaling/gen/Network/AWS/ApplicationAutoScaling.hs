@@ -11,19 +11,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Application Auto Scaling is a general purpose Auto Scaling service for
--- supported elastic AWS resources. With Application Auto Scaling, you can
--- automatically scale your AWS resources, with an experience similar to
--- that of Auto Scaling.
+-- Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Auto Scaling.
 --
--- At this time, Application Auto Scaling only supports scaling Amazon ECS
--- services.
+-- At this time, Application Auto Scaling only supports scaling Amazon ECS services.
 --
--- For example, you can use Application Auto Scaling to accomplish the
--- following tasks:
+-- For example, you can use Application Auto Scaling to accomplish the following tasks:
 --
--- -   Define scaling policies for automatically adjusting your
---     application’s resources
+-- -   Define scaling policies for automatically adjusting your application’s resources
 --
 -- -   Scale your resources in response to CloudWatch alarms
 --

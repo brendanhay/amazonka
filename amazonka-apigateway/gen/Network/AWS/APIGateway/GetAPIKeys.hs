@@ -74,8 +74,7 @@ getAPIKeys =
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current < ApiKeys> resource to get information
--- about.
+-- | The position of the current < ApiKeys> resource to get information about.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -142,8 +141,7 @@ getAPIKeysResponse pResponseStatus_ =
     , _gakrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < ApiKey> resources in the collection of
--- < ApiKey> resources.
+-- | The current page of any < ApiKey> resources in the collection of < ApiKey> resources.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 

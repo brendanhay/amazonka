@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from a file system. If the 'DeleteTags'
--- request includes a tag key that does not exist, Amazon EFS ignores it;
--- it is not an error. For more information about tags and related
--- restrictions, go to
--- <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions>
--- in the /AWS Billing and Cost Management User Guide/.
+-- Deletes the specified tags from a file system. If the 'DeleteTags' request includes a tag key that does not exist, Amazon EFS ignores it; it is not an error. For more information about tags and related restrictions, go to <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions> in the /AWS Billing and Cost Management User Guide/.
 --
--- This operation requires permission for the
--- 'elasticfilesystem:DeleteTags' action.
+-- This operation requires permission for the 'elasticfilesystem:DeleteTags' action.
 module Network.AWS.EFS.DeleteTags
     (
     -- * Creating a Request

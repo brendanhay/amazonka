@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes entire attributes (key and value pairs) from the findings that
--- are specified by the ARNs of the findings where an attribute with the
--- specified key exists.
+-- Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.
 module Network.AWS.Inspector.RemoveAttributesFromFindings
     (
     -- * Creating a Request
@@ -67,13 +65,11 @@ removeAttributesFromFindings pFindingARNs_ =
     , _raffAttributeKeys = mempty
     }
 
--- | The ARNs that specify the findings that you want to remove attributes
--- from.
+-- | The ARNs that specify the findings that you want to remove attributes from.
 raffFindingARNs :: Lens' RemoveAttributesFromFindings (NonEmpty Text)
 raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _List1;
 
--- | The array of attribute keys that you want to remove from specified
--- findings.
+-- | The array of attribute keys that you want to remove from specified findings.
 raffAttributeKeys :: Lens' RemoveAttributesFromFindings [Text]
 raffAttributeKeys = lens _raffAttributeKeys (\ s a -> s{_raffAttributeKeys = a}) . _Coerce;
 
@@ -142,8 +138,7 @@ removeAttributesFromFindingsResponse pResponseStatus_ =
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
 raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a});
 
--- | Attributes details that cannot be described. An error code is provided
--- for each failed item.
+-- | Attributes details that cannot be described. An error code is provided for each failed item.
 raffrsFailedItems :: Lens' RemoveAttributesFromFindingsResponse (HashMap Text FailedItemDetails)
 raffrsFailedItems = lens _raffrsFailedItems (\ s a -> s{_raffrsFailedItems = a}) . _Map;
 

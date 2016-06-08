@@ -107,8 +107,7 @@ cbGrantWriteACP = lens _cbGrantWriteACP (\ s a -> s{_cbGrantWriteACP = a});
 cbGrantRead :: Lens' CreateBucket (Maybe Text)
 cbGrantRead = lens _cbGrantRead (\ s a -> s{_cbGrantRead = a});
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl = lens _cbGrantFullControl (\ s a -> s{_cbGrantFullControl = a});
 
@@ -116,8 +115,7 @@ cbGrantFullControl = lens _cbGrantFullControl (\ s a -> s{_cbGrantFullControl = 
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbCreateBucketConfiguration = lens _cbCreateBucketConfiguration (\ s a -> s{_cbCreateBucketConfiguration = a});
 
--- | Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- | Allows grantee to create, overwrite, and delete any object in the bucket.
 cbGrantWrite :: Lens' CreateBucket (Maybe Text)
 cbGrantWrite = lens _cbGrantWrite (\ s a -> s{_cbGrantWrite = a});
 

@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rejects a pending certificate transfer. After AWS IoT rejects a
--- certificate transfer, the certificate status changes from
--- __PENDING_TRANSFER__ to __INACTIVE__.
+-- Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from __PENDING_TRANSFER__ to __INACTIVE__.
 --
--- To check for pending certificate transfers, call < ListCertificates> to
--- enumerate your certificates.
+-- To check for pending certificate transfers, call < ListCertificates> to enumerate your certificates.
 --
--- This operation can only be called by the transfer destination. After it
--- is called, the certificate will be returned to the source\'s account in
--- the INACTIVE state.
+-- This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source\'s account in the INACTIVE state.
 module Network.AWS.IoT.RejectCertificateTransfer
     (
     -- * Creating a Request

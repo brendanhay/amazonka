@@ -20,8 +20,7 @@
 --
 -- The /DeleteCacheSecurityGroup/ action deletes a cache security group.
 --
--- You cannot delete a cache security group if it is associated with any
--- cache clusters.
+-- You cannot delete a cache security group if it is associated with any cache clusters.
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Creating a Request

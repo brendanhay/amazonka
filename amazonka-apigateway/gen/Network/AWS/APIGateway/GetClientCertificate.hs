@@ -45,8 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current < ClientCertificate>
--- resource.
+-- | A request to get information about the current < ClientCertificate> resource.
 --
 -- /See:/ 'getClientCertificate' smart constructor.
 newtype GetClientCertificate = GetClientCertificate'

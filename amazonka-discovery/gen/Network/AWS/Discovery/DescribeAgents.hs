@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists AWS agents by ID or lists all agents associated with your user
--- account if you did not specify an agent ID.
+-- Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID.
 module Network.AWS.Discovery.DescribeAgents
     (
     -- * Creating a Request
@@ -71,14 +70,11 @@ describeAgents =
     , _daMaxResults = Nothing
     }
 
--- | The agent IDs for which you want information. If you specify no IDs, the
--- system returns information about all agents associated with your AWS
--- user account.
+-- | The agent IDs for which you want information. If you specify no IDs, the system returns information about all agents associated with your AWS user account.
 daAgentIds :: Lens' DescribeAgents [Text]
 daAgentIds = lens _daAgentIds (\ s a -> s{_daAgentIds = a}) . _Default . _Coerce;
 
--- | A token to start the list. Use this token to get the next set of
--- results.
+-- | A token to start the list. Use this token to get the next set of results.
 daNextToken :: Lens' DescribeAgents (Maybe Text)
 daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 
@@ -151,10 +147,7 @@ describeAgentsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | Lists AWS agents by ID or lists all agents associated with your user
--- account if you did not specify an agent ID. The output includes agent
--- IDs, IP addresses, media access control (MAC) addresses, agent health,
--- host name where the agent resides, and the version number of each agent.
+-- | Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
 darsAgentsInfo :: Lens' DescribeAgentsResponse [AgentInfo]
 darsAgentsInfo = lens _darsAgentsInfo (\ s a -> s{_darsAgentsInfo = a}) . _Default . _Coerce;
 

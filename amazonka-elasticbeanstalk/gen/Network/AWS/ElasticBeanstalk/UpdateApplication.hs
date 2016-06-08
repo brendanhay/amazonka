@@ -20,8 +20,7 @@
 --
 -- Updates the specified application to have the specified properties.
 --
--- If a property (for example, 'description') is not provided, the value
--- remains unchanged. To clear these properties, specify an empty string.
+-- If a property (for example, 'description') is not provided, the value remains unchanged. To clear these properties, specify an empty string.
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Creating a Request
@@ -71,13 +70,11 @@ updateApplication pApplicationName_ =
 
 -- | A new description for the application.
 --
--- Default: If not specified, AWS Elastic Beanstalk does not update the
--- description.
+-- Default: If not specified, AWS Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
--- | The name of the application to update. If no such application is found,
--- 'UpdateApplication' returns an 'InvalidParameterValue' error.
+-- | The name of the application to update. If no such application is found, 'UpdateApplication' returns an 'InvalidParameterValue' error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 

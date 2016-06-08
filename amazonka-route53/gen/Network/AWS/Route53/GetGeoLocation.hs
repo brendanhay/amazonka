@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a single geo location, send a 'GET' request to the
--- '\/Route 53 API version\/geolocation' resource with one of these
--- options: continentcode | countrycode | countrycode and subdivisioncode.
+-- To retrieve a single geo location, send a 'GET' request to the '\/Route 53 API version\/geolocation' resource with one of these options: continentcode | countrycode | countrycode and subdivisioncode.
 module Network.AWS.Route53.GetGeoLocation
     (
     -- * Creating a Request
@@ -46,8 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get a geo
--- location.
+-- | A complex type that contains information about the request to get a geo location.
 --
 -- /See:/ 'getGeoLocation' smart constructor.
 data GetGeoLocation = GetGeoLocation'
@@ -74,30 +71,23 @@ getGeoLocation =
     , _gglContinentCode = Nothing
     }
 
--- | The code for a country\'s subdivision (e.g., a province of Canada). A
--- subdivision code is only valid with the appropriate country code.
+-- | The code for a country\'s subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.
 --
--- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns
--- an < InvalidInput> error.
+-- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an < InvalidInput> error.
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
--- | The code for a country geo location. The default location uses \'*\' for
--- the country code and will match all locations that are not matched by a
--- geo location.
+-- | The code for a country geo location. The default location uses \'*\' for the country code and will match all locations that are not matched by a geo location.
 --
--- The default geo location uses a '*' for the country code. All other
--- country codes follow the ISO 3166 two-character code.
+-- The default geo location uses a '*' for the country code. All other country codes follow the ISO 3166 two-character code.
 gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 
--- | The code for a continent geo location. Note: only continent locations
--- have a continent code.
+-- | The code for a continent geo location. Note: only continent locations have a continent code.
 --
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
--- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or
--- 'SubdivisionCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an < InvalidInput> error.
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
@@ -156,8 +146,7 @@ getGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
 gglrsResponseStatus :: Lens' GetGeoLocationResponse Int
 gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified geo
--- location.
+-- | A complex type that contains the information about the specified geo location.
 gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});
 

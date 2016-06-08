@@ -80,8 +80,7 @@ updateAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _uaaAuthorizerId = pAuthorizerId_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
 uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
 

@@ -20,11 +20,7 @@
 --
 -- Requests a description of one or more stacks.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeStacks
     (
     -- * Creating a Request
@@ -65,9 +61,7 @@ describeStacks =
     { _dsStackIds = Nothing
     }
 
--- | An array of stack IDs that specify the stacks to be described. If you
--- omit this parameter, 'DescribeStacks' returns a description of every
--- stack.
+-- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, 'DescribeStacks' returns a description of every stack.
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
 

@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeEvents/ action returns events related to cache clusters,
--- cache security groups, and cache parameter groups. You can obtain events
--- specific to a particular cache cluster, cache security group, or cache
--- parameter group by providing the name as a parameter.
+-- The /DescribeEvents/ action returns events related to cache clusters, cache security groups, and cache parameter groups. You can obtain events specific to a particular cache cluster, cache security group, or cache parameter group by providing the name as a parameter.
 --
--- By default, only the events occurring within the last hour are returned;
--- however, you can retrieve up to 14 days\' worth of events if necessary.
+-- By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days\' worth of events if necessary.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
@@ -101,34 +97,25 @@ describeEvents =
     , _deDuration = Nothing
     }
 
--- | The beginning of the time interval to retrieve events for, specified in
--- ISO 8601 format.
+-- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
--- | The event source to retrieve events for. If no value is specified, all
--- events are returned.
+-- | The event source to retrieve events for. If no value is specified, all events are returned.
 --
--- Valid values are: 'cache-cluster' | 'cache-parameter-group' |
--- 'cache-security-group' | 'cache-subnet-group'
+-- Valid values are: 'cache-cluster' | 'cache-parameter-group' | 'cache-security-group' | 'cache-subnet-group'
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
--- | The identifier of the event source for which events will be returned. If
--- not specified, then all sources are included in the response.
+-- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -136,8 +123,7 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
--- | The end of the time interval for which to retrieve events, specified in
--- ISO 8601 format.
+-- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
@@ -213,8 +199,7 @@ describeEventsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | A list of events. Each element in the list contains detailed information
--- about one event.
+-- | A list of events. Each element in the list contains detailed information about one event.
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 

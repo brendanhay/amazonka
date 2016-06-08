@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified project name, given the project ARN and a new
--- name.
+-- Modifies the specified project name, given the project ARN and a new name.
 module Network.AWS.DeviceFarm.UpdateProject
     (
     -- * Creating a Request
@@ -72,8 +71,7 @@ updateProject pArn_ =
 upName :: Lens' UpdateProject (Maybe Text)
 upName = lens _upName (\ s a -> s{_upName = a});
 
--- | The Amazon Resource Name (ARN) of the project whose name you wish to
--- update.
+-- | The Amazon Resource Name (ARN) of the project whose name you wish to update.
 upArn :: Lens' UpdateProject Text
 upArn = lens _upArn (\ s a -> s{_upArn = a});
 

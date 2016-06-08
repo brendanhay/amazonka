@@ -73,10 +73,7 @@ getBasePathMapping pDomainName_ pBasePath_ =
 gbpmDomainName :: Lens' GetBasePathMapping Text
 gbpmDomainName = lens _gbpmDomainName (\ s a -> s{_gbpmDomainName = a});
 
--- | The base path name that callers of the API must provide as part of the
--- URL after the domain name. This value must be unique for all of the
--- mappings across a single API. Leave this blank if you do not want
--- callers to specify any base path name after the domain name.
+-- | The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
 gbpmBasePath :: Lens' GetBasePathMapping Text
 gbpmBasePath = lens _gbpmBasePath (\ s a -> s{_gbpmBasePath = a});
 

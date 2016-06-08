@@ -18,31 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Composes an email message based on input data, and then immediately
--- queues the message for sending.
+-- Composes an email message based on input data, and then immediately queues the message for sending.
 --
 -- There are several important points to know about 'SendEmail':
 --
--- -   You can only send email from verified email addresses and domains;
---     otherwise, you will get an \"Email address not verified\" error. If
---     your account is still in the Amazon SES sandbox, you must also
---     verify every recipient email address except for the recipients
---     provided by the Amazon SES mailbox simulator. For more information,
---     go to the
---     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
--- -   The total size of the message cannot exceed 10 MB. This includes any
---     attachments that are part of the message.
--- -   Amazon SES has a limit on the total number of recipients per
---     message. The combined number of To:, CC: and BCC: email addresses
---     cannot exceed 50. If you need to send an email message to a larger
---     audience, you can divide your recipient list into groups of 50 or
---     fewer, and then call Amazon SES repeatedly to send the message to
---     each group.
--- -   For every message that you send, the total number of recipients
---     (To:, CC: and BCC:) is counted against your sending quota - the
---     maximum number of emails you can send in a 24-hour period. For
---     information about your sending quota, go to the
---     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
+-- -   You can only send email from verified email addresses and domains; otherwise, you will get an \"Email address not verified\" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+-- -   The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.
+-- -   Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+-- -   For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
 module Network.AWS.SES.SendEmail
     (
     -- * Creating a Request
@@ -116,73 +99,35 @@ sendEmail pSource_ pDestination_ pMessage_ =
     , _seMessage = pMessage_
     }
 
--- | The email address to which bounces and complaints are to be forwarded
--- when feedback forwarding is enabled. If the message cannot be delivered
--- to the recipient, then an error message will be returned from the
--- recipient\'s ISP; this message will then be forwarded to the email
--- address specified by the 'ReturnPath' parameter. The 'ReturnPath'
--- parameter is never overwritten. This email address must be either
--- individually verified with Amazon SES, or from a domain that has been
--- verified with Amazon SES.
+-- | The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient\'s ISP; this message will then be forwarded to the email address specified by the 'ReturnPath' parameter. The 'ReturnPath' parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to send for the email address specified in the 'Source'
--- parameter.
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the 'Source' parameter.
 --
--- For example, if the owner of 'example.com' (which has ARN
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a
--- policy to it that authorizes you to send from 'user\'example.com', then
--- you would specify the 'SourceArn' to be
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the
--- 'Source' to be 'user\'example.com'.
+-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a policy to it that authorizes you to send from 'user\'example.com', then you would specify the 'SourceArn' to be 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the 'Source' to be 'user\'example.com'.
 --
--- For more information about sending authorization, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 seSourceARN :: Lens' SendEmail (Maybe Text)
 seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
 
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the 'ReturnPath'
--- parameter.
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the 'ReturnPath' parameter.
 --
--- For example, if the owner of 'example.com' (which has ARN
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a
--- policy to it that authorizes you to use 'feedback\'example.com', then
--- you would specify the 'ReturnPathArn' to be
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the
--- 'ReturnPath' to be 'feedback\'example.com'.
+-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a policy to it that authorizes you to use 'feedback\'example.com', then you would specify the 'ReturnPathArn' to be 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the 'ReturnPath' to be 'feedback\'example.com'.
 --
--- For more information about sending authorization, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 seReturnPathARN :: Lens' SendEmail (Maybe Text)
 seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a});
 
--- | The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
+-- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 seReplyToAddresses :: Lens' SendEmail [Text]
 seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default . _Coerce;
 
--- | The email address that is sending the email. This email address must be
--- either individually verified with Amazon SES, or from a domain that has
--- been verified with Amazon SES. For information about verifying
--- identities, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+-- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
 --
--- If you are sending on behalf of another user and have been permitted to
--- do so by a sending authorization policy, then you must also specify the
--- 'SourceArn' parameter. For more information about sending authorization,
--- see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the 'SourceArn' parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- In all cases, the email address must be 7-bit ASCII. If the text must
--- contain any other characters, then you must use MIME encoded-word syntax
--- (RFC 2047) instead of a literal string. MIME encoded-word syntax uses
--- the following form: '=?charset?encoding?encoded-text?='. For more
--- information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
+-- In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\ s a -> s{_seSource = a});
 

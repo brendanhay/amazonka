@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists datasets for an identity. With Amazon Cognito Sync, each identity
--- has access only to its own data. Thus, the credentials used to make this
--- API call need to have access to the identity data.
+-- Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
--- ListDatasets can be called with temporary user credentials provided by
--- Cognito Identity or with developer credentials. You should use the
--- Cognito Identity credentials to make this API call.
+-- ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Creating a Request
@@ -94,15 +90,11 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 ldMaxResults :: Lens' ListDatasets (Maybe Int)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ldIdentityId :: Lens' ListDatasets Text
 ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ldIdentityPoolId :: Lens' ListDatasets Text
 ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
 

@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation replaces the current set of name servers for the domain
--- with the specified set of name servers. If you use Amazon Route 53 as
--- your DNS service, specify the four name servers in the delegation set
--- for the hosted zone for the domain.
+-- This operation replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.
 --
--- If successful, this operation returns an operation ID that you can use
--- to track the progress and completion of the action. If the request is
--- not completed successfully, the domain registrant will be notified by
--- email.
+-- If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
     -- * Creating a Request
@@ -90,9 +84,7 @@ udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 udnDomainName :: Lens' UpdateDomainNameservers Text
@@ -175,8 +167,7 @@ updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
 udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
 udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --

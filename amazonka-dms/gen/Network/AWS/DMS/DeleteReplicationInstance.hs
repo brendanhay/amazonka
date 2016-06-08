@@ -20,8 +20,7 @@
 --
 -- Deletes the specified replication instance.
 --
--- You must delete any migration tasks that are associated with the
--- replication instance before you can delete it.
+-- You must delete any migration tasks that are associated with the replication instance before you can delete it.
 --
 module Network.AWS.DMS.DeleteReplicationInstance
     (
@@ -64,8 +63,7 @@ deleteReplicationInstance pReplicationInstanceARN_ =
     { _driReplicationInstanceARN = pReplicationInstanceARN_
     }
 
--- | The Amazon Resource Name (ARN) of the replication instance to be
--- deleted.
+-- | The Amazon Resource Name (ARN) of the replication instance to be deleted.
 driReplicationInstanceARN :: Lens' DeleteReplicationInstance Text
 driReplicationInstanceARN = lens _driReplicationInstanceARN (\ s a -> s{_driReplicationInstanceARN = a});
 

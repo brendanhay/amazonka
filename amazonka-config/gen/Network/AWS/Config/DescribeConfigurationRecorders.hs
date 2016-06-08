@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name of one or more specified configuration recorders. If
--- the recorder name is not specified, this action returns the names of all
--- the configuration recorders associated with the account.
+-- Returns the name of one or more specified configuration recorders. If the recorder name is not specified, this action returns the names of all the configuration recorders associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
 module Network.AWS.Config.DescribeConfigurationRecorders
@@ -133,8 +131,7 @@ describeConfigurationRecordersResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | A list that contains the descriptions of the specified configuration
--- recorders.
+-- | A list that contains the descriptions of the specified configuration recorders.
 drsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
 drsConfigurationRecorders = lens _drsConfigurationRecorders (\ s a -> s{_drsConfigurationRecorders = a}) . _Default . _Coerce;
 

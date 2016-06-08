@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new custom action that can be used in all pipelines associated
--- with the AWS account. Only used for custom actions.
+-- Creates a new custom action that can be used in all pipelines associated with the AWS account. Only used for custom actions.
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request
@@ -103,24 +102,17 @@ ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
 -- | The configuration properties for the custom action.
 --
--- You can refer to a name in the configuration properties of the custom
--- action within the URL templates by following the format of
--- {Config:/name/}, as long as the configuration property is both required
--- and not secret. For more information, see
--- <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
+-- You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:/name/}, as long as the configuration property is both required and not secret. For more information, see <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
 ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 
--- | The category of the custom action, such as a source action or a build
--- action.
+-- | The category of the custom action, such as a source action or a build action.
 --
--- Although Source is listed as a valid value, it is not currently
--- functional. This value is reserved for future use.
+-- Although Source is listed as a valid value, it is not currently functional. This value is reserved for future use.
 ccatCategory :: Lens' CreateCustomActionType ActionCategory
 ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 
--- | The provider of the service used in the custom action, such as AWS
--- CodeDeploy.
+-- | The provider of the service used in the custom action, such as AWS CodeDeploy.
 ccatProvider :: Lens' CreateCustomActionType Text
 ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 

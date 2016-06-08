@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your things. You can pass an AttributeName or AttributeValue to
--- filter your things (for example, \"ListThings where AttributeName=Color
--- and AttributeValue=Red\").
+-- Lists your things. You can pass an AttributeName or AttributeValue to filter your things (for example, \"ListThings where AttributeName=Color and AttributeValue=Red\").
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request

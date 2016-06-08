@@ -73,16 +73,11 @@ listTagsForStream pStreamName_ =
     , _ltfsStreamName = pStreamName_
     }
 
--- | The number of tags to return. If this number is less than the total
--- number of tags associated with the stream, 'HasMoreTags' is set to
--- 'true'. To list additional tags, set 'ExclusiveStartTagKey' to the last
--- key in the response.
+-- | The number of tags to return. If this number is less than the total number of tags associated with the stream, 'HasMoreTags' is set to 'true'. To list additional tags, set 'ExclusiveStartTagKey' to the last key in the response.
 ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
 ltfsLimit = lens _ltfsLimit (\ s a -> s{_ltfsLimit = a}) . mapping _Nat;
 
--- | The key to use as the starting point for the list of tags. If this
--- parameter is set, 'ListTagsForStream' gets all tags that occur after
--- 'ExclusiveStartTagKey'.
+-- | The key to use as the starting point for the list of tags. If this parameter is set, 'ListTagsForStream' gets all tags that occur after 'ExclusiveStartTagKey'.
 ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
 ltfsExclusiveStartTagKey = lens _ltfsExclusiveStartTagKey (\ s a -> s{_ltfsExclusiveStartTagKey = a});
 
@@ -161,13 +156,11 @@ listTagsForStreamResponse pResponseStatus_ pHasMoreTags_ =
 ltfsrsResponseStatus :: Lens' ListTagsForStreamResponse Int
 ltfsrsResponseStatus = lens _ltfsrsResponseStatus (\ s a -> s{_ltfsrsResponseStatus = a});
 
--- | A list of tags associated with 'StreamName', starting with the first tag
--- after 'ExclusiveStartTagKey' and up to the specified 'Limit'.
+-- | A list of tags associated with 'StreamName', starting with the first tag after 'ExclusiveStartTagKey' and up to the specified 'Limit'.
 ltfsrsTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a}) . _Coerce;
 
--- | If set to 'true', more tags are available. To request additional tags,
--- set 'ExclusiveStartTagKey' to the key of the last tag returned.
+-- | If set to 'true', more tags are available. To request additional tags, set 'ExclusiveStartTagKey' to the key of the last tag returned.
 ltfsrsHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrsHasMoreTags = lens _ltfsrsHasMoreTags (\ s a -> s{_ltfsrsHasMoreTags = a});
 

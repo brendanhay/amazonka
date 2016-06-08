@@ -133,20 +133,17 @@ discovery =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The AWS user account does not have permission to perform the action.
--- Check the IAM policy associated with this account.
+-- | The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
     _ServiceError . hasCode "AuthorizationErrorException"
 
--- | One or more parameters are not valid. Verify the parameters and try
--- again.
+-- | One or more parameters are not valid. Verify the parameters and try again.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
--- | The value of one or more parameters are either invalid or out of range.
--- Verify the parameter values and try again.
+-- | The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasCode "InvalidParameterValueException"
@@ -161,8 +158,7 @@ _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a S
 _OperationNotPermittedException =
     _ServiceError . hasCode "OperationNotPermittedException"
 
--- | The specified configuration ID was not located. Verify the configuration
--- ID and try again.
+-- | The specified configuration ID was not located. Verify the configuration ID and try again.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

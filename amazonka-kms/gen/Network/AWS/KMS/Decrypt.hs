@@ -18,21 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decrypts ciphertext. Ciphertext is plaintext that has been previously
--- encrypted by using any of the following functions:
+-- Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by using any of the following functions:
 --
 -- -   < GenerateDataKey>
 -- -   < GenerateDataKeyWithoutPlaintext>
 -- -   < Encrypt>
 --
--- Note that if a caller has been granted access permissions to all keys
--- (through, for example, IAM user policies that grant 'Decrypt' permission
--- on all resources), then ciphertext encrypted by using keys in other
--- accounts where the key grants access to the caller can be decrypted. To
--- remedy this, we recommend that you do not grant 'Decrypt' access in an
--- IAM user policy. Instead grant 'Decrypt' access only in key policies. If
--- you must grant 'Decrypt' access in an IAM user policy, you should scope
--- the resource to specific keys or to specific trusted accounts.
+-- Note that if a caller has been granted access permissions to all keys (through, for example, IAM user policies that grant 'Decrypt' permission on all resources), then ciphertext encrypted by using keys in other accounts where the key grants access to the caller can be decrypted. To remedy this, we recommend that you do not grant 'Decrypt' access in an IAM user policy. Instead grant 'Decrypt' access only in key policies. If you must grant 'Decrypt' access in an IAM user policy, you should scope the resource to specific keys or to specific trusted accounts.
 module Network.AWS.KMS.Decrypt
     (
     -- * Creating a Request
@@ -85,18 +77,13 @@ decrypt pCiphertextBlob_ =
     , _decCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
--- | The encryption context. If this was specified in the < Encrypt>
--- function, it must be specified here or the decryption operation will
--- fail. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
+-- | The encryption context. If this was specified in the < Encrypt> function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
 decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
 
 -- | A list of grant tokens.
 --
--- For more information, go to
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 decGrantTokens :: Lens' Decrypt [Text]
 decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default . _Coerce;
 
@@ -173,13 +160,11 @@ decryptResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | ARN of the key used to perform the decryption. This value is returned if
--- no errors are encountered during the operation.
+-- | ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.
 drsKeyId :: Lens' DecryptResponse (Maybe Text)
 drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 
--- | Decrypted plaintext data. This value may not be returned if the customer
--- master key is not available or if you didn\'t have permission to use it.
+-- | Decrypted plaintext data. This value may not be returned if the customer master key is not available or if you didn\'t have permission to use it.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.

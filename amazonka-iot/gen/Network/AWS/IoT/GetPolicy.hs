@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the specified policy with the policy document of
--- the default version.
+-- Gets information about the specified policy with the policy document of the default version.
 module Network.AWS.IoT.GetPolicy
     (
     -- * Creating a Request

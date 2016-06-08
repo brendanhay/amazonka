@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces all triggers for a repository. This can be used to create or
--- delete triggers.
+-- Replaces all triggers for a repository. This can be used to create or delete triggers.
 module Network.AWS.CodeCommit.PutRepositoryTriggers
     (
     -- * Creating a Request
@@ -71,8 +70,7 @@ putRepositoryTriggers =
 prtTriggers :: Lens' PutRepositoryTriggers [RepositoryTrigger]
 prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Default . _Coerce;
 
--- | The name of the repository where you want to create or update the
--- trigger.
+-- | The name of the repository where you want to create or update the trigger.
 prtRepositoryName :: Lens' PutRepositoryTriggers (Maybe Text)
 prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
 

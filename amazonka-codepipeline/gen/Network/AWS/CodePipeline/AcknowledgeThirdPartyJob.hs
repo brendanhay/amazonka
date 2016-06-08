@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms a job worker has received the specified job. Only used for
--- partner actions.
+-- Confirms a job worker has received the specified job. Only used for partner actions.
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
     -- * Creating a Request
@@ -79,15 +78,11 @@ acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
 atpjJobId :: Lens' AcknowledgeThirdPartyJob Text
 atpjJobId = lens _atpjJobId (\ s a -> s{_atpjJobId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. This number must
--- be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 atpjNonce :: Lens' AcknowledgeThirdPartyJob Text
 atpjNonce = lens _atpjNonce (\ s a -> s{_atpjNonce = a});
 
--- | The clientToken portion of the clientId and clientToken pair used to
--- verify that the calling entity is allowed access to the job and its
--- details.
+-- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 atpjClientToken :: Lens' AcknowledgeThirdPartyJob Text
 atpjClientToken = lens _atpjClientToken (\ s a -> s{_atpjClientToken = a});
 

@@ -20,9 +20,7 @@
 --
 -- Describes one or more of your VPN customer gateways.
 --
--- For more information about VPN customer gateways, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about VPN customer gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Creating a Request
@@ -83,41 +81,26 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 
 -- | One or more filters.
 --
--- -   'bgp-asn' - The customer gateway\'s Border Gateway Protocol (BGP)
---     Autonomous System Number (ASN).
+-- -   'bgp-asn' - The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 --
 -- -   'customer-gateway-id' - The ID of the customer gateway.
 --
--- -   'ip-address' - The IP address of the customer gateway\'s
---     Internet-routable external interface.
+-- -   'ip-address' - The IP address of the customer gateway\'s Internet-routable external interface.
 --
--- -   'state' - The state of the customer gateway ('pending' | 'available'
---     | 'deleting' | 'deleted').
+-- -   'state' - The state of the customer gateway ('pending' | 'available' | 'deleting' | 'deleted').
 --
--- -   'type' - The type of customer gateway. Currently, the only supported
---     type is 'ipsec.1'.
+-- -   'type' - The type of customer gateway. Currently, the only supported type is 'ipsec.1'.
 --
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
---     to the resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
 --
--- -   'tag-key' - The key of a tag assigned to the resource. This filter
---     is independent of the 'tag-value' filter. For example, if you use
---     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
---     you get any resources assigned both the tag key Purpose (regardless
---     of what the tag\'s value is), and the tag value X (regardless of
---     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   'tag-value' - The value of a tag assigned to the resource. This
---     filter is independent of the 'tag-key' filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
 --
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
 dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
 

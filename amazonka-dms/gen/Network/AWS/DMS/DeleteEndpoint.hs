@@ -20,8 +20,7 @@
 --
 -- Deletes the specified endpoint.
 --
--- All tasks associated with the endpoint must be deleted before you can
--- delete the endpoint.
+-- All tasks associated with the endpoint must be deleted before you can delete the endpoint.
 --
 module Network.AWS.DMS.DeleteEndpoint
     (
@@ -64,8 +63,7 @@ deleteEndpoint pEndpointARN_ =
     { _deEndpointARN = pEndpointARN_
     }
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 deEndpointARN :: Lens' DeleteEndpoint Text
 deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
 

@@ -18,40 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes < SqlInjectionMatchTuple> objects (filters) in a
--- < SqlInjectionMatchSet>. For each 'SqlInjectionMatchTuple' object, you
--- specify the following values:
+-- Inserts or deletes < SqlInjectionMatchTuple> objects (filters) in a < SqlInjectionMatchSet>. For each 'SqlInjectionMatchTuple' object, you specify the following values:
 --
--- -   'Action': Whether to insert the object into or delete the object
---     from the array. To change a 'SqlInjectionMatchTuple', you delete the
---     existing object and add a new one.
--- -   'FieldToMatch': The part of web requests that you want AWS WAF to
---     inspect and, if you want AWS WAF to inspect a header, the name of
---     the header.
--- -   'TextTransformation': Which text transformation, if any, to perform
---     on the web request before inspecting the request for snippets of
---     malicious SQL code.
+-- -   'Action': Whether to insert the object into or delete the object from the array. To change a 'SqlInjectionMatchTuple', you delete the existing object and add a new one.
+-- -   'FieldToMatch': The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to inspect a header, the name of the header.
+-- -   'TextTransformation': Which text transformation, if any, to perform on the web request before inspecting the request for snippets of malicious SQL code.
 --
--- You use 'SqlInjectionMatchSet' objects to specify which CloudFront
--- requests you want to allow, block, or count. For example, if you\'re
--- receiving requests that contain snippets of SQL code in the query string
--- and you want to block the requests, you can create a
--- 'SqlInjectionMatchSet' with the applicable settings, and then configure
--- AWS WAF to block the requests.
+-- You use 'SqlInjectionMatchSet' objects to specify which CloudFront requests you want to allow, block, or count. For example, if you\'re receiving requests that contain snippets of SQL code in the query string and you want to block the requests, you can create a 'SqlInjectionMatchSet' with the applicable settings, and then configure AWS WAF to block the requests.
 --
--- To create and configure a 'SqlInjectionMatchSet', perform the following
--- steps:
+-- To create and configure a 'SqlInjectionMatchSet', perform the following steps:
 --
 -- 1.  Submit a < CreateSqlInjectionMatchSet> request.
--- 2.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of an < UpdateIPSet> request.
--- 3.  Submit an 'UpdateSqlInjectionMatchSet' request to specify the parts
---     of web requests that you want AWS WAF to inspect for snippets of SQL
---     code.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateIPSet> request.
+-- 3.  Submit an 'UpdateSqlInjectionMatchSet' request to specify the parts of web requests that you want AWS WAF to inspect for snippets of SQL code.
 --
--- For more information about how to use the AWS WAF API to allow or block
--- HTTP requests, see the
--- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.UpdateSqlInjectionMatchSet
     (
     -- * Creating a Request
@@ -106,9 +87,7 @@ updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
     , _usimsUpdates = mempty
     }
 
--- | The 'SqlInjectionMatchSetId' of the 'SqlInjectionMatchSet' that you want
--- to update. 'SqlInjectionMatchSetId' is returned by
--- < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
+-- | The 'SqlInjectionMatchSetId' of the 'SqlInjectionMatchSet' that you want to update. 'SqlInjectionMatchSetId' is returned by < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
 usimsSqlInjectionMatchSetId :: Lens' UpdateSqlInjectionMatchSet Text
 usimsSqlInjectionMatchSetId = lens _usimsSqlInjectionMatchSetId (\ s a -> s{_usimsSqlInjectionMatchSetId = a});
 
@@ -116,14 +95,10 @@ usimsSqlInjectionMatchSetId = lens _usimsSqlInjectionMatchSetId (\ s a -> s{_usi
 usimsChangeToken :: Lens' UpdateSqlInjectionMatchSet Text
 usimsChangeToken = lens _usimsChangeToken (\ s a -> s{_usimsChangeToken = a});
 
--- | An array of 'SqlInjectionMatchSetUpdate' objects that you want to insert
--- into or delete from a < SqlInjectionMatchSet>. For more information, see
--- the applicable data types:
+-- | An array of 'SqlInjectionMatchSetUpdate' objects that you want to insert into or delete from a < SqlInjectionMatchSet>. For more information, see the applicable data types:
 --
--- -   < SqlInjectionMatchSetUpdate>: Contains 'Action' and
---     'SqlInjectionMatchTuple'
--- -   < SqlInjectionMatchTuple>: Contains 'FieldToMatch' and
---     'TextTransformation'
+-- -   < SqlInjectionMatchSetUpdate>: Contains 'Action' and 'SqlInjectionMatchTuple'
+-- -   < SqlInjectionMatchTuple>: Contains 'FieldToMatch' and 'TextTransformation'
 -- -   < FieldToMatch>: Contains 'Data' and 'Type'
 usimsUpdates :: Lens' UpdateSqlInjectionMatchSet [SqlInjectionMatchSetUpdate]
 usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _Coerce;
@@ -192,10 +167,7 @@ updateSqlInjectionMatchSetResponse pResponseStatus_ =
     , _usimsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the
--- 'UpdateSqlInjectionMatchSet' request. You can also use this value to
--- query the status of the request. For more information, see
--- < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'UpdateSqlInjectionMatchSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 usimsrsChangeToken :: Lens' UpdateSqlInjectionMatchSetResponse (Maybe Text)
 usimsrsChangeToken = lens _usimsrsChangeToken (\ s a -> s{_usimsrsChangeToken = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a statement to a topic\'s access control policy, granting access
--- for the specified AWS accounts to the specified actions.
+-- Adds a statement to a topic\'s access control policy, granting access for the specified AWS accounts to the specified actions.
 module Network.AWS.SNS.AddPermission
     (
     -- * Creating a Request
@@ -82,9 +81,7 @@ apTopicARN = lens _apTopicARN (\ s a -> s{_apTopicARN = a});
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 
--- | The AWS account IDs of the users (principals) who will be given access
--- to the specified actions. The users must have AWS accounts, but do not
--- need to be signed up for this service.
+-- | The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
 apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
 

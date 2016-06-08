@@ -42,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'ListTags' operation. Specify the
--- 'ARN' for the Elasticsearch domain to which the tags are attached that
--- you want to view are attached.
+-- | Container for the parameters to the 'ListTags' operation. Specify the 'ARN' for the Elasticsearch domain to which the tags are attached that you want to view are attached.
 --
 -- /See:/ 'listTags' smart constructor.
 newtype ListTags = ListTags'
@@ -64,8 +62,7 @@ listTags pARN_ =
     { _ltARN = pARN_
     }
 
--- | Specify the 'ARN' for the Elasticsearch domain to which the tags are
--- attached that you want to view.
+-- | Specify the 'ARN' for the Elasticsearch domain to which the tags are attached that you want to view.
 ltARN :: Lens' ListTags Text
 ltARN = lens _ltARN (\ s a -> s{_ltARN = a});
 
@@ -91,8 +88,7 @@ instance ToPath ListTags where
 instance ToQuery ListTags where
         toQuery ListTags'{..} = mconcat ["arn" =: _ltARN]
 
--- | The result of a 'ListTags' operation. Contains tags for all requested
--- Elasticsearch domains.
+-- | The result of a 'ListTags' operation. Contains tags for all requested Elasticsearch domains.
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'

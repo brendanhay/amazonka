@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress
--- to a cache security group. Applications using ElastiCache must be
--- running on Amazon EC2, and Amazon EC2 security groups are used as the
--- authorization mechanism.
+-- The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.
 --
--- You cannot authorize ingress from an Amazon EC2 security group in one
--- region to an ElastiCache cluster in another region.
+-- You cannot authorize ingress from an Amazon EC2 security group in one region to an ElastiCache cluster in another region.
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Creating a Request
@@ -84,14 +80,11 @@ authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupNam
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiCacheSecurityGroupName = lens _acsgiCacheSecurityGroupName (\ s a -> s{_acsgiCacheSecurityGroupName = a});
 
--- | The Amazon EC2 security group to be authorized for ingress to the cache
--- security group.
+-- | The Amazon EC2 security group to be authorized for ingress to the cache security group.
 acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
 
--- | The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- | The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
 

@@ -133,13 +133,11 @@ ecr =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified layers could not be found, or the specified layer is not
--- valid for this repository.
+-- | The specified layers could not be found, or the specified layer is not valid for this repository.
 _LayersNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayersNotFoundException = _ServiceError . hasCode "LayersNotFoundException"
 
--- | The specified parameter is invalid. Review the available parameters for
--- the API request.
+-- | The specified parameter is invalid. Review the available parameters for the API request.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
@@ -153,14 +151,12 @@ _LayerAlreadyExistsException =
 _ServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerException = _ServiceError . hasCode "ServerException"
 
--- | The specified layer is not available because it is not associated with
--- an image. Unassociated image layers may be cleaned up at any time.
+-- | The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
 _LayerInaccessibleException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayerInaccessibleException =
     _ServiceError . hasCode "LayerInaccessibleException"
 
--- | The layer digest calculation performed by Amazon ECR upon receipt of the
--- image layer does not match the digest specified.
+-- | The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
 _InvalidLayerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLayerException = _ServiceError . hasCode "InvalidLayerException"
 
@@ -169,32 +165,26 @@ _LayerPartTooSmallException :: AsError a => Getting (First ServiceError) a Servi
 _LayerPartTooSmallException =
     _ServiceError . hasCode "LayerPartTooSmallException"
 
--- | The specified image has already been pushed, and there are no changes to
--- the manifest or image tag since the last push.
+-- | The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.
 _ImageAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ImageAlreadyExistsException =
     _ServiceError . hasCode "ImageAlreadyExistsException"
 
--- | The specified repository could not be found. Check the spelling of the
--- specified repository and ensure that you are performing operations on
--- the correct registry.
+-- | The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
 _RepositoryNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNotFoundException =
     _ServiceError . hasCode "RepositoryNotFoundException"
 
--- | The upload could not be found, or the specified upload id is not valid
--- for this repository.
+-- | The upload could not be found, or the specified upload id is not valid for this repository.
 _UploadNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _UploadNotFoundException = _ServiceError . hasCode "UploadNotFoundException"
 
--- | The layer part size is not valid, or the first byte specified is not
--- consecutive to the last byte of a previous layer part upload.
+-- | The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
 _InvalidLayerPartException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLayerPartException =
     _ServiceError . hasCode "InvalidLayerPartException"
 
--- | The specified repository contains images. To delete a repository that
--- contains images, you must force the deletion with the 'force' parameter.
+-- | The specified repository contains images. To delete a repository that contains images, you must force the deletion with the 'force' parameter.
 _RepositoryNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNotEmptyException =
     _ServiceError . hasCode "RepositoryNotEmptyException"
@@ -204,8 +194,7 @@ _RepositoryAlreadyExistsException :: AsError a => Getting (First ServiceError) a
 _RepositoryAlreadyExistsException =
     _ServiceError . hasCode "RepositoryAlreadyExistsException"
 
--- | The specified repository and registry combination does not have an
--- associated repository policy.
+-- | The specified repository and registry combination does not have an associated repository policy.
 _RepositoryPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryPolicyNotFoundException =
     _ServiceError . hasCode "RepositoryPolicyNotFoundException"
@@ -214,9 +203,6 @@ _RepositoryPolicyNotFoundException =
 _EmptyUploadException :: AsError a => Getting (First ServiceError) a ServiceError
 _EmptyUploadException = _ServiceError . hasCode "EmptyUploadException"
 
--- | The operation did not succeed because it would have exceeded a service
--- limit for your account. For more information, see
--- <http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html Amazon ECR Default Service Limits>
--- in the Amazon EC2 Container Registry User Guide.
+-- | The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html Amazon ECR Default Service Limits> in the Amazon EC2 Container Registry User Guide.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

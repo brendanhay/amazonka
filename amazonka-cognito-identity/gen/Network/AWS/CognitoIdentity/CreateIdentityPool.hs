@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new identity pool. The identity pool is a store of user
--- identity information that is specific to your AWS account. The limit on
--- identity pools is 60 per account. The keys for 'SupportedLoginProviders'
--- are as follows:
+-- Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for 'SupportedLoginProviders' are as follows:
 --
 -- -   Facebook: 'graph.facebook.com'
 -- -   Google: 'accounts.google.com'
@@ -108,14 +105,9 @@ createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
 
--- | The \"domain\" by which Cognito will refer to your users. This name acts
--- as a placeholder that allows your backend and the Cognito service to
--- communicate about the developer provider. For the
--- 'DeveloperProviderName', you can use letters as well as period ('.'),
--- underscore ('_'), and dash ('-').
+-- | The \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the 'DeveloperProviderName', you can use letters as well as period ('.'), underscore ('_'), and dash ('-').
 --
--- Once you have set a developer provider name, you cannot change it.
--- Please take care in setting this parameter.
+-- Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a});
 

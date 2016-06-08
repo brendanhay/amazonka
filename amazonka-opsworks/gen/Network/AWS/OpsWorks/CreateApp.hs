@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an app for a specified stack. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps>.
+-- Creates an app for a specified stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.CreateApp
     (
     -- * Creating a Request
@@ -128,22 +123,11 @@ createApp pStackId_ pName_ pType_ =
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
 caSSLConfiguration = lens _caSSLConfiguration (\ s a -> s{_caSSLConfiguration = a});
 
--- | An array of 'EnvironmentVariable' objects that specify environment
--- variables to be associated with the app. After you deploy the app, these
--- variables are defined on the associated app server instance. For more
--- information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+-- | An array of 'EnvironmentVariable' objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- There is no specific limit on the number of environment variables.
--- However, the size of the associated data structure - which includes the
--- variables\' names, values, and protected flag values - cannot exceed 10
--- KB (10240 Bytes). This limit should accommodate most if not all use
--- cases. Exceeding it will cause an exception with the message,
--- \"Environment: is too large (maximum is 10KB).\"
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, \"Environment: is too large (maximum is 10KB).\"
 --
--- This parameter is supported only by Chef 11.10 stacks. If you have
--- specified one or more environment variables, you cannot modify the
--- stack\'s Chef version.
+-- This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack\'s Chef version.
 caEnvironment :: Lens' CreateApp [EnvironmentVariable]
 caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default . _Coerce;
 
@@ -163,13 +147,11 @@ caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default 
 caAppSource :: Lens' CreateApp (Maybe Source)
 caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a});
 
--- | One or more user-defined key\/value pairs to be added to the stack
--- attributes.
+-- | One or more user-defined key\/value pairs to be added to the stack attributes.
 caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _Map;
 
--- | The app virtual host settings, with multiple domains separated by
--- commas. For example: '\'www.example.com, example.com\''
+-- | The app virtual host settings, with multiple domains separated by commas. For example: '\'www.example.com, example.com\''
 caDomains :: Lens' CreateApp [Text]
 caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default . _Coerce;
 
@@ -185,11 +167,7 @@ caStackId = lens _caStackId (\ s a -> s{_caStackId = a});
 caName :: Lens' CreateApp Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | The app type. Each supported type is associated with a particular layer.
--- For example, PHP applications are associated with a PHP layer. AWS
--- OpsWorks deploys an application to those instances that are members of
--- the corresponding layer. If your app isn\'t one of the standard types,
--- or you prefer to implement your own Deploy recipes, specify 'other'.
+-- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer. If your app isn\'t one of the standard types, or you prefer to implement your own Deploy recipes, specify 'other'.
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\ s a -> s{_caType = a});
 

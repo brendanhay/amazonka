@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given a list of identities (email addresses and\/or domains), returns
--- the verification status and (for domain identities) the verification
--- token for each identity.
+-- Given a list of identities (email addresses and\/or domains), returns the verification status and (for domain identities) the verification token for each identity.
 --
--- This action is throttled at one request per second and can only get
--- verification attributes for up to 100 identities at a time.
+-- This action is throttled at one request per second and can only get verification attributes for up to 100 identities at a time.
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Creating a Request

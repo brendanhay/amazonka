@@ -21,8 +21,7 @@ import           Network.AWS.DMS.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Describes a quota for an AWS account, for example, the number of
--- replication instances allowed.
+-- | Describes a quota for an AWS account, for example, the number of replication instances allowed.
 --
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
@@ -148,19 +147,15 @@ cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 cReplicationInstanceARN :: Lens' Connection (Maybe Text)
 cReplicationInstanceARN = lens _cReplicationInstanceARN (\ s a -> s{_cReplicationInstanceARN = a});
 
--- | The identifier of the endpoint. Identifiers must begin with a letter;
--- must contain only ASCII letters, digits, and hyphens; and must not end
--- with a hyphen or contain two consecutive hyphens.
+-- | The identifier of the endpoint. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 cEndpointIdentifier :: Lens' Connection (Maybe Text)
 cEndpointIdentifier = lens _cEndpointIdentifier (\ s a -> s{_cEndpointIdentifier = a});
 
--- | The replication instance identifier. This parameter is stored as a
--- lowercase string.
+-- | The replication instance identifier. This parameter is stored as a lowercase string.
 cReplicationInstanceIdentifier :: Lens' Connection (Maybe Text)
 cReplicationInstanceIdentifier = lens _cReplicationInstanceIdentifier (\ s a -> s{_cReplicationInstanceIdentifier = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 cEndpointARN :: Lens' Connection (Maybe Text)
 cEndpointARN = lens _cEndpointARN (\ s a -> s{_cEndpointARN = a});
 
@@ -264,11 +259,7 @@ eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
 eEngineName :: Lens' Endpoint (Maybe Text)
 eEngineName = lens _eEngineName (\ s a -> s{_eEngineName = a});
 
--- | The KMS key identifier that will be used to encrypt the connection
--- parameters. If you do not specify a value for the KmsKeyId parameter,
--- then AWS DMS will use your default encryption key. AWS KMS creates the
--- default encryption key for your AWS account. Your AWS account has a
--- different default encryption key for each AWS region.
+-- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 eKMSKeyId :: Lens' Endpoint (Maybe Text)
 eKMSKeyId = lens _eKMSKeyId (\ s a -> s{_eKMSKeyId = a});
 
@@ -276,14 +267,11 @@ eKMSKeyId = lens _eKMSKeyId (\ s a -> s{_eKMSKeyId = a});
 eDatabaseName :: Lens' Endpoint (Maybe Text)
 eDatabaseName = lens _eDatabaseName (\ s a -> s{_eDatabaseName = a});
 
--- | The database endpoint identifier. Identifiers must begin with a letter;
--- must contain only ASCII letters, digits, and hyphens; and must not end
--- with a hyphen or contain two consecutive hyphens.
+-- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 eEndpointIdentifier :: Lens' Endpoint (Maybe Text)
 eEndpointIdentifier = lens _eEndpointIdentifier (\ s a -> s{_eEndpointIdentifier = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 eEndpointARN :: Lens' Endpoint (Maybe Text)
 eEndpointARN = lens _eEndpointARN (\ s a -> s{_eEndpointARN = a});
 
@@ -397,30 +385,25 @@ orderableReplicationInstance =
 oriEngineVersion :: Lens' OrderableReplicationInstance (Maybe Text)
 oriEngineVersion = lens _oriEngineVersion (\ s a -> s{_oriEngineVersion = a});
 
--- | The minimum amount of storage (in gigabytes) that can be allocated for
--- the replication instance.
+-- | The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 oriMinAllocatedStorage :: Lens' OrderableReplicationInstance (Maybe Int)
 oriMinAllocatedStorage = lens _oriMinAllocatedStorage (\ s a -> s{_oriMinAllocatedStorage = a});
 
--- | The amount of storage (in gigabytes) that is allocated for the
--- replication instance.
+-- | The amount of storage (in gigabytes) that is allocated for the replication instance.
 oriIncludedAllocatedStorage :: Lens' OrderableReplicationInstance (Maybe Int)
 oriIncludedAllocatedStorage = lens _oriIncludedAllocatedStorage (\ s a -> s{_oriIncludedAllocatedStorage = a});
 
--- | The minimum amount of storage (in gigabytes) that can be allocated for
--- the replication instance.
+-- | The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 oriMaxAllocatedStorage :: Lens' OrderableReplicationInstance (Maybe Int)
 oriMaxAllocatedStorage = lens _oriMaxAllocatedStorage (\ s a -> s{_oriMaxAllocatedStorage = a});
 
 -- | The compute and memory capacity of the replication instance.
 --
--- Valid Values:
--- 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
 oriReplicationInstanceClass :: Lens' OrderableReplicationInstance (Maybe Text)
 oriReplicationInstanceClass = lens _oriReplicationInstanceClass (\ s a -> s{_oriReplicationInstanceClass = a});
 
--- | The default amount of storage (in gigabytes) that is allocated for the
--- replication instance.
+-- | The default amount of storage (in gigabytes) that is allocated for the replication instance.
 oriDefaultAllocatedStorage :: Lens' OrderableReplicationInstance (Maybe Int)
 oriDefaultAllocatedStorage = lens _oriDefaultAllocatedStorage (\ s a -> s{_oriDefaultAllocatedStorage = a});
 
@@ -490,8 +473,7 @@ rssLastRefreshDate = lens _rssLastRefreshDate (\ s a -> s{_rssLastRefreshDate = 
 rssReplicationInstanceARN :: Lens' RefreshSchemasStatus (Maybe Text)
 rssReplicationInstanceARN = lens _rssReplicationInstanceARN (\ s a -> s{_rssReplicationInstanceARN = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rssEndpointARN :: Lens' RefreshSchemasStatus (Maybe Text)
 rssEndpointARN = lens _rssEndpointARN (\ s a -> s{_rssEndpointARN = a});
 
@@ -594,15 +576,11 @@ replicationInstance =
 riEngineVersion :: Lens' ReplicationInstance (Maybe Text)
 riEngineVersion = lens _riEngineVersion (\ s a -> s{_riEngineVersion = a});
 
--- | Specifies the accessibility options for the replication instance. A
--- value of 'true' represents an instance with a public IP address. A value
--- of 'false' represents an instance with a private IP address. The default
--- value is 'true'.
+-- | Specifies the accessibility options for the replication instance. A value of 'true' represents an instance with a public IP address. A value of 'false' represents an instance with a private IP address. The default value is 'true'.
 riPubliclyAccessible :: Lens' ReplicationInstance (Maybe Bool)
 riPubliclyAccessible = lens _riPubliclyAccessible (\ s a -> s{_riPubliclyAccessible = a});
 
--- | Boolean value indicating if minor version upgrades will be automatically
--- applied to the instance.
+-- | Boolean value indicating if minor version upgrades will be automatically applied to the instance.
 riAutoMinorVersionUpgrade :: Lens' ReplicationInstance (Maybe Bool)
 riAutoMinorVersionUpgrade = lens _riAutoMinorVersionUpgrade (\ s a -> s{_riAutoMinorVersionUpgrade = a});
 
@@ -626,11 +604,7 @@ riPreferredMaintenanceWindow = lens _riPreferredMaintenanceWindow (\ s a -> s{_r
 riReplicationInstancePrivateIPAddress :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstancePrivateIPAddress = lens _riReplicationInstancePrivateIPAddress (\ s a -> s{_riReplicationInstancePrivateIPAddress = a});
 
--- | The KMS key identifier that is used to encrypt the content on the
--- replication instance. If you do not specify a value for the KmsKeyId
--- parameter, then AWS DMS will use your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS region.
+-- | The KMS key identifier that is used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 riKMSKeyId :: Lens' ReplicationInstance (Maybe Text)
 riKMSKeyId = lens _riKMSKeyId (\ s a -> s{_riKMSKeyId = a});
 
@@ -642,8 +616,7 @@ riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = 
 riReplicationInstanceARN :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceARN = lens _riReplicationInstanceARN (\ s a -> s{_riReplicationInstanceARN = a});
 
--- | The amount of storage (in gigabytes) that is allocated for the
--- replication instance.
+-- | The amount of storage (in gigabytes) that is allocated for the replication instance.
 riAllocatedStorage :: Lens' ReplicationInstance (Maybe Int)
 riAllocatedStorage = lens _riAllocatedStorage (\ s a -> s{_riAllocatedStorage = a});
 
@@ -653,13 +626,11 @@ riReplicationInstancePublicIPAddress = lens _riReplicationInstancePublicIPAddres
 
 -- | The compute and memory capacity of the replication instance.
 --
--- Valid Values:
--- 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
 riReplicationInstanceClass :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceClass = lens _riReplicationInstanceClass (\ s a -> s{_riReplicationInstanceClass = a});
 
--- | The replication instance identifier. This parameter is stored as a
--- lowercase string.
+-- | The replication instance identifier. This parameter is stored as a lowercase string.
 --
 -- Constraints:
 --
@@ -730,15 +701,13 @@ replicationPendingModifiedValues =
 rpmvEngineVersion :: Lens' ReplicationPendingModifiedValues (Maybe Text)
 rpmvEngineVersion = lens _rpmvEngineVersion (\ s a -> s{_rpmvEngineVersion = a});
 
--- | The amount of storage (in gigabytes) that is allocated for the
--- replication instance.
+-- | The amount of storage (in gigabytes) that is allocated for the replication instance.
 rpmvAllocatedStorage :: Lens' ReplicationPendingModifiedValues (Maybe Int)
 rpmvAllocatedStorage = lens _rpmvAllocatedStorage (\ s a -> s{_rpmvAllocatedStorage = a});
 
 -- | The compute and memory capacity of the replication instance.
 --
--- Valid Values:
--- 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
 rpmvReplicationInstanceClass :: Lens' ReplicationPendingModifiedValues (Maybe Text)
 rpmvReplicationInstanceClass = lens _rpmvReplicationInstanceClass (\ s a -> s{_rpmvReplicationInstanceClass = a});
 
@@ -896,8 +865,7 @@ rtReplicationTaskSettings = lens _rtReplicationTaskSettings (\ s a -> s{_rtRepli
 rtStatus :: Lens' ReplicationTask (Maybe Text)
 rtStatus = lens _rtStatus (\ s a -> s{_rtStatus = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rtTargetEndpointARN :: Lens' ReplicationTask (Maybe Text)
 rtTargetEndpointARN = lens _rtTargetEndpointARN (\ s a -> s{_rtTargetEndpointARN = a});
 
@@ -915,8 +883,7 @@ rtReplicationTaskIdentifier = lens _rtReplicationTaskIdentifier (\ s a -> s{_rtR
 rtReplicationTaskStartDate :: Lens' ReplicationTask (Maybe UTCTime)
 rtReplicationTaskStartDate = lens _rtReplicationTaskStartDate (\ s a -> s{_rtReplicationTaskStartDate = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rtSourceEndpointARN :: Lens' ReplicationTask (Maybe Text)
 rtSourceEndpointARN = lens _rtSourceEndpointARN (\ s a -> s{_rtSourceEndpointARN = a});
 
@@ -936,8 +903,7 @@ rtMigrationType = lens _rtMigrationType (\ s a -> s{_rtMigrationType = a});
 rtReplicationTaskARN :: Lens' ReplicationTask (Maybe Text)
 rtReplicationTaskARN = lens _rtReplicationTaskARN (\ s a -> s{_rtReplicationTaskARN = a});
 
--- | The statistics for the task, including elapsed time, tables loaded, and
--- table errors.
+-- | The statistics for the task, including elapsed time, tables loaded, and table errors.
 rtReplicationTaskStats :: Lens' ReplicationTask (Maybe ReplicationTaskStats)
 rtReplicationTaskStats = lens _rtReplicationTaskStats (\ s a -> s{_rtReplicationTaskStats = a});
 
@@ -1212,8 +1178,7 @@ tsSchemaName = lens _tsSchemaName (\ s a -> s{_tsSchemaName = a});
 tsTableState :: Lens' TableStatistics (Maybe Text)
 tsTableState = lens _tsTableState (\ s a -> s{_tsTableState = a});
 
--- | The Data Definition Language (DDL) used to build and modify the
--- structure of your tables.
+-- | The Data Definition Language (DDL) used to build and modify the structure of your tables.
 tsDdls :: Lens' TableStatistics (Maybe Integer)
 tsDdls = lens _tsDdls (\ s a -> s{_tsDdls = a});
 
@@ -1272,19 +1237,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | A value is the optional value of the tag. The string value can be from 1
--- to 256 Unicode characters in length and cannot be prefixed with \"aws:\"
--- or \"dms:\". The string can only contain only the set of Unicode
--- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
--- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A key is the required name of the tag. The string value can be from 1 to
--- 128 Unicode characters in length and cannot be prefixed with \"aws:\" or
--- \"dms:\". The string can only contain only the set of Unicode letters,
--- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
--- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- | A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 

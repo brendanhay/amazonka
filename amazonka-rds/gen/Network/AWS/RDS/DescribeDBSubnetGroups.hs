@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
--- specified, the list will contain only the descriptions of the specified
--- DBSubnetGroup.
+-- Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.
 --
--- For an overview of CIDR ranges, go to the
--- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
+-- For an overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSubnetGroups
@@ -93,17 +90,11 @@ ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGro
 ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
 ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- DescribeDBSubnetGroups request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -153,8 +144,7 @@ instance ToQuery DescribeDBSubnetGroups where
                "Marker" =: _ddsgMarker,
                "MaxRecords" =: _ddsgMaxRecords]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBSubnetGroups> action.
+-- | Contains the result of a successful invocation of the < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
@@ -186,9 +176,7 @@ describeDBSubnetGroupsResponse pResponseStatus_ =
 ddsgrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGroups = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddsgrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 

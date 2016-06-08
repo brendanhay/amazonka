@@ -48,8 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a < Deployments>
--- collection.
+-- | Requests Amazon API Gateway to get information about a < Deployments> collection.
 --
 -- /See:/ 'getDeployments' smart constructor.
 data GetDeployments = GetDeployments'
@@ -77,19 +76,15 @@ getDeployments pRestAPIId_ =
     , _gdRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of < Deployment> resources in the collection to get
--- information about. The default limit is 25. It should be an integer
--- between 1 - 500.
+-- | The maximum number of < Deployment> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
 gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a});
 
--- | The position of the current < Deployment> resource in the collection to
--- get information about.
+-- | The position of the current < Deployment> resource in the collection to get information about.
 gdPosition :: Lens' GetDeployments (Maybe Text)
 gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
 
--- | The identifier of the < RestApi> resource for the collection of
--- < Deployment> resources to get information about.
+-- | The identifier of the < RestApi> resource for the collection of < Deployment> resources to get information about.
 gdRestAPIId :: Lens' GetDeployments Text
 gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
 
@@ -130,10 +125,7 @@ instance ToQuery GetDeployments where
           = mconcat
               ["limit" =: _gdLimit, "position" =: _gdPosition]
 
--- | Represents a collection resource that contains zero or more references
--- to your existing deployments, and links that guide you on ways to
--- interact with your collection. The collection offers a paginated view of
--- the contained deployments.
+-- | Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on ways to interact with your collection. The collection offers a paginated view of the contained deployments.
 --
 -- /See:/ 'getDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'
@@ -161,8 +153,7 @@ getDeploymentsResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < Deployment> resources in the collection of
--- deployment resources.
+-- | The current page of any < Deployment> resources in the collection of deployment resources.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
 gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;
 

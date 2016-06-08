@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evaluation results for the specified AWS resource. The
--- results indicate which AWS Config rules were used to evaluate the
--- resource, when each rule was last used, and whether the resource
--- complies with each rule.
+-- Returns the evaluation results for the specified AWS resource. The results indicate which AWS Config rules were used to evaluate the resource, when each rule was last used, and whether the resource complies with each rule.
 module Network.AWS.Config.GetComplianceDetailsByResource
     (
     -- * Creating a Request
@@ -82,13 +79,11 @@ getComplianceDetailsByResource pResourceType_ pResourceId_ =
 
 -- | Filters the results by compliance.
 --
--- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
--- 'NOT_APPLICABLE'.
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE'.
 gcdbrComplianceTypes :: Lens' GetComplianceDetailsByResource [ComplianceType]
 gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\ s a -> s{_gcdbrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get
--- the next page of results in a paginated response.
+-- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
 gcdbrNextToken :: Lens' GetComplianceDetailsByResource (Maybe Text)
 gcdbrNextToken = lens _gcdbrNextToken (\ s a -> s{_gcdbrNextToken = a});
 
@@ -169,13 +164,11 @@ getComplianceDetailsByResourceResponse pResponseStatus_ =
     , _gcdbrrsResponseStatus = pResponseStatus_
     }
 
--- | Indicates whether the specified AWS resource complies each AWS Config
--- rule.
+-- | Indicates whether the specified AWS resource complies each AWS Config rule.
 gcdbrrsEvaluationResults :: Lens' GetComplianceDetailsByResourceResponse [EvaluationResult]
 gcdbrrsEvaluationResults = lens _gcdbrrsEvaluationResults (\ s a -> s{_gcdbrrsEvaluationResults = a}) . _Default . _Coerce;
 
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 gcdbrrsNextToken :: Lens' GetComplianceDetailsByResourceResponse (Maybe Text)
 gcdbrrsNextToken = lens _gcdbrrsNextToken (\ s a -> s{_gcdbrrsNextToken = a});
 

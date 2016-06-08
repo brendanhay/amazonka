@@ -66,8 +66,7 @@ describeFindings pFindingARNs_ =
     , _dfFindingARNs = _List1 # pFindingARNs_
     }
 
--- | The locale into which you want to translate a finding description,
--- recommendation, and the short description that identifies the finding.
+-- | The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
 dfLocale :: Lens' DescribeFindings (Maybe Locale)
 dfLocale = lens _dfLocale (\ s a -> s{_dfLocale = a});
 
@@ -145,8 +144,7 @@ dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = 
 dfrsFindings :: Lens' DescribeFindingsResponse [Finding]
 dfrsFindings = lens _dfrsFindings (\ s a -> s{_dfrsFindings = a}) . _Coerce;
 
--- | Finding details that cannot be described. An error code is provided for
--- each failed item.
+-- | Finding details that cannot be described. An error code is provided for each failed item.
 dfrsFailedItems :: Lens' DescribeFindingsResponse (HashMap Text FailedItemDetails)
 dfrsFailedItems = lens _dfrsFailedItems (\ s a -> s{_dfrsFailedItems = a}) . _Map;
 

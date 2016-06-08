@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Restores a DB cluster to an arbitrary point in time. Users can restore
--- to any point in time before 'LatestRestorableTime' for up to
--- 'BackupRetentionPeriod' days. The target DB cluster is created from the
--- source DB cluster with the same configuration as the original DB
--- cluster, except that the new DB cluster is created with the default DB
--- security group.
+-- Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before 'LatestRestorableTime' for up to 'BackupRetentionPeriod' days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.RestoreDBClusterToPointInTime
     (
     -- * Creating a Request
@@ -117,51 +110,35 @@ restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ 
     , _rdctpitSourceDBClusterIdentifier = pSourceDBClusterIdentifier_
     }
 
--- | A value that is set to 'true' to restore the DB cluster to the latest
--- restorable backup time, and 'false' otherwise.
+-- | A value that is set to 'true' to restore the DB cluster to the latest restorable backup time, and 'false' otherwise.
 --
 -- Default: 'false'
 --
--- Constraints: Cannot be specified if 'RestoreToTime' parameter is
--- provided.
+-- Constraints: Cannot be specified if 'RestoreToTime' parameter is provided.
 rdctpitUseLatestRestorableTime :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
 rdctpitUseLatestRestorableTime = lens _rdctpitUseLatestRestorableTime (\ s a -> s{_rdctpitUseLatestRestorableTime = a});
 
 -- | The DB subnet group name to use for the new DB cluster.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 rdctpitDBSubnetGroupName :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitDBSubnetGroupName = lens _rdctpitDBSubnetGroupName (\ s a -> s{_rdctpitDBSubnetGroupName = a});
 
--- | The KMS key identifier to use when restoring an encrypted DB cluster
--- from an encrypted DB cluster.
+-- | The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.
 --
--- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are restoring a DB cluster with the same AWS
--- account that owns the KMS encryption key used to encrypt the new DB
--- cluster, then you can use the KMS key alias instead of the ARN for the
--- KMS encryption key.
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.
 --
--- You can restore to a new DB cluster and encrypt the new DB cluster with
--- a KMS key that is different than the KMS key used to encrypt the source
--- DB cluster. The new DB cluster will be encrypted with the KMS key
--- identified by the 'KmsKeyId' parameter.
+-- You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster will be encrypted with the KMS key identified by the 'KmsKeyId' parameter.
 --
--- If you do not specify a value for the 'KmsKeyId' parameter, then the
--- following will occur:
+-- If you do not specify a value for the 'KmsKeyId' parameter, then the following will occur:
 --
--- -   If the DB cluster is encrypted, then the restored DB cluster is
---     encrypted using the KMS key that was used to encrypt the source DB
---     cluster.
+-- -   If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.
 --
--- If the DB cluster is not encrypted, then the restored DB cluster is not
--- encrypted.
+-- If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.
 --
--- If 'DBClusterIdentifier' refers to a DB cluster that is note encrypted,
--- then the restore request is rejected.
+-- If 'DBClusterIdentifier' refers to a DB cluster that is note encrypted, then the restore request is rejected.
 rdctpitKMSKeyId :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitKMSKeyId = lens _rdctpitKMSKeyId (\ s a -> s{_rdctpitKMSKeyId = a});
 
@@ -175,8 +152,7 @@ rdctpitOptionGroupName = lens _rdctpitOptionGroupName (\ s a -> s{_rdctpitOption
 
 -- | The date and time to restore the DB cluster to.
 --
--- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
--- format
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
 --
 -- Constraints:
 --

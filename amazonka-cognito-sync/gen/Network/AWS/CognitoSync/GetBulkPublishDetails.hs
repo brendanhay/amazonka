@@ -20,9 +20,7 @@
 --
 -- Get the status of the last BulkPublish operation for an identity pool.
 --
--- This API can only be called with developer credentials. You cannot call
--- this API with the temporary user credentials provided by Cognito
--- Identity.
+-- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.GetBulkPublishDetails
     (
     -- * Creating a Request
@@ -70,9 +68,7 @@ getBulkPublishDetails pIdentityPoolId_ =
     { _gbpdIdentityPoolId = pIdentityPoolId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
 gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a});
 
@@ -158,19 +154,15 @@ getBulkPublishDetailsResponse pResponseStatus_ =
 gbpdrsBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 gbpdrsBulkPublishStartTime = lens _gbpdrsBulkPublishStartTime (\ s a -> s{_gbpdrsBulkPublishStartTime = a}) . mapping _Time;
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 gbpdrsIdentityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
 gbpdrsIdentityPoolId = lens _gbpdrsIdentityPoolId (\ s a -> s{_gbpdrsIdentityPoolId = a});
 
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
--- operation completed.
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
 gbpdrsBulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 gbpdrsBulkPublishCompleteTime = lens _gbpdrsBulkPublishCompleteTime (\ s a -> s{_gbpdrsBulkPublishCompleteTime = a}) . mapping _Time;
 
--- | If BulkPublishStatus is FAILED this field will contain the error message
--- that caused the bulk publish to fail.
+-- | If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
 gbpdrsFailureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
 gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMessage = a});
 
@@ -180,11 +172,9 @@ gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMess
 --
 -- IN_PROGRESS - Data is being published to the configured stream
 --
--- SUCCEEDED - All data for the identity pool has been published to the
--- configured stream
+-- SUCCEEDED - All data for the identity pool has been published to the configured stream
 --
--- FAILED - Some portion of the data has failed to publish, check
--- FailureMessage for the cause.
+-- FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
 gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 

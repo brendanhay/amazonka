@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the working storage of a gateway. This
--- operation is supported only for the gateway-stored volume architecture.
--- This operation is deprecated in cached-volumes API version (20120630).
--- Use DescribeUploadBuffer instead.
+-- Returns information about the working storage of a gateway. This operation is supported only for the gateway-stored volume architecture. This operation is deprecated in cached-volumes API version (20120630). Use DescribeUploadBuffer instead.
 --
--- Working storage is also referred to as upload buffer. You can also use
--- the DescribeUploadBuffer operation to add upload buffer to a
--- stored-volume gateway.
+-- Working storage is also referred to as upload buffer. You can also use the DescribeUploadBuffer operation to add upload buffer to a stored-volume gateway.
 --
--- The response includes disk IDs that are configured as working storage,
--- and it includes the amount of working storage allocated and used.
+-- The response includes disk IDs that are configured as working storage, and it includes the amount of working storage allocated and used.
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Creating a Request
@@ -157,20 +151,15 @@ describeWorkingStorageResponse pResponseStatus_ =
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
 
--- | An array of the gateway\'s local disk IDs that are configured as working
--- storage. Each local disk ID is specified as a string (minimum length of
--- 1 and maximum length of 300). If no local disks are configured as
--- working storage, then the DiskIds array is empty.
+-- | An array of the gateway\'s local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
 dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default . _Coerce;
 
--- | The total working storage in bytes allocated for the gateway. If no
--- working storage is configured for the gateway, this field returns 0.
+-- | The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
 dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes (\ s a -> s{_dwsrsWorkingStorageAllocatedInBytes = a});
 
--- | The total working storage in bytes in use by the gateway. If no working
--- storage is configured for the gateway, this field returns 0.
+-- | The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
 dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 

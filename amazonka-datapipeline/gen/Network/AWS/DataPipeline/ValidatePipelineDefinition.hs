@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Validates the specified pipeline definition to ensure that it is well
--- formed and can be run without error.
+-- Validates the specified pipeline definition to ensure that it is well formed and can be run without error.
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Creating a Request
@@ -92,8 +91,7 @@ vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = 
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
 vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
 
--- | The objects that define the pipeline changes to validate against the
--- pipeline.
+-- | The objects that define the pipeline changes to validate against the pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce;
 

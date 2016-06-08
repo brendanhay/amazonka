@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the name, description, and rules in a device pool given the
--- attributes and the pool ARN. Rule updates are all-or-nothing, meaning
--- they can only be updated as a whole (or not at all).
+-- Modifies the name, description, and rules in a device pool given the attributes and the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a whole (or not at all).
 module Network.AWS.DeviceFarm.UpdateDevicePool
     (
     -- * Creating a Request
@@ -79,9 +77,7 @@ updateDevicePool pArn_ =
     , _udpArn = pArn_
     }
 
--- | Represents the rules you wish to modify for the device pool. Updating
--- rules is optional; however, if you choose to update rules for your
--- request, the update will replace the existing rules.
+-- | Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 udpRules :: Lens' UpdateDevicePool [Rule]
 udpRules = lens _udpRules (\ s a -> s{_udpRules = a}) . _Default . _Coerce;
 
@@ -93,8 +89,7 @@ udpName = lens _udpName (\ s a -> s{_udpName = a});
 udpDescription :: Lens' UpdateDevicePool (Maybe Text)
 udpDescription = lens _udpDescription (\ s a -> s{_udpDescription = a});
 
--- | The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to
--- update.
+-- | The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
 udpArn :: Lens' UpdateDevicePool Text
 udpArn = lens _udpArn (\ s a -> s{_udpArn = a});
 

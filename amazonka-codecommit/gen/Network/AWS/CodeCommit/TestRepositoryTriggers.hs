@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tests the functionality of repository triggers by sending information to
--- the trigger target. If real data is available in the repository, the
--- test will send data from the last commit. If no data is available,
--- sample data will be generated.
+-- Tests the functionality of repository triggers by sending information to the trigger target. If real data is available in the repository, the test will send data from the last commit. If no data is available, sample data will be generated.
 module Network.AWS.CodeCommit.TestRepositoryTriggers
     (
     -- * Creating a Request
@@ -145,14 +142,11 @@ testRepositoryTriggersResponse pResponseStatus_ =
     , _trtrsResponseStatus = pResponseStatus_
     }
 
--- | The list of triggers that were not able to be tested. This list provides
--- the names of the triggers that could not be tested, separated by commas.
+-- | The list of triggers that were not able to be tested. This list provides the names of the triggers that could not be tested, separated by commas.
 trtrsFailedExecutions :: Lens' TestRepositoryTriggersResponse [RepositoryTriggerExecutionFailure]
 trtrsFailedExecutions = lens _trtrsFailedExecutions (\ s a -> s{_trtrsFailedExecutions = a}) . _Default . _Coerce;
 
--- | The list of triggers that were successfully tested. This list provides
--- the names of the triggers that were successfully tested, separated by
--- commas.
+-- | The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.
 trtrsSuccessfulExecutions :: Lens' TestRepositoryTriggersResponse [Text]
 trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSuccessfulExecutions = a}) . _Default . _Coerce;
 

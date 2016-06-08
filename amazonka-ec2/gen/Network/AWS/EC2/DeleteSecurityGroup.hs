@@ -20,10 +20,7 @@
 --
 -- Deletes a security group.
 --
--- If you attempt to delete a security group that is associated with an
--- instance, or is referenced by another security group, the operation
--- fails with 'InvalidGroup.InUse' in EC2-Classic or 'DependencyViolation'
--- in EC2-VPC.
+-- If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with 'InvalidGroup.InUse' in EC2-Classic or 'DependencyViolation' in EC2-VPC.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Creating a Request
@@ -77,15 +74,11 @@ deleteSecurityGroup =
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupId = lens _dsgGroupId (\ s a -> s{_dsgGroupId = a});
 
--- | [EC2-Classic, default VPC] The name of the security group. You can
--- specify either the security group name or the security group ID.
+-- | [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
 dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
 

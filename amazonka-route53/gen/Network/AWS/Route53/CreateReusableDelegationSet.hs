@@ -20,14 +20,9 @@
 --
 -- This action creates a reusable delegationSet.
 --
--- To create a new reusable delegationSet, send a 'POST' request to the
--- '\/Route 53 API version\/delegationset' resource. The request body must
--- include a document with a 'CreateReusableDelegationSetRequest' element.
--- The response returns the 'CreateReusableDelegationSetResponse' element
--- that contains metadata about the delegationSet.
+-- To create a new reusable delegationSet, send a 'POST' request to the '\/Route 53 API version\/delegationset' resource. The request body must include a document with a 'CreateReusableDelegationSetRequest' element. The response returns the 'CreateReusableDelegationSetResponse' element that contains metadata about the delegationSet.
 --
--- If the optional parameter HostedZoneId is specified, it marks the
--- delegationSet associated with that particular hosted zone as reusable.
+-- If the optional parameter HostedZoneId is specified, it marks the delegationSet associated with that particular hosted zone as reusable.
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Creating a Request
@@ -75,21 +70,13 @@ createReusableDelegationSet pCallerReference_ =
     , _crdsCallerReference = pCallerReference_
     }
 
--- | The ID of the hosted zone whose delegation set you want to mark as
--- reusable. It is an optional parameter.
+-- | The ID of the hosted zone whose delegation set you want to mark as reusable. It is an optional parameter.
 crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
 crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 
--- | A unique string that identifies the request and that allows failed
--- 'CreateReusableDelegationSet' requests to be retried without the risk of
--- executing the operation twice. You must use a unique 'CallerReference'
--- string every time you create a reusable delegation set.
--- 'CallerReference' can be any unique string; you might choose to use a
--- string that identifies your project, such as 'DNSMigration_01'.
+-- | A unique string that identifies the request and that allows failed 'CreateReusableDelegationSet' requests to be retried without the risk of executing the operation twice. You must use a unique 'CallerReference' string every time you create a reusable delegation set. 'CallerReference' can be any unique string; you might choose to use a string that identifies your project, such as 'DNSMigration_01'.
 --
--- Valid characters are any Unicode code points that are legal in an XML
--- 1.0 document. The UTF-8 encoding of the value must be less than 128
--- bytes.
+-- Valid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.
 crdsCallerReference :: Lens' CreateReusableDelegationSet Text
 crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
 

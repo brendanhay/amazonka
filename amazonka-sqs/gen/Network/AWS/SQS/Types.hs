@@ -149,8 +149,7 @@ sqs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The 'Id' of a batch entry in a batch request does not abide by the
--- specification.
+-- | The 'Id' of a batch entry in a batch request does not abide by the specification.
 _InvalidBatchEntryId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBatchEntryId =
     _ServiceError .
@@ -163,8 +162,7 @@ _TooManyEntriesInBatchRequest =
     hasStatus 400 .
     hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
 
--- | You must wait 60 seconds after deleting a queue before you can create
--- another with the same name.
+-- | You must wait 60 seconds after deleting a queue before you can create another with the same name.
 _QueueDeletedRecently :: AsError a => Getting (First ServiceError) a ServiceError
 _QueueDeletedRecently =
     _ServiceError .
@@ -196,23 +194,15 @@ _BatchRequestTooLong =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchRequestTooLong"
 
--- | The action that you requested would violate a limit. For example,
--- ReceiveMessage returns this error if the maximum number of messages
--- inflight has already been reached. < AddPermission> returns this error
--- if the maximum number of permissions for the queue has already been
--- reached.
+-- | The action that you requested would violate a limit. For example, ReceiveMessage returns this error if the maximum number of messages inflight has already been reached. < AddPermission> returns this error if the maximum number of permissions for the queue has already been reached.
 _OverLimit :: AsError a => Getting (First ServiceError) a ServiceError
 _OverLimit = _ServiceError . hasStatus 403 . hasCode "OverLimit"
 
--- | A queue already exists with this name. Amazon SQS returns this error
--- only if the request includes attributes whose values differ from those
--- of the existing queue.
+-- | A queue already exists with this name. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
 _QueueNameExists :: AsError a => Getting (First ServiceError) a ServiceError
 _QueueNameExists = _ServiceError . hasStatus 400 . hasCode "QueueAlreadyExists"
 
--- | Indicates that the specified queue previously received a 'PurgeQueue'
--- request within the last 60 seconds, the time it can take to delete the
--- messages in the queue.
+-- | Indicates that the specified queue previously received a 'PurgeQueue' request within the last 60 seconds, the time it can take to delete the messages in the queue.
 _PurgeQueueInProgress :: AsError a => Getting (First ServiceError) a ServiceError
 _PurgeQueueInProgress =
     _ServiceError .

@@ -63,8 +63,7 @@ deleteMetricFilter pLogGroupName_ pFilterName_ =
     , _delFilterName = pFilterName_
     }
 
--- | The name of the log group that is associated with the metric filter to
--- delete.
+-- | The name of the log group that is associated with the metric filter to delete.
 delLogGroupName :: Lens' DeleteMetricFilter Text
 delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a});
 

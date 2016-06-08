@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the server certificates that have the specified path prefix. If
--- none exist, the action returns an empty list.
+-- Lists the server certificates that have the specified path prefix. If none exist, the action returns an empty list.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
--- For more information about working with server certificates, including a
--- list of AWS services that can use the server certificates that you
--- manage with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
--- in the /IAM User Guide/.
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListServerCertificates
@@ -84,31 +78,19 @@ listServerCertificates =
     , _lscMaxItems = Nothing
     }
 
--- | The path prefix for filtering the results. For example:
--- '\/company\/servercerts' would get all server certificates for which the
--- path starts with '\/company\/servercerts'.
+-- | The path prefix for filtering the results. For example: '\/company\/servercerts' would get all server certificates for which the path starts with '\/company\/servercerts'.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all server certificates.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all server certificates.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\ s a -> s{_lscMaxItems = a}) . mapping _Nat;
 
@@ -184,19 +166,11 @@ listServerCertificatesResponse pResponseStatus_ =
     , _lscrsServerCertificateMetadataList = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lscrsMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
 lscrsMarker = lens _lscrsMarker (\ s a -> s{_lscrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lscrsIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrsIsTruncated = lens _lscrsIsTruncated (\ s a -> s{_lscrsIsTruncated = a});
 

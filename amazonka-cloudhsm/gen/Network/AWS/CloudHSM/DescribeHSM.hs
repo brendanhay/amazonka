@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about an HSM. You can identify the HSM by its ARN
--- or its serial number.
+-- Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request
@@ -87,13 +86,11 @@ describeHSM =
     , _dhsmHSMARN = Nothing
     }
 
--- | The serial number of the HSM. Either the /HsmArn/ or the
--- /HsmSerialNumber/ parameter must be specified.
+-- | The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
 dhsmHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMSerialNumber = lens _dhsmHSMSerialNumber (\ s a -> s{_dhsmHSMSerialNumber = a});
 
--- | The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter
--- must be specified.
+-- | The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter must be specified.
 dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 
@@ -265,8 +262,7 @@ desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
 desrsIAMRoleARN :: Lens' DescribeHSMResponse (Maybe Text)
 desrsIAMRoleARN = lens _desrsIAMRoleARN (\ s a -> s{_desrsIAMRoleARN = a});
 
--- | The identifier of the elastic network interface (ENI) attached to the
--- HSM.
+-- | The identifier of the elastic network interface (ENI) attached to the HSM.
 desrsEniId :: Lens' DescribeHSMResponse (Maybe Text)
 desrsEniId = lens _desrsEniId (\ s a -> s{_desrsEniId = a});
 

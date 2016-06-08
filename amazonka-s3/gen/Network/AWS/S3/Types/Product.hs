@@ -22,9 +22,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 import           Network.AWS.S3.Types.Sum
 
--- | Specifies the days since the initiation of an Incomplete Multipart
--- Upload that Lifecycle will wait before permanently removing all parts of
--- the upload.
+-- | Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
 --
 -- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
@@ -43,8 +41,7 @@ abortIncompleteMultipartUpload =
     { _aimuDaysAfterInitiation = Nothing
     }
 
--- | Indicates the number of days that must pass since initiation for
--- Lifecycle to abort an Incomplete Multipart Upload.
+-- | Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload.
 aimuDaysAfterInitiation :: Lens' AbortIncompleteMultipartUpload (Maybe Int)
 aimuDaysAfterInitiation = lens _aimuDaysAfterInitiation (\ s a -> s{_aimuDaysAfterInitiation = a});
 
@@ -290,8 +287,7 @@ corsRule =
     , _crAllowedOrigins = mempty
     }
 
--- | The time in seconds that your browser is to cache the preflight response
--- for the specified resource.
+-- | The time in seconds that your browser is to cache the preflight response for the specified resource.
 crMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
 crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 
@@ -299,19 +295,15 @@ crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 crAllowedHeaders :: Lens' CORSRule [Text]
 crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . _Default . _Coerce;
 
--- | One or more headers in the response that you want customers to be able
--- to access from their applications (for example, from a JavaScript
--- XMLHttpRequest object).
+-- | One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
 crExposeHeaders :: Lens' CORSRule [Text]
 crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default . _Coerce;
 
--- | Identifies HTTP methods that the domain\/origin specified in the rule is
--- allowed to execute.
+-- | Identifies HTTP methods that the domain\/origin specified in the rule is allowed to execute.
 crAllowedMethods :: Lens' CORSRule [Text]
 crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Coerce;
 
--- | One or more origins you want customers to be able to access the bucket
--- from.
+-- | One or more origins you want customers to be able to access the bucket from.
 crAllowedOrigins :: Lens' CORSRule [Text]
 crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Coerce;
 
@@ -419,8 +411,7 @@ completedPart pPartNumber_ pETag_ =
     , _cpETag = pETag_
     }
 
--- | Part number that identifies the part. This is a positive integer between
--- 1 and 10,000.
+-- | Part number that identifies the part. This is a positive integer between 1 and 10,000.
 cpPartNumber :: Lens' CompletedPart Int
 cpPartNumber = lens _cpPartNumber (\ s a -> s{_cpPartNumber = a});
 
@@ -458,22 +449,11 @@ condition =
     , _cHTTPErrorCodeReturnedEquals = Nothing
     }
 
--- | The object key name prefix when the redirect is applied. For example, to
--- redirect requests for ExamplePage.html, the key prefix will be
--- ExamplePage.html. To redirect request for all pages with the prefix
--- docs\/, the key prefix will be \/docs, which identifies all objects in
--- the docs\/ folder. Required when the parent element Condition is
--- specified and sibling HttpErrorCodeReturnedEquals is not specified. If
--- both conditions are specified, both must be true for the redirect to be
--- applied.
+-- | The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs\/, the key prefix will be \/docs, which identifies all objects in the docs\/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
 cKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cKeyPrefixEquals = lens _cKeyPrefixEquals (\ s a -> s{_cKeyPrefixEquals = a});
 
--- | The HTTP error code when the redirect is applied. In the event of an
--- error, if the error code equals this value, then the specified redirect
--- is applied. Required when parent element Condition is specified and
--- sibling KeyPrefixEquals is not specified. If both are specified, then
--- both must be true for the redirect to be applied.
+-- | The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.
 cHTTPErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
 cHTTPErrorCodeReturnedEquals = lens _cHTTPErrorCodeReturnedEquals (\ s a -> s{_cHTTPErrorCodeReturnedEquals = a});
 
@@ -587,8 +567,7 @@ createBucketConfiguration =
     { _cbcLocationConstraint = Nothing
     }
 
--- | Specifies the region where the bucket will be created. If you don\'t
--- specify a region, the bucket will be created in US Standard.
+-- | Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
 
@@ -622,8 +601,7 @@ delete' =
     , _dObjects = mempty
     }
 
--- | Element to enable quiet mode for the request. When you add this element,
--- you must set its value to true.
+-- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
 dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 
@@ -677,8 +655,7 @@ deleteMarkerEntry =
 dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
 dmeVersionId = lens _dmeVersionId (\ s a -> s{_dmeVersionId = a});
 
--- | Specifies whether the object is (true) or is not (false) the latest
--- version of an object.
+-- | Specifies whether the object is (true) or is not (false) the latest version of an object.
 dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\ s a -> s{_dmeIsLatest = a});
 
@@ -788,8 +765,7 @@ destination pBucket_ =
 dStorageClass :: Lens' Destination (Maybe StorageClass)
 dStorageClass = lens _dStorageClass (\ s a -> s{_dStorageClass = a});
 
--- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to
--- store replicas of the object identified by the rule.
+-- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 dBucket :: Lens' Destination BucketName
 dBucket = lens _dBucket (\ s a -> s{_dBucket = a});
 
@@ -840,8 +816,7 @@ instance NFData ErrorDocument
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
 
--- | Container for key value pair that defines the criteria for the filter
--- rule.
+-- | Container for key value pair that defines the criteria for the filter rule.
 --
 -- /See:/ 'filterRule' smart constructor.
 data FilterRule = FilterRule'
@@ -868,12 +843,7 @@ filterRule =
 frValue :: Lens' FilterRule (Maybe Text)
 frValue = lens _frValue (\ s a -> s{_frValue = a});
 
--- | Object key name prefix or suffix identifying one or more objects to
--- which the filtering rule applies. Maximum prefix length can be up to
--- 1,024 characters. Overlapping prefixes and suffixes are not supported.
--- For more information, go to
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
--- in the Amazon Simple Storage Service Developer Guide.
+-- | Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the Amazon Simple Storage Service Developer Guide.
 frName :: Lens' FilterRule (Maybe FilterRuleName)
 frName = lens _frName (\ s a -> s{_frName = a});
 
@@ -1024,11 +994,7 @@ indexDocument pSuffix_ =
     { _idSuffix = pSuffix_
     }
 
--- | A suffix that is appended to a request that is for a directory on the
--- website endpoint (e.g. if the suffix is index.html and you make a
--- request to samplebucket\/images\/ the data that is returned will be for
--- the object with the key name images\/index.html) The suffix must not be
--- empty and must not include a slash character.
+-- | A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket\/images\/ the data that is returned will be for the object with the key name images\/index.html) The suffix must not be empty and must not include a slash character.
 idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\ s a -> s{_idSuffix = a});
 
@@ -1068,8 +1034,7 @@ initiator =
 iDisplayName :: Lens' Initiator (Maybe Text)
 iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a});
 
--- | If the principal is an AWS account, it provides the Canonical User ID.
--- If the principal is an IAM User, it provides a user ARN value.
+-- | If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
 iId :: Lens' Initiator (Maybe Text)
 iId = lens _iId (\ s a -> s{_iId = a});
 
@@ -1122,8 +1087,7 @@ lfcId = lens _lfcId (\ s a -> s{_lfcId = a});
 lfcFilter :: Lens' LambdaFunctionConfiguration (Maybe NotificationConfigurationFilter)
 lfcFilter = lens _lfcFilter (\ s a -> s{_lfcFilter = a});
 
--- | Lambda cloud function ARN that Amazon S3 can invoke when it detects
--- events of the specified type.
+-- | Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.
 lfcLambdaFunctionARN :: Lens' LambdaFunctionConfiguration Text
 lfcLambdaFunctionARN = lens _lfcLambdaFunctionARN (\ s a -> s{_lfcLambdaFunctionARN = a});
 
@@ -1174,20 +1138,15 @@ lifecycleExpiration =
     , _leExpiredObjectDeleteMarker = Nothing
     }
 
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
+-- | Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 leDays :: Lens' LifecycleExpiration (Maybe Int)
 leDays = lens _leDays (\ s a -> s{_leDays = a});
 
--- | Indicates at what date the object is to be moved or deleted. Should be
--- in GMT ISO 8601 Format.
+-- | Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 leDate :: Lens' LifecycleExpiration (Maybe UTCTime)
 leDate = lens _leDate (\ s a -> s{_leDate = a}) . mapping _Time;
 
--- | Indicates whether Amazon S3 will remove a delete marker with no
--- noncurrent versions. If set to true, the delete marker will be expired;
--- if set to false the policy takes no action. This cannot be specified
--- with Days or Date in a Lifecycle Expiration Policy.
+-- | Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 leExpiredObjectDeleteMarker :: Lens' LifecycleExpiration (Maybe Bool)
 leExpiredObjectDeleteMarker = lens _leExpiredObjectDeleteMarker (\ s a -> s{_leExpiredObjectDeleteMarker = a});
 
@@ -1271,8 +1230,7 @@ lrNoncurrentVersionTransitions = lens _lrNoncurrentVersionTransitions (\ s a -> 
 lrExpiration :: Lens' LifecycleRule (Maybe LifecycleExpiration)
 lrExpiration = lens _lrExpiration (\ s a -> s{_lrExpiration = a});
 
--- | Unique identifier for the rule. The value cannot be longer than 255
--- characters.
+-- | Unique identifier for the rule. The value cannot be longer than 255 characters.
 lrId :: Lens' LifecycleRule (Maybe Text)
 lrId = lens _lrId (\ s a -> s{_lrId = a});
 
@@ -1284,8 +1242,7 @@ lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\ s a
 lrPrefix :: Lens' LifecycleRule Text
 lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
 
--- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
--- the rule is not currently being applied.
+-- | If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
 lrStatus :: Lens' LifecycleRule ExpirationStatus
 lrStatus = lens _lrStatus (\ s a -> s{_lrStatus = a});
 
@@ -1345,12 +1302,7 @@ loggingEnabled =
     , _leTargetPrefix = Nothing
     }
 
--- | Specifies the bucket where you want Amazon S3 to store server access
--- logs. You can have your logs delivered to any bucket that you own,
--- including the same bucket that is being logged. You can also configure
--- multiple buckets to deliver their logs to the same target bucket. In
--- this case you should choose a different TargetPrefix for each source
--- bucket so that the delivered log files can be distinguished by key.
+-- | Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
 leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 
@@ -1358,8 +1310,7 @@ leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
 leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default . _Coerce;
 
--- | This element lets you specify a prefix for the keys that the log files
--- will be stored under.
+-- | This element lets you specify a prefix for the keys that the log files will be stored under.
 leTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
 leTargetPrefix = lens _leTargetPrefix (\ s a -> s{_leTargetPrefix = a});
 
@@ -1457,11 +1408,7 @@ instance Hashable MultipartUpload
 
 instance NFData MultipartUpload
 
--- | Specifies when noncurrent object versions expire. Upon expiration,
--- Amazon S3 permanently deletes the noncurrent object versions. You set
--- this lifecycle configuration action on a bucket that has versioning
--- enabled (or suspended) to request that Amazon S3 delete noncurrent
--- object versions at a specific period in the object\'s lifetime.
+-- | Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
 --
 -- /See:/ 'noncurrentVersionExpiration' smart constructor.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
@@ -1481,11 +1428,7 @@ noncurrentVersionExpiration pNoncurrentDays_ =
     { _nveNoncurrentDays = pNoncurrentDays_
     }
 
--- | Specifies the number of days an object is noncurrent before Amazon S3
--- can perform the associated action. For information about the noncurrent
--- days calculations, see
--- </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
--- in the Amazon Simple Storage Service Developer Guide.
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
 nveNoncurrentDays = lens _nveNoncurrentDays (\ s a -> s{_nveNoncurrentDays = a});
 
@@ -1502,12 +1445,7 @@ instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
           = mconcat ["NoncurrentDays" @= _nveNoncurrentDays]
 
--- | Container for the transition rule that describes when noncurrent objects
--- transition to the STANDARD_IA or GLACIER storage class. If your bucket
--- is versioning-enabled (or versioning is suspended), you can set this
--- action to request that Amazon S3 transition noncurrent object versions
--- to the STANDARD_IA or GLACIER storage class at a specific period in the
--- object\'s lifetime.
+-- | Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object\'s lifetime.
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
@@ -1532,11 +1470,7 @@ noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
     , _nvtStorageClass = pStorageClass_
     }
 
--- | Specifies the number of days an object is noncurrent before Amazon S3
--- can perform the associated action. For information about the noncurrent
--- days calculations, see
--- </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
--- in the Amazon Simple Storage Service Developer Guide.
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
 nvtNoncurrentDays = lens _nvtNoncurrentDays (\ s a -> s{_nvtNoncurrentDays = a});
 
@@ -1559,8 +1493,7 @@ instance ToXML NoncurrentVersionTransition where
               ["NoncurrentDays" @= _nvtNoncurrentDays,
                "StorageClass" @= _nvtStorageClass]
 
--- | Container for specifying the notification configuration of the bucket.
--- If this element is empty, notifications are turned off on the bucket.
+-- | Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
@@ -1624,10 +1557,7 @@ instance ToXML NotificationConfiguration where
                  (toXMLList "CloudFunctionConfiguration" <$>
                     _ncLambdaFunctionConfigurations)]
 
--- | Container for object key name filtering rules. For information about key
--- name filtering, go to
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
--- in the Amazon Simple Storage Service Developer Guide.
+-- | Container for object key name filtering rules. For information about key name filtering, go to <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the Amazon Simple Storage Service Developer Guide.
 --
 -- /See:/ 'notificationConfigurationFilter' smart constructor.
 newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
@@ -1838,8 +1768,7 @@ ovVersionId = lens _ovVersionId (\ s a -> s{_ovVersionId = a});
 ovSize :: Lens' ObjectVersion (Maybe Int)
 ovSize = lens _ovSize (\ s a -> s{_ovSize = a});
 
--- | Specifies whether the object is (true) or is not (false) the latest
--- version of an object.
+-- | Specifies whether the object is (true) or is not (false) the latest version of an object.
 ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\ s a -> s{_ovIsLatest = a});
 
@@ -1953,8 +1882,7 @@ pETag = lens _pETag (\ s a -> s{_pETag = a});
 pSize :: Lens' Part (Maybe Int)
 pSize = lens _pSize (\ s a -> s{_pSize = a});
 
--- | Part number identifying the part. This is a positive integer between 1
--- and 10,000.
+-- | Part number identifying the part. This is a positive integer between 1 and 10,000.
 pPartNumber :: Lens' Part (Maybe Int)
 pPartNumber = lens _pPartNumber (\ s a -> s{_pPartNumber = a});
 
@@ -1973,8 +1901,7 @@ instance Hashable Part
 
 instance NFData Part
 
--- | Container for specifying an configuration when you want Amazon S3 to
--- publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
+-- | Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
 --
 -- /See:/ 'queueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
@@ -2014,8 +1941,7 @@ qcId = lens _qcId (\ s a -> s{_qcId = a});
 qcFilter :: Lens' QueueConfiguration (Maybe NotificationConfigurationFilter)
 qcFilter = lens _qcFilter (\ s a -> s{_qcFilter = a});
 
--- | Amazon SQS queue ARN to which Amazon S3 will publish a message when it
--- detects events of specified type.
+-- | Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.
 qcQueueARN :: Lens' QueueConfiguration Text
 qcQueueARN = lens _qcQueueARN (\ s a -> s{_qcQueueARN = a});
 
@@ -2076,28 +2002,19 @@ redirect =
 rHostName :: Lens' Redirect (Maybe Text)
 rHostName = lens _rHostName (\ s a -> s{_rHostName = a});
 
--- | Protocol to use (http, https) when redirecting requests. The default is
--- the protocol that is used in the original request.
+-- | Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
 rProtocol :: Lens' Redirect (Maybe Protocol)
 rProtocol = lens _rProtocol (\ s a -> s{_rProtocol = a});
 
--- | The HTTP redirect code to use on the response. Not required if one of
--- the siblings is present.
+-- | The HTTP redirect code to use on the response. Not required if one of the siblings is present.
 rHTTPRedirectCode :: Lens' Redirect (Maybe Text)
 rHTTPRedirectCode = lens _rHTTPRedirectCode (\ s a -> s{_rHTTPRedirectCode = a});
 
--- | The specific object key to use in the redirect request. For example,
--- redirect request to error.html. Not required if one of the sibling is
--- present. Can be present only if ReplaceKeyPrefixWith is not provided.
+-- | The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.
 rReplaceKeyWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyWith = lens _rReplaceKeyWith (\ s a -> s{_rReplaceKeyWith = a});
 
--- | The object key prefix to use in the redirect request. For example, to
--- redirect requests for all pages with prefix docs\/ (objects in the
--- docs\/ folder) to documents\/, you can set a condition block with
--- KeyPrefixEquals set to docs\/ and in the Redirect set
--- ReplaceKeyPrefixWith to \/documents. Not required if one of the siblings
--- is present. Can be present only if ReplaceKeyWith is not provided.
+-- | The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs\/ (objects in the docs\/ folder) to documents\/, you can set a condition block with KeyPrefixEquals set to docs\/ and in the Redirect set ReplaceKeyPrefixWith to \/documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
 rReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyPrefixWith = lens _rReplaceKeyPrefixWith (\ s a -> s{_rReplaceKeyPrefixWith = a});
 
@@ -2143,8 +2060,7 @@ redirectAllRequestsTo pHostName_ =
     , _rartHostName = pHostName_
     }
 
--- | Protocol to use (http, https) when redirecting requests. The default is
--- the protocol that is used in the original request.
+-- | Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
 rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
 rartProtocol = lens _rartProtocol (\ s a -> s{_rartProtocol = a});
 
@@ -2167,8 +2083,7 @@ instance ToXML RedirectAllRequestsTo where
               ["Protocol" @= _rartProtocol,
                "HostName" @= _rartHostName]
 
--- | Container for replication rules. You can add as many as 1,000 rules.
--- Total replication configuration size can be up to 2 MB.
+-- | Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.
 --
 -- /See:/ 'replicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
@@ -2192,14 +2107,11 @@ replicationConfiguration pRole_ =
     , _rcRules = mempty
     }
 
--- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when
--- replicating the objects.
+-- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.
 rcRole :: Lens' ReplicationConfiguration Text
 rcRole = lens _rcRole (\ s a -> s{_rcRole = a});
 
--- | Container for information about a particular replication rule.
--- Replication configuration must have at least one rule and can contain up
--- to 1,000 rules.
+-- | Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.
 rcRules :: Lens' ReplicationConfiguration [ReplicationRule]
 rcRules = lens _rcRules (\ s a -> s{_rcRules = a}) . _Coerce;
 
@@ -2249,14 +2161,11 @@ replicationRule pPrefix_ pStatus_ pDestination_ =
     , _rrDestination = pDestination_
     }
 
--- | Unique identifier for the rule. The value cannot be longer than 255
--- characters.
+-- | Unique identifier for the rule. The value cannot be longer than 255 characters.
 rrId :: Lens' ReplicationRule (Maybe Text)
 rrId = lens _rrId (\ s a -> s{_rrId = a});
 
--- | Object keyname prefix identifying one or more objects to which the rule
--- applies. Maximum prefix length can be up to 1,024 characters.
--- Overlapping prefixes are not supported.
+-- | Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
 rrPrefix :: Lens' ReplicationRule Text
 rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a});
 
@@ -2367,17 +2276,11 @@ routingRule pRedirect_ =
     , _rrRedirect = pRedirect_
     }
 
--- | A container for describing a condition that must be met for the
--- specified redirect to apply. For example, 1. If request is for pages in
--- the \/docs folder, redirect to the \/documents folder. 2. If request
--- results in HTTP error 4xx, redirect request to another host where you
--- might process the error.
+-- | A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the \/docs folder, redirect to the \/documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 rrCondition :: Lens' RoutingRule (Maybe Condition)
 rrCondition = lens _rrCondition (\ s a -> s{_rrCondition = a});
 
--- | Container for redirect information. You can redirect requests to another
--- host, to another page, or with another protocol. In the event of an
--- error, you can can specify a different error code to return.
+-- | Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
 rrRedirect :: Lens' RoutingRule Redirect
 rrRedirect = lens _rrRedirect (\ s a -> s{_rrRedirect = a});
 
@@ -2604,9 +2507,7 @@ instance ToXML TargetGrant where
               ["Permission" @= _tgPermission,
                "Grantee" @= _tgGrantee]
 
--- | Container for specifying the configuration when you want Amazon S3 to
--- publish events to an Amazon Simple Notification Service (Amazon SNS)
--- topic.
+-- | Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.
 --
 -- /See:/ 'topicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
@@ -2646,8 +2547,7 @@ tcId = lens _tcId (\ s a -> s{_tcId = a});
 tcFilter :: Lens' TopicConfiguration (Maybe NotificationConfigurationFilter)
 tcFilter = lens _tcFilter (\ s a -> s{_tcFilter = a});
 
--- | Amazon SNS topic ARN to which Amazon S3 will publish a message when it
--- detects events of specified type.
+-- | Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.
 tcTopicARN :: Lens' TopicConfiguration Text
 tcTopicARN = lens _tcTopicARN (\ s a -> s{_tcTopicARN = a});
 
@@ -2696,13 +2596,11 @@ transition =
     , _tStorageClass = Nothing
     }
 
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
+-- | Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 tDays :: Lens' Transition (Maybe Int)
 tDays = lens _tDays (\ s a -> s{_tDays = a});
 
--- | Indicates at what date the object is to be moved or deleted. Should be
--- in GMT ISO 8601 Format.
+-- | Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 tDate :: Lens' Transition (Maybe UTCTime)
 tDate = lens _tDate (\ s a -> s{_tDate = a}) . mapping _Time;
 
@@ -2751,10 +2649,7 @@ versioningConfiguration =
 vcStatus :: Lens' VersioningConfiguration (Maybe BucketVersioningStatus)
 vcStatus = lens _vcStatus (\ s a -> s{_vcStatus = a});
 
--- | Specifies whether MFA delete is enabled in the bucket versioning
--- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
+-- | Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\ s a -> s{_vcMFADelete = a});
 

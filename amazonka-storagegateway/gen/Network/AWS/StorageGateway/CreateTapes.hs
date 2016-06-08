@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more virtual tapes. You write data to the virtual tapes
--- and then archive the tapes.
+-- Creates one or more virtual tapes. You write data to the virtual tapes and then archive the tapes.
 --
--- Cache storage must be allocated to the gateway before you can create
--- virtual tapes. Use the < AddCache> operation to add cache storage to a
--- gateway.
+-- Cache storage must be allocated to the gateway before you can create virtual tapes. Use the < AddCache> operation to add cache storage to a gateway.
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Creating a Request
@@ -91,9 +88,7 @@ createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTap
     , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
     }
 
--- | The unique Amazon Resource Name (ARN) that represents the gateway to
--- associate the virtual tapes with. Use the < ListGateways> operation to
--- return a list of gateways for your account and region.
+-- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the < ListGateways> operation to return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
 
@@ -103,9 +98,7 @@ ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
 ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
 
--- | A unique identifier that you use to retry a request. If you retry a
--- request, use the same 'ClientToken' you specified in the initial
--- request.
+-- | A unique identifier that you use to retry a request. If you retry a request, use the same 'ClientToken' you specified in the initial request.
 --
 -- Using the same 'ClientToken' prevents creating the tape multiple times.
 ctClientToken :: Lens' CreateTapes Text
@@ -115,11 +108,9 @@ ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
 ctNumTapesToCreate :: Lens' CreateTapes Natural
 ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = a}) . _Nat;
 
--- | A prefix that you append to the barcode of the virtual tape you are
--- creating. This prefix makes the barcode unique.
+-- | A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
 --
--- The prefix must be 1 to 4 characters in length and must be one of the
--- uppercase letters from A to Z.
+-- The prefix must be 1 to 4 characters in length and must be one of the uppercase letters from A to Z.
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
@@ -187,8 +178,7 @@ createTapesResponse pResponseStatus_ =
     , _ctrsResponseStatus = pResponseStatus_
     }
 
--- | A list of unique Amazon Resource Names (ARNs) that represents the
--- virtual tapes that were created.
+-- | A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 

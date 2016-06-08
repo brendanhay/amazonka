@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DBSnapshot. The source DBInstance must be in \"available\"
--- state.
+-- Creates a DBSnapshot. The source DBInstance must be in \"available\" state.
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Creating a Request
@@ -91,8 +90,7 @@ cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a});
 
--- | The DB instance identifier. This is the unique key that identifies a DB
--- instance.
+-- | The DB instance identifier. This is the unique key that identifies a DB instance.
 --
 -- Constraints:
 --

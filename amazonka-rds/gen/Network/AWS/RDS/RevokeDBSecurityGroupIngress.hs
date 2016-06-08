@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes ingress from a DBSecurityGroup for previously authorized IP
--- ranges or EC2 or VPC Security Groups. Required parameters for this API
--- are one of CIDRIP, EC2SecurityGroupId for VPC, or
--- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
--- EC2SecurityGroupId).
+-- Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).
 module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
     -- * Creating a Request
@@ -86,31 +82,19 @@ revokeDBSecurityGroupIngress pDBSecurityGroupName_ =
     , _rdsgiDBSecurityGroupName = pDBSecurityGroupName_
     }
 
--- | The AWS Account Number of the owner of the EC2 security group specified
--- in the 'EC2SecurityGroupName' parameter. The AWS Access Key ID is not an
--- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
--- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+-- | The AWS Account Number of the owner of the EC2 security group specified in the 'EC2SecurityGroupName' parameter. The AWS Access Key ID is not an acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 rdsgiEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdsgiEC2SecurityGroupOwnerId = lens _rdsgiEC2SecurityGroupOwnerId (\ s a -> s{_rdsgiEC2SecurityGroupOwnerId = a});
 
--- | The name of the EC2 security group to revoke access from. For VPC DB
--- security groups, 'EC2SecurityGroupId' must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or
--- 'EC2SecurityGroupId' must be provided.
+-- | The name of the EC2 security group to revoke access from. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 rdsgiEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdsgiEC2SecurityGroupName = lens _rdsgiEC2SecurityGroupName (\ s a -> s{_rdsgiEC2SecurityGroupName = a});
 
--- | The IP range to revoke access from. Must be a valid CIDR range. If
--- 'CIDRIP' is specified, 'EC2SecurityGroupName', 'EC2SecurityGroupId' and
--- 'EC2SecurityGroupOwnerId' cannot be provided.
+-- | The IP range to revoke access from. Must be a valid CIDR range. If 'CIDRIP' is specified, 'EC2SecurityGroupName', 'EC2SecurityGroupId' and 'EC2SecurityGroupOwnerId' cannot be provided.
 rdsgiCIdRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdsgiCIdRIP = lens _rdsgiCIdRIP (\ s a -> s{_rdsgiCIdRIP = a});
 
--- | The id of the EC2 security group to revoke access from. For VPC DB
--- security groups, 'EC2SecurityGroupId' must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or
--- 'EC2SecurityGroupId' must be provided.
+-- | The id of the EC2 security group to revoke access from. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 rdsgiEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdsgiEC2SecurityGroupId = lens _rdsgiEC2SecurityGroupId (\ s a -> s{_rdsgiEC2SecurityGroupId = a});
 

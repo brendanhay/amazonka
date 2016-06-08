@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates capacity settings for a fleet. Use this action to specify the
--- number of EC2 instances (hosts) you want this fleet to contain. Before
--- calling this action, you may want to call < DescribeEC2InstanceLimits>
--- to get the maximum capacity based on the fleet\'s EC2 instance type.
+-- Updates capacity settings for a fleet. Use this action to specify the number of EC2 instances (hosts) you want this fleet to contain. Before calling this action, you may want to call < DescribeEC2InstanceLimits> to get the maximum capacity based on the fleet\'s EC2 instance type.
 --
--- If you\'re using auto-scaling (see < PutScalingPolicy>), you may want to
--- specify a minimum and\/or maximum capacity. If you don\'t provide these
--- boundaries, auto-scaling can set capacity anywhere between zero and the
--- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift service limits>.
+-- If you\'re using auto-scaling (see < PutScalingPolicy>), you may want to specify a minimum and\/or maximum capacity. If you don\'t provide these boundaries, auto-scaling can set capacity anywhere between zero and the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift service limits>.
 --
--- To update fleet capacity, specify the fleet ID and the desired number of
--- instances. If successful, Amazon GameLift starts or terminates instances
--- so that the fleet\'s active instance count matches the desired instance
--- count. You can view a fleet\'s current capacity information by calling
--- < DescribeFleetCapacity>. If the desired instance count is higher than
--- the instance type\'s limit, the \"Limit Exceeded\" exception will occur.
+-- To update fleet capacity, specify the fleet ID and the desired number of instances. If successful, Amazon GameLift starts or terminates instances so that the fleet\'s active instance count matches the desired instance count. You can view a fleet\'s current capacity information by calling < DescribeFleetCapacity>. If the desired instance count is higher than the instance type\'s limit, the \"Limit Exceeded\" exception will occur.
 module Network.AWS.GameLift.UpdateFleetCapacity
     (
     -- * Creating a Request
@@ -92,13 +81,11 @@ updateFleetCapacity pFleetId_ =
     , _ufcFleetId = pFleetId_
     }
 
--- | Maximum value allowed for the fleet\'s instance count. Default if not
--- set is 1.
+-- | Maximum value allowed for the fleet\'s instance count. Default if not set is 1.
 ufcMaxSize :: Lens' UpdateFleetCapacity (Maybe Natural)
 ufcMaxSize = lens _ufcMaxSize (\ s a -> s{_ufcMaxSize = a}) . mapping _Nat;
 
--- | Minimum value allowed for the fleet\'s instance count. Default if not
--- set is 0.
+-- | Minimum value allowed for the fleet\'s instance count. Default if not set is 0.
 ufcMinSize :: Lens' UpdateFleetCapacity (Maybe Natural)
 ufcMinSize = lens _ufcMinSize (\ s a -> s{_ufcMinSize = a}) . mapping _Nat;
 

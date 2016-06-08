@@ -20,13 +20,9 @@
 --
 -- Retrieves the recovery point for the specified virtual tape.
 --
--- A recovery point is a point in time view of a virtual tape at which all
--- the data on the tape is consistent. If your gateway crashes, virtual
--- tapes that have recovery points can be recovered to a new gateway.
+-- A recovery point is a point in time view of a virtual tape at which all the data on the tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
 --
--- The virtual tape can be retrieved to only one gateway. The retrieved
--- tape is read-only. The virtual tape can be retrieved to only a
--- gateway-VTL. There is no charge for retrieving recovery points.
+-- The virtual tape can be retrieved to only one gateway. The retrieved tape is read-only. The virtual tape can be retrieved to only a gateway-VTL. There is no charge for retrieving recovery points.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request
@@ -76,8 +72,7 @@ retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
     , _rtrpGatewayARN = pGatewayARN_
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
--- retrieve the recovery point.
+-- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
 
@@ -146,8 +141,7 @@ retrieveTapeRecoveryPointResponse pResponseStatus_ =
     , _rtrprsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which the
--- recovery point was retrieved.
+-- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 

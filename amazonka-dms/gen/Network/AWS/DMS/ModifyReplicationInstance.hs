@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the replication instance to apply new settings. You can change
--- one or more parameters by specifying these parameters and the new values
--- in the request.
+-- Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request.
 --
 -- Some settings are applied during the maintenance window.
 --
@@ -109,32 +107,17 @@ modifyReplicationInstance pReplicationInstanceARN_ =
 mriEngineVersion :: Lens' ModifyReplicationInstance (Maybe Text)
 mriEngineVersion = lens _mriEngineVersion (\ s a -> s{_mriEngineVersion = a});
 
--- | Indicates that minor version upgrades will be applied automatically to
--- the replication instance during the maintenance window. Changing this
--- parameter does not result in an outage except in the following case and
--- the change is asynchronously applied as soon as possible. An outage will
--- result if this parameter is set to 'true' during the maintenance window,
--- and a newer minor version is available, and AWS DMS has enabled auto
--- patching for that engine version.
+-- | Indicates that minor version upgrades will be applied automatically to the replication instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to 'true' during the maintenance window, and a newer minor version is available, and AWS DMS has enabled auto patching for that engine version.
 mriAutoMinorVersionUpgrade :: Lens' ModifyReplicationInstance (Maybe Bool)
 mriAutoMinorVersionUpgrade = lens _mriAutoMinorVersionUpgrade (\ s a -> s{_mriAutoMinorVersionUpgrade = a});
 
--- | Indicates that major version upgrades are allowed. Changing this
--- parameter does not result in an outage and the change is asynchronously
--- applied as soon as possible.
+-- | Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.
 --
--- Constraints: This parameter must be set to true when specifying a value
--- for the 'EngineVersion' parameter that is a different major version than
--- the replication instance\'s current version.
+-- Constraints: This parameter must be set to true when specifying a value for the 'EngineVersion' parameter that is a different major version than the replication instance\'s current version.
 mriAllowMajorVersionUpgrade :: Lens' ModifyReplicationInstance (Maybe Bool)
 mriAllowMajorVersionUpgrade = lens _mriAllowMajorVersionUpgrade (\ s a -> s{_mriAllowMajorVersionUpgrade = a});
 
--- | The weekly time range (in UTC) during which system maintenance can
--- occur, which might result in an outage. Changing this parameter does not
--- result in an outage, except in the following situation, and the change
--- is asynchronously applied as soon as possible. If moving this window to
--- the current time, there must be at least 30 minutes between the current
--- time and end of the window to ensure pending changes are applied.
+-- | The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
 --
 -- Default: Uses existing setting
 --
@@ -146,25 +129,21 @@ mriAllowMajorVersionUpgrade = lens _mriAllowMajorVersionUpgrade (\ s a -> s{_mri
 mriPreferredMaintenanceWindow :: Lens' ModifyReplicationInstance (Maybe Text)
 mriPreferredMaintenanceWindow = lens _mriPreferredMaintenanceWindow (\ s a -> s{_mriPreferredMaintenanceWindow = a});
 
--- | The amount of storage (in gigabytes) to be allocated for the replication
--- instance.
+-- | The amount of storage (in gigabytes) to be allocated for the replication instance.
 mriAllocatedStorage :: Lens' ModifyReplicationInstance (Maybe Int)
 mriAllocatedStorage = lens _mriAllocatedStorage (\ s a -> s{_mriAllocatedStorage = a});
 
--- | Indicates whether the changes should be applied immediately or during
--- the next maintenance window.
+-- | Indicates whether the changes should be applied immediately or during the next maintenance window.
 mriApplyImmediately :: Lens' ModifyReplicationInstance (Maybe Bool)
 mriApplyImmediately = lens _mriApplyImmediately (\ s a -> s{_mriApplyImmediately = a});
 
 -- | The compute and memory capacity of the replication instance.
 --
--- Valid Values:
--- 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
 mriReplicationInstanceClass :: Lens' ModifyReplicationInstance (Maybe Text)
 mriReplicationInstanceClass = lens _mriReplicationInstanceClass (\ s a -> s{_mriReplicationInstanceClass = a});
 
--- | The replication instance identifier. This parameter is stored as a
--- lowercase string.
+-- | The replication instance identifier. This parameter is stored as a lowercase string.
 mriReplicationInstanceIdentifier :: Lens' ModifyReplicationInstance (Maybe Text)
 mriReplicationInstanceIdentifier = lens _mriReplicationInstanceIdentifier (\ s a -> s{_mriReplicationInstanceIdentifier = a});
 

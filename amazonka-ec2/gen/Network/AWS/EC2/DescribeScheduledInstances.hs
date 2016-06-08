@@ -89,13 +89,11 @@ describeScheduledInstances =
 
 -- | One or more filters.
 --
--- -   'availability-zone' - The Availability Zone (for example,
---     'us-west-2a').
+-- -   'availability-zone' - The Availability Zone (for example, 'us-west-2a').
 --
 -- -   'instance-type' - The instance type (for example, 'c4.large').
 --
--- -   'network-platform' - The network platform ('EC2-Classic' or
---     'EC2-VPC').
+-- -   'network-platform' - The network platform ('EC2-Classic' or 'EC2-VPC').
 --
 -- -   'platform' - The platform ('Linux\/UNIX' or 'Windows').
 --
@@ -114,17 +112,11 @@ dsiNextToken = lens _dsiNextToken (\ s a -> s{_dsiNextToken = a});
 dsiScheduledInstanceIds :: Lens' DescribeScheduledInstances [Text]
 dsiScheduledInstanceIds = lens _dsiScheduledInstanceIds (\ s a -> s{_dsiScheduledInstanceIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsiDryRun :: Lens' DescribeScheduledInstances (Maybe Bool)
 dsiDryRun = lens _dsiDryRun (\ s a -> s{_dsiDryRun = a});
 
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 300. The default value is 100. To retrieve the
--- remaining results, make another call with the returned 'NextToken'
--- value.
+-- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned 'NextToken' value.
 dsiMaxResults :: Lens' DescribeScheduledInstances (Maybe Int)
 dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a});
 
@@ -194,8 +186,7 @@ describeScheduledInstancesResponse pResponseStatus_ =
     , _dsirsResponseStatus = pResponseStatus_
     }
 
--- | The token required to retrieve the next set of results. This value is
--- 'null' when there are no more results to return.
+-- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
 dsirsNextToken :: Lens' DescribeScheduledInstancesResponse (Maybe Text)
 dsirsNextToken = lens _dsirsNextToken (\ s a -> s{_dsirsNextToken = a});
 

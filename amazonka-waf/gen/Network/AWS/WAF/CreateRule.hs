@@ -18,38 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 'Rule', which contains the 'IPSet' objects, 'ByteMatchSet'
--- objects, and other predicates that identify the requests that you want
--- to block. If you add more than one predicate to a 'Rule', a request must
--- match all of the specifications to be allowed or blocked. For example,
--- suppose you add the following to a 'Rule':
+-- Creates a 'Rule', which contains the 'IPSet' objects, 'ByteMatchSet' objects, and other predicates that identify the requests that you want to block. If you add more than one predicate to a 'Rule', a request must match all of the specifications to be allowed or blocked. For example, suppose you add the following to a 'Rule':
 --
 -- -   An 'IPSet' that matches the IP address '192.0.2.44\/32'
 -- -   A 'ByteMatchSet' that matches 'BadBot' in the 'User-Agent' header
 --
--- You then add the 'Rule' to a 'WebACL' and specify that you want to
--- blocks requests that satisfy the 'Rule'. For a request to be blocked, it
--- must come from the IP address 192.0.2.44 /and/ the 'User-Agent' header
--- in the request must contain the value 'BadBot'.
+-- You then add the 'Rule' to a 'WebACL' and specify that you want to blocks requests that satisfy the 'Rule'. For a request to be blocked, it must come from the IP address 192.0.2.44 /and/ the 'User-Agent' header in the request must contain the value 'BadBot'.
 --
 -- To create and configure a 'Rule', perform the following steps:
 --
--- 1.  Create and update the predicates that you want to include in the
---     'Rule'. For more information, see < CreateByteMatchSet>,
---     < CreateIPSet>, and < CreateSqlInjectionMatchSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of a 'CreateRule' request.
+-- 1.  Create and update the predicates that you want to include in the 'Rule'. For more information, see < CreateByteMatchSet>, < CreateIPSet>, and < CreateSqlInjectionMatchSet>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'CreateRule' request.
 -- 3.  Submit a 'CreateRule' request.
--- 4.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an < UpdateRule> request.
--- 5.  Submit an 'UpdateRule' request to specify the predicates that you
---     want to include in the 'Rule'.
--- 6.  Create and update a 'WebACL' that contains the 'Rule'. For more
---     information, see < CreateWebACL>.
+-- 4.  Use 'GetChangeToken' to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateRule> request.
+-- 5.  Submit an 'UpdateRule' request to specify the predicates that you want to include in the 'Rule'.
+-- 6.  Create and update a 'WebACL' that contains the 'Rule'. For more information, see < CreateWebACL>.
 --
--- For more information about how to use the AWS WAF API to allow or block
--- HTTP requests, see the
--- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.CreateRule
     (
     -- * Creating a Request
@@ -104,15 +89,11 @@ createRule pName_ pMetricName_ pChangeToken_ =
     , _crChangeToken = pChangeToken_
     }
 
--- | A friendly name or description of the < Rule>. You can\'t change the
--- name of a 'Rule' after you create it.
+-- | A friendly name or description of the < Rule>. You can\'t change the name of a 'Rule' after you create it.
 crName :: Lens' CreateRule Text
 crName = lens _crName (\ s a -> s{_crName = a});
 
--- | A friendly name or description for the metrics for this 'Rule'. The name
--- can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
--- can\'t contain whitespace. You can\'t change the name of the metric
--- after you create the 'Rule'.
+-- | A friendly name or description for the metrics for this 'Rule'. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the 'Rule'.
 crMetricName :: Lens' CreateRule Text
 crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a});
 
@@ -187,9 +168,7 @@ createRuleResponse pResponseStatus_ =
 crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
 crrsRule = lens _crrsRule (\ s a -> s{_crrsRule = a});
 
--- | The 'ChangeToken' that you used to submit the 'CreateRule' request. You
--- can also use this value to query the status of the request. For more
--- information, see < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'CreateRule' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 crrsChangeToken :: Lens' CreateRuleResponse (Maybe Text)
 crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
 

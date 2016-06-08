@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about DB cluster snapshots. This API supports
--- pagination.
+-- Returns information about DB cluster snapshots. This API supports pagination.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DescribeDBClusterSnapshots
     (
     -- * Creating a Request
@@ -92,10 +89,7 @@ describeDBClusterSnapshots =
     , _ddbcsMaxRecords = Nothing
     }
 
--- | A DB cluster identifier to retrieve the list of DB cluster snapshots
--- for. This parameter cannot be used in conjunction with the
--- 'DBClusterSnapshotIdentifier' parameter. This parameter is not
--- case-sensitive.
+-- | A DB cluster identifier to retrieve the list of DB cluster snapshots for. This parameter cannot be used in conjunction with the 'DBClusterSnapshotIdentifier' parameter. This parameter is not case-sensitive.
 --
 -- Constraints:
 --
@@ -105,17 +99,14 @@ describeDBClusterSnapshots =
 ddbcsDBClusterIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
 ddbcsDBClusterIdentifier = lens _ddbcsDBClusterIdentifier (\ s a -> s{_ddbcsDBClusterIdentifier = a});
 
--- | A specific DB cluster snapshot identifier to describe. This parameter
--- cannot be used in conjunction with the 'DBClusterIdentifier' parameter.
--- This value is stored as a lowercase string.
+-- | A specific DB cluster snapshot identifier to describe. This parameter cannot be used in conjunction with the 'DBClusterIdentifier' parameter. This value is stored as a lowercase string.
 --
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
--- -   If this is the identifier of an automated snapshot, the
---     'SnapshotType' parameter must also be specified.
+-- -   If this is the identifier of an automated snapshot, the 'SnapshotType' parameter must also be specified.
 ddbcsDBClusterSnapshotIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
 ddbcsDBClusterSnapshotIdentifier = lens _ddbcsDBClusterSnapshotIdentifier (\ s a -> s{_ddbcsDBClusterSnapshotIdentifier = a});
 
@@ -123,23 +114,15 @@ ddbcsDBClusterSnapshotIdentifier = lens _ddbcsDBClusterSnapshotIdentifier (\ s a
 ddbcsFilters :: Lens' DescribeDBClusterSnapshots [Filter]
 ddbcsFilters = lens _ddbcsFilters (\ s a -> s{_ddbcsFilters = a}) . _Default . _Coerce;
 
--- | The type of DB cluster snapshots that will be returned. Values can be
--- 'automated' or 'manual'. If this parameter is not specified, the
--- returned results will include all snapshot types.
+-- | The type of DB cluster snapshots that will be returned. Values can be 'automated' or 'manual'. If this parameter is not specified, the returned results will include all snapshot types.
 ddbcsSnapshotType :: Lens' DescribeDBClusterSnapshots (Maybe Text)
 ddbcsSnapshotType = lens _ddbcsSnapshotType (\ s a -> s{_ddbcsSnapshotType = a});
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBClusterSnapshots' request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBClusterSnapshots' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddbcsMarker :: Lens' DescribeDBClusterSnapshots (Maybe Text)
 ddbcsMarker = lens _ddbcsMarker (\ s a -> s{_ddbcsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -186,8 +169,7 @@ instance ToQuery DescribeDBClusterSnapshots where
                "Marker" =: _ddbcsMarker,
                "MaxRecords" =: _ddbcsMaxRecords]
 
--- | Provides a list of DB cluster snapshots for the user as the result of a
--- call to the < DescribeDBClusterSnapshots> action.
+-- | Provides a list of DB cluster snapshots for the user as the result of a call to the < DescribeDBClusterSnapshots> action.
 --
 -- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
@@ -215,10 +197,7 @@ describeDBClusterSnapshotsResponse pResponseStatus_ =
     , _ddbcsrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous
--- < DescribeDBClusterSnapshots> request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous < DescribeDBClusterSnapshots> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
 ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a});
 

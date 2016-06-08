@@ -171,8 +171,7 @@ _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
--- | Indicates that the request processing has failed due to some unknown
--- error, exception, or failure.
+-- | Indicates that the request processing has failed due to some unknown error, exception, or failure.
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
     _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
@@ -186,8 +185,7 @@ _InvalidParameterValueException =
 _InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 
--- | An input parameter that is mandatory for processing the request is not
--- supplied.
+-- | An input parameter that is mandatory for processing the request is not supplied.
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
     _ServiceError . hasStatus 400 . hasCode "MissingParameter"

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks a federated identity from an existing account. Unlinked logins
--- will be considered new identities next time they are seen. Removing the
--- last linked login will make this identity inaccessible.
+-- Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.
 --
 -- This is a public API. You do not need any credentials to call this API.
 module Network.AWS.CognitoIdentity.UnlinkIdentity
@@ -77,8 +75,7 @@ unlinkIdentity pIdentityId_ =
 uiIdentityId :: Lens' UnlinkIdentity Text
 uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a});
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
 uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 

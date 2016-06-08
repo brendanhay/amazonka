@@ -20,11 +20,7 @@
 --
 -- Uploads a part in a multipart upload.
 --
--- __Note:__ After you initiate multipart upload and upload one or more
--- parts, you must either complete or abort multipart upload in order to
--- stop getting charged for storage of the uploaded parts. Only after you
--- either complete or abort multipart upload, Amazon S3 frees up the parts
--- storage and stops charging you for the parts storage.
+-- __Note:__ After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
 module Network.AWS.S3.UploadPart
     (
     -- * Creating a Request
@@ -125,23 +121,15 @@ uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     , _upBody = pBody_
     }
 
--- | Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
+-- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 upContentLength :: Lens' UploadPart (Maybe Int)
 upContentLength = lens _upContentLength (\ s a -> s{_upContentLength = a});
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 upSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
 upSSECustomerAlgorithm = lens _upSSECustomerAlgorithm (\ s a -> s{_upSSECustomerAlgorithm = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header. This must be
--- the same encryption key specified in the initiate multipart upload
--- request.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
 upSSECustomerKey :: Lens' UploadPart (Maybe Text)
 upSSECustomerKey = lens _upSSECustomerKey (\ s a -> s{_upSSECustomerKey = a}) . mapping _Sensitive;
 
@@ -149,9 +137,7 @@ upSSECustomerKey = lens _upSSECustomerKey (\ s a -> s{_upSSECustomerKey = a}) . 
 upRequestPayer :: Lens' UploadPart (Maybe RequestPayer)
 upRequestPayer = lens _upRequestPayer (\ s a -> s{_upRequestPayer = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 = lens _upSSECustomerKeyMD5 (\ s a -> s{_upSSECustomerKeyMD5 = a});
 
@@ -167,8 +153,7 @@ upBucket = lens _upBucket (\ s a -> s{_upBucket = a});
 upKey :: Lens' UploadPart ObjectKey
 upKey = lens _upKey (\ s a -> s{_upKey = a});
 
--- | Part number of part being uploaded. This is a positive integer between 1
--- and 10,000.
+-- | Part number of part being uploaded. This is a positive integer between 1 and 10,000.
 upPartNumber :: Lens' UploadPart Int
 upPartNumber = lens _upPartNumber (\ s a -> s{_upPartNumber = a});
 
@@ -275,25 +260,19 @@ uprsRequestCharged = lens _uprsRequestCharged (\ s a -> s{_uprsRequestCharged = 
 uprsETag :: Lens' UploadPartResponse (Maybe ETag)
 uprsETag = lens _uprsETag (\ s a -> s{_uprsETag = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 uprsSSECustomerAlgorithm :: Lens' UploadPartResponse (Maybe Text)
 uprsSSECustomerAlgorithm = lens _uprsSSECustomerAlgorithm (\ s a -> s{_uprsSSECustomerAlgorithm = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 uprsSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
 uprsSSECustomerKeyMD5 = lens _uprsSSECustomerKeyMD5 (\ s a -> s{_uprsSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 uprsSSEKMSKeyId :: Lens' UploadPartResponse (Maybe Text)
 uprsSSEKMSKeyId = lens _uprsSSEKMSKeyId (\ s a -> s{_uprsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServerSideEncryption = a});
 

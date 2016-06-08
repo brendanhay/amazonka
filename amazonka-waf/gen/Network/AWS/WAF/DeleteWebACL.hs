@@ -18,15 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a < WebACL>. You can\'t delete a 'WebACL' if it
--- still contains any 'Rules'.
+-- Permanently deletes a < WebACL>. You can\'t delete a 'WebACL' if it still contains any 'Rules'.
 --
 -- To delete a 'WebACL', perform the following steps:
 --
--- 1.  Update the 'WebACL' to remove 'Rules', if any. For more information,
---     see < UpdateWebACL>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of a 'DeleteWebACL' request.
+-- 1.  Update the 'WebACL' to remove 'Rules', if any. For more information, see < UpdateWebACL>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteWebACL' request.
 -- 3.  Submit a 'DeleteWebACL' request.
 module Network.AWS.WAF.DeleteWebACL
     (
@@ -75,8 +72,7 @@ deleteWebACL pWebACLId_ pChangeToken_ =
     , _dwaChangeToken = pChangeToken_
     }
 
--- | The 'WebACLId' of the < WebACL> that you want to delete. 'WebACLId' is
--- returned by < CreateWebACL> and by < ListWebACLs>.
+-- | The 'WebACLId' of the < WebACL> that you want to delete. 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
 dwaWebACLId :: Lens' DeleteWebACL Text
 dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a});
 
@@ -141,9 +137,7 @@ deleteWebACLResponse pResponseStatus_ =
     , _dwarsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteWebACL' request.
--- You can also use this value to query the status of the request. For more
--- information, see < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'DeleteWebACL' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 dwarsChangeToken :: Lens' DeleteWebACLResponse (Maybe Text)
 dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes all supported AWS services that can be specified when creating
--- a VPC endpoint.
+-- Describes all supported AWS services that can be specified when creating a VPC endpoint.
 module Network.AWS.EC2.DescribeVPCEndpointServices
     (
     -- * Creating a Request
@@ -73,24 +72,17 @@ describeVPCEndpointServices =
     , _dvesMaxResults = Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
+-- | The token for the next set of items to return. (You received this token from a prior call.)
 dvesNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
 dvesNextToken = lens _dvesNextToken (\ s a -> s{_dvesNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvesDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
 dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
 
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- Constraint: If the value is greater than 1000, we return only 1000
--- items.
+-- Constraint: If the value is greater than 1000, we return only 1000 items.
 dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
 dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a});
 
@@ -159,8 +151,7 @@ describeVPCEndpointServicesResponse pResponseStatus_ =
 dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
 dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default . _Coerce;
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 

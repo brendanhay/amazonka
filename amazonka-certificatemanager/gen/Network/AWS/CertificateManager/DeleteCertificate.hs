@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an ACM Certificate and its associated private key. If this
--- action succeeds, the certificate no longer appears in the list of ACM
--- Certificates that can be displayed by calling the < ListCertificates>
--- action or be retrieved by calling the < GetCertificate> action. The
--- certificate will not be available for use by other AWS services.
+-- Deletes an ACM Certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list of ACM Certificates that can be displayed by calling the < ListCertificates> action or be retrieved by calling the < GetCertificate> action. The certificate will not be available for use by other AWS services.
 --
--- You cannot delete an ACM Certificate that is being used by another AWS
--- service. To delete a certificate that is in use, the certificate
--- association must first be removed.
+-- You cannot delete an ACM Certificate that is being used by another AWS service. To delete a certificate that is in use, the certificate association must first be removed.
 module Network.AWS.CertificateManager.DeleteCertificate
     (
     -- * Creating a Request
@@ -67,13 +61,11 @@ deleteCertificate pCertificateARN_ =
     { _dcCertificateARN = pCertificateARN_
     }
 
--- | String that contains the ARN of the ACM Certificate to be deleted. This
--- must be of the form:
+-- | String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:
 --
 -- 'arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012'
 --
--- For more information about ARNs, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 dcCertificateARN :: Lens' DeleteCertificate Text
 dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a});
 

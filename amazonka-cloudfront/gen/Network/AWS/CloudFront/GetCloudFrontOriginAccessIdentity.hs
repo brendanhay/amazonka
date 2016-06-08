@@ -126,8 +126,7 @@ getCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     , _gcfoairsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the origin access identity\'s information. For
--- example: E2QWRUHAPOMQZL.
+-- | The current version of the origin access identity\'s information. For example: E2QWRUHAPOMQZL.
 gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
 gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
 

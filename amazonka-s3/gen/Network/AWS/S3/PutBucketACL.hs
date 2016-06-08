@@ -109,8 +109,7 @@ pbaGrantWriteACP = lens _pbaGrantWriteACP (\ s a -> s{_pbaGrantWriteACP = a});
 pbaGrantRead :: Lens' PutBucketACL (Maybe Text)
 pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a});
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 pbaGrantFullControl :: Lens' PutBucketACL (Maybe Text)
 pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a});
 
@@ -122,8 +121,7 @@ pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a});
 pbaAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
 pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a});
 
--- | Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- | Allows grantee to create, overwrite, and delete any object in the bucket.
 pbaGrantWrite :: Lens' PutBucketACL (Maybe Text)
 pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a});
 

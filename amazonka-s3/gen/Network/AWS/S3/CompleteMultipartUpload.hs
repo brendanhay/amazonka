@@ -222,9 +222,7 @@ crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
 crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a});
 
--- | If the object expiration is configured, this will contain the expiration
--- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
--- encoded.
+-- | If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 crsExpiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsExpiration = lens _crsExpiration (\ s a -> s{_crsExpiration = a});
 
@@ -236,13 +234,11 @@ crsBucket = lens _crsBucket (\ s a -> s{_crsBucket = a});
 crsKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
 crsKey = lens _crsKey (\ s a -> s{_crsKey = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 crsSSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 

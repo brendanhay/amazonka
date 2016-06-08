@@ -533,8 +533,7 @@ _TooManyCacheBehaviors :: AsError a => Getting (First ServiceError) a ServiceErr
 _TooManyCacheBehaviors =
     _ServiceError . hasStatus 400 . hasCode "TooManyCacheBehaviors"
 
--- | Processing your request would cause you to exceed the maximum number of
--- origin access identities allowed.
+-- | Processing your request would cause you to exceed the maximum number of origin access identities allowed.
 _TooManyCloudFrontOriginAccessIdentities :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCloudFrontOriginAccessIdentities =
     _ServiceError .
@@ -564,8 +563,7 @@ _InconsistentQuantities =
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgument = _ServiceError . hasStatus 400 . hasCode "InvalidArgument"
 
--- | You have exceeded the maximum number of allowable InProgress
--- invalidation batch requests, or invalidation objects.
+-- | You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
 _TooManyInvalidationsInProgress :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyInvalidationsInProgress =
     _ServiceError . hasStatus 400 . hasCode "TooManyInvalidationsInProgress"
@@ -591,8 +589,7 @@ _CloudFrontOriginAccessIdentityInUse =
     _ServiceError .
     hasStatus 409 . hasCode "CloudFrontOriginAccessIdentityInUse"
 
--- | Processing your request would cause you to exceed the maximum number of
--- streaming distributions allowed.
+-- | Processing your request would cause you to exceed the maximum number of streaming distributions allowed.
 _TooManyStreamingDistributions :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributions =
     _ServiceError . hasStatus 400 . hasCode "TooManyStreamingDistributions"
@@ -601,28 +598,22 @@ _TooManyStreamingDistributions =
 _BatchTooLarge :: AsError a => Getting (First ServiceError) a ServiceError
 _BatchTooLarge = _ServiceError . hasStatus 413 . hasCode "BatchTooLarge"
 
--- | Your request contains more cookie names in the whitelist than are
--- allowed per cache behavior.
+-- | Your request contains more cookie names in the whitelist than are allowed per cache behavior.
 _TooManyCookieNamesInWhiteList :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCookieNamesInWhiteList =
     _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList"
 
--- | Your request contains forward cookies option which doesn\'t match with
--- the expectation for the whitelisted list of cookie names. Either list of
--- cookie names has been specified when not allowed or list of cookie names
--- is missing when expected.
+-- | Your request contains forward cookies option which doesn\'t match with the expectation for the whitelisted list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
 _InvalidForwardCookies :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidForwardCookies =
     _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies"
 
--- | Your request contains more trusted signers than are allowed per
--- distribution.
+-- | Your request contains more trusted signers than are allowed per distribution.
 _TooManyTrustedSigners :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrustedSigners =
     _ServiceError . hasStatus 400 . hasCode "TooManyTrustedSigners"
 
--- | The Amazon S3 origin server specified does not refer to a valid Amazon
--- S3 bucket.
+-- | The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
 _InvalidOrigin :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOrigin = _ServiceError . hasStatus 400 . hasCode "InvalidOrigin"
 
@@ -655,15 +646,12 @@ _TooManyStreamingDistributionCNAMEs =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyStreamingDistributionCNAMEs"
 
--- | This operation requires the HTTPS protocol. Ensure that you specify the
--- HTTPS protocol in your request, or omit the RequiredProtocols element
--- from your distribution configuration.
+-- | This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the RequiredProtocols element from your distribution configuration.
 _InvalidRequiredProtocol :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequiredProtocol =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequiredProtocol"
 
--- | Processing your request would cause you to exceed the maximum number of
--- distributions allowed.
+-- | Processing your request would cause you to exceed the maximum number of distributions allowed.
 _TooManyDistributions :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyDistributions =
     _ServiceError . hasStatus 400 . hasCode "TooManyDistributions"
@@ -673,14 +661,12 @@ _TooManyCertificates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCertificates =
     _ServiceError . hasStatus 400 . hasCode "TooManyCertificates"
 
--- | The caller reference you attempted to create the distribution with is
--- associated with another distribution.
+-- | The caller reference you attempted to create the distribution with is associated with another distribution.
 _DistributionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DistributionAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists"
 
--- | This operation requires a body. Ensure that the body is present and the
--- Content-Type header is set.
+-- | This operation requires a body. Ensure that the body is present and the Content-Type header is set.
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingBody = _ServiceError . hasStatus 400 . hasCode "MissingBody"
 
@@ -693,8 +679,7 @@ _InvalidIfMatchVersion :: AsError a => Getting (First ServiceError) a ServiceErr
 _InvalidIfMatchVersion =
     _ServiceError . hasStatus 400 . hasCode "InvalidIfMatchVersion"
 
--- | The precondition given in one or more of the request-header fields
--- evaluated to false.
+-- | The precondition given in one or more of the request-header fields evaluated to false.
 _PreconditionFailed :: AsError a => Getting (First ServiceError) a ServiceError
 _PreconditionFailed =
     _ServiceError . hasStatus 412 . hasCode "PreconditionFailed"
@@ -719,17 +704,12 @@ _TrustedSignerDoesNotExist :: AsError a => Getting (First ServiceError) a Servic
 _TrustedSignerDoesNotExist =
     _ServiceError . hasStatus 400 . hasCode "TrustedSignerDoesNotExist"
 
--- | You cannot specify SSLv3 as the minimum protocol version if you only
--- want to support only clients that Support Server Name Indication (SNI).
+-- | You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that Support Server Name Indication (SNI).
 _InvalidProtocolSettings :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidProtocolSettings =
     _ServiceError . hasStatus 400 . hasCode "InvalidProtocolSettings"
 
--- | If the CallerReference is a value you already sent in a previous request
--- to create an identity but the content of the
--- CloudFrontOriginAccessIdentityConfig is different from the original
--- request, CloudFront returns a
--- CloudFrontOriginAccessIdentityAlreadyExists error.
+-- | If the CallerReference is a value you already sent in a previous request to create an identity but the content of the CloudFrontOriginAccessIdentityConfig is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists error.
 _CloudFrontOriginAccessIdentityAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudFrontOriginAccessIdentityAlreadyExists =
     _ServiceError .
@@ -739,8 +719,7 @@ _CloudFrontOriginAccessIdentityAlreadyExists =
 _TooManyOrigins :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins"
 
--- | The relative path is too big, is not URL-encoded, or does not begin with
--- a slash (\/).
+-- | The relative path is too big, is not URL-encoded, or does not begin with a slash (\/).
 _InvalidRelativePath :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRelativePath =
     _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath"
@@ -770,8 +749,7 @@ _NoSuchDistribution :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDistribution =
     _ServiceError . hasStatus 404 . hasCode "NoSuchDistribution"
 
--- | The default root object file name is too big or contains an invalid
--- character.
+-- | The default root object file name is too big or contains an invalid character.
 _InvalidDefaultRootObject :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDefaultRootObject =
     _ServiceError . hasStatus 400 . hasCode "InvalidDefaultRootObject"

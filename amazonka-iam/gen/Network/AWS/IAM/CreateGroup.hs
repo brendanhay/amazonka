@@ -20,9 +20,7 @@
 --
 -- Creates a new group.
 --
--- For information about the number of groups you can create, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /IAM User Guide/.
+-- For information about the number of groups you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
 module Network.AWS.IAM.CreateGroup
     (
     -- * Creating a Request
@@ -69,12 +67,9 @@ createGroup pGroupName_ =
     , _cgGroupName = pGroupName_
     }
 
--- | The path to the group. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
+-- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
+-- This parameter is optional. If it is not included, it defaults to a slash (\/).
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 

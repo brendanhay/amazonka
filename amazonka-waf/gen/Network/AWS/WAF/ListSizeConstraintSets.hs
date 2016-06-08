@@ -66,21 +66,11 @@ listSizeConstraintSets pLimit_ =
     , _lscsLimit = _Nat # pLimit_
     }
 
--- | If you specify a value for 'Limit' and you have more
--- 'SizeConstraintSets' than the value of 'Limit', AWS WAF returns a
--- 'NextMarker' value in the response that allows you to list another group
--- of 'SizeConstraintSets'. For the second and subsequent
--- 'ListSizeConstraintSets' requests, specify the value of 'NextMarker'
--- from the previous response to get information about another batch of
--- 'SizeConstraintSets'.
+-- | If you specify a value for 'Limit' and you have more 'SizeConstraintSets' than the value of 'Limit', AWS WAF returns a 'NextMarker' value in the response that allows you to list another group of 'SizeConstraintSets'. For the second and subsequent 'ListSizeConstraintSets' requests, specify the value of 'NextMarker' from the previous response to get information about another batch of 'SizeConstraintSets'.
 lscsNextMarker :: Lens' ListSizeConstraintSets (Maybe Text)
 lscsNextMarker = lens _lscsNextMarker (\ s a -> s{_lscsNextMarker = a});
 
--- | Specifies the number of 'SizeConstraintSet' objects that you want AWS
--- WAF to return for this request. If you have more 'SizeConstraintSets'
--- objects than the number you specify for 'Limit', the response includes a
--- 'NextMarker' value that you can use to get another batch of
--- 'SizeConstraintSet' objects.
+-- | Specifies the number of 'SizeConstraintSet' objects that you want AWS WAF to return for this request. If you have more 'SizeConstraintSets' objects than the number you specify for 'Limit', the response includes a 'NextMarker' value that you can use to get another batch of 'SizeConstraintSet' objects.
 lscsLimit :: Lens' ListSizeConstraintSets Natural
 lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . _Nat;
 
@@ -153,11 +143,7 @@ listSizeConstraintSetsResponse pResponseStatus_ =
 lscsrsSizeConstraintSets :: Lens' ListSizeConstraintSetsResponse [SizeConstraintSetSummary]
 lscsrsSizeConstraintSets = lens _lscsrsSizeConstraintSets (\ s a -> s{_lscsrsSizeConstraintSets = a}) . _Default . _Coerce;
 
--- | If you have more 'SizeConstraintSet' objects than the number that you
--- specified for 'Limit' in the request, the response includes a
--- 'NextMarker' value. To list more 'SizeConstraintSet' objects, submit
--- another 'ListSizeConstraintSets' request, and specify the 'NextMarker'
--- value from the response in the 'NextMarker' value in the next request.
+-- | If you have more 'SizeConstraintSet' objects than the number that you specified for 'Limit' in the request, the response includes a 'NextMarker' value. To list more 'SizeConstraintSet' objects, submit another 'ListSizeConstraintSets' request, and specify the 'NextMarker' value from the response in the 'NextMarker' value in the next request.
 lscsrsNextMarker :: Lens' ListSizeConstraintSetsResponse (Maybe Text)
 lscsrsNextMarker = lens _lscsrsNextMarker (\ s a -> s{_lscsrsNextMarker = a});
 

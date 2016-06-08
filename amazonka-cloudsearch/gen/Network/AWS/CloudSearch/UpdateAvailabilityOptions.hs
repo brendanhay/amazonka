@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures the availability options for a domain. Enabling the Multi-AZ
--- option expands an Amazon CloudSearch domain to an additional
--- Availability Zone in the same Region to increase fault tolerance in the
--- event of a service disruption. Changes to the Multi-AZ option can take
--- about half an hour to become active. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
     -- * Creating a Request
@@ -49,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateAvailabilityOptions'
--- operation. Specifies the name of the domain you want to update and the
--- Multi-AZ availability option.
+-- | Container for the parameters to the 'UpdateAvailabilityOptions' operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.
 --
 -- /See:/ 'updateAvailabilityOptions' smart constructor.
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
@@ -80,10 +72,7 @@ updateAvailabilityOptions pDomainName_ pMultiAZ_ =
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
 uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
 
--- | You expand an existing search domain to a second Availability Zone by
--- setting the Multi-AZ option to true. Similarly, you can turn off the
--- Multi-AZ option to downgrade the domain to a single Availability Zone by
--- setting the Multi-AZ option to 'false'.
+-- | You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to 'false'.
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
 
@@ -117,8 +106,7 @@ instance ToQuery UpdateAvailabilityOptions where
                "DomainName" =: _uaoDomainName,
                "MultiAZ" =: _uaoMultiAZ]
 
--- | The result of a 'UpdateAvailabilityOptions' request. Contains the status
--- of the domain\'s availability options.
+-- | The result of a 'UpdateAvailabilityOptions' request. Contains the status of the domain\'s availability options.
 --
 -- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
@@ -142,8 +130,7 @@ updateAvailabilityOptionsResponse pResponseStatus_ =
     , _uaorsResponseStatus = pResponseStatus_
     }
 
--- | The newly-configured availability options. Indicates whether Multi-AZ is
--- enabled for the domain.
+-- | The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain.
 uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
 

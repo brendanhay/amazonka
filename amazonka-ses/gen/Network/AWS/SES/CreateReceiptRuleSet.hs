@@ -20,8 +20,7 @@
 --
 -- Creates an empty receipt rule set.
 --
--- For information about setting up receipt rule sets, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide>.
+-- For information about setting up receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.CreateReceiptRuleSet
@@ -66,8 +65,7 @@ createReceiptRuleSet pRuleSetName_ =
 
 -- | The name of the rule set to create. The name must:
 --
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
---     underscores (_), or dashes (-).
+-- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
 -- -   Start and end with a letter or number.
 -- -   Contain less than 64 characters.
 crrsRuleSetName :: Lens' CreateReceiptRuleSet Text

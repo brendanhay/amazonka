@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an 'MLModel' that includes detailed metadata, and data source
--- information as well as the current status of the 'MLModel'.
+-- Returns an 'MLModel' that includes detailed metadata, and data source information as well as the current status of the 'MLModel'.
 --
 -- 'GetMLModel' provides results in normal or verbose format.
 module Network.AWS.MachineLearning.GetMLModel
@@ -149,8 +148,7 @@ instance ToPath GetMLModel where
 instance ToQuery GetMLModel where
         toQuery = const mempty
 
--- | Represents the output of a < GetMLModel> operation, and provides
--- detailed information about a 'MLModel'.
+-- | Represents the output of a < GetMLModel> operation, and provides detailed information about a 'MLModel'.
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
@@ -242,11 +240,9 @@ getMLModelResponse pResponseStatus_ =
     , _gmlmrsResponseStatus = pResponseStatus_
     }
 
--- | The current status of the 'MLModel'. This element can have one of the
--- following values:
+-- | The current status of the 'MLModel'. This element can have one of the following values:
 --
--- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
---     to describe a 'MLModel'.
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request to describe a 'MLModel'.
 -- -   'INPROGRESS' - The request is processing.
 -- -   'FAILED' - The request did not run to completion. It is not usable.
 -- -   'COMPLETED' - The request completed successfully.
@@ -254,64 +250,40 @@ getMLModelResponse pResponseStatus_ =
 gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
 gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
 
--- | The time of the most recent edit to the 'MLModel'. The time is expressed
--- in epoch time.
+-- | The time of the most recent edit to the 'MLModel'. The time is expressed in epoch time.
 gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\ s a -> s{_gmlmrsLastUpdatedAt = a}) . mapping _Time;
 
--- | A list of the training parameters in the 'MLModel'. The list is
--- implemented as a map of key\/value pairs.
+-- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key\/value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm.
---     It controls overfitting the data by penalizing large coefficients.
---     This tends to drive coefficients to zero, resulting in a sparse
---     feature set. If you use this parameter, specify a small value, such
---     as 1.0E-04 or 1.0E-08.
+-- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default
---     is not to use L1 normalization. The parameter cannot be used when
---     'L2' is specified. Use this parameter sparingly.
+--     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L1 normalization. The parameter cannot be used when 'L2' is specified. Use this parameter sparingly.
 --
--- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm.
---     It controls overfitting the data by penalizing large coefficients.
---     This tends to drive coefficients to small, nonzero values. If you
---     use this parameter, specify a small value, such as 1.0E-04 or
---     1.0E-08.
+-- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default
---     is not to use L2 normalization. This parameter cannot be used when
---     'L1' is specified. Use this parameter sparingly.
+--     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L2 normalization. This parameter cannot be used when 'L1' is specified. Use this parameter sparingly.
 --
--- -   'sgd.maxPasses' - The number of times that the training process
---     traverses the observations to build the 'MLModel'. The value is an
---     integer that ranges from 1 to 10000. The default value is 10.
+-- -   'sgd.maxPasses' - The number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from 1 to 10000. The default value is 10.
 --
--- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model.
---     Depending on the input data, the model size might affect
---     performance.
+-- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model. Depending on the input data, the model size might affect performance.
 --
---     The value is an integer that ranges from 100000 to 2147483648. The
---     default value is 33554432.
+--     The value is an integer that ranges from 100000 to 2147483648. The default value is 33554432.
 --
 gmlmrsTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
 gmlmrsTrainingParameters = lens _gmlmrsTrainingParameters (\ s a -> s{_gmlmrsTrainingParameters = a}) . _Default . _Map;
 
--- | The time of the most recent edit to the 'ScoreThreshold'. The time is
--- expressed in epoch time.
+-- | The time of the most recent edit to the 'ScoreThreshold'. The time is expressed in epoch time.
 gmlmrsScoreThresholdLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\ s a -> s{_gmlmrsScoreThresholdLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the 'MLModel' was created. The time is expressed in epoch
--- time.
+-- | The time that the 'MLModel' was created. The time is expressed in epoch time.
 gmlmrsCreatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\ s a -> s{_gmlmrsCreatedAt = a}) . mapping _Time;
 
--- | The recipe to use when training the 'MLModel'. The 'Recipe' provides
--- detailed information about the observation data to use during training,
--- as well as manipulations to perform on the observation data during
--- training.
+-- | The recipe to use when training the 'MLModel'. The 'Recipe' provides detailed information about the observation data to use during training, as well as manipulations to perform on the observation data during training.
 --
 -- Note
 --
@@ -319,8 +291,7 @@ gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\ s a -> s{_gmlmrsCreatedAt = a}) . map
 gmlmrsRecipe :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsRecipe = lens _gmlmrsRecipe (\ s a -> s{_gmlmrsRecipe = a});
 
--- | The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
+-- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 gmlmrsInputDataLocationS3 :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\ s a -> s{_gmlmrsInputDataLocationS3 = a});
 
@@ -340,19 +311,13 @@ gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a})
 gmlmrsSchema :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsSchema = lens _gmlmrsSchema (\ s a -> s{_gmlmrsSchema = a});
 
--- | The scoring threshold is used in binary classification 'MLModel's, and
--- marks the boundary between a positive prediction and a negative
--- prediction.
+-- | The scoring threshold is used in binary classification 'MLModel's, and marks the boundary between a positive prediction and a negative prediction.
 --
--- Output values greater than or equal to the threshold receive a positive
--- result from the MLModel, such as 'true'. Output values less than the
--- threshold receive a negative response from the MLModel, such as 'false'.
+-- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as 'true'. Output values less than the threshold receive a negative response from the MLModel, such as 'false'.
 gmlmrsScoreThreshold :: Lens' GetMLModelResponse (Maybe Double)
 gmlmrsScoreThreshold = lens _gmlmrsScoreThreshold (\ s a -> s{_gmlmrsScoreThreshold = a});
 
--- | The AWS user account from which the 'MLModel' was created. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
+-- | The AWS user account from which the 'MLModel' was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gmlmrsCreatedByIAMUser :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsCreatedByIAMUser = lens _gmlmrsCreatedByIAMUser (\ s a -> s{_gmlmrsCreatedByIAMUser = a});
 
@@ -376,15 +341,11 @@ gmlmrsTrainingDataSourceId = lens _gmlmrsTrainingDataSourceId (\ s a -> s{_gmlmr
 gmlmrsMessage :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMessage = lens _gmlmrsMessage (\ s a -> s{_gmlmrsMessage = a});
 
--- | Identifies the 'MLModel' category. The following are the available
--- types:
+-- | Identifies the 'MLModel' category. The following are the available types:
 --
--- -   REGRESSION -- Produces a numeric result. For example, \"What listing
---     price should a house have?\"
--- -   BINARY -- Produces one of two possible results. For example, \"Is
---     this an e-commerce website?\"
--- -   MULTICLASS -- Produces more than two possible results. For example,
---     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
+-- -   REGRESSION -- Produces a numeric result. For example, \"What listing price should a house have?\"
+-- -   BINARY -- Produces one of two possible results. For example, \"Is this an e-commerce website?\"
+-- -   MULTICLASS -- Produces more than two possible results. For example, \"Is this a HIGH, LOW or MEDIUM risk trade?\"
 gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 

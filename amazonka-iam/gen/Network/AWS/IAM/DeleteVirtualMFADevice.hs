@@ -20,9 +20,7 @@
 --
 -- Deletes a virtual MFA device.
 --
--- You must deactivate a user\'s virtual MFA device before you can delete
--- it. For information about deactivating MFA devices, see
--- < DeactivateMFADevice>.
+-- You must deactivate a user\'s virtual MFA device before you can delete it. For information about deactivating MFA devices, see < DeactivateMFADevice>.
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Creating a Request
@@ -61,8 +59,7 @@ deleteVirtualMFADevice pSerialNumber_ =
     { _dvmdSerialNumber = pSerialNumber_
     }
 
--- | The serial number that uniquely identifies the MFA device. For virtual
--- MFA devices, the serial number is the same as the ARN.
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 

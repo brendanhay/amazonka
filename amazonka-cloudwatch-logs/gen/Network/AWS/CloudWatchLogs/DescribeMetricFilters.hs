@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the metrics filters associated with the specified log group.
--- The list returned in the response is ASCII-sorted by filter name.
+-- Returns all the metrics filters associated with the specified log group. The list returned in the response is ASCII-sorted by filter name.
 --
--- By default, this operation returns up to 50 metric filters. If there are
--- more metric filters to list, the response would contain a 'nextToken'
--- value in the response body. You can also limit the number of metric
--- filters returned in the response by specifying the 'limit' parameter in
--- the request.
+-- By default, this operation returns up to 50 metric filters. If there are more metric filters to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of metric filters returned in the response by specifying the 'limit' parameter in the request.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
@@ -86,20 +81,15 @@ describeMetricFilters pLogGroupName_ =
     , _dmfLogGroupName = pLogGroupName_
     }
 
--- | Will only return metric filters that match the provided
--- filterNamePrefix. If you don\'t specify a value, no prefix filter is
--- applied.
+-- | Will only return metric filters that match the provided filterNamePrefix. If you don\'t specify a value, no prefix filter is applied.
 dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
 dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
 
--- | A string token used for pagination that points to the next page of
--- results. It must be a value obtained from the response of the previous
--- 'DescribeMetricFilters' request.
+-- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
 
--- | The maximum number of items returned in the response. If you don\'t
--- specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
 dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
 

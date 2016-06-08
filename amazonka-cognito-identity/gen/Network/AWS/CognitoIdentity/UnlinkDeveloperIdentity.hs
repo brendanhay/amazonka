@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked
--- developer users will be considered new identities next time they are
--- seen. If, for a given Cognito identity, you remove all federated
--- identities as well as the developer user identifier, the Cognito
--- identity becomes inaccessible.
+-- Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.
 --
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
@@ -95,8 +91,7 @@ udiIdentityPoolId = lens _udiIdentityPoolId (\ s a -> s{_udiIdentityPoolId = a})
 udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDeveloperProviderName = a});
 
--- | A unique ID used by your backend authentication process to identify a
--- user.
+-- | A unique ID used by your backend authentication process to identify a user.
 udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
 

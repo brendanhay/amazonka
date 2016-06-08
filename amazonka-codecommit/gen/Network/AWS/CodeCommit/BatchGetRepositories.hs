@@ -20,12 +20,7 @@
 --
 -- Returns information about one or more repositories.
 --
--- The description field for a repository accepts all HTML characters and
--- all valid Unicode characters. Applications that do not HTML-encode the
--- description and display it in a web page could expose users to
--- potentially malicious code. Make sure that you HTML-encode the
--- description field in any application that uses this API to display the
--- repository description on a web page.
+-- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
     -- * Creating a Request
@@ -143,8 +138,7 @@ batchGetRepositoriesResponse pResponseStatus_ =
 bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
 bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce;
 
--- | Returns a list of repository names for which information could not be
--- found.
+-- | Returns a list of repository names for which information could not be found.
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
 bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 

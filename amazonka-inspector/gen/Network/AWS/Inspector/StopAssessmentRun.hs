@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops the assessment run that is specified by the ARN of the assessment
--- run.
+-- Stops the assessment run that is specified by the ARN of the assessment run.
 module Network.AWS.Inspector.StopAssessmentRun
     (
     -- * Creating a Request

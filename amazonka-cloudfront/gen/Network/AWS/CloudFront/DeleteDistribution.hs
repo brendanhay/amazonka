@@ -64,8 +64,7 @@ deleteDistribution pId_ =
     , _ddId = pId_
     }
 
--- | The value of the ETag header you received when you disabled the
--- distribution. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when you disabled the distribution. For example: E2QWRUHAPOMQZL.
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a});
 

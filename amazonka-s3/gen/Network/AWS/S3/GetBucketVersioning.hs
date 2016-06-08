@@ -120,10 +120,7 @@ getBucketVersioningResponse pResponseStatus_ =
 gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
 gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});
 
--- | Specifies whether MFA delete is enabled in the bucket versioning
--- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
+-- | Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 

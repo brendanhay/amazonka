@@ -18,18 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new configuration recorder to record the selected resource
--- configurations.
+-- Creates a new configuration recorder to record the selected resource configurations.
 --
--- You can use this action to change the role 'roleARN' and\/or the
--- 'recordingGroup' of an existing recorder. To change the role, call the
--- action on the existing configuration recorder and specify a role.
+-- You can use this action to change the role 'roleARN' and\/or the 'recordingGroup' of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
 -- Currently, you can specify only one configuration recorder per account.
 --
--- If 'ConfigurationRecorder' does not have the __recordingGroup__
--- parameter specified, the default is to record all supported resource
--- types.
+-- If 'ConfigurationRecorder' does not have the __recordingGroup__ parameter specified, the default is to record all supported resource types.
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request
@@ -70,8 +65,7 @@ putConfigurationRecorder pConfigurationRecorder_ =
     { _pcrConfigurationRecorder = pConfigurationRecorder_
     }
 
--- | The configuration recorder object that records each configuration change
--- made to the resources.
+-- | The configuration recorder object that records each configuration change made to the resources.
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
 pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
 

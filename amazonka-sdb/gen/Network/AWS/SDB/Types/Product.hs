@@ -209,8 +209,7 @@ replaceableAttribute pName_ pValue_ =
     , _raValue = pValue_
     }
 
--- | A flag specifying whether or not to replace the attribute\/value pair or
--- to add a new attribute\/value pair. The default setting is 'false'.
+-- | A flag specifying whether or not to replace the attribute\/value pair or to add a new attribute\/value pair. The default setting is 'false'.
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace = lens _raReplace (\ s a -> s{_raReplace = a});
 
@@ -274,11 +273,7 @@ instance ToQuery ReplaceableItem where
               ["ItemName" =: _riName,
                toQueryList "Attribute" _riAttributes]
 
--- | Specifies the conditions under which data should be updated. If an
--- update condition is specified for a request, the data will only be
--- updated if the condition is satisfied. For example, if an attribute with
--- a specific name and value exists, or if a specific attribute doesn\'t
--- exist.
+-- | Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn\'t exist.
 --
 -- /See:/ 'updateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
@@ -305,16 +300,11 @@ updateCondition =
     , _ucName = Nothing
     }
 
--- | A value specifying whether or not the specified attribute must exist
--- with the specified value in order for the update condition to be
--- satisfied. Specify 'true' if the attribute must exist for the update
--- condition to be satisfied. Specify 'false' if the attribute should not
--- exist in order for the update condition to be satisfied.
+-- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied. Specify 'false' if the attribute should not exist in order for the update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\ s a -> s{_ucExists = a});
 
--- | The value of an attribute. This value can only be specified when the
--- 'Exists' parameter is equal to 'true'.
+-- | The value of an attribute. This value can only be specified when the 'Exists' parameter is equal to 'true'.
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\ s a -> s{_ucValue = a});
 

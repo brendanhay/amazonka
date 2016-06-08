@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the status of a given export process. You can retrieve status
--- from a maximum of 100 processes.
+-- Retrieves the status of a given export process. You can retrieve status from a maximum of 100 processes.
 module Network.AWS.Discovery.DescribeExportConfigurations
     (
     -- * Creating a Request
@@ -71,11 +70,7 @@ describeExportConfigurations =
     , _decMaxResults = Nothing
     }
 
--- | A token to get the next set of results. For example, if you specified
--- 100 IDs for 'DescribeConfigurationsRequest$configurationIds' but set
--- 'DescribeExportConfigurationsRequest$maxResults' to 10, you will get
--- results in a set of 10. Use the token in the query to get the next set
--- of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for 'DescribeConfigurationsRequest>configurationIds' but set 'DescribeExportConfigurationsRequest>maxResults' to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decNextToken :: Lens' DescribeExportConfigurations (Maybe Text)
 decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 
@@ -83,8 +78,7 @@ decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 decExportIds :: Lens' DescribeExportConfigurations [Text]
 decExportIds = lens _decExportIds (\ s a -> s{_decExportIds = a}) . _Default . _Coerce;
 
--- | The maximum number of results that you want to display as a part of the
--- query.
+-- | The maximum number of results that you want to display as a part of the query.
 decMaxResults :: Lens' DescribeExportConfigurations (Maybe Int)
 decMaxResults = lens _decMaxResults (\ s a -> s{_decMaxResults = a});
 
@@ -155,17 +149,11 @@ describeExportConfigurationsResponse pResponseStatus_ =
     , _decrsResponseStatus = pResponseStatus_
     }
 
--- | A token to get the next set of results. For example, if you specified
--- 100 IDs for 'DescribeConfigurationsRequest$configurationIds' but set
--- 'DescribeExportConfigurationsRequest$maxResults' to 10, you will get
--- results in a set of 10. Use the token in the query to get the next set
--- of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for 'DescribeConfigurationsRequest>configurationIds' but set 'DescribeExportConfigurationsRequest>maxResults' to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decrsNextToken :: Lens' DescribeExportConfigurationsResponse (Maybe Text)
 decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 
--- | Returns export details. When the status is complete, the response
--- includes a URL for an Amazon S3 bucket where you can view the data in a
--- CSV file.
+-- | Returns export details. When the status is complete, the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 decrsExportsInfo :: Lens' DescribeExportConfigurationsResponse [ExportInfo]
 decrsExportsInfo = lens _decrsExportsInfo (\ s a -> s{_decrsExportsInfo = a}) . _Default . _Coerce;
 

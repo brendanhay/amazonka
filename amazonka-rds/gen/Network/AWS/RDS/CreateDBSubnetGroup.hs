@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new DB subnet group. DB subnet groups must contain at least
--- one subnet in at least two AZs in the region.
+-- Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Creating a Request
@@ -83,11 +82,9 @@ createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 
--- | The name for the DB subnet group. This value is stored as a lowercase
--- string.
+-- | The name for the DB subnet group. This value is stored as a lowercase string.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text

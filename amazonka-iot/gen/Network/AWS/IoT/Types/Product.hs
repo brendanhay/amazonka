@@ -159,9 +159,7 @@ instance ToJSON Action where
                   ("republish" .=) <$> _aRepublish,
                   ("sqs" .=) <$> _aSqs])
 
--- | The attribute payload, a JSON string containing up to three key-value
--- pairs (for example,
--- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | The attribute payload, a JSON string containing up to three key-value pairs (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 --
 -- /See:/ 'attributePayload' smart constructor.
 newtype AttributePayload = AttributePayload'
@@ -180,8 +178,7 @@ attributePayload =
     { _apAttributes = Nothing
     }
 
--- | A JSON string containing up to three key-value pair in JSON format (for
--- example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | A JSON string containing up to three key-value pair in JSON format (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
@@ -553,8 +550,7 @@ caaAlarmName = lens _caaAlarmName (\ s a -> s{_caaAlarmName = a});
 caaStateReason :: Lens' CloudwatchAlarmAction Text
 caaStateReason = lens _caaStateReason (\ s a -> s{_caaStateReason = a});
 
--- | The value of the alarm state. Acceptable values are: OK, ALARM,
--- INSUFFICIENT_DATA.
+-- | The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 caaStateValue :: Lens' CloudwatchAlarmAction Text
 caaStateValue = lens _caaStateValue (\ s a -> s{_caaStateValue = a});
 
@@ -624,8 +620,7 @@ cloudwatchMetricAction pRoleARN_ pMetricNamespace_ pMetricName_ pMetricValue_ pM
     , _cmaMetricUnit = pMetricUnit_
     }
 
--- | An optional
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
+-- | An optional <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
 cmaMetricTimestamp :: Lens' CloudwatchMetricAction (Maybe Text)
 cmaMetricTimestamp = lens _cmaMetricTimestamp (\ s a -> s{_cmaMetricTimestamp = a});
 
@@ -645,9 +640,7 @@ cmaMetricName = lens _cmaMetricName (\ s a -> s{_cmaMetricName = a});
 cmaMetricValue :: Lens' CloudwatchMetricAction Text
 cmaMetricValue = lens _cmaMetricValue (\ s a -> s{_cmaMetricValue = a});
 
--- | The
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit>
--- supported by CloudWatch.
+-- | The <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit> supported by CloudWatch.
 cmaMetricUnit :: Lens' CloudwatchMetricAction Text
 cmaMetricUnit = lens _cmaMetricUnit (\ s a -> s{_cmaMetricUnit = a});
 
@@ -679,22 +672,17 @@ instance ToJSON CloudwatchMetricAction where
 
 -- | Describes an action to write to a DynamoDB table.
 --
--- The 'tableName', 'hashKeyField', and 'rangeKeyField' values must match
--- the values used when you created the table.
+-- The 'tableName', 'hashKeyField', and 'rangeKeyField' values must match the values used when you created the table.
 --
--- The 'hashKeyValue' and 'rangeKeyvalue' fields use a substitution
--- template syntax. These templates provide data at runtime. The syntax is
--- as follows: ${/sql-expression/}.
+-- The 'hashKeyValue' and 'rangeKeyvalue' fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: >{/sql-expression/}.
 --
--- You can specify any valid expression in a WHERE or SELECT clause,
--- including JSON properties, comparisons, calculations, and functions. For
--- example, the following field uses the third level of the topic:
+-- You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
 --
--- '\"hashKeyValue\": \"${topic(3)}\"'
+-- '\"hashKeyValue\": \">{topic(3)}\"'
 --
 -- The following field uses the timestamp:
 --
--- '\"rangeKeyValue\": \"${timestamp()}\"'
+-- '\"rangeKeyValue\": \">{timestamp()}\"'
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
@@ -799,8 +787,7 @@ instance ToJSON DynamoDBAction where
                   Just ("rangeKeyField" .= _ddaRangeKeyField),
                   Just ("rangeKeyValue" .= _ddaRangeKeyValue)])
 
--- | Describes an action that writes data to an Amazon Elasticsearch Service;
--- domain.
+-- | Describes an action that writes data to an Amazon Elasticsearch Service; domain.
 --
 -- /See:/ 'elasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
@@ -883,8 +870,7 @@ instance ToJSON ElasticsearchAction where
                   Just ("index" .= _eaIndex), Just ("type" .= _eaType),
                   Just ("id" .= _eaId)])
 
--- | Describes an action that writes data to an Amazon Kinesis Firehose
--- stream.
+-- | Describes an action that writes data to an Amazon Kinesis Firehose stream.
 --
 -- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
@@ -1355,13 +1341,7 @@ snsAction pTargetARN_ pRoleARN_ =
     , _snsaRoleARN = pRoleARN_
     }
 
--- | The message format of the message to publish. Optional. Accepted values
--- are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\".
--- SNS uses this setting to determine if the payload should be parsed and
--- relevant platform-specific bits of the payload should be extracted. To
--- read more about SNS message formats, see
--- <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to
--- their official documentation.
+-- | The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
 snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
 snsaMessageFormat = lens _snsaMessageFormat (\ s a -> s{_snsaMessageFormat = a});
 
@@ -1560,8 +1540,7 @@ trRuleDisabled = lens _trRuleDisabled (\ s a -> s{_trRuleDisabled = a});
 trRuleName :: Lens' TopicRule (Maybe Text)
 trRuleName = lens _trRuleName (\ s a -> s{_trRuleName = a});
 
--- | The SQL statement used to query the topic. When using a SQL query with
--- multiple lines, be sure to escape the newline characters.
+-- | The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
 trSql :: Lens' TopicRule (Maybe Text)
 trSql = lens _trSql (\ s a -> s{_trSql = a});
 
@@ -1702,9 +1681,7 @@ trpRuleDisabled = lens _trpRuleDisabled (\ s a -> s{_trpRuleDisabled = a});
 trpDescription :: Lens' TopicRulePayload (Maybe Text)
 trpDescription = lens _trpDescription (\ s a -> s{_trpDescription = a});
 
--- | The SQL statement used to query the topic. For more information, see
--- <http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference AWS IoT SQL Reference>
--- in the /AWS IoT Developer Guide/.
+-- | The SQL statement used to query the topic. For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference AWS IoT SQL Reference> in the /AWS IoT Developer Guide/.
 trpSql :: Lens' TopicRulePayload Text
 trpSql = lens _trpSql (\ s a -> s{_trpSql = a});
 

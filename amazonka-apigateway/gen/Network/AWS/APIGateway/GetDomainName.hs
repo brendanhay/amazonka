@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a domain name that is contained in a simpler, more intuitive
--- URL that can be called.
+-- Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
 module Network.AWS.APIGateway.GetDomainName
     (
     -- * Creating a Request

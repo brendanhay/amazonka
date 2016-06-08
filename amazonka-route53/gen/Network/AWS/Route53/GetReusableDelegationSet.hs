@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the reusable delegation set, send a 'GET' request to the
--- '\/Route 53 API version\/delegationset\/delegation set ID' resource.
+-- To retrieve the reusable delegation set, send a 'GET' request to the '\/Route 53 API version\/delegationset\/delegation set ID' resource.
 module Network.AWS.Route53.GetReusableDelegationSet
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ getReusableDelegationSet pId_ =
     { _grdsId = pId_
     }
 
--- | The ID of the reusable delegation set for which you want to get a list
--- of the name server.
+-- | The ID of the reusable delegation set for which you want to get a list of the name server.
 grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 
@@ -93,8 +91,7 @@ instance ToPath GetReusableDelegationSet where
 instance ToQuery GetReusableDelegationSet where
         toQuery = const mempty
 
--- | A complex type containing information about the specified reusable
--- delegation set.
+-- | A complex type containing information about the specified reusable delegation set.
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
@@ -123,8 +120,7 @@ getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
 grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
 grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseStatus = a});
 
--- | A complex type that contains the information about the nameservers for
--- the specified delegation set ID.
+-- | A complex type that contains the information about the nameservers for the specified delegation set ID.
 grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a});
 

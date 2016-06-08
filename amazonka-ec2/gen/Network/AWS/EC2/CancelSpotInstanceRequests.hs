@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels one or more Spot instance requests. Spot instances are instances
--- that Amazon EC2 starts on your behalf when the bid price that you
--- specify exceeds the current Spot price. Amazon EC2 periodically sets the
--- Spot price based on available Spot instance capacity and current Spot
--- instance requests. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Cancels one or more Spot instance requests. Spot instances are instances that Amazon EC2 starts on your behalf when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically sets the Spot price based on available Spot instance capacity and current Spot instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Canceling a Spot instance request does not terminate running Spot
--- instances associated with the request.
+-- Canceling a Spot instance request does not terminate running Spot instances associated with the request.
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Creating a Request
@@ -75,10 +68,7 @@ cancelSpotInstanceRequests =
     , _csirSpotInstanceRequestIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
 csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 

@@ -43,8 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing information about a request for a list of the
--- tags that are associated with an individual resource.
+-- | A complex type containing information about a request for a list of the tags that are associated with an individual resource.
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
@@ -136,8 +135,7 @@ listTagsForResourceResponse pResponseStatus_ pResourceTagSet_ =
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
--- | A 'ResourceTagSet' containing tags associated with the specified
--- resource.
+-- | A 'ResourceTagSet' containing tags associated with the specified resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});
 

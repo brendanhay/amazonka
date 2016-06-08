@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- ModifyInstanceGroups modifies the number of nodes and configuration
--- settings of an instance group. The input parameters include the new
--- target instance count for the group and the instance group ID. The call
--- will either succeed or fail atomically.
+-- ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request

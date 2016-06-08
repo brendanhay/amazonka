@@ -72,10 +72,7 @@ resetImageAttribute pImageId_ pAttribute_ =
     , _resAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
 resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 
@@ -83,8 +80,7 @@ resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 resImageId :: Lens' ResetImageAttribute Text
 resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
 
--- | The attribute to reset (currently you can only reset the launch
--- permission attribute).
+-- | The attribute to reset (currently you can only reset the launch permission attribute).
 resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
 

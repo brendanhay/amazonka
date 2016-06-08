@@ -250,8 +250,7 @@ instance ToJSON MFAOptionType where
                  [("DeliveryMedium" .=) <$> _motDeliveryMedium,
                   ("AttributeName" .=) <$> _motAttributeName])
 
--- | The minimum and maximum value of an attribute that is of the number data
--- type.
+-- | The minimum and maximum value of an attribute that is of the number data type.
 --
 -- /See:/ 'numberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
@@ -336,28 +335,23 @@ passwordPolicyType =
     , _pptRequireSymbols = Nothing
     }
 
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one number in their password.
+-- | In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
 pptRequireNumbers :: Lens' PasswordPolicyType (Maybe Bool)
 pptRequireNumbers = lens _pptRequireNumbers (\ s a -> s{_pptRequireNumbers = a});
 
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one uppercase letter in their password.
+-- | In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
 pptRequireUppercase :: Lens' PasswordPolicyType (Maybe Bool)
 pptRequireUppercase = lens _pptRequireUppercase (\ s a -> s{_pptRequireUppercase = a});
 
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one lowercase letter in their password.
+-- | In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 pptRequireLowercase :: Lens' PasswordPolicyType (Maybe Bool)
 pptRequireLowercase = lens _pptRequireLowercase (\ s a -> s{_pptRequireLowercase = a});
 
--- | The minimum length of the password policy that you have set. Cannot be
--- less than 6.
+-- | The minimum length of the password policy that you have set. Cannot be less than 6.
 pptMinimumLength :: Lens' PasswordPolicyType (Maybe Natural)
 pptMinimumLength = lens _pptMinimumLength (\ s a -> s{_pptMinimumLength = a}) . mapping _Nat;
 
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one symbol in their password.
+-- | In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 pptRequireSymbols :: Lens' PasswordPolicyType (Maybe Bool)
 pptRequireSymbols = lens _pptRequireSymbols (\ s a -> s{_pptRequireSymbols = a});
 
@@ -433,9 +427,7 @@ schemaAttributeType =
 satNumberAttributeConstraints :: Lens' SchemaAttributeType (Maybe NumberAttributeConstraintsType)
 satNumberAttributeConstraints = lens _satNumberAttributeConstraints (\ s a -> s{_satNumberAttributeConstraints = a});
 
--- | Specifies whether a user pool attribute is required. If the attribute is
--- required and the user does not provide a value, registration or sign-in
--- will fail.
+-- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 satRequired :: Lens' SchemaAttributeType (Maybe Bool)
 satRequired = lens _satRequired (\ s a -> s{_satRequired = a});
 
@@ -572,8 +564,7 @@ userPoolClientDescription =
 upcdClientId :: Lens' UserPoolClientDescription (Maybe Text)
 upcdClientId = lens _upcdClientId (\ s a -> s{_upcdClientId = a}) . mapping _Sensitive;
 
--- | The user pool ID for the user pool where you want to describe the user
--- pool client.
+-- | The user pool ID for the user pool where you want to describe the user pool client.
 upcdUserPoolId :: Lens' UserPoolClientDescription (Maybe Text)
 upcdUserPoolId = lens _upcdUserPoolId (\ s a -> s{_upcdUserPoolId = a});
 
@@ -909,12 +900,9 @@ uptName = lens _uptName (\ s a -> s{_uptName = a});
 
 -- | Can be one of the following values:
 --
--- -   'OFF' - MFA tokens are not required and cannot be specified during
---     user registration.
--- -   'ON' - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
--- -   'OPTIONAL' - Users have the option when registering to create an MFA
---     token.
+-- -   'OFF' - MFA tokens are not required and cannot be specified during user registration.
+-- -   'ON' - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
+-- -   'OPTIONAL' - Users have the option when registering to create an MFA token.
 uptMFAConfiguration :: Lens' UserPoolType (Maybe UserPoolMFAType)
 uptMFAConfiguration = lens _uptMFAConfiguration (\ s a -> s{_uptMFAConfiguration = a});
 
@@ -926,8 +914,7 @@ uptId = lens _uptId (\ s a -> s{_uptId = a});
 uptCreationDate :: Lens' UserPoolType (Maybe UTCTime)
 uptCreationDate = lens _uptCreationDate (\ s a -> s{_uptCreationDate = a}) . mapping _Time;
 
--- | A container describing the AWS Lambda triggers associated with a user
--- pool.
+-- | A container describing the AWS Lambda triggers associated with a user pool.
 uptLambdaConfig :: Lens' UserPoolType (Maybe LambdaConfigType)
 uptLambdaConfig = lens _uptLambdaConfig (\ s a -> s{_uptLambdaConfig = a});
 

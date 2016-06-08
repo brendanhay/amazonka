@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ListPipelines operation gets a list of the pipelines associated with
--- the current AWS account.
+-- The ListPipelines operation gets a list of the pipelines associated with the current AWS account.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPipelines
@@ -71,15 +70,11 @@ listPipelines =
     , _lpPageToken = Nothing
     }
 
--- | To list pipelines in chronological order by the date and time that they
--- were created, enter 'true'. To list pipelines in reverse chronological
--- order, enter 'false'.
+-- | To list pipelines in chronological order by the date and time that they were created, enter 'true'. To list pipelines in reverse chronological order, enter 'false'.
 lpAscending :: Lens' ListPipelines (Maybe Text)
 lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use
--- 'pageToken' in subsequent 'GET' requests to get each successive page of
--- results.
+-- | When Elastic Transcoder returns more than one page of results, use 'pageToken' in subsequent 'GET' requests to get each successive page of results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 
@@ -145,10 +140,7 @@ listPipelinesResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | A value that you use to access the second and subsequent pages of
--- results, if any. When the pipelines fit on one page or when you\'ve
--- reached the last page of results, the value of 'NextPageToken' is
--- 'null'.
+-- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you\'ve reached the last page of results, the value of 'NextPageToken' is 'null'.
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
 

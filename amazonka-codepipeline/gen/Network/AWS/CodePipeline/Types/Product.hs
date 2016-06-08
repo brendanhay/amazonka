@@ -21,10 +21,7 @@ import           Network.AWS.CodePipeline.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the Amazon S3
--- bucket used to store artifact for the pipeline in AWS CodePipeline.
+-- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
 -- /See:/ 'awsSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
@@ -159,16 +156,9 @@ actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
     , _acpSecret = pSecret_
     }
 
--- | Indicates that the proprety will be used in conjunction with
--- PollForJobs. When creating a custom action, an action can have up to one
--- queryable property. If it has one, that property must be both required
--- and not secret.
+-- | Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
 --
--- If you create a pipeline with a custom action type, and that custom
--- action contains a queryable property, the value for that configuration
--- property is subject to additional restrictions. The value must be less
--- than or equal to twenty (20) characters. The value can contain only
--- alphanumeric characters, underscores, and hyphens.
+-- If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 acpQueryable :: Lens' ActionConfigurationProperty (Maybe Bool)
 acpQueryable = lens _acpQueryable (\ s a -> s{_acpQueryable = a});
 
@@ -176,8 +166,7 @@ acpQueryable = lens _acpQueryable (\ s a -> s{_acpQueryable = a});
 acpType :: Lens' ActionConfigurationProperty (Maybe ActionConfigurationPropertyType)
 acpType = lens _acpType (\ s a -> s{_acpType = a});
 
--- | The description of the action configuration property that will be
--- displayed to users.
+-- | The description of the action configuration property that will be displayed to users.
 acpDescription :: Lens' ActionConfigurationProperty (Maybe Text)
 acpDescription = lens _acpDescription (\ s a -> s{_acpDescription = a});
 
@@ -193,12 +182,9 @@ acpRequired = lens _acpRequired (\ s a -> s{_acpRequired = a});
 acpKey :: Lens' ActionConfigurationProperty Bool
 acpKey = lens _acpKey (\ s a -> s{_acpKey = a});
 
--- | Whether the configuration property is secret. Secrets are hidden from
--- all calls except for GetJobDetails, GetThirdPartyJobDetails,
--- PollForJobs, and PollForThirdPartyJobs.
+-- | Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
 --
--- When updating a pipeline, passing * * * * * without changing any other
--- values of the action will preserve the prior value of the secret.
+-- When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
 acpSecret :: Lens' ActionConfigurationProperty Bool
 acpSecret = lens _acpSecret (\ s a -> s{_acpSecret = a});
 
@@ -230,8 +216,7 @@ instance ToJSON ActionConfigurationProperty where
                   Just ("key" .= _acpKey),
                   Just ("secret" .= _acpSecret)])
 
--- | Represents the context of an action within the stage of a pipeline to a
--- job worker.
+-- | Represents the context of an action within the stage of a pipeline to a job worker.
 --
 -- /See:/ 'actionContext' smart constructor.
 newtype ActionContext = ActionContext'
@@ -308,8 +293,7 @@ actionDeclaration pName_ pActionTypeId_ =
     , _adActionTypeId = pActionTypeId_
     }
 
--- | The name or ID of the result of the action declaration, such as a test
--- or build artifact.
+-- | The name or ID of the result of the action declaration, such as a test or build artifact.
 adOutputArtifacts :: Lens' ActionDeclaration [OutputArtifact]
 adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a}) . _Default . _Coerce;
 
@@ -321,13 +305,11 @@ adRunOrder = lens _adRunOrder (\ s a -> s{_adRunOrder = a}) . mapping _Nat;
 adConfiguration :: Lens' ActionDeclaration (HashMap Text Text)
 adConfiguration = lens _adConfiguration (\ s a -> s{_adConfiguration = a}) . _Default . _Map;
 
--- | The name or ID of the artifact consumed by the action, such as a test or
--- build artifact.
+-- | The name or ID of the artifact consumed by the action, such as a test or build artifact.
 adInputArtifacts :: Lens' ActionDeclaration [InputArtifact]
 adInputArtifacts = lens _adInputArtifacts (\ s a -> s{_adInputArtifacts = a}) . _Default . _Coerce;
 
--- | The ARN of the IAM service role that will perform the declared action.
--- This is assumed through the roleArn for the pipeline.
+-- | The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 adRoleARN :: Lens' ActionDeclaration (Maybe Text)
 adRoleARN = lens _adRoleARN (\ s a -> s{_adRoleARN = a});
 
@@ -415,8 +397,7 @@ actionExecution =
 aeSummary :: Lens' ActionExecution (Maybe Text)
 aeSummary = lens _aeSummary (\ s a -> s{_aeSummary = a});
 
--- | The status of the action, or for a completed action, the last status of
--- the action.
+-- | The status of the action, or for a completed action, the last status of the action.
 aeStatus :: Lens' ActionExecution (Maybe ActionExecutionStatus)
 aeStatus = lens _aeStatus (\ s a -> s{_aeStatus = a});
 
@@ -424,8 +405,7 @@ aeStatus = lens _aeStatus (\ s a -> s{_aeStatus = a});
 aeLastStatusChange :: Lens' ActionExecution (Maybe UTCTime)
 aeLastStatusChange = lens _aeLastStatusChange (\ s a -> s{_aeLastStatusChange = a}) . mapping _Time;
 
--- | The URL of a resource external to AWS that will be used when running the
--- action, for example an external repository URL.
+-- | The URL of a resource external to AWS that will be used when running the action, for example an external repository URL.
 aeExternalExecutionURL :: Lens' ActionExecution (Maybe Text)
 aeExternalExecutionURL = lens _aeExternalExecutionURL (\ s a -> s{_aeExternalExecutionURL = a});
 
@@ -487,18 +467,15 @@ actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
     , _arCreated = _Time # pCreated_
     }
 
--- | The system-generated unique ID that identifies the revision number of
--- the action.
+-- | The system-generated unique ID that identifies the revision number of the action.
 arRevisionId :: Lens' ActionRevision Text
 arRevisionId = lens _arRevisionId (\ s a -> s{_arRevisionId = a});
 
--- | The unique identifier of the change that set the state to this revision,
--- for example a deployment ID or timestamp.
+-- | The unique identifier of the change that set the state to this revision, for example a deployment ID or timestamp.
 arRevisionChangeId :: Lens' ActionRevision Text
 arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
 
--- | The date and time when the most recent version of the action was
--- created, in timestamp format.
+-- | The date and time when the most recent version of the action was created, in timestamp format.
 arCreated :: Lens' ActionRevision UTCTime
 arCreated = lens _arCreated (\ s a -> s{_arCreated = a}) . _Time;
 
@@ -557,13 +534,11 @@ actionState =
     , _asLatestExecution = Nothing
     }
 
--- | A URL link for more information about the revision, such as a commit
--- details page.
+-- | A URL link for more information about the revision, such as a commit details page.
 asRevisionURL :: Lens' ActionState (Maybe Text)
 asRevisionURL = lens _asRevisionURL (\ s a -> s{_asRevisionURL = a});
 
--- | A URL link for more information about the state of the action, such as a
--- deployment group details page.
+-- | A URL link for more information about the state of the action, such as a deployment group details page.
 asEntityURL :: Lens' ActionState (Maybe Text)
 asEntityURL = lens _asEntityURL (\ s a -> s{_asEntityURL = a});
 
@@ -701,9 +676,7 @@ actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ =
     , _atiVersion = pVersion_
     }
 
--- | A category defines what kind of action can be taken in the stage, and
--- constrains the provider type for the action. Valid categories are
--- limited to one of the values below.
+-- | A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
 atiCategory :: Lens' ActionTypeId ActionCategory
 atiCategory = lens _atiCategory (\ s a -> s{_atiCategory = a});
 
@@ -711,10 +684,7 @@ atiCategory = lens _atiCategory (\ s a -> s{_atiCategory = a});
 atiOwner :: Lens' ActionTypeId ActionOwner
 atiOwner = lens _atiOwner (\ s a -> s{_atiOwner = a});
 
--- | The provider of the service being called by the action. Valid providers
--- are determined by the action category. For example, an action in the
--- Deploy category type might have a provider of AWS CodeDeploy, which
--- would be specified as CodeDeploy.
+-- | The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 atiProvider :: Lens' ActionTypeId Text
 atiProvider = lens _atiProvider (\ s a -> s{_atiProvider = a});
 
@@ -775,30 +745,19 @@ actionTypeSettings =
     , _atsEntityURLTemplate = Nothing
     }
 
--- | The URL of a sign-up page where users can sign up for an external
--- service and perform initial configuration of the action provided by that
--- service.
+-- | The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 atsThirdPartyConfigurationURL :: Lens' ActionTypeSettings (Maybe Text)
 atsThirdPartyConfigurationURL = lens _atsThirdPartyConfigurationURL (\ s a -> s{_atsThirdPartyConfigurationURL = a});
 
--- | The URL returned to the AWS CodePipeline console that contains a link to
--- the top-level landing page for the external system, such as console page
--- for AWS CodeDeploy. This link is shown on the pipeline view page in the
--- AWS CodePipeline console and provides a link to the execution entity of
--- the external action.
+-- | The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 atsExecutionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
 atsExecutionURLTemplate = lens _atsExecutionURLTemplate (\ s a -> s{_atsExecutionURLTemplate = a});
 
--- | The URL returned to the AWS CodePipeline console that contains a link to
--- the page where customers can update or change the configuration of the
--- external action.
+-- | The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 atsRevisionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
 atsRevisionURLTemplate = lens _atsRevisionURLTemplate (\ s a -> s{_atsRevisionURLTemplate = a});
 
--- | The URL returned to the AWS CodePipeline console that provides a deep
--- link to the resources of the external system, such as the configuration
--- page for an AWS CodeDeploy deployment group. This link is provided as
--- part of the action display within the pipeline.
+-- | The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display within the pipeline.
 atsEntityURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
 atsEntityURLTemplate = lens _atsEntityURLTemplate (\ s a -> s{_atsEntityURLTemplate = a});
 
@@ -828,8 +787,7 @@ instance ToJSON ActionTypeSettings where
                     _atsRevisionURLTemplate,
                   ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate])
 
--- | Represents information about an artifact that will be worked upon by
--- actions in the pipeline.
+-- | Represents information about an artifact that will be worked upon by actions in the pipeline.
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
@@ -864,8 +822,7 @@ aLocation = lens _aLocation (\ s a -> s{_aLocation = a});
 aName :: Lens' Artifact (Maybe Text)
 aName = lens _aName (\ s a -> s{_aName = a});
 
--- | The artifact\'s revision ID. Depending on the type of object, this could
--- be a commit ID (GitHub) or a revision ID (Amazon S3).
+-- | The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 aRevision :: Lens' Artifact (Maybe Text)
 aRevision = lens _aRevision (\ s a -> s{_aRevision = a});
 
@@ -974,10 +931,7 @@ instance Hashable ArtifactLocation
 
 instance NFData ArtifactLocation
 
--- | The Amazon S3 location where artifacts are stored for the pipeline. If
--- this Amazon S3 bucket is created manually, it must meet the requirements
--- for AWS CodePipeline. For more information, see the
--- <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
+-- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
@@ -1006,9 +960,7 @@ artifactStore pType_ pLocation_ =
     , _asLocation = pLocation_
     }
 
--- | The encryption key used to encrypt the data in the artifact store, such
--- as an AWS Key Management Service (AWS KMS) key. If this is undefined,
--- the default key for Amazon S3 is used.
+-- | The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
 asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
 asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 
@@ -1016,8 +968,7 @@ asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 asType :: Lens' ArtifactStore ArtifactStoreType
 asType = lens _asType (\ s a -> s{_asType = a});
 
--- | The location for storing the artifacts for a pipeline, such as an S3
--- bucket or folder.
+-- | The location for storing the artifacts for a pipeline, such as an S3 bucket or folder.
 asLocation :: Lens' ArtifactStore Text
 asLocation = lens _asLocation (\ s a -> s{_asLocation = a});
 
@@ -1135,8 +1086,7 @@ instance ToJSON CurrentRevision where
                  [Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
 
--- | Represents information about the key used to encrypt data in the
--- artifact store, such as an AWS Key Management Service (AWS KMS) key.
+-- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
@@ -1161,14 +1111,11 @@ encryptionKey pId_ pType_ =
     , _ekType = pType_
     }
 
--- | The ID used to identify the key. For an AWS KMS key, this is the key ID
--- or key ARN.
+-- | The ID used to identify the key. For an AWS KMS key, this is the key ID or key ARN.
 ekId :: Lens' EncryptionKey Text
 ekId = lens _ekId (\ s a -> s{_ekId = a});
 
--- | The type of encryption key, such as an AWS Key Management Service (AWS
--- KMS) key. When creating or updating a pipeline, the value must be set to
--- \'KMS\'.
+-- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
 ekType :: Lens' EncryptionKey EncryptionKeyType
 ekType = lens _ekType (\ s a -> s{_ekType = a});
 
@@ -1230,8 +1177,7 @@ instance Hashable ErrorDetails
 
 instance NFData ErrorDetails
 
--- | The details of the actions taken and results produced on an artifact as
--- it passes through stages in the pipeline.
+-- | The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
 --
 -- /See:/ 'executionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
@@ -1262,13 +1208,11 @@ executionDetails =
 edSummary :: Lens' ExecutionDetails (Maybe Text)
 edSummary = lens _edSummary (\ s a -> s{_edSummary = a});
 
--- | The system-generated unique ID of this action used to identify this job
--- worker in any external systems, such as AWS CodeDeploy.
+-- | The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy.
 edExternalExecutionId :: Lens' ExecutionDetails (Maybe Text)
 edExternalExecutionId = lens _edExternalExecutionId (\ s a -> s{_edExternalExecutionId = a});
 
--- | The percentage of work completed on the action, represented on a scale
--- of zero to one hundred percent.
+-- | The percentage of work completed on the action, represented on a scale of zero to one hundred percent.
 edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
 edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
 
@@ -1339,8 +1283,7 @@ instance ToJSON FailureDetails where
                   Just ("type" .= _fdType),
                   Just ("message" .= _fdMessage)])
 
--- | Represents information about an artifact to be worked on, such as a test
--- or build artifact.
+-- | Represents information about an artifact to be worked on, such as a test or build artifact.
 --
 -- /See:/ 'inputArtifact' smart constructor.
 newtype InputArtifact = InputArtifact'
@@ -1362,11 +1305,7 @@ inputArtifact pName_ =
 
 -- | The name of the artifact to be worked on, for example, \"My App\".
 --
--- The input artifact of an action must exactly match the output artifact
--- declared in a preceding action, but the input artifact does not have to
--- be the next action in strict sequence from the action that provided the
--- output artifact. Actions in parallel can declare different output
--- artifacts, which are in turn consumed by different following actions.
+-- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 iaName :: Lens' InputArtifact Text
 iaName = lens _iaName (\ s a -> s{_iaName = a});
 
@@ -1426,9 +1365,7 @@ jAccountId = lens _jAccountId (\ s a -> s{_jAccountId = a});
 jId :: Lens' Job (Maybe Text)
 jId = lens _jId (\ s a -> s{_jId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. This number must
--- be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 jNonce :: Lens' Job (Maybe Text)
 jNonce = lens _jNonce (\ s a -> s{_jNonce = a});
 
@@ -1445,8 +1382,7 @@ instance Hashable Job
 
 instance NFData Job
 
--- | Represents additional information about a job required for a job worker
--- to complete the job.
+-- | Represents additional information about a job required for a job worker to complete the job.
 --
 -- /See:/ 'jobData' smart constructor.
 data JobData = JobData'
@@ -1493,8 +1429,7 @@ jobData =
     , _jdActionConfiguration = Nothing
     }
 
--- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
--- job requires in order to continue the job asynchronously.
+-- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 jdContinuationToken :: Lens' JobData (Maybe Text)
 jdContinuationToken = lens _jdContinuationToken (\ s a -> s{_jdContinuationToken = a});
 
@@ -1617,11 +1552,7 @@ outputArtifact pName_ =
 
 -- | The name of the output of an artifact, such as \"My App\".
 --
--- The input artifact of an action must exactly match the output artifact
--- declared in a preceding action, but the input artifact does not have to
--- be the next action in strict sequence from the action that provided the
--- output artifact. Actions in parallel can declare different output
--- artifacts, which are in turn consumed by different following actions.
+-- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 --
 -- Output artifact names must be unique within a pipeline.
 oaName :: Lens' OutputArtifact Text
@@ -1671,9 +1602,7 @@ pipelineContext =
 pcStage :: Lens' PipelineContext (Maybe StageContext)
 pcStage = lens _pcStage (\ s a -> s{_pcStage = a});
 
--- | The name of the pipeline. This is a user-specified value. Pipeline names
--- must be unique across all pipeline names under an Amazon Web Services
--- account.
+-- | The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 pcPipelineName :: Lens' PipelineContext (Maybe Text)
 pcPipelineName = lens _pcPipelineName (\ s a -> s{_pcPipelineName = a});
 
@@ -1693,8 +1622,7 @@ instance Hashable PipelineContext
 
 instance NFData PipelineContext
 
--- | Represents the structure of actions and stages to be performed in the
--- pipeline.
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 --
 -- /See:/ 'pipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
@@ -1732,9 +1660,7 @@ pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
     , _pdStages = mempty
     }
 
--- | The version number of the pipeline. A new pipeline always has a version
--- number of 1. This number is automatically incremented when a pipeline is
--- updated.
+-- | The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 pdVersion :: Lens' PipelineDeclaration (Maybe Natural)
 pdVersion = lens _pdVersion (\ s a -> s{_pdVersion = a}) . mapping _Nat;
 
@@ -1742,9 +1668,7 @@ pdVersion = lens _pdVersion (\ s a -> s{_pdVersion = a}) . mapping _Nat;
 pdName :: Lens' PipelineDeclaration Text
 pdName = lens _pdName (\ s a -> s{_pdName = a});
 
--- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
--- perform actions with no actionRoleArn, or to use to assume roles for
--- actions with an actionRoleArn.
+-- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
@@ -1823,8 +1747,7 @@ psName = lens _psName (\ s a -> s{_psName = a});
 psVersion :: Lens' PipelineSummary (Maybe Natural)
 psVersion = lens _psVersion (\ s a -> s{_psVersion = a}) . mapping _Nat;
 
--- | The date and time of the last update to the pipeline, in timestamp
--- format.
+-- | The date and time of the last update to the pipeline, in timestamp format.
 psUpdated :: Lens' PipelineSummary (Maybe UTCTime)
 psUpdated = lens _psUpdated (\ s a -> s{_psUpdated = a}) . mapping _Time;
 
@@ -1870,8 +1793,7 @@ s3ArtifactLocation pBucketName_ pObjectKey_ =
 salBucketName :: Lens' S3ArtifactLocation Text
 salBucketName = lens _salBucketName (\ s a -> s{_salBucketName = a});
 
--- | The key of the object in the Amazon S3 bucket, which uniquely identifies
--- the object in the bucket.
+-- | The key of the object in the Amazon S3 bucket, which uniquely identifies the object in the bucket.
 salObjectKey :: Lens' S3ArtifactLocation Text
 salObjectKey = lens _salObjectKey (\ s a -> s{_salObjectKey = a});
 
@@ -2005,8 +1927,7 @@ stageState =
     , _ssStageName = Nothing
     }
 
--- | The state of the inbound transition, which is either enabled or
--- disabled.
+-- | The state of the inbound transition, which is either enabled or disabled.
 ssInboundTransitionState :: Lens' StageState (Maybe TransitionState)
 ssInboundTransitionState = lens _ssInboundTransitionState (\ s a -> s{_ssInboundTransitionState = a});
 
@@ -2031,8 +1952,7 @@ instance Hashable StageState
 
 instance NFData StageState
 
--- | A response to a PollForThirdPartyJobs request returned by AWS
--- CodePipeline when there is a job to be worked upon by a partner action.
+-- | A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.
 --
 -- /See:/ 'thirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
@@ -2055,9 +1975,7 @@ thirdPartyJob =
     , _tpjJobId = Nothing
     }
 
--- | The clientToken portion of the clientId and clientToken pair used to
--- verify that the calling entity is allowed access to the job and its
--- details.
+-- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 tpjClientId :: Lens' ThirdPartyJob (Maybe Text)
 tpjClientId = lens _tpjClientId (\ s a -> s{_tpjClientId = a});
 
@@ -2123,14 +2041,11 @@ thirdPartyJobData =
     , _tpjdActionConfiguration = Nothing
     }
 
--- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
--- job requires in order to continue the job asynchronously.
+-- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 tpjdContinuationToken :: Lens' ThirdPartyJobData (Maybe Text)
 tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuationToken = a});
 
--- | The name of the artifact that will be the result of the action, if any.
--- This name might be system-generated, such as \"MyBuiltApp\", or might be
--- defined by the user when the action is created.
+-- | The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or might be defined by the user when the action is created.
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
@@ -2142,9 +2057,7 @@ tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifac
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
--- | The encryption key used to encrypt and decrypt data in the artifact
--- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
--- key. This is optional and might not be present.
+-- | The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present.
 tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
 tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
@@ -2152,11 +2065,7 @@ tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a})
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
 tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 
--- | The name of the artifact that will be worked upon by the action, if any.
--- This name might be system-generated, such as \"MyApp\", or might be
--- defined by the user when the action is created. The input artifact name
--- must match the name of an output artifact generated by an action in an
--- earlier action or stage of the pipeline.
+-- | The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as \"MyApp\", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
@@ -2182,8 +2091,7 @@ instance Hashable ThirdPartyJobData
 
 instance NFData ThirdPartyJobData
 
--- | The details of a job sent in response to a GetThirdPartyJobDetails
--- request.
+-- | The details of a job sent in response to a GetThirdPartyJobDetails request.
 --
 -- /See:/ 'thirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
@@ -2218,9 +2126,7 @@ tpjdData = lens _tpjdData (\ s a -> s{_tpjdData = a});
 tpjdId :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdId = lens _tpjdId (\ s a -> s{_tpjdId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. This number must
--- be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 tpjdNonce :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdNonce = lens _tpjdNonce (\ s a -> s{_tpjdNonce = a});
 
@@ -2235,8 +2141,7 @@ instance Hashable ThirdPartyJobDetails
 
 instance NFData ThirdPartyJobDetails
 
--- | Represents information about the state of transitions between one stage
--- and another stage.
+-- | Represents information about the state of transitions between one stage and another stage.
 --
 -- /See:/ 'transitionState' smart constructor.
 data TransitionState = TransitionState'
@@ -2267,13 +2172,11 @@ transitionState =
     , _tsLastChangedBy = Nothing
     }
 
--- | Whether the transition between stages is enabled (true) or disabled
--- (false).
+-- | Whether the transition between stages is enabled (true) or disabled (false).
 tsEnabled :: Lens' TransitionState (Maybe Bool)
 tsEnabled = lens _tsEnabled (\ s a -> s{_tsEnabled = a});
 
--- | The user-specified reason why the transition between two stages of a
--- pipeline was disabled.
+-- | The user-specified reason why the transition between two stages of a pipeline was disabled.
 tsDisabledReason :: Lens' TransitionState (Maybe Text)
 tsDisabledReason = lens _tsDisabledReason (\ s a -> s{_tsDisabledReason = a});
 

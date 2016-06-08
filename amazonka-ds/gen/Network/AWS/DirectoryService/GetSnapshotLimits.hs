@@ -124,8 +124,7 @@ getSnapshotLimitsResponse pResponseStatus_ =
     , _gslrsResponseStatus = pResponseStatus_
     }
 
--- | A < SnapshotLimits> object that contains the manual snapshot limits for
--- the specified directory.
+-- | A < SnapshotLimits> object that contains the manual snapshot limits for the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 

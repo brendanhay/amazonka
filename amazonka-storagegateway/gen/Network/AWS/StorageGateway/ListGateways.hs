@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists gateways owned by an AWS account in a region specified in the
--- request. The returned list is ordered by gateway Amazon Resource Name
--- (ARN).
+-- Lists gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).
 --
--- By default, the operation returns a maximum of 100 gateways. This
--- operation supports pagination that allows you to optionally reduce the
--- number of gateways returned in a response.
+-- By default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.
 --
--- If you have more gateways than are returned in a response (that is, the
--- response returns only a truncated list of your gateways), the response
--- contains a marker that you can specify in your next request to fetch the
--- next page of gateways.
+-- If you have more gateways than are returned in a response (that is, the response returns only a truncated list of your gateways), the response contains a marker that you can specify in your next request to fetch the next page of gateways.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
@@ -60,8 +53,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
--- -   < ListGatewaysInput$Limit>
--- -   < ListGatewaysInput$Marker>
+-- -   < ListGatewaysInput>Limit>
+-- -   < ListGatewaysInput>Marker>
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'
@@ -84,13 +77,11 @@ listGateways =
     , _lgLimit = Nothing
     }
 
--- | An opaque string that indicates the position at which to begin the
--- returned list of gateways.
+-- | An opaque string that indicates the position at which to begin the returned list of gateways.
 lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
--- | Specifies that the list of gateways returned be limited to the specified
--- number of items.
+-- | Specifies that the list of gateways returned be limited to the specified number of items.
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 

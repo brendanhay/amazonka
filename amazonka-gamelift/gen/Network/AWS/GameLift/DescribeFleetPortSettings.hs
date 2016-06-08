@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the port settings for a fleet. Port settings are used to limit
--- incoming traffic access to game servers in the fleet. To get a fleet\'s
--- port settings, specify a fleet ID. If successful, an < IpPermission>
--- object is returned for the requested fleet ID. If the requested fleet
--- has been deleted, the result set will be empty.
+-- Retrieves the port settings for a fleet. Port settings are used to limit incoming traffic access to game servers in the fleet. To get a fleet\'s port settings, specify a fleet ID. If successful, an < IpPermission> object is returned for the requested fleet ID. If the requested fleet has been deleted, the result set will be empty.
 module Network.AWS.GameLift.DescribeFleetPortSettings
     (
     -- * Creating a Request

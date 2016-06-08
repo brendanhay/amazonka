@@ -20,8 +20,7 @@
 --
 -- Describes one or more regions that are currently available to you.
 --
--- For a list of the regions supported by Amazon EC2, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
+-- For a list of the regions supported by Amazon EC2, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Creating a Request
@@ -80,18 +79,14 @@ drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Defau
 
 -- | One or more filters.
 --
--- -   'endpoint' - The endpoint of the region (for example,
---     'ec2.us-east-1.amazonaws.com').
+-- -   'endpoint' - The endpoint of the region (for example, 'ec2.us-east-1.amazonaws.com').
 --
 -- -   'region-name' - The name of the region (for example, 'us-east-1').
 --
 drsFilters :: Lens' DescribeRegions [Filter]
 drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drsDryRun :: Lens' DescribeRegions (Maybe Bool)
 drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
 

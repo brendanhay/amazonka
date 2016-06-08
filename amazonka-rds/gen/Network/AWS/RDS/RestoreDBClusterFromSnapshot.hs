@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new DB cluster from a DB cluster snapshot. The target DB
--- cluster is created from the source DB cluster restore point with the
--- same configuration as the original source DB cluster, except that the
--- new DB cluster is created with the default security group.
+-- Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     (
     -- * Creating a Request
@@ -132,39 +127,26 @@ rdcfsEngineVersion = lens _rdcfsEngineVersion (\ s a -> s{_rdcfsEngineVersion = 
 
 -- | The name of the DB subnet group to use for the new DB cluster.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 rdcfsDBSubnetGroupName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnetGroupName = a});
 
--- | Provides the list of EC2 Availability Zones that instances in the
--- restored DB cluster can be created in.
+-- | Provides the list of EC2 Availability Zones that instances in the restored DB cluster can be created in.
 rdcfsAvailabilityZones :: Lens' RestoreDBClusterFromSnapshot [Text]
 rdcfsAvailabilityZones = lens _rdcfsAvailabilityZones (\ s a -> s{_rdcfsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The KMS key identifier to use when restoring an encrypted DB cluster
--- from an encrypted DB cluster snapshot.
+-- | The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster snapshot.
 --
--- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are restoring a DB cluster with the same AWS
--- account that owns the KMS encryption key used to encrypt the new DB
--- cluster, then you can use the KMS key alias instead of the ARN for the
--- KMS encryption key.
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.
 --
--- If you do not specify a value for the 'KmsKeyId' parameter, then the
--- following will occur:
+-- If you do not specify a value for the 'KmsKeyId' parameter, then the following will occur:
 --
--- -   If the DB cluster snapshot is encrypted, then the restored DB
---     cluster is encrypted using the KMS key that was used to encrypt the
---     DB cluster snapshot.
--- -   If the DB cluster snapshot is not encrypted, then the restored DB
---     cluster is not encrypted.
+-- -   If the DB cluster snapshot is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the DB cluster snapshot.
+-- -   If the DB cluster snapshot is not encrypted, then the restored DB cluster is not encrypted.
 --
--- If 'SnapshotIdentifier' refers to a DB cluster snapshot that is not
--- encrypted, and you specify a value for the 'KmsKeyId' parameter, then
--- the restore request is rejected.
+-- If 'SnapshotIdentifier' refers to a DB cluster snapshot that is not encrypted, and you specify a value for the 'KmsKeyId' parameter, then the restore request is rejected.
 rdcfsKMSKeyId :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsKMSKeyId = lens _rdcfsKMSKeyId (\ s a -> s{_rdcfsKMSKeyId = a});
 
@@ -192,8 +174,7 @@ rdcfsTags = lens _rdcfsTags (\ s a -> s{_rdcfsTags = a}) . _Default . _Coerce;
 rdcfsPort :: Lens' RestoreDBClusterFromSnapshot (Maybe Int)
 rdcfsPort = lens _rdcfsPort (\ s a -> s{_rdcfsPort = a});
 
--- | The name of the DB cluster to create from the DB cluster snapshot. This
--- parameter isn\'t case-sensitive.
+-- | The name of the DB cluster to create from the DB cluster snapshot. This parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --

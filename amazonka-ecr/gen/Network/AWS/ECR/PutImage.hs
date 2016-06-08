@@ -20,9 +20,7 @@
 --
 -- Creates or updates the image manifest associated with an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.PutImage
     (
     -- * Creating a Request
@@ -75,9 +73,7 @@ putImage pRepositoryName_ pImageManifest_ =
     , _piImageManifest = pImageManifest_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to put the image. If you do not specify a registry,
--- the default registry is assumed.
+-- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 piRegistryId :: Lens' PutImage (Maybe Text)
 piRegistryId = lens _piRegistryId (\ s a -> s{_piRegistryId = a});
 

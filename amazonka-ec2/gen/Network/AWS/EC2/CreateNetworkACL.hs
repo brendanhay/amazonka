@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a network ACL in a VPC. Network ACLs provide an optional layer
--- of security (in addition to security groups) for the instances in your
--- VPC.
+-- Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.
 --
--- For more information about network ACLs, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateNetworkACL
     (
     -- * Creating a Request
@@ -73,10 +69,7 @@ createNetworkACL pVPCId_ =
     , _cnaVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
 cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
 

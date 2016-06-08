@@ -48,8 +48,7 @@ bucket =
 bValue :: Lens' Bucket (Maybe Text)
 bValue = lens _bValue (\ s a -> s{_bValue = a});
 
--- | The number of hits that contain the facet value in the specified facet
--- field.
+-- | The number of hits that contain the facet value in the specified facet field.
 bCount :: Lens' Bucket (Maybe Integer)
 bCount = lens _bCount (\ s a -> s{_bCount = a});
 
@@ -95,8 +94,7 @@ instance Hashable BucketInfo
 
 instance NFData BucketInfo
 
--- | A warning returned by the document service when an issue is discovered
--- while processing an upload request.
+-- | A warning returned by the document service when an issue is discovered while processing an upload request.
 --
 -- /See:/ 'documentServiceWarning' smart constructor.
 newtype DocumentServiceWarning = DocumentServiceWarning'
@@ -178,50 +176,31 @@ fieldStats =
 
 -- | The maximum value found in the specified field in the result set.
 --
--- If the field is numeric ('int', 'int-array', 'double', or
--- 'double-array'), 'max' is the string representation of a
--- double-precision 64-bit floating point value. If the field is 'date' or
--- 'date-array', 'max' is the string representation of a date with the
--- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
--- yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'max' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'max' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMax :: Lens' FieldStats (Maybe Text)
 fsMax = lens _fsMax (\ s a -> s{_fsMax = a});
 
--- | The average of the values found in the specified field in the result
--- set.
+-- | The average of the values found in the specified field in the result set.
 --
--- If the field is numeric ('int', 'int-array', 'double', or
--- 'double-array'), 'mean' is the string representation of a
--- double-precision 64-bit floating point value. If the field is 'date' or
--- 'date-array', 'mean' is the string representation of a date with the
--- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
--- yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'mean' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'mean' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMean :: Lens' FieldStats (Maybe Text)
 fsMean = lens _fsMean (\ s a -> s{_fsMean = a});
 
--- | The number of documents that contain a value in the specified field in
--- the result set.
+-- | The number of documents that contain a value in the specified field in the result set.
 fsCount :: Lens' FieldStats (Maybe Integer)
 fsCount = lens _fsCount (\ s a -> s{_fsCount = a});
 
--- | The number of documents that do not contain a value in the specified
--- field in the result set.
+-- | The number of documents that do not contain a value in the specified field in the result set.
 fsMissing :: Lens' FieldStats (Maybe Integer)
 fsMissing = lens _fsMissing (\ s a -> s{_fsMissing = a});
 
--- | The standard deviation of the values in the specified field in the
--- result set.
+-- | The standard deviation of the values in the specified field in the result set.
 fsStddev :: Lens' FieldStats (Maybe Double)
 fsStddev = lens _fsStddev (\ s a -> s{_fsStddev = a});
 
 -- | The minimum value found in the specified field in the result set.
 --
--- If the field is numeric ('int', 'int-array', 'double', or
--- 'double-array'), 'min' is the string representation of a
--- double-precision 64-bit floating point value. If the field is 'date' or
--- 'date-array', 'min' is the string representation of a date with the
--- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
--- yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'min' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'min' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMin :: Lens' FieldStats (Maybe Text)
 fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 
@@ -229,8 +208,7 @@ fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 fsSumOfSquares :: Lens' FieldStats (Maybe Double)
 fsSumOfSquares = lens _fsSumOfSquares (\ s a -> s{_fsSumOfSquares = a});
 
--- | The sum of the field values across the documents in the result set.
--- 'null' for date fields.
+-- | The sum of the field values across the documents in the result set. 'null' for date fields.
 fsSum :: Lens' FieldStats (Maybe Double)
 fsSum = lens _fsSum (\ s a -> s{_fsSum = a});
 
@@ -281,8 +259,7 @@ hit =
     , _hitFields = Nothing
     }
 
--- | The expressions returned from a document that matches the search
--- request.
+-- | The expressions returned from a document that matches the search request.
 hitExprs :: Lens' Hit (HashMap Text Text)
 hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . _Default . _Map;
 
@@ -342,8 +319,7 @@ hits =
     , _hFound = Nothing
     }
 
--- | A cursor that can be used to retrieve the next set of matching documents
--- when you want to page through a large result set.
+-- | A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
 hCursor :: Lens' Hits (Maybe Text)
 hCursor = lens _hCursor (\ s a -> s{_hCursor = a});
 
@@ -372,8 +348,7 @@ instance Hashable Hits
 
 instance NFData Hits
 
--- | Contains the resource id ('rid') and the time it took to process the
--- request ('timems').
+-- | Contains the resource id ('rid') and the time it took to process the request ('timems').
 --
 -- /See:/ 'searchStatus' smart constructor.
 data SearchStatus = SearchStatus'
@@ -414,8 +389,7 @@ instance Hashable SearchStatus
 
 instance NFData SearchStatus
 
--- | Container for the suggestion information returned in a
--- 'SuggestResponse'.
+-- | Container for the suggestion information returned in a 'SuggestResponse'.
 --
 -- /See:/ 'suggestModel' smart constructor.
 data SuggestModel = SuggestModel'
@@ -466,8 +440,7 @@ instance Hashable SuggestModel
 
 instance NFData SuggestModel
 
--- | Contains the resource id ('rid') and the time it took to process the
--- request ('timems').
+-- | Contains the resource id ('rid') and the time it took to process the request ('timems').
 --
 -- /See:/ 'suggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
@@ -509,8 +482,7 @@ instance Hashable SuggestStatus
 
 instance NFData SuggestStatus
 
--- | An autocomplete suggestion that matches the query string specified in a
--- 'SuggestRequest'.
+-- | An autocomplete suggestion that matches the query string specified in a 'SuggestRequest'.
 --
 -- /See:/ 'suggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
@@ -537,8 +509,7 @@ suggestionMatch =
     , _smId = Nothing
     }
 
--- | The string that matches the query string specified in the
--- 'SuggestRequest'.
+-- | The string that matches the query string specified in the 'SuggestRequest'.
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\ s a -> s{_smSuggestion = a});
 

@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon Redshift subnet group. You must provide a list of
--- one or more subnets in your existing Amazon Virtual Private Cloud
--- (Amazon VPC) when creating Amazon Redshift subnet group.
+-- Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
 --
--- For information about subnet groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For information about subnet groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Creating a Request
@@ -88,15 +84,13 @@ createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
 ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
 
--- | The name for the subnet group. Amazon Redshift stores the value as a
--- lowercase string.
+-- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
 --
 -- Constraints:
 --
 -- -   Must contain no more than 255 alphanumeric characters or hyphens.
 -- -   Must not be \"Default\".
--- -   Must be unique for all subnet groups that are created by your AWS
---     account.
+-- -   Must be unique for all subnet groups that are created by your AWS account.
 --
 -- Example: 'examplesubnetgroup'
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
@@ -106,8 +100,7 @@ ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgC
 ccsgDescription :: Lens' CreateClusterSubnetGroup Text
 ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 
--- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
--- single request.
+-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
 

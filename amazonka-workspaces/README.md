@@ -15,9 +15,7 @@
 
 Amazon WorkSpaces Service
 
-This is the /Amazon WorkSpaces API Reference/. This guide provides
-detailed information about Amazon WorkSpaces operations, data types,
-parameters, and errors.
+This is the /Amazon WorkSpaces API Reference/. This guide provides detailed information about Amazon WorkSpaces operations, data types, parameters, and errors.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-workspaces)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

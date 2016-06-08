@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the request payment configuration for a bucket. By default, the
--- bucket owner pays for downloads from the bucket. This configuration
--- parameter enables the bucket owner (only) to specify that the person
--- requesting the download will be charged for the download. Documentation
--- on requester pays buckets can be found at
--- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
+-- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
 module Network.AWS.S3.PutBucketRequestPayment
     (
     -- * Creating a Request

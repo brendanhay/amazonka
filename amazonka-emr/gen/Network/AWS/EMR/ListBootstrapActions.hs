@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about the bootstrap actions associated with a
--- cluster.
+-- Provides information about the bootstrap actions associated with a cluster.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
@@ -72,8 +71,7 @@ listBootstrapActions pClusterId_ =
     , _lbaClusterId = pClusterId_
     }
 
--- | The pagination token that indicates the next set of results to retrieve
--- .
+-- | The pagination token that indicates the next set of results to retrieve .
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 
@@ -159,8 +157,7 @@ listBootstrapActionsResponse pResponseStatus_ =
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
 lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce;
 
--- | The pagination token that indicates the next set of results to retrieve
--- .
+-- | The pagination token that indicates the next set of results to retrieve .
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 

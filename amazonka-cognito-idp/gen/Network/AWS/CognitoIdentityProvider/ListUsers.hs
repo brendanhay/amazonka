@@ -83,9 +83,7 @@ listUsers pUserPoolId_ =
     , _luUserPoolId = pUserPoolId_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luPaginationToken :: Lens' ListUsers (Maybe Text)
 luPaginationToken = lens _luPaginationToken (\ s a -> s{_luPaginationToken = a});
 
@@ -180,9 +178,7 @@ listUsersResponse pResponseStatus_ =
     , _lursResponseStatus = pResponseStatus_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lursPaginationToken :: Lens' ListUsersResponse (Maybe Text)
 lursPaginationToken = lens _lursPaginationToken (\ s a -> s{_lursPaginationToken = a});
 

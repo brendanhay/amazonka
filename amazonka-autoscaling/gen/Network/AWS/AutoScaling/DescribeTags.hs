@@ -20,14 +20,9 @@
 --
 -- Describes the specified tags.
 --
--- You can use filters to limit the results. For example, you can query for
--- the tags for a specific Auto Scaling group. You can specify multiple
--- values for a filter. A tag must match at least one of the specified
--- values for it to be included in the results.
+-- You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.
 --
--- You can also specify multiple filters. The result includes information
--- for a particular tag only if it matches all the filters. If there\'s no
--- match, no special message is returned.
+-- You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there\'s no match, no special message is returned.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeTags
@@ -86,8 +81,7 @@ describeTags =
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
@@ -160,8 +154,7 @@ describeTagsResponse pResponseStatus_ =
     , _dtrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 

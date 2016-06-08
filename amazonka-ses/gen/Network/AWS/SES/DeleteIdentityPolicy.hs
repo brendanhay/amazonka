@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified sending authorization policy for the given
--- identity (email address or domain). This API returns successfully even
--- if a policy with the specified name does not exist.
+-- Deletes the specified sending authorization policy for the given identity (email address or domain). This API returns successfully even if a policy with the specified name does not exist.
 --
--- This API is for the identity owner only. If you have not verified the
--- identity, this API will return an error.
+-- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to
--- authorize other senders to use its identities. For information about
--- using sending authorization, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteIdentityPolicy
@@ -77,10 +71,7 @@ deleteIdentityPolicy pIdentity_ pPolicyName_ =
     , _dipPolicyName = pPolicyName_
     }
 
--- | The identity that is associated with the policy that you want to delete.
--- You can specify the identity by using its name or by using its Amazon
--- Resource Name (ARN). Examples: 'user\'example.com', 'example.com',
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
+-- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: 'user\'example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 dipIdentity :: Lens' DeleteIdentityPolicy Text

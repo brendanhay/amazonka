@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds metadata tags to an Amazon RDS resource. These tags can also be
--- used with cost allocation reporting to track cost associated with Amazon
--- RDS resources, or used in a Condition statement in an IAM policy for
--- Amazon RDS.
+-- Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.
 --
--- For an overview on tagging Amazon RDS resources, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
+-- For an overview on tagging Amazon RDS resources, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Creating a Request
@@ -70,9 +66,7 @@ addTagsToResource pResourceName_ =
     , _attrTags = mempty
     }
 
--- | The Amazon RDS resource the tags will be added to. This value is an
--- Amazon Resource Name (ARN). For information about creating an ARN, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The Amazon RDS resource the tags will be added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 

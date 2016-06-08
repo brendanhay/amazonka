@@ -121,8 +121,7 @@ getStreamingDistributionResponse pResponseStatus_ =
     , _gsdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the streaming distribution\'s information. For
--- example: E2QWRUHAPOMQZL.
+-- | The current version of the streaming distribution\'s information. For example: E2QWRUHAPOMQZL.
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 

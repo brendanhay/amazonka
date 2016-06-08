@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an application that has one configuration template named
--- 'default' and no application versions.
+-- Creates an application that has one configuration template named 'default' and no application versions.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Creating a Request
@@ -73,9 +72,7 @@ caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
 -- | The name of the application.
 --
--- Constraint: This name must be unique within your account. If the
--- specified name already exists, the action returns an
--- 'InvalidParameterValue' error.
+-- Constraint: This name must be unique within your account. If the specified name already exists, the action returns an 'InvalidParameterValue' error.
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 

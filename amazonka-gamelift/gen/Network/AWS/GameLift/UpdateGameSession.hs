@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates game session properties. This includes the session name, maximum
--- player count, protection policy, which controls whether or not an active
--- game session can be terminated during a scale-down event, and the player
--- session creation policy, which controls whether or not new players can
--- join the session. To update a game session, specify the game session ID
--- and the values you want to change. If successful, an updated
--- < GameSession> object is returned.
+-- Updates game session properties. This includes the session name, maximum player count, protection policy, which controls whether or not an active game session can be terminated during a scale-down event, and the player session creation policy, which controls whether or not new players can join the session. To update a game session, specify the game session ID and the values you want to change. If successful, an updated < GameSession> object is returned.
 module Network.AWS.GameLift.UpdateGameSession
     (
     -- * Creating a Request
@@ -88,8 +82,7 @@ updateGameSession pGameSessionId_ =
     , _ugsGameSessionId = pGameSessionId_
     }
 
--- | Maximum number of players that can be simultaneously connected to the
--- game session.
+-- | Maximum number of players that can be simultaneously connected to the game session.
 ugsMaximumPlayerSessionCount :: Lens' UpdateGameSession (Maybe Natural)
 ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_ugsMaximumPlayerSessionCount = a}) . mapping _Nat;
 
@@ -97,22 +90,18 @@ ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_u
 ugsPlayerSessionCreationPolicy :: Lens' UpdateGameSession (Maybe PlayerSessionCreationPolicy)
 ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> s{_ugsPlayerSessionCreationPolicy = a});
 
--- | Descriptive label associated with this game session. Session names do
--- not need to be unique.
+-- | Descriptive label associated with this game session. Session names do not need to be unique.
 ugsName :: Lens' UpdateGameSession (Maybe Text)
 ugsName = lens _ugsName (\ s a -> s{_ugsName = a});
 
 -- | Game session protection policy to apply to this game session only.
 --
--- -   NoProtection: The game session can be terminated during a scale-down
---     event.
--- -   FullProtection: If the game session is in an ACTIVE status, it
---     cannot be terminated during a scale-down event.
+-- -   NoProtection: The game session can be terminated during a scale-down event.
+-- -   FullProtection: If the game session is in an ACTIVE status, it cannot be terminated during a scale-down event.
 ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
 ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a});
 
--- | Unique identifier for a game session. Specify the game session you want
--- to update.
+-- | Unique identifier for a game session. Specify the game session you want to update.
 ugsGameSessionId :: Lens' UpdateGameSession Text
 ugsGameSessionId = lens _ugsGameSessionId (\ s a -> s{_ugsGameSessionId = a});
 

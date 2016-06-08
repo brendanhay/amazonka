@@ -144,9 +144,7 @@ createCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
 ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsETag = lens _ccfoairsETag (\ s a -> s{_ccfoairsETag = a});
 
--- | The fully qualified URI of the new origin access identity just created.
--- For example:
--- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/origin-access-identity\/cloudfront\/E74FTE3AJFJ256A.
+-- | The fully qualified URI of the new origin access identity just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/origin-access-identity\/cloudfront\/E74FTE3AJFJ256A.
 ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsLocation = lens _ccfoairsLocation (\ s a -> s{_ccfoairsLocation = a});
 

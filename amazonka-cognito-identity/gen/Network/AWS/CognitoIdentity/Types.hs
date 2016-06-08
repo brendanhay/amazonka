@@ -117,8 +117,7 @@ cognitoIdentity =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Thrown if the identity pool has no role associated for the given auth
--- type (auth\/unauth) or if the AssumeRole fails.
+-- | Thrown if the identity pool has no role associated for the given auth type (auth\/unauth) or if the AssumeRole fails.
 _InvalidIdentityPoolConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdentityPoolConfigurationException =
     _ServiceError . hasCode "InvalidIdentityPoolConfigurationException"
@@ -132,13 +131,11 @@ _InvalidParameterException =
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedException"
 
--- | Thrown when the service encounters an error during processing the
--- request.
+-- | Thrown when the service encounters an error during processing the request.
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 
--- | An exception thrown when a dependent service such as Facebook or Twitter
--- is not responding
+-- | An exception thrown when a dependent service such as Facebook or Twitter is not responding
 _ExternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExternalServiceException = _ServiceError . hasCode "ExternalServiceException"
 
@@ -151,20 +148,17 @@ _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a 
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
--- | Thrown when a user tries to use a login which is already linked to
--- another account.
+-- | Thrown when a user tries to use a login which is already linked to another account.
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasCode "ResourceConflictException"
 
--- | The provided developer user identifier is already registered with
--- Cognito under a different identity ID.
+-- | The provided developer user identifier is already registered with Cognito under a different identity ID.
 _DeveloperUserAlreadyRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeveloperUserAlreadyRegisteredException =
     _ServiceError . hasCode "DeveloperUserAlreadyRegisteredException"
 
--- | Thrown when the requested resource (for example, a dataset or record)
--- does not exist.
+-- | Thrown when the requested resource (for example, a dataset or record) does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

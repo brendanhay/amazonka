@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester\'s topics. Each call returns a limited
--- list of topics, up to 100. If there are more topics, a 'NextToken' is
--- also returned. Use the 'NextToken' parameter in a new 'ListTopics' call
--- to get further results.
+-- Returns a list of the requester\'s topics. Each call returns a limited list of topics, up to 100. If there are more topics, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
@@ -138,8 +135,7 @@ listTopicsResponse pResponseStatus_ =
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
 ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
 
--- | Token to pass along to the next 'ListTopics' request. This element is
--- returned if there are additional topics to retrieve.
+-- | Token to pass along to the next 'ListTopics' request. This element is returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 

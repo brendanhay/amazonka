@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves log events from the specified log stream. You can provide an
--- optional time range to filter the results on the event 'timestamp'.
+-- Retrieves log events from the specified log stream. You can provide an optional time range to filter the results on the event 'timestamp'.
 --
--- By default, this operation returns as much log events as can fit in a
--- response size of 1MB, up to 10,000 log events. The response will always
--- include a 'nextForwardToken' and a 'nextBackwardToken' in the response
--- body. You can use any of these tokens in subsequent 'GetLogEvents'
--- requests to paginate through events in either forward or backward
--- direction. You can also limit the number of log events returned in the
--- response by specifying the 'limit' parameter in the request.
+-- By default, this operation returns as much log events as can fit in a response size of 1MB, up to 10,000 log events. The response will always include a 'nextForwardToken' and a 'nextBackwardToken' in the response body. You can use any of these tokens in subsequent 'GetLogEvents' requests to paginate through events in either forward or backward direction. You can also limit the number of log events returned in the response by specifying the 'limit' parameter in the request.
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Creating a Request
@@ -106,15 +99,11 @@ getLogEvents pLogGroupName_ pLogStreamName_ =
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat;
 
--- | If set to true, the earliest log events would be returned first. The
--- default is false (the latest log events are returned first).
+-- | If set to true, the earliest log events would be returned first. The default is false (the latest log events are returned first).
 gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
 
--- | A string token used for pagination that points to the next page of
--- results. It must be a value obtained from the 'nextForwardToken' or
--- 'nextBackwardToken' fields in the response of the previous
--- 'GetLogEvents' request.
+-- | A string token used for pagination that points to the next page of results. It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken' fields in the response of the previous 'GetLogEvents' request.
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 
@@ -122,9 +111,7 @@ gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat;
 
--- | The maximum number of log events returned in the response. If you don\'t
--- specify a value, the request would return as many log events as can fit
--- in a response size of 1MB, up to 10,000 log events.
+-- | The maximum number of log events returned in the response. If you don\'t specify a value, the request would return as many log events as can fit in a response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
 gleLimit = lens _gleLimit (\ s a -> s{_gleLimit = a}) . mapping _Nat;
 

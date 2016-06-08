@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list containing all of the identities (email addresses and
--- domains) for a specific AWS Account, regardless of verification status.
+-- Returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.
 --
 -- This action is throttled at one request per second.
 --
@@ -76,9 +75,7 @@ listIdentities =
     , _liMaxItems = Nothing
     }
 
--- | The type of the identities to list. Possible values are \"EmailAddress\"
--- and \"Domain\". If this parameter is omitted, then all identities will
--- be listed.
+-- | The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a});
 
@@ -86,8 +83,7 @@ liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a});
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
--- | The maximum number of identities per page. Possible values are 1-1000
--- inclusive.
+-- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
 liMaxItems :: Lens' ListIdentities (Maybe Int)
 liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 

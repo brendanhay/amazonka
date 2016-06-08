@@ -121,8 +121,7 @@ instance ToPath VerifyUserAttribute where
 instance ToQuery VerifyUserAttribute where
         toQuery = const mempty
 
--- | A container representing the response from the server from the request
--- to verify user attributes.
+-- | A container representing the response from the server from the request to verify user attributes.
 --
 -- /See:/ 'verifyUserAttributeResponse' smart constructor.
 newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'

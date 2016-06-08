@@ -18,26 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a VPN connection between an existing virtual private gateway and
--- a VPN customer gateway. The only supported connection type is 'ipsec.1'.
+-- Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is 'ipsec.1'.
 --
--- The response includes information that you need to give to your network
--- administrator to configure your customer gateway.
+-- The response includes information that you need to give to your network administrator to configure your customer gateway.
 --
--- We strongly recommend that you use HTTPS when calling this operation
--- because the response contains sensitive cryptographic information for
--- configuring your customer gateway.
+-- We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.
 --
--- If you decide to shut down your VPN connection for any reason and later
--- create a new VPN connection, you must reconfigure your customer gateway
--- with the new information returned from this call.
+-- If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.
 --
--- This is an idempotent operation. If you perform the operation more than
--- once, Amazon EC2 doesn\'t return an error.
+-- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
 --
--- For more information about VPN connections, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateVPNConnection
     (
     -- * Creating a Request
@@ -103,18 +94,13 @@ createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
     , _cvcVPNGatewayId = pVPNGatewayId_
     }
 
--- | Indicates whether the VPN connection requires static routes. If you are
--- creating a VPN connection for a device that does not support BGP, you
--- must specify 'true'.
+-- | Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify 'true'.
 --
 -- Default: 'false'
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
 

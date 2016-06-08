@@ -60,9 +60,7 @@ describeClusters =
     { _dcClusters = Nothing
     }
 
--- | A space-separated list of cluster names or full cluster Amazon Resource
--- Name (ARN) entries. If you do not specify a cluster, the default cluster
--- is assumed.
+-- | A space-separated list of cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 dcClusters :: Lens' DescribeClusters [Text]
 dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce;
 

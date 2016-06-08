@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon EMR resource. Tags make it easier to
--- associate clusters in various ways, such as grouping clusters to track
--- your Amazon EMR resource allocation costs. For more information, see
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
 --
--- The following example removes the stack tag with value Prod from a
--- cluster:
+-- The following example removes the stack tag with value Prod from a cluster:
 module Network.AWS.EMR.RemoveTags
     (
     -- * Creating a Request
@@ -72,8 +68,7 @@ removeTags pResourceId_ =
     , _rtTagKeys = mempty
     }
 
--- | The Amazon EMR resource identifier from which tags will be removed. This
--- value must be a cluster identifier.
+-- | The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
 rtResourceId :: Lens' RemoveTags Text
 rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 

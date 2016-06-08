@@ -18,30 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shuts down one or more instances. This operation is idempotent; if you
--- terminate an instance more than once, each call succeeds.
+-- Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
 --
--- Terminated instances remain visible after termination (for approximately
--- one hour).
+-- Terminated instances remain visible after termination (for approximately one hour).
 --
--- By default, Amazon EC2 deletes all EBS volumes that were attached when
--- the instance launched. Volumes attached after instance launch continue
--- running.
+-- By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
 --
--- You can stop, start, and terminate EBS-backed instances. You can only
--- terminate instance store-backed instances. What happens to an instance
--- differs if you stop it or terminate it. For example, when you stop an
--- instance, the root device and any other devices attached to the instance
--- persist. When you terminate an instance, any attached EBS volumes with
--- the 'DeleteOnTermination' block device mapping parameter set to 'true'
--- are automatically deleted. For more information about the differences
--- between stopping and terminating instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the 'DeleteOnTermination' block device mapping parameter set to 'true' are automatically deleted. For more information about the differences between stopping and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For more information about troubleshooting, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Creating a Request
@@ -89,10 +74,7 @@ terminateInstances =
     , _tiInstanceIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
 tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 

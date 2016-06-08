@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a specified alias. To get the alias, specify an
--- alias ID. If successful, an < Alias> object is returned.
+-- Retrieves properties for a specified alias. To get the alias, specify an alias ID. If successful, an < Alias> object is returned.
 module Network.AWS.GameLift.DescribeAlias
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ describeAlias pAliasId_ =
     { _dAliasId = pAliasId_
     }
 
--- | Unique identifier for a fleet alias. Specify the alias you want to
--- retrieve.
+-- | Unique identifier for a fleet alias. Specify the alias you want to retrieve.
 dAliasId :: Lens' DescribeAlias Text
 dAliasId = lens _dAliasId (\ s a -> s{_dAliasId = a});
 

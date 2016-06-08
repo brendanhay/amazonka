@@ -20,17 +20,9 @@
 --
 -- Lists all managed policies that are attached to the specified group.
 --
--- A group can also have inline policies embedded with it. To list the
--- inline policies for a group, use the < ListGroupPolicies> API. For
--- information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A group can also have inline policies embedded with it. To list the inline policies for a group, use the < ListGroupPolicies> API. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters. You can use the 'PathPrefix' parameter to limit the list of
--- policies to only those matching the specified path prefix. If there are
--- no policies attached to the specified group (or none that match the
--- specified path prefix), the action returns an empty list.
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters. You can use the 'PathPrefix' parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the action returns an empty list.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedGroupPolicies
@@ -92,33 +84,21 @@ listAttachedGroupPolicies pGroupName_ =
     , _lagpGroupName = pGroupName_
     }
 
--- | The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies.
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all policies.
 lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lagpMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
 lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat;
 
--- | The name (friendly name, not ARN) of the group to list attached policies
--- for.
+-- | The name (friendly name, not ARN) of the group to list attached policies for.
 lagpGroupName :: Lens' ListAttachedGroupPolicies Text
 lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 
@@ -163,8 +143,7 @@ instance ToQuery ListAttachedGroupPolicies where
                "Marker" =: _lagpMarker, "MaxItems" =: _lagpMaxItems,
                "GroupName" =: _lagpGroupName]
 
--- | Contains the response to a successful < ListAttachedGroupPolicies>
--- request.
+-- | Contains the response to a successful < ListAttachedGroupPolicies> request.
 --
 -- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
@@ -200,19 +179,11 @@ listAttachedGroupPoliciesResponse pResponseStatus_ =
 lagprsAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
 lagprsAttachedPolicies = lens _lagprsAttachedPolicies (\ s a -> s{_lagprsAttachedPolicies = a}) . _Default . _Coerce;
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lagprsMarker :: Lens' ListAttachedGroupPoliciesResponse (Maybe Text)
 lagprsMarker = lens _lagprsMarker (\ s a -> s{_lagprsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lagprsIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprsIsTruncated = lens _lagprsIsTruncated (\ s a -> s{_lagprsIsTruncated = a});
 

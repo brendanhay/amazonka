@@ -13,10 +13,7 @@
 --
 -- Amazon Inspector
 --
--- Amazon Inspector enables you to analyze the behavior of your AWS
--- resources and to identify potential security issues. For more
--- information, see
--- <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+-- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
 module Network.AWS.Inspector
     (
     -- * Service Configuration

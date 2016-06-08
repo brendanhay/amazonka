@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts the specified pipeline. Specifically, it begins processing the
--- latest commit to the source location specified as part of the pipeline.
+-- Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request

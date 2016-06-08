@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns all the domain names registered with Amazon Route
--- 53 for the current AWS account.
+-- This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListDomains
@@ -71,19 +70,13 @@ listDomains =
     , _ldMaxItems = Nothing
     }
 
--- | For an initial request for a list of domains, omit this element. If the
--- number of domains that are associated with the current AWS account is
--- greater than the value that you specified for 'MaxItems', you can use
--- 'Marker' to return additional domains. Get the value of 'NextPageMarker'
--- from the previous response, and submit another request that includes the
--- value of 'NextPageMarker' in the 'Marker' element.
+-- | For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for 'MaxItems', you can use 'Marker' to return additional domains. Get the value of 'NextPageMarker' from the previous response, and submit another request that includes the value of 'NextPageMarker' in the 'Marker' element.
 --
 -- Type: String
 --
 -- Default: None
 --
--- Constraints: The marker must match the value specified in the previous
--- request.
+-- Constraints: The marker must match the value specified in the previous request.
 --
 -- Required: No
 ldMarker :: Lens' ListDomains (Maybe Text)
@@ -173,9 +166,7 @@ listDomainsResponse pResponseStatus_ =
     , _ldrsDomains = mempty
     }
 
--- | If there are more domains than you specified for 'MaxItems' in the
--- request, submit another request and include the value of
--- 'NextPageMarker' in the value of 'Marker'.
+-- | If there are more domains than you specified for 'MaxItems' in the request, submit another request and include the value of 'NextPageMarker' in the value of 'Marker'.
 --
 -- Type: String
 --

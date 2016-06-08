@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Performs multiple DeleteAttributes operations in a single call, which
--- reduces round trips and latencies. This enables Amazon SimpleDB to
--- optimize requests, which generally yields better throughput.
+-- Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput.
 --
 -- The following limitations are enforced for this operation:
 --

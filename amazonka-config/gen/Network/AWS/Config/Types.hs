@@ -340,8 +340,7 @@ config =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified time range is not valid. The earlier time is not
--- chronologically before the later time.
+-- | The specified time range is not valid. The earlier time is not chronologically before the later time.
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
     _ServiceError . hasCode "InvalidTimeRangeException"
@@ -351,9 +350,7 @@ _InvalidSNSTopicARNException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidSNSTopicARNException =
     _ServiceError . hasCode "InvalidSNSTopicARNException"
 
--- | AWS Config throws an exception if the recording group does not contain a
--- valid list of resource types. Invalid values could also be incorrectly
--- formatted.
+-- | AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values could also be incorrectly formatted.
 _InvalidRecordingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRecordingGroupException =
     _ServiceError . hasCode "InvalidRecordingGroupException"
@@ -366,8 +363,7 @@ _ValidationException = _ServiceError . hasCode "ValidationException"
 _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
 
--- | You cannot delete the delivery channel you specified because the
--- configuration recorder is running.
+-- | You cannot delete the delivery channel you specified because the configuration recorder is running.
 _LastDeliveryChannelDeleteFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _LastDeliveryChannelDeleteFailedException =
     _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException"
@@ -381,8 +377,7 @@ _InvalidDeliveryChannelNameException :: AsError a => Getting (First ServiceError
 _InvalidDeliveryChannelNameException =
     _ServiceError . hasCode "InvalidDeliveryChannelNameException"
 
--- | One or more of the specified parameters are invalid. Verify that your
--- parameters are valid and try again.
+-- | One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasCode "InvalidParameterValueException"
@@ -397,43 +392,35 @@ _NoSuchDeliveryChannelException :: AsError a => Getting (First ServiceError) a S
 _NoSuchDeliveryChannelException =
     _ServiceError . hasCode "NoSuchDeliveryChannelException"
 
--- | One or more AWS Config rules in the request are invalid. Verify that the
--- rule names are correct and try again.
+-- | One or more AWS Config rules in the request are invalid. Verify that the rule names are correct and try again.
 _NoSuchConfigRuleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigRuleException =
     _ServiceError . hasCode "NoSuchConfigRuleException"
 
 -- | Indicates one of the following errors:
 --
--- -   The rule cannot be created because the IAM role assigned to AWS
---     Config lacks permissions to perform the config:Put* action.
--- -   The AWS Lambda function cannot be invoked. Check the function ARN,
---     and check the function\'s permissions.
+-- -   The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.
+-- -   The AWS Lambda function cannot be invoked. Check the function ARN, and check the function\'s permissions.
 _InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =
     _ServiceError . hasCode "InsufficientPermissionsException"
 
--- | You have specified a resource that is either unknown or has not been
--- discovered.
+-- | You have specified a resource that is either unknown or has not been discovered.
 _ResourceNotDiscoveredException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotDiscoveredException =
     _ServiceError . hasCode "ResourceNotDiscoveredException"
 
--- | The specified next token is invalid. Specify the 'nextToken' string that
--- was returned in the previous response to get the next page of results.
+-- | The specified next token is invalid. Specify the 'nextToken' string that was returned in the previous response to get the next page of results.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
--- | Failed to add the AWS Config rule because the account already contains
--- the maximum number of 25 rules. Consider deleting any deactivated rules
--- before adding new rules.
+-- | Failed to add the AWS Config rule because the account already contains the maximum number of 25 rules. Consider deleting any deactivated rules before adding new rules.
 _MaxNumberOfConfigRulesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfConfigRulesExceededException =
     _ServiceError . hasCode "MaxNumberOfConfigRulesExceededException"
 
--- | There are no configuration recorders available to provide the role
--- needed to describe your resources. Create a configuration recorder.
+-- | There are no configuration recorders available to provide the role needed to describe your resources. Create a configuration recorder.
 _NoAvailableConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableConfigurationRecorderException =
     _ServiceError . hasCode "NoAvailableConfigurationRecorderException"
@@ -468,8 +455,7 @@ _InsufficientDeliveryPolicyException :: AsError a => Getting (First ServiceError
 _InsufficientDeliveryPolicyException =
     _ServiceError . hasCode "InsufficientDeliveryPolicyException"
 
--- | You have reached the limit on the number of delivery channels you can
--- create.
+-- | You have reached the limit on the number of delivery channels you can create.
 _MaxNumberOfDeliveryChannelsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfDeliveryChannelsExceededException =
     _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException"

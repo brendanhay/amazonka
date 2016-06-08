@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the
--- instance has been unlinked, the VPC security groups are no longer
--- associated with it. An instance is automatically unlinked from a VPC
--- when it\'s stopped.
+-- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it\'s stopped.
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
     -- * Creating a Request
@@ -76,10 +73,7 @@ detachClassicLinkVPC pInstanceId_ pVPCId_ =
     , _dclvVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
 dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
 

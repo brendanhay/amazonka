@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified user, including the user\'s
--- creation date, path, unique ID, and ARN.
+-- Retrieves information about the specified user, including the user\'s creation date, path, unique ID, and ARN.
 --
--- If you do not specify a user name, IAM determines the user name
--- implicitly based on the AWS access key ID used to sign the request.
+-- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request.
 module Network.AWS.IAM.GetUser
     (
     -- * Creating a Request
@@ -65,8 +63,7 @@ getUser =
 
 -- | The name of the user to get information about.
 --
--- This parameter is optional. If it is not included, it defaults to the
--- user making the request.
+-- This parameter is optional. If it is not included, it defaults to the user making the request.
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 

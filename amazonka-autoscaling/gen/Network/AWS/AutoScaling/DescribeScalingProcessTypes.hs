@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the scaling process types for use with < ResumeProcesses> and
--- < SuspendProcesses>.
+-- Describes the scaling process types for use with < ResumeProcesses> and < SuspendProcesses>.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Creating a Request

@@ -18,13 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified receipt rule set and all of the receipt rules it
--- contains.
+-- Deletes the specified receipt rule set and all of the receipt rules it contains.
 --
 -- The currently active rule set cannot be deleted.
 --
--- For information about managing receipt rule sets, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteReceiptRuleSet

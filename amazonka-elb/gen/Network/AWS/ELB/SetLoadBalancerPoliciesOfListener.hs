@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates, updates, or disables a policy with a listener for the
--- specified load balancer. You can associate multiple policies with a
--- listener.
+-- Associates, updates, or disables a policy with a listener for the specified load balancer. You can associate multiple policies with a listener.
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Creating a Request
@@ -80,8 +78,7 @@ slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBal
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
 slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
 
--- | The names of the policies. If the list is empty, the current policy is
--- removed from the listener.
+-- | The names of the policies. If the list is empty, the current policy is removed from the listener.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce;
 

@@ -20,9 +20,7 @@
 --
 -- Notify Amazon ECR that you intend to upload an image layer.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.InitiateLayerUpload
     (
     -- * Creating a Request
@@ -70,9 +68,7 @@ initiateLayerUpload pRepositoryName_ =
     , _iluRepositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that you intend to
--- upload layers to. If you do not specify a registry, the default registry
--- is assumed.
+-- | The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed.
 iluRegistryId :: Lens' InitiateLayerUpload (Maybe Text)
 iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a});
 
@@ -144,13 +140,11 @@ initiateLayerUploadResponse pResponseStatus_ =
     , _ilursResponseStatus = pResponseStatus_
     }
 
--- | The size, in bytes, that Amazon ECR expects future layer part uploads to
--- be.
+-- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 ilursPartSize :: Lens' InitiateLayerUploadResponse (Maybe Natural)
 ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat;
 
--- | The upload ID for the layer upload. This parameter is passed to further
--- < UploadLayerPart> and < CompleteLayerUpload> operations.
+-- | The upload ID for the layer upload. This parameter is passed to further < UploadLayerPart> and < CompleteLayerUpload> operations.
 ilursUploadId :: Lens' InitiateLayerUploadResponse (Maybe Text)
 ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a});
 

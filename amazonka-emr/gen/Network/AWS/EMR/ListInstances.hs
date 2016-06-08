@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about the cluster instances that Amazon EMR
--- provisions on behalf of a user when it creates the cluster. For example,
--- this operation indicates when the EC2 instances reach the Ready state,
--- when instances become available to Amazon EMR to use for jobs, and the
--- IP addresses for cluster instances, etc.
+-- Provides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances

@@ -18,21 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches an EBS volume from an instance. Make sure to unmount any file
--- systems on the device within your operating system before detaching the
--- volume. Failure to do so results in the volume being stuck in a busy
--- state while detaching.
+-- Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so results in the volume being stuck in a busy state while detaching.
 --
--- If an Amazon EBS volume is the root device of an instance, it can\'t be
--- detached while the instance is running. To detach the root volume, stop
--- the instance first.
+-- If an Amazon EBS volume is the root device of an instance, it can\'t be detached while the instance is running. To detach the root volume, stop the instance first.
 --
--- When a volume with an AWS Marketplace product code is detached from an
--- instance, the product code is no longer associated with the instance.
+-- When a volume with an AWS Marketplace product code is detached from an instance, the product code is no longer associated with the instance.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DetachVolume
     (
     -- * Creating a Request
@@ -104,13 +96,7 @@ detachVolume pVolumeId_ =
 dvInstanceId :: Lens' DetachVolume (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 
--- | Forces detachment if the previous detachment attempt did not occur
--- cleanly (for example, logging into an instance, unmounting the volume,
--- and detaching normally). This option can lead to data loss or a
--- corrupted file system. Use this option only as a last resort to detach a
--- volume from a failed instance. The instance won\'t have an opportunity
--- to flush file system caches or file system metadata. If you use this
--- option, you must perform file system check and repair procedures.
+-- | Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won\'t have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
 dvForce :: Lens' DetachVolume (Maybe Bool)
 dvForce = lens _dvForce (\ s a -> s{_dvForce = a});
 
@@ -118,10 +104,7 @@ dvForce = lens _dvForce (\ s a -> s{_dvForce = a});
 dvDevice :: Lens' DetachVolume (Maybe Text)
 dvDevice = lens _dvDevice (\ s a -> s{_dvDevice = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvDryRun :: Lens' DetachVolume (Maybe Bool)
 dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a});
 

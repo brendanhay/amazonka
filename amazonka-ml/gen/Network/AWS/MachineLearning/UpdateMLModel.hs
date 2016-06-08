@@ -20,8 +20,7 @@
 --
 -- Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
 --
--- You can use the < GetMLModel> operation to view the contents of the
--- updated data element.
+-- You can use the < GetMLModel> operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateMLModel
     (
     -- * Creating a Request
@@ -77,13 +76,9 @@ updateMLModel pMLModelId_ =
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
 umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a});
 
--- | The 'ScoreThreshold' used in binary classification 'MLModel' that marks
--- the boundary between a positive prediction and a negative prediction.
+-- | The 'ScoreThreshold' used in binary classification 'MLModel' that marks the boundary between a positive prediction and a negative prediction.
 --
--- Output values greater than or equal to the 'ScoreThreshold' receive a
--- positive result from the 'MLModel', such as 'true'. Output values less
--- than the 'ScoreThreshold' receive a negative response from the
--- 'MLModel', such as 'false'.
+-- Output values greater than or equal to the 'ScoreThreshold' receive a positive result from the 'MLModel', such as 'true'. Output values less than the 'ScoreThreshold' receive a negative response from the 'MLModel', such as 'false'.
 umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
 umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a});
 
@@ -153,8 +148,7 @@ updateMLModelResponse pResponseStatus_ =
     , _umlmrsResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'MLModel' during creation. This value should be
--- identical to the value of the 'MLModelID' in the request.
+-- | The ID assigned to the 'MLModel' during creation. This value should be identical to the value of the 'MLModelID' in the request.
 umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 

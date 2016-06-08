@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of stream ARNs associated with the current account and
--- endpoint. If the 'TableName' parameter is present, then /ListStreams/
--- will return only the streams ARNs for that table.
+-- Returns an array of stream ARNs associated with the current account and endpoint. If the 'TableName' parameter is present, then /ListStreams/ will return only the streams ARNs for that table.
 --
 -- You can call /ListStreams/ at a maximum rate of 5 times per second.
 module Network.AWS.DynamoDBStreams.ListStreams
@@ -76,9 +74,7 @@ listStreams =
     , _lsTableName = Nothing
     }
 
--- | The ARN (Amazon Resource Name) of the first item that this operation
--- will evaluate. Use the value that was returned for
--- 'LastEvaluatedStreamArn' in the previous operation.
+-- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for 'LastEvaluatedStreamArn' in the previous operation.
 lsExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a});
 
@@ -86,8 +82,7 @@ lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclu
 lsLimit :: Lens' ListStreams (Maybe Natural)
 lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 
--- | If this parameter is provided, then only the streams associated with
--- this table name are returned.
+-- | If this parameter is provided, then only the streams associated with this table name are returned.
 lsTableName :: Lens' ListStreams (Maybe Text)
 lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
 
@@ -159,22 +154,15 @@ listStreamsResponse pResponseStatus_ =
     , _lsrsResponseStatus = pResponseStatus_
     }
 
--- | The stream ARN of the item where the operation stopped, inclusive of the
--- previous result set. Use this value to start a new operation, excluding
--- this value in the new request.
+-- | The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
 --
--- If 'LastEvaluatedStreamArn' is empty, then the \"last page\" of results
--- has been processed and there is no more data to be retrieved.
+-- If 'LastEvaluatedStreamArn' is empty, then the \"last page\" of results has been processed and there is no more data to be retrieved.
 --
--- If 'LastEvaluatedStreamArn' is not empty, it does not necessarily mean
--- that there is more data in the result set. The only way to know when you
--- have reached the end of the result set is when 'LastEvaluatedStreamArn'
--- is empty.
+-- If 'LastEvaluatedStreamArn' is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when 'LastEvaluatedStreamArn' is empty.
 lsrsLastEvaluatedStreamARN :: Lens' ListStreamsResponse (Maybe Text)
 lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsLastEvaluatedStreamARN = a});
 
--- | A list of stream descriptors associated with the current account and
--- endpoint.
+-- | A list of stream descriptors associated with the current account and endpoint.
 lsrsStreams :: Lens' ListStreamsResponse [Stream]
 lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce;
 

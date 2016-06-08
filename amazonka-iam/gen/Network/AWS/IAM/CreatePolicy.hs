@@ -20,15 +20,9 @@
 --
 -- Creates a new managed policy for your AWS account.
 --
--- This operation creates a policy version with a version identifier of
--- 'v1' and sets v1 as the policy\'s default version. For more information
--- about policy versions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /IAM User Guide/.
+-- This operation creates a policy version with a version identifier of 'v1' and sets v1 as the policy\'s default version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 --
--- For more information about managed policies in general, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For more information about managed policies in general, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.CreatePolicy
     (
     -- * Creating a Request
@@ -88,22 +82,17 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 
 -- | The path for the policy.
 --
--- For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /IAM User Guide/.
+-- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
+-- This parameter is optional. If it is not included, it defaults to a slash (\/).
 cpPath :: Lens' CreatePolicy (Maybe Text)
 cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 
 -- | A friendly description of the policy.
 --
--- Typically used to store information about the permissions defined in the
--- policy. For example, \"Grants access to production DynamoDB tables.\"
+-- Typically used to store information about the permissions defined in the policy. For example, \"Grants access to production DynamoDB tables.\"
 --
--- The policy description is immutable. After a value is assigned, it
--- cannot be changed.
+-- The policy description is immutable. After a value is assigned, it cannot be changed.
 cpDescription :: Lens' CreatePolicy (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 

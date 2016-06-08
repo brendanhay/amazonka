@@ -18,17 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves utilization statistics for one or more fleets. You can request
--- utilization data for all fleets, or specify a list of one or more fleet
--- IDs. When requesting all fleets, use the pagination parameters to
--- retrieve results as a set of sequential pages. If successful, a
--- < FleetUtilization> object is returned for each requested fleet ID. When
--- specifying a list of fleet IDs, utilization objects are returned only
--- for fleets that currently exist.
+-- Retrieves utilization statistics for one or more fleets. You can request utilization data for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetUtilization> object is returned for each requested fleet ID. When specifying a list of fleet IDs, utilization objects are returned only for fleets that currently exist.
 --
--- Some API actions may limit the number of fleet IDs allowed in one
--- request. If a request exceeds this limit, the request fails and the
--- error message includes the maximum allowed.
+-- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetUtilization
     (
     -- * Creating a Request
@@ -82,23 +74,15 @@ describeFleetUtilization =
     , _dfuFleetIds = Nothing
     }
 
--- | Token indicating the start of the next sequential page of results. Use
--- the token that is returned with a previous call to this action. To
--- specify the start of the result set, do not specify a value. This
--- parameter is ignored when the request specifies one or a list of fleet
--- IDs.
+-- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuNextToken :: Lens' DescribeFleetUtilization (Maybe Text)
 dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with
--- /NextToken/ to get results as a set of sequential pages. This parameter
--- is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuLimit :: Lens' DescribeFleetUtilization (Maybe Natural)
 dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve utilization data
--- for. Leave this parameter empty to retrieve utilization data for all
--- fleets.
+-- | Unique identifier for the fleet(s) you want to retrieve utilization data for. Leave this parameter empty to retrieve utilization data for all fleets.
 dfuFleetIds :: Lens' DescribeFleetUtilization (Maybe (NonEmpty Text))
 dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1;
 
@@ -169,18 +153,13 @@ describeFleetUtilizationResponse pResponseStatus_ =
     , _dfursResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to
--- this action. If no token is returned, these results represent the end of
--- the list.
+-- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- If a request has a limit that exactly matches the number of remaining
--- results, a token is returned even though there are no more results to
--- retrieve.
+-- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dfursNextToken :: Lens' DescribeFleetUtilizationResponse (Maybe Text)
 dfursNextToken = lens _dfursNextToken (\ s a -> s{_dfursNextToken = a});
 
--- | Collection of objects containing utilization information for each
--- requested fleet ID.
+-- | Collection of objects containing utilization information for each requested fleet ID.
 dfursFleetUtilization :: Lens' DescribeFleetUtilizationResponse [FleetUtilization]
 dfursFleetUtilization = lens _dfursFleetUtilization (\ s a -> s{_dfursFleetUtilization = a}) . _Default . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes any permissions in the queue policy that matches the specified
--- 'Label' parameter. Only the owner of the queue can remove permissions.
+-- Revokes any permissions in the queue policy that matches the specified 'Label' parameter. Only the owner of the queue can remove permissions.
 module Network.AWS.SQS.RemovePermission
     (
     -- * Creating a Request
@@ -68,8 +67,7 @@ removePermission pQueueURL_ pLabel_ =
 rpQueueURL :: Lens' RemovePermission Text
 rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 
--- | The identification of the permission to remove. This is the label added
--- with the < AddPermission> action.
+-- | The identification of the permission to remove. This is the label added with the < AddPermission> action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 

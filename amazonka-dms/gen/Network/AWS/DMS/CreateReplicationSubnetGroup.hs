@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a replication subnet group given a list of the subnet IDs in a
--- VPC.
+-- Creates a replication subnet group given a list of the subnet IDs in a VPC.
 --
 module Network.AWS.DMS.CreateReplicationSubnetGroup
     (
@@ -82,11 +81,9 @@ createReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ pReplicationSubn
 crsgTags :: Lens' CreateReplicationSubnetGroup [Tag]
 crsgTags = lens _crsgTags (\ s a -> s{_crsgTags = a}) . _Default . _Coerce;
 
--- | The name for the replication subnet group. This value is stored as a
--- lowercase string.
+-- | The name for the replication subnet group. This value is stored as a lowercase string.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, spaces, underscores, or hyphens. Must not be \"default\".
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be \"default\".
 --
 -- Example: 'mySubnetgroup'
 crsgReplicationSubnetGroupIdentifier :: Lens' CreateReplicationSubnetGroup Text

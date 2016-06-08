@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more scaling activities for the specified Auto Scaling
--- group. If you omit the 'ActivityIds', the call returns all activities
--- from the past six weeks. Activities are sorted by the start time.
--- Activities still in progress appear first on the list.
+-- Describes one or more scaling activities for the specified Auto Scaling group. If you omit the 'ActivityIds', the call returns all activities from the past six weeks. Activities are sorted by the start time. Activities still in progress appear first on the list.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScalingActivities
@@ -81,8 +78,7 @@ describeScalingActivities =
     , _desActivityIds = Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 desNextToken :: Lens' DescribeScalingActivities (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
@@ -94,11 +90,7 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
--- | The activity IDs of the desired scaling activities. If this list is
--- omitted, all activities are described. If you specify an Auto Scaling
--- group, the results are limited to that group. The list of requested
--- activities cannot contain more than 50 items. If unknown activities are
--- requested, they are ignored with no error.
+-- | The activity IDs of the desired scaling activities. If this list is omitted, all activities are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.
 desActivityIds :: Lens' DescribeScalingActivities [Text]
 desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default . _Coerce;
 
@@ -169,8 +161,7 @@ describeScalingActivitiesResponse pResponseStatus_ =
     , _dsasrsActivities = mempty
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 

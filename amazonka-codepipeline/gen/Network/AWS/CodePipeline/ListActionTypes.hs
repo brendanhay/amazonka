@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a summary of all AWS CodePipeline action types associated with your
--- account.
+-- Gets a summary of all AWS CodePipeline action types associated with your account.
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request
@@ -72,9 +71,7 @@ listActionTypes =
 latActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
 latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a});
 
--- | An identifier that was returned from the previous list action types
--- call, which can be used to return the next set of action types in the
--- list.
+-- | An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
 latNextToken :: Lens' ListActionTypes (Maybe Text)
 latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 
@@ -143,9 +140,7 @@ listActionTypesResponse pResponseStatus_ =
     , _latrsActionTypes = mempty
     }
 
--- | If the amount of returned information is significantly large, an
--- identifier is also returned which can be used in a subsequent list
--- action types call to return the next set of action types in the list.
+-- | If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list.
 latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 

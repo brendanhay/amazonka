@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a subnet with a route table. The subnet and route table must
--- be in the same VPC. This association causes traffic originating from the
--- subnet to be routed according to the routes in the route table. The
--- action returns an association ID, which you need in order to
--- disassociate the route table from the subnet later. A route table can be
--- associated with multiple subnets.
+-- Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.
 --
--- For more information about route tables, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.AssociateRouteTable
     (
     -- * Creating a Request
@@ -82,10 +75,7 @@ associateRouteTable pSubnetId_ pRouteTableId_ =
     , _artRouteTableId = pRouteTableId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
 artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
 

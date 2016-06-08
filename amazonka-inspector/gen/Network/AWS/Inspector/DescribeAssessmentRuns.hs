@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the assessment runs that are specified by the ARNs of the
--- assessment runs.
+-- Describes the assessment runs that are specified by the ARNs of the assessment runs.
 module Network.AWS.Inspector.DescribeAssessmentRuns
     (
     -- * Creating a Request
@@ -139,8 +138,7 @@ darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus
 darrsAssessmentRuns :: Lens' DescribeAssessmentRunsResponse [AssessmentRun]
 darrsAssessmentRuns = lens _darrsAssessmentRuns (\ s a -> s{_darrsAssessmentRuns = a}) . _Coerce;
 
--- | Assessment run details that cannot be described. An error code is
--- provided for each failed item.
+-- | Assessment run details that cannot be described. An error code is provided for each failed item.
 darrsFailedItems :: Lens' DescribeAssessmentRunsResponse (HashMap Text FailedItemDetails)
 darrsFailedItems = lens _darrsFailedItems (\ s a -> s{_darrsFailedItems = a}) . _Map;
 

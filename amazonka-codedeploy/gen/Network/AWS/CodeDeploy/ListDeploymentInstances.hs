@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instance for a deployment associated with the applicable IAM
--- user or AWS account.
+-- Lists the instance for a deployment associated with the applicable IAM user or AWS account.
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Creating a Request
@@ -77,19 +76,15 @@ listDeploymentInstances pDeploymentId_ =
 -- | A subset of instances to list by status:
 --
 -- -   Pending: Include those instance with pending deployments.
--- -   InProgress: Include those instance where deployments are still in
---     progress.
+-- -   InProgress: Include those instance where deployments are still in progress.
 -- -   Succeeded: Include those instances with successful deployments.
 -- -   Failed: Include those instance with failed deployments.
 -- -   Skipped: Include those instance with skipped deployments.
--- -   Unknown: Include those instance with deployments in an unknown
---     state.
+-- -   Unknown: Include those instance with deployments in an unknown state.
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
 ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default . _Coerce;
 
--- | An identifier returned from the previous list deployment instances call.
--- It can be used to return the next set of deployment instances in the
--- list.
+-- | An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
@@ -166,9 +161,7 @@ listDeploymentInstancesResponse pResponseStatus_ =
     , _ldirsResponseStatus = pResponseStatus_
     }
 
--- | If a large amount of information is returned, an identifier is also
--- returned. It can be used in a subsequent list deployment instances call
--- to return the next set of deployment instances in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment instances call to return the next set of deployment instances in the list.
 ldirsNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 

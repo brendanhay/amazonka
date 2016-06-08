@@ -20,11 +20,9 @@
 --
 -- Reboots the specified WorkSpaces.
 --
--- To be able to reboot a WorkSpace, the WorkSpace must have a __State__ of
--- 'AVAILABLE', 'IMPAIRED', or 'INOPERABLE'.
+-- To be able to reboot a WorkSpace, the WorkSpace must have a __State__ of 'AVAILABLE', 'IMPAIRED', or 'INOPERABLE'.
 --
--- This operation is asynchronous and will return before the WorkSpaces
--- have rebooted.
+-- This operation is asynchronous and will return before the WorkSpaces have rebooted.
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
     -- * Creating a Request
@@ -133,8 +131,7 @@ rebootWorkspacesResponse pResponseStatus_ =
     , _rrsResponseStatus = pResponseStatus_
     }
 
--- | An array of structures that represent any WorkSpaces that could not be
--- rebooted.
+-- | An array of structures that represent any WorkSpaces that could not be rebooted.
 rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
 rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce;
 

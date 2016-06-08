@@ -18,25 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an < XssMatchSet>, which you use to allow, block, or count
--- requests that contain cross-site scripting attacks in the specified part
--- of web requests. AWS WAF searches for character sequences that are
--- likely to be malicious strings.
+-- Creates an < XssMatchSet>, which you use to allow, block, or count requests that contain cross-site scripting attacks in the specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.
 --
 -- To create and configure an 'XssMatchSet', perform the following steps:
 --
--- 1.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of a 'CreateXssMatchSet' request.
+-- 1.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'CreateXssMatchSet' request.
 -- 2.  Submit a 'CreateXssMatchSet' request.
--- 3.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an < UpdateXssMatchSet> request.
--- 4.  Submit an < UpdateXssMatchSet> request to specify the parts of web
---     requests in which you want to allow, block, or count cross-site
---     scripting attacks.
+-- 3.  Use 'GetChangeToken' to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateXssMatchSet> request.
+-- 4.  Submit an < UpdateXssMatchSet> request to specify the parts of web requests in which you want to allow, block, or count cross-site scripting attacks.
 --
--- For more information about how to use the AWS WAF API to allow or block
--- HTTP requests, see the
--- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.CreateXSSMatchSet
     (
     -- * Creating a Request
@@ -87,8 +78,7 @@ createXSSMatchSet pName_ pChangeToken_ =
     , _cxmsChangeToken = pChangeToken_
     }
 
--- | A friendly name or description for the < XssMatchSet> that you\'re
--- creating. You can\'t change 'Name' after you create the 'XssMatchSet'.
+-- | A friendly name or description for the < XssMatchSet> that you\'re creating. You can\'t change 'Name' after you create the 'XssMatchSet'.
 cxmsName :: Lens' CreateXSSMatchSet Text
 cxmsName = lens _cxmsName (\ s a -> s{_cxmsName = a});
 
@@ -164,9 +154,7 @@ createXSSMatchSetResponse pResponseStatus_ =
 cxmsrsXSSMatchSet :: Lens' CreateXSSMatchSetResponse (Maybe XSSMatchSet)
 cxmsrsXSSMatchSet = lens _cxmsrsXSSMatchSet (\ s a -> s{_cxmsrsXSSMatchSet = a});
 
--- | The 'ChangeToken' that you used to submit the 'CreateXssMatchSet'
--- request. You can also use this value to query the status of the request.
--- For more information, see < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'CreateXssMatchSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 cxmsrsChangeToken :: Lens' CreateXSSMatchSetResponse (Maybe Text)
 cxmsrsChangeToken = lens _cxmsrsChangeToken (\ s a -> s{_cxmsrsChangeToken = a});
 

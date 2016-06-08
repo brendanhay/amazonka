@@ -18,14 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify the auto-placement setting of a Dedicated host. When
--- auto-placement is enabled, AWS will place instances that you launch with
--- a tenancy of 'host', but without targeting a specific host ID, onto any
--- available Dedicated host in your account which has auto-placement
--- enabled. When auto-placement is disabled, you need to provide a host ID
--- if you want the instance to launch onto a specific host. If no host ID
--- is provided, the instance will be launched onto a suitable host which
--- has auto-placement enabled.
+-- Modify the auto-placement setting of a Dedicated host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of 'host', but without targeting a specific host ID, onto any available Dedicated host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
 module Network.AWS.EC2.ModifyHosts
     (
     -- * Creating a Request
@@ -143,8 +136,7 @@ modifyHostsResponse pResponseStatus_ =
     , _mhrsResponseStatus = pResponseStatus_
     }
 
--- | The IDs of the Dedicated hosts that could not be modified. Check whether
--- the setting you requested can be used.
+-- | The IDs of the Dedicated hosts that could not be modified. Check whether the setting you requested can be used.
 mhrsUnsuccessful :: Lens' ModifyHostsResponse [UnsuccessfulItem]
 mhrsUnsuccessful = lens _mhrsUnsuccessful (\ s a -> s{_mhrsUnsuccessful = a}) . _Default . _Coerce;
 

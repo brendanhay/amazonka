@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Simulate the execution of a < Method> in your < RestApi> with headers,
--- parameters, and an incoming request body.
+-- Simulate the execution of a < Method> in your < RestApi> with headers, parameters, and an incoming request body.
 module Network.AWS.APIGateway.TestInvokeMethod
     (
     -- * Creating a Request
@@ -104,9 +103,7 @@ testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _timHttpMethod = pHttpMethod_
     }
 
--- | The URI path, including query string, of the simulated invocation
--- request. Use this to specify path parameters and query string
--- parameters.
+-- | The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
 timPathWithQueryString :: Lens' TestInvokeMethod (Maybe Text)
 timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQueryString = a});
 
@@ -114,14 +111,11 @@ timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQu
 timBody :: Lens' TestInvokeMethod (Maybe Text)
 timBody = lens _timBody (\ s a -> s{_timBody = a});
 
--- | A < ClientCertificate> identifier to use in the test invocation. API
--- Gateway will use use the certificate when making the HTTPS request to
--- the defined backend endpoint.
+-- | A < ClientCertificate> identifier to use in the test invocation. API Gateway will use use the certificate when making the HTTPS request to the defined backend endpoint.
 timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
 timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a});
 
--- | A key-value map of stage variables to simulate an invocation on a
--- deployed < Stage>.
+-- | A key-value map of stage variables to simulate an invocation on a deployed < Stage>.
 timStageVariables :: Lens' TestInvokeMethod (HashMap Text Text)
 timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a}) . _Default . _Map;
 

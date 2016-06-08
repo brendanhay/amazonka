@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the Amazon CloudWatch Events rules in your account. You can either
--- list all the rules or you can provide a prefix to match to the rule
--- names. If you have more rules in your account than the given limit, the
--- results will be paginated. In that case, use the next token returned in
--- the response and repeat ListRules until the NextToken in the response is
--- returned as null.
+-- Lists the Amazon CloudWatch Events rules in your account. You can either list all the rules or you can provide a prefix to match to the rule names. If you have more rules in your account than the given limit, the results will be paginated. In that case, use the next token returned in the response and repeat ListRules until the NextToken in the response is returned as null.
 module Network.AWS.CloudWatchEvents.ListRules
     (
     -- * Creating a Request
@@ -77,8 +72,7 @@ listRules =
     , _lrLimit = Nothing
     }
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 lrNextToken :: Lens' ListRules (Maybe Text)
 lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 

@@ -434,12 +434,10 @@ emr =
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
--- | Indicates that an error occurred while processing the request and that
--- the request was not completed.
+-- | Indicates that an error occurred while processing the request and that the request was not completed.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
--- | This exception occurs when there is an internal failure in the EMR
--- service.
+-- | This exception occurs when there is an internal failure in the EMR service.
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException = _ServiceError . hasCode "InternalServerException"

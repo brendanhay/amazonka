@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action deletes a reusable delegation set. To delete a reusable
--- delegation set, send a 'DELETE' request to the
--- '\/Route 53 API version\/delegationset\/delegation set ID' resource.
+-- This action deletes a reusable delegation set. To delete a reusable delegation set, send a 'DELETE' request to the '\/Route 53 API version\/delegationset\/delegation set ID' resource.
 --
--- You can delete a reusable delegation set only if there are no associated
--- hosted zones. If your reusable delegation set contains associated hosted
--- zones, you must delete them before you can delete your reusable
--- delegation set. If you try to delete a reusable delegation set that
--- contains associated hosted zones, Amazon Route 53 will deny your request
--- with a 'DelegationSetInUse' error.
+-- You can delete a reusable delegation set only if there are no associated hosted zones. If your reusable delegation set contains associated hosted zones, you must delete them before you can delete your reusable delegation set. If you try to delete a reusable delegation set that contains associated hosted zones, Amazon Route 53 will deny your request with a 'DelegationSetInUse' error.
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
     -- * Creating a Request

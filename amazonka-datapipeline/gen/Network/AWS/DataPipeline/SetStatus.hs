@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests that the status of the specified physical or logical pipeline
--- objects be updated in the specified pipeline. This update might not
--- occur immediately, but is eventually consistent. The status that can be
--- set depends on the type of object (for example, DataNode or Activity).
--- You cannot perform this operation on 'FINISHED' pipelines and attempting
--- to do so returns 'InvalidRequestException'.
+-- Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on 'FINISHED' pipelines and attempting to do so returns 'InvalidRequestException'.
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Creating a Request
@@ -79,14 +74,11 @@ setStatus pPipelineId_ pStatus_ =
 ssPipelineId :: Lens' SetStatus Text
 ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
 
--- | The IDs of the objects. The corresponding objects can be either physical
--- or components, but not a mix of both types.
+-- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 ssObjectIds :: Lens' SetStatus [Text]
 ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce;
 
--- | The status to be set on all the objects specified in 'objectIds'. For
--- components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL',
--- 'RERUN', or 'MARK_FINISHED'.
+-- | The status to be set on all the objects specified in 'objectIds'. For components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'DBParameterGroup' descriptions. If a
--- 'DBParameterGroupName' is specified, the list will contain only the
--- description of the specified DB parameter group.
+-- Returns a list of 'DBParameterGroup' descriptions. If a 'DBParameterGroupName' is specified, the list will contain only the description of the specified DB parameter group.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameterGroups
@@ -96,17 +94,11 @@ ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coe
 ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBParameterGroups' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBParameterGroups' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -156,8 +148,7 @@ instance ToQuery DescribeDBParameterGroups where
                "Marker" =: _ddpgMarker,
                "MaxRecords" =: _ddpgMaxRecords]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBParameterGroups> action.
+-- | Contains the result of a successful invocation of the < DescribeDBParameterGroups> action.
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
@@ -185,9 +176,7 @@ describeDBParameterGroupsResponse pResponseStatus_ =
     , _ddpgrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 

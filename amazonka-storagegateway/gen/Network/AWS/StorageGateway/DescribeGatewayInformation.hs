@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about a gateway such as its name, network interfaces,
--- configured time zone, and the state (whether the gateway is running or
--- not). To specify which gateway to describe, use the Amazon Resource Name
--- (ARN) of the gateway in your request.
+-- Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not). To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Creating a Request
@@ -184,20 +181,15 @@ dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a})
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
 
--- | A < NetworkInterface> array that contains descriptions of the gateway
--- network interfaces.
+-- | A < NetworkInterface> array that contains descriptions of the gateway network interfaces.
 dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
 dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce;
 
--- | The date on which an update to the gateway is available. This date is in
--- the time zone of the gateway. If the gateway is not available for an
--- update this field is not returned in the response.
+-- | The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
 dgirsNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\ s a -> s{_dgirsNextUpdateAvailabilityDate = a});
 
--- | The date on which the last software update was applied to the gateway.
--- If the gateway has never been updated, this field does not return a
--- value in the response.
+-- | The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
 dgirsLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSoftwareUpdate = a});
 
@@ -205,9 +197,7 @@ dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSo
 dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a});
 
--- | The unique identifier assigned to your gateway during activation. This
--- id becomes part of the gateway Amazon Resources Name (ARN) which you use
--- as input for other operations.
+-- | The unique identifier assigned to your gateway during activation. This id becomes part of the gateway Amazon Resources Name (ARN) which you use as input for other operations.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a});
 

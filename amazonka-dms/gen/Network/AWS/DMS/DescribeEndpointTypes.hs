@@ -77,16 +77,11 @@ describeEndpointTypes =
 detFilters :: Lens' DescribeEndpointTypes [Filter]
 detFilters = lens _detFilters (\ s a -> s{_detFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 detMarker :: Lens' DescribeEndpointTypes (Maybe Text)
 detMarker = lens _detMarker (\ s a -> s{_detMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -164,9 +159,7 @@ describeEndpointTypesResponse pResponseStatus_ =
 detrsSupportedEndpointTypes :: Lens' DescribeEndpointTypesResponse [SupportedEndpointType]
 detrsSupportedEndpointTypes = lens _detrsSupportedEndpointTypes (\ s a -> s{_detrsSupportedEndpointTypes = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 detrsMarker :: Lens' DescribeEndpointTypesResponse (Maybe Text)
 detrsMarker = lens _detrsMarker (\ s a -> s{_detrsMarker = a});
 

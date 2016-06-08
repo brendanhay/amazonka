@@ -21,8 +21,7 @@ import           Network.AWS.Lambda.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Provides configuration information about a Lambda function version
--- alias.
+-- | Provides configuration information about a Lambda function version alias.
 --
 -- /See:/ 'aliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
@@ -61,10 +60,7 @@ acName = lens _acName (\ s a -> s{_acName = a});
 acFunctionVersion :: Lens' AliasConfiguration (Maybe Text)
 acFunctionVersion = lens _acFunctionVersion (\ s a -> s{_acFunctionVersion = a});
 
--- | Lambda function ARN that is qualified using the alias name as the
--- suffix. For example, if you create an alias called 'BETA' that points to
--- a helloworld function version, the ARN is
--- 'arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA'.
+-- | Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called 'BETA' that points to a helloworld function version, the ARN is 'arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA'.
 acAliasARN :: Lens' AliasConfiguration (Maybe Text)
 acAliasARN = lens _acAliasARN (\ s a -> s{_acAliasARN = a});
 
@@ -85,8 +81,7 @@ instance Hashable AliasConfiguration
 
 instance NFData AliasConfiguration
 
--- | Describes mapping between an Amazon Kinesis stream and a Lambda
--- function.
+-- | Describes mapping between an Amazon Kinesis stream and a Lambda function.
 --
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
@@ -133,18 +128,15 @@ eventSourceMappingConfiguration =
     , _esmcLastModified = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the
--- source of events.
+-- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the source of events.
 esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcEventSourceARN = lens _esmcEventSourceARN (\ s a -> s{_esmcEventSourceARN = a});
 
--- | The state of the event source mapping. It can be 'Creating', 'Enabled',
--- 'Disabled', 'Enabling', 'Disabling', 'Updating', or 'Deleting'.
+-- | The state of the event source mapping. It can be 'Creating', 'Enabled', 'Disabled', 'Enabling', 'Disabling', 'Updating', or 'Deleting'.
 esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcState = lens _esmcState (\ s a -> s{_esmcState = a});
 
--- | The Lambda function to invoke when AWS Lambda detects an event on the
--- stream.
+-- | The Lambda function to invoke when AWS Lambda detects an event on the stream.
 esmcFunctionARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcFunctionARN = lens _esmcFunctionARN (\ s a -> s{_esmcFunctionARN = a});
 
@@ -156,19 +148,15 @@ esmcUUId = lens _esmcUUId (\ s a -> s{_esmcUUId = a});
 esmcLastProcessingResult :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcLastProcessingResult = lens _esmcLastProcessingResult (\ s a -> s{_esmcLastProcessingResult = a});
 
--- | The largest number of records that AWS Lambda will retrieve from your
--- event source at the time of invoking your function. Your function
--- receives an event with all the retrieved records.
+-- | The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records.
 esmcBatchSize :: Lens' EventSourceMappingConfiguration (Maybe Natural)
 esmcBatchSize = lens _esmcBatchSize (\ s a -> s{_esmcBatchSize = a}) . mapping _Nat;
 
--- | The reason the event source mapping is in its current state. It is
--- either user-requested or an AWS Lambda-initiated state transition.
+-- | The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition.
 esmcStateTransitionReason :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcStateTransitionReason = lens _esmcStateTransitionReason (\ s a -> s{_esmcStateTransitionReason = a});
 
--- | The UTC time string indicating the last time the event mapping was
--- updated.
+-- | The UTC time string indicating the last time the event mapping was updated.
 esmcLastModified :: Lens' EventSourceMappingConfiguration (Maybe UTCTime)
 esmcLastModified = lens _esmcLastModified (\ s a -> s{_esmcLastModified = a}) . mapping _Time;
 
@@ -221,22 +209,15 @@ functionCode =
     , _fcS3Bucket = Nothing
     }
 
--- | The Amazon S3 object (the deployment package) version you want to
--- upload.
+-- | The Amazon S3 object (the deployment package) version you want to upload.
 fcS3ObjectVersion :: Lens' FunctionCode (Maybe Text)
 fcS3ObjectVersion = lens _fcS3ObjectVersion (\ s a -> s{_fcS3ObjectVersion = a});
 
--- | The Amazon S3 object (the deployment package) key name you want to
--- upload.
+-- | The Amazon S3 object (the deployment package) key name you want to upload.
 fcS3Key :: Lens' FunctionCode (Maybe Text)
 fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
--- | A zip file containing your deployment package. If you are using the API
--- directly, the zip file must be base64-encoded (if you are using the AWS
--- SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you). For
--- more information about creating a .zip file, go to
--- <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions>
--- in the /AWS Lambda Developer Guide/.
+-- | A zip file containing your deployment package. If you are using the API directly, the zip file must be base64-encoded (if you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you). For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -246,9 +227,7 @@ fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 fcZipFile :: Lens' FunctionCode (Maybe ByteString)
 fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
 
--- | Amazon S3 bucket name where the .zip file containing your deployment
--- package is stored. This bucket must reside in the same AWS region where
--- you are creating the Lambda function.
+-- | Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 fcS3Bucket :: Lens' FunctionCode (Maybe Text)
 fcS3Bucket = lens _fcS3Bucket (\ s a -> s{_fcS3Bucket = a});
 
@@ -288,8 +267,7 @@ functionCodeLocation =
     , _fclRepositoryType = Nothing
     }
 
--- | The presigned URL you can use to download the function\'s .zip file that
--- you previously uploaded. The URL is valid for up to 10 minutes.
+-- | The presigned URL you can use to download the function\'s .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
 fclLocation :: Lens' FunctionCodeLocation (Maybe Text)
 fclLocation = lens _fclLocation (\ s a -> s{_fclLocation = a});
 
@@ -375,8 +353,7 @@ functionConfiguration =
     , _fcDescription = Nothing
     }
 
--- | The memory size, in MB, you configured for the function. Must be a
--- multiple of 64 MB.
+-- | The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\ s a -> s{_fcMemorySize = a}) . mapping _Nat;
 
@@ -388,9 +365,7 @@ fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 fcFunctionARN :: Lens' FunctionConfiguration (Maybe Text)
 fcFunctionARN = lens _fcFunctionARN (\ s a -> s{_fcFunctionARN = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
--- it executes your function to access any other Amazon Web Services (AWS)
--- resources.
+-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 fcRole :: Lens' FunctionConfiguration (Maybe Text)
 fcRole = lens _fcRole (\ s a -> s{_fcRole = a});
 
@@ -414,10 +389,7 @@ fcCodeSize = lens _fcCodeSize (\ s a -> s{_fcCodeSize = a});
 fcHandler :: Lens' FunctionConfiguration (Maybe Text)
 fcHandler = lens _fcHandler (\ s a -> s{_fcHandler = a});
 
--- | The function execution time at which Lambda should terminate the
--- function. Because the execution time has cost implications, we recommend
--- you set this value based on your expected execution time. The default is
--- 3 seconds.
+-- | The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\ s a -> s{_fcTimeout = a}) . mapping _Nat;
 
@@ -455,10 +427,7 @@ instance Hashable FunctionConfiguration
 
 instance NFData FunctionConfiguration
 
--- | If your Lambda function accesses resources in a VPC, you provide this
--- parameter identifying the list of security group IDs and subnet IDs.
--- These must belong to the same VPC. You must provide at least one
--- security group and one subnet ID.
+-- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
 -- /See:/ 'vpcConfig' smart constructor.
 data VPCConfig = VPCConfig'

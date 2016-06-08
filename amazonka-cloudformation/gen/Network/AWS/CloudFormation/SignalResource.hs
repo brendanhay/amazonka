@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a signal to the specified resource with a success or failure
--- status. You can use the SignalResource API in conjunction with a
--- creation policy or update policy. AWS CloudFormation doesn\'t proceed
--- with a stack creation or update until resources receive the required
--- number of signals or the timeout period is exceeded. The SignalResource
--- API is useful in cases where you want to send signals from anywhere
--- other than an Amazon EC2 instance.
+-- Sends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn\'t proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request
@@ -83,26 +77,19 @@ signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
     , _sigStatus = pStatus_
     }
 
--- | The stack name or unique stack ID that includes the resource that you
--- want to signal.
+-- | The stack name or unique stack ID that includes the resource that you want to signal.
 sigStackName :: Lens' SignalResource Text
 sigStackName = lens _sigStackName (\ s a -> s{_sigStackName = a});
 
--- | The logical ID of the resource that you want to signal. The logical ID
--- is the name of the resource that given in the template.
+-- | The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
 sigLogicalResourceId :: Lens' SignalResource Text
 sigLogicalResourceId = lens _sigLogicalResourceId (\ s a -> s{_sigLogicalResourceId = a});
 
--- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
--- Scaling groups, specify the instance ID that you are signaling as the
--- unique ID. If you send multiple signals to a single resource (such as
--- signaling a wait condition), each signal requires a different unique ID.
+-- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
 sigUniqueId :: Lens' SignalResource Text
 sigUniqueId = lens _sigUniqueId (\ s a -> s{_sigUniqueId = a});
 
--- | The status of the signal, which is either success or failure. A failure
--- signal causes AWS CloudFormation to immediately fail the stack creation
--- or update.
+-- | The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
 sigStatus :: Lens' SignalResource ResourceSignalStatus
 sigStatus = lens _sigStatus (\ s a -> s{_sigStatus = a});
 

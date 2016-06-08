@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Check the availability of multiple image layers in a specified registry
--- and repository.
+-- Check the availability of multiple image layers in a specified registry and repository.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.BatchCheckLayerAvailability
     (
     -- * Creating a Request
@@ -77,14 +74,11 @@ batchCheckLayerAvailability pRepositoryName_ pLayerDigests_ =
     , _bclaLayerDigests = _List1 # pLayerDigests_
     }
 
--- | The AWS account ID associated with the registry that contains the image
--- layers to check. If you do not specify a registry, the default registry
--- is assumed.
+-- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
 bclaRegistryId :: Lens' BatchCheckLayerAvailability (Maybe Text)
 bclaRegistryId = lens _bclaRegistryId (\ s a -> s{_bclaRegistryId = a});
 
--- | The name of the repository that is associated with the image layers to
--- check.
+-- | The name of the repository that is associated with the image layers to check.
 bclaRepositoryName :: Lens' BatchCheckLayerAvailability Text
 bclaRepositoryName = lens _bclaRepositoryName (\ s a -> s{_bclaRepositoryName = a});
 
@@ -162,8 +156,7 @@ batchCheckLayerAvailabilityResponse pResponseStatus_ =
 bclarsFailures :: Lens' BatchCheckLayerAvailabilityResponse [LayerFailure]
 bclarsFailures = lens _bclarsFailures (\ s a -> s{_bclarsFailures = a}) . _Default . _Coerce;
 
--- | A list of image layer objects corresponding to the image layer
--- references in the request.
+-- | A list of image layer objects corresponding to the image layer references in the request.
 bclarsLayers :: Lens' BatchCheckLayerAvailabilityResponse [Layer]
 bclarsLayers = lens _bclarsLayers (\ s a -> s{_bclarsLayers = a}) . _Default . _Coerce;
 

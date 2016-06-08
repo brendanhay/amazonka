@@ -18,53 +18,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the traffic policy instances that you created by
--- using a specify traffic policy version.
+-- Gets information about the traffic policy instances that you created by using a specify traffic policy version.
 --
--- After you submit a 'CreateTrafficPolicyInstance' or an
--- 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while
--- Amazon Route 53 creates the resource record sets that are specified in
--- the traffic policy definition. For more information, see the < State>
--- response element.
+-- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the < State> response element.
 --
--- To get information about the traffic policy instances that you created
--- by using a specify traffic policy version, send a 'GET' request to the
--- '\/Route 53 API version\/trafficpolicyinstance' resource and include the
--- ID and version of the traffic policy.
+-- To get information about the traffic policy instances that you created by using a specify traffic policy version, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource and include the ID and version of the traffic policy.
 --
--- Amazon Route 53 returns a maximum of 100 items in each response. If you
--- have a lot of traffic policy instances, you can use the 'MaxItems'
--- parameter to list them in groups of up to 100.
+-- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the 'MaxItems' parameter to list them in groups of up to 100.
 --
--- The response includes five values that help you navigate from one group
--- of 'MaxItems' traffic policy instances to the next:
+-- The response includes five values that help you navigate from one group of 'MaxItems' traffic policy instances to the next:
 --
 -- -   __IsTruncated__
 --
---     If the value of 'IsTruncated' in the response is 'true', there are
---     more traffic policy instances associated with the specified traffic
---     policy.
+--     If the value of 'IsTruncated' in the response is 'true', there are more traffic policy instances associated with the specified traffic policy.
 --
---     If 'IsTruncated' is 'false', this response includes the last traffic
---     policy instance that is associated with the specified traffic
---     policy.
+--     If 'IsTruncated' is 'false', this response includes the last traffic policy instance that is associated with the specified traffic policy.
 --
 -- -   __MaxItems__
 --
---     The value that you specified for the 'MaxItems' parameter in the
---     request that produced the current response.
+--     The value that you specified for the 'MaxItems' parameter in the request that produced the current response.
 --
--- -   __HostedZoneIdMarker__, __TrafficPolicyInstanceNameMarker__, and
---     __TrafficPolicyInstanceTypeMarker__
+-- -   __HostedZoneIdMarker__, __TrafficPolicyInstanceNameMarker__, and __TrafficPolicyInstanceTypeMarker__
 --
---     If 'IsTruncated' is 'true', these values in the response represent
---     the first traffic policy instance in the next group of 'MaxItems'
---     traffic policy instances. To list more traffic policy instances,
---     make another call to 'ListTrafficPolicyInstancesByPolicy', and
---     specify these values in the corresponding request parameters.
+--     If 'IsTruncated' is 'true', these values in the response represent the first traffic policy instance in the next group of 'MaxItems' traffic policy instances. To list more traffic policy instances, make another call to 'ListTrafficPolicyInstancesByPolicy', and specify these values in the corresponding request parameters.
 --
---     If 'IsTruncated' is 'false', all three elements are omitted from the
---     response.
+--     If 'IsTruncated' is 'false', all three elements are omitted from the response.
 --
 module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     (
@@ -99,8 +77,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains the information about the request to list
--- your traffic policy instances.
+-- | A complex type that contains the information about the request to list your traffic policy instances.
 --
 -- /See:/ 'listTrafficPolicyInstancesByPolicy' smart constructor.
 data ListTrafficPolicyInstancesByPolicy = ListTrafficPolicyInstancesByPolicy'
@@ -141,69 +118,43 @@ listTrafficPolicyInstancesByPolicy pTrafficPolicyId_ pTrafficPolicyVersion_ =
     , _ltpibpTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
     }
 
--- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this
--- value.
+-- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this value.
 --
--- If the value of 'IsTruncated' in the previous response was 'true',
--- 'TrafficPolicyInstanceTypeMarker' is the DNS type of the first traffic
--- policy instance in the next group of 'MaxItems' traffic policy
--- instances.
+-- If the value of 'IsTruncated' in the previous response was 'true', 'TrafficPolicyInstanceTypeMarker' is the DNS type of the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 --
--- If the value of 'IsTruncated' in the previous response was 'false',
--- there are no more traffic policy instances to get for this hosted zone.
+-- If the value of 'IsTruncated' in the previous response was 'false', there are no more traffic policy instances to get for this hosted zone.
 ltpibpTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe RecordType)
 ltpibpTrafficPolicyInstanceTypeMarker = lens _ltpibpTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceTypeMarker = a});
 
--- | The maximum number of traffic policy instances to be included in the
--- response body for this request. If you have more than 'MaxItems' traffic
--- policy instances, the value of the 'IsTruncated' element in the response
--- is 'true', and the values of 'HostedZoneIdMarker',
--- 'TrafficPolicyInstanceNameMarker', and 'TrafficPolicyInstanceTypeMarker'
--- represent the first traffic policy instance in the next group of
--- 'MaxItems' traffic policy instances.
+-- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than 'MaxItems' traffic policy instances, the value of the 'IsTruncated' element in the response is 'true', and the values of 'HostedZoneIdMarker', 'TrafficPolicyInstanceNameMarker', and 'TrafficPolicyInstanceTypeMarker' represent the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 ltpibpMaxItems :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
 ltpibpMaxItems = lens _ltpibpMaxItems (\ s a -> s{_ltpibpMaxItems = a});
 
--- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this
--- value.
+-- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this value.
 --
--- If the value of 'IsTruncated' in the previous response was 'true',
--- 'HostedZoneIdMarker' is the ID of the hosted zone for the first traffic
--- policy instance in the next group of 'MaxItems' traffic policy
--- instances.
+-- If the value of 'IsTruncated' in the previous response was 'true', 'HostedZoneIdMarker' is the ID of the hosted zone for the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 --
--- If the value of 'IsTruncated' in the previous response was 'false',
--- there are no more traffic policy instances to get for this hosted zone.
+-- If the value of 'IsTruncated' in the previous response was 'false', there are no more traffic policy instances to get for this hosted zone.
 --
--- If the value of 'IsTruncated' in the previous response was 'false', omit
--- this value.
+-- If the value of 'IsTruncated' in the previous response was 'false', omit this value.
 ltpibpHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
 ltpibpHostedZoneIdMarker = lens _ltpibpHostedZoneIdMarker (\ s a -> s{_ltpibpHostedZoneIdMarker = a});
 
--- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this
--- value.
+-- | For the first request to 'ListTrafficPolicyInstancesByPolicy', omit this value.
 --
--- If the value of 'IsTruncated' in the previous response was 'true',
--- 'TrafficPolicyInstanceNameMarker' is the name of the first traffic
--- policy instance in the next group of 'MaxItems' traffic policy
--- instances.
+-- If the value of 'IsTruncated' in the previous response was 'true', 'TrafficPolicyInstanceNameMarker' is the name of the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 --
--- If the value of 'IsTruncated' in the previous response was 'false',
--- there are no more traffic policy instances to get for this hosted zone.
+-- If the value of 'IsTruncated' in the previous response was 'false', there are no more traffic policy instances to get for this hosted zone.
 --
--- If the value of 'IsTruncated' in the previous response was 'false', omit
--- this value.
+-- If the value of 'IsTruncated' in the previous response was 'false', omit this value.
 ltpibpTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
 ltpibpTrafficPolicyInstanceNameMarker = lens _ltpibpTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibpTrafficPolicyInstanceNameMarker = a});
 
--- | The ID of the traffic policy for which you want to list traffic policy
--- instances.
+-- | The ID of the traffic policy for which you want to list traffic policy instances.
 ltpibpTrafficPolicyId :: Lens' ListTrafficPolicyInstancesByPolicy Text
 ltpibpTrafficPolicyId = lens _ltpibpTrafficPolicyId (\ s a -> s{_ltpibpTrafficPolicyId = a});
 
--- | The version of the traffic policy for which you want to list traffic
--- policy instances. The version must be associated with the traffic policy
--- that is specified by 'TrafficPolicyId'.
+-- | The version of the traffic policy for which you want to list traffic policy instances. The version must be associated with the traffic policy that is specified by 'TrafficPolicyId'.
 ltpibpTrafficPolicyVersion :: Lens' ListTrafficPolicyInstancesByPolicy Natural
 ltpibpTrafficPolicyVersion = lens _ltpibpTrafficPolicyVersion (\ s a -> s{_ltpibpTrafficPolicyVersion = a}) . _Nat;
 
@@ -299,22 +250,15 @@ listTrafficPolicyInstancesByPolicyResponse pResponseStatus_ pIsTruncated_ pMaxIt
     , _ltpibprsMaxItems = pMaxItems_
     }
 
--- | If 'IsTruncated' is 'true', 'TrafficPolicyInstanceTypeMarker' is the DNS
--- type of the resource record sets that are associated with the first
--- traffic policy instance in the next group of 'MaxItems' traffic policy
--- instances.
+-- | If 'IsTruncated' is 'true', 'TrafficPolicyInstanceTypeMarker' is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 ltpibprsTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe RecordType)
 ltpibprsTrafficPolicyInstanceTypeMarker = lens _ltpibprsTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceTypeMarker = a});
 
--- | If 'IsTruncated' is 'true', 'HostedZoneIdMarker' is the ID of the hosted
--- zone of the first traffic policy instance in the next group of
--- 'MaxItems' traffic policy instances.
+-- | If 'IsTruncated' is 'true', 'HostedZoneIdMarker' is the ID of the hosted zone of the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 ltpibprsHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe Text)
 ltpibprsHostedZoneIdMarker = lens _ltpibprsHostedZoneIdMarker (\ s a -> s{_ltpibprsHostedZoneIdMarker = a});
 
--- | If 'IsTruncated' is 'true', 'TrafficPolicyInstanceNameMarker' is the
--- name of the first traffic policy instance in the next group of
--- 'MaxItems' traffic policy instances.
+-- | If 'IsTruncated' is 'true', 'TrafficPolicyInstanceNameMarker' is the name of the first traffic policy instance in the next group of 'MaxItems' traffic policy instances.
 ltpibprsTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe Text)
 ltpibprsTrafficPolicyInstanceNameMarker = lens _ltpibprsTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceNameMarker = a});
 
@@ -322,25 +266,17 @@ ltpibprsTrafficPolicyInstanceNameMarker = lens _ltpibprsTrafficPolicyInstanceNam
 ltpibprsResponseStatus :: Lens' ListTrafficPolicyInstancesByPolicyResponse Int
 ltpibprsResponseStatus = lens _ltpibprsResponseStatus (\ s a -> s{_ltpibprsResponseStatus = a});
 
--- | A list that contains one 'TrafficPolicyInstance' element for each
--- traffic policy instance that matches the elements in the request.
+-- | A list that contains one 'TrafficPolicyInstance' element for each traffic policy instance that matches the elements in the request.
 ltpibprsTrafficPolicyInstances :: Lens' ListTrafficPolicyInstancesByPolicyResponse [TrafficPolicyInstance]
 ltpibprsTrafficPolicyInstances = lens _ltpibprsTrafficPolicyInstances (\ s a -> s{_ltpibprsTrafficPolicyInstances = a}) . _Coerce;
 
--- | A flag that indicates whether there are more traffic policy instances to
--- be listed. If the response was truncated, you can get the next group of
--- 'MaxItems' traffic policy instances by calling
--- 'ListTrafficPolicyInstancesByPolicy' again and specifying the values of
--- the 'HostedZoneIdMarker', 'TrafficPolicyInstanceNameMarker', and
--- 'TrafficPolicyInstanceTypeMarker' elements in the corresponding request
--- parameters.
+-- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of 'MaxItems' traffic policy instances by calling 'ListTrafficPolicyInstancesByPolicy' again and specifying the values of the 'HostedZoneIdMarker', 'TrafficPolicyInstanceNameMarker', and 'TrafficPolicyInstanceTypeMarker' elements in the corresponding request parameters.
 --
 -- Valid Values: 'true' | 'false'
 ltpibprsIsTruncated :: Lens' ListTrafficPolicyInstancesByPolicyResponse Bool
 ltpibprsIsTruncated = lens _ltpibprsIsTruncated (\ s a -> s{_ltpibprsIsTruncated = a});
 
--- | The value that you specified for the 'MaxItems' parameter in the call to
--- 'ListTrafficPolicyInstancesByPolicy' that produced the current response.
+-- | The value that you specified for the 'MaxItems' parameter in the call to 'ListTrafficPolicyInstancesByPolicy' that produced the current response.
 ltpibprsMaxItems :: Lens' ListTrafficPolicyInstancesByPolicyResponse Text
 ltpibprsMaxItems = lens _ltpibprsMaxItems (\ s a -> s{_ltpibprsMaxItems = a});
 

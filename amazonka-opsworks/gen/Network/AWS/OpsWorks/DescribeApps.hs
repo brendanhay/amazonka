@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeApps
     (
     -- * Creating a Request
@@ -72,14 +68,11 @@ describeApps =
     , _daStackId = Nothing
     }
 
--- | An array of app IDs for the apps to be described. If you use this
--- parameter, 'DescribeApps' returns a description of the specified apps.
--- Otherwise, it returns a description of every app.
+-- | An array of app IDs for the apps to be described. If you use this parameter, 'DescribeApps' returns a description of the specified apps. Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
 
--- | The app stack ID. If you use this parameter, 'DescribeApps' returns a
--- description of the apps in the specified stack.
+-- | The app stack ID. If you use this parameter, 'DescribeApps' returns a description of the apps in the specified stack.
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 

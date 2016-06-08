@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a conditional forwarder that has been set up for your AWS
--- directory.
+-- Deletes a conditional forwarder that has been set up for your AWS directory.
 module Network.AWS.DirectoryService.DeleteConditionalForwarder
     (
     -- * Creating a Request
@@ -70,8 +69,7 @@ deleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
 delDirectoryId :: Lens' DeleteConditionalForwarder Text
 delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a});
 
--- | The fully qualified domain name (FQDN) of the remote domain with which
--- you are deleting the conditional forwarder.
+-- | The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
 delRemoteDomainName :: Lens' DeleteConditionalForwarder Text
 delRemoteDomainName = lens _delRemoteDomainName (\ s a -> s{_delRemoteDomainName = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /CreateSnapshot/ action creates a copy of an entire cache cluster at
--- a specific moment in time.
+-- The /CreateSnapshot/ action creates a copy of an entire cache cluster at a specific moment in time.
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Creating a Request
@@ -69,8 +68,7 @@ createSnapshot pCacheClusterId_ pSnapshotName_ =
     , _csSnapshotName = pSnapshotName_
     }
 
--- | The identifier of an existing cache cluster. The snapshot will be
--- created from this cache cluster.
+-- | The identifier of an existing cache cluster. The snapshot will be created from this cache cluster.
 csCacheClusterId :: Lens' CreateSnapshot Text
 csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
 

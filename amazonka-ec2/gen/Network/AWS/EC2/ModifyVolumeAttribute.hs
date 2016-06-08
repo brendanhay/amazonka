@@ -20,15 +20,9 @@
 --
 -- Modifies a volume attribute.
 --
--- By default, all I\/O operations for the volume are suspended when the
--- data on the volume is determined to be potentially inconsistent, to
--- prevent undetectable, latent data corruption. The I\/O access to the
--- volume can be resumed by first enabling I\/O access and then checking
--- the data consistency on your volume.
+-- By default, all I\/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I\/O access to the volume can be resumed by first enabling I\/O access and then checking the data consistency on your volume.
 --
--- You can change the default behavior to resume I\/O operations. We
--- recommend that you change this only for boot volumes or for volumes that
--- are stateless or disposable.
+-- You can change the default behavior to resume I\/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Creating a Request
@@ -83,10 +77,7 @@ modifyVolumeAttribute pVolumeId_ =
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
 mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
 

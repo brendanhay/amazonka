@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new client ID (also known as audience) to the list of client IDs
--- already registered for the specified IAM OpenID Connect provider.
+-- Adds a new client ID (also known as audience) to the list of client IDs already registered for the specified IAM OpenID Connect provider.
 --
--- This action is idempotent; it does not fail or return an error if you
--- add an existing client ID to the provider.
+-- This action is idempotent; it does not fail or return an error if you add an existing client ID to the provider.
 module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -67,14 +65,11 @@ addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     , _acitoicpClientId = pClientId_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
--- to add the client ID to. You can get a list of OIDC provider ARNs by
--- using the < ListOpenIDConnectProviders> action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to add the client ID to. You can get a list of OIDC provider ARNs by using the < ListOpenIDConnectProviders> action.
 acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
 acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\ s a -> s{_acitoicpOpenIdConnectProviderARN = a});
 
--- | The client ID (also known as audience) to add to the IAM OpenID Connect
--- provider.
+-- | The client ID (also known as audience) to add to the IAM OpenID Connect provider.
 acitoicpClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
 acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a});
 

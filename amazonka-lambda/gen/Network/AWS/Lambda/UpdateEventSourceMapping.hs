@@ -18,25 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can update an event source mapping. This is useful if you want to
--- change the parameters of the existing mapping without losing your
--- position in the stream. You can change which function will receive the
--- stream records, but to change the stream itself, you must create a new
--- mapping.
+-- You can update an event source mapping. This is useful if you want to change the parameters of the existing mapping without losing your position in the stream. You can change which function will receive the stream records, but to change the stream itself, you must create a new mapping.
 --
--- If you are using the versioning feature, you can update the event source
--- mapping to map to a specific Lambda function version or alias as
--- described in the 'FunctionName' parameter. For information about the
--- versioning feature, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using the versioning feature, you can update the event source mapping to map to a specific Lambda function version or alias as described in the 'FunctionName' parameter. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- If you disable the event source mapping, AWS Lambda stops polling. If
--- you enable again, it will resume polling from the time it had stopped
--- polling, so you don\'t lose processing of any records. However, if you
--- delete event source mapping and create it again, it will reset.
+-- If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don\'t lose processing of any records. However, if you delete event source mapping and create it again, it will reset.
 --
--- This operation requires permission for the
--- 'lambda:UpdateEventSourceMapping' action.
+-- This operation requires permission for the 'lambda:UpdateEventSourceMapping' action.
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
     -- * Creating a Request
@@ -99,31 +87,21 @@ updateEventSourceMapping pUUId_ =
     , _uesmUUId = pUUId_
     }
 
--- | Specifies whether AWS Lambda should actively poll the stream or not. If
--- disabled, AWS Lambda will not poll the stream.
+-- | Specifies whether AWS Lambda should actively poll the stream or not. If disabled, AWS Lambda will not poll the stream.
 uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
 uesmEnabled = lens _uesmEnabled (\ s a -> s{_uesmEnabled = a});
 
--- | The maximum number of stream records that can be sent to your Lambda
--- function for a single invocation.
+-- | The maximum number of stream records that can be sent to your Lambda function for a single invocation.
 uesmBatchSize :: Lens' UpdateEventSourceMapping (Maybe Natural)
 uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . mapping _Nat;
 
 -- | The Lambda function to which you want the stream records sent.
 --
--- You can specify a function name (for example, 'Thumbnail') or you can
--- specify Amazon Resource Name (ARN) of the function (for example,
--- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
--- also allows you to specify a partial ARN (for example,
--- 'account-id:Thumbnail').
+-- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail').
 --
--- If you are using versioning, you can also provide a qualified function
--- ARN (ARN that is qualified with function version or alias name as
--- suffix). For more information about versioning, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>
+-- If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>
 --
--- Note that the length constraint applies only to the ARN. If you specify
--- only the function name, it is limited to 64 character in length.
+-- Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
 uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
 

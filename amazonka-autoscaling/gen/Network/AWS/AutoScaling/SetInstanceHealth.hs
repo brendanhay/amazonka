@@ -20,9 +20,7 @@
 --
 -- Sets the health status of the specified instance.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Creating a Request
@@ -72,13 +70,9 @@ setInstanceHealth pInstanceId_ pHealthStatus_ =
     , _sihHealthStatus = pHealthStatus_
     }
 
--- | If the Auto Scaling group of the specified instance has a
--- 'HealthCheckGracePeriod' specified for the group, by default, this call
--- will respect the grace period. Set this to 'False', if you do not want
--- the call to respect the grace period associated with the group.
+-- | If the Auto Scaling group of the specified instance has a 'HealthCheckGracePeriod' specified for the group, by default, this call will respect the grace period. Set this to 'False', if you do not want the call to respect the grace period associated with the group.
 --
--- For more information, see the description of the health check grace
--- period for < CreateAutoScalingGroup>.
+-- For more information, see the description of the health check grace period for < CreateAutoScalingGroup>.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a});
 
@@ -86,10 +80,7 @@ sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sih
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 
--- | The health status of the instance. Set to 'Healthy' if you want the
--- instance to remain in service. Set to 'Unhealthy' if you want the
--- instance to be out of service. Auto Scaling will terminate and replace
--- the unhealthy instance.
+-- | The health status of the instance. Set to 'Healthy' if you want the instance to remain in service. Set to 'Unhealthy' if you want the instance to be out of service. Auto Scaling will terminate and replace the unhealthy instance.
 sihHealthStatus :: Lens' SetInstanceHealth Text
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 

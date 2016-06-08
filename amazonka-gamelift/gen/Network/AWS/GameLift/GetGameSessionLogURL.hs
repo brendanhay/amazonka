@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the location of stored game session logs for a specified game
--- session. When a game session is terminated, Amazon GameLift
--- automatically stores the logs in Amazon S3. Use this URL to download the
--- logs.
+-- Retrieves the location of stored game session logs for a specified game session. When a game session is terminated, Amazon GameLift automatically stores the logs in Amazon S3. Use this URL to download the logs.
 --
--- See the
--- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits>
--- page for maximum log file sizes. Log files that exceed this limit are
--- not saved.
+-- See the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits> page for maximum log file sizes. Log files that exceed this limit are not saved.
 module Network.AWS.GameLift.GetGameSessionLogURL
     (
     -- * Creating a Request
@@ -70,8 +64,7 @@ getGameSessionLogURL pGameSessionId_ =
     { _ggsluGameSessionId = pGameSessionId_
     }
 
--- | Unique identifier for a game session. Specify the game session you want
--- to get logs for.
+-- | Unique identifier for a game session. Specify the game session you want to get logs for.
 ggsluGameSessionId :: Lens' GetGameSessionLogURL Text
 ggsluGameSessionId = lens _ggsluGameSessionId (\ s a -> s{_ggsluGameSessionId = a});
 

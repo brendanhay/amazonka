@@ -69,16 +69,11 @@ listCloudFrontOriginAccessIdentities =
     , _lcfoaiMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list
--- of origin access identities. The results include identities in the list
--- that occur after the marker. To get the next page of results, set the
--- Marker to the value of the NextMarker from the current page\'s response
--- (which is also the ID of the last identity on that page).
+-- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page\'s response (which is also the ID of the last identity on that page).
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
--- | The maximum number of origin access identities you want in the response
--- body.
+-- | The maximum number of origin access identities you want in the response body.
 lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 

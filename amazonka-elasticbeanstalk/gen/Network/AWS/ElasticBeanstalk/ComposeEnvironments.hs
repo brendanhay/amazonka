@@ -18,14 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create or update a group of environments that each run a separate
--- component of a single application. Takes a list of version labels that
--- specify application source bundles for each of the environments to
--- create or update. The name of each environment and other required
--- information must be included in the source bundles in an environment
--- manifest named 'env.yaml'. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments>
--- for details.
+-- Create or update a group of environments that each run a separate component of a single application. Takes a list of version labels that specify application source bundles for each of the environments to create or update. The name of each environment and other required information must be included in the source bundles in an environment manifest named 'env.yaml'. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments> for details.
 module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     (
     -- * Creating a Request
@@ -77,24 +70,15 @@ composeEnvironments =
     , _ceGroupName = Nothing
     }
 
--- | A list of version labels, specifying one or more application source
--- bundles that belong to the target application. Each source bundle must
--- include an environment manifest that specifies the name of the
--- environment and the name of the solution stack to use, and optionally
--- can specify environment links to create.
+-- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
 ceVersionLabels :: Lens' ComposeEnvironments [Text]
 ceVersionLabels = lens _ceVersionLabels (\ s a -> s{_ceVersionLabels = a}) . _Default . _Coerce;
 
--- | The name of the application to which the specified source bundles
--- belong.
+-- | The name of the application to which the specified source bundles belong.
 ceApplicationName :: Lens' ComposeEnvironments (Maybe Text)
 ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a});
 
--- | The name of the group to which the target environments belong. Specify a
--- group name only if the environment name defined in each target
--- environment\'s manifest ends with a + (plus) character. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
+-- | The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment\'s manifest ends with a + (plus) character. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 ceGroupName :: Lens' ComposeEnvironments (Maybe Text)
 ceGroupName = lens _ceGroupName (\ s a -> s{_ceGroupName = a});
 

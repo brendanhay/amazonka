@@ -21,8 +21,7 @@ import           Network.AWS.ApplicationAutoScaling.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | An object representing a CloudWatch alarm associated with a scaling
--- policy.
+-- | An object representing a CloudWatch alarm associated with a scaling policy.
 --
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
@@ -115,39 +114,27 @@ scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_
     , _stCreationTime = _Time # pCreationTime_
     }
 
--- | The namespace for the AWS service that the scalable target is associated
--- with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 stServiceNamespace :: Lens' ScalableTarget ServiceNamespace
 stServiceNamespace = lens _stServiceNamespace (\ s a -> s{_stServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the
--- scalable target. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource associated with the scalable target. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 stResourceId :: Lens' ScalableTarget Text
 stResourceId = lens _stResourceId (\ s a -> s{_stResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable
--- dimension contains the service namespace, resource type, and scaling
--- property, such as 'ecs:service:DesiredCount' for the desired task count
--- of an Amazon ECS service.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 stScalableDimension :: Lens' ScalableTarget ScalableDimension
 stScalableDimension = lens _stScalableDimension (\ s a -> s{_stScalableDimension = a});
 
--- | The minimum value for this scalable target to scale in to in response to
--- scaling activities.
+-- | The minimum value for this scalable target to scale in to in response to scaling activities.
 stMinCapacity :: Lens' ScalableTarget Int
 stMinCapacity = lens _stMinCapacity (\ s a -> s{_stMinCapacity = a});
 
--- | The maximum value for this scalable target to scale out to in response
--- to scaling activities.
+-- | The maximum value for this scalable target to scale out to in response to scaling activities.
 stMaxCapacity :: Lens' ScalableTarget Int
 stMaxCapacity = lens _stMaxCapacity (\ s a -> s{_stMaxCapacity = a});
 
--- | The ARN of the IAM role that allows Application Auto Scaling to modify
--- your scalable target on your behalf.
+-- | The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf.
 stRoleARN :: Lens' ScalableTarget Text
 stRoleARN = lens _stRoleARN (\ s a -> s{_stRoleARN = a});
 
@@ -254,29 +241,19 @@ saDetails = lens _saDetails (\ s a -> s{_saDetails = a});
 saActivityId :: Lens' ScalingActivity Text
 saActivityId = lens _saActivityId (\ s a -> s{_saActivityId = a});
 
--- | The namespace for the AWS service that the scaling activity is
--- associated with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scaling activity is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 saServiceNamespace :: Lens' ScalingActivity ServiceNamespace
 saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the
--- scaling activity. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 saResourceId :: Lens' ScalingActivity Text
 saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
 
--- | The scalable dimension associated with the scaling activity. The
--- scalable dimension contains the service namespace, resource type, and
--- scaling property, such as 'ecs:service:DesiredCount' for the desired
--- task count of an Amazon ECS service.
+-- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 saScalableDimension :: Lens' ScalingActivity ScalableDimension
 saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
 
--- | A simple description of what action the scaling activity intends to
--- accomplish.
+-- | A simple description of what action the scaling activity intends to accomplish.
 saDescription :: Lens' ScalingActivity Text
 saDescription = lens _saDescription (\ s a -> s{_saDescription = a});
 
@@ -386,24 +363,15 @@ spPolicyARN = lens _spPolicyARN (\ s a -> s{_spPolicyARN = a});
 spPolicyName :: Lens' ScalingPolicy Text
 spPolicyName = lens _spPolicyName (\ s a -> s{_spPolicyName = a});
 
--- | The namespace for the AWS service that the scaling policy is associated
--- with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 spServiceNamespace :: Lens' ScalingPolicy ServiceNamespace
 spServiceNamespace = lens _spServiceNamespace (\ s a -> s{_spServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the
--- scaling policy. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 spResourceId :: Lens' ScalingPolicy Text
 spResourceId = lens _spResourceId (\ s a -> s{_spResourceId = a});
 
--- | The scalable dimension associated with the scaling policy. The scalable
--- dimension contains the service namespace, resource type, and scaling
--- property, such as 'ecs:service:DesiredCount' for the desired task count
--- of an Amazon ECS service.
+-- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 spScalableDimension :: Lens' ScalingPolicy ScalableDimension
 spScalableDimension = lens _spScalableDimension (\ s a -> s{_spScalableDimension = a});
 
@@ -434,36 +402,23 @@ instance Hashable ScalingPolicy
 
 instance NFData ScalingPolicy
 
--- | An object representing a step adjustment for a
--- < StepScalingPolicyConfiguration>. Describes an adjustment based on the
--- difference between the value of the aggregated CloudWatch metric and the
--- breach threshold that you\'ve defined for the alarm.
+-- | An object representing a step adjustment for a < StepScalingPolicyConfiguration>. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you\'ve defined for the alarm.
 --
--- For the following examples, suppose that you have an alarm with a breach
--- threshold of 50:
+-- For the following examples, suppose that you have an alarm with a breach threshold of 50:
 --
--- -   If you want the adjustment to be triggered when the metric is
---     greater than or equal to 50 and less than 60, specify a lower bound
---     of 0 and an upper bound of 10.
+-- -   If you want the adjustment to be triggered when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.
 --
--- -   If you want the adjustment to be triggered when the metric is
---     greater than 40 and less than or equal to 50, specify a lower bound
---     of -10 and an upper bound of 0.
+-- -   If you want the adjustment to be triggered when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.
 --
 -- There are a few rules for the step adjustments for your step policy:
 --
 -- -   The ranges of your step adjustments can\'t overlap or have a gap.
 --
--- -   At most one step adjustment can have a null lower bound. If one step
---     adjustment has a negative lower bound, then there must be a step
---     adjustment with a null lower bound.
+-- -   At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.
 --
--- -   At most one step adjustment can have a null upper bound. If one step
---     adjustment has a positive upper bound, then there must be a step
---     adjustment with a null upper bound.
+-- -   At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.
 --
--- -   The upper and lower bound can\'t be null in the same step
---     adjustment.
+-- -   The upper and lower bound can\'t be null in the same step adjustment.
 --
 --
 -- /See:/ 'stepAdjustment' smart constructor.
@@ -492,29 +447,17 @@ stepAdjustment pScalingAdjustment_ =
     , _saScalingAdjustment = pScalingAdjustment_
     }
 
--- | The lower bound for the difference between the alarm threshold and the
--- CloudWatch metric. If the metric value is above the breach threshold,
--- the lower bound is inclusive (the metric must be greater than or equal
--- to the threshold plus the lower bound). Otherwise, it is exclusive (the
--- metric must be greater than the threshold plus the lower bound). A null
--- value indicates negative infinity.
+-- | The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 saMetricIntervalLowerBound :: Lens' StepAdjustment (Maybe Double)
 saMetricIntervalLowerBound = lens _saMetricIntervalLowerBound (\ s a -> s{_saMetricIntervalLowerBound = a});
 
--- | The upper bound for the difference between the alarm threshold and the
--- CloudWatch metric. If the metric value is above the breach threshold,
--- the upper bound is exclusive (the metric must be less than the threshold
--- plus the upper bound). Otherwise, it is inclusive (the metric must be
--- less than or equal to the threshold plus the upper bound). A null value
--- indicates positive infinity.
+-- | The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 --
 -- The upper bound must be greater than the lower bound.
 saMetricIntervalUpperBound :: Lens' StepAdjustment (Maybe Double)
 saMetricIntervalUpperBound = lens _saMetricIntervalUpperBound (\ s a -> s{_saMetricIntervalUpperBound = a});
 
--- | The amount by which to scale, based on the specified adjustment type. A
--- positive value adds to the current scalable dimension while a negative
--- number removes from the current scalable dimension.
+-- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current scalable dimension while a negative number removes from the current scalable dimension.
 saScalingAdjustment :: Lens' StepAdjustment Int
 saScalingAdjustment = lens _saScalingAdjustment (\ s a -> s{_saScalingAdjustment = a});
 
@@ -576,51 +519,27 @@ stepScalingPolicyConfiguration =
     , _sspcMinAdjustmentMagnitude = Nothing
     }
 
--- | A set of adjustments that enable you to scale based on the size of the
--- alarm breach.
+-- | A set of adjustments that enable you to scale based on the size of the alarm breach.
 sspcStepAdjustments :: Lens' StepScalingPolicyConfiguration [StepAdjustment]
 sspcStepAdjustments = lens _sspcStepAdjustments (\ s a -> s{_sspcStepAdjustments = a}) . _Default . _Coerce;
 
--- | The adjustment type, which specifies how the 'ScalingAdjustment'
--- parameter in a < StepAdjustment> is interpreted.
+-- | The adjustment type, which specifies how the 'ScalingAdjustment' parameter in a < StepAdjustment> is interpreted.
 sspcAdjustmentType :: Lens' StepScalingPolicyConfiguration (Maybe AdjustmentType)
 sspcAdjustmentType = lens _sspcAdjustmentType (\ s a -> s{_sspcAdjustmentType = a});
 
--- | The amount of time, in seconds, after a scaling activity completes where
--- previous trigger-related scaling activities can influence future scaling
--- events.
+-- | The amount of time, in seconds, after a scaling activity completes where previous trigger-related scaling activities can influence future scaling events.
 --
--- For scale out policies, while 'Cooldown' is in effect, the capacity that
--- has been added by the previous scale out event that initiated the
--- 'Cooldown' is calculated as part of the desired capacity for the next
--- scale out. The intention is to continuously (but not excessively) scale
--- out. For example, an alarm triggers a step scaling policy to scale out
--- an Amazon ECS service by 2 tasks, the scaling activity completes
--- successfully, and a 'Cooldown' period of 5 minutes starts. During the
--- 'Cooldown' period, if the alarm triggers the same policy again but at a
--- more aggressive step adjustment to scale out the service by 3 tasks, the
--- 2 tasks that were added in the previous scale out event are considered
--- part of that capacity and only 1 additional task is added to the desired
--- count.
+-- For scale out policies, while 'Cooldown' is in effect, the capacity that has been added by the previous scale out event that initiated the 'Cooldown' is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a 'Cooldown' period of 5 minutes starts. During the 'Cooldown' period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count.
 --
--- For scale in policies, the 'Cooldown' period is used to block subsequent
--- scale in requests until it has expired. The intention is to scale in
--- conservatively to protect your application\'s availability. However, if
--- another alarm triggers a scale out policy during the 'Cooldown' period
--- after a scale-in, Application Auto Scaling scales out your scalable
--- target immediately.
+-- For scale in policies, the 'Cooldown' period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application\'s availability. However, if another alarm triggers a scale out policy during the 'Cooldown' period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
 sspcCooldown :: Lens' StepScalingPolicyConfiguration (Maybe Int)
 sspcCooldown = lens _sspcCooldown (\ s a -> s{_sspcCooldown = a});
 
--- | The aggregation type for the CloudWatch metrics. Valid values are
--- 'Minimum', 'Maximum', and 'Average'.
+-- | The aggregation type for the CloudWatch metrics. Valid values are 'Minimum', 'Maximum', and 'Average'.
 sspcMetricAggregationType :: Lens' StepScalingPolicyConfiguration (Maybe MetricAggregationType)
 sspcMetricAggregationType = lens _sspcMetricAggregationType (\ s a -> s{_sspcMetricAggregationType = a});
 
--- | The minimum number to adjust your scalable dimension as a result of a
--- scaling activity. If the adjustment type is 'PercentChangeInCapacity',
--- the scaling policy changes the scalable dimension of the scalable target
--- by this amount.
+-- | The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is 'PercentChangeInCapacity', the scaling policy changes the scalable dimension of the scalable target by this amount.
 sspcMinAdjustmentMagnitude :: Lens' StepScalingPolicyConfiguration (Maybe Int)
 sspcMinAdjustmentMagnitude = lens _sspcMinAdjustmentMagnitude (\ s a -> s{_sspcMinAdjustmentMagnitude = a});
 

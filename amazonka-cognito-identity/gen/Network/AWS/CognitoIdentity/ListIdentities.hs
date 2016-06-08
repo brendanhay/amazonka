@@ -82,9 +82,7 @@ listIdentities pIdentityPoolId_ pMaxResults_ =
     , _liMaxResults = _Nat # pMaxResults_
     }
 
--- | An optional boolean parameter that allows you to hide disabled
--- identities. If omitted, the ListIdentities API will include disabled
--- identities in the response.
+-- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 liHideDisabled :: Lens' ListIdentities (Maybe Bool)
 liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a});
 

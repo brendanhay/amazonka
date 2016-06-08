@@ -73,19 +73,15 @@ listDocuments =
     , _ldMaxResults = Nothing
     }
 
--- | One or more filters. Use a filter to return a more specific list of
--- results.
+-- | One or more filters. Use a filter to return a more specific list of results.
 ldDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
 ldDocumentFilterList = lens _ldDocumentFilterList (\ s a -> s{_ldDocumentFilterList = a}) . mapping _List1;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 ldNextToken :: Lens' ListDocuments (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 ldMaxResults :: Lens' ListDocuments (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
 
@@ -164,8 +160,7 @@ listDocumentsResponse pResponseStatus_ =
 ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
 ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumentIdentifiers = a}) . _Default . _Coerce;
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 

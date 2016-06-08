@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the configuration files necessary to connect to all high
--- availability partition groups the client is associated with.
+-- Gets the configuration files necessary to connect to all high availability partition groups the client is associated with.
 module Network.AWS.CloudHSM.GetConfig
     (
     -- * Creating a Request
@@ -82,8 +81,7 @@ gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a});
 gcClientVersion :: Lens' GetConfig ClientVersion
 gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 
--- | A list of ARNs that identify the high-availability partition groups that
--- are associated with the client.
+-- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
 gcHAPGList :: Lens' GetConfig [Text]
 gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
 

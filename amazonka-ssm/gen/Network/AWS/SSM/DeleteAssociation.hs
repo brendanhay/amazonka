@@ -20,11 +20,7 @@
 --
 -- Disassociates the specified SSM document from the specified instance.
 --
--- When you disassociate an SSM document from an instance, it does not
--- change the configuration of the instance. To change the configuration
--- state of an instance after you disassociate a document, you must create
--- a new document with the desired configuration and associate it with the
--- instance.
+-- When you disassociate an SSM document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request

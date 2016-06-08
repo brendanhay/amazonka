@@ -301,10 +301,7 @@ ioT =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Unable to verify the CA certificate used to sign the device certificate
--- you are attempting to register. This is happens when you have registered
--- more than one CA certificate that has the same subject field and public
--- key.
+-- | Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.
 _CertificateConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateConflictException =
     _ServiceError . hasStatus 409 . hasCode "CertificateConflictException"
@@ -319,8 +316,7 @@ _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceE
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
--- | You can\'t transfer the certificate because authorization policies are
--- still attached.
+-- | You can\'t transfer the certificate because authorization policies are still attached.
 _TransferConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferConflictException =
     _ServiceError . hasStatus 409 . hasCode "TransferConflictException"
@@ -341,8 +337,7 @@ _MalformedPolicyException :: AsError a => Getting (First ServiceError) a Service
 _MalformedPolicyException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyException"
 
--- | You can\'t delete the resource because it is attached to one or more
--- resources.
+-- | You can\'t delete the resource because it is attached to one or more resources.
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeleteConflictException =
     _ServiceError . hasStatus 409 . hasCode "DeleteConflictException"
@@ -357,8 +352,7 @@ _CertificateValidationException :: AsError a => Getting (First ServiceError) a S
 _CertificateValidationException =
     _ServiceError . hasStatus 400 . hasCode "CertificateValidationException"
 
--- | You can\'t revert the certificate transfer because the transfer is
--- already complete.
+-- | You can\'t revert the certificate transfer because the transfer is already complete.
 _TransferAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferAlreadyCompletedException =
     _ServiceError . hasStatus 410 . hasCode "TransferAlreadyCompletedException"

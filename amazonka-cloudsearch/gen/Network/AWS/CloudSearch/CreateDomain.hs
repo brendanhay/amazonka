@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new search domain. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html Creating a Search Domain>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Creates a new search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html Creating a Search Domain> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.CreateDomain
     (
     -- * Creating a Request
@@ -44,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'CreateDomain' operation. Specifies
--- a name for the new search domain.
+-- | Container for the parameters to the 'CreateDomain' operation. Specifies a name for the new search domain.
 --
 -- /See:/ 'createDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
@@ -65,10 +62,7 @@ createDomain pDomainName_ =
     { _cdDomainName = pDomainName_
     }
 
--- | A name for the domain you are creating. Allowed characters are a-z
--- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
--- a letter or number and be at least 3 and no more than 28 characters
--- long.
+-- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
@@ -98,8 +92,7 @@ instance ToQuery CreateDomain where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _cdDomainName]
 
--- | The result of a 'CreateDomainRequest'. Contains the status of a newly
--- created domain.
+-- | The result of a 'CreateDomainRequest'. Contains the status of a newly created domain.
 --
 -- /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'

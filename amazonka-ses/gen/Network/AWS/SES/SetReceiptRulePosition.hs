@@ -20,8 +20,7 @@
 --
 -- Sets the position of the specified receipt rule in the receipt rule set.
 --
--- For information about managing receipt rules, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.SetReceiptRulePosition
@@ -75,13 +74,11 @@ setReceiptRulePosition pRuleSetName_ pRuleName_ =
     , _srrpRuleName = pRuleName_
     }
 
--- | The name of the receipt rule after which to place the specified receipt
--- rule.
+-- | The name of the receipt rule after which to place the specified receipt rule.
 srrpAfter :: Lens' SetReceiptRulePosition (Maybe Text)
 srrpAfter = lens _srrpAfter (\ s a -> s{_srrpAfter = a});
 
--- | The name of the receipt rule set that contains the receipt rule to
--- reposition.
+-- | The name of the receipt rule set that contains the receipt rule to reposition.
 srrpRuleSetName :: Lens' SetReceiptRulePosition Text
 srrpRuleSetName = lens _srrpRuleSetName (\ s a -> s{_srrpRuleSetName = a});
 

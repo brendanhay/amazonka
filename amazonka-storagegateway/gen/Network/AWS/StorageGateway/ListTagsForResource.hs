@@ -74,18 +74,15 @@ listTagsForResource pResourceARN_ =
     , _ltfrResourceARN = pResourceARN_
     }
 
--- | An opaque string that indicates the position at which to begin returning
--- the list of tags.
+-- | An opaque string that indicates the position at which to begin returning the list of tags.
 ltfrMarker :: Lens' ListTagsForResource (Maybe Text)
 ltfrMarker = lens _ltfrMarker (\ s a -> s{_ltfrMarker = a});
 
--- | Specifies that the list of tags returned be limited to the specified
--- number of items.
+-- | Specifies that the list of tags returned be limited to the specified number of items.
 ltfrLimit :: Lens' ListTagsForResource (Maybe Natural)
 ltfrLimit = lens _ltfrLimit (\ s a -> s{_ltfrLimit = a}) . mapping _Nat;
 
--- | The Amazon Resource Name (ARN) of the resource for which you want to
--- list tags.
+-- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
@@ -161,13 +158,11 @@ listTagsForResourceResponse pResponseStatus_ =
     , _ltfrrsResponseStatus = pResponseStatus_
     }
 
--- | he Amazon Resource Name (ARN) of the resource for which you want to list
--- tags.
+-- | he Amazon Resource Name (ARN) of the resource for which you want to list tags.
 ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
 ltfrrsResourceARN = lens _ltfrrsResourceARN (\ s a -> s{_ltfrrsResourceARN = a});
 
--- | An opaque string that indicates the position at which to stop returning
--- the list of tags.
+-- | An opaque string that indicates the position at which to stop returning the list of tags.
 ltfrrsMarker :: Lens' ListTagsForResourceResponse (Maybe Text)
 ltfrrsMarker = lens _ltfrrsMarker (\ s a -> s{_ltfrrsMarker = a});
 

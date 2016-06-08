@@ -20,8 +20,7 @@
 --
 -- Updates the 'BatchPredictionName' of a 'BatchPrediction'.
 --
--- You can use the < GetBatchPrediction> operation to view the contents of
--- the updated data element.
+-- You can use the < GetBatchPrediction> operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
     -- * Creating a Request
@@ -117,8 +116,7 @@ instance ToQuery UpdateBatchPrediction where
 
 -- | Represents the output of an < UpdateBatchPrediction> operation.
 --
--- You can see the updated content by using the < GetBatchPrediction>
--- operation.
+-- You can see the updated content by using the < GetBatchPrediction> operation.
 --
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
@@ -142,9 +140,7 @@ updateBatchPredictionResponse pResponseStatus_ =
     , _ubprsResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'BatchPrediction' during creation. This value
--- should be identical to the value of the 'BatchPredictionId' in the
--- request.
+-- | The ID assigned to the 'BatchPrediction' during creation. This value should be identical to the value of the 'BatchPredictionId' in the request.
 ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
 

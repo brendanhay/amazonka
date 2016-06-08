@@ -140,9 +140,7 @@ cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created.
--- For example:
--- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 

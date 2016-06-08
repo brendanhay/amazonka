@@ -263,17 +263,12 @@ firehose =
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
--- | Another modification has already happened. Fetch __VersionId__ again and
--- use it to update the destination.
+-- | Another modification has already happened. Fetch __VersionId__ again and use it to update the destination.
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
--- | The service is unavailable, back off and retry the operation. If you
--- continue to see the exception, throughput limits for the delivery stream
--- may have been exceeded. For more information about limits and how to
--- request an increase, see
--- <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
+-- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasCode "ServiceUnavailableException"

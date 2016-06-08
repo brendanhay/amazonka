@@ -46,8 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a < Deployment>
--- resource.
+-- | Requests Amazon API Gateway to change information about a < Deployment> resource.
 --
 -- /See:/ 'updateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
@@ -76,18 +75,15 @@ updateDeployment pRestAPIId_ pDeploymentId_ =
     , _udDeploymentId = pDeploymentId_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
--- | The replacement identifier of the < RestApi> resource for the
--- < Deployment> resource to change information about.
+-- | The replacement identifier of the < RestApi> resource for the < Deployment> resource to change information about.
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 
--- | The replacment identifier for the < Deployment> resource to change
--- information about.
+-- | The replacment identifier for the < Deployment> resource to change information about.
 udDeploymentId :: Lens' UpdateDeployment Text
 udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
 

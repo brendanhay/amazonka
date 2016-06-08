@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to the specified resource. You use tags to add
--- metadata to resources, which you can use to categorize these resources.
--- For example, you can categorize resources by purpose, owner,
--- environment, or team. Each tag consists of a key and a value, which you
--- define. You can add tags to the following AWS Storage Gateway resources:
+-- Adds one or more tags to the specified resource. You use tags to add metadata to resources, which you can use to categorize these resources. For example, you can categorize resources by purpose, owner, environment, or team. Each tag consists of a key and a value, which you define. You can add tags to the following AWS Storage Gateway resources:
 --
 -- -   Storage gateways of all types
 --
@@ -30,8 +26,7 @@
 --
 -- -   Virtual Tapes
 --
--- You can create a maximum of 10 tags for each resource. Virtual tapes and
--- storage volumes that are recovered to a new gateway maintain their tags.
+-- You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
 module Network.AWS.StorageGateway.AddTagsToResource
     (
     -- * Creating a Request
@@ -84,12 +79,9 @@ addTagsToResource pResourceARN_ =
 attrResourceARN :: Lens' AddTagsToResource Text
 attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
 
--- | The key-value pair that represents the tag you want to add to the
--- resource. The value can be an empty string.
+-- | The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
 --
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \'.
+-- Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : \/ \'.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 

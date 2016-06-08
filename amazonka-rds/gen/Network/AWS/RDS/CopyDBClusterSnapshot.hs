@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot of a DB cluster. For more information on Amazon
--- Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.CopyDBClusterSnapshot
     (
     -- * Creating a Request
@@ -80,8 +77,7 @@ copyDBClusterSnapshot pSourceDBClusterSnapshotIdentifier_ pTargetDBClusterSnapsh
 cdbcsTags :: Lens' CopyDBClusterSnapshot [Tag]
 cdbcsTags = lens _cdbcsTags (\ s a -> s{_cdbcsTags = a}) . _Default . _Coerce;
 
--- | The identifier of the DB cluster snapshot to copy. This parameter is not
--- case-sensitive.
+-- | The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
 --
 -- Constraints:
 --
@@ -93,8 +89,7 @@ cdbcsTags = lens _cdbcsTags (\ s a -> s{_cdbcsTags = a}) . _Default . _Coerce;
 cdbcsSourceDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsSourceDBClusterSnapshotIdentifier = lens _cdbcsSourceDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsSourceDBClusterSnapshotIdentifier = a});
 
--- | The identifier of the new DB cluster snapshot to create from the source
--- DB cluster snapshot. This parameter is not case-sensitive.
+-- | The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter is not case-sensitive.
 --
 -- Constraints:
 --

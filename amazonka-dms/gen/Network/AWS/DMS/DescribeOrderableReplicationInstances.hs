@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the replication instance types that can be
--- created in the specified region.
+-- Returns information about the replication instance types that can be created in the specified region.
 --
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
     (
@@ -67,16 +66,11 @@ describeOrderableReplicationInstances =
     , _doriMaxRecords = Nothing
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 doriMarker :: Lens' DescribeOrderableReplicationInstances (Maybe Text)
 doriMarker = lens _doriMarker (\ s a -> s{_doriMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -155,9 +149,7 @@ describeOrderableReplicationInstancesResponse pResponseStatus_ =
     , _dorirsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dorirsMarker :: Lens' DescribeOrderableReplicationInstancesResponse (Maybe Text)
 dorirsMarker = lens _dorirsMarker (\ s a -> s{_dorirsMarker = a});
 

@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the inputs for the change set and a list of changes that AWS
--- CloudFormation will make if you execute the change set. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html Updating Stacks Using Change Sets>
--- in the AWS CloudFormation User Guide.
+-- Returns the inputs for the change set and a list of changes that AWS CloudFormation will make if you execute the change set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html Updating Stacks Using Change Sets> in the AWS CloudFormation User Guide.
 module Network.AWS.CloudFormation.DescribeChangeSet
     (
     -- * Creating a Request
@@ -89,18 +85,15 @@ describeChangeSet pChangeSetName_ =
     , _desChangeSetName = pChangeSetName_
     }
 
--- | A string (provided by the < DescribeChangeSet> response output) that
--- identifies the next page of information that you want to retrieve.
+-- | A string (provided by the < DescribeChangeSet> response output) that identifies the next page of information that you want to retrieve.
 desNextToken :: Lens' DescribeChangeSet (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
--- | If you specified the name of a change set, specify the stack name or ID
--- (ARN) of the change set you want to describe.
+-- | If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
 desStackName :: Lens' DescribeChangeSet (Maybe Text)
 desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
--- | The name or Amazon Resource Name (ARN) of the change set that you want
--- to describe.
+-- | The name or Amazon Resource Name (ARN) of the change set that you want to describe.
 desChangeSetName :: Lens' DescribeChangeSet Text
 desChangeSetName = lens _desChangeSetName (\ s a -> s{_desChangeSetName = a});
 
@@ -234,18 +227,15 @@ describeChangeSetResponse pResponseStatus_ =
 drsCreationTime :: Lens' DescribeChangeSetResponse (Maybe UTCTime)
 drsCreationTime = lens _drsCreationTime (\ s a -> s{_drsCreationTime = a}) . mapping _Time;
 
--- | The current status of the change set, such as 'CREATE_IN_PROGRESS',
--- 'CREATE_COMPLETE', or 'FAILED'.
+-- | The current status of the change set, such as 'CREATE_IN_PROGRESS', 'CREATE_COMPLETE', or 'FAILED'.
 drsStatus :: Lens' DescribeChangeSetResponse (Maybe ChangeSetStatus)
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
--- | A list of 'Change' structures that describes the resources AWS
--- CloudFormation changes if you execute the change set.
+-- | A list of 'Change' structures that describes the resources AWS CloudFormation changes if you execute the change set.
 drsChanges :: Lens' DescribeChangeSetResponse [Change]
 drsChanges = lens _drsChanges (\ s a -> s{_drsChanges = a}) . _Default . _Coerce;
 
--- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics
--- that will be associated with the stack if you execute the change set.
+-- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
 drsNotificationARNs :: Lens' DescribeChangeSetResponse [Text]
 drsNotificationARNs = lens _drsNotificationARNs (\ s a -> s{_drsNotificationARNs = a}) . _Default . _Coerce;
 
@@ -257,22 +247,15 @@ drsChangeSetName = lens _drsChangeSetName (\ s a -> s{_drsChangeSetName = a});
 drsChangeSetId :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsChangeSetId = lens _drsChangeSetId (\ s a -> s{_drsChangeSetId = a});
 
--- | If the output exceeds 1 MB, a string that identifies the next page of
--- changes. If there is no additional page, this value is null.
+-- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
 drsNextToken :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | A list of 'Parameter' structures that describes the input parameters and
--- their values used to create the change set. For more information, see
--- the
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
--- data type.
+-- | A list of 'Parameter' structures that describes the input parameters and their values used to create the change set. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 drsParameters :: Lens' DescribeChangeSetResponse [Parameter]
 drsParameters = lens _drsParameters (\ s a -> s{_drsParameters = a}) . _Default . _Coerce;
 
--- | A description of the change set\'s status. For example, if your attempt
--- to create a change set failed, AWS CloudFormation shows the error
--- message.
+-- | A description of the change set\'s status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
 drsStatusReason :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsStatusReason = lens _drsStatusReason (\ s a -> s{_drsStatusReason = a});
 
@@ -284,13 +267,11 @@ drsStackId = lens _drsStackId (\ s a -> s{_drsStackId = a});
 drsDescription :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsDescription = lens _drsDescription (\ s a -> s{_drsDescription = a});
 
--- | If you execute the change set, the list of capabilities that were
--- explicitly acknowledged when the change set was created.
+-- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 drsCapabilities :: Lens' DescribeChangeSetResponse [Capability]
 drsCapabilities = lens _drsCapabilities (\ s a -> s{_drsCapabilities = a}) . _Default . _Coerce;
 
--- | If you execute the change set, the tags that will be associated with the
--- stack.
+-- | If you execute the change set, the tags that will be associated with the stack.
 drsTags :: Lens' DescribeChangeSetResponse [Tag]
 drsTags = lens _drsTags (\ s a -> s{_drsTags = a}) . _Default . _Coerce;
 

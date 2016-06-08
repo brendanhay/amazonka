@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the roles for an identity pool. These roles are used when making
--- calls to 'GetCredentialsForIdentity' action.
+-- Sets the roles for an identity pool. These roles are used when making calls to 'GetCredentialsForIdentity' action.
 --
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
@@ -71,9 +70,7 @@ setIdentityPoolRoles pIdentityPoolId_ =
 siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
 siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = a});
 
--- | The map of roles associated with this pool. For a given role, the key
--- will be either \"authenticated\" or \"unauthenticated\" and the value
--- will be the Role ARN.
+-- | The map of roles associated with this pool. For a given role, the key will be either \"authenticated\" or \"unauthenticated\" and the value will be the Role ARN.
 siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
 siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 

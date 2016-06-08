@@ -20,11 +20,9 @@
 --
 -- Updates the comment for a specified traffic policy version.
 --
--- To update the comment, send a 'POST' request to the
--- '\/Route 53 API version\/trafficpolicy\/' resource.
+-- To update the comment, send a 'POST' request to the '\/Route 53 API version\/trafficpolicy\/' resource.
 --
--- The request body must include a document with an
--- 'UpdateTrafficPolicyCommentRequest' element.
+-- The request body must include a document with an 'UpdateTrafficPolicyCommentRequest' element.
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request
@@ -50,8 +48,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy for
--- which you want to update the comment.
+-- | A complex type that contains information about the traffic policy for which you want to update the comment.
 --
 -- /See:/ 'updateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
@@ -81,13 +78,11 @@ updateTrafficPolicyComment pId_ pVersion_ pComment_ =
     , _utpcComment = pComment_
     }
 
--- | The value of 'Id' for the traffic policy for which you want to update
--- the comment.
+-- | The value of 'Id' for the traffic policy for which you want to update the comment.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
 utpcId = lens _utpcId (\ s a -> s{_utpcId = a});
 
--- | The value of 'Version' for the traffic policy for which you want to
--- update the comment.
+-- | The value of 'Version' for the traffic policy for which you want to update the comment.
 utpcVersion :: Lens' UpdateTrafficPolicyComment Natural
 utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat;
 
@@ -130,8 +125,7 @@ instance ToXML UpdateTrafficPolicyComment where
         toXML UpdateTrafficPolicyComment'{..}
           = mconcat ["Comment" @= _utpcComment]
 
--- | A complex type that contains the response information for the traffic
--- policy.
+-- | A complex type that contains the response information for the traffic policy.
 --
 -- /See:/ 'updateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'

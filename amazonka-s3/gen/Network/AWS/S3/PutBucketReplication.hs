@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new replication configuration (or replaces an existing one, if
--- present).
+-- Creates a new replication configuration (or replaces an existing one, if present).
 module Network.AWS.S3.PutBucketReplication
     (
     -- * Creating a Request

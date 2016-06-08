@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates tags for the specified Amazon Kinesis stream. Each
--- stream can have up to 10 tags.
+-- Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags.
 --
--- If tags have already been assigned to the stream, 'AddTagsToStream'
--- overwrites any existing tags that correspond to the specified tag keys.
+-- If tags have already been assigned to the stream, 'AddTagsToStream' overwrites any existing tags that correspond to the specified tag keys.
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Creating a Request

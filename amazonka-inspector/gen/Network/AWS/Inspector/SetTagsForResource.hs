@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets tags (key and value pairs) to the assessment template that is
--- specified by the ARN of the assessment template.
+-- Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
 module Network.AWS.Inspector.SetTagsForResource
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ setTagsForResource pResourceARN_ =
     , _stfrResourceARN = pResourceARN_
     }
 
--- | A collection of key and value pairs that you want to set to the
--- assessment template.
+-- | A collection of key and value pairs that you want to set to the assessment template.
 stfrTags :: Lens' SetTagsForResource [Tag]
 stfrTags = lens _stfrTags (\ s a -> s{_stfrTags = a}) . _Default . _Coerce;
 

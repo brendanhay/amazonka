@@ -20,9 +20,7 @@
 --
 -- Moves the specified instances into 'Standby' mode.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Creating a Request
@@ -75,8 +73,7 @@ enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
--- | One or more instances to move into 'Standby' mode. You must specify at
--- least one instance ID.
+-- | One or more instances to move into 'Standby' mode. You must specify at least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
 
@@ -84,10 +81,7 @@ esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default 
 esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
 
--- | Specifies whether the instances moved to 'Standby' mode count as part of
--- the Auto Scaling group\'s desired capacity. If set, the desired capacity
--- for the Auto Scaling group decrements by the number of instances moved
--- to 'Standby' mode.
+-- | Specifies whether the instances moved to 'Standby' mode count as part of the Auto Scaling group\'s desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to 'Standby' mode.
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 

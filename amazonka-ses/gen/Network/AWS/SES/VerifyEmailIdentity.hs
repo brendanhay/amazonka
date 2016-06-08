@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Verifies an email address. This action causes a confirmation email
--- message to be sent to the specified address.
+-- Verifies an email address. This action causes a confirmation email message to be sent to the specified address.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.VerifyEmailIdentity

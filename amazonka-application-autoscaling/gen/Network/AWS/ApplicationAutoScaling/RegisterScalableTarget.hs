@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers or updates a scalable target. A scalable target is a resource
--- that can be scaled up or down with Application Auto Scaling. After you
--- have registered a scalable target, you can use this command to update
--- the minimum and maximum values for your scalable dimension.
+-- Registers or updates a scalable target. A scalable target is a resource that can be scaled up or down with Application Auto Scaling. After you have registered a scalable target, you can use this command to update the minimum and maximum values for your scalable dimension.
 --
--- At this time, Application Auto Scaling only supports scaling Amazon ECS
--- services.
+-- At this time, Application Auto Scaling only supports scaling Amazon ECS services.
 --
--- After you register a scalable target with Application Auto Scaling, you
--- can create and apply scaling policies to it with < PutScalingPolicy>.
--- You can view the existing scaling policies for a service namespace with
--- < DescribeScalableTargets>. If you are no longer using a scalable
--- target, you can deregister it with < DeregisterScalableTarget>.
+-- After you register a scalable target with Application Auto Scaling, you can create and apply scaling policies to it with < PutScalingPolicy>. You can view the existing scaling policies for a service namespace with < DescribeScalableTargets>. If you are no longer using a scalable target, you can deregister it with < DeregisterScalableTarget>.
 module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     (
     -- * Creating a Request
@@ -98,46 +90,27 @@ registerScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
     , _rstScalableDimension = pScalableDimension_
     }
 
--- | The maximum value for this scalable target to scale out to in response
--- to scaling activities. This parameter is required if you are registering
--- a new scalable target, and it is optional if you are updating an
--- existing one.
+-- | The maximum value for this scalable target to scale out to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 rstMaxCapacity :: Lens' RegisterScalableTarget (Maybe Int)
 rstMaxCapacity = lens _rstMaxCapacity (\ s a -> s{_rstMaxCapacity = a});
 
--- | The minimum value for this scalable target to scale in to in response to
--- scaling activities. This parameter is required if you are registering a
--- new scalable target, and it is optional if you are updating an existing
--- one.
+-- | The minimum value for this scalable target to scale in to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 rstMinCapacity :: Lens' RegisterScalableTarget (Maybe Int)
 rstMinCapacity = lens _rstMinCapacity (\ s a -> s{_rstMinCapacity = a});
 
--- | The ARN of the IAM role that allows Application Auto Scaling to modify
--- your scalable target on your behalf. This parameter is required if you
--- are registering a new scalable target, and it is optional if you are
--- updating an existing one.
+-- | The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 rstRoleARN :: Lens' RegisterScalableTarget (Maybe Text)
 rstRoleARN = lens _rstRoleARN (\ s a -> s{_rstRoleARN = a});
 
--- | The namespace for the AWS service that the scalable target is associated
--- with. For Amazon ECS services, the namespace value is 'ecs'. For more
--- information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scalable target is associated with. For Amazon ECS services, the namespace value is 'ecs'. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 rstServiceNamespace :: Lens' RegisterScalableTarget ServiceNamespace
 rstServiceNamespace = lens _rstServiceNamespace (\ s a -> s{_rstServiceNamespace = a});
 
--- | The unique identifier string for the resource to associate with the
--- scalable target. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource to associate with the scalable target. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 rstResourceId :: Lens' RegisterScalableTarget Text
 rstResourceId = lens _rstResourceId (\ s a -> s{_rstResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable
--- dimension contains the service namespace, resource type, and scaling
--- property, such as 'ecs:service:DesiredCount' for the desired task count
--- of an Amazon ECS service.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 rstScalableDimension :: Lens' RegisterScalableTarget ScalableDimension
 rstScalableDimension = lens _rstScalableDimension (\ s a -> s{_rstScalableDimension = a});
 

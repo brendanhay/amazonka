@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the assessment targets that are specified by the ARNs of the
--- assessment targets.
+-- Describes the assessment targets that are specified by the ARNs of the assessment targets.
 module Network.AWS.Inspector.DescribeAssessmentTargets
     (
     -- * Creating a Request
@@ -62,8 +61,7 @@ describeAssessmentTargets pAssessmentTargetARNs_ =
     { _datAssessmentTargetARNs = _List1 # pAssessmentTargetARNs_
     }
 
--- | The ARNs that specifies the assessment targets that you want to
--- describe.
+-- | The ARNs that specifies the assessment targets that you want to describe.
 datAssessmentTargetARNs :: Lens' DescribeAssessmentTargets (NonEmpty Text)
 datAssessmentTargetARNs = lens _datAssessmentTargetARNs (\ s a -> s{_datAssessmentTargetARNs = a}) . _List1;
 
@@ -141,8 +139,7 @@ drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 drsAssessmentTargets :: Lens' DescribeAssessmentTargetsResponse [AssessmentTarget]
 drsAssessmentTargets = lens _drsAssessmentTargets (\ s a -> s{_drsAssessmentTargets = a}) . _Coerce;
 
--- | Assessment target details that cannot be described. An error code is
--- provided for each failed item.
+-- | Assessment target details that cannot be described. An error code is provided for each failed item.
 drsFailedItems :: Lens' DescribeAssessmentTargetsResponse (HashMap Text FailedItemDetails)
 drsFailedItems = lens _drsFailedItems (\ s a -> s{_drsFailedItems = a}) . _Map;
 

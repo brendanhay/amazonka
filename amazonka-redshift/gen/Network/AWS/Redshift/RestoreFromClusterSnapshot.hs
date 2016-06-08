@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new cluster from a snapshot. By default, Amazon Redshift
--- creates the resulting cluster with the same configuration as the
--- original cluster from which the snapshot was created, except that the
--- new cluster is created with the default cluster security and parameter
--- groups. After Amazon Redshift creates the cluster, you can use the
--- < ModifyCluster> API to associate a different security group and
--- different parameter group with the restored cluster. If you are using a
--- DS node type, you can also choose to change to another DS node type of
--- the same size during restore.
+-- Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups. After Amazon Redshift creates the cluster, you can use the < ModifyCluster> API to associate a different security group and different parameter group with the restored cluster. If you are using a DS node type, you can also choose to change to another DS node type of the same size during restore.
 --
--- If you restore a cluster into a VPC, you must provide a cluster subnet
--- group where you want the cluster restored.
+-- If you restore a cluster into a VPC, you must provide a cluster subnet group where you want the cluster restored.
 --
--- For more information about working with snapshots, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
     -- * Creating a Request
@@ -186,16 +175,11 @@ rfcsAdditionalInfo = lens _rfcsAdditionalInfo (\ s a -> s{_rfcsAdditionalInfo = 
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsPubliclyAccessible = lens _rfcsPubliclyAccessible (\ s a -> s{_rfcsPubliclyAccessible = a});
 
--- | The name of the cluster the source snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a
--- snapshot resource element that specifies anything other than * for the
--- cluster name.
+-- | The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 rfcsSnapshotClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{_rfcsSnapshotClusterIdentifier = a});
 
--- | Specifies the name of the HSM configuration that contains the
--- information the Amazon Redshift cluster can use to retrieve and store
--- keys in an HSM.
+-- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 rfcsHSMConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsHSMConfigurationIdentifier = lens _rfcsHSMConfigurationIdentifier (\ s a -> s{_rfcsHSMConfigurationIdentifier = a});
 
@@ -207,13 +191,9 @@ rfcsHSMConfigurationIdentifier = lens _rfcsHSMConfigurationIdentifier (\ s a -> 
 rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a}) . _Default . _Coerce;
 
--- | The number of days that automated snapshots are retained. If the value
--- is 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- < CreateClusterSnapshot>.
+-- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with < CreateClusterSnapshot>.
 --
--- Default: The value selected for the cluster from which the snapshot was
--- taken.
+-- Default: The value selected for the cluster from which the snapshot was taken.
 --
 -- Constraints: Must be a value from 0 to 35.
 rfcsAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
@@ -221,13 +201,11 @@ rfcsAutomatedSnapshotRetentionPeriod = lens _rfcsAutomatedSnapshotRetentionPerio
 
 -- | The name of the subnet group where you want to cluster restored.
 --
--- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you
--- must provide subnet group name where you want the cluster restored.
+-- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
 rfcsClusterSubnetGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsClusterSubnetGroupName = lens _rfcsClusterSubnetGroupName (\ s a -> s{_rfcsClusterSubnetGroupName = a});
 
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
+-- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 rfcsHSMClientCertificateIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsHSMClientCertificateIdentifier = lens _rfcsHSMClientCertificateIdentifier (\ s a -> s{_rfcsHSMClientCertificateIdentifier = a});
 
@@ -235,15 +213,11 @@ rfcsHSMClientCertificateIdentifier = lens _rfcsHSMClientCertificateIdentifier (\
 rfcsElasticIP :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsElasticIP = lens _rfcsElasticIP (\ s a -> s{_rfcsElasticIP = a});
 
--- | The weekly time range (in UTC) during which automated cluster
--- maintenance can occur.
+-- | The weekly time range (in UTC) during which automated cluster maintenance can occur.
 --
 -- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
--- Default: The value selected for the cluster from which the snapshot was
--- taken. For more information about the time blocks for each region, see
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows>
--- in Amazon Redshift Cluster Management Guide.
+-- Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
 --
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
@@ -251,9 +225,7 @@ rfcsElasticIP = lens _rfcsElasticIP (\ s a -> s{_rfcsElasticIP = a});
 rfcsPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> s{_rfcsPreferredMaintenanceWindow = a});
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster that you restore from a
--- shared snapshot.
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
 rfcsKMSKeyId :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 
@@ -265,8 +237,7 @@ rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 rfcsAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZone = a});
 
--- | A list of Virtual Private Cloud (VPC) security groups to be associated
--- with the cluster.
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
 --
@@ -274,38 +245,23 @@ rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZ
 rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services. You must supply the
--- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
--- to 10 IAM roles in a single request.
+-- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
 rfcsIAMRoles :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsIAMRoles = lens _rfcsIAMRoles (\ s a -> s{_rfcsIAMRoles = a}) . _Default . _Coerce;
 
--- | The AWS customer account used to create or copy the snapshot. Required
--- if you are restoring a snapshot you do not own, optional if you own the
--- snapshot.
+-- | The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 rfcsOwnerAccount :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsOwnerAccount = lens _rfcsOwnerAccount (\ s a -> s{_rfcsOwnerAccount = a});
 
 -- | The node type that the restored cluster will be provisioned with.
 --
--- Default: The node type of the cluster from which the snapshot was taken.
--- You can modify this if you are using any DS node type. In that case, you
--- can choose to restore into another DS node type of the same size. For
--- example, you can restore ds1.8xlarge into ds2.8xlarge, or ds2.xlarge
--- into ds1.xlarge. If you have a DC instance type, you must restore into
--- that same instance type and size. In other words, you can only restore a
--- dc1.large instance type into another dc1.large instance type. For more
--- information about node types, see
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes>
--- in the /Amazon Redshift Cluster Management Guide/
+-- Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds2.xlarge into ds1.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type. For more information about node types, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes> in the /Amazon Redshift Cluster Management Guide/
 rfcsNodeType :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsNodeType = lens _rfcsNodeType (\ s a -> s{_rfcsNodeType = a});
 
--- | If 'true', major version upgrades can be applied during the maintenance
--- window to the Amazon Redshift engine that is running on the cluster.
+-- | If 'true', major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
 --
 -- Default: 'true'
 rfcsAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
@@ -313,9 +269,7 @@ rfcsAllowVersionUpgrade = lens _rfcsAllowVersionUpgrade (\ s a -> s{_rfcsAllowVe
 
 -- | The name of the parameter group to be associated with this cluster.
 --
--- Default: The default Amazon Redshift cluster parameter group. For
--- information about the default parameter group, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>.
+-- Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>.
 --
 -- Constraints:
 --
@@ -333,8 +287,7 @@ rfcsClusterParameterGroupName = lens _rfcsClusterParameterGroupName (\ s a -> s{
 rfcsPort :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsPort = lens _rfcsPort (\ s a -> s{_rfcsPort = a});
 
--- | The identifier of the cluster that will be created from restoring the
--- snapshot.
+-- | The identifier of the cluster that will be created from restoring the snapshot.
 --
 -- Constraints:
 --
@@ -346,8 +299,7 @@ rfcsPort = lens _rfcsPort (\ s a -> s{_rfcsPort = a});
 rfcsClusterIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsClusterIdentifier = lens _rfcsClusterIdentifier (\ s a -> s{_rfcsClusterIdentifier = a});
 
--- | The name of the snapshot from which to create the new cluster. This
--- parameter isn\'t case sensitive.
+-- | The name of the snapshot from which to create the new cluster. This parameter isn\'t case sensitive.
 --
 -- Example: 'my-snapshot-id'
 rfcsSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot Text

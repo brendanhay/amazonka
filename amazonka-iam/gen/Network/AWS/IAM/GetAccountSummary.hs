@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about IAM entity usage and IAM quotas in the AWS
--- account.
+-- Retrieves information about IAM entity usage and IAM quotas in the AWS account.
 --
--- For information about limitations on IAM entities, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /IAM User Guide/.
+-- For information about limitations on IAM entities, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
 module Network.AWS.IAM.GetAccountSummary
     (
     -- * Creating a Request
@@ -108,8 +105,7 @@ getAccountSummaryResponse pResponseStatus_ =
     , _gasrsResponseStatus = pResponseStatus_
     }
 
--- | A set of key value pairs containing information about IAM entity usage
--- and IAM quotas.
+-- | A set of key value pairs containing information about IAM entity usage and IAM quotas.
 --
 -- 'SummaryMap' contains the following keys:
 --
@@ -119,43 +115,35 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __AccountAccessKeysPresent__
 --
---     This value is 1 if the AWS account (root) has an access key,
---     otherwise it is 0.
+--     This value is 1 if the AWS account (root) has an access key, otherwise it is 0.
 --
 -- -   __AccountMFAEnabled__
 --
---     This value is 1 if the AWS account (root) has an MFA device
---     assigned, otherwise it is 0.
+--     This value is 1 if the AWS account (root) has an MFA device assigned, otherwise it is 0.
 --
 -- -   __AccountSigningCertificatesPresent__
 --
---     This value is 1 if the AWS account (root) has a signing certificate,
---     otherwise it is 0.
+--     This value is 1 if the AWS account (root) has a signing certificate, otherwise it is 0.
 --
 -- -   __AssumeRolePolicySizeQuota__
 --
---     The maximum allowed size for assume role policy documents (trust
---     policies), in non-whitespace characters.
+--     The maximum allowed size for assume role policy documents (trust policies), in non-whitespace characters.
 --
 -- -   __AttachedPoliciesPerGroupQuota__
 --
---     The maximum number of managed policies that can be attached to an
---     IAM group.
+--     The maximum number of managed policies that can be attached to an IAM group.
 --
 -- -   __AttachedPoliciesPerRoleQuota__
 --
---     The maximum number of managed policies that can be attached to an
---     IAM role.
+--     The maximum number of managed policies that can be attached to an IAM role.
 --
 -- -   __AttachedPoliciesPerUserQuota__
 --
---     The maximum number of managed policies that can be attached to an
---     IAM user.
+--     The maximum number of managed policies that can be attached to an IAM user.
 --
 -- -   __GroupPolicySizeQuota__
 --
---     The maximum allowed size for the aggregate of all inline policies
---     embedded in an IAM group, in non-whitespace characters.
+--     The maximum allowed size for the aggregate of all inline policies embedded in an IAM group, in non-whitespace characters.
 --
 -- -   __Groups__
 --
@@ -179,13 +167,11 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __MFADevices__
 --
---     The number of MFA devices in the AWS account, including those
---     assigned and unassigned.
+--     The number of MFA devices in the AWS account, including those assigned and unassigned.
 --
 -- -   __MFADevicesInUse__
 --
---     The number of MFA devices that have been assigned to an IAM user or
---     to the AWS account (root).
+--     The number of MFA devices that have been assigned to an IAM user or to the AWS account (root).
 --
 -- -   __Policies__
 --
@@ -193,23 +179,19 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __PoliciesQuota__
 --
---     The maximum number of customer managed policies allowed in the AWS
---     account.
+--     The maximum number of customer managed policies allowed in the AWS account.
 --
 -- -   __PolicySizeQuota__
 --
---     The maximum allowed size of a customer managed policy, in
---     non-whitespace characters.
+--     The maximum allowed size of a customer managed policy, in non-whitespace characters.
 --
 -- -   __PolicyVersionsInUse__
 --
---     The number of managed policies that are attached to IAM users,
---     groups, or roles in the AWS account.
+--     The number of managed policies that are attached to IAM users, groups, or roles in the AWS account.
 --
 -- -   __PolicyVersionsInUseQuota__
 --
---     The maximum number of managed policies that can be attached to IAM
---     users, groups, or roles in the AWS account.
+--     The maximum number of managed policies that can be attached to IAM users, groups, or roles in the AWS account.
 --
 -- -   __Providers__
 --
@@ -217,9 +199,7 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __RolePolicySizeQuota__
 --
---     The maximum allowed size for the aggregate of all inline policies
---     (access policies, not the trust policy) embedded in an IAM role, in
---     non-whitespace characters.
+--     The maximum allowed size for the aggregate of all inline policies (access policies, not the trust policy) embedded in an IAM role, in non-whitespace characters.
 --
 -- -   __Roles__
 --
@@ -235,18 +215,15 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __ServerCertificatesQuota__
 --
---     The maximum number of server certificates allowed in the AWS
---     account.
+--     The maximum number of server certificates allowed in the AWS account.
 --
 -- -   __SigningCertificatesPerUserQuota__
 --
---     The maximum number of X.509 signing certificates allowed for each
---     IAM user.
+--     The maximum number of X.509 signing certificates allowed for each IAM user.
 --
 -- -   __UserPolicySizeQuota__
 --
---     The maximum allowed size for the aggregate of all inline policies
---     embedded in an IAM user, in non-whitespace characters.
+--     The maximum allowed size for the aggregate of all inline policies embedded in an IAM user, in non-whitespace characters.
 --
 -- -   __Users__
 --
@@ -258,8 +235,7 @@ getAccountSummaryResponse pResponseStatus_ =
 --
 -- -   __VersionsPerPolicyQuota__
 --
---     The maximum number of policy versions allowed for each managed
---     policy.
+--     The maximum number of policy versions allowed for each managed policy.
 --
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;

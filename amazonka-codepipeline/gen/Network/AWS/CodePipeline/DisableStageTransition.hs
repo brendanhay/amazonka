@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Prevents artifacts in a pipeline from transitioning to the next stage in
--- the pipeline.
+-- Prevents artifacts in a pipeline from transitioning to the next stage in the pipeline.
 module Network.AWS.CodePipeline.DisableStageTransition
     (
     -- * Creating a Request
@@ -78,26 +77,19 @@ disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
     , _dstReason = pReason_
     }
 
--- | The name of the pipeline in which you want to disable the flow of
--- artifacts from one stage to another.
+-- | The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
 dstPipelineName :: Lens' DisableStageTransition Text
 dstPipelineName = lens _dstPipelineName (\ s a -> s{_dstPipelineName = a});
 
--- | The name of the stage where you want to disable the inbound or outbound
--- transition of artifacts.
+-- | The name of the stage where you want to disable the inbound or outbound transition of artifacts.
 dstStageName :: Lens' DisableStageTransition Text
 dstStageName = lens _dstStageName (\ s a -> s{_dstStageName = a});
 
--- | Specifies whether artifacts will be prevented from transitioning into
--- the stage and being processed by the actions in that stage (inbound), or
--- prevented from transitioning from the stage after they have been
--- processed by the actions in that stage (outbound).
+-- | Specifies whether artifacts will be prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
 dstTransitionType :: Lens' DisableStageTransition StageTransitionType
 dstTransitionType = lens _dstTransitionType (\ s a -> s{_dstTransitionType = a});
 
--- | The reason given to the user why a stage is disabled, such as waiting
--- for manual approval or manual tests. This message is displayed in the
--- pipeline console UI.
+-- | The reason given to the user why a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
 dstReason :: Lens' DisableStageTransition Text
 dstReason = lens _dstReason (\ s a -> s{_dstReason = a});
 

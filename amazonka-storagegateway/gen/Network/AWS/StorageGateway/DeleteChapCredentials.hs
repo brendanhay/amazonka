@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials
--- for a specified iSCSI target and initiator pair.
+-- Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request
@@ -47,8 +46,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < DeleteChapCredentialsInput$InitiatorName>
--- -   < DeleteChapCredentialsInput$TargetARN>
+-- -   < DeleteChapCredentialsInput>InitiatorName>
+-- -   < DeleteChapCredentialsInput>TargetARN>
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
@@ -73,9 +72,7 @@ deleteChapCredentials pTargetARN_ pInitiatorName_ =
     , _dInitiatorName = pInitiatorName_
     }
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- < DescribeStorediSCSIVolumes> operation to return to retrieve the
--- TargetARN for specified VolumeARN.
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the < DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 

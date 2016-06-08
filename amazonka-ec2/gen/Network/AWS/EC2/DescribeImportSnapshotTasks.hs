@@ -94,16 +94,11 @@ distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a})
 distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
 distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
 distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned 'NextToken'
--- value.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned 'NextToken' value.
 distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
 distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 
@@ -171,13 +166,11 @@ describeImportSnapshotTasksResponse pResponseStatus_ =
     , _distrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to get the next page of results. This value is 'null'
--- when there are no more results to return.
+-- | The token to use to get the next page of results. This value is 'null' when there are no more results to return.
 distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
 distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 
--- | A list of zero or more import snapshot tasks that are currently active
--- or were completed or canceled in the previous 7 days.
+-- | A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
 distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
 distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 

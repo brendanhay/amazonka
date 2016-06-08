@@ -20,9 +20,7 @@
 --
 -- Describes one or more of your key pairs.
 --
--- For more information about key pairs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Creating a Request
@@ -90,10 +88,7 @@ dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coe
 dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
 dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
 

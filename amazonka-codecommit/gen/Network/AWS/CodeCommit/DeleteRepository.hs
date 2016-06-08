@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a repository. If a specified repository was already deleted, a
--- null repository ID will be returned.
+-- Deletes a repository. If a specified repository was already deleted, a null repository ID will be returned.
 --
--- Deleting a repository also deletes all associated objects and metadata.
--- After a repository is deleted, all future push calls to the deleted
--- repository will fail.
+-- Deleting a repository also deletes all associated objects and metadata. After a repository is deleted, all future push calls to the deleted repository will fail.
 module Network.AWS.CodeCommit.DeleteRepository
     (
     -- * Creating a Request

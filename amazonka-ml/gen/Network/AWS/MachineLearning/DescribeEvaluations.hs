@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'DescribeEvaluations' that match the search criteria
--- in the request.
+-- Returns a list of 'DescribeEvaluations' that match the search criteria in the request.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeEvaluations
@@ -114,25 +113,17 @@ describeEvaluations =
     , _deLE = Nothing
     }
 
--- | The equal to operator. The 'Evaluation' results will have
--- 'FilterVariable' values that exactly match the value specified with
--- 'EQ'.
+-- | The equal to operator. The 'Evaluation' results will have 'FilterVariable' values that exactly match the value specified with 'EQ'.
 deEQ :: Lens' DescribeEvaluations (Maybe Text)
 deEQ = lens _deEQ (\ s a -> s{_deEQ = a});
 
--- | The greater than or equal to operator. The 'Evaluation' results will
--- have 'FilterVariable' values that are greater than or equal to the value
--- specified with 'GE'.
+-- | The greater than or equal to operator. The 'Evaluation' results will have 'FilterVariable' values that are greater than or equal to the value specified with 'GE'.
 deGE :: Lens' DescribeEvaluations (Maybe Text)
 deGE = lens _deGE (\ s a -> s{_deGE = a});
 
--- | A string that is found at the beginning of a variable, such as 'Name' or
--- 'Id'.
+-- | A string that is found at the beginning of a variable, such as 'Name' or 'Id'.
 --
--- For example, an 'Evaluation' could have the 'Name'
--- '2014-09-09-HolidayGiftMailer'. To search for this 'Evaluation', select
--- 'Name' for the 'FilterVariable' and any of the following strings for the
--- 'Prefix':
+-- For example, an 'Evaluation' could have the 'Name' '2014-09-09-HolidayGiftMailer'. To search for this 'Evaluation', select 'Name' for the 'FilterVariable' and any of the following strings for the 'Prefix':
 --
 -- -   2014-09
 --
@@ -143,14 +134,11 @@ deGE = lens _deGE (\ s a -> s{_deGE = a});
 dePrefix :: Lens' DescribeEvaluations (Maybe Text)
 dePrefix = lens _dePrefix (\ s a -> s{_dePrefix = a});
 
--- | The greater than operator. The 'Evaluation' results will have
--- 'FilterVariable' values that are greater than the value specified with
--- 'GT'.
+-- | The greater than operator. The 'Evaluation' results will have 'FilterVariable' values that are greater than the value specified with 'GT'.
 deGT :: Lens' DescribeEvaluations (Maybe Text)
 deGT = lens _deGT (\ s a -> s{_deGT = a});
 
--- | The not equal to operator. The 'Evaluation' results will have
--- 'FilterVariable' values not equal to the value specified with 'NE'.
+-- | The not equal to operator. The 'Evaluation' results will have 'FilterVariable' values not equal to the value specified with 'NE'.
 deNE :: Lens' DescribeEvaluations (Maybe Text)
 deNE = lens _deNE (\ s a -> s{_deNE = a});
 
@@ -158,8 +146,7 @@ deNE = lens _deNE (\ s a -> s{_deNE = a});
 deNextToken :: Lens' DescribeEvaluations (Maybe Text)
 deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 
--- | A two-value parameter that determines the sequence of the resulting list
--- of 'Evaluation'.
+-- | A two-value parameter that determines the sequence of the resulting list of 'Evaluation'.
 --
 -- -   'asc' - Arranges the list in ascending order (A-Z, 0-9).
 -- -   'dsc' - Arranges the list in descending order (Z-A, 9-0).
@@ -172,35 +159,23 @@ deSortOrder = lens _deSortOrder (\ s a -> s{_deSortOrder = a});
 deLimit :: Lens' DescribeEvaluations (Maybe Natural)
 deLimit = lens _deLimit (\ s a -> s{_deLimit = a}) . mapping _Nat;
 
--- | The less than operator. The 'Evaluation' results will have
--- 'FilterVariable' values that are less than the value specified with
--- 'LT'.
+-- | The less than operator. The 'Evaluation' results will have 'FilterVariable' values that are less than the value specified with 'LT'.
 deLT :: Lens' DescribeEvaluations (Maybe Text)
 deLT = lens _deLT (\ s a -> s{_deLT = a});
 
--- | Use one of the following variable to filter a list of 'Evaluation'
--- objects:
+-- | Use one of the following variable to filter a list of 'Evaluation' objects:
 --
--- -   'CreatedAt' - Sets the search criteria to the 'Evaluation' creation
---     date.
+-- -   'CreatedAt' - Sets the search criteria to the 'Evaluation' creation date.
 -- -   'Status' - Sets the search criteria to the 'Evaluation' status.
--- -   'Name' - Sets the search criteria to the contents of 'Evaluation'
---     ____ 'Name'.
--- -   'IAMUser' - Sets the search criteria to the user account that
---     invoked an 'Evaluation'.
--- -   'MLModelId' - Sets the search criteria to the 'MLModel' that was
---     evaluated.
--- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used
---     in 'Evaluation'.
--- -   'DataUri' - Sets the search criteria to the data file(s) used in
---     'Evaluation'. The URL can identify either a file or an Amazon Simple
---     Storage Solution (Amazon S3) bucket or directory.
+-- -   'Name' - Sets the search criteria to the contents of 'Evaluation' ____ 'Name'.
+-- -   'IAMUser' - Sets the search criteria to the user account that invoked an 'Evaluation'.
+-- -   'MLModelId' - Sets the search criteria to the 'MLModel' that was evaluated.
+-- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used in 'Evaluation'.
+-- -   'DataUri' - Sets the search criteria to the data file(s) used in 'Evaluation'. The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
 deFilterVariable :: Lens' DescribeEvaluations (Maybe EvaluationFilterVariable)
 deFilterVariable = lens _deFilterVariable (\ s a -> s{_deFilterVariable = a});
 
--- | The less than or equal to operator. The 'Evaluation' results will have
--- 'FilterVariable' values that are less than or equal to the value
--- specified with 'LE'.
+-- | The less than or equal to operator. The 'Evaluation' results will have 'FilterVariable' values that are less than or equal to the value specified with 'LE'.
 deLE :: Lens' DescribeEvaluations (Maybe Text)
 deLE = lens _deLE (\ s a -> s{_deLE = a});
 
@@ -255,8 +230,7 @@ instance ToPath DescribeEvaluations where
 instance ToQuery DescribeEvaluations where
         toQuery = const mempty
 
--- | Represents the query results from a < DescribeEvaluations> operation.
--- The content is essentially a list of 'Evaluation'.
+-- | Represents the query results from a < DescribeEvaluations> operation. The content is essentially a list of 'Evaluation'.
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
@@ -288,8 +262,7 @@ describeEvaluationsResponse pResponseStatus_ =
 desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
 desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default . _Coerce;
 
--- | The ID of the next page in the paginated results that indicates at least
--- one more page follows.
+-- | The ID of the next page in the paginated results that indicates at least one more page follows.
 desrsNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
 desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 

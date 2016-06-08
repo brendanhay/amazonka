@@ -15,32 +15,23 @@
 
 Amazon DynamoDB Streams
 
-This is the Amazon DynamoDB Streams API Reference. This guide describes
-the low-level API actions for accessing streams and processing stream
-records. For information about application development with DynamoDB
-Streams, see the
-<http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html Amazon DynamoDB Developer Guide>.
+This is the Amazon DynamoDB Streams API Reference. This guide describes the low-level API actions for accessing streams and processing stream records. For information about application development with DynamoDB Streams, see the <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html Amazon DynamoDB Developer Guide>.
 
-Note that this document is intended for use with the following DynamoDB
-documentation:
+Note that this document is intended for use with the following DynamoDB documentation:
 
 -   <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ Amazon DynamoDB Developer Guide>
 
 -   <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/ Amazon DynamoDB API Reference>
 
-The following are short descriptions of each low-level DynamoDB Streams
-API action, organized by function.
+The following are short descriptions of each low-level DynamoDB Streams API action, organized by function.
 
--   /DescribeStream/ - Returns detailed information about a particular
-    stream.
+-   /DescribeStream/ - Returns detailed information about a particular stream.
 
 -   /GetRecords/ - Retrieves the stream records from within a shard.
 
--   /GetShardIterator/ - Returns information on how to retrieve the
-    streams record from a shard with a given shard ID.
+-   /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
 
--   /ListStreams/ - Returns a list of all the streams associated with
-    the current AWS account and endpoint.
+-   /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-dynamodb-streams)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

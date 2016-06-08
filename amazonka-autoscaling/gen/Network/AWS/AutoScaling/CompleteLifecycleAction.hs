@@ -18,29 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Completes the lifecycle action for the specified token or instance with
--- the specified result.
+-- Completes the lifecycle action for the specified token or instance with the specified result.
 --
--- This step is a part of the procedure for adding a lifecycle hook to an
--- Auto Scaling group:
+-- This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:
 --
--- 1.  (Optional) Create a Lambda function and a rule that allows
---     CloudWatch Events to invoke your Lambda function when Auto Scaling
---     launches or terminates instances.
--- 2.  (Optional) Create a notification target and an IAM role. The target
---     can be either an Amazon SQS queue or an Amazon SNS topic. The role
---     allows Auto Scaling to publish lifecycle notifications to the
---     target.
--- 3.  Create the lifecycle hook. Specify whether the hook is used when the
---     instances launch or terminate.
--- 4.  If you need more time, record the lifecycle action heartbeat to keep
---     the instance in a pending state.
--- 5.  __If you finish before the timeout period ends, complete the
---     lifecycle action.__
+-- 1.  (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
+-- 2.  (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
+-- 3.  Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.
+-- 4.  If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.
+-- 5.  __If you finish before the timeout period ends, complete the lifecycle action.__
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
     -- * Creating a Request
@@ -107,10 +95,7 @@ completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleAct
 claInstanceId :: Lens' CompleteLifecycleAction (Maybe Text)
 claInstanceId = lens _claInstanceId (\ s a -> s{_claInstanceId = a});
 
--- | A universally unique identifier (UUID) that identifies a specific
--- lifecycle action associated with an instance. Auto Scaling sends this
--- token to the notification target you specified when you created the
--- lifecycle hook.
+-- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
 claLifecycleActionToken :: Lens' CompleteLifecycleAction (Maybe Text)
 claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycleActionToken = a});
 
@@ -122,8 +107,7 @@ claLifecycleHookName = lens _claLifecycleHookName (\ s a -> s{_claLifecycleHookN
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName = lens _claAutoScalingGroupName (\ s a -> s{_claAutoScalingGroupName = a});
 
--- | The action for the group to take. This parameter can be either
--- 'CONTINUE' or 'ABANDON'.
+-- | The action for the group to take. This parameter can be either 'CONTINUE' or 'ABANDON'.
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
 

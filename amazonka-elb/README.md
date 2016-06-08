@@ -15,21 +15,13 @@
 
 Elastic Load Balancing
 
-Elastic Load Balancing distributes incoming traffic across your EC2
-instances.
+Elastic Load Balancing distributes incoming traffic across your EC2 instances.
 
-For information about the features of Elastic Load Balancing, see
-<http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?>
-in the /Elastic Load Balancing Developer Guide/.
+For information about the features of Elastic Load Balancing, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?> in the /Elastic Load Balancing Developer Guide/.
 
-For information about the AWS regions supported by Elastic Load
-Balancing, see
-<http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing>
-in the /Amazon Web Services General Reference/.
+For information about the AWS regions supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing> in the /Amazon Web Services General Reference/.
 
-All Elastic Load Balancing operations are /idempotent/, which means that
-they complete at most one time. If you repeat an operation, it succeeds
-with a 200 OK response code.
+All Elastic Load Balancing operations are /idempotent/, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elb)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

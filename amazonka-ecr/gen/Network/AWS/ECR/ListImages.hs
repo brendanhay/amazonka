@@ -76,28 +76,15 @@ listImages pRepositoryName_ =
     , _liRepositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository to list images in. If you do not specify a registry, the
--- default registry is assumed.
+-- | The AWS account ID associated with the registry that contains the repository to list images in. If you do not specify a registry, the default registry is assumed.
 liRegistryId :: Lens' ListImages (Maybe Text)
 liRegistryId = lens _liRegistryId (\ s a -> s{_liRegistryId = a});
 
--- | The 'nextToken' value returned from a previous paginated 'ListImages'
--- request where 'maxResults' was used and the results exceeded the value
--- of that parameter. Pagination continues from the end of the previous
--- results that returned the 'nextToken' value. This value is 'null' when
--- there are no more results to return.
+-- | The 'nextToken' value returned from a previous paginated 'ListImages' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
 liNextToken :: Lens' ListImages (Maybe Text)
 liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
--- | The maximum number of image results returned by 'ListImages' in
--- paginated output. When this parameter is used, 'ListImages' only returns
--- 'maxResults' results in a single page along with a 'nextToken' response
--- element. The remaining results of the initial request can be seen by
--- sending another 'ListImages' request with the returned 'nextToken'
--- value. This value can be between 1 and 100. If this parameter is not
--- used, then 'ListImages' returns up to 100 results and a 'nextToken'
--- value, if applicable.
+-- | The maximum number of image results returned by 'ListImages' in paginated output. When this parameter is used, 'ListImages' only returns 'maxResults' results in a single page along with a 'nextToken' response element. The remaining results of the initial request can be seen by sending another 'ListImages' request with the returned 'nextToken' value. This value can be between 1 and 100. If this parameter is not used, then 'ListImages' returns up to 100 results and a 'nextToken' value, if applicable.
 liMaxResults :: Lens' ListImages (Maybe Natural)
 liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat;
 
@@ -174,10 +161,7 @@ listImagesResponse pResponseStatus_ =
 lirsImageIds :: Lens' ListImagesResponse (Maybe (NonEmpty ImageIdentifier))
 lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . mapping _List1;
 
--- | The 'nextToken' value to include in a future 'ListImages' request. When
--- the results of a 'ListImages' request exceed 'maxResults', this value
--- can be used to retrieve the next page of results. This value is 'null'
--- when there are no more results to return.
+-- | The 'nextToken' value to include in a future 'ListImages' request. When the results of a 'ListImages' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
 lirsNextToken :: Lens' ListImagesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 

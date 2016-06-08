@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified SSH public key, including metadata about the
--- key.
+-- Retrieves the specified SSH public key, including metadata about the key.
 --
--- The SSH public key retrieved by this action is used only for
--- authenticating the associated IAM user to an AWS CodeCommit repository.
--- For more information about using SSH keys to authenticate to an AWS
--- CodeCommit repository, see
--- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
--- in the /AWS CodeCommit User Guide/.
+-- The SSH public key retrieved by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
 module Network.AWS.IAM.GetSSHPublicKey
     (
     -- * Creating a Request
@@ -88,9 +82,7 @@ gspkUserName = lens _gspkUserName (\ s a -> s{_gspkUserName = a});
 gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
 gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
 
--- | Specifies the public key encoding format to use in the response. To
--- retrieve the public key in ssh-rsa format, use 'SSH'. To retrieve the
--- public key in PEM format, use 'PEM'.
+-- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use 'SSH'. To retrieve the public key in PEM format, use 'PEM'.
 gspkEncoding :: Lens' GetSSHPublicKey EncodingType
 gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 

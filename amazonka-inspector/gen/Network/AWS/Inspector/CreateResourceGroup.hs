@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource group using the specified set of tags (key and value
--- pairs) that are used to select the EC2 instances to be included in an
--- Amazon Inspector assessment target. The created resource group is then
--- used to create an Amazon Inspector assessment target. For more
--- information, see < CreateAssessmentTarget>.
+-- Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see < CreateAssessmentTarget>.
 module Network.AWS.Inspector.CreateResourceGroup
     (
     -- * Creating a Request
@@ -64,8 +60,7 @@ createResourceGroup pResourceGroupTags_ =
     { _crgResourceGroupTags = _List1 # pResourceGroupTags_
     }
 
--- | A collection of keys and an array of possible values,
--- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
+-- | A collection of keys and an array of possible values, \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
 --
 -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
 crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)

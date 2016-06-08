@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a gateway when the gateway is no longer functioning. For
--- example, if your gateway VM is damaged, you can disable the gateway so
--- you can recover virtual tapes.
+-- Disables a gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
 --
--- Use this operation for a gateway-VTL that is not reachable or not
--- functioning.
+-- Use this operation for a gateway-VTL that is not reachable or not functioning.
 --
 -- Once a gateway is disabled it cannot be enabled.
 module Network.AWS.StorageGateway.DisableGateway

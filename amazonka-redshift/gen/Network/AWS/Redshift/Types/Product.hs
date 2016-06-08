@@ -40,8 +40,7 @@ accountWithRestoreAccess =
     { _awraAccountId = Nothing
     }
 
--- | The identifier of an AWS customer account authorized to restore a
--- snapshot.
+-- | The identifier of an AWS customer account authorized to restore a snapshot.
 awraAccountId :: Lens' AccountWithRestoreAccess (Maybe Text)
 awraAccountId = lens _awraAccountId (\ s a -> s{_awraAccountId = a});
 
@@ -226,13 +225,11 @@ cluster =
     , _cDBName = Nothing
     }
 
--- | Describes the status of a cluster restore action. Returns null if the
--- cluster was not created by restoring a snapshot.
+-- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
 cRestoreStatus = lens _cRestoreStatus (\ s a -> s{_cRestoreStatus = a});
 
--- | Returns the destination region and retention period that are configured
--- for cross-region snapshot copy.
+-- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
 cClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
 cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClusterSnapshotCopyStatus = a});
 
@@ -244,8 +241,7 @@ cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevis
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
--- | The master user name for the cluster. This name is used to connect to
--- the database that is specified in __DBName__.
+-- | The master user name for the cluster. This name is used to connect to the database that is specified in __DBName__.
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 
@@ -253,14 +249,9 @@ cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 cVPCId :: Lens' Cluster (Maybe Text)
 cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
--- | A list of cluster security group that are associated with the cluster.
--- Each security group is represented by an element that contains
--- 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status'
--- subelements.
+-- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status' subelements.
 --
--- Cluster security groups are used when the cluster is not created in a
--- VPC. Clusters that are created in a VPC use VPC security groups, which
--- are listed by the __VpcSecurityGroups__ parameter.
+-- Cluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
 cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default . _Coerce;
 
@@ -272,8 +263,7 @@ cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
--- | The name of the subnet group that is associated with the cluster. This
--- parameter is valid only when the cluster is in a VPC.
+-- | The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
 cClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
 cClusterSubnetGroupName = lens _cClusterSubnetGroupName (\ s a -> s{_cClusterSubnetGroupName = a});
 
@@ -289,8 +279,7 @@ cNumberOfNodes = lens _cNumberOfNodes (\ s a -> s{_cNumberOfNodes = a});
 cClusterPublicKey :: Lens' Cluster (Maybe Text)
 cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
 
--- | The weekly time range (in UTC) during which system maintenance can
--- occur.
+-- | The weekly time range (in UTC) during which system maintenance can occur.
 cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
 cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a});
 
@@ -298,13 +287,11 @@ cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPr
 cModifyStatus :: Lens' Cluster (Maybe Text)
 cModifyStatus = lens _cModifyStatus (\ s a -> s{_cModifyStatus = a});
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key used
--- to encrypt data in the cluster.
+-- | The AWS Key Management Service (KMS) key ID of the encryption key used to encrypt data in the cluster.
 cKMSKeyId :: Lens' Cluster (Maybe Text)
 cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
--- | The list of cluster parameter groups that are associated with this
--- cluster. Each parameter group in the list is returned with its status.
+-- | The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
 cClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
 cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterParameterGroups = a}) . _Default . _Coerce;
 
@@ -312,21 +299,17 @@ cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterPar
 cAvailabilityZone :: Lens' Cluster (Maybe Text)
 cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
 
--- | A list of Virtual Private Cloud (VPC) security groups that are
--- associated with the cluster. This parameter is returned only if the
--- cluster is in a VPC.
+-- | A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
 cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
 cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Reports whether the Amazon Redshift cluster has finished applying any
--- HSM settings changes specified in a modify cluster command.
+-- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
 --
 -- Values: active, applying
 cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
 cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
--- | A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services.
+-- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 cIAMRoles :: Lens' Cluster [ClusterIAMRole]
 cIAMRoles = lens _cIAMRoles (\ s a -> s{_cIAMRoles = a}) . _Default . _Coerce;
 
@@ -334,8 +317,7 @@ cIAMRoles = lens _cIAMRoles (\ s a -> s{_cIAMRoles = a}) . _Default . _Coerce;
 cElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
 cElasticIPStatus = lens _cElasticIPStatus (\ s a -> s{_cElasticIPStatus = a});
 
--- | The version ID of the Amazon Redshift engine that is running on the
--- cluster.
+-- | The version ID of the Amazon Redshift engine that is running on the cluster.
 cClusterVersion :: Lens' Cluster (Maybe Text)
 cClusterVersion = lens _cClusterVersion (\ s a -> s{_cClusterVersion = a});
 
@@ -351,8 +333,7 @@ cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = 
 cEndpoint :: Lens' Cluster (Maybe Endpoint)
 cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 
--- | If 'true', major version upgrades will be applied automatically to the
--- cluster during the maintenance window.
+-- | If 'true', major version upgrades will be applied automatically to the cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
@@ -377,8 +358,7 @@ cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgr
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
--- | If present, changes to the cluster are pending. Specific pending changes
--- are identified by subelements.
+-- | If present, changes to the cluster are pending. Specific pending changes are identified by subelements.
 cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
 cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
@@ -390,10 +370,7 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 cClusterNodes :: Lens' Cluster [ClusterNode]
 cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default . _Coerce;
 
--- | The name of the initial database that was created when the cluster was
--- created. This same name is returned for the life of the cluster. If an
--- initial database was not specified, a database named \"dev\" was created
--- by default.
+-- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named \"dev\" was created by default.
 cDBName :: Lens' Cluster (Maybe Text)
 cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
 
@@ -449,8 +426,7 @@ instance Hashable Cluster
 
 instance NFData Cluster
 
--- | An AWS Identity and Access Management (IAM) role that can be used by the
--- associated Amazon Redshift cluster to access other AWS services.
+-- | An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
 --
 -- /See:/ 'clusterIAMRole' smart constructor.
 data ClusterIAMRole = ClusterIAMRole'
@@ -473,21 +449,17 @@ clusterIAMRole =
     , _cirApplyStatus = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the IAM role. For example,
--- 'arn:aws:iam::123456789012:role\/RedshiftCopyUnload'.
+-- | The Amazon Resource Name (ARN) of the IAM role. For example, 'arn:aws:iam::123456789012:role\/RedshiftCopyUnload'.
 cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
 cirIAMRoleARN = lens _cirIAMRoleARN (\ s a -> s{_cirIAMRoleARN = a});
 
--- | Describes the status of the IAM role\'s association with an Amazon
--- Redshift cluster.
+-- | Describes the status of the IAM role\'s association with an Amazon Redshift cluster.
 --
 -- The following are possible statuses and descriptions.
 --
 -- -   'in-sync': The role is available for use by the cluster.
--- -   'adding': The role is in the process of being associated with the
---     cluster.
--- -   'removing': The role is in the process of being disassociated with
---     the cluster.
+-- -   'adding': The role is in the process of being associated with the cluster.
+-- -   'removing': The role is in the process of being disassociated with the cluster.
 cirApplyStatus :: Lens' ClusterIAMRole (Maybe Text)
 cirApplyStatus = lens _cirApplyStatus (\ s a -> s{_cirApplyStatus = a});
 
@@ -580,8 +552,7 @@ clusterParameterGroup =
     , _cpgParameterGroupName = Nothing
     }
 
--- | The name of the cluster parameter group family that this cluster
--- parameter group is compatible with.
+-- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
 cpgParameterGroupFamily :: Lens' ClusterParameterGroup (Maybe Text)
 cpgParameterGroupFamily = lens _cpgParameterGroupFamily (\ s a -> s{_cpgParameterGroupFamily = a});
 
@@ -634,9 +605,7 @@ clusterParameterGroupNameMessage =
     , _cpgnmParameterGroupName = Nothing
     }
 
--- | The status of the parameter group. For example, if you made a change to
--- a parameter group name-value pair, then the change could be pending a
--- reboot of an associated cluster.
+-- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
 cpgnmParameterGroupStatus :: Lens' ClusterParameterGroupNameMessage (Maybe Text)
 cpgnmParameterGroupStatus = lens _cpgnmParameterGroupStatus (\ s a -> s{_cpgnmParameterGroupStatus = a});
 
@@ -684,9 +653,7 @@ clusterParameterGroupStatus =
 
 -- | The list of parameter statuses.
 --
--- For more information about parameters and parameter groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/.
 cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
 cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\ s a -> s{_cpgsClusterParameterStatusList = a}) . _Default . _Coerce;
 
@@ -737,8 +704,7 @@ clusterParameterStatus =
     , _cpsParameterApplyStatus = Nothing
     }
 
--- | The error that prevented the parameter from being applied to the
--- database.
+-- | The error that prevented the parameter from being applied to the database.
 cpsParameterApplyErrorDescription :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\ s a -> s{_cpsParameterApplyErrorDescription = a});
 
@@ -746,24 +712,17 @@ cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\ s
 cpsParameterName :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterName = lens _cpsParameterName (\ s a -> s{_cpsParameterName = a});
 
--- | The status of the parameter that indicates whether the parameter is in
--- sync with the database, waiting for a cluster reboot, or encountered an
--- error when being applied.
+-- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
 --
 -- The following are possible statuses and descriptions.
 --
 -- -   'in-sync': The parameter value is in sync with the database.
--- -   'pending-reboot': The parameter value will be applied after the
---     cluster reboots.
+-- -   'pending-reboot': The parameter value will be applied after the cluster reboots.
 -- -   'applying': The parameter value is being applied to the database.
--- -   'invalid-parameter': Cannot apply the parameter value because it has
---     an invalid value or syntax.
--- -   'apply-deferred': The parameter contains static property changes.
---     The changes are deferred until the cluster reboots.
--- -   'apply-error': Cannot connect to the cluster. The parameter change
---     will be applied after the cluster reboots.
--- -   'unknown-error': Cannot apply the parameter change right now. The
---     change will be applied after the cluster reboots.
+-- -   'invalid-parameter': Cannot apply the parameter value because it has an invalid value or syntax.
+-- -   'apply-deferred': The parameter contains static property changes. The changes are deferred until the cluster reboots.
+-- -   'apply-error': Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.
+-- -   'unknown-error': Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
 cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\ s a -> s{_cpsParameterApplyStatus = a});
 
@@ -813,18 +772,15 @@ clusterSecurityGroup =
     , _cluTags = Nothing
     }
 
--- | The name of the cluster security group to which the operation was
--- applied.
+-- | The name of the cluster security group to which the operation was applied.
 cluClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
 cluClusterSecurityGroupName = lens _cluClusterSecurityGroupName (\ s a -> s{_cluClusterSecurityGroupName = a});
 
--- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
--- associated with this cluster security group.
+-- | A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group.
 cluIPRanges :: Lens' ClusterSecurityGroup [IPRange]
 cluIPRanges = lens _cluIPRanges (\ s a -> s{_cluIPRanges = a}) . _Default . _Coerce;
 
--- | A list of EC2 security groups that are permitted to access clusters
--- associated with this cluster security group.
+-- | A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
 cluEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
 cluEC2SecurityGroups = lens _cluEC2SecurityGroups (\ s a -> s{_cluEC2SecurityGroups = a}) . _Default . _Coerce;
 
@@ -895,8 +851,7 @@ instance Hashable ClusterSecurityGroupMembership
 
 instance NFData ClusterSecurityGroupMembership
 
--- | Returns the destination region and retention period that are configured
--- for cross-region snapshot copy.
+-- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
 --
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
@@ -923,13 +878,11 @@ clusterSnapshotCopyStatus =
     , _cscsSnapshotCopyGrantName = Nothing
     }
 
--- | The number of days that automated snapshots are retained in the
--- destination region after they are copied from a source region.
+-- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 cscsRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Integer)
 cscsRetentionPeriod = lens _cscsRetentionPeriod (\ s a -> s{_cscsRetentionPeriod = a});
 
--- | The destination region that snapshots are automatically copied to when
--- cross-region snapshot copy is enabled.
+-- | The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
 cscsDestinationRegion :: Lens' ClusterSnapshotCopyStatus (Maybe Text)
 cscsDestinationRegion = lens _cscsDestinationRegion (\ s a -> s{_cscsDestinationRegion = a});
 
@@ -999,8 +952,7 @@ csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce
 csgClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
 csgClusterSubnetGroupName = lens _csgClusterSubnetGroupName (\ s a -> s{_csgClusterSubnetGroupName = a});
 
--- | The status of the cluster subnet group. Possible values are 'Complete',
--- 'Incomplete' and 'Invalid'.
+-- | The status of the cluster subnet group. Possible values are 'Complete', 'Incomplete' and 'Invalid'.
 csgSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
 csgSubnetGroupStatus = lens _csgSubnetGroupStatus (\ s a -> s{_csgSubnetGroupStatus = a});
 
@@ -1029,8 +981,7 @@ instance Hashable ClusterSubnetGroup
 
 instance NFData ClusterSubnetGroup
 
--- | Describes a cluster version, including the parameter group family and
--- description of the version.
+-- | Describes a cluster version, including the parameter group family and description of the version.
 --
 -- /See:/ 'clusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
@@ -1107,12 +1058,7 @@ defaultClusterParameters =
     , _dcpParameterGroupFamily = Nothing
     }
 
--- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for
--- the request.
+-- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the 'Marker' parameter and retrying the command. If the 'Marker' field is empty, all response records have been retrieved for the request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
@@ -1120,8 +1066,7 @@ dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 dcpParameters :: Lens' DefaultClusterParameters [Parameter]
 dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default . _Coerce;
 
--- | The name of the cluster parameter group family to which the engine
--- default parameters apply.
+-- | The name of the cluster parameter group family to which the engine default parameters apply.
 dcpParameterGroupFamily :: Lens' DefaultClusterParameters (Maybe Text)
 dcpParameterGroupFamily = lens _dcpParameterGroupFamily (\ s a -> s{_dcpParameterGroupFamily = a});
 
@@ -1172,8 +1117,7 @@ ec2SecurityGroup =
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 esgStatus = lens _esgStatus (\ s a -> s{_esgStatus = a});
 
--- | The AWS ID of the owner of the EC2 security group specified in the
--- 'EC2SecurityGroupName' field.
+-- | The AWS ID of the owner of the EC2 security group specified in the 'EC2SecurityGroupName' field.
 esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\ s a -> s{_esgEC2SecurityGroupOwnerId = a});
 
@@ -1392,8 +1336,7 @@ eventCategoriesMap =
     , _ecmEvents = Nothing
     }
 
--- | The source type, such as cluster or cluster-snapshot, that the returned
--- categories belong to.
+-- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
@@ -1536,17 +1479,12 @@ eventSubscription =
 --
 -- Constraints:
 --
--- -   Can be one of the following: active | no-permission |
---     topic-not-exist
--- -   The status \"no-permission\" indicates that Amazon Redshift no
---     longer has permission to post to the Amazon SNS topic. The status
---     \"topic-not-exist\" indicates that the topic was deleted after the
---     subscription was created.
+-- -   Can be one of the following: active | no-permission | topic-not-exist
+-- -   The status \"no-permission\" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
 
--- | The AWS customer account associated with the Amazon Redshift event
--- notification subscription.
+-- | The AWS customer account associated with the Amazon Redshift event notification subscription.
 esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
 esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 
@@ -1554,35 +1492,29 @@ esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
 esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptionId = a});
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
--- notification subscription.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
--- | A Boolean value indicating whether the subscription is enabled. 'true'
--- indicates the subscription is enabled.
+-- | A Boolean value indicating whether the subscription is enabled. 'true' indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
 
--- | The source type of the events returned the Amazon Redshift event
--- notification, such as cluster, or cluster-snapshot.
+-- | The source type of the events returned the Amazon Redshift event notification, such as cluster, or cluster-snapshot.
 esSourceType :: Lens' EventSubscription (Maybe Text)
 esSourceType = lens _esSourceType (\ s a -> s{_esSourceType = a});
 
--- | The event severity specified in the Amazon Redshift event notification
--- subscription.
+-- | The event severity specified in the Amazon Redshift event notification subscription.
 --
 -- Values: ERROR, INFO
 esSeverity :: Lens' EventSubscription (Maybe Text)
 esSeverity = lens _esSeverity (\ s a -> s{_esSeverity = a});
 
--- | The date and time the Amazon Redshift event notification subscription
--- was created.
+-- | The date and time the Amazon Redshift event notification subscription was created.
 esSubscriptionCreationTime :: Lens' EventSubscription (Maybe UTCTime)
 esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSubscriptionCreationTime = a}) . mapping _Time;
 
--- | The list of Amazon Redshift event categories specified in the event
--- notification subscription.
+-- | The list of Amazon Redshift event categories specified in the event notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
 esEventCategoriesList :: Lens' EventSubscription [Text]
@@ -1592,8 +1524,7 @@ esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategori
 esTags :: Lens' EventSubscription [Tag]
 esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default . _Coerce;
 
--- | A list of the sources that publish events to the Amazon Redshift event
--- notification subscription.
+-- | A list of the sources that publish events to the Amazon Redshift event notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
 esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default . _Coerce;
 
@@ -1621,9 +1552,7 @@ instance Hashable EventSubscription
 
 instance NFData EventSubscription
 
--- | Returns information about an HSM client certificate. The certificate is
--- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
--- Redshift cluster to encrypt data files.
+-- | Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.
 --
 -- /See:/ 'hsmClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
@@ -1654,8 +1583,7 @@ hsmClientCertificate =
 hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
 hccHSMClientCertificateIdentifier = lens _hccHSMClientCertificateIdentifier (\ s a -> s{_hccHSMClientCertificateIdentifier = a});
 
--- | The public key that the Amazon Redshift cluster will use to connect to
--- the HSM. You must register the public key in the HSM.
+-- | The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 hccHSMClientCertificatePublicKey :: Lens' HSMClientCertificate (Maybe Text)
 hccHSMClientCertificatePublicKey = lens _hccHSMClientCertificatePublicKey (\ s a -> s{_hccHSMClientCertificatePublicKey = a});
 
@@ -1676,9 +1604,7 @@ instance Hashable HSMClientCertificate
 
 instance NFData HSMClientCertificate
 
--- | Returns information about an HSM configuration, which is an object that
--- describes to Amazon Redshift clusters the information they require to
--- connect to an HSM where they can store database encryption keys.
+-- | Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.
 --
 -- /See:/ 'hsmConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
@@ -1717,8 +1643,7 @@ hsmConfiguration =
 hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
 hcHSMConfigurationIdentifier = lens _hcHSMConfigurationIdentifier (\ s a -> s{_hcHSMConfigurationIdentifier = a});
 
--- | The name of the partition in the HSM where the Amazon Redshift clusters
--- will store their database encryption keys.
+-- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 hcHSMPartitionName :: Lens' HSMConfiguration (Maybe Text)
 hcHSMPartitionName = lens _hcHSMPartitionName (\ s a -> s{_hcHSMPartitionName = a});
 
@@ -1730,8 +1655,7 @@ hcDescription = lens _hcDescription (\ s a -> s{_hcDescription = a});
 hcTags :: Lens' HSMConfiguration [Tag]
 hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default . _Coerce;
 
--- | The IP address that the Amazon Redshift cluster must use to access the
--- HSM.
+-- | The IP address that the Amazon Redshift cluster must use to access the HSM.
 hcHSMIPAddress :: Lens' HSMConfiguration (Maybe Text)
 hcHSMIPAddress = lens _hcHSMIPAddress (\ s a -> s{_hcHSMIPAddress = a});
 
@@ -1777,21 +1701,17 @@ hsmStatus =
     , _hsHSMClientCertificateIdentifier = Nothing
     }
 
--- | Reports whether the Amazon Redshift cluster has finished applying any
--- HSM settings changes specified in a modify cluster command.
+-- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
 --
 -- Values: active, applying
 hsStatus :: Lens' HSMStatus (Maybe Text)
 hsStatus = lens _hsStatus (\ s a -> s{_hsStatus = a});
 
--- | Specifies the name of the HSM configuration that contains the
--- information the Amazon Redshift cluster can use to retrieve and store
--- keys in an HSM.
+-- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 hsHSMConfigurationIdentifier :: Lens' HSMStatus (Maybe Text)
 hsHSMConfigurationIdentifier = lens _hsHSMConfigurationIdentifier (\ s a -> s{_hsHSMConfigurationIdentifier = a});
 
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
+-- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 hsHSMClientCertificateIdentifier :: Lens' HSMStatus (Maybe Text)
 hsHSMClientCertificateIdentifier = lens _hsHSMClientCertificateIdentifier (\ s a -> s{_hsHSMClientCertificateIdentifier = a});
 
@@ -2044,13 +1964,7 @@ parameter =
     , _pDescription = Nothing
     }
 
--- | Specifies how to apply the WLM configuration parameter. Some properties
--- can be applied dynamically, while other properties require that any
--- associated clusters be rebooted for the configuration changes to be
--- applied. For more information about parameters and parameter groups, go
--- to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/.
 pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
 pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
@@ -2062,13 +1976,11 @@ pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineVersion = a});
 
--- | The source of the parameter value, such as \"engine-default\" or
--- \"user\".
+-- | The source of the parameter value, such as \"engine-default\" or \"user\".
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | If 'true', the parameter can be modified. Some parameters have security
--- or operational implications that prevent them from being changed.
+-- | If 'true', the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
@@ -2117,9 +2029,7 @@ instance ToQuery Parameter where
                "ParameterName" =: _pParameterName,
                "Description" =: _pDescription]
 
--- | Describes cluster attributes that are in a pending state. A change to
--- one or more the attributes was requested and is in progress or will be
--- applied.
+-- | Describes cluster attributes that are in a pending state. A change to one or more the attributes was requested and is in progress or will be applied.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
@@ -2166,18 +2076,15 @@ pendingModifiedValues =
     , _pmvNodeType = Nothing
     }
 
--- | The pending or in-progress change of the master user password for the
--- cluster.
+-- | The pending or in-progress change of the master user password for the cluster.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPassword = a});
 
--- | The pending or in-progress change of the ability to connect to the
--- cluster from the public network.
+-- | The pending or in-progress change of the ability to connect to the cluster from the public network.
 pmvPubliclyAccessible :: Lens' PendingModifiedValues (Maybe Bool)
 pmvPubliclyAccessible = lens _pmvPubliclyAccessible (\ s a -> s{_pmvPubliclyAccessible = a});
 
--- | The pending or in-progress change of the automated snapshot retention
--- period.
+-- | The pending or in-progress change of the automated snapshot retention period.
 pmvAutomatedSnapshotRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
 pmvAutomatedSnapshotRetentionPeriod = lens _pmvAutomatedSnapshotRetentionPeriod (\ s a -> s{_pmvAutomatedSnapshotRetentionPeriod = a});
 
@@ -2244,8 +2151,7 @@ recurringCharge =
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
 rcRecurringChargeFrequency = lens _rcRecurringChargeFrequency (\ s a -> s{_rcRecurringChargeFrequency = a});
 
--- | The amount charged per the period of time specified by the recurring
--- charge frequency.
+-- | The amount charged per the period of time specified by the recurring charge frequency.
 rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
 rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\ s a -> s{_rcRecurringChargeAmount = a});
 
@@ -2259,9 +2165,7 @@ instance Hashable RecurringCharge
 
 instance NFData RecurringCharge
 
--- | Describes a reserved node. You can call the
--- < DescribeReservedNodeOfferings> API to obtain the available reserved
--- node offerings.
+-- | Describes a reserved node. You can call the < DescribeReservedNodeOfferings> API to obtain the available reserved node offerings.
 --
 -- /See:/ 'reservedNode' smart constructor.
 data ReservedNode = ReservedNode'
@@ -2328,10 +2232,8 @@ reservedNode =
 --
 -- Possible Values:
 --
--- -   pending-payment-This reserved node has recently been purchased, and
---     the sale has been approved, but payment has not yet been confirmed.
--- -   active-This reserved node is owned by the caller and is available
---     for use.
+-- -   pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.
+-- -   active-This reserved node is owned by the caller and is available for use.
 -- -   payment-failed-Payment failed for the purchase attempt.
 rnState :: Lens' ReservedNode (Maybe Text)
 rnState = lens _rnState (\ s a -> s{_rnState = a});
@@ -2340,8 +2242,7 @@ rnState = lens _rnState (\ s a -> s{_rnState = a});
 rnCurrencyCode :: Lens' ReservedNode (Maybe Text)
 rnCurrencyCode = lens _rnCurrencyCode (\ s a -> s{_rnCurrencyCode = a});
 
--- | The time the reservation started. You purchase a reserved node offering
--- for a duration. This is the start time of that duration.
+-- | The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
 rnStartTime :: Lens' ReservedNode (Maybe UTCTime)
 rnStartTime = lens _rnStartTime (\ s a -> s{_rnStartTime = a}) . mapping _Time;
 
@@ -2361,8 +2262,7 @@ rnReservedNodeOfferingId = lens _rnReservedNodeOfferingId (\ s a -> s{_rnReserve
 rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
 rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default . _Coerce;
 
--- | The anticipated utilization of the reserved node, as defined in the
--- reserved node offering.
+-- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
 rnOfferingType :: Lens' ReservedNode (Maybe Text)
 rnOfferingType = lens _rnOfferingType (\ s a -> s{_rnOfferingType = a});
 
@@ -2458,19 +2358,15 @@ rnoCurrencyCode = lens _rnoCurrencyCode (\ s a -> s{_rnoCurrencyCode = a});
 rnoReservedNodeOfferingId :: Lens' ReservedNodeOffering (Maybe Text)
 rnoReservedNodeOfferingId = lens _rnoReservedNodeOfferingId (\ s a -> s{_rnoReservedNodeOfferingId = a});
 
--- | The charge to your account regardless of whether you are creating any
--- clusters using the node offering. Recurring charges are only in effect
--- for heavy-utilization reserved nodes.
+-- | The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
 rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
 rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default . _Coerce;
 
--- | The anticipated utilization of the reserved node, as defined in the
--- reserved node offering.
+-- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
 rnoOfferingType :: Lens' ReservedNodeOffering (Maybe Text)
 rnoOfferingType = lens _rnoOfferingType (\ s a -> s{_rnoOfferingType = a});
 
--- | The rate you are charged for each hour the cluster that is using the
--- offering is running.
+-- | The rate you are charged for each hour the cluster that is using the offering is running.
 rnoUsagePrice :: Lens' ReservedNodeOffering (Maybe Double)
 rnoUsagePrice = lens _rnoUsagePrice (\ s a -> s{_rnoUsagePrice = a});
 
@@ -2478,8 +2374,7 @@ rnoUsagePrice = lens _rnoUsagePrice (\ s a -> s{_rnoUsagePrice = a});
 rnoNodeType :: Lens' ReservedNodeOffering (Maybe Text)
 rnoNodeType = lens _rnoNodeType (\ s a -> s{_rnoNodeType = a});
 
--- | The upfront fixed charge you will pay to purchase the specific reserved
--- node offering.
+-- | The upfront fixed charge you will pay to purchase the specific reserved node offering.
 rnoFixedPrice :: Lens' ReservedNodeOffering (Maybe Double)
 rnoFixedPrice = lens _rnoFixedPrice (\ s a -> s{_rnoFixedPrice = a});
 
@@ -2505,8 +2400,7 @@ instance Hashable ReservedNodeOffering
 
 instance NFData ReservedNodeOffering
 
--- | Describes the status of a cluster restore action. Returns null if the
--- cluster was not created by restoring a snapshot.
+-- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 --
 -- /See:/ 'restoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
@@ -2545,28 +2439,23 @@ restoreStatus =
     , _rsSnapshotSizeInMegaBytes = Nothing
     }
 
--- | The status of the restore action. Returns starting, restoring,
--- completed, or failed.
+-- | The status of the restore action. Returns starting, restoring, completed, or failed.
 rsStatus :: Lens' RestoreStatus (Maybe Text)
 rsStatus = lens _rsStatus (\ s a -> s{_rsStatus = a});
 
--- | The estimate of the time remaining before the restore will complete.
--- Returns 0 for a completed restore.
+-- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
 rsEstimatedTimeToCompletionInSeconds :: Lens' RestoreStatus (Maybe Integer)
 rsEstimatedTimeToCompletionInSeconds = lens _rsEstimatedTimeToCompletionInSeconds (\ s a -> s{_rsEstimatedTimeToCompletionInSeconds = a});
 
--- | The number of megabytes per second being transferred from the backup
--- storage. Returns the average rate for a completed backup.
+-- | The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup.
 rsCurrentRestoreRateInMegaBytesPerSecond :: Lens' RestoreStatus (Maybe Double)
 rsCurrentRestoreRateInMegaBytesPerSecond = lens _rsCurrentRestoreRateInMegaBytesPerSecond (\ s a -> s{_rsCurrentRestoreRateInMegaBytesPerSecond = a});
 
--- | The number of megabytes that have been transferred from snapshot
--- storage.
+-- | The number of megabytes that have been transferred from snapshot storage.
 rsProgressInMegaBytes :: Lens' RestoreStatus (Maybe Integer)
 rsProgressInMegaBytes = lens _rsProgressInMegaBytes (\ s a -> s{_rsProgressInMegaBytes = a});
 
--- | The amount of time an in-progress restore has been running, or the
--- amount of time it took a completed restore to finish.
+-- | The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish.
 rsElapsedTimeInSeconds :: Lens' RestoreStatus (Maybe Integer)
 rsElapsedTimeInSeconds = lens _rsElapsedTimeInSeconds (\ s a -> s{_rsElapsedTimeInSeconds = a});
 
@@ -2715,25 +2604,19 @@ snapshot =
     , _sDBName = Nothing
     }
 
--- | The snapshot status. The value of the status depends on the API
--- operation used.
+-- | The snapshot status. The value of the status depends on the API operation used.
 --
--- -   < CreateClusterSnapshot> and < CopyClusterSnapshot> returns status
---     as \"creating\".
--- -   < DescribeClusterSnapshots> returns status as \"creating\",
---     \"available\", \"final snapshot\", or \"failed\".
+-- -   < CreateClusterSnapshot> and < CopyClusterSnapshot> returns status as \"creating\".
+-- -   < DescribeClusterSnapshots> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".
 -- -   < DeleteClusterSnapshot> returns status as \"deleted\".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
--- | The list of node types that this cluster snapshot is able to restore
--- into.
+-- | The list of node types that this cluster snapshot is able to restore into.
 sRestorableNodeTypes :: Lens' Snapshot [Text]
 sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default . _Coerce;
 
--- | A list of the AWS customer accounts authorized to restore the snapshot.
--- Returns 'null' if no accounts are authorized. Visible only to the
--- snapshot owner.
+-- | A list of the AWS customer accounts authorized to restore the snapshot. Returns 'null' if no accounts are authorized. Visible only to the snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce;
 
@@ -2741,9 +2624,7 @@ sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAcco
 sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
 sSnapshotIdentifier = lens _sSnapshotIdentifier (\ s a -> s{_sSnapshotIdentifier = a});
 
--- | A boolean that indicates whether the snapshot data is encrypted using
--- the HSM keys of the source cluster. 'true' indicates that the data is
--- encrypted using HSM keys.
+-- | A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. 'true' indicates that the data is encrypted using HSM keys.
 sEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
 sEncryptedWithHSM = lens _sEncryptedWithHSM (\ s a -> s{_sEncryptedWithHSM = a});
 
@@ -2755,13 +2636,11 @@ sMasterUsername = lens _sMasterUsername (\ s a -> s{_sMasterUsername = a});
 sSourceRegion :: Lens' Snapshot (Maybe Text)
 sSourceRegion = lens _sSourceRegion (\ s a -> s{_sSourceRegion = a});
 
--- | The VPC identifier of the cluster if the snapshot is from a cluster in a
--- VPC. Otherwise, this field is not in the output.
+-- | The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
 sVPCId :: Lens' Snapshot (Maybe Text)
 sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
--- | The number of megabytes that have been transferred to the snapshot
--- backup.
+-- | The number of megabytes that have been transferred to the snapshot backup.
 sBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
 sBackupProgressInMegaBytes = lens _sBackupProgressInMegaBytes (\ s a -> s{_sBackupProgressInMegaBytes = a});
 
@@ -2777,14 +2656,11 @@ sClusterIdentifier = lens _sClusterIdentifier (\ s a -> s{_sClusterIdentifier = 
 sNumberOfNodes :: Lens' Snapshot (Maybe Int)
 sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a});
 
--- | The snapshot type. Snapshots created using < CreateClusterSnapshot> and
--- < CopyClusterSnapshot> will be of type \"manual\".
+-- | The snapshot type. Snapshots created using < CreateClusterSnapshot> and < CopyClusterSnapshot> will be of type \"manual\".
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a});
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- was used to encrypt data in the cluster from which the snapshot was
--- taken.
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 sKMSKeyId :: Lens' Snapshot (Maybe Text)
 sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
@@ -2792,25 +2668,19 @@ sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 sAvailabilityZone :: Lens' Snapshot (Maybe Text)
 sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
 
--- | The number of megabytes per second being transferred to the snapshot
--- backup. Returns '0' for a completed backup.
+-- | The number of megabytes per second being transferred to the snapshot backup. Returns '0' for a completed backup.
 sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
 sCurrentBackupRateInMegaBytesPerSecond = lens _sCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_sCurrentBackupRateInMegaBytesPerSecond = a});
 
--- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot
--- contains a copy of the cluster data as of this exact time.
+-- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
 sSnapshotCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sSnapshotCreateTime = lens _sSnapshotCreateTime (\ s a -> s{_sSnapshotCreateTime = a}) . mapping _Time;
 
--- | The version ID of the Amazon Redshift engine that is running on the
--- cluster.
+-- | The version ID of the Amazon Redshift engine that is running on the cluster.
 sClusterVersion :: Lens' Snapshot (Maybe Text)
 sClusterVersion = lens _sClusterVersion (\ s a -> s{_sClusterVersion = a});
 
--- | For manual snapshots, the AWS customer account used to create or copy
--- the snapshot. For automatic snapshots, the owner of the cluster. The
--- owner can perform all snapshot actions, such as sharing a manual
--- snapshot.
+-- | For manual snapshots, the AWS customer account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 sOwnerAccount :: Lens' Snapshot (Maybe Text)
 sOwnerAccount = lens _sOwnerAccount (\ s a -> s{_sOwnerAccount = a});
 
@@ -2818,8 +2688,7 @@ sOwnerAccount = lens _sOwnerAccount (\ s a -> s{_sOwnerAccount = a});
 sNodeType :: Lens' Snapshot (Maybe Text)
 sNodeType = lens _sNodeType (\ s a -> s{_sNodeType = a});
 
--- | The amount of time an in-progress snapshot backup has been running, or
--- the amount of time it took a completed backup to finish.
+-- | The amount of time an in-progress snapshot backup has been running, or the amount of time it took a completed backup to finish.
 sElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
 sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInSeconds = a});
 
@@ -2827,8 +2696,7 @@ sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInS
 sClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sClusterCreateTime = lens _sClusterCreateTime (\ s a -> s{_sClusterCreateTime = a}) . mapping _Time;
 
--- | The estimate of the time remaining before the snapshot backup will
--- complete. Returns '0' for a completed backup.
+-- | The estimate of the time remaining before the snapshot backup will complete. Returns '0' for a completed backup.
 sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
 sEstimatedSecondsToCompletion = lens _sEstimatedSecondsToCompletion (\ s a -> s{_sEstimatedSecondsToCompletion = a});
 
@@ -2844,8 +2712,7 @@ sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 sPort :: Lens' Snapshot (Maybe Int)
 sPort = lens _sPort (\ s a -> s{_sPort = a});
 
--- | The size of the complete set of backup data that would be used to
--- restore the cluster.
+-- | The size of the complete set of backup data that would be used to restore the cluster.
 sTotalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
 sTotalBackupSizeInMegaBytes = lens _sTotalBackupSizeInMegaBytes (\ s a -> s{_sTotalBackupSizeInMegaBytes = a});
 
@@ -2894,13 +2761,9 @@ instance Hashable Snapshot
 
 instance NFData Snapshot
 
--- | The snapshot copy grant that grants Amazon Redshift permission to
--- encrypt copied snapshots with the specified customer master key (CMK)
--- from AWS KMS in the destination region.
+-- | The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
 --
--- For more information about managing snapshot copy grants, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- /See:/ 'snapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
@@ -2927,8 +2790,7 @@ snapshotCopyGrant =
     , _scgTags = Nothing
     }
 
--- | The unique identifier of the customer master key (CMK) in AWS KMS to
--- which Amazon Redshift is granted permission.
+-- | The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
 scgKMSKeyId :: Lens' SnapshotCopyGrant (Maybe Text)
 scgKMSKeyId = lens _scgKMSKeyId (\ s a -> s{_scgKMSKeyId = a});
 
@@ -3075,8 +2937,7 @@ tableRestoreStatus =
 
 -- | A value that describes the current state of the table restore request.
 --
--- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING',
--- 'IN_PROGRESS'
+-- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'
 trsStatus :: Lens' TableRestoreStatus (Maybe TableRestoreStatusType)
 trsStatus = lens _trsStatus (\ s a -> s{_trsStatus = a});
 
@@ -3096,8 +2957,7 @@ trsSourceDatabaseName = lens _trsSourceDatabaseName (\ s a -> s{_trsSourceDataba
 trsTableRestoreRequestId :: Lens' TableRestoreStatus (Maybe Text)
 trsTableRestoreRequestId = lens _trsTableRestoreRequestId (\ s a -> s{_trsTableRestoreRequestId = a});
 
--- | The name of the table to create as a result of the table restore
--- request.
+-- | The name of the table to create as a result of the table restore request.
 trsNewTableName :: Lens' TableRestoreStatus (Maybe Text)
 trsNewTableName = lens _trsNewTableName (\ s a -> s{_trsNewTableName = a});
 
@@ -3109,13 +2969,11 @@ trsTargetDatabaseName = lens _trsTargetDatabaseName (\ s a -> s{_trsTargetDataba
 trsSourceSchemaName :: Lens' TableRestoreStatus (Maybe Text)
 trsSourceSchemaName = lens _trsSourceSchemaName (\ s a -> s{_trsSourceSchemaName = a});
 
--- | The identifier of the Amazon Redshift cluster that the table is being
--- restored to.
+-- | The identifier of the Amazon Redshift cluster that the table is being restored to.
 trsClusterIdentifier :: Lens' TableRestoreStatus (Maybe Text)
 trsClusterIdentifier = lens _trsClusterIdentifier (\ s a -> s{_trsClusterIdentifier = a});
 
--- | The time that the table restore request was made, in Universal
--- Coordinated Time (UTC).
+-- | The time that the table restore request was made, in Universal Coordinated Time (UTC).
 trsRequestTime :: Lens' TableRestoreStatus (Maybe UTCTime)
 trsRequestTime = lens _trsRequestTime (\ s a -> s{_trsRequestTime = a}) . mapping _Time;
 
@@ -3131,8 +2989,7 @@ trsTotalDataInMegaBytes = lens _trsTotalDataInMegaBytes (\ s a -> s{_trsTotalDat
 trsProgressInMegaBytes :: Lens' TableRestoreStatus (Maybe Integer)
 trsProgressInMegaBytes = lens _trsProgressInMegaBytes (\ s a -> s{_trsProgressInMegaBytes = a});
 
--- | A description of the status of the table restore request. Status values
--- include 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'.
+-- | A description of the status of the table restore request. Status values include 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'.
 trsMessage :: Lens' TableRestoreStatus (Maybe Text)
 trsMessage = lens _trsMessage (\ s a -> s{_trsMessage = a});
 
@@ -3231,8 +3088,7 @@ taggedResource =
 trTag :: Lens' TaggedResource (Maybe Tag)
 trTag = lens _trTag (\ s a -> s{_trTag = a});
 
--- | The type of resource with which the tag is associated. Valid resource
--- types are:
+-- | The type of resource with which the tag is associated. Valid resource types are:
 --
 -- -   Cluster
 -- -   CIDR\/IP
@@ -3244,15 +3100,11 @@ trTag = lens _trTag (\ s a -> s{_trTag = a});
 -- -   HSM certificate
 -- -   Parameter group
 --
--- For more information about Amazon Redshift resource types and
--- constructing ARNs, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)>
--- in the Amazon Redshift Cluster Management Guide.
+-- For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\ s a -> s{_trResourceType = a});
 
--- | The Amazon Resource Name (ARN) with which the tag is associated. For
--- example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
+-- | The Amazon Resource Name (ARN) with which the tag is associated. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 trResourceName :: Lens' TaggedResource (Maybe Text)
 trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
 

@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Determines whether there are any third party jobs for a job worker to
--- act on. Only used for partner actions.
+-- Determines whether there are any third party jobs for a job worker to act on. Only used for partner actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the Amazon S3 bucket used to store artifacts for the pipeline, if
--- the action requires access to that Amazon S3 bucket for input or output
--- artifacts.
+-- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request

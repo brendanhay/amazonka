@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the provisioned throughput settings, global secondary indexes,
--- or DynamoDB Streams settings for a given table.
+-- Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.
 --
 -- You can only perform one of the following operations at once:
 --
@@ -29,15 +28,9 @@
 --
 -- -   Remove a global secondary index from the table.
 --
--- -   Create a new global secondary index on the table. Once the index
---     begins backfilling, you can use /UpdateTable/ to perform other
---     operations.
+-- -   Create a new global secondary index on the table. Once the index begins backfilling, you can use /UpdateTable/ to perform other operations.
 --
--- /UpdateTable/ is an asynchronous operation; while it is executing, the
--- table status changes from 'ACTIVE' to 'UPDATING'. While it is
--- 'UPDATING', you cannot issue another /UpdateTable/ request. When the
--- table returns to the 'ACTIVE' state, the /UpdateTable/ operation is
--- complete.
+-- /UpdateTable/ is an asynchronous operation; while it is executing, the table status changes from 'ACTIVE' to 'UPDATING'. While it is 'UPDATING', you cannot issue another /UpdateTable/ request. When the table returns to the 'ACTIVE' state, the /UpdateTable/ operation is complete.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request
@@ -101,9 +94,7 @@ updateTable pTableName_ =
     , _utTableName = pTableName_
     }
 
--- | An array of attributes that describe the key schema for the table and
--- indexes. If you are adding a new global secondary index to the table,
--- /AttributeDefinitions/ must include the key element(s) of the new index.
+-- | An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, /AttributeDefinitions/ must include the key element(s) of the new index.
 utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
 utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default . _Coerce;
 
@@ -111,27 +102,21 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
 
--- | An array of one or more global secondary indexes for the table. For each
--- index in the array, you can request one action:
+-- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:
 --
 -- -   /Create/ - add a new global secondary index to the table.
 --
--- -   /Update/ - modify the provisioned throughput settings of an existing
---     global secondary index.
+-- -   /Update/ - modify the provisioned throughput settings of an existing global secondary index.
 --
 -- -   /Delete/ - remove a global secondary index from the table.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/.
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce;
 
 -- | Represents the DynamoDB Streams configuration for the table.
 --
--- You will receive a /ResourceInUseException/ if you attempt to enable a
--- stream on a table that already has a stream, or if you attempt to
--- disable a stream on a table which does not have a stream.
+-- You will receive a /ResourceInUseException/ if you attempt to enable a stream on a table that already has a stream, or if you attempt to disable a stream on a table which does not have a stream.
 utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
 utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the domain, including when the domain was
--- created, the number of items and attributes in the domain, and the size
--- of the attribute names and values.
+-- Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values.
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Creating a Request

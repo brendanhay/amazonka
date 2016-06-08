@@ -20,35 +20,13 @@
 --
 -- Creates a new DB cluster parameter group.
 --
--- Parameters in a DB cluster parameter group apply to all of the instances
--- in a DB cluster.
+-- Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
 --
--- A DB cluster parameter group is initially created with the default
--- parameters for the database engine used by instances in the DB cluster.
--- To provide custom values for any of the parameters, you must modify the
--- group after creating it using < ModifyDBClusterParameterGroup>. Once
--- you\'ve created a DB cluster parameter group, you need to associate it
--- with your DB cluster using < ModifyDBCluster>. When you associate a new
--- DB cluster parameter group with a running DB cluster, you need to reboot
--- the DB instances in the DB cluster without failover for the new DB
--- cluster parameter group and associated settings to take effect.
+-- A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using < ModifyDBClusterParameterGroup>. Once you\'ve created a DB cluster parameter group, you need to associate it with your DB cluster using < ModifyDBCluster>. When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.
 --
--- After you create a DB cluster parameter group, you should wait at least
--- 5 minutes before creating your first DB cluster that uses that DB
--- cluster parameter group as the default parameter group. This allows
--- Amazon RDS to fully complete the create action before the DB cluster
--- parameter group is used as the default for a new DB cluster. This is
--- especially important for parameters that are critical when creating the
--- default database for a DB cluster, such as the character set for the
--- default database defined by the 'character_set_database' parameter. You
--- can use the /Parameter Groups/ option of the
--- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
--- < DescribeDBClusterParameters> command to verify that your DB cluster
--- parameter group has been created or modified.
+-- After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the 'character_set_database' parameter. You can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the < DescribeDBClusterParameters> command to verify that your DB cluster parameter group has been created or modified.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.CreateDBClusterParameterGroup
     (
     -- * Creating a Request
@@ -125,11 +103,7 @@ cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce;
 cdcpgDBClusterParameterGroupName :: Lens' CreateDBClusterParameterGroup Text
 cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\ s a -> s{_cdcpgDBClusterParameterGroupName = a});
 
--- | The DB cluster parameter group family name. A DB cluster parameter group
--- can be associated with one and only one DB cluster parameter group
--- family, and can be applied only to a DB cluster running a database
--- engine and engine version compatible with that DB cluster parameter
--- group family.
+-- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
 cdcpgDBParameterGroupFamily :: Lens' CreateDBClusterParameterGroup Text
 cdcpgDBParameterGroupFamily = lens _cdcpgDBParameterGroupFamily (\ s a -> s{_cdcpgDBParameterGroupFamily = a});
 

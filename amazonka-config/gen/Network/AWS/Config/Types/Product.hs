@@ -21,8 +21,7 @@ import           Network.AWS.Config.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Indicates whether an AWS resource or AWS Config rule is compliant and
--- provides the number of contributors that affect the compliance.
+-- | Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 --
 -- /See:/ 'compliance' smart constructor.
 data Compliance = Compliance'
@@ -45,27 +44,19 @@ compliance =
     , _cComplianceType = Nothing
     }
 
--- | The number of AWS resources or AWS Config rules that cause a result of
--- 'NON_COMPLIANT', up to a maximum number.
+-- | The number of AWS resources or AWS Config rules that cause a result of 'NON_COMPLIANT', up to a maximum number.
 cComplianceContributorCount :: Lens' Compliance (Maybe ComplianceContributorCount)
 cComplianceContributorCount = lens _cComplianceContributorCount (\ s a -> s{_cComplianceContributorCount = a});
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant.
 --
--- A resource is compliant if it complies with all of the AWS Config rules
--- that evaluate it, and it is noncompliant if it does not comply with one
--- or more of these rules.
+-- A resource is compliant if it complies with all of the AWS Config rules that evaluate it, and it is noncompliant if it does not comply with one or more of these rules.
 --
--- A rule is compliant if all of the resources that the rule evaluates
--- comply with it, and it is noncompliant if any of these resources do not
--- comply.
+-- A rule is compliant if all of the resources that the rule evaluates comply with it, and it is noncompliant if any of these resources do not comply.
 --
--- AWS Config returns the 'INSUFFICIENT_DATA' value when no evaluation
--- results are available for the AWS resource or Config rule.
+-- AWS Config returns the 'INSUFFICIENT_DATA' value when no evaluation results are available for the AWS resource or Config rule.
 --
--- For the 'Compliance' data type, AWS Config supports only 'COMPLIANT',
--- 'NON_COMPLIANT', and 'INSUFFICIENT_DATA' values. AWS Config does not
--- support the 'NOT_APPLICABLE' value for the 'Compliance' data type.
+-- For the 'Compliance' data type, AWS Config supports only 'COMPLIANT', 'NON_COMPLIANT', and 'INSUFFICIENT_DATA' values. AWS Config does not support the 'NOT_APPLICABLE' value for the 'Compliance' data type.
 cComplianceType :: Lens' Compliance (Maybe ComplianceType)
 cComplianceType = lens _cComplianceType (\ s a -> s{_cComplianceType = a});
 
@@ -81,9 +72,7 @@ instance Hashable Compliance
 
 instance NFData Compliance
 
--- | Indicates whether an AWS Config rule is compliant. A rule is compliant
--- if all of the resources that the rule evaluated comply with it, and it
--- is noncompliant if any of these resources do not comply.
+-- | Indicates whether an AWS Config rule is compliant. A rule is compliant if all of the resources that the rule evaluated comply with it, and it is noncompliant if any of these resources do not comply.
 --
 -- /See:/ 'complianceByConfigRule' smart constructor.
 data ComplianceByConfigRule = ComplianceByConfigRule'
@@ -125,10 +114,7 @@ instance Hashable ComplianceByConfigRule
 
 instance NFData ComplianceByConfigRule
 
--- | Indicates whether an AWS resource that is evaluated according to one or
--- more AWS Config rules is compliant. A resource is compliant if it
--- complies with all of the rules that evaluate it, and it is noncompliant
--- if it does not comply with one or more of these rules.
+-- | Indicates whether an AWS resource that is evaluated according to one or more AWS Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it, and it is noncompliant if it does not comply with one or more of these rules.
 --
 -- /See:/ 'complianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
@@ -163,8 +149,7 @@ cbrResourceId = lens _cbrResourceId (\ s a -> s{_cbrResourceId = a});
 cbrResourceType :: Lens' ComplianceByResource (Maybe Text)
 cbrResourceType = lens _cbrResourceType (\ s a -> s{_cbrResourceType = a});
 
--- | Indicates whether the AWS resource complies with all of the AWS Config
--- rules that evaluated it.
+-- | Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
 cbrCompliance :: Lens' ComplianceByResource (Maybe Compliance)
 cbrCompliance = lens _cbrCompliance (\ s a -> s{_cbrCompliance = a});
 
@@ -180,8 +165,7 @@ instance Hashable ComplianceByResource
 
 instance NFData ComplianceByResource
 
--- | The number of AWS resources or AWS Config rules responsible for the
--- current compliance of the item, up to a maximum number.
+-- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.
 --
 -- /See:/ 'complianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
@@ -204,8 +188,7 @@ complianceContributorCount =
     , _cccCapExceeded = Nothing
     }
 
--- | The number of AWS resources or AWS Config rules responsible for the
--- current compliance of the item.
+-- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
 cccCappedCount :: Lens' ComplianceContributorCount (Maybe Int)
 cccCappedCount = lens _cccCappedCount (\ s a -> s{_cccCappedCount = a});
 
@@ -224,8 +207,7 @@ instance Hashable ComplianceContributorCount
 
 instance NFData ComplianceContributorCount
 
--- | The number of AWS Config rules or AWS resources that are compliant and
--- noncompliant, up to a maximum.
+-- | The number of AWS Config rules or AWS resources that are compliant and noncompliant, up to a maximum.
 --
 -- /See:/ 'complianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
@@ -256,13 +238,11 @@ complianceSummary =
 csComplianceSummaryTimestamp :: Lens' ComplianceSummary (Maybe UTCTime)
 csComplianceSummaryTimestamp = lens _csComplianceSummaryTimestamp (\ s a -> s{_csComplianceSummaryTimestamp = a}) . mapping _Time;
 
--- | The number of AWS Config rules or AWS resources that are compliant, up
--- to a maximum of 25 for rules and 100 for resources.
+-- | The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
 csCompliantResourceCount :: Lens' ComplianceSummary (Maybe ComplianceContributorCount)
 csCompliantResourceCount = lens _csCompliantResourceCount (\ s a -> s{_csCompliantResourceCount = a});
 
--- | The number of AWS Config rules or AWS resources that are noncompliant,
--- up to a maximum of 25 for rules and 100 for resources.
+-- | The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
 csNonCompliantResourceCount :: Lens' ComplianceSummary (Maybe ComplianceContributorCount)
 csNonCompliantResourceCount = lens _csNonCompliantResourceCount (\ s a -> s{_csNonCompliantResourceCount = a});
 
@@ -279,8 +259,7 @@ instance Hashable ComplianceSummary
 
 instance NFData ComplianceSummary
 
--- | The number of AWS resources of a specific type that are compliant or
--- noncompliant, up to a maximum of 100 for each compliance.
+-- | The number of AWS resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each compliance.
 --
 -- /See:/ 'complianceSummaryByResourceType' smart constructor.
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
@@ -307,8 +286,7 @@ complianceSummaryByResourceType =
 csbrtResourceType :: Lens' ComplianceSummaryByResourceType (Maybe Text)
 csbrtResourceType = lens _csbrtResourceType (\ s a -> s{_csbrtResourceType = a});
 
--- | The number of AWS resources that are compliant or noncompliant, up to a
--- maximum of 100 for each compliance.
+-- | The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each compliance.
 csbrtComplianceSummary :: Lens' ComplianceSummaryByResourceType (Maybe ComplianceSummary)
 csbrtComplianceSummary = lens _csbrtComplianceSummary (\ s a -> s{_csbrtComplianceSummary = a});
 
@@ -325,8 +303,7 @@ instance Hashable ComplianceSummaryByResourceType
 
 instance NFData ComplianceSummaryByResourceType
 
--- | A list that contains the status of the delivery of either the snapshot
--- or the configuration history to the specified Amazon S3 bucket.
+-- | A list that contains the status of the delivery of either the snapshot or the configuration history to the specified Amazon S3 bucket.
 --
 -- /See:/ 'configExportDeliveryInfo' smart constructor.
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
@@ -404,15 +381,9 @@ instance Hashable ConfigExportDeliveryInfo
 
 instance NFData ConfigExportDeliveryInfo
 
--- | An AWS Lambda function that evaluates configuration items to assess
--- whether your AWS resources comply with your desired configurations. This
--- function can run when AWS Config detects a configuration change to an
--- AWS resource, or when it delivers a configuration snapshot of the
--- resources in the account.
+-- | An AWS Lambda function that evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource, or when it delivers a configuration snapshot of the resources in the account.
 --
--- For more information about developing and using AWS Config rules, see
--- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config>
--- in the /AWS Config Developer Guide/.
+-- For more information about developing and using AWS Config rules, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config> in the /AWS Config Developer Guide/.
 --
 -- /See:/ 'configRule' smart constructor.
 data ConfigRule = ConfigRule'
@@ -464,25 +435,17 @@ configRule pSource_ =
     , _crSource = pSource_
     }
 
--- | A string in JSON format that is passed to the AWS Config rule Lambda
--- function.
+-- | A string in JSON format that is passed to the AWS Config rule Lambda function.
 crInputParameters :: Lens' ConfigRule (Maybe Text)
 crInputParameters = lens _crInputParameters (\ s a -> s{_crInputParameters = a});
 
--- | The name that you assign to the AWS Config rule. The name is required if
--- you are adding a new rule.
+-- | The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
 crConfigRuleName :: Lens' ConfigRule (Maybe Text)
 crConfigRuleName = lens _crConfigRuleName (\ s a -> s{_crConfigRuleName = a});
 
 -- | The maximum frequency at which the AWS Config rule runs evaluations.
 --
--- If your rule is periodic, meaning it runs an evaluation when AWS Config
--- delivers a configuration snapshot, then it cannot run evaluations more
--- frequently than AWS Config delivers the snapshots. For periodic rules,
--- set the value of the 'MaximumExecutionFrequency' key to be equal to or
--- greater than the value of the 'deliveryFrequency' key, which is part of
--- 'ConfigSnapshotDeliveryProperties'. To update the frequency with which
--- AWS Config delivers your snapshots, use the 'PutDeliveryChannel' action.
+-- If your rule is periodic, meaning it runs an evaluation when AWS Config delivers a configuration snapshot, then it cannot run evaluations more frequently than AWS Config delivers the snapshots. For periodic rules, set the value of the 'MaximumExecutionFrequency' key to be equal to or greater than the value of the 'deliveryFrequency' key, which is part of 'ConfigSnapshotDeliveryProperties'. To update the frequency with which AWS Config delivers your snapshots, use the 'PutDeliveryChannel' action.
 crMaximumExecutionFrequency :: Lens' ConfigRule (Maybe MaximumExecutionFrequency)
 crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crMaximumExecutionFrequency = a});
 
@@ -490,26 +453,15 @@ crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crM
 crConfigRuleId :: Lens' ConfigRule (Maybe Text)
 crConfigRuleId = lens _crConfigRuleId (\ s a -> s{_crConfigRuleId = a});
 
--- | Defines which resources can trigger an evaluation for the rule. The
--- scope can include one or more resource types, a combination of one
--- resource type and one resource ID, or a combination of a tag key and
--- value. Specify a scope to constrain the resources that can trigger an
--- evaluation for the rule. If you do not specify a scope, evaluations are
--- triggered when any resource in the recording group changes.
+-- | Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
 crScope :: Lens' ConfigRule (Maybe Scope)
 crScope = lens _crScope (\ s a -> s{_crScope = a});
 
--- | Indicates whether the AWS Config rule is active or currently being
--- deleted by AWS Config.
+-- | Indicates whether the AWS Config rule is active or currently being deleted by AWS Config.
 --
--- AWS Config sets the state of a rule to 'DELETING' temporarily after you
--- use the 'DeleteConfigRule' request to delete the rule. After AWS Config
--- finishes deleting a rule, the rule and all of its evaluations are erased
--- and no longer available.
+-- AWS Config sets the state of a rule to 'DELETING' temporarily after you use the 'DeleteConfigRule' request to delete the rule. After AWS Config finishes deleting a rule, the rule and all of its evaluations are erased and no longer available.
 --
--- You cannot add a rule to AWS Config that has the state set to
--- 'DELETING'. If you want to delete a rule, you must use the
--- 'DeleteConfigRule' request.
+-- You cannot add a rule to AWS Config that has the state set to 'DELETING'. If you want to delete a rule, you must use the 'DeleteConfigRule' request.
 crConfigRuleState :: Lens' ConfigRule (Maybe ConfigRuleState)
 crConfigRuleState = lens _crConfigRuleState (\ s a -> s{_crConfigRuleState = a});
 
@@ -521,8 +473,7 @@ crDescription = lens _crDescription (\ s a -> s{_crDescription = a});
 crConfigRuleARN :: Lens' ConfigRule (Maybe Text)
 crConfigRuleARN = lens _crConfigRuleARN (\ s a -> s{_crConfigRuleARN = a});
 
--- | Provides the rule owner (AWS or customer), the rule identifier, and the
--- events that cause the function to evaluate your AWS resources.
+-- | Provides the rule owner (AWS or customer), the rule identifier, and the events that cause the function to evaluate your AWS resources.
 crSource :: Lens' ConfigRule Source
 crSource = lens _crSource (\ s a -> s{_crSource = a});
 
@@ -560,12 +511,9 @@ instance ToJSON ConfigRule where
                   ("ConfigRuleArn" .=) <$> _crConfigRuleARN,
                   Just ("Source" .= _crSource)])
 
--- | Status information for your AWS managed Config rules. The status
--- includes information such as the last time the rule ran, the last time
--- it failed, and the related error for the last failure.
+-- | Status information for your AWS managed Config rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.
 --
--- This action does not return status information about customer managed
--- Config rules.
+-- This action does not return status information about customer managed Config rules.
 --
 -- /See:/ 'configRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
@@ -628,8 +576,7 @@ configRuleEvaluationStatus =
 cresLastErrorCode :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
 cresLastErrorCode = lens _cresLastErrorCode (\ s a -> s{_cresLastErrorCode = a});
 
--- | The time that AWS Config last failed to evaluate your AWS resources
--- against the rule.
+-- | The time that AWS Config last failed to evaluate your AWS resources against the rule.
 cresLastFailedEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastFailedEvaluationTime = lens _cresLastFailedEvaluationTime (\ s a -> s{_cresLastFailedEvaluationTime = a}) . mapping _Time;
 
@@ -637,8 +584,7 @@ cresLastFailedEvaluationTime = lens _cresLastFailedEvaluationTime (\ s a -> s{_c
 cresFirstActivatedTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresFirstActivatedTime = lens _cresFirstActivatedTime (\ s a -> s{_cresFirstActivatedTime = a}) . mapping _Time;
 
--- | The time that AWS Config last successfully evaluated your AWS resources
--- against the rule.
+-- | The time that AWS Config last successfully evaluated your AWS resources against the rule.
 cresLastSuccessfulEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastSuccessfulEvaluationTime = lens _cresLastSuccessfulEvaluationTime (\ s a -> s{_cresLastSuccessfulEvaluationTime = a}) . mapping _Time;
 
@@ -654,23 +600,18 @@ cresLastErrorMessage = lens _cresLastErrorMessage (\ s a -> s{_cresLastErrorMess
 cresConfigRuleId :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
 cresConfigRuleId = lens _cresConfigRuleId (\ s a -> s{_cresConfigRuleId = a});
 
--- | The time that AWS Config last failed to invoke the AWS Config rule to
--- evaluate your AWS resources.
+-- | The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
 cresLastFailedInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastFailedInvocationTime = lens _cresLastFailedInvocationTime (\ s a -> s{_cresLastFailedInvocationTime = a}) . mapping _Time;
 
--- | Indicates whether AWS Config has evaluated your resources against the
--- rule at least once.
+-- | Indicates whether AWS Config has evaluated your resources against the rule at least once.
 --
--- -   'true' - AWS Config has evaluated your AWS resources against the
---     rule at least once.
--- -   'false' - AWS Config has not once finished evaluating your AWS
---     resources against the rule.
+-- -   'true' - AWS Config has evaluated your AWS resources against the rule at least once.
+-- -   'false' - AWS Config has not once finished evaluating your AWS resources against the rule.
 cresFirstEvaluationStarted :: Lens' ConfigRuleEvaluationStatus (Maybe Bool)
 cresFirstEvaluationStarted = lens _cresFirstEvaluationStarted (\ s a -> s{_cresFirstEvaluationStarted = a});
 
--- | The time that AWS Config last successfully invoked the AWS Config rule
--- to evaluate your AWS resources.
+-- | The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
 cresLastSuccessfulInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastSuccessfulInvocationTime = lens _cresLastSuccessfulInvocationTime (\ s a -> s{_cresLastSuccessfulInvocationTime = a}) . mapping _Time;
 
@@ -699,8 +640,7 @@ instance Hashable ConfigRuleEvaluationStatus
 
 instance NFData ConfigRuleEvaluationStatus
 
--- | Options for how AWS Config delivers configuration snapshots to the
--- Amazon S3 bucket in your delivery channel.
+-- | Options for how AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
 --
 -- /See:/ 'configSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
@@ -719,8 +659,7 @@ configSnapshotDeliveryProperties =
     { _csdpDeliveryFrequency = Nothing
     }
 
--- | The frequency with which a AWS Config recurringly delivers configuration
--- snapshots.
+-- | The frequency with which a AWS Config recurringly delivers configuration snapshots.
 csdpDeliveryFrequency :: Lens' ConfigSnapshotDeliveryProperties (Maybe MaximumExecutionFrequency)
 csdpDeliveryFrequency = lens _csdpDeliveryFrequency (\ s a -> s{_csdpDeliveryFrequency = a});
 
@@ -744,8 +683,7 @@ instance ToJSON ConfigSnapshotDeliveryProperties
                  [("deliveryFrequency" .=) <$>
                     _csdpDeliveryFrequency])
 
--- | A list that contains the status of the delivery of the configuration
--- stream notification to the Amazon SNS topic.
+-- | A list that contains the status of the delivery of the configuration stream notification to the Amazon SNS topic.
 --
 -- /See:/ 'configStreamDeliveryInfo' smart constructor.
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
@@ -786,10 +724,7 @@ csdiLastStatusChangeTime = lens _csdiLastStatusChangeTime (\ s a -> s{_csdiLastS
 
 -- | Status of the last attempted delivery.
 --
--- __Note__ Providing an SNS topic on a
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
--- for AWS Config is optional. If the SNS delivery is turned off, the last
--- status will be __Not_Applicable__.
+-- __Note__ Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__.
 csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe DeliveryStatus)
 csdiLastStatus = lens _csdiLastStatus (\ s a -> s{_csdiLastStatus = a});
 
@@ -813,8 +748,7 @@ instance NFData ConfigStreamDeliveryInfo
 
 -- | A list that contains detailed configurations of a specified resource.
 --
--- Currently, the list does not contain information about non-AWS
--- components (for example, applications on your Amazon EC2 instances).
+-- Currently, the list does not contain information about non-AWS components (for example, applications on your Amazon EC2 instances).
 --
 -- /See:/ 'configurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
@@ -905,8 +839,7 @@ ciResourceId = lens _ciResourceId (\ s a -> s{_ciResourceId = a});
 ciResourceType :: Lens' ConfigurationItem (Maybe ResourceType)
 ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a});
 
--- | An identifier that indicates the ordering of the configuration items of
--- a resource.
+-- | An identifier that indicates the ordering of the configuration items of a resource.
 ciConfigurationStateId :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationStateId = lens _ciConfigurationStateId (\ s a -> s{_ciConfigurationStateId = a});
 
@@ -952,13 +885,9 @@ ciAwsRegion = lens _ciAwsRegion (\ s a -> s{_ciAwsRegion = a});
 
 -- | A list of CloudTrail event IDs.
 --
--- A populated field indicates that the current configuration was initiated
--- by the events recorded in the CloudTrail log. For more information about
--- CloudTrail, see
--- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.
+-- A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.
 --
--- An empty field indicates that the current configuration was not
--- initiated by any event.
+-- An empty field indicates that the current configuration was not initiated by any event.
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
 ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a}) . _Default . _Coerce;
 
@@ -968,8 +897,7 @@ ciConfiguration = lens _ciConfiguration (\ s a -> s{_ciConfiguration = a});
 
 -- | Unique MD5 hash that represents the configuration item\'s state.
 --
--- You can use MD5 hash to compare the states of two or more configuration
--- items that are associated with the same resource.
+-- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
 ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationItemMD5Hash = lens _ciConfigurationItemMD5Hash (\ s a -> s{_ciConfigurationItemMD5Hash = a});
 
@@ -1003,8 +931,7 @@ instance Hashable ConfigurationItem
 
 instance NFData ConfigurationItem
 
--- | An object that represents the recording of configuration changes of an
--- AWS resource.
+-- | An object that represents the recording of configuration changes of an AWS resource.
 --
 -- /See:/ 'configurationRecorder' smart constructor.
 data ConfigurationRecorder = ConfigurationRecorder'
@@ -1031,19 +958,15 @@ configurationRecorder =
     , _crRoleARN = Nothing
     }
 
--- | The name of the recorder. By default, AWS Config automatically assigns
--- the name \"default\" when creating the configuration recorder. You
--- cannot change the assigned name.
+-- | The name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.
 crName :: Lens' ConfigurationRecorder (Maybe Text)
 crName = lens _crName (\ s a -> s{_crName = a});
 
--- | Specifies the types of AWS resource for which AWS Config records
--- configuration changes.
+-- | Specifies the types of AWS resource for which AWS Config records configuration changes.
 crRecordingGroup :: Lens' ConfigurationRecorder (Maybe RecordingGroup)
 crRecordingGroup = lens _crRecordingGroup (\ s a -> s{_crRecordingGroup = a});
 
--- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
--- resources associated with the account.
+-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account.
 crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\ s a -> s{_crRoleARN = a});
 
@@ -1163,8 +1086,7 @@ instance Hashable ConfigurationRecorderStatus
 
 instance NFData ConfigurationRecorderStatus
 
--- | A logical container used for storing the configuration changes of an AWS
--- resource.
+-- | A logical container used for storing the configuration changes of an AWS resource.
 --
 -- /See:/ 'deliveryChannel' smart constructor.
 data DeliveryChannel = DeliveryChannel'
@@ -1203,14 +1125,11 @@ deliveryChannel =
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
 dcS3KeyPrefix = lens _dcS3KeyPrefix (\ s a -> s{_dcS3KeyPrefix = a});
 
--- | The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers
--- notifications to.
+-- | The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications to.
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a});
 
--- | The name of the delivery channel. By default, AWS Config automatically
--- assigns the name \"default\" when creating the delivery channel. You
--- cannot change the assigned name.
+-- | The name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name.
 dcName :: Lens' DeliveryChannel (Maybe Text)
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -1218,8 +1137,7 @@ dcName = lens _dcName (\ s a -> s{_dcName = a});
 dcConfigSnapshotDeliveryProperties :: Lens' DeliveryChannel (Maybe ConfigSnapshotDeliveryProperties)
 dcConfigSnapshotDeliveryProperties = lens _dcConfigSnapshotDeliveryProperties (\ s a -> s{_dcConfigSnapshotDeliveryProperties = a});
 
--- | The name of the Amazon S3 bucket used to store configuration history for
--- the delivery channel.
+-- | The name of the Amazon S3 bucket used to store configuration history for the delivery channel.
 dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
 dcS3BucketName = lens _dcS3BucketName (\ s a -> s{_dcS3BucketName = a});
 
@@ -1281,18 +1199,15 @@ deliveryChannelStatus =
     , _dcsName = Nothing
     }
 
--- | A list containing the status of the delivery of the snapshot to the
--- specified Amazon S3 bucket.
+-- | A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
 dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
 dcsConfigSnapshotDeliveryInfo = lens _dcsConfigSnapshotDeliveryInfo (\ s a -> s{_dcsConfigSnapshotDeliveryInfo = a});
 
--- | A list containing the status of the delivery of the configuration stream
--- notification to the specified Amazon SNS topic.
+-- | A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
 dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
 dcsConfigStreamDeliveryInfo = lens _dcsConfigStreamDeliveryInfo (\ s a -> s{_dcsConfigStreamDeliveryInfo = a});
 
--- | A list that contains the status of the delivery of the configuration
--- history to the specified Amazon S3 bucket.
+-- | A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
 dcsConfigHistoryDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
 dcsConfigHistoryDeliveryInfo = lens _dcsConfigHistoryDeliveryInfo (\ s a -> s{_dcsConfigHistoryDeliveryInfo = a});
 
@@ -1314,8 +1229,7 @@ instance Hashable DeliveryChannelStatus
 
 instance NFData DeliveryChannelStatus
 
--- | Identifies an AWS resource and indicates whether it complies with the
--- AWS Config rule that it was evaluated against.
+-- | Identifies an AWS resource and indicates whether it complies with the AWS Config rule that it was evaluated against.
 --
 -- /See:/ 'evaluation' smart constructor.
 data Evaluation = Evaluation'
@@ -1354,8 +1268,7 @@ evaluation pComplianceResourceType_ pComplianceResourceId_ pComplianceType_ pOrd
     , _eOrderingTimestamp = _Time # pOrderingTimestamp_
     }
 
--- | Supplementary information about how the evaluation determined the
--- compliance.
+-- | Supplementary information about how the evaluation determined the compliance.
 eAnnotation :: Lens' Evaluation (Maybe Text)
 eAnnotation = lens _eAnnotation (\ s a -> s{_eAnnotation = a});
 
@@ -1367,25 +1280,15 @@ eComplianceResourceType = lens _eComplianceResourceType (\ s a -> s{_eCompliance
 eComplianceResourceId :: Lens' Evaluation Text
 eComplianceResourceId = lens _eComplianceResourceId (\ s a -> s{_eComplianceResourceId = a});
 
--- | Indicates whether the AWS resource complies with the AWS Config rule
--- that it was evaluated against.
+-- | Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
 --
--- For the 'Evaluation' data type, AWS Config supports only the
--- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
--- does not support the 'INSUFFICIENT_DATA' value for this data type.
+-- For the 'Evaluation' data type, AWS Config supports only the 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config does not support the 'INSUFFICIENT_DATA' value for this data type.
 --
--- Similarly, AWS Config does not accept 'INSUFFICIENT_DATA' as the value
--- for 'ComplianceType' from a 'PutEvaluations' request. For example, an
--- AWS Lambda function for a custom Config rule cannot pass an
--- 'INSUFFICIENT_DATA' value to AWS Config.
+-- Similarly, AWS Config does not accept 'INSUFFICIENT_DATA' as the value for 'ComplianceType' from a 'PutEvaluations' request. For example, an AWS Lambda function for a custom Config rule cannot pass an 'INSUFFICIENT_DATA' value to AWS Config.
 eComplianceType :: Lens' Evaluation ComplianceType
 eComplianceType = lens _eComplianceType (\ s a -> s{_eComplianceType = a});
 
--- | The time of the event in AWS Config that triggered the evaluation. For
--- event-based evaluations, the time indicates when AWS Config created the
--- configuration item that triggered the evaluation. For periodic
--- evaluations, the time indicates when AWS Config delivered the
--- configuration snapshot that triggered the evaluation.
+-- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config delivered the configuration snapshot that triggered the evaluation.
 eOrderingTimestamp :: Lens' Evaluation UTCTime
 eOrderingTimestamp = lens _eOrderingTimestamp (\ s a -> s{_eOrderingTimestamp = a}) . _Time;
 
@@ -1417,9 +1320,7 @@ instance ToJSON Evaluation where
                   Just ("ComplianceType" .= _eComplianceType),
                   Just ("OrderingTimestamp" .= _eOrderingTimestamp)])
 
--- | The details of an AWS Config evaluation. Provides the AWS resource that
--- was evaluated, the compliance of the resource, related timestamps, and
--- supplementary information.
+-- | The details of an AWS Config evaluation. Provides the AWS resource that was evaluated, the compliance of the resource, related timestamps, and supplementary information.
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
@@ -1462,8 +1363,7 @@ evaluationResult =
 erEvaluationResultIdentifier :: Lens' EvaluationResult (Maybe EvaluationResultIdentifier)
 erEvaluationResultIdentifier = lens _erEvaluationResultIdentifier (\ s a -> s{_erEvaluationResultIdentifier = a});
 
--- | Supplementary information about how the evaluation determined the
--- compliance.
+-- | Supplementary information about how the evaluation determined the compliance.
 erAnnotation :: Lens' EvaluationResult (Maybe Text)
 erAnnotation = lens _erAnnotation (\ s a -> s{_erAnnotation = a});
 
@@ -1475,19 +1375,13 @@ erConfigRuleInvokedTime = lens _erConfigRuleInvokedTime (\ s a -> s{_erConfigRul
 erResultRecordedTime :: Lens' EvaluationResult (Maybe UTCTime)
 erResultRecordedTime = lens _erResultRecordedTime (\ s a -> s{_erResultRecordedTime = a}) . mapping _Time;
 
--- | An encrypted token that associates an evaluation with an AWS Config
--- rule. The token identifies the rule, the AWS resource being evaluated,
--- and the event that triggered the evaluation.
+-- | An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
 erResultToken :: Lens' EvaluationResult (Maybe Text)
 erResultToken = lens _erResultToken (\ s a -> s{_erResultToken = a});
 
--- | Indicates whether the AWS resource complies with the AWS Config rule
--- that evaluated it.
+-- | Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.
 --
--- For the 'EvaluationResult' data type, AWS Config supports only the
--- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
--- does not support the 'INSUFFICIENT_DATA' value for the
--- 'EvaluationResult' data type.
+-- For the 'EvaluationResult' data type, AWS Config supports only the 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config does not support the 'INSUFFICIENT_DATA' value for the 'EvaluationResult' data type.
 erComplianceType :: Lens' EvaluationResult (Maybe ComplianceType)
 erComplianceType = lens _erComplianceType (\ s a -> s{_erComplianceType = a});
 
@@ -1530,16 +1424,11 @@ evaluationResultIdentifier =
     , _eriOrderingTimestamp = Nothing
     }
 
--- | Identifies an AWS Config rule used to evaluate an AWS resource, and
--- provides the type and ID of the evaluated resource.
+-- | Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
 eriEvaluationResultQualifier :: Lens' EvaluationResultIdentifier (Maybe EvaluationResultQualifier)
 eriEvaluationResultQualifier = lens _eriEvaluationResultQualifier (\ s a -> s{_eriEvaluationResultQualifier = a});
 
--- | The time of the event that triggered the evaluation of your AWS
--- resources. The time can indicate when AWS Config delivered a
--- configuration item change notification, or it can indicate when AWS
--- Config delivered the configuration snapshot, depending on which event
--- triggered the evaluation.
+-- | The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.
 eriOrderingTimestamp :: Lens' EvaluationResultIdentifier (Maybe UTCTime)
 eriOrderingTimestamp = lens _eriOrderingTimestamp (\ s a -> s{_eriOrderingTimestamp = a}) . mapping _Time;
 
@@ -1555,8 +1444,7 @@ instance Hashable EvaluationResultIdentifier
 
 instance NFData EvaluationResultIdentifier
 
--- | Identifies an AWS Config rule that evaluated an AWS resource, and
--- provides the type and ID of the resource that the rule evaluated.
+-- | Identifies an AWS Config rule that evaluated an AWS resource, and provides the type and ID of the resource that the rule evaluated.
 --
 -- /See:/ 'evaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
@@ -1607,40 +1495,21 @@ instance Hashable EvaluationResultQualifier
 
 instance NFData EvaluationResultQualifier
 
--- | Specifies the types of AWS resource for which AWS Config records
--- configuration changes.
+-- | Specifies the types of AWS resource for which AWS Config records configuration changes.
 --
--- In the recording group, you specify whether all supported types or
--- specific types of resources are recorded.
+-- In the recording group, you specify whether all supported types or specific types of resources are recorded.
 --
--- By default, AWS Config records configuration changes for all supported
--- types of regional resources that AWS Config discovers in the region in
--- which it is running. Regional resources are tied to a region and can be
--- used only in that region. Examples of regional resources are EC2
--- instances and EBS volumes.
+-- By default, AWS Config records configuration changes for all supported types of regional resources that AWS Config discovers in the region in which it is running. Regional resources are tied to a region and can be used only in that region. Examples of regional resources are EC2 instances and EBS volumes.
 --
--- You can also have AWS Config record configuration changes for supported
--- types of global resources (for example, IAM resources). Global resources
--- are not tied to an individual region and can be used in all regions.
+-- You can also have AWS Config record configuration changes for supported types of global resources (for example, IAM resources). Global resources are not tied to an individual region and can be used in all regions.
 --
--- The configuration details for any global resource are the same in all
--- regions. If you customize AWS Config in multiple regions to record
--- global resources, it will create multiple configuration items each time
--- a global resource changes: one configuration item for each region. These
--- configuration items will contain identical data. To prevent duplicate
--- configuration items, you should consider customizing AWS Config in only
--- one region to record global resources, unless you want the configuration
--- items to be available in multiple regions.
+-- The configuration details for any global resource are the same in all regions. If you customize AWS Config in multiple regions to record global resources, it will create multiple configuration items each time a global resource changes: one configuration item for each region. These configuration items will contain identical data. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources, unless you want the configuration items to be available in multiple regions.
 --
--- If you don\'t want AWS Config to record all resources, you can specify
--- which types of resources it will record with the 'resourceTypes'
--- parameter.
+-- If you don\'t want AWS Config to record all resources, you can specify which types of resources it will record with the 'resourceTypes' parameter.
 --
--- For a list of supported resource types, see
--- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>.
+-- For a list of supported resource types, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources AWS Config Records>.
+-- For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources AWS Config Records>.
 --
 -- /See:/ 'recordingGroup' smart constructor.
 data RecordingGroup = RecordingGroup'
@@ -1667,49 +1536,31 @@ recordingGroup =
     , _rgResourceTypes = Nothing
     }
 
--- | Specifies whether AWS Config records configuration changes for every
--- supported type of regional resource.
+-- | Specifies whether AWS Config records configuration changes for every supported type of regional resource.
 --
--- If you set this option to 'true', when AWS Config adds support for a new
--- type of regional resource, it automatically starts recording resources
--- of that type.
+-- If you set this option to 'true', when AWS Config adds support for a new type of regional resource, it automatically starts recording resources of that type.
 --
--- If you set this option to 'true', you cannot enumerate a list of
--- 'resourceTypes'.
+-- If you set this option to 'true', you cannot enumerate a list of 'resourceTypes'.
 rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
--- | Specifies whether AWS Config includes all supported types of global
--- resources (for example, IAM resources) with the resources that it
--- records.
+-- | Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.
 --
--- Before you can set this option to 'true', you must set the
--- 'allSupported' option to 'true'.
+-- Before you can set this option to 'true', you must set the 'allSupported' option to 'true'.
 --
--- If you set this option to 'true', when AWS Config adds support for a new
--- type of global resource, it automatically starts recording resources of
--- that type.
+-- If you set this option to 'true', when AWS Config adds support for a new type of global resource, it automatically starts recording resources of that type.
 --
--- The configuration details for any global resource are the same in all
--- regions. To prevent duplicate configuration items, you should consider
--- customizing AWS Config in only one region to record global resources.
+-- The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
 rgIncludeGlobalResourceTypes :: Lens' RecordingGroup (Maybe Bool)
 rgIncludeGlobalResourceTypes = lens _rgIncludeGlobalResourceTypes (\ s a -> s{_rgIncludeGlobalResourceTypes = a});
 
--- | A comma-separated list that specifies the types of AWS resources for
--- which AWS Config records configuration changes (for example,
--- 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
+-- | A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
 --
--- Before you can set this option to 'true', you must set the
--- 'allSupported' option to 'false'.
+-- Before you can set this option to 'true', you must set the 'allSupported' option to 'false'.
 --
--- If you set this option to 'true', when AWS Config adds support for a new
--- type of resource, it will not record resources of that type unless you
--- manually add that type to your recording group.
+-- If you set this option to 'true', when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
 --
--- For a list of valid 'resourceTypes' values, see the __resourceType
--- Value__ column in
--- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
+-- For a list of valid 'resourceTypes' values, see the __resourceType Value__ column in <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
 rgResourceTypes :: Lens' RecordingGroup [ResourceType]
 rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default . _Coerce;
 
@@ -1795,9 +1646,7 @@ instance Hashable Relationship
 
 instance NFData Relationship
 
--- | The details that identify a resource that is discovered by AWS Config,
--- including the resource type, ID, and (if available) the custom resource
--- name.
+-- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 --
 -- /See:/ 'resourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
@@ -1857,12 +1706,7 @@ instance Hashable ResourceIdentifier
 
 instance NFData ResourceIdentifier
 
--- | Defines which resources trigger an evaluation for an AWS Config rule.
--- The scope can include one or more resource types, a combination of a tag
--- key and value, or a combination of one resource type and one resource
--- ID. Specify a scope to constrain which resources trigger an evaluation
--- for a rule. Otherwise, evaluations for the rule are triggered when any
--- resource in your recording group changes in configuration.
+-- | Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 --
 -- /See:/ 'scope' smart constructor.
 data Scope = Scope'
@@ -1893,26 +1737,19 @@ scope =
     , _sTagKey = Nothing
     }
 
--- | The resource types of only those AWS resources that you want to trigger
--- an evaluation for the rule. You can only specify one type if you also
--- specify a resource ID for 'ComplianceResourceId'.
+-- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for 'ComplianceResourceId'.
 sComplianceResourceTypes :: Lens' Scope [Text]
 sComplianceResourceTypes = lens _sComplianceResourceTypes (\ s a -> s{_sComplianceResourceTypes = a}) . _Default . _Coerce;
 
--- | The IDs of the only AWS resource that you want to trigger an evaluation
--- for the rule. If you specify a resource ID, you must specify one
--- resource type for 'ComplianceResourceTypes'.
+-- | The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for 'ComplianceResourceTypes'.
 sComplianceResourceId :: Lens' Scope (Maybe Text)
 sComplianceResourceId = lens _sComplianceResourceId (\ s a -> s{_sComplianceResourceId = a});
 
--- | The tag value applied to only those AWS resources that you want to
--- trigger an evaluation for the rule. If you specify a value for
--- 'TagValue', you must also specify a value for 'TagKey'.
+-- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for 'TagValue', you must also specify a value for 'TagKey'.
 sTagValue :: Lens' Scope (Maybe Text)
 sTagValue = lens _sTagValue (\ s a -> s{_sTagValue = a});
 
--- | The tag key that is applied to only those AWS resources that you want
--- you want to trigger an evaluation for the rule.
+-- | The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 sTagKey :: Lens' Scope (Maybe Text)
 sTagKey = lens _sTagKey (\ s a -> s{_sTagKey = a});
 
@@ -1941,9 +1778,7 @@ instance ToJSON Scope where
                   ("TagValue" .=) <$> _sTagValue,
                   ("TagKey" .=) <$> _sTagKey])
 
--- | Provides the AWS Config rule owner (AWS or customer), the rule
--- identifier, and the events that trigger the evaluation of your AWS
--- resources.
+-- | Provides the AWS Config rule owner (AWS or customer), the rule identifier, and the events that trigger the evaluation of your AWS resources.
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
@@ -1970,22 +1805,17 @@ source =
     , _sSourceDetails = Nothing
     }
 
--- | For AWS managed Config rules, a pre-defined identifier from a list. To
--- reference the list, see
--- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
+-- | For AWS managed Config rules, a pre-defined identifier from a list. To reference the list, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
 --
--- For customer managed Config rules, the identifier is the Amazon Resource
--- Name (ARN) of the rule\'s AWS Lambda function.
+-- For customer managed Config rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function.
 sSourceIdentifier :: Lens' Source (Maybe Text)
 sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
 
--- | Indicates whether AWS or the customer owns and manages the AWS Config
--- rule.
+-- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
 sOwner :: Lens' Source (Maybe Owner)
 sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
 
--- | Provides the source and type of the event that causes AWS Config to
--- evaluate your AWS resources.
+-- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 sSourceDetails :: Lens' Source [SourceDetail]
 sSourceDetails = lens _sSourceDetails (\ s a -> s{_sSourceDetails = a}) . _Default . _Coerce;
 
@@ -2009,8 +1839,7 @@ instance ToJSON Source where
                   ("Owner" .=) <$> _sOwner,
                   ("SourceDetails" .=) <$> _sSourceDetails])
 
--- | Provides the source and type of the event that triggers AWS Config to
--- evaluate your AWS resources against a rule.
+-- | Provides the source and type of the event that triggers AWS Config to evaluate your AWS resources against a rule.
 --
 -- /See:/ 'sourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
@@ -2033,17 +1862,11 @@ sourceDetail =
     , _sdEventSource = Nothing
     }
 
--- | The type of SNS message that triggers AWS Config to run an evaluation.
--- For evaluations that are initiated when AWS Config delivers a
--- configuration item change notification, you must use
--- 'ConfigurationItemChangeNotification'. For evaluations that are
--- initiated when AWS Config delivers a configuration snapshot, you must
--- use 'ConfigurationSnapshotDeliveryCompleted'.
+-- | The type of SNS message that triggers AWS Config to run an evaluation. For evaluations that are initiated when AWS Config delivers a configuration item change notification, you must use 'ConfigurationItemChangeNotification'. For evaluations that are initiated when AWS Config delivers a configuration snapshot, you must use 'ConfigurationSnapshotDeliveryCompleted'.
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
 sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
 
--- | The source of the event, such as an AWS service, that triggers AWS
--- Config to evaluate your AWS resources.
+-- | The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 sdEventSource :: Lens' SourceDetail (Maybe EventSource)
 sdEventSource = lens _sdEventSource (\ s a -> s{_sdEventSource = a});
 

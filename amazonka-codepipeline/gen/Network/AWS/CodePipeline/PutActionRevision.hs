@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information to AWS CodePipeline about new revisions to a
--- source.
+-- Provides information to AWS CodePipeline about new revisions to a source.
 module Network.AWS.CodePipeline.PutActionRevision
     (
     -- * Creating a Request
@@ -82,13 +81,11 @@ putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
     , _parActionRevision = pActionRevision_
     }
 
--- | The name of the pipeline that will start processing the revision to the
--- source.
+-- | The name of the pipeline that will start processing the revision to the source.
 parPipelineName :: Lens' PutActionRevision Text
 parPipelineName = lens _parPipelineName (\ s a -> s{_parPipelineName = a});
 
--- | The name of the stage that contains the action that will act upon the
--- revision.
+-- | The name of the stage that contains the action that will act upon the revision.
 parStageName :: Lens' PutActionRevision Text
 parStageName = lens _parStageName (\ s a -> s{_parStageName = a});
 
@@ -168,8 +165,7 @@ putActionRevisionResponse pResponseStatus_ =
     , _parrsResponseStatus = pResponseStatus_
     }
 
--- | The new revision number or ID for the revision after the action
--- completes.
+-- | The new revision number or ID for the revision after the action completes.
 parrsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
 parrsNewRevision = lens _parrsNewRevision (\ s a -> s{_parrsNewRevision = a});
 

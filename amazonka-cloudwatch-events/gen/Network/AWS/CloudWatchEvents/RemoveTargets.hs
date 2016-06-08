@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes target(s) from a rule so that when the rule is triggered, those
--- targets will no longer be invoked.
+-- Removes target(s) from a rule so that when the rule is triggered, those targets will no longer be invoked.
 --
--- __Note:__ When you remove a target, when the associated rule triggers,
--- removed targets might still continue to be invoked. Please allow a short
--- period of time for changes to take effect.
+-- __Note:__ When you remove a target, when the associated rule triggers, removed targets might still continue to be invoked. Please allow a short period of time for changes to take effect.
 module Network.AWS.CloudWatchEvents.RemoveTargets
     (
     -- * Creating a Request

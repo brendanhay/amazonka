@@ -20,10 +20,7 @@
 --
 -- Describes one or more of your Dedicated hosts.
 --
--- The results describe only the Dedicated hosts in the region you\'re
--- currently using. All listed instances consume capacity on your Dedicated
--- host. Dedicated hosts that have recently been released will be listed
--- with the state 'released'.
+-- The results describe only the Dedicated hosts in the region you\'re currently using. All listed instances consume capacity on your Dedicated host. Dedicated hosts that have recently been released will be listed with the state 'released'.
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request
@@ -88,38 +85,26 @@ dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a});
 
 -- | One or more filters.
 --
--- -   'instance-type' - The instance type size that the Dedicated host is
---     configured to support.
+-- -   'instance-type' - The instance type size that the Dedicated host is configured to support.
 --
--- -   'auto-placement' - Whether auto-placement is enabled or disabled
---     ('on' | 'off').
+-- -   'auto-placement' - Whether auto-placement is enabled or disabled ('on' | 'off').
 --
--- -   'host-reservation-id' - The ID of the reservation associated with
---     this host.
+-- -   'host-reservation-id' - The ID of the reservation associated with this host.
 --
--- -   'client-token' - The idempotency token you provided when you
---     launched the instance
+-- -   'client-token' - The idempotency token you provided when you launched the instance
 --
--- -   'state'- The allocation state of the Dedicated host ('available' |
---     'under-assessment' | 'permanent-failure' | 'released' |
---     'released-permanent-failure').
+-- -   'state'- The allocation state of the Dedicated host ('available' | 'under-assessment' | 'permanent-failure' | 'released' | 'released-permanent-failure').
 --
 -- -   'availability-zone' - The Availability Zone of the host.
 --
 dhFilter :: Lens' DescribeHosts [Filter]
 dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce;
 
--- | The IDs of the Dedicated hosts. The IDs are used for targeted instance
--- launches.
+-- | The IDs of the Dedicated hosts. The IDs are used for targeted instance launches.
 dhHostIds :: Lens' DescribeHosts [Text]
 dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned 'nextToken' value. This value can be between 5 and 500; if
--- 'maxResults' is given a larger value than 500, you will receive an
--- error. You cannot specify this parameter and the host IDs parameter in
--- the same request.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'nextToken' value. This value can be between 5 and 500; if 'maxResults' is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 dhMaxResults :: Lens' DescribeHosts (Maybe Int)
 dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a});
 
@@ -187,8 +172,7 @@ describeHostsResponse pResponseStatus_ =
 dhrsHosts :: Lens' DescribeHostsResponse [Host]
 dhrsHosts = lens _dhrsHosts (\ s a -> s{_dhrsHosts = a}) . _Default . _Coerce;
 
--- | The token to use to retrieve the next page of results. This value is
--- 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
 dhrsNextToken :: Lens' DescribeHostsResponse (Maybe Text)
 dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 

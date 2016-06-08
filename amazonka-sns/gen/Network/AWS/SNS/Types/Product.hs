@@ -63,17 +63,9 @@ instance Hashable Endpoint
 
 instance NFData Endpoint
 
--- | The user-specified message attribute value. For string data types, the
--- value attribute has the same restrictions on the content as the message
--- body. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>.
+-- | The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish>.
 --
--- Name, type, and value must not be empty or null. In addition, the
--- message body should not be empty or null. All parts of the message
--- attribute, including name, type, and value, are included in the message
--- size restriction, which is currently 256 KB (262,144 bytes). For more
--- information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html Using Amazon SNS Message Attributes>.
+-- Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html Using Amazon SNS Message Attributes>.
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
@@ -101,8 +93,7 @@ messageAttributeValue pDataType_ =
     , _mavDataType = pDataType_
     }
 
--- | Binary type attributes can store any binary data, for example,
--- compressed data, encrypted data, or images.
+-- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -112,15 +103,11 @@ messageAttributeValue pDataType_ =
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
 
--- | Strings are Unicode with UTF8 binary encoding. For a list of code
--- values, see
--- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 
--- | Amazon SNS supports the following logical data types: String, Number,
--- and Binary. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
+-- | Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 
@@ -244,8 +231,7 @@ instance Hashable Subscription
 
 instance NFData Subscription
 
--- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
--- a topic\'s attributes, use 'GetTopicAttributes'.
+-- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve a topic\'s attributes, use 'GetTopicAttributes'.
 --
 -- /See:/ 'topic' smart constructor.
 newtype Topic = Topic'

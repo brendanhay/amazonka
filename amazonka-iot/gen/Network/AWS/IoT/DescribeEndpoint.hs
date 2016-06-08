@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique endpoint specific to the AWS account making the call.
--- You specify the following URI when updating state information for your
--- thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
+-- Returns a unique endpoint specific to the AWS account making the call. You specify the following URI when updating state information for your thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request
@@ -101,8 +99,7 @@ describeEndpointResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | The endpoint. The format of the endpoint is as follows:
--- /identifier/.iot./region/.amazonaws.com.
+-- | The endpoint. The format of the endpoint is as follows: /identifier/.iot./region/.amazonaws.com.
 dersEndpointAddress :: Lens' DescribeEndpointResponse (Maybe Text)
 dersEndpointAddress = lens _dersEndpointAddress (\ s a -> s{_dersEndpointAddress = a});
 

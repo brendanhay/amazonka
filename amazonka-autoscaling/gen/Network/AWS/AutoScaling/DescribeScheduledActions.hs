@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the actions scheduled for your Auto Scaling group that
--- haven\'t run. To describe the actions that have already run, use
--- < DescribeScalingActivities>.
+-- Describes the actions scheduled for your Auto Scaling group that haven\'t run. To describe the actions that have already run, use < DescribeScalingActivities>.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
@@ -90,13 +88,11 @@ describeScheduledActions =
     , _dsasScheduledActionNames = Nothing
     }
 
--- | The earliest scheduled start time to return. If scheduled action names
--- are provided, this parameter is ignored.
+-- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 dsasStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsasStartTime = lens _dsasStartTime (\ s a -> s{_dsasStartTime = a}) . mapping _Time;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dsasNextToken :: Lens' DescribeScheduledActions (Maybe Text)
 dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
 
@@ -108,18 +104,13 @@ dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoS
 dsasMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
 dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 
--- | The latest scheduled start time to return. If scheduled action names are
--- provided, this parameter is ignored.
+-- | The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 
--- | Describes one or more scheduled actions. If you omit this list, the call
--- describes all scheduled actions. If you specify an unknown scheduled
--- action it is ignored with no error.
+-- | Describes one or more scheduled actions. If you omit this list, the call describes all scheduled actions. If you specify an unknown scheduled action it is ignored with no error.
 --
--- You can describe up to a maximum of 50 instances with a single call. If
--- there are more items to return, the call returns a token. To get the
--- next set of items, repeat the call with the returned token.
+-- You can describe up to a maximum of 50 instances with a single call. If there are more items to return, the call returns a token. To get the next set of items, repeat the call with the returned token.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 
@@ -199,8 +190,7 @@ describeScheduledActionsResponse pResponseStatus_ =
 dsarsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
 dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a -> s{_dsarsScheduledUpdateGroupActions = a}) . _Default . _Coerce;
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 

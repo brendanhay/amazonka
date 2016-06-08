@@ -212,8 +212,7 @@ _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a S
 _ResourceAlreadyExistsException =
     _ServiceError . hasCode "ResourceAlreadyExistsException"
 
--- | Returned if multiple requests to update the same resource were in
--- conflict.
+-- | Returned if multiple requests to update the same resource were in conflict.
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
     _ServiceError . hasCode "OperationAbortedException"
@@ -238,7 +237,6 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | Returned if you have reached the maximum number of resources that can be
--- created.
+-- | Returned if you have reached the maximum number of resources that can be created.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

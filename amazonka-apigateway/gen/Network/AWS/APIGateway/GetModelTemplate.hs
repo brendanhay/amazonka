@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a sample mapping template that can be used to transform a
--- payload into the structure of a model.
+-- Generates a sample mapping template that can be used to transform a payload into the structure of a model.
 module Network.AWS.APIGateway.GetModelTemplate
     (
     -- * Creating a Request
@@ -44,8 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to generate a sample mapping template used to transform the
--- payload.
+-- | Request to generate a sample mapping template used to transform the payload.
 --
 -- /See:/ 'getModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
@@ -130,9 +128,7 @@ getModelTemplateResponse pResponseStatus_ =
     , _gmtrsResponseStatus = pResponseStatus_
     }
 
--- | The Apache
--- <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)>
--- template content used for the template resource.
+-- | The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
 gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a});
 

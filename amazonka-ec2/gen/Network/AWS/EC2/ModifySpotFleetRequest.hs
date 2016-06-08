@@ -20,26 +20,11 @@
 --
 -- Modifies the specified Spot fleet request.
 --
--- While the Spot fleet request is being modified, it is in the 'modifying'
--- state.
+-- While the Spot fleet request is being modified, it is in the 'modifying' state.
 --
--- To scale up your Spot fleet, increase its target capacity. The Spot
--- fleet launches the additional Spot instances according to the allocation
--- strategy for the Spot fleet request. If the allocation strategy is
--- 'lowestPrice', the Spot fleet launches instances using the Spot pool
--- with the lowest price. If the allocation strategy is 'diversified', the
--- Spot fleet distributes the instances across the Spot pools.
+-- To scale up your Spot fleet, increase its target capacity. The Spot fleet launches the additional Spot instances according to the allocation strategy for the Spot fleet request. If the allocation strategy is 'lowestPrice', the Spot fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is 'diversified', the Spot fleet distributes the instances across the Spot pools.
 --
--- To scale down your Spot fleet, decrease its target capacity. First, the
--- Spot fleet cancels any open bids that exceed the new target capacity.
--- You can request that the Spot fleet terminate Spot instances until the
--- size of the fleet no longer exceeds the new target capacity. If the
--- allocation strategy is 'lowestPrice', the Spot fleet terminates the
--- instances with the highest price per unit. If the allocation strategy is
--- 'diversified', the Spot fleet terminates instances across the Spot
--- pools. Alternatively, you can request that the Spot fleet keep the fleet
--- at its current size, but not replace any Spot instances that are
--- interrupted or that you terminate manually.
+-- To scale down your Spot fleet, decrease its target capacity. First, the Spot fleet cancels any open bids that exceed the new target capacity. You can request that the Spot fleet terminate Spot instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is 'lowestPrice', the Spot fleet terminates the instances with the highest price per unit. If the allocation strategy is 'diversified', the Spot fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot fleet keep the fleet at its current size, but not replace any Spot instances that are interrupted or that you terminate manually.
 module Network.AWS.EC2.ModifySpotFleetRequest
     (
     -- * Creating a Request
@@ -97,9 +82,7 @@ modifySpotFleetRequest pSpotFleetRequestId_ =
 msfrTargetCapacity :: Lens' ModifySpotFleetRequest (Maybe Int)
 msfrTargetCapacity = lens _msfrTargetCapacity (\ s a -> s{_msfrTargetCapacity = a});
 
--- | Indicates whether running Spot instances should be terminated if the
--- target capacity of the Spot fleet request is decreased below the current
--- size of the Spot fleet.
+-- | Indicates whether running Spot instances should be terminated if the target capacity of the Spot fleet request is decreased below the current size of the Spot fleet.
 msfrExcessCapacityTerminationPolicy :: Lens' ModifySpotFleetRequest (Maybe ExcessCapacityTerminationPolicy)
 msfrExcessCapacityTerminationPolicy = lens _msfrExcessCapacityTerminationPolicy (\ s a -> s{_msfrExcessCapacityTerminationPolicy = a});
 

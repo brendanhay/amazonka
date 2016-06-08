@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts the assessment run specified by the ARN of the assessment
--- template. For this API to function properly, you must not exceed the
--- limit of running up to 500 concurrent agents per AWS account.
+-- Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.
 module Network.AWS.Inspector.StartAssessmentRun
     (
     -- * Creating a Request
@@ -67,14 +65,11 @@ startAssessmentRun pAssessmentTemplateARN_ =
     , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
     }
 
--- | You can specify the name for the assessment run, or you can use the
--- auto-generated name that is based on the assessment template name. The
--- name must be unique for the assessment template.
+-- | You can specify the name for the assessment run, or you can use the auto-generated name that is based on the assessment template name. The name must be unique for the assessment template.
 sarAssessmentRunName :: Lens' StartAssessmentRun (Maybe Text)
 sarAssessmentRunName = lens _sarAssessmentRunName (\ s a -> s{_sarAssessmentRunName = a});
 
--- | The ARN of the assessment template of the assessment run that you want
--- to start.
+-- | The ARN of the assessment template of the assessment run that you want to start.
 sarAssessmentTemplateARN :: Lens' StartAssessmentRun Text
 sarAssessmentTemplateARN = lens _sarAssessmentTemplateARN (\ s a -> s{_sarAssessmentTemplateARN = a});
 

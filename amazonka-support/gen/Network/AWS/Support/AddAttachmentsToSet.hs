@@ -18,17 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more attachments to an attachment set. If an
--- 'AttachmentSetId' is not specified, a new attachment set is created, and
--- the ID of the set is returned in the response. If an 'AttachmentSetId'
--- is specified, the attachments are added to the specified set, if it
--- exists.
+-- Adds one or more attachments to an attachment set. If an 'AttachmentSetId' is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an 'AttachmentSetId' is specified, the attachments are added to the specified set, if it exists.
 --
--- An attachment set is a temporary container for attachments that are to
--- be added to a case or case communication. The set is available for one
--- hour after it is created; the 'ExpiryTime' returned in the response
--- indicates when the set expires. The maximum number of attachments in a
--- set is 3, and the maximum size of any attachment in the set is 5 MB.
+-- An attachment set is a temporary container for attachments that are to be added to a case or case communication. The set is available for one hour after it is created; the 'ExpiryTime' returned in the response indicates when the set expires. The maximum number of attachments in a set is 3, and the maximum size of any attachment in the set is 5 MB.
 module Network.AWS.Support.AddAttachmentsToSet
     (
     -- * Creating a Request
@@ -75,15 +67,11 @@ addAttachmentsToSet =
     , _aatsAttachments = mempty
     }
 
--- | The ID of the attachment set. If an 'AttachmentSetId' is not specified,
--- a new attachment set is created, and the ID of the set is returned in
--- the response. If an 'AttachmentSetId' is specified, the attachments are
--- added to the specified set, if it exists.
+-- | The ID of the attachment set. If an 'AttachmentSetId' is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an 'AttachmentSetId' is specified, the attachments are added to the specified set, if it exists.
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
 aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a});
 
--- | One or more attachments to add to the set. The limit is 3 attachments
--- per set, and the size limit is 5 MB per attachment.
+-- | One or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce;
 
@@ -125,8 +113,7 @@ instance ToPath AddAttachmentsToSet where
 instance ToQuery AddAttachmentsToSet where
         toQuery = const mempty
 
--- | The ID and expiry time of the attachment set returned by the
--- < AddAttachmentsToSet> operation.
+-- | The ID and expiry time of the attachment set returned by the < AddAttachmentsToSet> operation.
 --
 -- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
@@ -158,10 +145,7 @@ addAttachmentsToSetResponse pResponseStatus_ =
 aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a});
 
--- | The ID of the attachment set. If an 'AttachmentSetId' was not specified,
--- a new attachment set is created, and the ID of the set is returned in
--- the response. If an 'AttachmentSetId' was specified, the attachments are
--- added to the specified set, if it exists.
+-- | The ID of the attachment set. If an 'AttachmentSetId' was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an 'AttachmentSetId' was specified, the attachments are added to the specified set, if it exists.
 aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a});
 

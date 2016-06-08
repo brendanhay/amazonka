@@ -103,22 +103,17 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   EXTERNAL_DATA: An external data upload.
 --
--- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package
---     upload.
+-- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.
 --
--- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package
---     upload.
+-- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.
 --
 -- -   APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
 --
--- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
---     package upload.
+-- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.
 --
--- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
---     package upload.
+-- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.
 --
--- -   APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package
---     upload.
+-- -   APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
 --
 -- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
 --
@@ -132,8 +127,7 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.
 --
--- __Note__ If you call 'CreateUpload' with 'WEB_APP' specified, AWS Device
--- Farm throws an 'ArgumentException' error.
+-- __Note__ If you call 'CreateUpload' with 'WEB_APP' specified, AWS Device Farm throws an 'ArgumentException' error.
 cuType :: Lens' CreateUpload UploadType
 cuType = lens _cuType (\ s a -> s{_cuType = a});
 

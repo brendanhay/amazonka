@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Creating a Request
@@ -82,24 +78,19 @@ describeVolumes =
     , _dvStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, 'DescribeVolumes' returns
--- descriptions of the volumes associated with the specified instance.
+-- | The instance ID. If you use this parameter, 'DescribeVolumes' returns descriptions of the volumes associated with the specified instance.
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 
--- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes'
--- returns descriptions of the specified volumes. Otherwise, it returns a
--- description of every volume.
+-- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes' returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce;
 
--- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns
--- descriptions of the volumes associated with the specified RAID array.
+-- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns descriptions of the volumes associated with the specified RAID array.
 dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
 
--- | A stack ID. The action describes the stack\'s registered Amazon EBS
--- volumes.
+-- | A stack ID. The action describes the stack\'s registered Amazon EBS volumes.
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
 

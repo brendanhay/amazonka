@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the gateway virtual machine (VM) software. The request
--- immediately triggers the software update.
+-- Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
 --
--- When you make this request, you get a '200 OK' success response
--- immediately. However, it might take some time for the update to
--- complete. You can call < DescribeGatewayInformation> to verify the
--- gateway is in the 'STATE_RUNNING' state.
+-- When you make this request, you get a '200 OK' success response immediately. However, it might take some time for the update to complete. You can call < DescribeGatewayInformation> to verify the gateway is in the 'STATE_RUNNING' state.
 --
--- A software update forces a system restart of your gateway. You can
--- minimize the chance of any disruption to your applications by increasing
--- your iSCSI Initiators\' timeouts. For more information about increasing
--- iSCSI Initiator timeouts for Windows and Linux, see
--- <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings>
--- and
--- <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>,
--- respectively.
+-- A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators\' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings> and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>, respectively.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Creating a Request

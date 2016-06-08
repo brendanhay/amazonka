@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation disables automatic renewal of domain registration for the
--- specified domain.
+-- This operation disables automatic renewal of domain registration for the specified domain.
 --
--- Caution! Amazon Route 53 doesn\'t have a manual renewal process, so if
--- you disable automatic renewal, registration for the domain will not be
--- renewed when the expiration date passes, and you will lose control of
--- the domain name.
+-- Caution! Amazon Route 53 doesn\'t have a manual renewal process, so if you disable automatic renewal, registration for the domain will not be renewed when the expiration date passes, and you will lose control of the domain name.
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
     -- * Creating a Request

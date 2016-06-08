@@ -101,13 +101,11 @@ cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce;
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a});
 
--- | Specifies the name of the engine that this option group should be
--- associated with.
+-- | Specifies the name of the engine that this option group should be associated with.
 cogEngineName :: Lens' CreateOptionGroup Text
 cogEngineName = lens _cogEngineName (\ s a -> s{_cogEngineName = a});
 
--- | Specifies the major version of the engine that this option group should
--- be associated with.
+-- | Specifies the major version of the engine that this option group should be associated with.
 cogMajorEngineVersion :: Lens' CreateOptionGroup Text
 cogMajorEngineVersion = lens _cogMajorEngineVersion (\ s a -> s{_cogMajorEngineVersion = a});
 

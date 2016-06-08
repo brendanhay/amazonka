@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies a cluster subnet group to include the specified list of VPC
--- subnets. The operation replaces the existing list of subnets with the
--- new list of subnets.
+-- Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Creating a Request
@@ -82,8 +80,7 @@ mcsgDescription = lens _mcsgDescription (\ s a -> s{_mcsgDescription = a});
 mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
 mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgClusterSubnetGroupName = a});
 
--- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
--- single request.
+-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Coerce;
 

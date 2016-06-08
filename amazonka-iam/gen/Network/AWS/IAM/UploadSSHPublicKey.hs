@@ -20,12 +20,7 @@
 --
 -- Uploads an SSH public key and associates it with the specified IAM user.
 --
--- The SSH public key uploaded by this action can be used only for
--- authenticating the associated IAM user to an AWS CodeCommit repository.
--- For more information about using SSH keys to authenticate to an AWS
--- CodeCommit repository, see
--- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
--- in the /AWS CodeCommit User Guide/.
+-- The SSH public key uploaded by this action can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
 module Network.AWS.IAM.UploadSSHPublicKey
     (
     -- * Creating a Request
@@ -77,8 +72,7 @@ uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
 usshpkUserName :: Lens' UploadSSHPublicKey Text
 usshpkUserName = lens _usshpkUserName (\ s a -> s{_usshpkUserName = a});
 
--- | The SSH public key. The public key must be encoded in ssh-rsa format or
--- PEM format.
+-- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
 usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
 usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPublicKeyBody = a});
 

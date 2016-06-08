@@ -20,17 +20,9 @@
 --
 -- Updates the name and\/or the path of the specified group.
 --
--- You should understand the implications of changing a group\'s path or
--- name. For more information, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups>
--- in the /IAM User Guide/.
+-- You should understand the implications of changing a group\'s path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups> in the /IAM User Guide/.
 --
--- To change a group name the requester must have appropriate permissions
--- on both the source object and the target object. For example, to change
--- Managers to MGRs, the entity making the request must have permission on
--- Managers and MGRs, or must have permission on all (*). For more
--- information about permissions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
+-- To change a group name the requester must have appropriate permissions on both the source object and the target object. For example, to change Managers to MGRs, the entity making the request must have permission on Managers and MGRs, or must have permission on all (*). For more information about permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Creating a Request
@@ -87,8 +79,7 @@ ugNewGroupName = lens _ugNewGroupName (\ s a -> s{_ugNewGroupName = a});
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a});
 
--- | Name of the group to update. If you\'re changing the name of the group,
--- this is the original name.
+-- | Name of the group to update. If you\'re changing the name of the group, this is the original name.
 ugGroupName :: Lens' UpdateGroup Text
 ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
 

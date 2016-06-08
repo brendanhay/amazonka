@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the specified rule. You must specify all parameters for the new
--- rule. Creating rules is an administrator-level action. Any user who has
--- permission to create rules will be able to access data processed by the
--- rule.
+-- Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
 module Network.AWS.IoT.ReplaceTopicRule
     (
     -- * Creating a Request

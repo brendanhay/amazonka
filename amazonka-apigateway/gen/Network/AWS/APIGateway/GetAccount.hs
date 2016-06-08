@@ -40,8 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about the current
--- < Account> resource.
+-- | Requests Amazon API Gateway to get information about the current < Account> resource.
 --
 -- /See:/ 'getAccount' smart constructor.
 data GetAccount =

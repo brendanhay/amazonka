@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets the specified user\'s password in a user pool as an
--- administrator. Works on any user.
+-- Resets the specified user\'s password in a user pool as an administrator. Works on any user.
 module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
     (
     -- * Creating a Request
@@ -68,8 +67,7 @@ adminResetUserPassword pUserPoolId_ pUsername_ =
     , _arupUsername = _Sensitive # pUsername_
     }
 
--- | The user pool ID for the user pool where you want to reset the user\'s
--- password.
+-- | The user pool ID for the user pool where you want to reset the user\'s password.
 arupUserPoolId :: Lens' AdminResetUserPassword Text
 arupUserPoolId = lens _arupUserPoolId (\ s a -> s{_arupUserPoolId = a});
 
@@ -114,8 +112,7 @@ instance ToPath AdminResetUserPassword where
 instance ToQuery AdminResetUserPassword where
         toQuery = const mempty
 
--- | Represents the response from the server to reset a user password as an
--- administrator.
+-- | Represents the response from the server to reset a user password as an administrator.
 --
 -- /See:/ 'adminResetUserPasswordResponse' smart constructor.
 newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'

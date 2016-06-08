@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon Cognito user pool and sets the password policy for
--- the pool.
+-- Creates a new Amazon Cognito user pool and sets the password policy for the pool.
 module Network.AWS.CognitoIdentityProvider.CreateUserPool
     (
     -- * Creating a Request
@@ -120,8 +119,7 @@ cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\ s a -> s{_cup
 cupEmailVerificationSubject :: Lens' CreateUserPool (Maybe Text)
 cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cupEmailVerificationSubject = a});
 
--- | Attributes supported as an alias for this user pool. Possible values:
--- __phone_number__, __email__, or __preferred_username__.
+-- | Attributes supported as an alias for this user pool. Possible values: __phone_number__, __email__, or __preferred_username__.
 cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
 cupAliasAttributes = lens _cupAliasAttributes (\ s a -> s{_cupAliasAttributes = a}) . _Default . _Coerce;
 
@@ -137,8 +135,7 @@ cupMFAConfiguration = lens _cupMFAConfiguration (\ s a -> s{_cupMFAConfiguration
 cupLambdaConfig :: Lens' CreateUserPool (Maybe LambdaConfigType)
 cupLambdaConfig = lens _cupLambdaConfig (\ s a -> s{_cupLambdaConfig = a});
 
--- | The attributes to be auto-verified. Possible values: __email__,
--- __phone_number__.
+-- | The attributes to be auto-verified. Possible values: __email__, __phone_number__.
 cupAutoVerifiedAttributes :: Lens' CreateUserPool [VerifiedAttributeType]
 cupAutoVerifiedAttributes = lens _cupAutoVerifiedAttributes (\ s a -> s{_cupAutoVerifiedAttributes = a}) . _Default . _Coerce;
 
@@ -199,8 +196,7 @@ instance ToPath CreateUserPool where
 instance ToQuery CreateUserPool where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to create a user
--- pool.
+-- | Represents the response from the server for the request to create a user pool.
 --
 -- /See:/ 'createUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'

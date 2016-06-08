@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a specified pipeline with edits or changes to its structure. Use
--- a JSON file with the pipeline structure in conjunction with
--- UpdatePipeline to provide the full structure of the pipeline. Updating
--- the pipeline increases the version number of the pipeline by 1.
+-- Updates a specified pipeline with edits or changes to its structure. Use a JSON file with the pipeline structure in conjunction with UpdatePipeline to provide the full structure of the pipeline. Updating the pipeline increases the version number of the pipeline by 1.
 module Network.AWS.CodePipeline.UpdatePipeline
     (
     -- * Creating a Request

@@ -39,13 +39,17 @@ instance FromJSON (Token Id) where
         <*> o .: "output_token"
 
 data Pager a
-    = Next (NonEmpty (Notation a)) (Token a)
-    | Many (Notation a)  (NonEmpty (Token a))
+    = Next  (NonEmpty (Notation a)) (Token a)
+    | Many  (Notation a)  (NonEmpty (Token a))
+    | Only                         (Token a)
       deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
-    parseJSON = withObject "pager" $ \o -> more o <|> next o
+    parseJSON = withObject "pager" $ \o -> more o <|> next o <|> limit o
       where
+        limit o = Only
+            <$> parseJSON (Object o)
+
         next o = Next
             <$> oneOrMany o "result_key"
             <*> parseJSON (Object o)

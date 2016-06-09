@@ -12,8 +12,8 @@ if [ -z "$DOC_TOKEN" ]; then
     exit 0
 fi
 
+DOC_REF=github.com/brendanhay/amazonka-doc.git
 GHCVER=${GHCVER?"GHCVER needs to be set."}
-DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
 BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
 BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 

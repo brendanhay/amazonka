@@ -1,5 +1,20 @@
 # Change Log
 
+## [1.4.3](https://github.com/brendanhay/amazonka/tree/1.4.3)
+Released: **09 June, 2016**, Compare: [1.4.3](https://github.com/brendanhay/amazonka/compare/1.4.2...1.4.3)
+
+### Fixed
+
+- Additional fixes for APIGateway timestamps. [\#291](https://github.com/brendanhay/amazonka/issues/291)
+- CloudWatchLogs `FilterLogEvents` pagination now correctly returns all results. [\#296](https://github.com/brendanhay/amazonka/issues/296)
+- Documentation code samples for IoT, Lambda, and Discovery are now correctly Haddock formatted.
+
+### Changes
+
+- Documentation is now formatted more consistently at the expense of longer line columns.
+- `POSIX` timestamps no longer have unecessary (and misleading) Text/XML instances.
+
+
 ## [1.4.2](https://github.com/brendanhay/amazonka/tree/1.4.2)
 Released: **03 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.1...1.4.2)
 

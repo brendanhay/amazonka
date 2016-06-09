@@ -159,7 +159,6 @@ instance FromXML RFC822    where parseXML = parseXMLText "RFC822"
 instance FromXML ISO8601   where parseXML = parseXMLText "ISO8601"
 instance FromXML AWSTime   where parseXML = parseXMLText "AWSTime"
 instance FromXML BasicTime where parseXML = parseXMLText "BasicTime"
-instance FromXML POSIX     where parseXML = parseXMLText "POSIX"
 
 instance FromJSON RFC822    where parseJSON = parseJSONText "RFC822"
 instance FromJSON ISO8601   where parseJSON = parseJSONText "ISO8601"

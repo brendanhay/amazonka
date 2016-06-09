@@ -225,6 +225,11 @@ pagerD n p = instD "AWSPager" n
     ]
   where
     rhs = \case
+        Only t -> GuardedRhss
+            [ stop (notationE (_tokenOutput t))
+            , other [t]
+            ]
+
         Next ks t -> GuardedRhss
             $ stop (notationE (_tokenOutput t))
             : map  (stop . notationE) (Fold.toList ks)

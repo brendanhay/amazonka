@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon Cognito Identity SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -129,7 +129,7 @@ library
         , Network.AWS.CognitoIdentity.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cognito-identity-test
@@ -149,9 +149,9 @@ test-suite amazonka-cognito-identity-test
         , Test.AWS.CognitoIdentity.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-cognito-identity == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-cognito-identity == 1.4.3.*
         , base
         , bytestring
         , tasty

@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-sync
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon Cognito Sync SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -72,7 +72,7 @@ library
         , Network.AWS.CognitoSync.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cognito-sync-test
@@ -92,9 +92,9 @@ test-suite amazonka-cognito-sync-test
         , Test.AWS.CognitoSync.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-cognito-sync == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-cognito-sync == 1.4.3.*
         , base
         , bytestring
         , tasty

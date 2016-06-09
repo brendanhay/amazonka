@@ -1,5 +1,5 @@
 name:                  amazonka-elasticbeanstalk
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon Elastic Beanstalk SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -93,7 +93,7 @@ library
         , Network.AWS.ElasticBeanstalk.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elasticbeanstalk-test
@@ -113,9 +113,9 @@ test-suite amazonka-elasticbeanstalk-test
         , Test.AWS.ElasticBeanstalk.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-elasticbeanstalk == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elasticbeanstalk == 1.4.3.*
         , base
         , bytestring
         , tasty

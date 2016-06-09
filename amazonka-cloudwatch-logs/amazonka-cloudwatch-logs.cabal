@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-logs
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon CloudWatch Logs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -84,7 +84,7 @@ library
         , Network.AWS.CloudWatchLogs.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudwatch-logs-test
@@ -104,9 +104,9 @@ test-suite amazonka-cloudwatch-logs-test
         , Test.AWS.CloudWatchLogs.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-cloudwatch-logs == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-cloudwatch-logs == 1.4.3.*
         , base
         , bytestring
         , tasty

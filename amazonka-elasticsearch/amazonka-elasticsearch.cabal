@@ -1,5 +1,5 @@
 name:                  amazonka-elasticsearch
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon Elasticsearch Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -63,7 +63,7 @@ library
         , Network.AWS.ElasticSearch.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elasticsearch-test
@@ -83,9 +83,9 @@ test-suite amazonka-elasticsearch-test
         , Test.AWS.ElasticSearch.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-elasticsearch == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elasticsearch == 1.4.3.*
         , base
         , bytestring
         , tasty

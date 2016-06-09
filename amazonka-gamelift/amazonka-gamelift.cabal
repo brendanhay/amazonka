@@ -1,5 +1,5 @@
 name:                  amazonka-gamelift
-version:               1.4.2
+version:               1.4.3
 synopsis:              Amazon GameLift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -142,7 +142,7 @@ library
         , Network.AWS.GameLift.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.2.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-gamelift-test
@@ -162,9 +162,9 @@ test-suite amazonka-gamelift-test
         , Test.AWS.GameLift.Internal
 
     build-depends:
-          amazonka-core == 1.4.2.*
-        , amazonka-test == 1.4.2.*
-        , amazonka-gamelift == 1.4.2.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-gamelift == 1.4.3.*
         , base
         , bytestring
         , tasty

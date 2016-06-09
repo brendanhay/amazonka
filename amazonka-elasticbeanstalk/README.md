@@ -8,32 +8,20 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 AWS Elastic Beanstalk
 
-AWS Elastic Beanstalk makes it easy for you to create, deploy, and
-manage scalable, fault-tolerant applications running on the Amazon Web
-Services cloud.
+AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on the Amazon Web Services cloud.
 
-For more information about this product, go to the
-<http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details
-page. The location of the latest AWS Elastic Beanstalk WSDL is
-<http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl>.
-To install the Software Development Kits (SDKs), Integrated Development
-Environment (IDE) Toolkits, and command line tools that enable you to
-access the API, go to
-<https://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+For more information about this product, go to the <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details page. The location of the latest AWS Elastic Beanstalk WSDL is <http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl>. To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <https://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 
 __Endpoints__
 
-For a list of region-specific endpoints that AWS Elastic Beanstalk
-supports, go to
-<http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints>
-in the /Amazon Web Services Glossary/.
+For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elasticbeanstalk)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

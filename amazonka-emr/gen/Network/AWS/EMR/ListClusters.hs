@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides the status of all clusters visible to this AWS account. Allows
--- you to filter the list of clusters based on certain criteria; for
--- example, filtering by cluster creation date and time or by status. This
--- call returns a maximum of 50 clusters per call, but returns a marker to
--- track the paging of the cluster list across multiple ListClusters calls.
+-- Provides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
@@ -53,8 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | This input determines how the ListClusters action filters the list of
--- clusters that it returns.
+-- | This input determines how the ListClusters action filters the list of clusters that it returns.
 --
 -- /See:/ 'listClusters' smart constructor.
 data ListClusters = ListClusters'
@@ -146,8 +141,7 @@ instance ToPath ListClusters where
 instance ToQuery ListClusters where
         toQuery = const mempty
 
--- | This contains a ClusterSummaryList with the cluster details; for
--- example, the cluster IDs, names, and status.
+-- | This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.
 --
 -- /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'

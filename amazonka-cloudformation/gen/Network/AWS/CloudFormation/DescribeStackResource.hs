@@ -20,8 +20,7 @@
 --
 -- Returns a description of the specified resource in the specified stack.
 --
--- For deleted stacks, DescribeStackResource returns resource information
--- for up to 90 days after the stack has been deleted.
+-- For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Creating a Request
@@ -71,11 +70,9 @@ describeStackResource pStackName_ pLogicalResourceId_ =
     , _dsrsLogicalResourceId = pLogicalResourceId_
     }
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- -   Running stacks: You can specify either the stack\'s name or its
---     unique stack ID.
+-- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
@@ -141,8 +138,7 @@ describeStackResourceResponse pResponseStatus_ =
     , _dsrrsResponseStatus = pResponseStatus_
     }
 
--- | A 'StackResourceDetail' structure containing the description of the
--- specified resource in the specified stack.
+-- | A 'StackResourceDetail' structure containing the description of the specified resource in the specified stack.
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 

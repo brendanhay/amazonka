@@ -107,8 +107,7 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a});
 
--- | The replacement deployment configuration name to use, if you want to
--- change it.
+-- | The replacement deployment configuration name to use, if you want to change it.
 udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a});
 
@@ -116,27 +115,19 @@ udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeployme
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
 
--- | The replacement set of Amazon EC2 tags on which to filter, if you want
--- to change them. To keep the existing tags, enter their names. To remove
--- tags, do not enter any tag names.
+-- | The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
 
--- | The replacement set of on-premises instance tags on which to filter, if
--- you want to change them. To keep the existing tags, enter their names.
--- To remove tags, do not enter any tag names.
+-- | The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
 udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
--- | Information about triggers to change when the deployment group is
--- updated.
+-- | Information about triggers to change when the deployment group is updated.
 udgTriggerConfigurations :: Lens' UpdateDeploymentGroup [TriggerConfig]
 udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTriggerConfigurations = a}) . _Default . _Coerce;
 
--- | The replacement list of Auto Scaling groups to be included in the
--- deployment group, if you want to change them. To keep the Auto Scaling
--- groups, enter their names. To remove Auto Scaling groups, do not enter
--- any Auto Scaling group names.
+-- | The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
 
@@ -223,11 +214,7 @@ updateDeploymentGroupResponse pResponseStatus_ =
     , _udgrsResponseStatus = pResponseStatus_
     }
 
--- | If the output contains no data, and the corresponding deployment group
--- contained at least one Auto Scaling group, AWS CodeDeploy successfully
--- removed all corresponding Auto Scaling lifecycle event hooks from the
--- AWS account. If the output contains data, AWS CodeDeploy could not
--- remove some Auto Scaling lifecycle event hooks from the AWS account.
+-- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS account.
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 

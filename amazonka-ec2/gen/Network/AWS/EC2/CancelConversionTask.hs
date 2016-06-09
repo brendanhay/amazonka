@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an active conversion task. The task can be the import of an
--- instance or volume. The action removes all artifacts of the conversion,
--- including a partially uploaded volume or instance. If the conversion is
--- complete or is in the process of transferring the final disk image, the
--- command fails and returns an exception.
+-- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
@@ -81,10 +75,7 @@ cancelConversionTask pConversionTaskId_ =
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
 cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
 

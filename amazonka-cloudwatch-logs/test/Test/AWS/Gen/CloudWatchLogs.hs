@@ -28,157 +28,157 @@ import Test.AWS.CloudWatchLogs.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeDestinations $
+--         [ requestDescribeDestinations $
 --             describeDestinations
 --
---         , testCreateExportTask $
+--         , requestCreateExportTask $
 --             createExportTask
 --
---         , testPutDestination $
+--         , requestPutDestination $
 --             putDestination
 --
---         , testDescribeSubscriptionFilters $
+--         , requestDescribeSubscriptionFilters $
 --             describeSubscriptionFilters
 --
---         , testGetLogEvents $
+--         , requestGetLogEvents $
 --             getLogEvents
 --
---         , testDescribeLogGroups $
+--         , requestDescribeLogGroups $
 --             describeLogGroups
 --
---         , testDeleteDestination $
+--         , requestDeleteDestination $
 --             deleteDestination
 --
---         , testFilterLogEvents $
+--         , requestFilterLogEvents $
 --             filterLogEvents
 --
---         , testDeleteLogStream $
+--         , requestDeleteLogStream $
 --             deleteLogStream
 --
---         , testCreateLogStream $
+--         , requestCreateLogStream $
 --             createLogStream
 --
---         , testCreateLogGroup $
+--         , requestCreateLogGroup $
 --             createLogGroup
 --
---         , testDescribeExportTasks $
+--         , requestDescribeExportTasks $
 --             describeExportTasks
 --
---         , testCancelExportTask $
+--         , requestCancelExportTask $
 --             cancelExportTask
 --
---         , testPutSubscriptionFilter $
+--         , requestPutSubscriptionFilter $
 --             putSubscriptionFilter
 --
---         , testDeleteLogGroup $
+--         , requestDeleteLogGroup $
 --             deleteLogGroup
 --
---         , testDeleteSubscriptionFilter $
+--         , requestDeleteSubscriptionFilter $
 --             deleteSubscriptionFilter
 --
---         , testPutLogEvents $
+--         , requestPutLogEvents $
 --             putLogEvents
 --
---         , testDescribeMetricFilters $
+--         , requestDescribeMetricFilters $
 --             describeMetricFilters
 --
---         , testTestMetricFilter $
+--         , requestTestMetricFilter $
 --             testMetricFilter
 --
---         , testPutDestinationPolicy $
+--         , requestPutDestinationPolicy $
 --             putDestinationPolicy
 --
---         , testPutMetricFilter $
+--         , requestPutMetricFilter $
 --             putMetricFilter
 --
---         , testDeleteRetentionPolicy $
+--         , requestDeleteRetentionPolicy $
 --             deleteRetentionPolicy
 --
---         , testDeleteMetricFilter $
+--         , requestDeleteMetricFilter $
 --             deleteMetricFilter
 --
---         , testPutRetentionPolicy $
+--         , requestPutRetentionPolicy $
 --             putRetentionPolicy
 --
---         , testDescribeLogStreams $
+--         , requestDescribeLogStreams $
 --             describeLogStreams
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeDestinationsResponse $
+--         [ responseDescribeDestinations $
 --             describeDestinationsResponse
 --
---         , testCreateExportTaskResponse $
+--         , responseCreateExportTask $
 --             createExportTaskResponse
 --
---         , testPutDestinationResponse $
+--         , responsePutDestination $
 --             putDestinationResponse
 --
---         , testDescribeSubscriptionFiltersResponse $
+--         , responseDescribeSubscriptionFilters $
 --             describeSubscriptionFiltersResponse
 --
---         , testGetLogEventsResponse $
+--         , responseGetLogEvents $
 --             getLogEventsResponse
 --
---         , testDescribeLogGroupsResponse $
+--         , responseDescribeLogGroups $
 --             describeLogGroupsResponse
 --
---         , testDeleteDestinationResponse $
+--         , responseDeleteDestination $
 --             deleteDestinationResponse
 --
---         , testFilterLogEventsResponse $
+--         , responseFilterLogEvents $
 --             filterLogEventsResponse
 --
---         , testDeleteLogStreamResponse $
+--         , responseDeleteLogStream $
 --             deleteLogStreamResponse
 --
---         , testCreateLogStreamResponse $
+--         , responseCreateLogStream $
 --             createLogStreamResponse
 --
---         , testCreateLogGroupResponse $
+--         , responseCreateLogGroup $
 --             createLogGroupResponse
 --
---         , testDescribeExportTasksResponse $
+--         , responseDescribeExportTasks $
 --             describeExportTasksResponse
 --
---         , testCancelExportTaskResponse $
+--         , responseCancelExportTask $
 --             cancelExportTaskResponse
 --
---         , testPutSubscriptionFilterResponse $
+--         , responsePutSubscriptionFilter $
 --             putSubscriptionFilterResponse
 --
---         , testDeleteLogGroupResponse $
+--         , responseDeleteLogGroup $
 --             deleteLogGroupResponse
 --
---         , testDeleteSubscriptionFilterResponse $
+--         , responseDeleteSubscriptionFilter $
 --             deleteSubscriptionFilterResponse
 --
---         , testPutLogEventsResponse $
+--         , responsePutLogEvents $
 --             putLogEventsResponse
 --
---         , testDescribeMetricFiltersResponse $
+--         , responseDescribeMetricFilters $
 --             describeMetricFiltersResponse
 --
---         , testTestMetricFilterResponse $
+--         , responseTestMetricFilter $
 --             testMetricFilterResponse
 --
---         , testPutDestinationPolicyResponse $
+--         , responsePutDestinationPolicy $
 --             putDestinationPolicyResponse
 --
---         , testPutMetricFilterResponse $
+--         , responsePutMetricFilter $
 --             putMetricFilterResponse
 --
---         , testDeleteRetentionPolicyResponse $
+--         , responseDeleteRetentionPolicy $
 --             deleteRetentionPolicyResponse
 --
---         , testDeleteMetricFilterResponse $
+--         , responseDeleteMetricFilter $
 --             deleteMetricFilterResponse
 --
---         , testPutRetentionPolicyResponse $
+--         , responsePutRetentionPolicy $
 --             putRetentionPolicyResponse
 --
---         , testDescribeLogStreamsResponse $
+--         , responseDescribeLogStreams $
 --             describeLogStreamsResponse
 --
 --           ]
@@ -186,303 +186,303 @@ import Test.AWS.CloudWatchLogs.Internal
 
 -- Requests
 
-testDescribeDestinations :: DescribeDestinations -> TestTree
-testDescribeDestinations = req
+requestDescribeDestinations :: DescribeDestinations -> TestTree
+requestDescribeDestinations = req
     "DescribeDestinations"
     "fixture/DescribeDestinations.yaml"
 
-testCreateExportTask :: CreateExportTask -> TestTree
-testCreateExportTask = req
+requestCreateExportTask :: CreateExportTask -> TestTree
+requestCreateExportTask = req
     "CreateExportTask"
     "fixture/CreateExportTask.yaml"
 
-testPutDestination :: PutDestination -> TestTree
-testPutDestination = req
+requestPutDestination :: PutDestination -> TestTree
+requestPutDestination = req
     "PutDestination"
     "fixture/PutDestination.yaml"
 
-testDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
-testDescribeSubscriptionFilters = req
+requestDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
+requestDescribeSubscriptionFilters = req
     "DescribeSubscriptionFilters"
     "fixture/DescribeSubscriptionFilters.yaml"
 
-testGetLogEvents :: GetLogEvents -> TestTree
-testGetLogEvents = req
+requestGetLogEvents :: GetLogEvents -> TestTree
+requestGetLogEvents = req
     "GetLogEvents"
     "fixture/GetLogEvents.yaml"
 
-testDescribeLogGroups :: DescribeLogGroups -> TestTree
-testDescribeLogGroups = req
+requestDescribeLogGroups :: DescribeLogGroups -> TestTree
+requestDescribeLogGroups = req
     "DescribeLogGroups"
     "fixture/DescribeLogGroups.yaml"
 
-testDeleteDestination :: DeleteDestination -> TestTree
-testDeleteDestination = req
+requestDeleteDestination :: DeleteDestination -> TestTree
+requestDeleteDestination = req
     "DeleteDestination"
     "fixture/DeleteDestination.yaml"
 
-testFilterLogEvents :: FilterLogEvents -> TestTree
-testFilterLogEvents = req
+requestFilterLogEvents :: FilterLogEvents -> TestTree
+requestFilterLogEvents = req
     "FilterLogEvents"
     "fixture/FilterLogEvents.yaml"
 
-testDeleteLogStream :: DeleteLogStream -> TestTree
-testDeleteLogStream = req
+requestDeleteLogStream :: DeleteLogStream -> TestTree
+requestDeleteLogStream = req
     "DeleteLogStream"
     "fixture/DeleteLogStream.yaml"
 
-testCreateLogStream :: CreateLogStream -> TestTree
-testCreateLogStream = req
+requestCreateLogStream :: CreateLogStream -> TestTree
+requestCreateLogStream = req
     "CreateLogStream"
     "fixture/CreateLogStream.yaml"
 
-testCreateLogGroup :: CreateLogGroup -> TestTree
-testCreateLogGroup = req
+requestCreateLogGroup :: CreateLogGroup -> TestTree
+requestCreateLogGroup = req
     "CreateLogGroup"
     "fixture/CreateLogGroup.yaml"
 
-testDescribeExportTasks :: DescribeExportTasks -> TestTree
-testDescribeExportTasks = req
+requestDescribeExportTasks :: DescribeExportTasks -> TestTree
+requestDescribeExportTasks = req
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
 
-testCancelExportTask :: CancelExportTask -> TestTree
-testCancelExportTask = req
+requestCancelExportTask :: CancelExportTask -> TestTree
+requestCancelExportTask = req
     "CancelExportTask"
     "fixture/CancelExportTask.yaml"
 
-testPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
-testPutSubscriptionFilter = req
+requestPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
+requestPutSubscriptionFilter = req
     "PutSubscriptionFilter"
     "fixture/PutSubscriptionFilter.yaml"
 
-testDeleteLogGroup :: DeleteLogGroup -> TestTree
-testDeleteLogGroup = req
+requestDeleteLogGroup :: DeleteLogGroup -> TestTree
+requestDeleteLogGroup = req
     "DeleteLogGroup"
     "fixture/DeleteLogGroup.yaml"
 
-testDeleteSubscriptionFilter :: DeleteSubscriptionFilter -> TestTree
-testDeleteSubscriptionFilter = req
+requestDeleteSubscriptionFilter :: DeleteSubscriptionFilter -> TestTree
+requestDeleteSubscriptionFilter = req
     "DeleteSubscriptionFilter"
     "fixture/DeleteSubscriptionFilter.yaml"
 
-testPutLogEvents :: PutLogEvents -> TestTree
-testPutLogEvents = req
+requestPutLogEvents :: PutLogEvents -> TestTree
+requestPutLogEvents = req
     "PutLogEvents"
     "fixture/PutLogEvents.yaml"
 
-testDescribeMetricFilters :: DescribeMetricFilters -> TestTree
-testDescribeMetricFilters = req
+requestDescribeMetricFilters :: DescribeMetricFilters -> TestTree
+requestDescribeMetricFilters = req
     "DescribeMetricFilters"
     "fixture/DescribeMetricFilters.yaml"
 
-testTestMetricFilter :: TestMetricFilter -> TestTree
-testTestMetricFilter = req
+requestTestMetricFilter :: TestMetricFilter -> TestTree
+requestTestMetricFilter = req
     "TestMetricFilter"
     "fixture/TestMetricFilter.yaml"
 
-testPutDestinationPolicy :: PutDestinationPolicy -> TestTree
-testPutDestinationPolicy = req
+requestPutDestinationPolicy :: PutDestinationPolicy -> TestTree
+requestPutDestinationPolicy = req
     "PutDestinationPolicy"
     "fixture/PutDestinationPolicy.yaml"
 
-testPutMetricFilter :: PutMetricFilter -> TestTree
-testPutMetricFilter = req
+requestPutMetricFilter :: PutMetricFilter -> TestTree
+requestPutMetricFilter = req
     "PutMetricFilter"
     "fixture/PutMetricFilter.yaml"
 
-testDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
-testDeleteRetentionPolicy = req
+requestDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
+requestDeleteRetentionPolicy = req
     "DeleteRetentionPolicy"
     "fixture/DeleteRetentionPolicy.yaml"
 
-testDeleteMetricFilter :: DeleteMetricFilter -> TestTree
-testDeleteMetricFilter = req
+requestDeleteMetricFilter :: DeleteMetricFilter -> TestTree
+requestDeleteMetricFilter = req
     "DeleteMetricFilter"
     "fixture/DeleteMetricFilter.yaml"
 
-testPutRetentionPolicy :: PutRetentionPolicy -> TestTree
-testPutRetentionPolicy = req
+requestPutRetentionPolicy :: PutRetentionPolicy -> TestTree
+requestPutRetentionPolicy = req
     "PutRetentionPolicy"
     "fixture/PutRetentionPolicy.yaml"
 
-testDescribeLogStreams :: DescribeLogStreams -> TestTree
-testDescribeLogStreams = req
+requestDescribeLogStreams :: DescribeLogStreams -> TestTree
+requestDescribeLogStreams = req
     "DescribeLogStreams"
     "fixture/DescribeLogStreams.yaml"
 
 -- Responses
 
-testDescribeDestinationsResponse :: DescribeDestinationsResponse -> TestTree
-testDescribeDestinationsResponse = res
+responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
+responseDescribeDestinations = res
     "DescribeDestinationsResponse"
     "fixture/DescribeDestinationsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeDestinations)
 
-testCreateExportTaskResponse :: CreateExportTaskResponse -> TestTree
-testCreateExportTaskResponse = res
+responseCreateExportTask :: CreateExportTaskResponse -> TestTree
+responseCreateExportTask = res
     "CreateExportTaskResponse"
     "fixture/CreateExportTaskResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy CreateExportTask)
 
-testPutDestinationResponse :: PutDestinationResponse -> TestTree
-testPutDestinationResponse = res
+responsePutDestination :: PutDestinationResponse -> TestTree
+responsePutDestination = res
     "PutDestinationResponse"
     "fixture/PutDestinationResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutDestination)
 
-testDescribeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse -> TestTree
-testDescribeSubscriptionFiltersResponse = res
+responseDescribeSubscriptionFilters :: DescribeSubscriptionFiltersResponse -> TestTree
+responseDescribeSubscriptionFilters = res
     "DescribeSubscriptionFiltersResponse"
     "fixture/DescribeSubscriptionFiltersResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeSubscriptionFilters)
 
-testGetLogEventsResponse :: GetLogEventsResponse -> TestTree
-testGetLogEventsResponse = res
+responseGetLogEvents :: GetLogEventsResponse -> TestTree
+responseGetLogEvents = res
     "GetLogEventsResponse"
     "fixture/GetLogEventsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy GetLogEvents)
 
-testDescribeLogGroupsResponse :: DescribeLogGroupsResponse -> TestTree
-testDescribeLogGroupsResponse = res
+responseDescribeLogGroups :: DescribeLogGroupsResponse -> TestTree
+responseDescribeLogGroups = res
     "DescribeLogGroupsResponse"
     "fixture/DescribeLogGroupsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeLogGroups)
 
-testDeleteDestinationResponse :: DeleteDestinationResponse -> TestTree
-testDeleteDestinationResponse = res
+responseDeleteDestination :: DeleteDestinationResponse -> TestTree
+responseDeleteDestination = res
     "DeleteDestinationResponse"
     "fixture/DeleteDestinationResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteDestination)
 
-testFilterLogEventsResponse :: FilterLogEventsResponse -> TestTree
-testFilterLogEventsResponse = res
+responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
+responseFilterLogEvents = res
     "FilterLogEventsResponse"
     "fixture/FilterLogEventsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy FilterLogEvents)
 
-testDeleteLogStreamResponse :: DeleteLogStreamResponse -> TestTree
-testDeleteLogStreamResponse = res
+responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
+responseDeleteLogStream = res
     "DeleteLogStreamResponse"
     "fixture/DeleteLogStreamResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteLogStream)
 
-testCreateLogStreamResponse :: CreateLogStreamResponse -> TestTree
-testCreateLogStreamResponse = res
+responseCreateLogStream :: CreateLogStreamResponse -> TestTree
+responseCreateLogStream = res
     "CreateLogStreamResponse"
     "fixture/CreateLogStreamResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy CreateLogStream)
 
-testCreateLogGroupResponse :: CreateLogGroupResponse -> TestTree
-testCreateLogGroupResponse = res
+responseCreateLogGroup :: CreateLogGroupResponse -> TestTree
+responseCreateLogGroup = res
     "CreateLogGroupResponse"
     "fixture/CreateLogGroupResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy CreateLogGroup)
 
-testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
-testDescribeExportTasksResponse = res
+responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
+responseDescribeExportTasks = res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeExportTasks)
 
-testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
-testCancelExportTaskResponse = res
+responseCancelExportTask :: CancelExportTaskResponse -> TestTree
+responseCancelExportTask = res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy CancelExportTask)
 
-testPutSubscriptionFilterResponse :: PutSubscriptionFilterResponse -> TestTree
-testPutSubscriptionFilterResponse = res
+responsePutSubscriptionFilter :: PutSubscriptionFilterResponse -> TestTree
+responsePutSubscriptionFilter = res
     "PutSubscriptionFilterResponse"
     "fixture/PutSubscriptionFilterResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutSubscriptionFilter)
 
-testDeleteLogGroupResponse :: DeleteLogGroupResponse -> TestTree
-testDeleteLogGroupResponse = res
+responseDeleteLogGroup :: DeleteLogGroupResponse -> TestTree
+responseDeleteLogGroup = res
     "DeleteLogGroupResponse"
     "fixture/DeleteLogGroupResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteLogGroup)
 
-testDeleteSubscriptionFilterResponse :: DeleteSubscriptionFilterResponse -> TestTree
-testDeleteSubscriptionFilterResponse = res
+responseDeleteSubscriptionFilter :: DeleteSubscriptionFilterResponse -> TestTree
+responseDeleteSubscriptionFilter = res
     "DeleteSubscriptionFilterResponse"
     "fixture/DeleteSubscriptionFilterResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteSubscriptionFilter)
 
-testPutLogEventsResponse :: PutLogEventsResponse -> TestTree
-testPutLogEventsResponse = res
+responsePutLogEvents :: PutLogEventsResponse -> TestTree
+responsePutLogEvents = res
     "PutLogEventsResponse"
     "fixture/PutLogEventsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutLogEvents)
 
-testDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse -> TestTree
-testDescribeMetricFiltersResponse = res
+responseDescribeMetricFilters :: DescribeMetricFiltersResponse -> TestTree
+responseDescribeMetricFilters = res
     "DescribeMetricFiltersResponse"
     "fixture/DescribeMetricFiltersResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeMetricFilters)
 
-testTestMetricFilterResponse :: TestMetricFilterResponse -> TestTree
-testTestMetricFilterResponse = res
+responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
+responseTestMetricFilter = res
     "TestMetricFilterResponse"
     "fixture/TestMetricFilterResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy TestMetricFilter)
 
-testPutDestinationPolicyResponse :: PutDestinationPolicyResponse -> TestTree
-testPutDestinationPolicyResponse = res
+responsePutDestinationPolicy :: PutDestinationPolicyResponse -> TestTree
+responsePutDestinationPolicy = res
     "PutDestinationPolicyResponse"
     "fixture/PutDestinationPolicyResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutDestinationPolicy)
 
-testPutMetricFilterResponse :: PutMetricFilterResponse -> TestTree
-testPutMetricFilterResponse = res
+responsePutMetricFilter :: PutMetricFilterResponse -> TestTree
+responsePutMetricFilter = res
     "PutMetricFilterResponse"
     "fixture/PutMetricFilterResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutMetricFilter)
 
-testDeleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse -> TestTree
-testDeleteRetentionPolicyResponse = res
+responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
+responseDeleteRetentionPolicy = res
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteRetentionPolicy)
 
-testDeleteMetricFilterResponse :: DeleteMetricFilterResponse -> TestTree
-testDeleteMetricFilterResponse = res
+responseDeleteMetricFilter :: DeleteMetricFilterResponse -> TestTree
+responseDeleteMetricFilter = res
     "DeleteMetricFilterResponse"
     "fixture/DeleteMetricFilterResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DeleteMetricFilter)
 
-testPutRetentionPolicyResponse :: PutRetentionPolicyResponse -> TestTree
-testPutRetentionPolicyResponse = res
+responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
+responsePutRetentionPolicy = res
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutRetentionPolicy)
 
-testDescribeLogStreamsResponse :: DescribeLogStreamsResponse -> TestTree
-testDescribeLogStreamsResponse = res
+responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
+responseDescribeLogStreams = res
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse.proto"
     cloudWatchLogs

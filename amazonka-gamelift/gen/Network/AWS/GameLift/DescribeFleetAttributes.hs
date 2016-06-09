@@ -18,18 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves fleet properties, including metadata, status, and
--- configuration, for one or more fleets. You can request attributes for
--- all fleets, or specify a list of one or more fleet IDs. When requesting
--- all fleets, use the pagination parameters to retrieve results as a set
--- of sequential pages. If successful, a < FleetAttributes> object is
--- returned for each requested fleet ID. When specifying a list of fleet
--- IDs, attribute objects are returned only for fleets that currently
--- exist.
+-- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetAttributes> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
--- Some API actions may limit the number of fleet IDs allowed in one
--- request. If a request exceeds this limit, the request fails and the
--- error message includes the maximum allowed.
+-- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetAttributes
     (
     -- * Creating a Request
@@ -83,22 +74,15 @@ describeFleetAttributes =
     , _dfaFleetIds = Nothing
     }
 
--- | Token indicating the start of the next sequential page of results. Use
--- the token that is returned with a previous call to this action. To
--- specify the start of the result set, do not specify a value. This
--- parameter is ignored when the request specifies one or a list of fleet
--- IDs.
+-- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaNextToken :: Lens' DescribeFleetAttributes (Maybe Text)
 dfaNextToken = lens _dfaNextToken (\ s a -> s{_dfaNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with
--- /NextToken/ to get results as a set of sequential pages. This parameter
--- is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaLimit :: Lens' DescribeFleetAttributes (Maybe Natural)
 dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat;
 
--- | Unique identifiers for the fleet(s) that you want to retrieve attributes
--- for. Leave this parameter empty to retrieve attributes for all fleets.
+-- | Unique identifiers for the fleet(s) that you want to retrieve attributes for. Leave this parameter empty to retrieve attributes for all fleets.
 dfaFleetIds :: Lens' DescribeFleetAttributes (Maybe (NonEmpty Text))
 dfaFleetIds = lens _dfaFleetIds (\ s a -> s{_dfaFleetIds = a}) . mapping _List1;
 
@@ -169,18 +153,13 @@ describeFleetAttributesResponse pResponseStatus_ =
     , _dfarsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to
--- this action. If no token is returned, these results represent the end of
--- the list.
+-- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- If a request has a limit that exactly matches the number of remaining
--- results, a token is returned even though there are no more results to
--- retrieve.
+-- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dfarsNextToken :: Lens' DescribeFleetAttributesResponse (Maybe Text)
 dfarsNextToken = lens _dfarsNextToken (\ s a -> s{_dfarsNextToken = a});
 
--- | Collection of objects containing attribute metadata for each requested
--- fleet ID.
+-- | Collection of objects containing attribute metadata for each requested fleet ID.
 dfarsFleetAttributes :: Lens' DescribeFleetAttributesResponse [FleetAttributes]
 dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttributes = a}) . _Default . _Coerce;
 

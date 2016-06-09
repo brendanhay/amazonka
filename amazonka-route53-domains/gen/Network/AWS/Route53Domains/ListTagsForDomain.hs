@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns all of the tags that are associated with the
--- specified domain.
+-- This operation returns all of the tags that are associated with the specified domain.
 --
--- All tag operations are eventually consistent; subsequent operations may
--- not immediately represent all issued operations.
+-- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
 module Network.AWS.Route53Domains.ListTagsForDomain
     (
     -- * Creating a Request

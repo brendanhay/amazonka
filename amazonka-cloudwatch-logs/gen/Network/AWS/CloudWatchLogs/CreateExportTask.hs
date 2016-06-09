@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an 'ExportTask' which allows you to efficiently export data from
--- a Log Group to your Amazon S3 bucket.
+-- Creates an 'ExportTask' which allows you to efficiently export data from a Log Group to your Amazon S3 bucket.
 --
--- This is an asynchronous call. If all the required information is
--- provided, this API will initiate an export task and respond with the
--- task Id. Once started, 'DescribeExportTasks' can be used to get the
--- status of an export task. You can only have one active ('RUNNING' or
--- 'PENDING') export task at a time, per account.
+-- This is an asynchronous call. If all the required information is provided, this API will initiate an export task and respond with the task Id. Once started, 'DescribeExportTasks' can be used to get the status of an export task. You can only have one active ('RUNNING' or 'PENDING') export task at a time, per account.
 --
--- You can export logs from multiple log groups or multiple time ranges to
--- the same Amazon S3 bucket. To separate out log data for each export
--- task, you can specify a prefix that will be used as the Amazon S3 key
--- prefix for all exported objects.
+-- You can export logs from multiple log groups or multiple time ranges to the same Amazon S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
     -- * Creating a Request
@@ -105,8 +97,7 @@ createExportTask pLogGroupName_ pFrom_ pTo_ pDestination_ =
     , _cetDestination = pDestination_
     }
 
--- | Prefix that will be used as the start of Amazon S3 key for every object
--- exported. If not specified, this defaults to \'exportedlogs\'.
+-- | Prefix that will be used as the start of Amazon S3 key for every object exported. If not specified, this defaults to \'exportedlogs\'.
 cetDestinationPrefix :: Lens' CreateExportTask (Maybe Text)
 cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPrefix = a});
 
@@ -114,9 +105,7 @@ cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPre
 cetTaskName :: Lens' CreateExportTask (Maybe Text)
 cetTaskName = lens _cetTaskName (\ s a -> s{_cetTaskName = a});
 
--- | Will only export log streams that match the provided
--- logStreamNamePrefix. If you don\'t specify a value, no prefix filter is
--- applied.
+-- | Will only export log streams that match the provided logStreamNamePrefix. If you don\'t specify a value, no prefix filter is applied.
 cetLogStreamNamePrefix :: Lens' CreateExportTask (Maybe Text)
 cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamNamePrefix = a});
 
@@ -124,17 +113,11 @@ cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamN
 cetLogGroupName :: Lens' CreateExportTask Text
 cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1,
--- 1970 00:00:00 UTC. It indicates the start time of the range for the
--- request. Events with a timestamp prior to this time will not be
--- exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the start time of the range for the request. Events with a timestamp prior to this time will not be exported.
 cetFrom :: Lens' CreateExportTask Natural
 cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat;
 
--- | A point in time expressed as the number of milliseconds since Jan 1,
--- 1970 00:00:00 UTC. It indicates the end time of the range for the
--- request. Events with a timestamp later than this time will not be
--- exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the end time of the range for the request. Events with a timestamp later than this time will not be exported.
 cetTo :: Lens' CreateExportTask Natural
 cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 

@@ -20,28 +20,13 @@
 --
 -- Describes the specified Amazon Kinesis stream.
 --
--- The information about the stream includes its current status, its Amazon
--- Resource Name (ARN), and an array of shard objects. For each shard
--- object, there is information about the hash key and sequence number
--- ranges that the shard spans, and the IDs of any earlier shards that
--- played in a role in creating the shard. A sequence number is the
--- identifier associated with every record ingested in the stream. The
--- sequence number is assigned when a record is put into the stream.
+-- The information about the stream includes its current status, its Amazon Resource Name (ARN), and an array of shard objects. For each shard object, there is information about the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. A sequence number is the identifier associated with every record ingested in the stream. The sequence number is assigned when a record is put into the stream.
 --
--- You can limit the number of returned shards using the 'Limit' parameter.
--- The number of shards in a stream may be too large to return from a
--- single call to 'DescribeStream'. You can detect this by using the
--- 'HasMoreShards' flag in the returned output. 'HasMoreShards' is set to
--- 'true' when there is more data available.
+-- You can limit the number of returned shards using the 'Limit' parameter. The number of shards in a stream may be too large to return from a single call to 'DescribeStream'. You can detect this by using the 'HasMoreShards' flag in the returned output. 'HasMoreShards' is set to 'true' when there is more data available.
 --
--- 'DescribeStream' is a paginated operation. If there are more shards
--- available, you can request them using the shard ID of the last shard
--- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
--- subsequent request to 'DescribeStream'.
+-- 'DescribeStream' is a paginated operation. If there are more shards available, you can request them using the shard ID of the last shard returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a subsequent request to 'DescribeStream'.
 --
--- There are no guarantees about the chronological order shards returned in
--- 'DescribeStream' results. If you want to process shards in chronological
--- order, use 'ParentShardId' to track lineage to the oldest shard.
+-- There are no guarantees about the chronological order shards returned in 'DescribeStream' results. If you want to process shards in chronological order, use 'ParentShardId' to track lineage to the oldest shard.
 --
 -- < DescribeStream> has a limit of 10 transactions per second per account.
 --
@@ -193,9 +178,7 @@ describeStreamResponse pResponseStatus_ pStreamDescription_ =
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
--- | The current status of the stream, the stream ARN, an array of shard
--- objects that comprise the stream, and states whether there are more
--- shards available.
+-- | The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.
 dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 

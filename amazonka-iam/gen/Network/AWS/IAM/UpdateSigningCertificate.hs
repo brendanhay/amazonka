@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the status of the specified signing certificate from active to
--- disabled, or vice versa. This action can be used to disable a user\'s
--- signing certificate as part of a certificate rotation work flow.
+-- Changes the status of the specified signing certificate from active to disabled, or vice versa. This action can be used to disable a user\'s signing certificate as part of a certificate rotation work flow.
 --
--- If the 'UserName' field is not specified, the UserName is determined
--- implicitly based on the AWS access key ID used to sign the request.
--- Because this action works for access keys under the AWS account, you can
--- use this action to manage root credentials even if the AWS account has
--- no associated users.
+-- If the 'UserName' field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Creating a Request
@@ -84,9 +78,7 @@ uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 
--- | The status you want to assign to the certificate. 'Active' means the
--- certificate can be used for API calls to AWS, while 'Inactive' means the
--- certificate cannot be used.
+-- | The status you want to assign to the certificate. 'Active' means the certificate can be used for API calls to AWS, while 'Inactive' means the certificate cannot be used.
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
 

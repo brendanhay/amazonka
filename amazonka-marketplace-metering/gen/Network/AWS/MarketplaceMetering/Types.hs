@@ -42,7 +42,7 @@ marketplaceMetering =
     , _svcEndpoint = defaultEndpoint marketplaceMetering
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "MarketplaceMetering"
     , _svcRetry = retry
     }
   where
@@ -65,27 +65,22 @@ marketplaceMetering =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The endpoint being called is in a region different from your EC2
--- instance. The region of the Metering service endpoint and the region of
--- the EC2 instance must match.
+-- | The endpoint being called is in a region different from your EC2 instance. The region of the Metering service endpoint and the region of the EC2 instance must match.
 _InvalidEndpointRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEndpointRegionException =
     _ServiceError . hasCode "InvalidEndpointRegionException"
 
--- | The product code passed does not match the product code used for
--- publishing the product.
+-- | The product code passed does not match the product code used for publishing the product.
 _InvalidProductCodeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidProductCodeException =
     _ServiceError . hasCode "InvalidProductCodeException"
 
--- | The usage dimension does not match one of the UsageDimensions associated
--- with products.
+-- | The usage dimension does not match one of the UsageDimensions associated with products.
 _InvalidUsageDimensionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidUsageDimensionException =
     _ServiceError . hasCode "InvalidUsageDimensionException"
 
--- | A metering record has already been emitted by the same EC2 instance for
--- the given {usageDimension, timestamp} with a different usageQuantity.
+-- | A metering record has already been emitted by the same EC2 instance for the given {usageDimension, timestamp} with a different usageQuantity.
 _DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequestException =
     _ServiceError . hasCode "DuplicateRequestException"
@@ -99,8 +94,7 @@ _TimestampOutOfBoundsException =
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException = _ServiceError . hasCode "ThrottlingException"
 
--- | An internal error has occurred. Retry your request. If the problem
--- persists, post a message with details on the AWS forums.
+-- | An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.
 _InternalServiceErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceErrorException =
     _ServiceError . hasCode "InternalServiceErrorException"

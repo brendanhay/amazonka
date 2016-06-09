@@ -18,33 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delivers up to ten messages to the specified queue. This is a batch
--- version of < SendMessage>. The result of the send action on each message
--- is reported individually in the response. The maximum allowed individual
--- message size is 256 KB (262,144 bytes).
+-- Delivers up to ten messages to the specified queue. This is a batch version of < SendMessage>. The result of the send action on each message is reported individually in the response. The maximum allowed individual message size is 256 KB (262,144 bytes).
 --
--- The maximum total payload size (i.e., the sum of all a batch\'s
--- individual message lengths) is also 256 KB (262,144 bytes).
+-- The maximum total payload size (i.e., the sum of all a batch\'s individual message lengths) is also 256 KB (262,144 bytes).
 --
--- If the 'DelaySeconds' parameter is not specified for an entry, the
--- default for the queue is used.
+-- If the 'DelaySeconds' parameter is not specified for an entry, the default for the queue is used.
 --
--- The following list shows the characters (in Unicode) that are allowed in
--- your message, according to the W3C XML specification. For more
--- information, go to <http://www.faqs.org/rfcs/rfc1321.html>. If you send
--- any characters that are not included in the list, your request will be
--- rejected.
+-- The following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification. For more information, go to <http://www.faqs.org/rfcs/rfc1321.html>. If you send any characters that are not included in the list, your request will be rejected.
 --
--- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to
--- #x10FFFF]
+-- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]
 --
--- Because the batch request can result in a combination of successful and
--- unsuccessful actions, you should check for batch errors even when the
--- call returns an HTTP status code of 200.
+-- Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
--- Some API actions take lists of parameters. These lists are specified
--- using the 'param.n' notation. Values of 'n' are integers starting from
--- 1. For example, a parameter list with two elements looks like this:
+-- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
 -- '&Attribute.1=this'
 --
@@ -134,9 +120,7 @@ instance ToQuery SendMessageBatch where
                toQueryList "SendMessageBatchRequestEntry"
                  _smbEntries]
 
--- | For each message in the batch, the response contains a
--- < SendMessageBatchResultEntry> tag if the message succeeds or a
--- < BatchResultErrorEntry> tag if the message fails.
+-- | For each message in the batch, the response contains a < SendMessageBatchResultEntry> tag if the message succeeds or a < BatchResultErrorEntry> tag if the message fails.
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
@@ -172,8 +156,7 @@ smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce;
 
--- | A list of < BatchResultErrorEntry> items with the error detail about
--- each message that could not be enqueued.
+-- | A list of < BatchResultErrorEntry> items with the error detail about each message that could not be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;
 

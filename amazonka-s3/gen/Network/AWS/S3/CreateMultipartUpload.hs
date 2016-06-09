@@ -20,11 +20,7 @@
 --
 -- Initiates a multipart upload and returns an upload ID.
 --
--- __Note:__ After you initiate multipart upload and upload one or more
--- parts, you must either complete or abort multipart upload in order to
--- stop getting charged for storage of the uploaded parts. Only after you
--- either complete or abort multipart upload, Amazon S3 frees up the parts
--- storage and stops charging you for the parts storage.
+-- __Note:__ After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
 module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Creating a Request
@@ -189,16 +185,11 @@ cmuExpires = lens _cmuExpires (\ s a -> s{_cmuExpires = a}) . mapping _Time;
 cmuGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmuGrantReadACP = lens _cmuGrantReadACP (\ s a -> s{_cmuGrantReadACP = a});
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerAlgorithm = lens _cmuSSECustomerAlgorithm (\ s a -> s{_cmuSSECustomerAlgorithm = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 cmuSSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKey = lens _cmuSSECustomerKey (\ s a -> s{_cmuSSECustomerKey = a}) . mapping _Sensitive;
 
@@ -210,9 +201,7 @@ cmuRequestPayer = lens _cmuRequestPayer (\ s a -> s{_cmuRequestPayer = a});
 cmuGrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmuGrantWriteACP = lens _cmuGrantWriteACP (\ s a -> s{_cmuGrantWriteACP = a});
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 cmuWebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
 cmuWebsiteRedirectLocation = lens _cmuWebsiteRedirectLocation (\ s a -> s{_cmuWebsiteRedirectLocation = a});
 
@@ -224,28 +213,19 @@ cmuGrantRead = lens _cmuGrantRead (\ s a -> s{_cmuGrantRead = a});
 cmuStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmuStorageClass = lens _cmuStorageClass (\ s a -> s{_cmuStorageClass = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and
--- PUT requests for an object protected by AWS KMS will fail if not made
--- via SSL or using SigV4. Documentation on configuring any of the
--- officially supported AWS SDKs and CLI can be found at
--- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
 cmuSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\ s a -> s{_cmuSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 cmuGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmuGrantFullControl = lens _cmuGrantFullControl (\ s a -> s{_cmuGrantFullControl = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = a});
 
@@ -269,8 +249,7 @@ cmuACL = lens _cmuACL (\ s a -> s{_cmuACL = a});
 cmuContentDisposition :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentDisposition = lens _cmuContentDisposition (\ s a -> s{_cmuContentDisposition = a});
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 cmuServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
 cmuServerSideEncryption = lens _cmuServerSideEncryption (\ s a -> s{_cmuServerSideEncryption = a});
 
@@ -417,19 +396,15 @@ cmursRequestCharged = lens _cmursRequestCharged (\ s a -> s{_cmursRequestCharged
 cmursBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
 cmursBucket = lens _cmursBucket (\ s a -> s{_cmursBucket = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 cmursSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSECustomerAlgorithm = lens _cmursSSECustomerAlgorithm (\ s a -> s{_cmursSSECustomerAlgorithm = a});
 
--- | Date when multipart upload will become eligible for abort operation by
--- lifecycle.
+-- | Date when multipart upload will become eligible for abort operation by lifecycle.
 cmursAbortDate :: Lens' CreateMultipartUploadResponse (Maybe UTCTime)
 cmursAbortDate = lens _cmursAbortDate (\ s a -> s{_cmursAbortDate = a}) . mapping _Time;
 
--- | Id of the lifecycle rule that makes a multipart upload eligible for
--- abort operation.
+-- | Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
 cmursAbortRuleId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursAbortRuleId = lens _cmursAbortRuleId (\ s a -> s{_cmursAbortRuleId = a});
 
@@ -437,14 +412,11 @@ cmursAbortRuleId = lens _cmursAbortRuleId (\ s a -> s{_cmursAbortRuleId = a});
 cmursKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
 cmursKey = lens _cmursKey (\ s a -> s{_cmursKey = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 cmursSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSECustomerKeyMD5 = lens _cmursSSECustomerKeyMD5 (\ s a -> s{_cmursSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 cmursSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSEKMSKeyId = lens _cmursSSEKMSKeyId (\ s a -> s{_cmursSSEKMSKeyId = a}) . mapping _Sensitive;
 
@@ -452,8 +424,7 @@ cmursSSEKMSKeyId = lens _cmursSSEKMSKeyId (\ s a -> s{_cmursSSEKMSKeyId = a}) . 
 cmursUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursUploadId = lens _cmursUploadId (\ s a -> s{_cmursUploadId = a});
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 cmursServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursServerSideEncryption = a});
 

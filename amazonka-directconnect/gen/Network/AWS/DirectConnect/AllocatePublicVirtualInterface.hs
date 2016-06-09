@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a public virtual interface to be owned by a different
--- customer.
+-- Provisions a public virtual interface to be owned by a different customer.
 --
--- The owner of a connection calls this function to provision a public
--- virtual interface which will be owned by another AWS customer.
+-- The owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.
 --
--- Virtual interfaces created using this function must be confirmed by the
--- virtual interface owner by calling ConfirmPublicVirtualInterface. Until
--- this step has been completed, the virtual interface will be in
--- \'Confirming\' state, and will not be available for handling traffic.
+-- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in \'Confirming\' state, and will not be available for handling traffic.
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -66,8 +61,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the AllocatePublicVirtualInterface
--- operation.
+-- | Container for the parameters to the AllocatePublicVirtualInterface operation.
 --
 -- /See:/ 'allocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'

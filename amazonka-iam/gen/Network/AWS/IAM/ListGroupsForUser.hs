@@ -20,8 +20,7 @@
 --
 -- Lists the groups the specified user belongs to.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupsForUser
@@ -78,22 +77,13 @@ listGroupsForUser pUserName_ =
     , _lgfuUserName = pUserName_
     }
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
 lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat;
 
@@ -171,19 +161,11 @@ listGroupsForUserResponse pResponseStatus_ =
     , _lgfursGroups = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfursMarker = lens _lgfursMarker (\ s a -> s{_lgfursMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
 

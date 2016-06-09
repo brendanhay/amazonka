@@ -171,8 +171,7 @@ getObject pBucket_ pKey_ =
     , _goKey = pKey_
     }
 
--- | Return the object only if its entity tag (ETag) is the same as the one
--- specified, otherwise return a 412 (precondition failed).
+-- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 goIfMatch :: Lens' GetObject (Maybe Text)
 goIfMatch = lens _goIfMatch (\ s a -> s{_goIfMatch = a});
 
@@ -192,16 +191,11 @@ goResponseContentDisposition = lens _goResponseContentDisposition (\ s a -> s{_g
 goResponseContentLanguage :: Lens' GetObject (Maybe Text)
 goResponseContentLanguage = lens _goResponseContentLanguage (\ s a -> s{_goResponseContentLanguage = a});
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
 goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomerAlgorithm = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
 goSSECustomerKey = lens _goSSECustomerKey (\ s a -> s{_goSSECustomerKey = a}) . mapping _Sensitive;
 
@@ -213,25 +207,19 @@ goRequestPayer = lens _goRequestPayer (\ s a -> s{_goRequestPayer = a});
 goResponseContentEncoding :: Lens' GetObject (Maybe Text)
 goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goResponseContentEncoding = a});
 
--- | Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
+-- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 goIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
 goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time;
 
--- | Downloads the specified range bytes of an object. For more information
--- about the HTTP Range header, go to
--- http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
+-- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
 goRange = lens _goRange (\ s a -> s{_goRange = a});
 
--- | Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
+-- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 goIfUnmodifiedSince :: Lens' GetObject (Maybe UTCTime)
 goIfUnmodifiedSince = lens _goIfUnmodifiedSince (\ s a -> s{_goIfUnmodifiedSince = a}) . mapping _Time;
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 goSSECustomerKeyMD5 = lens _goSSECustomerKeyMD5 (\ s a -> s{_goSSECustomerKeyMD5 = a});
 
@@ -243,8 +231,7 @@ goResponseCacheControl = lens _goResponseCacheControl (\ s a -> s{_goResponseCac
 goResponseExpires :: Lens' GetObject (Maybe UTCTime)
 goResponseExpires = lens _goResponseExpires (\ s a -> s{_goResponseExpires = a}) . mapping _Time;
 
--- | Return the object only if its entity tag (ETag) is different from the
--- one specified, otherwise return a 304 (not modified).
+-- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
 goIfNoneMatch :: Lens' GetObject (Maybe Text)
 goIfNoneMatch = lens _goIfNoneMatch (\ s a -> s{_goIfNoneMatch = a});
 
@@ -460,8 +447,7 @@ getObjectResponse pResponseStatus_ pBody_ =
 gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
 gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
 
--- | An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL
+-- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 gorsETag :: Lens' GetObjectResponse (Maybe ETag)
 gorsETag = lens _gorsETag (\ s a -> s{_gorsETag = a});
 
@@ -477,41 +463,27 @@ gorsContentLength = lens _gorsContentLength (\ s a -> s{_gorsContentLength = a})
 gorsExpires :: Lens' GetObjectResponse (Maybe UTCTime)
 gorsExpires = lens _gorsExpires (\ s a -> s{_gorsExpires = a}) . mapping _Time;
 
--- | Provides information about object restoration operation and expiration
--- time of the restored object copy.
+-- | Provides information about object restoration operation and expiration time of the restored object copy.
 gorsRestore :: Lens' GetObjectResponse (Maybe Text)
 gorsRestore = lens _gorsRestore (\ s a -> s{_gorsRestore = a});
 
--- | If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id
--- key value pairs providing object expiration information. The value of
--- the rule-id is URL encoded.
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
 gorsExpiration :: Lens' GetObjectResponse (Maybe Text)
 gorsExpiration = lens _gorsExpiration (\ s a -> s{_gorsExpiration = a});
 
--- | Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
+-- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 gorsDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
 gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 gorsSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
 gorsSSECustomerAlgorithm = lens _gorsSSECustomerAlgorithm (\ s a -> s{_gorsSSECustomerAlgorithm = a});
 
--- | This is set to the number of metadata entries not returned in x-amz-meta
--- headers. This can happen if you create metadata using an API like SOAP
--- that supports more flexible metadata than the REST API. For example,
--- using SOAP, you can create metadata whose values are not legal HTTP
--- headers.
+-- | This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 gorsMissingMeta :: Lens' GetObjectResponse (Maybe Int)
 gorsMissingMeta = lens _gorsMissingMeta (\ s a -> s{_gorsMissingMeta = a});
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 gorsWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
 gorsWebsiteRedirectLocation = lens _gorsWebsiteRedirectLocation (\ s a -> s{_gorsWebsiteRedirectLocation = a});
 
@@ -523,20 +495,15 @@ gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a});
 gorsStorageClass :: Lens' GetObjectResponse (Maybe StorageClass)
 gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 gorsSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 gorsSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
 gorsSSEKMSKeyId = lens _gorsSSEKMSKeyId (\ s a -> s{_gorsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 gorsContentEncoding :: Lens' GetObjectResponse (Maybe Text)
 gorsContentEncoding = lens _gorsContentEncoding (\ s a -> s{_gorsContentEncoding = a});
 
@@ -568,8 +535,7 @@ gorsContentDisposition = lens _gorsContentDisposition (\ s a -> s{_gorsContentDi
 gorsContentRange :: Lens' GetObjectResponse (Maybe Text)
 gorsContentRange = lens _gorsContentRange (\ s a -> s{_gorsContentRange = a});
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 gorsServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
 gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServerSideEncryption = a});
 

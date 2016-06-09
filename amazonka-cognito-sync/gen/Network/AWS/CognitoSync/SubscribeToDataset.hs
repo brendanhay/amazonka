@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Subscribes to receive notifications when a dataset is modified by
--- another device.
+-- Subscribes to receive notifications when a dataset is modified by another device.
 --
--- This API can only be called with temporary credentials provided by
--- Cognito Identity. You cannot call this API with developer credentials.
+-- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Creating a Request
@@ -83,9 +81,7 @@ subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     , _stdDeviceId = pDeviceId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. The ID of the pool to which the identity belongs.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
 stdIdentityPoolId :: Lens' SubscribeToDataset Text
 stdIdentityPoolId = lens _stdIdentityPoolId (\ s a -> s{_stdIdentityPoolId = a});
 

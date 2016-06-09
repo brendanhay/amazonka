@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all alarms for a single metric. Specify a statistic, period,
--- or unit to filter the set of alarms further.
+-- Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further.
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Creating a Request
@@ -91,9 +90,7 @@ describeAlarmsForMetric pMetricName_ pNamespace_ =
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
--- | The list of dimensions associated with the metric. If the metric has any
--- associated dimensions, you must specify them in order for the
--- DescribeAlarmsForMetric to succeed.
+-- | The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 

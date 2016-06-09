@@ -28,43 +28,43 @@ import Test.AWS.ImportExport.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetShippingLabel $
+--         [ requestGetShippingLabel $
 --             getShippingLabel
 --
---         , testCreateJob $
+--         , requestCreateJob $
 --             createJob
 --
---         , testListJobs $
+--         , requestListJobs $
 --             listJobs
 --
---         , testUpdateJob $
+--         , requestUpdateJob $
 --             updateJob
 --
---         , testGetStatus $
+--         , requestGetStatus $
 --             getStatus
 --
---         , testCancelJob $
+--         , requestCancelJob $
 --             cancelJob
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetShippingLabelResponse $
+--         [ responseGetShippingLabel $
 --             getShippingLabelResponse
 --
---         , testCreateJobResponse $
+--         , responseCreateJob $
 --             createJobResponse
 --
---         , testListJobsResponse $
+--         , responseListJobs $
 --             listJobsResponse
 --
---         , testUpdateJobResponse $
+--         , responseUpdateJob $
 --             updateJobResponse
 --
---         , testGetStatusResponse $
+--         , responseGetStatus $
 --             getStatusResponse
 --
---         , testCancelJobResponse $
+--         , responseCancelJob $
 --             cancelJobResponse
 --
 --           ]
@@ -72,75 +72,75 @@ import Test.AWS.ImportExport.Internal
 
 -- Requests
 
-testGetShippingLabel :: GetShippingLabel -> TestTree
-testGetShippingLabel = req
+requestGetShippingLabel :: GetShippingLabel -> TestTree
+requestGetShippingLabel = req
     "GetShippingLabel"
     "fixture/GetShippingLabel.yaml"
 
-testCreateJob :: CreateJob -> TestTree
-testCreateJob = req
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob = req
     "CreateJob"
     "fixture/CreateJob.yaml"
 
-testListJobs :: ListJobs -> TestTree
-testListJobs = req
+requestListJobs :: ListJobs -> TestTree
+requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
-testUpdateJob :: UpdateJob -> TestTree
-testUpdateJob = req
+requestUpdateJob :: UpdateJob -> TestTree
+requestUpdateJob = req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
-testGetStatus :: GetStatus -> TestTree
-testGetStatus = req
+requestGetStatus :: GetStatus -> TestTree
+requestGetStatus = req
     "GetStatus"
     "fixture/GetStatus.yaml"
 
-testCancelJob :: CancelJob -> TestTree
-testCancelJob = req
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob = req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 -- Responses
 
-testGetShippingLabelResponse :: GetShippingLabelResponse -> TestTree
-testGetShippingLabelResponse = res
+responseGetShippingLabel :: GetShippingLabelResponse -> TestTree
+responseGetShippingLabel = res
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse.proto"
     importExport
     (Proxy :: Proxy GetShippingLabel)
 
-testCreateJobResponse :: CreateJobResponse -> TestTree
-testCreateJobResponse = res
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob = res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     importExport
     (Proxy :: Proxy CreateJob)
 
-testListJobsResponse :: ListJobsResponse -> TestTree
-testListJobsResponse = res
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs = res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     importExport
     (Proxy :: Proxy ListJobs)
 
-testUpdateJobResponse :: UpdateJobResponse -> TestTree
-testUpdateJobResponse = res
+responseUpdateJob :: UpdateJobResponse -> TestTree
+responseUpdateJob = res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     importExport
     (Proxy :: Proxy UpdateJob)
 
-testGetStatusResponse :: GetStatusResponse -> TestTree
-testGetStatusResponse = res
+responseGetStatus :: GetStatusResponse -> TestTree
+responseGetStatus = res
     "GetStatusResponse"
     "fixture/GetStatusResponse.proto"
     importExport
     (Proxy :: Proxy GetStatus)
 
-testCancelJobResponse :: CancelJobResponse -> TestTree
-testCancelJobResponse = res
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob = res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     importExport

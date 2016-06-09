@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the specified user by user name in a user pool as an administrator.
--- Works on any user.
+-- Gets the specified user by user name in a user pool as an administrator. Works on any user.
 module Network.AWS.CognitoIdentityProvider.AdminGetUser
     (
     -- * Creating a Request
@@ -75,8 +74,7 @@ adminGetUser pUserPoolId_ pUsername_ =
     , _aguUsername = _Sensitive # pUsername_
     }
 
--- | The user pool ID for the user pool where you want to get information
--- about the user.
+-- | The user pool ID for the user pool where you want to get information about the user.
 aguUserPoolId :: Lens' AdminGetUser Text
 aguUserPoolId = lens _aguUserPoolId (\ s a -> s{_aguUserPoolId = a});
 
@@ -126,8 +124,7 @@ instance ToPath AdminGetUser where
 instance ToQuery AdminGetUser where
         toQuery = const mempty
 
--- | Represents the response from the server from the request to get the
--- specified user as an administrator.
+-- | Represents the response from the server from the request to get the specified user as an administrator.
 --
 -- /See:/ 'adminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'

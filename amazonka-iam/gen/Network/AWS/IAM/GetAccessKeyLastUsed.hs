@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about when the specified access key was last used.
--- The information includes the date and time of last use, along with the
--- AWS service and region that were specified in the last request made with
--- that key.
+-- Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the AWS service and region that were specified in the last request made with that key.
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
     -- * Creating a Request
@@ -96,9 +93,7 @@ instance ToQuery GetAccessKeyLastUsed where
                "Version" =: ("2010-05-08" :: ByteString),
                "AccessKeyId" =: _gakluAccessKeyId]
 
--- | Contains the response to a successful < GetAccessKeyLastUsed> request.
--- It is also returned as a member of the < AccessKeyMetaData> structure
--- returned by the < ListAccessKeys> action.
+-- | Contains the response to a successful < GetAccessKeyLastUsed> request. It is also returned as a member of the < AccessKeyMetaData> structure returned by the < ListAccessKeys> action.
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'

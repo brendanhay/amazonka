@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation cancels a specified job. Only the job owner can cancel
--- it. The operation fails if the job has already started or is complete.
+-- This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.
 module Network.AWS.ImportExport.CancelJob
     (
     -- * Creating a Request

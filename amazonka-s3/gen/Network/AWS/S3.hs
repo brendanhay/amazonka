@@ -11,13 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
--- a simple web services interface that you can use to store and retrieve
--- any amount of data, at any time, from anywhere on the web. It gives any
--- developer access to the same highly scalable, reliable, fast,
--- inexpensive data storage infrastructure that Amazon uses to run its own
--- global network of web sites. The service aims to maximize benefits of
--- scale and to pass those benefits on to developers.
+-- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.
 module Network.AWS.S3
     (
     -- * Service Configuration

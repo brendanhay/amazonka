@@ -56,7 +56,7 @@ cloudHSM =
     , _svcEndpoint = defaultEndpoint cloudHSM
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudHSM"
     , _svcRetry = retry
     }
   where

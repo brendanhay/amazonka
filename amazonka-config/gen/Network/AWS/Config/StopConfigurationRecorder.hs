@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops recording configurations of the AWS resources you have selected to
--- record in your AWS account.
+-- Stops recording configurations of the AWS resources you have selected to record in your AWS account.
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Creating a Request
@@ -60,8 +59,7 @@ stopConfigurationRecorder pConfigurationRecorderName_ =
     { _scrConfigurationRecorderName = pConfigurationRecorderName_
     }
 
--- | The name of the recorder object that records each configuration change
--- made to the resources.
+-- | The name of the recorder object that records each configuration change made to the resources.
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
 scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a});
 

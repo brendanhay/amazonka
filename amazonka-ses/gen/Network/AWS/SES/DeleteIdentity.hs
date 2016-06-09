@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified identity (email address or domain) from the list
--- of verified identities.
+-- Deletes the specified identity (email address or domain) from the list of verified identities.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteIdentity
@@ -62,8 +61,7 @@ deleteIdentity pIdentity_ =
     { _diIdentity = pIdentity_
     }
 
--- | The identity to be removed from the list of identities for the AWS
--- Account.
+-- | The identity to be removed from the list of identities for the AWS Account.
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
 

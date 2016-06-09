@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /GetItem/ operation returns a set of attributes for the item with
--- the given primary key. If there is no matching item, /GetItem/ does not
--- return any data.
+-- The /GetItem/ operation returns a set of attributes for the item with the given primary key. If there is no matching item, /GetItem/ does not return any data.
 --
--- /GetItem/ provides an eventually consistent read by default. If your
--- application requires a strongly consistent read, set /ConsistentRead/ to
--- 'true'. Although a strongly consistent read might take more time than an
--- eventually consistent read, it always returns the last updated value.
+-- /GetItem/ provides an eventually consistent read by default. If your application requires a strongly consistent read, set /ConsistentRead/ to 'true'. Although a strongly consistent read might take more time than an eventually consistent read, it always returns the last updated value.
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Creating a Request
@@ -100,83 +95,53 @@ getItem pTableName_ =
     , _giKey = mempty
     }
 
--- | A string that identifies one or more attributes to retrieve from the
--- table. These attributes can include scalars, sets, or elements of a JSON
--- document. The attributes in the expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 --
--- If no attribute names are specified, then all attributes will be
--- returned. If any of the requested attributes are not found, they will
--- not appear in the result.
+-- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
 --
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression = lens _giProjectionExpression (\ s a -> s{_giProjectionExpression = a});
 
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications should use /ProjectionExpression/ instead. Do not combine legacy parameters and expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
+-- This parameter allows you to retrieve attributes of type List or Map; however, it cannot retrieve individual elements within a List or a Map.
 --
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
+-- The names of one or more attributes to retrieve. If no attribute names are provided, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
 --
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
+-- Note that /AttributesToGet/ has no effect on provisioned throughput consumption. DynamoDB determines capacity units consumed based on item size, not on the amount of data that is returned to an application.
 giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
 giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
 
--- | One or more substitution tokens for attribute names in an expression.
--- The following are some use cases for using /ExpressionAttributeNames/:
+-- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using /ExpressionAttributeNames/:
 --
--- -   To access an attribute whose name conflicts with a DynamoDB reserved
---     word.
+-- -   To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
--- -   To create a placeholder for repeating occurrences of an attribute
---     name in an expression.
+-- -   To create a placeholder for repeating occurrences of an attribute name in an expression.
 --
--- -   To prevent special characters in an attribute name from being
---     misinterpreted in an expression.
+-- -   To prevent special characters in an attribute name from being misinterpreted in an expression.
 --
--- Use the __#__ character in an expression to dereference an attribute
--- name. For example, consider the following attribute name:
+-- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
 --
 -- -   'Percentile'
 --
--- The name of this attribute conflicts with a reserved word, so it cannot
--- be used directly in an expression. (For the complete list of reserved
--- words, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words>
--- in the /Amazon DynamoDB Developer Guide/). To work around this, you
--- could specify the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this, you could specify the following for /ExpressionAttributeNames/:
 --
 -- -   '{\"#P\":\"Percentile\"}'
 --
--- You could then use this substitution in an expression, as in this
--- example:
+-- You could then use this substitution in an expression, as in this example:
 --
 -- -   '#P = :val'
 --
--- Tokens that begin with the __:__ character are /expression attribute
--- values/, which are placeholders for the actual value at runtime.
+-- Tokens that begin with the __:__ character are /expression attribute values/, which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Default . _Map;
 
--- | Determines the read consistency model: If set to 'true', then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
+-- | Determines the read consistency model: If set to 'true', then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 
@@ -188,13 +153,9 @@ giReturnConsumedCapacity = lens _giReturnConsumedCapacity (\ s a -> s{_giReturnC
 giTableName :: Lens' GetItem Text
 giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 
--- | A map of attribute names to /AttributeValue/ objects, representing the
--- primary key of the item to retrieve.
+-- | A map of attribute names to /AttributeValue/ objects, representing the primary key of the item to retrieve.
 --
--- For the primary key, you must provide all of the attributes. For
--- example, with a simple primary key, you only need to provide a value for
--- the partition key. For a composite primary key, you must provide values
--- for both the partition key and the sort key.
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
@@ -275,8 +236,7 @@ getItemResponse pResponseStatus_ =
 girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
 girsConsumedCapacity = lens _girsConsumedCapacity (\ s a -> s{_girsConsumedCapacity = a});
 
--- | A map of attribute names to /AttributeValue/ objects, as specified by
--- /AttributesToGet/.
+-- | A map of attribute names to /AttributeValue/ objects, as specified by /AttributesToGet/.
 girsItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 

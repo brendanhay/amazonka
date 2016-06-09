@@ -18,24 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch
--- associates the data points with the specified metric. If the specified
--- metric does not exist, Amazon CloudWatch creates the metric. When Amazon
--- CloudWatch creates a metric, it can take up to fifteen minutes for the
--- metric to appear in calls to the < ListMetrics> action.
+-- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to the < ListMetrics> action.
 --
--- Each 'PutMetricData' request is limited to 8 KB in size for HTTP GET
--- requests and is limited to 40 KB in size for HTTP POST requests.
+-- Each 'PutMetricData' request is limited to 8 KB in size for HTTP GET requests and is limited to 40 KB in size for HTTP POST requests.
 --
--- Although the 'Value' parameter accepts numbers of type 'Double', Amazon
--- CloudWatch rejects values that are either too small or too large. Values
--- must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or
--- 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN,
--- +Infinity, -Infinity) are not supported.
+-- Although the 'Value' parameter accepts numbers of type 'Double', Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
 --
--- Data that is timestamped 24 hours or more in the past may take in excess
--- of 48 hours to become available from submission time using
--- 'GetMetricStatistics'.
+-- Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using 'GetMetricStatistics'.
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Creating a Request
@@ -81,9 +70,7 @@ putMetricData pNamespace_ =
 
 -- | The namespace for the metric data.
 --
--- You cannot specify a namespace that begins with \"AWS\/\". Namespaces
--- that begin with \"AWS\/\" are reserved for other Amazon Web Services
--- products that send metrics to Amazon CloudWatch.
+-- You cannot specify a namespace that begins with \"AWS\/\". Namespaces that begin with \"AWS\/\" are reserved for other Amazon Web Services products that send metrics to Amazon CloudWatch.
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
 

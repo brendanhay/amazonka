@@ -69,24 +69,18 @@ putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
     , _pkpPolicy = pPolicy_
     }
 
--- | A unique identifier for the customer master key. This value can be a
--- globally unique identifier or the fully specified ARN to a key.
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
 --
--- -   Key ARN Example -
---     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
--- -   Globally Unique Key ID Example -
---     12345678-1234-1234-1234-123456789012
+-- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 pkpKeyId :: Lens' PutKeyPolicy Text
 pkpKeyId = lens _pkpKeyId (\ s a -> s{_pkpKeyId = a});
 
--- | Name of the policy to be attached. Currently, the only supported name is
--- \"default\".
+-- | Name of the policy to be attached. Currently, the only supported name is \"default\".
 pkpPolicyName :: Lens' PutKeyPolicy Text
 pkpPolicyName = lens _pkpPolicyName (\ s a -> s{_pkpPolicyName = a});
 
--- | The policy to attach to the key. This is required and delegates back to
--- the account. The key is the root of trust. The policy size limit is 32
--- KiB (32768 bytes).
+-- | The policy to attach to the key. This is required and delegates back to the account. The key is the root of trust. The policy size limit is 32 KiB (32768 bytes).
 pkpPolicy :: Lens' PutKeyPolicy Text
 pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 

@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces an existing route within a route table in a VPC. You must
--- provide only one of the following: Internet gateway or virtual private
--- gateway, NAT instance, NAT gateway, VPC peering connection, or network
--- interface.
+-- Replaces an existing route within a route table in a VPC. You must provide only one of the following: Internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, or network interface.
 --
--- For more information about route tables, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.ReplaceRoute
     (
     -- * Creating a Request
@@ -122,10 +117,7 @@ rrNetworkInterfaceId = lens _rrNetworkInterfaceId (\ s a -> s{_rrNetworkInterfac
 rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
 rrGatewayId = lens _rrGatewayId (\ s a -> s{_rrGatewayId = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
 rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a});
 
@@ -133,8 +125,7 @@ rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a});
 rrRouteTableId :: Lens' ReplaceRoute Text
 rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a});
 
--- | The CIDR address block used for the destination match. The value you
--- provide must match the CIDR of an existing route in the table.
+-- | The CIDR address block used for the destination match. The value you provide must match the CIDR of an existing route in the table.
 rrDestinationCIdRBlock :: Lens' ReplaceRoute Text
 rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestinationCIdRBlock = a});
 

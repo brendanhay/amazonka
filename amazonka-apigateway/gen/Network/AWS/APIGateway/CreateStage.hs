@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new < Stage> resource that references a pre-existing
--- < Deployment> for the API.
+-- Creates a new < Stage> resource that references a pre-existing < Deployment> for the API.
 module Network.AWS.APIGateway.CreateStage
     (
     -- * Creating a Request
@@ -104,9 +103,7 @@ createStage pRestAPIId_ pStageName_ pDeploymentId_ =
     , _csDeploymentId = pDeploymentId_
     }
 
--- | A map that defines the stage variables for the new < Stage> resource.
--- Variable names can have alphanumeric characters, and the values must
--- match '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for the new < Stage> resource. Variable names can have alphanumeric characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
 csVariables :: Lens' CreateStage (HashMap Text Text)
 csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
 
@@ -122,8 +119,7 @@ csCacheClusterEnabled = lens _csCacheClusterEnabled (\ s a -> s{_csCacheClusterE
 csDescription :: Lens' CreateStage (Maybe Text)
 csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to
--- create.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to create.
 csRestAPIId :: Lens' CreateStage Text
 csRestAPIId = lens _csRestAPIId (\ s a -> s{_csRestAPIId = a});
 

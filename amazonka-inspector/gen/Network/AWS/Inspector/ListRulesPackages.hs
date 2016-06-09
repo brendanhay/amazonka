@@ -65,16 +65,11 @@ listRulesPackages =
     , _lrpMaxResults = Nothing
     }
 
--- | You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the __ListRulesPackages__
--- action. Subsequent calls to the action fill __nextToken__ in the request
--- with the value of __NextToken__ from the previous response to continue
--- listing data.
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lrpNextToken :: Lens' ListRulesPackages (Maybe Text)
 lrpNextToken = lens _lrpNextToken (\ s a -> s{_lrpNextToken = a});
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 lrpMaxResults :: Lens' ListRulesPackages (Maybe Int)
 lrpMaxResults = lens _lrpMaxResults (\ s a -> s{_lrpMaxResults = a});
 
@@ -140,10 +135,7 @@ listRulesPackagesResponse pResponseStatus_ =
     , _lrprsRulesPackageARNs = mempty
     }
 
--- | When a response is generated, if there is more data to be listed, this
--- parameter is present in the response and contains the value to use for
--- the __nextToken__ parameter in a subsequent pagination request. If there
--- is no more data to be listed, this parameter is set to null.
+-- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lrprsNextToken :: Lens' ListRulesPackagesResponse (Maybe Text)
 lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
 
@@ -151,8 +143,7 @@ lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
 
--- | The list of ARNs that specifies the rules packages returned by the
--- action.
+-- | The list of ARNs that specifies the rules packages returned by the action.
 lrprsRulesPackageARNs :: Lens' ListRulesPackagesResponse [Text]
 lrprsRulesPackageARNs = lens _lrprsRulesPackageARNs (\ s a -> s{_lrprsRulesPackageARNs = a}) . _Coerce;
 

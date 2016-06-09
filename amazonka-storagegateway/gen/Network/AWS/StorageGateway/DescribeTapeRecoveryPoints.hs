@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of virtual tape recovery points that are available for
--- the specified gateway-VTL.
+-- Returns a list of virtual tape recovery points that are available for the specified gateway-VTL.
 --
--- A recovery point is a point-in-time view of a virtual tape at which all
--- the data on the virtual tape is consistent. If your gateway crashes,
--- virtual tapes that have recovery points can be recovered to a new
--- gateway.
+-- A recovery point is a point-in-time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
@@ -83,13 +79,11 @@ describeTapeRecoveryPoints pGatewayARN_ =
     , _dtrpGatewayARN = pGatewayARN_
     }
 
--- | An opaque string that indicates the position at which to begin
--- describing the virtual tape recovery points.
+-- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
 dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
 dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a});
 
--- | Specifies that the number of virtual tape recovery points that are
--- described be limited to the specified number.
+-- | Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
 dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
 
@@ -177,8 +171,7 @@ describeTapeRecoveryPointsResponse pResponseStatus_ =
     , _dtrprsResponseStatus = pResponseStatus_
     }
 
--- | An array of TapeRecoveryPointInfos that are available for the specified
--- gateway.
+-- | An array of TapeRecoveryPointInfos that are available for the specified gateway.
 dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
 dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_dtrprsTapeRecoveryPointInfos = a}) . _Default . _Coerce;
 
@@ -186,12 +179,9 @@ dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_d
 dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 
--- | An opaque string that indicates the position at which the virtual tape
--- recovery points that were listed for description ended.
+-- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
 --
--- Use this marker in your next request to list the next set of virtual
--- tape recovery points in the list. If there are no more recovery points
--- to describe, this field does not appear in the response.
+-- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
 dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 

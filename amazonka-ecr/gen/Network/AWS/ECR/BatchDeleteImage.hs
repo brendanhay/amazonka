@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a list of specified images within a specified repository. Images
--- are specified with either 'imageTag' or 'imageDigest'.
+-- Deletes a list of specified images within a specified repository. Images are specified with either 'imageTag' or 'imageDigest'.
 module Network.AWS.ECR.BatchDeleteImage
     (
     -- * Creating a Request
@@ -46,8 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Deletes specified images within a specified repository. Images are
--- specified with either the 'imageTag' or 'imageDigest'.
+-- | Deletes specified images within a specified repository. Images are specified with either the 'imageTag' or 'imageDigest'.
 --
 -- /See:/ 'batchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
@@ -76,9 +74,7 @@ batchDeleteImage pRepositoryName_ pImageIds_ =
     , _bdiImageIds = _List1 # pImageIds_
     }
 
--- | The AWS account ID associated with the registry that contains the image
--- to delete. If you do not specify a registry, the default registry is
--- assumed.
+-- | The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
 bdiRegistryId :: Lens' BatchDeleteImage (Maybe Text)
 bdiRegistryId = lens _bdiRegistryId (\ s a -> s{_bdiRegistryId = a});
 
@@ -86,9 +82,7 @@ bdiRegistryId = lens _bdiRegistryId (\ s a -> s{_bdiRegistryId = a});
 bdiRepositoryName :: Lens' BatchDeleteImage Text
 bdiRepositoryName = lens _bdiRepositoryName (\ s a -> s{_bdiRepositoryName = a});
 
--- | A list of image ID references that correspond to images to delete. The
--- format of the 'imageIds' reference is 'imageTag=tag' or
--- 'imageDigest=digest'.
+-- | A list of image ID references that correspond to images to delete. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
 bdiImageIds :: Lens' BatchDeleteImage (NonEmpty ImageIdentifier)
 bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _List1;
 

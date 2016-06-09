@@ -268,7 +268,7 @@ ses =
     , _svcEndpoint = defaultEndpoint ses
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SES"
     , _svcRetry = retry
     }
   where
@@ -300,8 +300,7 @@ _RuleDoesNotExistException :: AsError a => Getting (First ServiceError) a Servic
 _RuleDoesNotExistException =
     _ServiceError . hasStatus 400 . hasCode "RuleDoesNotExist"
 
--- | Indicates that the action failed, and the message could not be sent.
--- Check the error stack for more information about what caused the error.
+-- | Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
 _MessageRejected :: AsError a => Getting (First ServiceError) a ServiceError
 _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
 
@@ -310,43 +309,28 @@ _RuleSetDoesNotExistException :: AsError a => Getting (First ServiceError) a Ser
 _RuleSetDoesNotExistException =
     _ServiceError . hasStatus 400 . hasCode "RuleSetDoesNotExist"
 
--- | Indicates that the message could not be sent because Amazon SES could
--- not read the MX record required to use the specified MAIL FROM domain.
--- For information about editing the custom MAIL FROM domain settings for
--- an identity, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html Amazon SES Developer Guide>.
+-- | Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html Amazon SES Developer Guide>.
 _MailFromDomainNotVerifiedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MailFromDomainNotVerifiedException =
     _ServiceError .
     hasStatus 400 . hasCode "MailFromDomainNotVerifiedException"
 
--- | Indicates that the provided AWS Lambda function is invalid, or that
--- Amazon SES could not execute the provided function, possibly due to
--- permissions issues. For information about giving permissions, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+-- | Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 _InvalidLambdaFunctionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunction"
 
--- | Indicates that the provided policy is invalid. Check the error stack for
--- more information about what caused the error.
+-- | Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.
 _InvalidPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPolicyException =
     _ServiceError . hasStatus 400 . hasCode "InvalidPolicy"
 
--- | Indicates that the provided Amazon S3 bucket or AWS KMS encryption key
--- is invalid, or that Amazon SES could not publish to the bucket, possibly
--- due to permissions issues. For information about giving permissions, see
--- the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+-- | Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 _InvalidS3ConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3ConfigurationException =
     _ServiceError . hasStatus 400 . hasCode "InvalidS3Configuration"
 
--- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon
--- SES could not publish to the topic, possibly due to permissions issues.
--- For information about giving permissions, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+-- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 _InvalidSNSTopicException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSNSTopicException =
     _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopic"
@@ -356,9 +340,7 @@ _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceEr
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
--- | Indicates that a resource could not be created due to service limits.
--- For a list of Amazon SES limits, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
+-- | Indicates that a resource could not be created due to service limits. For a list of Amazon SES limits, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

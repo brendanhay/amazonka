@@ -18,26 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an Elastic IP address with an instance or a network
--- interface.
+-- Associates an Elastic IP address with an instance or a network interface.
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or
--- in a VPC. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address
--- is already associated with a different instance, it is disassociated
--- from that instance and associated with the specified instance.
+-- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance.
 --
--- [VPC in an EC2-Classic account] If you don\'t specify a private IP
--- address, the Elastic IP address is associated with the primary IP
--- address. If the Elastic IP address is already associated with a
--- different instance or a network interface, you get an error unless you
--- allow reassociation.
+-- [VPC in an EC2-Classic account] If you don\'t specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation.
 --
--- This is an idempotent operation. If you perform the operation more than
--- once, Amazon EC2 doesn\'t return an error.
+-- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
 module Network.AWS.EC2.AssociateAddress
     (
     -- * Creating a Request
@@ -110,10 +99,7 @@ associateAddress =
     , _aasDryRun = Nothing
     }
 
--- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC,
--- you can specify either the instance ID or the network interface ID, but
--- not both. The operation fails if you specify an instance ID unless
--- exactly one network interface is attached.
+-- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 aasInstanceId :: Lens' AssociateAddress (Maybe Text)
 aasInstanceId = lens _aasInstanceId (\ s a -> s{_aasInstanceId = a});
 
@@ -121,24 +107,15 @@ aasInstanceId = lens _aasInstanceId (\ s a -> s{_aasInstanceId = a});
 aasAllocationId :: Lens' AssociateAddress (Maybe Text)
 aasAllocationId = lens _aasAllocationId (\ s a -> s{_aasAllocationId = a});
 
--- | [EC2-VPC] The ID of the network interface. If the instance has more than
--- one network interface, you must specify a network interface ID.
+-- | [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
 aasNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
 aasNetworkInterfaceId = lens _aasNetworkInterfaceId (\ s a -> s{_aasNetworkInterfaceId = a});
 
--- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
--- Elastic IP address that is already associated with an instance or
--- network interface to be reassociated with the specified instance or
--- network interface. Otherwise, the operation fails. In a VPC in an
--- EC2-VPC-only account, reassociation is automatic, therefore you can
--- specify false to ensure the operation fails if the Elastic IP address is
--- already associated with another resource.
+-- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
 aasAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aasAllowReassociation = lens _aasAllowReassociation (\ s a -> s{_aasAllowReassociation = a});
 
--- | [EC2-VPC] The primary or secondary private IP address to associate with
--- the Elastic IP address. If no private IP address is specified, the
--- Elastic IP address is associated with the primary private IP address.
+-- | [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 aasPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
 aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress = a});
 
@@ -146,10 +123,7 @@ aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress
 aasPublicIP :: Lens' AssociateAddress (Maybe Text)
 aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aasDryRun :: Lens' AssociateAddress (Maybe Bool)
 aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 
@@ -208,8 +182,7 @@ associateAddressResponse pResponseStatus_ =
     , _arsResponseStatus = pResponseStatus_
     }
 
--- | [EC2-VPC] The ID that represents the association of the Elastic IP
--- address with an instance.
+-- | [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables multi-factor authentication (MFA) with the Remote
--- Authentication Dial In User Service (RADIUS) server for an AD Connector
--- directory.
+-- Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
 module Network.AWS.DirectoryService.DisableRadius
     (
     -- * Creating a Request

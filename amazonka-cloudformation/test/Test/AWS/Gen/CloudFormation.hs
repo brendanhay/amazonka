@@ -28,151 +28,151 @@ import Test.AWS.CloudFormation.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteStack $
+--         [ requestDeleteStack $
 --             deleteStack
 --
---         , testUpdateStack $
+--         , requestUpdateStack $
 --             updateStack
 --
---         , testGetTemplateSummary $
+--         , requestGetTemplateSummary $
 --             getTemplateSummary
 --
---         , testListChangeSets $
+--         , requestListChangeSets $
 --             listChangeSets
 --
---         , testListStackResources $
+--         , requestListStackResources $
 --             listStackResources
 --
---         , testGetStackPolicy $
+--         , requestGetStackPolicy $
 --             getStackPolicy
 --
---         , testDescribeStacks $
+--         , requestDescribeStacks $
 --             describeStacks
 --
---         , testCreateChangeSet $
+--         , requestCreateChangeSet $
 --             createChangeSet
 --
---         , testExecuteChangeSet $
+--         , requestExecuteChangeSet $
 --             executeChangeSet
 --
---         , testContinueUpdateRollback $
+--         , requestContinueUpdateRollback $
 --             continueUpdateRollback
 --
---         , testValidateTemplate $
+--         , requestValidateTemplate $
 --             validateTemplate
 --
---         , testCancelUpdateStack $
+--         , requestCancelUpdateStack $
 --             cancelUpdateStack
 --
---         , testDescribeStackEvents $
+--         , requestDescribeStackEvents $
 --             describeStackEvents
 --
---         , testSignalResource $
+--         , requestSignalResource $
 --             signalResource
 --
---         , testSetStackPolicy $
+--         , requestSetStackPolicy $
 --             setStackPolicy
 --
---         , testListStacks $
+--         , requestListStacks $
 --             listStacks
 --
---         , testDescribeAccountLimits $
+--         , requestDescribeAccountLimits $
 --             describeAccountLimits
 --
---         , testDescribeStackResources $
+--         , requestDescribeStackResources $
 --             describeStackResources
 --
---         , testCreateStack $
+--         , requestCreateStack $
 --             createStack
 --
---         , testEstimateTemplateCost $
+--         , requestEstimateTemplateCost $
 --             estimateTemplateCost
 --
---         , testDeleteChangeSet $
+--         , requestDeleteChangeSet $
 --             deleteChangeSet
 --
---         , testGetTemplate $
+--         , requestGetTemplate $
 --             getTemplate
 --
---         , testDescribeChangeSet $
+--         , requestDescribeChangeSet $
 --             describeChangeSet
 --
---         , testDescribeStackResource $
+--         , requestDescribeStackResource $
 --             describeStackResource
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteStackResponse $
+--         [ responseDeleteStack $
 --             deleteStackResponse
 --
---         , testUpdateStackResponse $
+--         , responseUpdateStack $
 --             updateStackResponse
 --
---         , testGetTemplateSummaryResponse $
+--         , responseGetTemplateSummary $
 --             getTemplateSummaryResponse
 --
---         , testListChangeSetsResponse $
+--         , responseListChangeSets $
 --             listChangeSetsResponse
 --
---         , testListStackResourcesResponse $
+--         , responseListStackResources $
 --             listStackResourcesResponse
 --
---         , testGetStackPolicyResponse $
+--         , responseGetStackPolicy $
 --             getStackPolicyResponse
 --
---         , testDescribeStacksResponse $
+--         , responseDescribeStacks $
 --             describeStacksResponse
 --
---         , testCreateChangeSetResponse $
+--         , responseCreateChangeSet $
 --             createChangeSetResponse
 --
---         , testExecuteChangeSetResponse $
+--         , responseExecuteChangeSet $
 --             executeChangeSetResponse
 --
---         , testContinueUpdateRollbackResponse $
+--         , responseContinueUpdateRollback $
 --             continueUpdateRollbackResponse
 --
---         , testValidateTemplateResponse $
+--         , responseValidateTemplate $
 --             validateTemplateResponse
 --
---         , testCancelUpdateStackResponse $
+--         , responseCancelUpdateStack $
 --             cancelUpdateStackResponse
 --
---         , testDescribeStackEventsResponse $
+--         , responseDescribeStackEvents $
 --             describeStackEventsResponse
 --
---         , testSignalResourceResponse $
+--         , responseSignalResource $
 --             signalResourceResponse
 --
---         , testSetStackPolicyResponse $
+--         , responseSetStackPolicy $
 --             setStackPolicyResponse
 --
---         , testListStacksResponse $
+--         , responseListStacks $
 --             listStacksResponse
 --
---         , testDescribeAccountLimitsResponse $
+--         , responseDescribeAccountLimits $
 --             describeAccountLimitsResponse
 --
---         , testDescribeStackResourcesResponse $
+--         , responseDescribeStackResources $
 --             describeStackResourcesResponse
 --
---         , testCreateStackResponse $
+--         , responseCreateStack $
 --             createStackResponse
 --
---         , testEstimateTemplateCostResponse $
+--         , responseEstimateTemplateCost $
 --             estimateTemplateCostResponse
 --
---         , testDeleteChangeSetResponse $
+--         , responseDeleteChangeSet $
 --             deleteChangeSetResponse
 --
---         , testGetTemplateResponse $
+--         , responseGetTemplate $
 --             getTemplateResponse
 --
---         , testDescribeChangeSetResponse $
+--         , responseDescribeChangeSet $
 --             describeChangeSetResponse
 --
---         , testDescribeStackResourceResponse $
+--         , responseDescribeStackResource $
 --             describeStackResourceResponse
 --
 --           ]
@@ -180,291 +180,291 @@ import Test.AWS.CloudFormation.Internal
 
 -- Requests
 
-testDeleteStack :: DeleteStack -> TestTree
-testDeleteStack = req
+requestDeleteStack :: DeleteStack -> TestTree
+requestDeleteStack = req
     "DeleteStack"
     "fixture/DeleteStack.yaml"
 
-testUpdateStack :: UpdateStack -> TestTree
-testUpdateStack = req
+requestUpdateStack :: UpdateStack -> TestTree
+requestUpdateStack = req
     "UpdateStack"
     "fixture/UpdateStack.yaml"
 
-testGetTemplateSummary :: GetTemplateSummary -> TestTree
-testGetTemplateSummary = req
+requestGetTemplateSummary :: GetTemplateSummary -> TestTree
+requestGetTemplateSummary = req
     "GetTemplateSummary"
     "fixture/GetTemplateSummary.yaml"
 
-testListChangeSets :: ListChangeSets -> TestTree
-testListChangeSets = req
+requestListChangeSets :: ListChangeSets -> TestTree
+requestListChangeSets = req
     "ListChangeSets"
     "fixture/ListChangeSets.yaml"
 
-testListStackResources :: ListStackResources -> TestTree
-testListStackResources = req
+requestListStackResources :: ListStackResources -> TestTree
+requestListStackResources = req
     "ListStackResources"
     "fixture/ListStackResources.yaml"
 
-testGetStackPolicy :: GetStackPolicy -> TestTree
-testGetStackPolicy = req
+requestGetStackPolicy :: GetStackPolicy -> TestTree
+requestGetStackPolicy = req
     "GetStackPolicy"
     "fixture/GetStackPolicy.yaml"
 
-testDescribeStacks :: DescribeStacks -> TestTree
-testDescribeStacks = req
+requestDescribeStacks :: DescribeStacks -> TestTree
+requestDescribeStacks = req
     "DescribeStacks"
     "fixture/DescribeStacks.yaml"
 
-testCreateChangeSet :: CreateChangeSet -> TestTree
-testCreateChangeSet = req
+requestCreateChangeSet :: CreateChangeSet -> TestTree
+requestCreateChangeSet = req
     "CreateChangeSet"
     "fixture/CreateChangeSet.yaml"
 
-testExecuteChangeSet :: ExecuteChangeSet -> TestTree
-testExecuteChangeSet = req
+requestExecuteChangeSet :: ExecuteChangeSet -> TestTree
+requestExecuteChangeSet = req
     "ExecuteChangeSet"
     "fixture/ExecuteChangeSet.yaml"
 
-testContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
-testContinueUpdateRollback = req
+requestContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
+requestContinueUpdateRollback = req
     "ContinueUpdateRollback"
     "fixture/ContinueUpdateRollback.yaml"
 
-testValidateTemplate :: ValidateTemplate -> TestTree
-testValidateTemplate = req
+requestValidateTemplate :: ValidateTemplate -> TestTree
+requestValidateTemplate = req
     "ValidateTemplate"
     "fixture/ValidateTemplate.yaml"
 
-testCancelUpdateStack :: CancelUpdateStack -> TestTree
-testCancelUpdateStack = req
+requestCancelUpdateStack :: CancelUpdateStack -> TestTree
+requestCancelUpdateStack = req
     "CancelUpdateStack"
     "fixture/CancelUpdateStack.yaml"
 
-testDescribeStackEvents :: DescribeStackEvents -> TestTree
-testDescribeStackEvents = req
+requestDescribeStackEvents :: DescribeStackEvents -> TestTree
+requestDescribeStackEvents = req
     "DescribeStackEvents"
     "fixture/DescribeStackEvents.yaml"
 
-testSignalResource :: SignalResource -> TestTree
-testSignalResource = req
+requestSignalResource :: SignalResource -> TestTree
+requestSignalResource = req
     "SignalResource"
     "fixture/SignalResource.yaml"
 
-testSetStackPolicy :: SetStackPolicy -> TestTree
-testSetStackPolicy = req
+requestSetStackPolicy :: SetStackPolicy -> TestTree
+requestSetStackPolicy = req
     "SetStackPolicy"
     "fixture/SetStackPolicy.yaml"
 
-testListStacks :: ListStacks -> TestTree
-testListStacks = req
+requestListStacks :: ListStacks -> TestTree
+requestListStacks = req
     "ListStacks"
     "fixture/ListStacks.yaml"
 
-testDescribeAccountLimits :: DescribeAccountLimits -> TestTree
-testDescribeAccountLimits = req
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits = req
     "DescribeAccountLimits"
     "fixture/DescribeAccountLimits.yaml"
 
-testDescribeStackResources :: DescribeStackResources -> TestTree
-testDescribeStackResources = req
+requestDescribeStackResources :: DescribeStackResources -> TestTree
+requestDescribeStackResources = req
     "DescribeStackResources"
     "fixture/DescribeStackResources.yaml"
 
-testCreateStack :: CreateStack -> TestTree
-testCreateStack = req
+requestCreateStack :: CreateStack -> TestTree
+requestCreateStack = req
     "CreateStack"
     "fixture/CreateStack.yaml"
 
-testEstimateTemplateCost :: EstimateTemplateCost -> TestTree
-testEstimateTemplateCost = req
+requestEstimateTemplateCost :: EstimateTemplateCost -> TestTree
+requestEstimateTemplateCost = req
     "EstimateTemplateCost"
     "fixture/EstimateTemplateCost.yaml"
 
-testDeleteChangeSet :: DeleteChangeSet -> TestTree
-testDeleteChangeSet = req
+requestDeleteChangeSet :: DeleteChangeSet -> TestTree
+requestDeleteChangeSet = req
     "DeleteChangeSet"
     "fixture/DeleteChangeSet.yaml"
 
-testGetTemplate :: GetTemplate -> TestTree
-testGetTemplate = req
+requestGetTemplate :: GetTemplate -> TestTree
+requestGetTemplate = req
     "GetTemplate"
     "fixture/GetTemplate.yaml"
 
-testDescribeChangeSet :: DescribeChangeSet -> TestTree
-testDescribeChangeSet = req
+requestDescribeChangeSet :: DescribeChangeSet -> TestTree
+requestDescribeChangeSet = req
     "DescribeChangeSet"
     "fixture/DescribeChangeSet.yaml"
 
-testDescribeStackResource :: DescribeStackResource -> TestTree
-testDescribeStackResource = req
+requestDescribeStackResource :: DescribeStackResource -> TestTree
+requestDescribeStackResource = req
     "DescribeStackResource"
     "fixture/DescribeStackResource.yaml"
 
 -- Responses
 
-testDeleteStackResponse :: DeleteStackResponse -> TestTree
-testDeleteStackResponse = res
+responseDeleteStack :: DeleteStackResponse -> TestTree
+responseDeleteStack = res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
     cloudFormation
     (Proxy :: Proxy DeleteStack)
 
-testUpdateStackResponse :: UpdateStackResponse -> TestTree
-testUpdateStackResponse = res
+responseUpdateStack :: UpdateStackResponse -> TestTree
+responseUpdateStack = res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
     cloudFormation
     (Proxy :: Proxy UpdateStack)
 
-testGetTemplateSummaryResponse :: GetTemplateSummaryResponse -> TestTree
-testGetTemplateSummaryResponse = res
+responseGetTemplateSummary :: GetTemplateSummaryResponse -> TestTree
+responseGetTemplateSummary = res
     "GetTemplateSummaryResponse"
     "fixture/GetTemplateSummaryResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetTemplateSummary)
 
-testListChangeSetsResponse :: ListChangeSetsResponse -> TestTree
-testListChangeSetsResponse = res
+responseListChangeSets :: ListChangeSetsResponse -> TestTree
+responseListChangeSets = res
     "ListChangeSetsResponse"
     "fixture/ListChangeSetsResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListChangeSets)
 
-testListStackResourcesResponse :: ListStackResourcesResponse -> TestTree
-testListStackResourcesResponse = res
+responseListStackResources :: ListStackResourcesResponse -> TestTree
+responseListStackResources = res
     "ListStackResourcesResponse"
     "fixture/ListStackResourcesResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListStackResources)
 
-testGetStackPolicyResponse :: GetStackPolicyResponse -> TestTree
-testGetStackPolicyResponse = res
+responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
+responseGetStackPolicy = res
     "GetStackPolicyResponse"
     "fixture/GetStackPolicyResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetStackPolicy)
 
-testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
-testDescribeStacksResponse = res
+responseDescribeStacks :: DescribeStacksResponse -> TestTree
+responseDescribeStacks = res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStacks)
 
-testCreateChangeSetResponse :: CreateChangeSetResponse -> TestTree
-testCreateChangeSetResponse = res
+responseCreateChangeSet :: CreateChangeSetResponse -> TestTree
+responseCreateChangeSet = res
     "CreateChangeSetResponse"
     "fixture/CreateChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy CreateChangeSet)
 
-testExecuteChangeSetResponse :: ExecuteChangeSetResponse -> TestTree
-testExecuteChangeSetResponse = res
+responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
+responseExecuteChangeSet = res
     "ExecuteChangeSetResponse"
     "fixture/ExecuteChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy ExecuteChangeSet)
 
-testContinueUpdateRollbackResponse :: ContinueUpdateRollbackResponse -> TestTree
-testContinueUpdateRollbackResponse = res
+responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
+responseContinueUpdateRollback = res
     "ContinueUpdateRollbackResponse"
     "fixture/ContinueUpdateRollbackResponse.proto"
     cloudFormation
     (Proxy :: Proxy ContinueUpdateRollback)
 
-testValidateTemplateResponse :: ValidateTemplateResponse -> TestTree
-testValidateTemplateResponse = res
+responseValidateTemplate :: ValidateTemplateResponse -> TestTree
+responseValidateTemplate = res
     "ValidateTemplateResponse"
     "fixture/ValidateTemplateResponse.proto"
     cloudFormation
     (Proxy :: Proxy ValidateTemplate)
 
-testCancelUpdateStackResponse :: CancelUpdateStackResponse -> TestTree
-testCancelUpdateStackResponse = res
+responseCancelUpdateStack :: CancelUpdateStackResponse -> TestTree
+responseCancelUpdateStack = res
     "CancelUpdateStackResponse"
     "fixture/CancelUpdateStackResponse.proto"
     cloudFormation
     (Proxy :: Proxy CancelUpdateStack)
 
-testDescribeStackEventsResponse :: DescribeStackEventsResponse -> TestTree
-testDescribeStackEventsResponse = res
+responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
+responseDescribeStackEvents = res
     "DescribeStackEventsResponse"
     "fixture/DescribeStackEventsResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStackEvents)
 
-testSignalResourceResponse :: SignalResourceResponse -> TestTree
-testSignalResourceResponse = res
+responseSignalResource :: SignalResourceResponse -> TestTree
+responseSignalResource = res
     "SignalResourceResponse"
     "fixture/SignalResourceResponse.proto"
     cloudFormation
     (Proxy :: Proxy SignalResource)
 
-testSetStackPolicyResponse :: SetStackPolicyResponse -> TestTree
-testSetStackPolicyResponse = res
+responseSetStackPolicy :: SetStackPolicyResponse -> TestTree
+responseSetStackPolicy = res
     "SetStackPolicyResponse"
     "fixture/SetStackPolicyResponse.proto"
     cloudFormation
     (Proxy :: Proxy SetStackPolicy)
 
-testListStacksResponse :: ListStacksResponse -> TestTree
-testListStacksResponse = res
+responseListStacks :: ListStacksResponse -> TestTree
+responseListStacks = res
     "ListStacksResponse"
     "fixture/ListStacksResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListStacks)
 
-testDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse -> TestTree
-testDescribeAccountLimitsResponse = res
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits = res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeAccountLimits)
 
-testDescribeStackResourcesResponse :: DescribeStackResourcesResponse -> TestTree
-testDescribeStackResourcesResponse = res
+responseDescribeStackResources :: DescribeStackResourcesResponse -> TestTree
+responseDescribeStackResources = res
     "DescribeStackResourcesResponse"
     "fixture/DescribeStackResourcesResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStackResources)
 
-testCreateStackResponse :: CreateStackResponse -> TestTree
-testCreateStackResponse = res
+responseCreateStack :: CreateStackResponse -> TestTree
+responseCreateStack = res
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
     cloudFormation
     (Proxy :: Proxy CreateStack)
 
-testEstimateTemplateCostResponse :: EstimateTemplateCostResponse -> TestTree
-testEstimateTemplateCostResponse = res
+responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
+responseEstimateTemplateCost = res
     "EstimateTemplateCostResponse"
     "fixture/EstimateTemplateCostResponse.proto"
     cloudFormation
     (Proxy :: Proxy EstimateTemplateCost)
 
-testDeleteChangeSetResponse :: DeleteChangeSetResponse -> TestTree
-testDeleteChangeSetResponse = res
+responseDeleteChangeSet :: DeleteChangeSetResponse -> TestTree
+responseDeleteChangeSet = res
     "DeleteChangeSetResponse"
     "fixture/DeleteChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy DeleteChangeSet)
 
-testGetTemplateResponse :: GetTemplateResponse -> TestTree
-testGetTemplateResponse = res
+responseGetTemplate :: GetTemplateResponse -> TestTree
+responseGetTemplate = res
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetTemplate)
 
-testDescribeChangeSetResponse :: DescribeChangeSetResponse -> TestTree
-testDescribeChangeSetResponse = res
+responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
+responseDescribeChangeSet = res
     "DescribeChangeSetResponse"
     "fixture/DescribeChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeChangeSet)
 
-testDescribeStackResourceResponse :: DescribeStackResourceResponse -> TestTree
-testDescribeStackResourceResponse = res
+responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
+responseDescribeStackResource = res
     "DescribeStackResourceResponse"
     "fixture/DescribeStackResourceResponse.proto"
     cloudFormation

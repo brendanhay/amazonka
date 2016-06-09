@@ -20,17 +20,9 @@
 --
 -- Attaches the specified managed policy to the specified role.
 --
--- When you attach a managed policy to a role, the managed policy is used
--- as the role\'s access (permissions) policy. You cannot use a managed
--- policy as the role\'s trust policy. The role\'s trust policy is created
--- at the same time as the role, using < CreateRole>. You can update a
--- role\'s trust policy using < UpdateAssumeRolePolicy>.
+-- When you attach a managed policy to a role, the managed policy is used as the role\'s access (permissions) policy. You cannot use a managed policy as the role\'s trust policy. The role\'s trust policy is created at the same time as the role, using < CreateRole>. You can update a role\'s trust policy using < UpdateAssumeRolePolicy>.
 --
--- Use this API to attach a managed policy to a role. To embed an inline
--- policy in a role, use < PutRolePolicy>. For more information about
--- policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- Use this API to attach a managed policy to a role. To embed an inline policy in a role, use < PutRolePolicy>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.AttachRolePolicy
     (
     -- * Creating a Request

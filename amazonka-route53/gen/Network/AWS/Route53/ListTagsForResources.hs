@@ -43,8 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing information about a request for a list of the
--- tags that are associated with up to 10 specified resources.
+-- | A complex type containing information about a request for a list of the tags that are associated with up to 10 specified resources.
 --
 -- /See:/ 'listTagsForResources' smart constructor.
 data ListTagsForResources = ListTagsForResources'
@@ -77,8 +76,7 @@ listTagsForResources pResourceType_ pResourceIds_ =
 lResourceType :: Lens' ListTagsForResources TagResourceType
 lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a});
 
--- | A complex type that contains the ResourceId element for each resource
--- for which you want to get a list of tags.
+-- | A complex type that contains the ResourceId element for each resource for which you want to get a list of tags.
 lResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1;
 
@@ -147,8 +145,7 @@ listTagsForResourcesResponse pResponseStatus_ =
 lrsResponseStatus :: Lens' ListTagsForResourcesResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
--- | A list of 'ResourceTagSet's containing tags associated with the
--- specified resources.
+-- | A list of 'ResourceTagSet's containing tags associated with the specified resources.
 lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;
 

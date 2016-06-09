@@ -99,8 +99,7 @@ computer =
 cComputerId :: Lens' Computer (Maybe Text)
 cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 
--- | An array of < Attribute> objects containing the LDAP attributes that
--- belong to the computer account.
+-- | An array of < Attribute> objects containing the LDAP attributes that belong to the computer account.
 cComputerAttributes :: Lens' Computer [Attribute]
 cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default . _Coerce;
 
@@ -121,9 +120,7 @@ instance Hashable Computer
 
 instance NFData Computer
 
--- | Points to a remote domain with which you are setting up a trust
--- relationship. Conditional forwarders are required in order to set up a
--- trust relationship with another domain.
+-- | Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
 -- /See:/ 'conditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
@@ -150,20 +147,15 @@ conditionalForwarder =
     , _cfReplicationScope = Nothing
     }
 
--- | The IP addresses of the remote DNS server associated with
--- RemoteDomainName. This is the IP address of the DNS server that your
--- conditional forwarder points to.
+-- | The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.
 cfDNSIPAddrs :: Lens' ConditionalForwarder [Text]
 cfDNSIPAddrs = lens _cfDNSIPAddrs (\ s a -> s{_cfDNSIPAddrs = a}) . _Default . _Coerce;
 
--- | The fully qualified domain name (FQDN) of the remote domains pointed to
--- by the conditional forwarder.
+-- | The fully qualified domain name (FQDN) of the remote domains pointed to by the conditional forwarder.
 cfRemoteDomainName :: Lens' ConditionalForwarder (Maybe Text)
 cfRemoteDomainName = lens _cfRemoteDomainName (\ s a -> s{_cfRemoteDomainName = a});
 
--- | The replication scope of the conditional forwarder. The only allowed
--- value is 'Domain', which will replicate the conditional forwarder to all
--- of the domain controllers for your AWS directory.
+-- | The replication scope of the conditional forwarder. The only allowed value is 'Domain', which will replicate the conditional forwarder to all of the domain controllers for your AWS directory.
 cfReplicationScope :: Lens' ConditionalForwarder (Maybe ReplicationScope)
 cfReplicationScope = lens _cfReplicationScope (\ s a -> s{_cfReplicationScope = a});
 
@@ -180,8 +172,7 @@ instance Hashable ConditionalForwarder
 
 instance NFData ConditionalForwarder
 
--- | Contains information for the < ConnectDirectory> operation when an AD
--- Connector directory is being created.
+-- | Contains information for the < ConnectDirectory> operation when an AD Connector directory is being created.
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
 data DirectoryConnectSettings = DirectoryConnectSettings'
@@ -218,19 +209,15 @@ directoryConnectSettings pVPCId_ pCustomerUserName_ =
 dcsVPCId :: Lens' DirectoryConnectSettings Text
 dcsVPCId = lens _dcsVPCId (\ s a -> s{_dcsVPCId = a});
 
--- | A list of subnet identifiers in the VPC in which the AD Connector is
--- created.
+-- | A list of subnet identifiers in the VPC in which the AD Connector is created.
 dcsSubnetIds :: Lens' DirectoryConnectSettings [Text]
 dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a}) . _Coerce;
 
--- | A list of one or more IP addresses of DNS servers or domain controllers
--- in the on-premises directory.
+-- | A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
 dcsCustomerDNSIPs :: Lens' DirectoryConnectSettings [Text]
 dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a}) . _Coerce;
 
--- | The username of an account in the on-premises directory that is used to
--- connect to the directory. This account must have the following
--- privileges:
+-- | The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:
 --
 -- -   Read users and groups
 -- -   Create computer objects
@@ -430,10 +417,7 @@ ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
 ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
 ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 
--- | The access URL for the directory, such as
--- 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'. If no alias has been created
--- for the directory, '&#x3C;alias&#x3E;' is the directory identifier, such
--- as 'd-XXXXXXXXXX'.
+-- | The access URL for the directory, such as 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'. If no alias has been created for the directory, '&#x3C;alias&#x3E;' is the directory identifier, such as 'd-XXXXXXXXXX'.
 ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
 ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
@@ -445,8 +429,7 @@ ddShortName = lens _ddShortName (\ s a -> s{_ddShortName = a});
 ddSize :: Lens' DirectoryDescription (Maybe DirectorySize)
 ddSize = lens _ddSize (\ s a -> s{_ddSize = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS
--- server configured for this directory.
+-- | A < RadiusSettings> object that contains information about the RADIUS server configured for this directory.
 ddRadiusSettings :: Lens' DirectoryDescription (Maybe RadiusSettings)
 ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 
@@ -454,9 +437,7 @@ ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 ddLaunchTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddLaunchTime = lens _ddLaunchTime (\ s a -> s{_ddLaunchTime = a}) . mapping _Time;
 
--- | The alias for the directory. If no alias has been created for the
--- directory, the alias is the directory identifier, such as
--- 'd-XXXXXXXXXX'.
+-- | The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as 'd-XXXXXXXXXX'.
 ddAlias :: Lens' DirectoryDescription (Maybe Text)
 ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
 
@@ -468,22 +449,15 @@ ddName = lens _ddName (\ s a -> s{_ddName = a});
 ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddStageLastUpdatedDateTime = lens _ddStageLastUpdatedDateTime (\ s a -> s{_ddStageLastUpdatedDateTime = a}) . mapping _Time;
 
--- | Indicates if single-sign on is enabled for the directory. For more
--- information, see < EnableSso> and < DisableSso>.
+-- | Indicates if single-sign on is enabled for the directory. For more information, see < EnableSso> and < DisableSso>.
 ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
 ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
--- | The IP addresses of the DNS servers for the directory. For a Simple AD
--- or Microsoft AD directory, these are the IP addresses of the Simple AD
--- or Microsoft AD directory servers. For an AD Connector directory, these
--- are the IP addresses of the DNS servers or domain controllers in the
--- on-premises directory to which the AD Connector is connected.
+-- | The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
 ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default . _Coerce;
 
--- | A < DirectoryVpcSettingsDescription> object that contains additional
--- information about a directory. This member is only present if the
--- directory is a Simple AD or Managed AD directory.
+-- | A < DirectoryVpcSettingsDescription> object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
 ddVPCSettings :: Lens' DirectoryDescription (Maybe DirectoryVPCSettingsDescription)
 ddVPCSettings = lens _ddVPCSettings (\ s a -> s{_ddVPCSettings = a});
 
@@ -495,9 +469,7 @@ ddType = lens _ddType (\ s a -> s{_ddType = a});
 ddStageReason :: Lens' DirectoryDescription (Maybe Text)
 ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
 
--- | A < DirectoryConnectSettingsDescription> object that contains additional
--- information about an AD Connector directory. This member is only present
--- if the directory is an AD Connector directory.
+-- | A < DirectoryConnectSettingsDescription> object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
 ddConnectSettings :: Lens' DirectoryDescription (Maybe DirectoryConnectSettingsDescription)
 ddConnectSettings = lens _ddConnectSettings (\ s a -> s{_ddConnectSettings = a});
 
@@ -638,8 +610,7 @@ instance Hashable DirectoryLimits
 
 instance NFData DirectoryLimits
 
--- | Contains VPC information for the < CreateDirectory> or
--- < CreateMicrosoftAD> operation.
+-- | Contains VPC information for the < CreateDirectory> or < CreateMicrosoftAD> operation.
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
@@ -667,9 +638,7 @@ directoryVPCSettings pVPCId_ =
 dvsVPCId :: Lens' DirectoryVPCSettings Text
 dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 
--- | The identifiers of the subnets for the directory servers. The two
--- subnets must be in different Availability Zones. AWS Directory Service
--- creates a directory server and a DNS server in each of these subnets.
+-- | The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service creates a directory server and a DNS server in each of these subnets.
 dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 
@@ -723,10 +692,7 @@ dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default 
 dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdVPCId = lens _dvsdVPCId (\ s a -> s{_dvsdVPCId = a});
 
--- | The security group identifier for the directory. If the directory was
--- created before 8\/1\/2014, this is the identifier of the directory
--- members security group that was created when the directory was created.
--- If the directory was created after this date, this value is null.
+-- | The security group identifier for the directory. If the directory was created before 8\/1\/2014, this is the identifier of the directory members security group that was created when the directory was created. If the directory was created after this date, this value is null.
 dvsdSecurityGroupId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\ s a -> s{_dvsdSecurityGroupId = a});
 
@@ -748,8 +714,7 @@ instance Hashable DirectoryVPCSettingsDescription
 
 instance NFData DirectoryVPCSettingsDescription
 
--- | Information about SNS topic and AWS Directory Service directory
--- associations.
+-- | Information about SNS topic and AWS Directory Service directory associations.
 --
 -- /See:/ 'eventTopic' smart constructor.
 data EventTopic = EventTopic'
@@ -788,13 +753,11 @@ eventTopic =
 etStatus :: Lens' EventTopic (Maybe TopicStatus)
 etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
 
--- | The Directory ID of an AWS Directory Service directory that will publish
--- status messages to an SNS topic.
+-- | The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.
 etDirectoryId :: Lens' EventTopic (Maybe Text)
 etDirectoryId = lens _etDirectoryId (\ s a -> s{_etDirectoryId = a});
 
--- | The name of an AWS SNS topic the receives status messages from the
--- directory.
+-- | The name of an AWS SNS topic the receives status messages from the directory.
 etTopicName :: Lens' EventTopic (Maybe Text)
 etTopicName = lens _etTopicName (\ s a -> s{_etTopicName = a});
 
@@ -802,8 +765,7 @@ etTopicName = lens _etTopicName (\ s a -> s{_etTopicName = a});
 etTopicARN :: Lens' EventTopic (Maybe Text)
 etTopicARN = lens _etTopicARN (\ s a -> s{_etTopicARN = a});
 
--- | The date and time of when you associated your directory with the SNS
--- topic.
+-- | The date and time of when you associated your directory with the SNS topic.
 etCreatedDateTime :: Lens' EventTopic (Maybe UTCTime)
 etCreatedDateTime = lens _etCreatedDateTime (\ s a -> s{_etCreatedDateTime = a}) . mapping _Time;
 
@@ -821,8 +783,7 @@ instance Hashable EventTopic
 
 instance NFData EventTopic
 
--- | Contains information about a Remote Authentication Dial In User Service
--- (RADIUS) server.
+-- | Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
 --
 -- /See:/ 'radiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
@@ -873,8 +834,7 @@ radiusSettings =
 rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
 rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a});
 
--- | The maximum number of times that communication with the RADIUS server is
--- attempted.
+-- | The maximum number of times that communication with the RADIUS server is attempted.
 rsRadiusRetries :: Lens' RadiusSettings (Maybe Natural)
 rsRadiusRetries = lens _rsRadiusRetries (\ s a -> s{_rsRadiusRetries = a}) . mapping _Nat;
 
@@ -882,8 +842,7 @@ rsRadiusRetries = lens _rsRadiusRetries (\ s a -> s{_rsRadiusRetries = a}) . map
 rsAuthenticationProtocol :: Lens' RadiusSettings (Maybe RadiusAuthenticationProtocol)
 rsAuthenticationProtocol = lens _rsAuthenticationProtocol (\ s a -> s{_rsAuthenticationProtocol = a});
 
--- | An array of strings that contains the IP addresses of the RADIUS server
--- endpoints, or the IP addresses of your RADIUS server load balancer.
+-- | An array of strings that contains the IP addresses of the RADIUS server endpoints, or the IP addresses of your RADIUS server load balancer.
 rsRadiusServers :: Lens' RadiusSettings [Text]
 rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default . _Coerce;
 
@@ -891,19 +850,15 @@ rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _De
 rsUseSameUsername :: Lens' RadiusSettings (Maybe Bool)
 rsUseSameUsername = lens _rsUseSameUsername (\ s a -> s{_rsUseSameUsername = a});
 
--- | The shared secret code that was specified when your RADIUS endpoints
--- were created.
+-- | The shared secret code that was specified when your RADIUS endpoints were created.
 rsSharedSecret :: Lens' RadiusSettings (Maybe Text)
 rsSharedSecret = lens _rsSharedSecret (\ s a -> s{_rsSharedSecret = a}) . mapping _Sensitive;
 
--- | The amount of time, in seconds, to wait for the RADIUS server to
--- respond.
+-- | The amount of time, in seconds, to wait for the RADIUS server to respond.
 rsRadiusTimeout :: Lens' RadiusSettings (Maybe Natural)
 rsRadiusTimeout = lens _rsRadiusTimeout (\ s a -> s{_rsRadiusTimeout = a}) . mapping _Nat;
 
--- | The port that your RADIUS server is using for communications. Your
--- on-premises network must allow inbound traffic over this port from the
--- AWS Directory Service servers.
+-- | The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
 rsRadiusPort :: Lens' RadiusSettings (Maybe Natural)
 rsRadiusPort = lens _rsRadiusPort (\ s a -> s{_rsRadiusPort = a}) . mapping _Nat;
 
@@ -1068,8 +1023,7 @@ instance Hashable SnapshotLimits
 
 instance NFData SnapshotLimits
 
--- | Describes a trust relationship between an Microsoft AD in the AWS cloud
--- and an external domain.
+-- | Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.
 --
 -- /See:/ 'trust' smart constructor.
 data Trust = Trust'
@@ -1124,8 +1078,7 @@ trust =
     , _tCreatedDateTime = Nothing
     }
 
--- | The Directory ID of the AWS directory involved in the trust
--- relationship.
+-- | The Directory ID of the AWS directory involved in the trust relationship.
 tDirectoryId :: Lens' Trust (Maybe Text)
 tDirectoryId = lens _tDirectoryId (\ s a -> s{_tDirectoryId = a});
 
@@ -1153,8 +1106,7 @@ tTrustType = lens _tTrustType (\ s a -> s{_tTrustType = a});
 tTrustStateReason :: Lens' Trust (Maybe Text)
 tTrustStateReason = lens _tTrustStateReason (\ s a -> s{_tTrustStateReason = a});
 
--- | The Fully Qualified Domain Name (FQDN) of the external domain involved
--- in the trust relationship.
+-- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
 tRemoteDomainName :: Lens' Trust (Maybe Text)
 tRemoteDomainName = lens _tRemoteDomainName (\ s a -> s{_tRemoteDomainName = a});
 

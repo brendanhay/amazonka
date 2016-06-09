@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your Lambda functions. For each function, the response
--- includes the function configuration information. You must use
--- < GetFunction> to retrieve the code for your function.
+-- Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use < GetFunction> to retrieve the code for your function.
 --
--- This operation requires permission for the 'lambda:ListFunctions'
--- action.
+-- This operation requires permission for the 'lambda:ListFunctions' action.
 --
--- If you are using versioning feature, the response returns list of
--- $LATEST versions of your functions. For information about the versioning
--- feature, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using versioning feature, the response returns list of >LATEST versions of your functions. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
@@ -78,14 +72,11 @@ listFunctions =
     , _lfMaxItems = Nothing
     }
 
--- | Optional string. An opaque pagination token returned from a previous
--- 'ListFunctions' operation. If present, indicates where to continue the
--- listing.
+-- | Optional string. An opaque pagination token returned from a previous 'ListFunctions' operation. If present, indicates where to continue the listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
 
--- | Optional integer. Specifies the maximum number of AWS Lambda functions
--- to return in response. This parameter value must be greater than 0.
+-- | Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
@@ -122,8 +113,7 @@ instance ToQuery ListFunctions where
           = mconcat
               ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
 
--- | Contains a list of AWS Lambda function configurations (see
--- < FunctionConfiguration>.
+-- | Contains a list of AWS Lambda function configurations (see < FunctionConfiguration>.
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'

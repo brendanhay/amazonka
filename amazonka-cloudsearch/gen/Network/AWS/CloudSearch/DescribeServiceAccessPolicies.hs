@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the access policies that control access to the
--- domain\'s document and search endpoints. By default, shows the
--- configuration with any pending changes. Set the 'Deployed' option to
--- 'true' to show the active configuration and exclude pending changes. For
--- more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Gets information about the access policies that control access to the domain\'s document and search endpoints. By default, shows the configuration with any pending changes. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     (
     -- * Creating a Request
@@ -49,10 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeServiceAccessPolicies'
--- operation. Specifies the name of the domain you want to describe. To
--- show the active configuration and exclude any pending changes, set the
--- 'Deployed' option to 'true'.
+-- | Container for the parameters to the 'DescribeServiceAccessPolicies' operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeServiceAccessPolicies' smart constructor.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
@@ -76,8 +67,7 @@ describeServiceAccessPolicies pDomainName_ =
     , _dsapDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
 dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
 dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
 

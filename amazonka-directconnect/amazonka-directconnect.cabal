@@ -1,5 +1,5 @@
 name:                  amazonka-directconnect
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Direct Connect SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,19 +13,7 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    AWS Direct Connect links your internal network to an AWS Direct Connect
-    location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
-    cable. One end of the cable is connected to your router, the other to an
-    AWS Direct Connect router. With this connection in place, you can create
-    virtual interfaces directly to the AWS cloud (for example, to Amazon
-    Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service
-    (Amazon S3)) and to Amazon Virtual Private Cloud (Amazon VPC), bypassing
-    Internet service providers in your network path. An AWS Direct Connect
-    location provides access to AWS in the region it is associated with, as
-    well as access to other US regions. For example, you can provision a
-    single connection to any AWS Direct Connect location in the US and use
-    it to access public AWS services in all US Regions and AWS GovCloud
-    (US).
+    AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3)) and to Amazon Virtual Private Cloud (Amazon VPC), bypassing Internet service providers in your network path. An AWS Direct Connect location provides access to AWS in the region it is associated with, as well as access to other US regions. For example, you can provision a single connection to any AWS Direct Connect location in the US and use it to access public AWS services in all US Regions and AWS GovCloud (US).
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -80,7 +68,7 @@ library
         , Network.AWS.DirectConnect.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-directconnect-test
@@ -100,9 +88,9 @@ test-suite amazonka-directconnect-test
         , Test.AWS.DirectConnect.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-directconnect == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-directconnect == 1.4.3.*
         , base
         , bytestring
         , tasty

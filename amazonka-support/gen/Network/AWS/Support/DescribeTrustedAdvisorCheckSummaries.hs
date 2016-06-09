@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the summaries of the results of the Trusted Advisor checks that
--- have the specified check IDs. Check IDs can be obtained by calling
--- < DescribeTrustedAdvisorChecks>.
+-- Returns the summaries of the results of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
 --
 -- The response contains an array of < TrustedAdvisorCheckSummary> objects.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
@@ -109,8 +107,7 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
          where
         toQuery = const mempty
 
--- | The summaries of the Trusted Advisor checks returned by the
--- < DescribeTrustedAdvisorCheckSummaries> operation.
+-- | The summaries of the Trusted Advisor checks returned by the < DescribeTrustedAdvisorCheckSummaries> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'

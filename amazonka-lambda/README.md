@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
@@ -17,12 +17,7 @@ AWS Lambda
 
 __Overview__
 
-This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide
-provides additional information. For the service overview, go to
-<http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>,
-and for information about how the service works, go to
-<http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
-in the /AWS Lambda Developer Guide/.
+This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide provides additional information. For the service overview, go to <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>, and for information about how the service works, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-lambda)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

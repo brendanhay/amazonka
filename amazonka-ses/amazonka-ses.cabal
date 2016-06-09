@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,13 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Simple Email Service
 
-    This is the API Reference for Amazon Simple Email Service (Amazon SES).
-    This documentation is intended to be used in conjunction with the
-    <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide>.
+    This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide>.
 
-    For a list of Amazon SES endpoints to use in service requests, see
-    <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
-    in the Amazon SES Developer Guide.
+    For a list of Amazon SES endpoints to use in service requests, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES> in the Amazon SES Developer Guide.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -98,7 +94,7 @@ library
         , Network.AWS.SES.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ses-test
@@ -118,9 +114,9 @@ test-suite amazonka-ses-test
         , Test.AWS.SES.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-ses == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-ses == 1.4.3.*
         , base
         , bytestring
         , tasty

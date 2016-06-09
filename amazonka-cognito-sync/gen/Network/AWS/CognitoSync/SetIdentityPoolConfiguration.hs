@@ -20,9 +20,7 @@
 --
 -- Sets the necessary configuration for push sync.
 --
--- This API can only be called with developer credentials. You cannot call
--- this API with the temporary user credentials provided by Cognito
--- Identity.
+-- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
     -- * Creating a Request
@@ -86,9 +84,7 @@ sipcCognitoStreams = lens _sipcCognitoStreams (\ s a -> s{_sipcCognitoStreams = 
 sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
 sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. This is the ID of the pool to modify.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
 sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
 sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a});
 
@@ -164,9 +160,7 @@ setIdentityPoolConfigurationResponse pResponseStatus_ =
     , _sipcrsResponseStatus = pResponseStatus_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 sipcrsIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
 sipcrsIdentityPoolId = lens _sipcrsIdentityPoolId (\ s a -> s{_sipcrsIdentityPoolId = a});
 

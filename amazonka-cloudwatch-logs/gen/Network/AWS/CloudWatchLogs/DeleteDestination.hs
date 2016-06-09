@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the destination with the specified name and eventually disables
--- all the subscription filters that publish to it. This will not delete
--- the physical resource encapsulated by the destination.
+-- Deletes the destination with the specified name and eventually disables all the subscription filters that publish to it. This will not delete the physical resource encapsulated by the destination.
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
     -- * Creating a Request

@@ -20,11 +20,7 @@
 --
 -- Removes the specified managed policy from the specified role.
 --
--- A role can also have inline policies embedded with it. To delete an
--- inline policy, use the < DeleteRolePolicy> API. For information about
--- policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A role can also have inline policies embedded with it. To delete an inline policy, use the < DeleteRolePolicy> API. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DetachRolePolicy
     (
     -- * Creating a Request

@@ -18,18 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the configuration information of the Lambda function and a
--- presigned URL link to the .zip file you uploaded with < CreateFunction>
--- so you can download the .zip file. Note that the URL is valid for up to
--- 10 minutes. The configuration information is the same information you
--- provided as parameters when uploading the function.
+-- Returns the configuration information of the Lambda function and a presigned URL link to the .zip file you uploaded with < CreateFunction> so you can download the .zip file. Note that the URL is valid for up to 10 minutes. The configuration information is the same information you provided as parameters when uploading the function.
 --
--- Using the optional 'Qualifier' parameter, you can specify a specific
--- function version for which you want this information. If you don\'t
--- specify this parameter, the API uses unqualified function ARN which
--- return information about the '$LATEST' version of the Lambda function.
--- For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- Using the optional 'Qualifier' parameter, you can specify a specific function version for which you want this information. If you don\'t specify this parameter, the API uses unqualified function ARN which return information about the '>LATEST' version of the Lambda function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation requires permission for the 'lambda:GetFunction' action.
 module Network.AWS.Lambda.GetFunction
@@ -79,26 +70,13 @@ getFunction pFunctionName_ =
     , _gfFunctionName = pFunctionName_
     }
 
--- | Using this optional parameter to specify a function version or an alias
--- name. If you specify function version, the API uses qualified function
--- ARN for the request and returns information about the specific Lambda
--- function version. If you specify an alias name, the API uses the alias
--- ARN and returns information about the function version to which the
--- alias points. If you don\'t provide this parameter, the API uses
--- unqualified function ARN and returns information about the '$LATEST'
--- version of the Lambda function.
+-- | Using this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don\'t provide this parameter, the API uses unqualified function ARN and returns information about the '>LATEST' version of the Lambda function.
 gfQualifier :: Lens' GetFunction (Maybe Text)
 gfQualifier = lens _gfQualifier (\ s a -> s{_gfQualifier = a});
 
 -- | The Lambda function name.
 --
--- You can specify a function name (for example, 'Thumbnail') or you can
--- specify Amazon Resource Name (ARN) of the function (for example,
--- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
--- also allows you to specify a partial ARN (for example,
--- 'account-id:Thumbnail'). Note that the length constraint applies only to
--- the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail'). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
 
@@ -128,8 +106,7 @@ instance ToQuery GetFunction where
         toQuery GetFunction'{..}
           = mconcat ["Qualifier" =: _gfQualifier]
 
--- | This response contains the object for the Lambda function location (see
--- < API_FunctionCodeLocation>.
+-- | This response contains the object for the Lambda function location (see < API_FunctionCodeLocation>.
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'

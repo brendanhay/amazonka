@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeSnapshots/ action returns information about cache cluster
--- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots;
--- it can optionally describe a single snapshot, or just the snapshots
--- associated with a particular cache cluster.
+-- The /DescribeSnapshots/ action returns information about cache cluster snapshots. By default, /DescribeSnapshots/ lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeSnapshots
@@ -88,21 +85,15 @@ describeSnapshots =
     , _dsSnapshotSource = Nothing
     }
 
--- | A user-supplied cluster identifier. If this parameter is specified, only
--- snapshots associated with that specific cache cluster will be described.
+-- | A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cache cluster will be described.
 dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
 dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dsMarker :: Lens' DescribeSnapshots (Maybe Text)
 dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 50
 --
@@ -110,15 +101,11 @@ dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 dsMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
 dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
 
--- | A user-supplied name of the snapshot. If this parameter is specified,
--- only this snapshot will be described.
+-- | A user-supplied name of the snapshot. If this parameter is specified, only this snapshot will be described.
 dsSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
 
--- | If set to 'system', the output shows snapshots that were automatically
--- created by ElastiCache. If set to 'user' the output shows snapshots that
--- were manually created. If omitted, the output shows both automatically
--- and manually created snapshots.
+-- | If set to 'system', the output shows snapshots that were automatically created by ElastiCache. If set to 'user' the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
@@ -189,15 +176,11 @@ describeSnapshotsResponse pResponseStatus_ =
     , _dssrsResponseStatus = pResponseStatus_
     }
 
--- | A list of snapshots. Each item in the list contains detailed information
--- about one snapshot.
+-- | A list of snapshots. Each item in the list contains detailed information about one snapshot.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dssrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsMarker = lens _dssrsMarker (\ s a -> s{_dssrsMarker = a});
 

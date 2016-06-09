@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes identities from an identity pool. You can specify a list of 1-60
--- identities that you want to delete.
+-- Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.
 --
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.DeleteIdentities
@@ -130,8 +129,7 @@ deleteIdentitiesResponse pResponseStatus_ =
     , _dirsResponseStatus = pResponseStatus_
     }
 
--- | An array of UnprocessedIdentityId objects, each of which contains an
--- ErrorCode and IdentityId.
+-- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
 dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
 

@@ -69,13 +69,11 @@ batchGetApplicationRevisions pApplicationName_ =
     , _bgarRevisions = mempty
     }
 
--- | The name of an AWS CodeDeploy application about which to get revision
--- information.
+-- | The name of an AWS CodeDeploy application about which to get revision information.
 bgarApplicationName :: Lens' BatchGetApplicationRevisions Text
 bgarApplicationName = lens _bgarApplicationName (\ s a -> s{_bgarApplicationName = a});
 
--- | Information to get about the application revisions, including type and
--- location.
+-- | Information to get about the application revisions, including type and location.
 bgarRevisions :: Lens' BatchGetApplicationRevisions [RevisionLocation]
 bgarRevisions = lens _bgarRevisions (\ s a -> s{_bgarRevisions = a}) . _Coerce;
 
@@ -156,8 +154,7 @@ batchGetApplicationRevisionsResponse pResponseStatus_ =
 bgarrsApplicationName :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
 bgarrsApplicationName = lens _bgarrsApplicationName (\ s a -> s{_bgarrsApplicationName = a});
 
--- | Additional information about the revisions, including the type and
--- location.
+-- | Additional information about the revisions, including the type and location.
 bgarrsRevisions :: Lens' BatchGetApplicationRevisionsResponse [RevisionInfo]
 bgarrsRevisions = lens _bgarrsRevisions (\ s a -> s{_bgarrsRevisions = a}) . _Default . _Coerce;
 

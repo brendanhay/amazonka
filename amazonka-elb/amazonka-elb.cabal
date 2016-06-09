@@ -1,5 +1,5 @@
 name:                  amazonka-elb
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Elastic Load Balancing SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,21 +15,13 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Elastic Load Balancing
 
-    Elastic Load Balancing distributes incoming traffic across your EC2
-    instances.
+    Elastic Load Balancing distributes incoming traffic across your EC2 instances.
 
-    For information about the features of Elastic Load Balancing, see
-    <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?>
-    in the /Elastic Load Balancing Developer Guide/.
+    For information about the features of Elastic Load Balancing, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?> in the /Elastic Load Balancing Developer Guide/.
 
-    For information about the AWS regions supported by Elastic Load
-    Balancing, see
-    <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing>
-    in the /Amazon Web Services General Reference/.
+    For information about the AWS regions supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing> in the /Amazon Web Services General Reference/.
 
-    All Elastic Load Balancing operations are /idempotent/, which means that
-    they complete at most one time. If you repeat an operation, it succeeds
-    with a 200 OK response code.
+    All Elastic Load Balancing operations are /idempotent/, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -93,7 +85,7 @@ library
         , Network.AWS.ELB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elb-test
@@ -113,9 +105,9 @@ test-suite amazonka-elb-test
         , Test.AWS.ELB.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-elb == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elb == 1.4.3.*
         , base
         , bytestring
         , tasty

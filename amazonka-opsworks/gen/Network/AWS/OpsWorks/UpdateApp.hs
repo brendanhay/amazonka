@@ -20,11 +20,7 @@
 --
 -- Updates a specified app.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Deploy or Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.UpdateApp
     (
     -- * Creating a Request
@@ -117,22 +113,11 @@ updateApp pAppId_ =
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
 uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a});
 
--- | An array of 'EnvironmentVariable' objects that specify environment
--- variables to be associated with the app. After you deploy the app, these
--- variables are defined on the associated app server instances.For more
--- information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+-- | An array of 'EnvironmentVariable' objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- There is no specific limit on the number of environment variables.
--- However, the size of the associated data structure - which includes the
--- variables\' names, values, and protected flag values - cannot exceed 10
--- KB (10240 Bytes). This limit should accommodate most if not all use
--- cases. Exceeding it will cause an exception with the message,
--- \"Environment: is too large (maximum is 10KB).\"
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, \"Environment: is too large (maximum is 10KB).\"
 --
--- This parameter is supported only by Chef 11.10 stacks. If you have
--- specified one or more environment variables, you cannot modify the
--- stack\'s Chef version.
+-- This parameter is supported only by Chef 11.10 stacks. If you have specified one or more environment variables, you cannot modify the stack\'s Chef version.
 uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
 uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default . _Coerce;
 
@@ -148,8 +133,7 @@ uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default 
 uaAppSource :: Lens' UpdateApp (Maybe Source)
 uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a});
 
--- | One or more user-defined key\/value pairs to be added to the stack
--- attributes.
+-- | One or more user-defined key\/value pairs to be added to the stack attributes.
 uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
 
@@ -161,8 +145,7 @@ uaName = lens _uaName (\ s a -> s{_uaName = a});
 uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\ s a -> s{_uaType = a});
 
--- | The app\'s virtual host settings, with multiple domains separated by
--- commas. For example: '\'www.example.com, example.com\''
+-- | The app\'s virtual host settings, with multiple domains separated by commas. For example: '\'www.example.com, example.com\''
 uaDomains :: Lens' UpdateApp [Text]
 uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeEngineDefaultParameters/ action returns the default engine
--- and system parameter information for the specified cache engine.
+-- The /DescribeEngineDefaultParameters/ action returns the default engine and system parameter information for the specified cache engine.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
@@ -76,16 +75,11 @@ describeEngineDefaultParameters pCacheParameterGroupFamily_ =
     , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
     }
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -93,8 +87,7 @@ dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
--- | The name of the cache parameter group family. Valid values are:
--- 'memcached1.4' | 'redis2.6' | 'redis2.8'
+-- | The name of the cache parameter group family. Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
 dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
 

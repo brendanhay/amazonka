@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the identifiers of all of the HSMs provisioned for the current
--- customer.
+-- Retrieves the identifiers of all of the HSMs provisioned for the current customer.
 --
--- This operation supports pagination with the use of the /NextToken/
--- member. If more results are available, the /NextToken/ member of the
--- response contains a token that you pass in the next call to < ListHsms>
--- to retrieve the next set of items.
+-- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to < ListHsms> to retrieve the next set of items.
 module Network.AWS.CloudHSM.ListHSMs
     (
     -- * Creating a Request
@@ -66,8 +62,7 @@ listHSMs =
     { _lhsmNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to < ListHsms>. Pass null if
--- this is the first call.
+-- | The /NextToken/ value from a previous call to < ListHsms>. Pass null if this is the first call.
 lhsmNextToken :: Lens' ListHSMs (Maybe Text)
 lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
 
@@ -133,8 +128,7 @@ listHSMsResponse pResponseStatus_ =
     , _lhsmrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value to < ListHsms>
--- to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value to < ListHsms> to retrieve the next set of items.
 lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
 lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 

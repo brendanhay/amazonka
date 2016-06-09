@@ -20,9 +20,7 @@
 --
 -- Publishes state information.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol>
--- in the /AWS IoT Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol> in the /AWS IoT Developer Guide/.
 module Network.AWS.IoTDataPlane.Publish
     (
     -- * Creating a Request

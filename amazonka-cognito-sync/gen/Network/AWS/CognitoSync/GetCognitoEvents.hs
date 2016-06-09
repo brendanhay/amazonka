@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the events and the corresponding Lambda functions associated with
--- an identity pool.
+-- Gets the events and the corresponding Lambda functions associated with an identity pool.
 --
--- This API can only be called with developer credentials. You cannot call
--- this API with the temporary user credentials provided by Cognito
--- Identity.
+-- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.GetCognitoEvents
     (
     -- * Creating a Request

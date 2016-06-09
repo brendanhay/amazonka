@@ -1,5 +1,5 @@
 name:                  amazonka-inspector
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Inspector SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,10 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Inspector
 
-    Amazon Inspector enables you to analyze the behavior of your AWS
-    resources and to identify potential security issues. For more
-    information, see
-    <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+    Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -86,7 +83,7 @@ library
         , Network.AWS.Inspector.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-inspector-test
@@ -106,9 +103,9 @@ test-suite amazonka-inspector-test
         , Test.AWS.Inspector.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-inspector == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-inspector == 1.4.3.*
         , base
         , bytestring
         , tasty

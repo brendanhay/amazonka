@@ -62,8 +62,7 @@ readPreset pId_ =
     { _rpId = pId_
     }
 
--- | The identifier of the preset for which you want to get detailed
--- information.
+-- | The identifier of the preset for which you want to get detailed information.
 rpId :: Lens' ReadPreset Text
 rpId = lens _rpId (\ s a -> s{_rpId = a});
 
@@ -114,8 +113,7 @@ readPresetResponse pResponseStatus_ =
     , _rprsResponseStatus = pResponseStatus_
     }
 
--- | A section of the response body that provides information about the
--- preset.
+-- | A section of the response body that provides information about the preset.
 rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 

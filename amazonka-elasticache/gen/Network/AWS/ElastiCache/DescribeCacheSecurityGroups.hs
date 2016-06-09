@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheSecurityGroups/ action returns a list of cache
--- security group descriptions. If a cache security group name is
--- specified, the list will contain only the description of that group.
+-- The /DescribeCacheSecurityGroups/ action returns a list of cache security group descriptions. If a cache security group name is specified, the list will contain only the description of that group.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
@@ -81,16 +79,11 @@ describeCacheSecurityGroups =
 dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -168,8 +161,7 @@ describeCacheSecurityGroupsResponse pResponseStatus_ =
     , _dcsgsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of cache security groups. Each element in the list contains
--- detailed information about one group.
+-- | A list of cache security groups. Each element in the list contains detailed information about one group.
 dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
 dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce;
 

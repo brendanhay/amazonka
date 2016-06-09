@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a gateway\'s metadata, which includes the gateway\'s name and
--- time zone. To specify which gateway to update, use the Amazon Resource
--- Name (ARN) of the gateway in your request.
+-- Updates a gateway\'s metadata, which includes the gateway\'s name and time zone. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- For Gateways activated after September 2, 2015, the gateway\'s ARN
--- contains the gateway ID rather than the gateway name. However, changing
--- the name of the gateway has no effect on the gateway\'s ARN.
+-- For Gateways activated after September 2, 2015, the gateway\'s ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway\'s ARN.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request

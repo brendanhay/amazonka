@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the subscription descriptions for a customer account. The
--- description for a subscription includes SubscriptionName, SNSTopicARN,
--- CustomerID, SourceType, SourceID, CreationTime, and Status.
+-- Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status.
 --
--- If you specify a SubscriptionName, lists the description for that
--- subscription.
+-- If you specify a SubscriptionName, lists the description for that subscription.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEventSubscriptions
@@ -85,8 +82,7 @@ describeEventSubscriptions =
     , _dMaxRecords = Nothing
     }
 
--- | The name of the RDS event notification subscription you want to
--- describe.
+-- | The name of the RDS event notification subscription you want to describe.
 dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
 
@@ -94,17 +90,11 @@ dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a})
 dFilters :: Lens' DescribeEventSubscriptions [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -186,10 +176,7 @@ describeEventSubscriptionsResponse pResponseStatus_ =
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 

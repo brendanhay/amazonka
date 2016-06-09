@@ -28,49 +28,49 @@ import Test.AWS.STS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetCallerIdentity $
+--         [ requestGetCallerIdentity $
 --             getCallerIdentity
 --
---         , testAssumeRole $
+--         , requestAssumeRole $
 --             assumeRole
 --
---         , testDecodeAuthorizationMessage $
+--         , requestDecodeAuthorizationMessage $
 --             decodeAuthorizationMessage
 --
---         , testAssumeRoleWithWebIdentity $
+--         , requestAssumeRoleWithWebIdentity $
 --             assumeRoleWithWebIdentity
 --
---         , testGetFederationToken $
+--         , requestGetFederationToken $
 --             getFederationToken
 --
---         , testGetSessionToken $
+--         , requestGetSessionToken $
 --             getSessionToken
 --
---         , testAssumeRoleWithSAML $
+--         , requestAssumeRoleWithSAML $
 --             assumeRoleWithSAML
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetCallerIdentityResponse $
+--         [ responseGetCallerIdentity $
 --             getCallerIdentityResponse
 --
---         , testAssumeRoleResponse $
+--         , responseAssumeRole $
 --             assumeRoleResponse
 --
---         , testDecodeAuthorizationMessageResponse $
+--         , responseDecodeAuthorizationMessage $
 --             decodeAuthorizationMessageResponse
 --
---         , testAssumeRoleWithWebIdentityResponse $
+--         , responseAssumeRoleWithWebIdentity $
 --             assumeRoleWithWebIdentityResponse
 --
---         , testGetFederationTokenResponse $
+--         , responseGetFederationToken $
 --             getFederationTokenResponse
 --
---         , testGetSessionTokenResponse $
+--         , responseGetSessionToken $
 --             getSessionTokenResponse
 --
---         , testAssumeRoleWithSAMLResponse $
+--         , responseAssumeRoleWithSAML $
 --             assumeRoleWithSAMLResponse
 --
 --           ]
@@ -78,87 +78,87 @@ import Test.AWS.STS.Internal
 
 -- Requests
 
-testGetCallerIdentity :: GetCallerIdentity -> TestTree
-testGetCallerIdentity = req
+requestGetCallerIdentity :: GetCallerIdentity -> TestTree
+requestGetCallerIdentity = req
     "GetCallerIdentity"
     "fixture/GetCallerIdentity.yaml"
 
-testAssumeRole :: AssumeRole -> TestTree
-testAssumeRole = req
+requestAssumeRole :: AssumeRole -> TestTree
+requestAssumeRole = req
     "AssumeRole"
     "fixture/AssumeRole.yaml"
 
-testDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
-testDecodeAuthorizationMessage = req
+requestDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
+requestDecodeAuthorizationMessage = req
     "DecodeAuthorizationMessage"
     "fixture/DecodeAuthorizationMessage.yaml"
 
-testAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
-testAssumeRoleWithWebIdentity = req
+requestAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
+requestAssumeRoleWithWebIdentity = req
     "AssumeRoleWithWebIdentity"
     "fixture/AssumeRoleWithWebIdentity.yaml"
 
-testGetFederationToken :: GetFederationToken -> TestTree
-testGetFederationToken = req
+requestGetFederationToken :: GetFederationToken -> TestTree
+requestGetFederationToken = req
     "GetFederationToken"
     "fixture/GetFederationToken.yaml"
 
-testGetSessionToken :: GetSessionToken -> TestTree
-testGetSessionToken = req
+requestGetSessionToken :: GetSessionToken -> TestTree
+requestGetSessionToken = req
     "GetSessionToken"
     "fixture/GetSessionToken.yaml"
 
-testAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
-testAssumeRoleWithSAML = req
+requestAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
+requestAssumeRoleWithSAML = req
     "AssumeRoleWithSAML"
     "fixture/AssumeRoleWithSAML.yaml"
 
 -- Responses
 
-testGetCallerIdentityResponse :: GetCallerIdentityResponse -> TestTree
-testGetCallerIdentityResponse = res
+responseGetCallerIdentity :: GetCallerIdentityResponse -> TestTree
+responseGetCallerIdentity = res
     "GetCallerIdentityResponse"
     "fixture/GetCallerIdentityResponse.proto"
     sts
     (Proxy :: Proxy GetCallerIdentity)
 
-testAssumeRoleResponse :: AssumeRoleResponse -> TestTree
-testAssumeRoleResponse = res
+responseAssumeRole :: AssumeRoleResponse -> TestTree
+responseAssumeRole = res
     "AssumeRoleResponse"
     "fixture/AssumeRoleResponse.proto"
     sts
     (Proxy :: Proxy AssumeRole)
 
-testDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse -> TestTree
-testDecodeAuthorizationMessageResponse = res
+responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
+responseDecodeAuthorizationMessage = res
     "DecodeAuthorizationMessageResponse"
     "fixture/DecodeAuthorizationMessageResponse.proto"
     sts
     (Proxy :: Proxy DecodeAuthorizationMessage)
 
-testAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse -> TestTree
-testAssumeRoleWithWebIdentityResponse = res
+responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
+responseAssumeRoleWithWebIdentity = res
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse.proto"
     sts
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
-testGetFederationTokenResponse :: GetFederationTokenResponse -> TestTree
-testGetFederationTokenResponse = res
+responseGetFederationToken :: GetFederationTokenResponse -> TestTree
+responseGetFederationToken = res
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse.proto"
     sts
     (Proxy :: Proxy GetFederationToken)
 
-testGetSessionTokenResponse :: GetSessionTokenResponse -> TestTree
-testGetSessionTokenResponse = res
+responseGetSessionToken :: GetSessionTokenResponse -> TestTree
+responseGetSessionToken = res
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse.proto"
     sts
     (Proxy :: Proxy GetSessionToken)
 
-testAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse -> TestTree
-testAssumeRoleWithSAMLResponse = res
+responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
+responseAssumeRoleWithSAML = res
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse.proto"
     sts

@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon Redshift security group. You use security groups to
--- control access to non-VPC clusters.
+-- Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
 --
--- For information about managing security groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Creating a Request
@@ -82,15 +79,13 @@ createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
 creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
--- | The name for the security group. Amazon Redshift stores the value as a
--- lowercase string.
+-- | The name for the security group. Amazon Redshift stores the value as a lowercase string.
 --
 -- Constraints:
 --
 -- -   Must contain no more than 255 alphanumeric characters or hyphens.
 -- -   Must not be \"Default\".
--- -   Must be unique for all security groups that are created by your AWS
---     account.
+-- -   Must be unique for all security groups that are created by your AWS account.
 --
 -- Example: 'examplesecuritygroup'
 creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text

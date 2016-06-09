@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified delivery stream and gets the status. For
--- example, after your delivery stream is created, call
--- < DescribeDeliveryStream> to see if the delivery stream is 'ACTIVE' and
--- therefore ready for data to be sent to it.
+-- Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call < DescribeDeliveryStream> to see if the delivery stream is 'ACTIVE' and therefore ready for data to be sent to it.
 module Network.AWS.Firehose.DescribeDeliveryStream
     (
     -- * Creating a Request
@@ -75,14 +72,11 @@ describeDeliveryStream pDeliveryStreamName_ =
     , _ddsDeliveryStreamName = pDeliveryStreamName_
     }
 
--- | Specifies the destination ID to start returning the destination
--- information. Currently Firehose supports one destination per delivery
--- stream.
+-- | Specifies the destination ID to start returning the destination information. Currently Firehose supports one destination per delivery stream.
 ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
 ddsExclusiveStartDestinationId = lens _ddsExclusiveStartDestinationId (\ s a -> s{_ddsExclusiveStartDestinationId = a});
 
--- | The limit on the number of destinations to return. Currently, you can
--- have one destination per delivery stream.
+-- | The limit on the number of destinations to return. Currently, you can have one destination per delivery stream.
 ddsLimit :: Lens' DescribeDeliveryStream (Maybe Natural)
 ddsLimit = lens _ddsLimit (\ s a -> s{_ddsLimit = a}) . mapping _Nat;
 

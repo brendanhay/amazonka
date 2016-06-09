@@ -20,9 +20,7 @@
 --
 -- Uploads an image layer part to Amazon ECR.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.UploadLayerPart
     (
     -- * Creating a Request
@@ -96,9 +94,7 @@ uploadLayerPart pRepositoryName_ pUploadId_ pPartFirstByte_ pPartLastByte_ pLaye
     , _ulpLayerPartBlob = _Base64 # pLayerPartBlob_
     }
 
--- | The AWS account ID associated with the registry that you are uploading
--- layer parts to. If you do not specify a registry, the default registry
--- is assumed.
+-- | The AWS account ID associated with the registry that you are uploading layer parts to. If you do not specify a registry, the default registry is assumed.
 ulpRegistryId :: Lens' UploadLayerPart (Maybe Text)
 ulpRegistryId = lens _ulpRegistryId (\ s a -> s{_ulpRegistryId = a});
 
@@ -106,8 +102,7 @@ ulpRegistryId = lens _ulpRegistryId (\ s a -> s{_ulpRegistryId = a});
 ulpRepositoryName :: Lens' UploadLayerPart Text
 ulpRepositoryName = lens _ulpRepositoryName (\ s a -> s{_ulpRepositoryName = a});
 
--- | The upload ID from a previous < InitiateLayerUpload> operation to
--- associate with the layer part upload.
+-- | The upload ID from a previous < InitiateLayerUpload> operation to associate with the layer part upload.
 ulpUploadId :: Lens' UploadLayerPart Text
 ulpUploadId = lens _ulpUploadId (\ s a -> s{_ulpUploadId = a});
 

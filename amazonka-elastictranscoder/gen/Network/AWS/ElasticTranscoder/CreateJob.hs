@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you create a job, Elastic Transcoder returns JSON data that
--- includes the values that you specified plus information about the job
--- that is created.
+-- When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified plus information about the job that is created.
 --
--- If you have specified more than one output for your jobs (for example,
--- one output for the Kindle Fire and another output for the Apple iPhone
--- 4s), you currently must use the Elastic Transcoder API to list the jobs
--- (as opposed to the AWS Console).
+-- If you have specified more than one output for your jobs (for example, one output for the Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to list the jobs (as opposed to the AWS Console).
 module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Creating a Request
@@ -100,17 +95,11 @@ createJob pPipelineId_ pInput_ =
     , _cjInput = pInput_
     }
 
--- | User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in 'key\/value' pairs, and you can
--- add up to 10 'key\/value' pairs per job. Elastic Transcoder does not
--- guarantee that 'key\/value' pairs will be returned in the same order in
--- which you specify them.
+-- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in 'key\/value' pairs, and you can add up to 10 'key\/value' pairs per job. Elastic Transcoder does not guarantee that 'key\/value' pairs will be returned in the same order in which you specify them.
 cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
 cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
 
--- | A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the 'Outputs'
--- syntax instead of the 'Output' syntax.
+-- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the 'Outputs' syntax instead of the 'Output' syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
 cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 
@@ -118,30 +107,21 @@ cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
 cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 
--- | If you specify a preset in 'PresetId' for which the value of 'Container'
--- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
--- about the master playlists that you want Elastic Transcoder to create.
+-- | If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
 cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default . _Coerce;
 
--- | The value, if any, that you want Elastic Transcoder to prepend to the
--- names of all files that this job creates, including output files,
--- thumbnails, and playlists.
+-- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
 cjOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
 cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a});
 
--- | The 'Id' of the pipeline that you want Elastic Transcoder to use for
--- transcoding. The pipeline determines several settings, including the
--- Amazon S3 bucket from which Elastic Transcoder gets the files to
--- transcode and the bucket into which Elastic Transcoder puts the
--- transcoded files.
+-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
 cjPipelineId :: Lens' CreateJob Text
 cjPipelineId = lens _cjPipelineId (\ s a -> s{_cjPipelineId = a});
 
--- | A section of the request body that provides information about the file
--- that is being transcoded.
+-- | A section of the request body that provides information about the file that is being transcoded.
 cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
 
@@ -203,8 +183,7 @@ createJobResponse pResponseStatus_ =
     , _cjrsResponseStatus = pResponseStatus_
     }
 
--- | A section of the response body that provides information about the job
--- that is created.
+-- | A section of the response body that provides information about the job that is created.
 cjrsJob :: Lens' CreateJobResponse (Maybe Job')
 cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 

@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns configuration information for the specified event source mapping
--- (see < CreateEventSourceMapping>).
+-- Returns configuration information for the specified event source mapping (see < CreateEventSourceMapping>).
 --
--- This operation requires permission for the
--- 'lambda:GetEventSourceMapping' action.
+-- This operation requires permission for the 'lambda:GetEventSourceMapping' action.
 module Network.AWS.Lambda.GetEventSourceMapping
     (
     -- * Creating a Request

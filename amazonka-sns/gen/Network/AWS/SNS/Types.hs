@@ -77,7 +77,7 @@ sns =
     , _svcEndpoint = defaultEndpoint sns
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SNS"
     , _svcRetry = retry
     }
   where
@@ -105,20 +105,17 @@ _EndpointDisabledException :: AsError a => Getting (First ServiceError) a Servic
 _EndpointDisabledException =
     _ServiceError . hasStatus 400 . hasCode "EndpointDisabled"
 
--- | Indicates that the user has been denied access to the requested
--- resource.
+-- | Indicates that the user has been denied access to the requested resource.
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
     _ServiceError . hasStatus 403 . hasCode "AuthorizationError"
 
--- | Indicates that a request parameter does not comply with the associated
--- constraints.
+-- | Indicates that a request parameter does not comply with the associated constraints.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
 
--- | Indicates that the customer already owns the maximum allowed number of
--- subscriptions.
+-- | Indicates that the customer already owns the maximum allowed number of subscriptions.
 _SubscriptionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionLimitExceededException =
     _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded"
@@ -133,8 +130,7 @@ _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InternalErrorException =
     _ServiceError . hasStatus 500 . hasCode "InternalError"
 
--- | Indicates that a request parameter does not comply with the associated
--- constraints.
+-- | Indicates that a request parameter does not comply with the associated constraints.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid"
@@ -143,8 +139,7 @@ _InvalidParameterValueException =
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
--- | Indicates that the customer already owns the maximum allowed number of
--- topics.
+-- | Indicates that the customer already owns the maximum allowed number of topics.
 _TopicLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TopicLimitExceededException =
     _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded"

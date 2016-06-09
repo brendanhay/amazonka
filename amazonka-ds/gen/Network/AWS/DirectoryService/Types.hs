@@ -222,7 +222,7 @@ directoryService =
     , _svcEndpoint = defaultEndpoint directoryService
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DirectoryService"
     , _svcRetry = retry
     }
   where
@@ -270,9 +270,7 @@ _EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a Ser
 _EntityAlreadyExistsException =
     _ServiceError . hasCode "EntityAlreadyExistsException"
 
--- | The maximum number of directories in the region has been reached. You
--- can use the < GetDirectoryLimits> operation to determine your directory
--- limits in the region.
+-- | The maximum number of directories in the region has been reached. You can use the < GetDirectoryLimits> operation to determine your directory limits in the region.
 _DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryLimitExceededException =
     _ServiceError . hasCode "DirectoryLimitExceededException"
@@ -282,8 +280,7 @@ _EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a Serv
 _EntityDoesNotExistException =
     _ServiceError . hasCode "EntityDoesNotExistException"
 
--- | The account does not have sufficient permission to perform the
--- operation.
+-- | The account does not have sufficient permission to perform the operation.
 _InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =
     _ServiceError . hasCode "InsufficientPermissionsException"
@@ -297,9 +294,7 @@ _InvalidNextTokenException =
 _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasCode "ServiceException"
 
--- | The maximum number of manual snapshots for the directory has been
--- reached. You can use the < GetSnapshotLimits> operation to determine the
--- snapshot limits for a directory.
+-- | The maximum number of manual snapshots for the directory has been reached. You can use the < GetSnapshotLimits> operation to determine the snapshot limits for a directory.
 _SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =
     _ServiceError . hasCode "SnapshotLimitExceededException"

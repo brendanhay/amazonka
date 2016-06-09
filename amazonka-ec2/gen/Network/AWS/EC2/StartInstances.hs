@@ -20,25 +20,13 @@
 --
 -- Starts an Amazon EBS-backed AMI that you\'ve previously stopped.
 --
--- Instances that use Amazon EBS volumes as their root devices can be
--- quickly stopped and started. When an instance is stopped, the compute
--- resources are released and you are not billed for hourly instance usage.
--- However, your root partition Amazon EBS volume remains, continues to
--- persist your data, and you are charged for Amazon EBS volume usage. You
--- can restart your instance at any time. Each time you transition an
--- instance from stopped to started, Amazon EC2 charges a full instance
--- hour, even if transitions happen multiple times within a single hour.
+-- Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for hourly instance usage. However, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.
 --
--- Before stopping an instance, make sure it is in a state from which it
--- can be restarted. Stopping an instance does not preserve data stored in
--- RAM.
+-- Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
 --
--- Performing this operation on an instance that uses an instance store as
--- its root device returns an error.
+-- Performing this operation on an instance that uses an instance store as its root device returns an error.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.StartInstances
     (
     -- * Creating a Request
@@ -95,10 +83,7 @@ startInstances =
 sAdditionalInfo :: Lens' StartInstances (Maybe Text)
 sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 sDryRun :: Lens' StartInstances (Maybe Bool)
 sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
 

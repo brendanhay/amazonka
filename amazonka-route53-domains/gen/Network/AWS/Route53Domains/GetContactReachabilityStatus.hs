@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For operations that require confirmation that the email address for the
--- registrant contact is valid, such as registering a new domain, this
--- operation returns information about whether the registrant contact has
--- responded.
+-- For operations that require confirmation that the email address for the registrant contact is valid, such as registering a new domain, this operation returns information about whether the registrant contact has responded.
 --
--- If you want us to resend the email, use the
--- 'ResendContactReachabilityEmail' operation.
+-- If you want us to resend the email, use the 'ResendContactReachabilityEmail' operation.
 module Network.AWS.Route53Domains.GetContactReachabilityStatus
     (
     -- * Creating a Request
@@ -66,8 +62,7 @@ getContactReachabilityStatus =
     { _gcrsDomainName = Nothing
     }
 
--- | The name of the domain for which you want to know whether the registrant
--- contact has confirmed that the email address is valid.
+-- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
 --
 -- Type: String
 --
@@ -140,11 +135,7 @@ getContactReachabilityStatusResponse pResponseStatus_ =
     , _gcrsrsResponseStatus = pResponseStatus_
     }
 
--- | Whether the registrant contact has responded. 'PENDING' indicates that
--- we sent the confirmation email and haven\'t received a response yet,
--- 'DONE' indicates that we sent the email and got confirmation from the
--- registrant contact, and 'EXPIRED' indicates that the time limit expired
--- before the registrant contact responded.
+-- | Whether the registrant contact has responded. 'PENDING' indicates that we sent the confirmation email and haven\'t received a response yet, 'DONE' indicates that we sent the email and got confirmation from the registrant contact, and 'EXPIRED' indicates that the time limit expired before the registrant contact responded.
 --
 -- Type: String
 --

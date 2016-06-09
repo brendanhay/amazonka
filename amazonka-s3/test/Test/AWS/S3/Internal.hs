@@ -46,12 +46,12 @@ objectKeyTests = testGroup "object key"
     enc :: ObjectKey -> ByteString
     enc = toBS . escapePath . rawPath
 
-testPutObjectACLWithBody :: PutObjectACL -> TestTree
-testPutObjectACLWithBody = req
+requestPutObjectACLWithBody :: PutObjectACL -> TestTree
+requestPutObjectACLWithBody = req
     "PutObjectACLWithBody"
     "fixture/PutObjectACLWithBody.yaml"
 
-testPutObjectACLWithHeaders :: PutObjectACL -> TestTree
-testPutObjectACLWithHeaders = req
+requestPutObjectACLWithHeaders :: PutObjectACL -> TestTree
+requestPutObjectACLWithHeaders = req
     "PutObjectACLWithHeaders"
     "fixture/PutObjectACLWithHeaders.yaml"

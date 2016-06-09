@@ -18,17 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests a refresh of the Trusted Advisor check that has the specified
--- check ID. Check IDs can be obtained by calling
--- < DescribeTrustedAdvisorChecks>.
+-- Requests a refresh of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a < TrustedAdvisorCheckRefreshStatus> object,
--- which contains these fields:
+-- The response contains a < TrustedAdvisorCheckRefreshStatus> object, which contains these fields:
 --
--- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\",
---     \"processing\", \"success\", or \"abandoned\".
--- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds,
---     until the check is eligible for refresh.
+-- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
+-- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds, until the check is eligible for refresh.
 -- -   __CheckId.__ The unique identifier for the check.
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
@@ -139,8 +134,7 @@ refreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
 rtacrsResponseStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
 rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
 
--- | The current refresh status for a check, including the amount of time
--- until the check is eligible for refresh.
+-- | The current refresh status for a check, including the amount of time until the check is eligible for refresh.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});
 

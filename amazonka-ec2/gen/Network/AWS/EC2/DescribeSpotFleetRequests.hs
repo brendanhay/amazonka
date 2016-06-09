@@ -85,17 +85,11 @@ dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFle
 dsfrNextToken :: Lens' DescribeSpotFleetRequests (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsfrDryRun :: Lens' DescribeSpotFleetRequests (Maybe Bool)
 dsfrDryRun = lens _dsfrDryRun (\ s a -> s{_dsfrDryRun = a});
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned 'NextToken'
--- value.
+-- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned 'NextToken' value.
 dsfrMaxResults :: Lens' DescribeSpotFleetRequests (Maybe Int)
 dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
 
@@ -162,8 +156,7 @@ describeSpotFleetRequestsResponse pResponseStatus_ =
     , _dsfrrsSpotFleetRequestConfigs = mempty
     }
 
--- | The token required to retrieve the next set of results. This value is
--- 'null' when there are no more results to return.
+-- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
 dsfrrsNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrsNextToken = lens _dsfrrsNextToken (\ s a -> s{_dsfrrsNextToken = a});
 

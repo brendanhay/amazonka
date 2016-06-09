@@ -1,5 +1,5 @@
 name:                  amazonka-elasticsearch
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Elasticsearch Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,13 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Elasticsearch Configuration Service
 
-    Use the Amazon Elasticsearch configuration API to create, configure, and
-    manage Elasticsearch domains.
+    Use the Amazon Elasticsearch configuration API to create, configure, and manage Elasticsearch domains.
 
-    The endpoint for configuration service requests is region-specific:
-    es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
-    a current list of supported regions and endpoints, see
-    <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
+    The endpoint for configuration service requests is region-specific: es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -67,7 +63,7 @@ library
         , Network.AWS.ElasticSearch.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elasticsearch-test
@@ -87,9 +83,9 @@ test-suite amazonka-elasticsearch-test
         , Test.AWS.ElasticSearch.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-elasticsearch == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elasticsearch == 1.4.3.*
         , base
         , bytestring
         , tasty

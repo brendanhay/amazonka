@@ -20,9 +20,7 @@
 --
 -- Gets the thing shadow for the specified thing.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow>
--- in the /AWS IoT Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the /AWS IoT Developer Guide/.
 module Network.AWS.IoTDataPlane.GetThingShadow
     (
     -- * Creating a Request

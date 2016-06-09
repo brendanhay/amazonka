@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the stack policy for a specified stack. If a stack doesn\'t have
--- a policy, a null value is returned.
+-- Returns the stack policy for a specified stack. If a stack doesn\'t have a policy, a null value is returned.
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ getStackPolicy pStackName_ =
     { _gspStackName = pStackName_
     }
 
--- | The name or unique stack ID that is associated with the stack whose
--- policy you want to get.
+-- | The name or unique stack ID that is associated with the stack whose policy you want to get.
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a});
 
@@ -118,9 +116,7 @@ getStackPolicyResponse pResponseStatus_ =
     , _gsprsResponseStatus = pResponseStatus_
     }
 
--- | Structure containing the stack policy body. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
--- in the AWS CloudFormation User Guide.)
+-- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
 

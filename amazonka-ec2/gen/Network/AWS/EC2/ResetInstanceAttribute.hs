@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets an attribute of an instance to its default value. To reset the
--- 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset
--- the 'SourceDestCheck', the instance can be either running or stopped.
+-- Resets an attribute of an instance to its default value. To reset the 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset the 'SourceDestCheck', the instance can be either running or stopped.
 --
--- The 'SourceDestCheck' attribute controls whether source\/destination
--- checking is enabled. The default value is 'true', which means checking
--- is enabled. This value must be 'false' for a NAT instance to perform
--- NAT. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- The 'SourceDestCheck' attribute controls whether source\/destination checking is enabled. The default value is 'true', which means checking is enabled. This value must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
@@ -79,10 +72,7 @@ resetInstanceAttribute pInstanceId_ pAttribute_ =
     , _riaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
 

@@ -120,8 +120,7 @@ verifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
 vdirsResponseStatus :: Lens' VerifyDomainIdentityResponse Int
 vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus = a});
 
--- | A TXT record that must be placed in the DNS settings for the domain, in
--- order to complete domain verification.
+-- | A TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.
 vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});
 

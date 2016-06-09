@@ -18,15 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures scaling parameters for a domain. A domain\'s scaling
--- parameters specify the desired search instance type and replication
--- count. Amazon CloudSearch will still automatically scale your domain
--- based on the volume of data and traffic, but not below the desired
--- instance type and replication count. If the Multi-AZ option is enabled,
--- these values control the resources used per Availability Zone. For more
--- information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Configures scaling parameters for a domain. A domain\'s scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Creating a Request
@@ -51,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateScalingParameters' operation.
--- Specifies the name of the domain you want to update and the scaling
--- parameters you want to configure.
+-- | Container for the parameters to the 'UpdateScalingParameters' operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
 --
 -- /See:/ 'updateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
@@ -115,8 +105,7 @@ instance ToQuery UpdateScalingParameters where
                "DomainName" =: _uspDomainName,
                "ScalingParameters" =: _uspScalingParameters]
 
--- | The result of a 'UpdateScalingParameters' request. Contains the status
--- of the newly-configured scaling parameters.
+-- | The result of a 'UpdateScalingParameters' request. Contains the status of the newly-configured scaling parameters.
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'

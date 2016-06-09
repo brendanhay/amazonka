@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified change set. Deleting change sets ensures that no
--- one executes the wrong change set.
+-- Deletes the specified change set. Deleting change sets ensures that no one executes the wrong change set.
 --
--- If the call successfully completes, AWS CloudFormation successfully
--- deleted the change set.
+-- If the call successfully completes, AWS CloudFormation successfully deleted the change set.
 module Network.AWS.CloudFormation.DeleteChangeSet
     (
     -- * Creating a Request
@@ -70,13 +68,11 @@ deleteChangeSet pChangeSetName_ =
     , _dcsChangeSetName = pChangeSetName_
     }
 
--- | If you specified the name of a change set to delete, specify the stack
--- name or ID (ARN) that is associated with it.
+-- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
 dcsStackName :: Lens' DeleteChangeSet (Maybe Text)
 dcsStackName = lens _dcsStackName (\ s a -> s{_dcsStackName = a});
 
--- | The name or Amazon Resource Name (ARN) of the change set that you want
--- to delete.
+-- | The name or Amazon Resource Name (ARN) of the change set that you want to delete.
 dcsChangeSetName :: Lens' DeleteChangeSet Text
 dcsChangeSetName = lens _dcsChangeSetName (\ s a -> s{_dcsChangeSetName = a});
 

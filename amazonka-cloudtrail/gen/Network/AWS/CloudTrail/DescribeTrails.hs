@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves settings for the trail associated with the current region for
--- your account.
+-- Retrieves settings for the trail associated with the current region for your account.
 module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Creating a Request
@@ -67,28 +66,16 @@ describeTrails =
     , _dtTrailNameList = Nothing
     }
 
--- | Specifies whether to include shadow trails in the response. A shadow
--- trail is the replication in a region of a trail that was created in a
--- different region. The default is true.
+-- | Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region. The default is true.
 dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
 dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\ s a -> s{_dtIncludeShadowTrails = a});
 
--- | Specifies a list of trail names, trail ARNs, or both, of the trails to
--- describe. The format of a trail ARN is
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'. If an empty
--- list is specified, information for the trail in the current region is
--- returned.
+-- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'. If an empty list is specified, information for the trail in the current region is returned.
 --
--- -   If an empty list is specified and 'IncludeShadowTrails' is false,
---     then information for all trails in the current region is returned.
--- -   If an empty list is specified and IncludeShadowTrails is null or
---     true, then information for all trails in the current region and any
---     associated shadow trails in other regions is returned.
+-- -   If an empty list is specified and 'IncludeShadowTrails' is false, then information for all trails in the current region is returned.
+-- -   If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
 --
--- If one or more trail names are specified, information is returned only
--- if the names match the names of trails belonging only to the current
--- region. To return information about a trail in another region, you must
--- specify its trail ARN.
+-- If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current region. To return information about a trail in another region, you must specify its trail ARN.
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
@@ -130,8 +117,7 @@ instance ToPath DescribeTrails where
 instance ToQuery DescribeTrails where
         toQuery = const mempty
 
--- | Returns the objects or data listed below if successful. Otherwise,
--- returns an error.
+-- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'describeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'

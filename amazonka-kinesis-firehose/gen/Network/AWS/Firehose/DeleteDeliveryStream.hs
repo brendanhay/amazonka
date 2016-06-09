@@ -20,17 +20,11 @@
 --
 -- Deletes a delivery stream and its data.
 --
--- You can delete a delivery stream only if it is in 'ACTIVE' or 'DELETING'
--- state, and not in the 'CREATING' state. While the deletion request is in
--- process, the delivery stream is in the 'DELETING' state.
+-- You can delete a delivery stream only if it is in 'ACTIVE' or 'DELETING' state, and not in the 'CREATING' state. While the deletion request is in process, the delivery stream is in the 'DELETING' state.
 --
 -- To check the state of a delivery stream, use < DescribeDeliveryStream>.
 --
--- While the delivery stream is 'DELETING' state, the service may continue
--- to accept the records, but the service doesn\'t make any guarantees with
--- respect to delivering the data. Therefore, as a best practice, you
--- should first stop any applications that are sending records before
--- deleting a delivery stream.
+-- While the delivery stream is 'DELETING' state, the service may continue to accept the records, but the service doesn\'t make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.
 module Network.AWS.Firehose.DeleteDeliveryStream
     (
     -- * Creating a Request

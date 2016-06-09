@@ -28,49 +28,49 @@ import Test.AWS.Firehose.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testPutRecord $
+--         [ requestPutRecord $
 --             putRecord
 --
---         , testUpdateDestination $
+--         , requestUpdateDestination $
 --             updateDestination
 --
---         , testPutRecordBatch $
+--         , requestPutRecordBatch $
 --             putRecordBatch
 --
---         , testCreateDeliveryStream $
+--         , requestCreateDeliveryStream $
 --             createDeliveryStream
 --
---         , testDescribeDeliveryStream $
+--         , requestDescribeDeliveryStream $
 --             describeDeliveryStream
 --
---         , testListDeliveryStreams $
+--         , requestListDeliveryStreams $
 --             listDeliveryStreams
 --
---         , testDeleteDeliveryStream $
+--         , requestDeleteDeliveryStream $
 --             deleteDeliveryStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ testPutRecordResponse $
+--         [ responsePutRecord $
 --             putRecordResponse
 --
---         , testUpdateDestinationResponse $
+--         , responseUpdateDestination $
 --             updateDestinationResponse
 --
---         , testPutRecordBatchResponse $
+--         , responsePutRecordBatch $
 --             putRecordBatchResponse
 --
---         , testCreateDeliveryStreamResponse $
+--         , responseCreateDeliveryStream $
 --             createDeliveryStreamResponse
 --
---         , testDescribeDeliveryStreamResponse $
+--         , responseDescribeDeliveryStream $
 --             describeDeliveryStreamResponse
 --
---         , testListDeliveryStreamsResponse $
+--         , responseListDeliveryStreams $
 --             listDeliveryStreamsResponse
 --
---         , testDeleteDeliveryStreamResponse $
+--         , responseDeleteDeliveryStream $
 --             deleteDeliveryStreamResponse
 --
 --           ]
@@ -78,87 +78,87 @@ import Test.AWS.Firehose.Internal
 
 -- Requests
 
-testPutRecord :: PutRecord -> TestTree
-testPutRecord = req
+requestPutRecord :: PutRecord -> TestTree
+requestPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
 
-testUpdateDestination :: UpdateDestination -> TestTree
-testUpdateDestination = req
+requestUpdateDestination :: UpdateDestination -> TestTree
+requestUpdateDestination = req
     "UpdateDestination"
     "fixture/UpdateDestination.yaml"
 
-testPutRecordBatch :: PutRecordBatch -> TestTree
-testPutRecordBatch = req
+requestPutRecordBatch :: PutRecordBatch -> TestTree
+requestPutRecordBatch = req
     "PutRecordBatch"
     "fixture/PutRecordBatch.yaml"
 
-testCreateDeliveryStream :: CreateDeliveryStream -> TestTree
-testCreateDeliveryStream = req
+requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
+requestCreateDeliveryStream = req
     "CreateDeliveryStream"
     "fixture/CreateDeliveryStream.yaml"
 
-testDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
-testDescribeDeliveryStream = req
+requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
+requestDescribeDeliveryStream = req
     "DescribeDeliveryStream"
     "fixture/DescribeDeliveryStream.yaml"
 
-testListDeliveryStreams :: ListDeliveryStreams -> TestTree
-testListDeliveryStreams = req
+requestListDeliveryStreams :: ListDeliveryStreams -> TestTree
+requestListDeliveryStreams = req
     "ListDeliveryStreams"
     "fixture/ListDeliveryStreams.yaml"
 
-testDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
-testDeleteDeliveryStream = req
+requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
+requestDeleteDeliveryStream = req
     "DeleteDeliveryStream"
     "fixture/DeleteDeliveryStream.yaml"
 
 -- Responses
 
-testPutRecordResponse :: PutRecordResponse -> TestTree
-testPutRecordResponse = res
+responsePutRecord :: PutRecordResponse -> TestTree
+responsePutRecord = res
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     firehose
     (Proxy :: Proxy PutRecord)
 
-testUpdateDestinationResponse :: UpdateDestinationResponse -> TestTree
-testUpdateDestinationResponse = res
+responseUpdateDestination :: UpdateDestinationResponse -> TestTree
+responseUpdateDestination = res
     "UpdateDestinationResponse"
     "fixture/UpdateDestinationResponse.proto"
     firehose
     (Proxy :: Proxy UpdateDestination)
 
-testPutRecordBatchResponse :: PutRecordBatchResponse -> TestTree
-testPutRecordBatchResponse = res
+responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
+responsePutRecordBatch = res
     "PutRecordBatchResponse"
     "fixture/PutRecordBatchResponse.proto"
     firehose
     (Proxy :: Proxy PutRecordBatch)
 
-testCreateDeliveryStreamResponse :: CreateDeliveryStreamResponse -> TestTree
-testCreateDeliveryStreamResponse = res
+responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
+responseCreateDeliveryStream = res
     "CreateDeliveryStreamResponse"
     "fixture/CreateDeliveryStreamResponse.proto"
     firehose
     (Proxy :: Proxy CreateDeliveryStream)
 
-testDescribeDeliveryStreamResponse :: DescribeDeliveryStreamResponse -> TestTree
-testDescribeDeliveryStreamResponse = res
+responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
+responseDescribeDeliveryStream = res
     "DescribeDeliveryStreamResponse"
     "fixture/DescribeDeliveryStreamResponse.proto"
     firehose
     (Proxy :: Proxy DescribeDeliveryStream)
 
-testListDeliveryStreamsResponse :: ListDeliveryStreamsResponse -> TestTree
-testListDeliveryStreamsResponse = res
+responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
+responseListDeliveryStreams = res
     "ListDeliveryStreamsResponse"
     "fixture/ListDeliveryStreamsResponse.proto"
     firehose
     (Proxy :: Proxy ListDeliveryStreams)
 
-testDeleteDeliveryStreamResponse :: DeleteDeliveryStreamResponse -> TestTree
-testDeleteDeliveryStreamResponse = res
+responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
+responseDeleteDeliveryStream = res
     "DeleteDeliveryStreamResponse"
     "fixture/DeleteDeliveryStreamResponse.proto"
     firehose

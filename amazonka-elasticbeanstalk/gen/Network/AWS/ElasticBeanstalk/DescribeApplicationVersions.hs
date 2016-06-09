@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve a list of application versions stored in your AWS Elastic
--- Beanstalk storage bucket.
+-- Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage bucket.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request
@@ -67,13 +66,11 @@ describeApplicationVersions =
     , _dApplicationName = Nothing
     }
 
--- | If specified, restricts the returned descriptions to only include ones
--- that have the specified version labels.
+-- | If specified, restricts the returned descriptions to only include ones that have the specified version labels.
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
 dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to only include ones that are associated with the specified application.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
@@ -134,8 +131,7 @@ describeApplicationVersionsResponse pResponseStatus_ =
     , _davrsResponseStatus = pResponseStatus_
     }
 
--- | List of 'ApplicationVersionDescription' objects sorted by order of
--- creation.
+-- | List of 'ApplicationVersionDescription' objects sorted by order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 

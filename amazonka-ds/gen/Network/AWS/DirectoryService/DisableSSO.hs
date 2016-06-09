@@ -71,21 +71,13 @@ disableSSO pDirectoryId_ =
     , _dssoDirectoryId = pDirectoryId_
     }
 
--- | The username of an alternate account to use to disable single-sign on.
--- This is only used for AD Connector directories. This account must have
--- privileges to remove a service principal name.
+-- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.
 --
--- If the AD Connector service account does not have privileges to remove a
--- service principal name, you can specify an alternate account with the
--- /UserName/ and /Password/ parameters. These credentials are only used to
--- disable single sign-on and are not stored by the service. The AD
--- Connector service account is not changed.
+-- If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 dssoUserName :: Lens' DisableSSO (Maybe Text)
 dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a});
 
--- | The password of an alternate account to use to disable single-sign on.
--- This is only used for AD Connector directories. For more information,
--- see the /UserName/ parameter.
+-- | The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 dssoPassword :: Lens' DisableSSO (Maybe Text)
 dssoPassword = lens _dssoPassword (\ s a -> s{_dssoPassword = a}) . mapping _Sensitive;
 

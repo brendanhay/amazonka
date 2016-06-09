@@ -100,12 +100,9 @@ describeDBSnapshots =
     , _ddsIncludePublic = Nothing
     }
 
--- | True to include shared manual DB snapshots from other AWS accounts that
--- this AWS account has been given permission to copy or restore; otherwise
--- false. The default is false.
+-- | True to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore; otherwise false. The default is false.
 --
--- An AWS account is given permission to restore a manual DB snapshot from
--- another AWS account by the < ModifyDBSnapshotAttribute> API.
+-- An AWS account is given permission to restore a manual DB snapshot from another AWS account by the < ModifyDBSnapshotAttribute> API.
 ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 
@@ -113,48 +110,31 @@ ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
 ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce;
 
--- | A specific DB snapshot identifier to describe. This parameter cannot be
--- used in conjunction with 'DBInstanceIdentifier'. This value is stored as
--- a lowercase string.
+-- | A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with 'DBInstanceIdentifier'. This value is stored as a lowercase string.
 --
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters.
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
--- -   If this is the identifier of an automated snapshot, the
---     'SnapshotType' parameter must also be specified.
+-- -   If this is the identifier of an automated snapshot, the 'SnapshotType' parameter must also be specified.
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
--- | The type of snapshots that will be returned. You can specify one of the
--- following values:
+-- | The type of snapshots that will be returned. You can specify one of the following values:
 --
--- -   'automated' - Return all DB snapshots that have been automatically
---     taken by Amazon RDS for my AWS account.
--- -   'manual' - Return all DB snapshots that have been taken by my AWS
---     account.
--- -   'shared' - Return all manual DB snapshots that have been shared to
---     my AWS account.
+-- -   'automated' - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.
+-- -   'manual' - Return all DB snapshots that have been taken by my AWS account.
+-- -   'shared' - Return all manual DB snapshots that have been shared to my AWS account.
 -- -   'public' - Return all DB snapshots that have been marked as public.
 --
--- If you do not specify a 'SnapshotType', then both automated and manual
--- snapshots are returned. You can include shared snapshots with these
--- results by setting the 'IncludeShared' parameter to 'true'. You can
--- include public snapshots with these results by setting the
--- 'IncludePublic' parameter to 'true'.
+-- If you do not specify a 'SnapshotType', then both automated and manual snapshots are returned. You can include shared snapshots with these results by setting the 'IncludeShared' parameter to 'true'. You can include public snapshots with these results by setting the 'IncludePublic' parameter to 'true'.
 --
--- The 'IncludeShared' and 'IncludePublic' parameters do not apply for
--- 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic'
--- parameter does not apply when 'SnapshotType' is set to 'shared'. the
--- 'IncludeShared' parameter does not apply when 'SnapshotType' is set to
--- 'public'.
+-- The 'IncludeShared' and 'IncludePublic' parameters do not apply for 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic' parameter does not apply when 'SnapshotType' is set to 'shared'. the 'IncludeShared' parameter does not apply when 'SnapshotType' is set to 'public'.
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
--- | A DB instance identifier to retrieve the list of DB snapshots for. This
--- parameter cannot be used in conjunction with 'DBSnapshotIdentifier'.
--- This parameter is not case-sensitive.
+-- | A DB instance identifier to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with 'DBSnapshotIdentifier'. This parameter is not case-sensitive.
 --
 -- Constraints:
 --
@@ -164,17 +144,11 @@ ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBSnapshots' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBSnapshots' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -182,11 +156,9 @@ ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 
--- | True to include manual DB snapshots that are public and can be copied or
--- restored by any AWS account; otherwise false. The default is false.
+-- | True to include manual DB snapshots that are public and can be copied or restored by any AWS account; otherwise false. The default is false.
 --
--- An manual DB snapshot is shared as public by the
--- < ModifyDBSnapshotAttribute> API.
+-- An manual DB snapshot is shared as public by the < ModifyDBSnapshotAttribute> API.
 ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a});
 
@@ -235,8 +207,7 @@ instance ToQuery DescribeDBSnapshots where
                "MaxRecords" =: _ddsMaxRecords,
                "IncludePublic" =: _ddsIncludePublic]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBSnapshots> action.
+-- | Contains the result of a successful invocation of the < DescribeDBSnapshots> action.
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
@@ -264,9 +235,7 @@ describeDBSnapshotsResponse pResponseStatus_ =
     , _ddsrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 

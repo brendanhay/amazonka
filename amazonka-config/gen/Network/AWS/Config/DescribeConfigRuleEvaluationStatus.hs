@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns status information for each of your AWS managed Config rules.
--- The status includes information such as the last time AWS Config invoked
--- the rule, the last time AWS Config failed to invoke the rule, and the
--- related error for the last failure.
+-- Returns status information for each of your AWS managed Config rules. The status includes information such as the last time AWS Config invoked the rule, the last time AWS Config failed to invoke the rule, and the related error for the last failure.
 module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
     (
     -- * Creating a Request
@@ -62,9 +59,7 @@ describeConfigRuleEvaluationStatus =
     { _dcresConfigRuleNames = Nothing
     }
 
--- | The name of the AWS managed Config rules for which you want status
--- information. If you do not specify any names, AWS Config returns status
--- information for all AWS managed Config rules that you use.
+-- | The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
 dcresConfigRuleNames :: Lens' DescribeConfigRuleEvaluationStatus [Text]
 dcresConfigRuleNames = lens _dcresConfigRuleNames (\ s a -> s{_dcresConfigRuleNames = a}) . _Default . _Coerce;
 

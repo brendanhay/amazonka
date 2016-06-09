@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a traffic policy. To delete a traffic policy, send a 'DELETE'
--- request to the '\/Route 53 API version\/trafficpolicy' resource.
+-- Deletes a traffic policy. To delete a traffic policy, send a 'DELETE' request to the '\/Route 53 API version\/trafficpolicy' resource.
 module Network.AWS.Route53.DeleteTrafficPolicy
     (
     -- * Creating a Request

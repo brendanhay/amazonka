@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists iSCSI initiators that are connected to a volume. You can use this
--- operation to determine whether a volume is being used or not.
+-- Lists iSCSI initiators that are connected to a volume. You can use this operation to determine whether a volume is being used or not.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ listVolumeInitiators pVolumeARN_ =
     { _lviVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
--- operation to return a list of gateway volumes for the gateway.
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
 
@@ -128,8 +126,7 @@ listVolumeInitiatorsResponse pResponseStatus_ =
     , _lvirsResponseStatus = pResponseStatus_
     }
 
--- | The host names and port numbers of all iSCSI initiators that are
--- connected to the gateway.
+-- | The host names and port numbers of all iSCSI initiators that are connected to the gateway.
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 

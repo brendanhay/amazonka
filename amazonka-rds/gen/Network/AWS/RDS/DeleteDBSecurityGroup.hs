@@ -20,8 +20,7 @@
 --
 -- Deletes a DB security group.
 --
--- The specified DB security group must not be associated with any DB
--- instances.
+-- The specified DB security group must not be associated with any DB instances.
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Creating a Request

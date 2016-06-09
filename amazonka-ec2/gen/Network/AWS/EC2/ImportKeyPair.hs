@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports the public key from an RSA key pair that you created with a
--- third-party tool. Compare this with < CreateKeyPair>, in which AWS
--- creates the key pair and gives the keys to you (AWS keeps a copy of the
--- public key). With ImportKeyPair, you create the key pair and give AWS
--- just the public key. The private key is never transferred between you
--- and AWS.
+-- Imports the public key from an RSA key pair that you created with a third-party tool. Compare this with < CreateKeyPair>, in which AWS creates the key pair and gives the keys to you (AWS keeps a copy of the public key). With ImportKeyPair, you create the key pair and give AWS just the public key. The private key is never transferred between you and AWS.
 --
--- For more information about key pairs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Creating a Request
@@ -83,10 +76,7 @@ importKeyPair pKeyName_ pPublicKeyMaterial_ =
     , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
 ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
 
@@ -94,8 +84,7 @@ ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
 ikpKeyName :: Lens' ImportKeyPair Text
 ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 
--- | The public key. For API calls, the text must be base64-encoded. For
--- command line tools, base64 encoding is performed for you.
+-- | The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.

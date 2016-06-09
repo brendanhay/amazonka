@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the log streams that are associated with the specified log
--- group. The list returned in the response is ASCII-sorted by log stream
--- name.
+-- Returns all the log streams that are associated with the specified log group. The list returned in the response is ASCII-sorted by log stream name.
 --
--- By default, this operation returns up to 50 log streams. If there are
--- more log streams to list, the response would contain a 'nextToken' value
--- in the response body. You can also limit the number of log streams
--- returned in the response by specifying the 'limit' parameter in the
--- request. This operation has a limit of five transactions per second,
--- after which transactions are throttled.
+-- By default, this operation returns up to 50 log streams. If there are more log streams to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of log streams returned in the response by specifying the 'limit' parameter in the request. This operation has a limit of five transactions per second, after which transactions are throttled.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -98,33 +91,23 @@ describeLogStreams pLogGroupName_ =
     , _dlssLogGroupName = pLogGroupName_
     }
 
--- | Specifies what to order the returned log streams by. Valid arguments are
--- \'LogStreamName\' or \'LastEventTime\'. If you don\'t specify a value,
--- results are ordered by LogStreamName. If \'LastEventTime\' is chosen,
--- the request cannot also contain a logStreamNamePrefix.
+-- | Specifies what to order the returned log streams by. Valid arguments are \'LogStreamName\' or \'LastEventTime\'. If you don\'t specify a value, results are ordered by LogStreamName. If \'LastEventTime\' is chosen, the request cannot also contain a logStreamNamePrefix.
 dlssOrderBy :: Lens' DescribeLogStreams (Maybe OrderBy)
 dlssOrderBy = lens _dlssOrderBy (\ s a -> s{_dlssOrderBy = a});
 
--- | If set to true, results are returned in descending order. If you don\'t
--- specify a value or set it to false, results are returned in ascending
--- order.
+-- | If set to true, results are returned in descending order. If you don\'t specify a value or set it to false, results are returned in ascending order.
 dlssDescending :: Lens' DescribeLogStreams (Maybe Bool)
 dlssDescending = lens _dlssDescending (\ s a -> s{_dlssDescending = a});
 
--- | A string token used for pagination that points to the next page of
--- results. It must be a value obtained from the response of the previous
--- 'DescribeLogStreams' request.
+-- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeLogStreams' request.
 dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
 dlssNextToken = lens _dlssNextToken (\ s a -> s{_dlssNextToken = a});
 
--- | Will only return log streams that match the provided
--- logStreamNamePrefix. If you don\'t specify a value, no prefix filter is
--- applied.
+-- | Will only return log streams that match the provided logStreamNamePrefix. If you don\'t specify a value, no prefix filter is applied.
 dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dlssLogStreamNamePrefix = lens _dlssLogStreamNamePrefix (\ s a -> s{_dlssLogStreamNamePrefix = a});
 
--- | The maximum number of items returned in the response. If you don\'t
--- specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
 dlssLimit :: Lens' DescribeLogStreams (Maybe Natural)
 dlssLimit = lens _dlssLimit (\ s a -> s{_dlssLimit = a}) . mapping _Nat;
 

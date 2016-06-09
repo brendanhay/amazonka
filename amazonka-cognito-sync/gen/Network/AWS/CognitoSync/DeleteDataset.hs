@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specific dataset. The dataset will be deleted permanently,
--- and the action can\'t be undone. Datasets that this dataset was merged
--- with will no longer report the merge. Any subsequent operation on this
--- dataset will result in a ResourceNotFoundException.
+-- Deletes the specific dataset. The dataset will be deleted permanently, and the action can\'t be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.
 --
--- This API can be called with temporary user credentials provided by
--- Cognito Identity or with developer credentials.
+-- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Creating a Request
@@ -80,20 +76,15 @@ deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     , _delDatasetName = pDatasetName_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 delIdentityPoolId :: Lens' DeleteDataset Text
 delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 delIdentityId :: Lens' DeleteDataset Text
 delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 delDatasetName :: Lens' DeleteDataset Text
 delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
 
@@ -151,11 +142,7 @@ deleteDatasetResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | A collection of data for an identity pool. An identity pool can have
--- multiple datasets. A dataset is per identity and can be general or
--- associated with a particular entity in an application (like a saved
--- game). Datasets are automatically created if they don\'t exist. Data is
--- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 

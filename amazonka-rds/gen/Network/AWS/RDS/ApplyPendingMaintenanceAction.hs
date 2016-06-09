@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a pending maintenance action to a resource (for example, to a DB
--- instance).
+-- Applies a pending maintenance action to a resource (for example, to a DB instance).
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
     (
     -- * Creating a Request
@@ -75,10 +74,7 @@ applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
     , _apmaOptInType = pOptInType_
     }
 
--- | The RDS Amazon Resource Name (ARN) of the resource that the pending
--- maintenance action applies to. For information about creating an ARN,
--- see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
 apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
 apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceIdentifier = a});
 
@@ -88,16 +84,13 @@ apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceI
 apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
 apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 
--- | A value that specifies the type of opt-in request, or undoes an opt-in
--- request. An opt-in request of type 'immediate' cannot be undone.
+-- | A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type 'immediate' cannot be undone.
 --
 -- Valid values:
 --
 -- -   'immediate' - Apply the maintenance action immediately.
--- -   'next-maintenance' - Apply the maintenance action during the next
---     maintenance window for the resource.
--- -   'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in
---     requests.
+-- -   'next-maintenance' - Apply the maintenance action during the next maintenance window for the resource.
+-- -   'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.
 apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
 apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 

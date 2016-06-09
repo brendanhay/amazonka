@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation checks the availability of one domain name. Note that if
--- the availability status of a domain is pending, you must submit another
--- request to determine the availability of the domain name.
+-- This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must submit another request to determine the availability of the domain name.
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request
@@ -79,9 +77,7 @@ cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 cdaDomainName :: Lens' CheckDomainAvailability Text
@@ -162,19 +158,13 @@ cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus
 -- Valid values:
 --
 -- -   'AVAILABLE' – The domain name is available.
--- -   'AVAILABLE_RESERVED' – The domain name is reserved under specific
---     conditions.
--- -   'AVAILABLE_PREORDER' – The domain name is available and can be
---     preordered.
+-- -   'AVAILABLE_RESERVED' – The domain name is reserved under specific conditions.
+-- -   'AVAILABLE_PREORDER' – The domain name is available and can be preordered.
 -- -   'UNAVAILABLE' – The domain name is not available.
 -- -   'UNAVAILABLE_PREMIUM' – The domain name is not available.
 -- -   'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.
--- -   'RESERVED' – The domain name has been reserved for another person or
---     organization.
--- -   'DONT_KNOW' – The TLD registry didn\'t reply with a definitive
---     answer about whether the domain name is available. Amazon Route 53
---     can return this response for a variety of reasons, for example, the
---     registry is performing maintenance. Try again later.
+-- -   'RESERVED' – The domain name has been reserved for another person or organization.
+-- -   'DONT_KNOW' – The TLD registry didn\'t reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
 

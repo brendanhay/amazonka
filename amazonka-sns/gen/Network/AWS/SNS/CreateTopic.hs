@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a topic to which notifications can be published. Users can
--- create at most 3000 topics. For more information, see
--- <http://aws.amazon.com/sns/ http:\/\/aws.amazon.com\/sns>. This action
--- is idempotent, so if the requester already owns a topic with the
--- specified name, that topic\'s ARN is returned without creating a new
--- topic.
+-- Creates a topic to which notifications can be published. Users can create at most 3000 topics. For more information, see <http://aws.amazon.com/sns/ http:\/\/aws.amazon.com\/sns>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic\'s ARN is returned without creating a new topic.
 module Network.AWS.SNS.CreateTopic
     (
     -- * Creating a Request
@@ -69,9 +64,7 @@ createTopic pName_ =
 
 -- | The name of the topic you want to create.
 --
--- Constraints: Topic names must be made up of only uppercase and lowercase
--- ASCII letters, numbers, underscores, and hyphens, and must be between 1
--- and 256 characters long.
+-- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 

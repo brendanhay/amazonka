@@ -28,109 +28,109 @@ import Test.AWS.Kinesis.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testPutRecord $
+--         [ requestPutRecord $
 --             putRecord
 --
---         , testDecreaseStreamRetentionPeriod $
+--         , requestDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriod
 --
---         , testMergeShards $
+--         , requestMergeShards $
 --             mergeShards
 --
---         , testGetShardIterator $
+--         , requestGetShardIterator $
 --             getShardIterator
 --
---         , testGetRecords $
+--         , requestGetRecords $
 --             getRecords
 --
---         , testEnableEnhancedMonitoring $
+--         , requestEnableEnhancedMonitoring $
 --             enableEnhancedMonitoring
 --
---         , testDisableEnhancedMonitoring $
+--         , requestDisableEnhancedMonitoring $
 --             disableEnhancedMonitoring
 --
---         , testListTagsForStream $
+--         , requestListTagsForStream $
 --             listTagsForStream
 --
---         , testAddTagsToStream $
+--         , requestAddTagsToStream $
 --             addTagsToStream
 --
---         , testPutRecords $
+--         , requestPutRecords $
 --             putRecords
 --
---         , testDeleteStream $
+--         , requestDeleteStream $
 --             deleteStream
 --
---         , testRemoveTagsFromStream $
+--         , requestRemoveTagsFromStream $
 --             removeTagsFromStream
 --
---         , testListStreams $
+--         , requestListStreams $
 --             listStreams
 --
---         , testCreateStream $
+--         , requestCreateStream $
 --             createStream
 --
---         , testSplitShard $
+--         , requestSplitShard $
 --             splitShard
 --
---         , testIncreaseStreamRetentionPeriod $
+--         , requestIncreaseStreamRetentionPeriod $
 --             increaseStreamRetentionPeriod
 --
---         , testDescribeStream $
+--         , requestDescribeStream $
 --             describeStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ testPutRecordResponse $
+--         [ responsePutRecord $
 --             putRecordResponse
 --
---         , testDecreaseStreamRetentionPeriodResponse $
+--         , responseDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriodResponse
 --
---         , testMergeShardsResponse $
+--         , responseMergeShards $
 --             mergeShardsResponse
 --
---         , testGetShardIteratorResponse $
+--         , responseGetShardIterator $
 --             getShardIteratorResponse
 --
---         , testGetRecordsResponse $
+--         , responseGetRecords $
 --             getRecordsResponse
 --
---         , testEnableEnhancedMonitoringResponse $
+--         , responseEnableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
---         , testDisableEnhancedMonitoringResponse $
+--         , responseDisableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
---         , testListTagsForStreamResponse $
+--         , responseListTagsForStream $
 --             listTagsForStreamResponse
 --
---         , testAddTagsToStreamResponse $
+--         , responseAddTagsToStream $
 --             addTagsToStreamResponse
 --
---         , testPutRecordsResponse $
+--         , responsePutRecords $
 --             putRecordsResponse
 --
---         , testDeleteStreamResponse $
+--         , responseDeleteStream $
 --             deleteStreamResponse
 --
---         , testRemoveTagsFromStreamResponse $
+--         , responseRemoveTagsFromStream $
 --             removeTagsFromStreamResponse
 --
---         , testListStreamsResponse $
+--         , responseListStreams $
 --             listStreamsResponse
 --
---         , testCreateStreamResponse $
+--         , responseCreateStream $
 --             createStreamResponse
 --
---         , testSplitShardResponse $
+--         , responseSplitShard $
 --             splitShardResponse
 --
---         , testIncreaseStreamRetentionPeriodResponse $
+--         , responseIncreaseStreamRetentionPeriod $
 --             increaseStreamRetentionPeriodResponse
 --
---         , testDescribeStreamResponse $
+--         , responseDescribeStream $
 --             describeStreamResponse
 --
 --           ]
@@ -138,207 +138,207 @@ import Test.AWS.Kinesis.Internal
 
 -- Requests
 
-testPutRecord :: PutRecord -> TestTree
-testPutRecord = req
+requestPutRecord :: PutRecord -> TestTree
+requestPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
 
-testDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
-testDecreaseStreamRetentionPeriod = req
+requestDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
+requestDecreaseStreamRetentionPeriod = req
     "DecreaseStreamRetentionPeriod"
     "fixture/DecreaseStreamRetentionPeriod.yaml"
 
-testMergeShards :: MergeShards -> TestTree
-testMergeShards = req
+requestMergeShards :: MergeShards -> TestTree
+requestMergeShards = req
     "MergeShards"
     "fixture/MergeShards.yaml"
 
-testGetShardIterator :: GetShardIterator -> TestTree
-testGetShardIterator = req
+requestGetShardIterator :: GetShardIterator -> TestTree
+requestGetShardIterator = req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
 
-testGetRecords :: GetRecords -> TestTree
-testGetRecords = req
+requestGetRecords :: GetRecords -> TestTree
+requestGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
-testEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
-testEnableEnhancedMonitoring = req
+requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
+requestEnableEnhancedMonitoring = req
     "EnableEnhancedMonitoring"
     "fixture/EnableEnhancedMonitoring.yaml"
 
-testDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
-testDisableEnhancedMonitoring = req
+requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
+requestDisableEnhancedMonitoring = req
     "DisableEnhancedMonitoring"
     "fixture/DisableEnhancedMonitoring.yaml"
 
-testListTagsForStream :: ListTagsForStream -> TestTree
-testListTagsForStream = req
+requestListTagsForStream :: ListTagsForStream -> TestTree
+requestListTagsForStream = req
     "ListTagsForStream"
     "fixture/ListTagsForStream.yaml"
 
-testAddTagsToStream :: AddTagsToStream -> TestTree
-testAddTagsToStream = req
+requestAddTagsToStream :: AddTagsToStream -> TestTree
+requestAddTagsToStream = req
     "AddTagsToStream"
     "fixture/AddTagsToStream.yaml"
 
-testPutRecords :: PutRecords -> TestTree
-testPutRecords = req
+requestPutRecords :: PutRecords -> TestTree
+requestPutRecords = req
     "PutRecords"
     "fixture/PutRecords.yaml"
 
-testDeleteStream :: DeleteStream -> TestTree
-testDeleteStream = req
+requestDeleteStream :: DeleteStream -> TestTree
+requestDeleteStream = req
     "DeleteStream"
     "fixture/DeleteStream.yaml"
 
-testRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
-testRemoveTagsFromStream = req
+requestRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
+requestRemoveTagsFromStream = req
     "RemoveTagsFromStream"
     "fixture/RemoveTagsFromStream.yaml"
 
-testListStreams :: ListStreams -> TestTree
-testListStreams = req
+requestListStreams :: ListStreams -> TestTree
+requestListStreams = req
     "ListStreams"
     "fixture/ListStreams.yaml"
 
-testCreateStream :: CreateStream -> TestTree
-testCreateStream = req
+requestCreateStream :: CreateStream -> TestTree
+requestCreateStream = req
     "CreateStream"
     "fixture/CreateStream.yaml"
 
-testSplitShard :: SplitShard -> TestTree
-testSplitShard = req
+requestSplitShard :: SplitShard -> TestTree
+requestSplitShard = req
     "SplitShard"
     "fixture/SplitShard.yaml"
 
-testIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
-testIncreaseStreamRetentionPeriod = req
+requestIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
+requestIncreaseStreamRetentionPeriod = req
     "IncreaseStreamRetentionPeriod"
     "fixture/IncreaseStreamRetentionPeriod.yaml"
 
-testDescribeStream :: DescribeStream -> TestTree
-testDescribeStream = req
+requestDescribeStream :: DescribeStream -> TestTree
+requestDescribeStream = req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
 -- Responses
 
-testPutRecordResponse :: PutRecordResponse -> TestTree
-testPutRecordResponse = res
+responsePutRecord :: PutRecordResponse -> TestTree
+responsePutRecord = res
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecord)
 
-testDecreaseStreamRetentionPeriodResponse :: DecreaseStreamRetentionPeriodResponse -> TestTree
-testDecreaseStreamRetentionPeriodResponse = res
+responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
+responseDecreaseStreamRetentionPeriod = res
     "DecreaseStreamRetentionPeriodResponse"
     "fixture/DecreaseStreamRetentionPeriodResponse.proto"
     kinesis
     (Proxy :: Proxy DecreaseStreamRetentionPeriod)
 
-testMergeShardsResponse :: MergeShardsResponse -> TestTree
-testMergeShardsResponse = res
+responseMergeShards :: MergeShardsResponse -> TestTree
+responseMergeShards = res
     "MergeShardsResponse"
     "fixture/MergeShardsResponse.proto"
     kinesis
     (Proxy :: Proxy MergeShards)
 
-testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
-testGetShardIteratorResponse = res
+responseGetShardIterator :: GetShardIteratorResponse -> TestTree
+responseGetShardIterator = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     kinesis
     (Proxy :: Proxy GetShardIterator)
 
-testGetRecordsResponse :: GetRecordsResponse -> TestTree
-testGetRecordsResponse = res
+responseGetRecords :: GetRecordsResponse -> TestTree
+responseGetRecords = res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy GetRecords)
 
-testEnableEnhancedMonitoringResponse :: EnhancedMonitoringOutput -> TestTree
-testEnableEnhancedMonitoringResponse = res
+responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
+responseEnableEnhancedMonitoring = res
     "EnableEnhancedMonitoringResponse"
     "fixture/EnableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy EnableEnhancedMonitoring)
 
-testDisableEnhancedMonitoringResponse :: EnhancedMonitoringOutput -> TestTree
-testDisableEnhancedMonitoringResponse = res
+responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
+responseDisableEnhancedMonitoring = res
     "DisableEnhancedMonitoringResponse"
     "fixture/DisableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy DisableEnhancedMonitoring)
 
-testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
-testListTagsForStreamResponse = res
+responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
+responseListTagsForStream = res
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse.proto"
     kinesis
     (Proxy :: Proxy ListTagsForStream)
 
-testAddTagsToStreamResponse :: AddTagsToStreamResponse -> TestTree
-testAddTagsToStreamResponse = res
+responseAddTagsToStream :: AddTagsToStreamResponse -> TestTree
+responseAddTagsToStream = res
     "AddTagsToStreamResponse"
     "fixture/AddTagsToStreamResponse.proto"
     kinesis
     (Proxy :: Proxy AddTagsToStream)
 
-testPutRecordsResponse :: PutRecordsResponse -> TestTree
-testPutRecordsResponse = res
+responsePutRecords :: PutRecordsResponse -> TestTree
+responsePutRecords = res
     "PutRecordsResponse"
     "fixture/PutRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecords)
 
-testDeleteStreamResponse :: DeleteStreamResponse -> TestTree
-testDeleteStreamResponse = res
+responseDeleteStream :: DeleteStreamResponse -> TestTree
+responseDeleteStream = res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
     kinesis
     (Proxy :: Proxy DeleteStream)
 
-testRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse -> TestTree
-testRemoveTagsFromStreamResponse = res
+responseRemoveTagsFromStream :: RemoveTagsFromStreamResponse -> TestTree
+responseRemoveTagsFromStream = res
     "RemoveTagsFromStreamResponse"
     "fixture/RemoveTagsFromStreamResponse.proto"
     kinesis
     (Proxy :: Proxy RemoveTagsFromStream)
 
-testListStreamsResponse :: ListStreamsResponse -> TestTree
-testListStreamsResponse = res
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     kinesis
     (Proxy :: Proxy ListStreams)
 
-testCreateStreamResponse :: CreateStreamResponse -> TestTree
-testCreateStreamResponse = res
+responseCreateStream :: CreateStreamResponse -> TestTree
+responseCreateStream = res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
     kinesis
     (Proxy :: Proxy CreateStream)
 
-testSplitShardResponse :: SplitShardResponse -> TestTree
-testSplitShardResponse = res
+responseSplitShard :: SplitShardResponse -> TestTree
+responseSplitShard = res
     "SplitShardResponse"
     "fixture/SplitShardResponse.proto"
     kinesis
     (Proxy :: Proxy SplitShard)
 
-testIncreaseStreamRetentionPeriodResponse :: IncreaseStreamRetentionPeriodResponse -> TestTree
-testIncreaseStreamRetentionPeriodResponse = res
+responseIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriodResponse -> TestTree
+responseIncreaseStreamRetentionPeriod = res
     "IncreaseStreamRetentionPeriodResponse"
     "fixture/IncreaseStreamRetentionPeriodResponse.proto"
     kinesis
     (Proxy :: Proxy IncreaseStreamRetentionPeriod)
 
-testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
-testDescribeStreamResponse = res
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     kinesis

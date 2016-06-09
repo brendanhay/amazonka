@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     (
     -- * Creating a Request
@@ -133,8 +129,7 @@ describeLoadBasedAutoScalingResponse pResponseStatus_ =
     , _dlbasrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe
--- each layer\'s configuration.
+-- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe each layer\'s configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 

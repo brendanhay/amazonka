@@ -71,9 +71,7 @@ listRuns pArn_ =
     , _lrArn = pArn_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrNextToken :: Lens' ListRuns (Maybe Text)
 lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
@@ -156,9 +154,7 @@ listRunsResponse pResponseStatus_ =
 lrrsRuns :: Lens' ListRunsResponse [Run]
 lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 

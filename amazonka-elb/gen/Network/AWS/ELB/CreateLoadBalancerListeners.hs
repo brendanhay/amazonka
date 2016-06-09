@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more listeners for the specified load balancer. If a
--- listener with the specified port does not already exist, it is created;
--- otherwise, the properties of the new listener must match the properties
--- of the existing listener.
+-- Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request

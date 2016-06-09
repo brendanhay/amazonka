@@ -48,8 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about a collection of < BasePathMapping>
--- resources.
+-- | A request to get information about a collection of < BasePathMapping> resources.
 --
 -- /See:/ 'getBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
@@ -77,14 +76,11 @@ getBasePathMappings pDomainName_ =
     , _gDomainName = pDomainName_
     }
 
--- | The maximum number of < BasePathMapping> resources in the collection to
--- get information about. The default limit is 25. It should be an integer
--- between 1 - 500.
+-- | The maximum number of < BasePathMapping> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gLimit :: Lens' GetBasePathMappings (Maybe Int)
 gLimit = lens _gLimit (\ s a -> s{_gLimit = a});
 
--- | The position of the current < BasePathMapping> resource in the
--- collection to get information about.
+-- | The position of the current < BasePathMapping> resource in the collection to get information about.
 gPosition :: Lens' GetBasePathMappings (Maybe Text)
 gPosition = lens _gPosition (\ s a -> s{_gPosition = a});
 
@@ -159,8 +155,7 @@ getBasePathMappingsResponse pResponseStatus_ =
     , _gbpmrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < BasePathMapping> resources in the collection
--- of base path mapping resources.
+-- | The current page of any < BasePathMapping> resources in the collection of base path mapping resources.
 gbpmrsItems :: Lens' GetBasePathMappingsResponse [BasePathMapping]
 gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coerce;
 

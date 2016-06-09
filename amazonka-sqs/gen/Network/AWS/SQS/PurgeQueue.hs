@@ -20,15 +20,9 @@
 --
 -- Deletes the messages in a queue specified by the __queue URL__.
 --
--- When you use the 'PurgeQueue' API, the deleted messages in the queue
--- cannot be retrieved.
+-- When you use the 'PurgeQueue' API, the deleted messages in the queue cannot be retrieved.
 --
--- When you purge a queue, the message deletion process takes up to 60
--- seconds. All messages sent to the queue before calling 'PurgeQueue' will
--- be deleted; messages sent to the queue while it is being purged may be
--- deleted. While the queue is being purged, messages sent to the queue
--- before 'PurgeQueue' was called may be received, but will be deleted
--- within the next minute.
+-- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling 'PurgeQueue' will be deleted; messages sent to the queue while it is being purged may be deleted. While the queue is being purged, messages sent to the queue before 'PurgeQueue' was called may be received, but will be deleted within the next minute.
 module Network.AWS.SQS.PurgeQueue
     (
     -- * Creating a Request
@@ -67,8 +61,7 @@ purgeQueue pQueueURL_ =
     { _pqQueueURL = pQueueURL_
     }
 
--- | The queue URL of the queue to delete the messages from when using the
--- 'PurgeQueue' API.
+-- | The queue URL of the queue to delete the messages from when using the 'PurgeQueue' API.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 

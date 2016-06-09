@@ -20,10 +20,7 @@
 --
 -- Creates a new user for your AWS account.
 --
--- For information about limitations on the number of users you can create,
--- see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /IAM User Guide/.
+-- For information about limitations on the number of users you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request
@@ -70,12 +67,9 @@ createUser pUserName_ =
     , _cuUserName = pUserName_
     }
 
--- | The path for the user name. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
+-- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
+-- This parameter is optional. If it is not included, it defaults to a slash (\/).
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 

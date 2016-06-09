@@ -53,8 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a < Stage>
--- resource.
+-- | Requests Amazon API Gateway to change information about a < Stage> resource.
 --
 -- /See:/ 'updateStage' smart constructor.
 data UpdateStage = UpdateStage'
@@ -83,13 +82,11 @@ updateStage pRestAPIId_ pStageName_ =
     , _usStageName = pStageName_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 usPatchOperations :: Lens' UpdateStage [PatchOperation]
 usPatchOperations = lens _usPatchOperations (\ s a -> s{_usPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to
--- change information about.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to change information about.
 usRestAPIId :: Lens' UpdateStage Text
 usRestAPIId = lens _usRestAPIId (\ s a -> s{_usRestAPIId = a});
 

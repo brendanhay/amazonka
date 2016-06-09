@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the specified Amazon Resource Name (ARN) of
--- virtual tapes. If a 'TapeARN' is not specified, returns a description of
--- all virtual tapes associated with the specified gateway.
+-- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a 'TapeARN' is not specified, returns a description of all virtual tapes associated with the specified gateway.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapes
@@ -83,24 +81,19 @@ describeTapes pGatewayARN_ =
     , _dtGatewayARN = pGatewayARN_
     }
 
--- | A marker value, obtained in a previous call to 'DescribeTapes'. This
--- marker indicates which page of results to retrieve.
+-- | A marker value, obtained in a previous call to 'DescribeTapes'. This marker indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
 dtMarker :: Lens' DescribeTapes (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
--- | Specifies that the number of virtual tapes described be limited to the
--- specified number.
+-- | Specifies that the number of virtual tapes described be limited to the specified number.
 --
 -- Amazon Web Services may impose its own limit, if this field is not set.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe. If this parameter is not
--- specified, AWS Storage Gateway returns a description of all virtual
--- tapes associated with the specified gateway.
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.
 dtTapeARNs :: Lens' DescribeTapes [Text]
 dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce;
 
@@ -182,11 +175,9 @@ describeTapesResponse pResponseStatus_ =
     , _dtsrsResponseStatus = pResponseStatus_
     }
 
--- | An opaque string which can be used as part of a subsequent DescribeTapes
--- call to retrieve the next page of results.
+-- | An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results.
 --
--- If a response does not contain a marker, then there are no more results
--- to be retrieved.
+-- If a response does not contain a marker, then there are no more results to be retrieved.
 dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a commit, including commit message and
--- committer information.
+-- Returns information about a commit, including commit message and committer information.
 module Network.AWS.CodeCommit.GetCommit
     (
     -- * Creating a Request

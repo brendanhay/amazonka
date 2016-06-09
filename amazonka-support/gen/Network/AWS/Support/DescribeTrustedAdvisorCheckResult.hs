@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the results of the Trusted Advisor check that has the specified
--- check ID. Check IDs can be obtained by calling
--- < DescribeTrustedAdvisorChecks>.
+-- Returns the results of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a < TrustedAdvisorCheckResult> object, which
--- contains these three objects:
+-- The response contains a < TrustedAdvisorCheckResult> object, which contains these three objects:
 --
 -- -   < TrustedAdvisorCategorySpecificSummary>
 -- -   < TrustedAdvisorResourceDetail>
@@ -31,8 +28,7 @@
 --
 -- In addition, the response contains these fields:
 --
--- -   __Status.__ The alert status of the check: \"ok\" (green),
---     \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- -   __Status.__ The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
 -- -   __Timestamp.__ The time of the last refresh of the check.
 -- -   __CheckId.__ The unique identifier for the check.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
@@ -81,10 +77,7 @@ describeTrustedAdvisorCheckResult pCheckId_ =
     , _dtacrCheckId = pCheckId_
     }
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
 
@@ -134,8 +127,7 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
          where
         toQuery = const mempty
 
--- | The result of the Trusted Advisor check returned by the
--- < DescribeTrustedAdvisorCheckResult> operation.
+-- | The result of the Trusted Advisor check returned by the < DescribeTrustedAdvisorCheckResult> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'

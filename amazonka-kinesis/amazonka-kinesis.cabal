@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,8 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Kinesis Streams Service API Reference
 
-    Amazon Kinesis Streams is a managed service that scales elastically for
-    real time processing of streaming big data.
+    Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -69,7 +68,7 @@ library
         , Network.AWS.Kinesis.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kinesis-test
@@ -89,9 +88,9 @@ test-suite amazonka-kinesis-test
         , Test.AWS.Kinesis.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-kinesis == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-kinesis == 1.4.3.*
         , base
         , bytestring
         , tasty

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Internet gateway. You must detach the Internet
--- gateway from the VPC before you can delete it.
+-- Deletes the specified Internet gateway. You must detach the Internet gateway from the VPC before you can delete it.
 module Network.AWS.EC2.DeleteInternetGateway
     (
     -- * Creating a Request
@@ -65,10 +64,7 @@ deleteInternetGateway pInternetGatewayId_ =
     , _digiInternetGatewayId = pInternetGatewayId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a});
 

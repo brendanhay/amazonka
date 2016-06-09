@@ -68,8 +68,7 @@ batchGetDeploymentGroups pApplicationName_ =
     , _bgdgDeploymentGroupNames = mempty
     }
 
--- | The name of an AWS CodeDeploy application associated with the applicable
--- IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 bgdgApplicationName :: Lens' BatchGetDeploymentGroups Text
 bgdgApplicationName = lens _bgdgApplicationName (\ s a -> s{_bgdgApplicationName = a});
 

@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows you to purchase reserved nodes. Amazon Redshift offers a
--- predefined set of reserved node offerings. You can purchase one or more
--- of the offerings. You can call the < DescribeReservedNodeOfferings> API
--- to obtain the available reserved node offerings. You can call this API
--- by providing a specific reserved node offering and the number of nodes
--- you want to reserve.
+-- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the < DescribeReservedNodeOfferings> API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.
 --
--- For more information about reserved node offerings, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about reserved node offerings, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Creating a Request
@@ -82,8 +75,7 @@ purchaseReservedNodeOffering pReservedNodeOfferingId_ =
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
 prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 
--- | The unique identifier of the reserved node offering you want to
--- purchase.
+-- | The unique identifier of the reserved node offering you want to purchase.
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
 prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
 

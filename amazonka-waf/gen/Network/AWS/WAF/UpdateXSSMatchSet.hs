@@ -18,39 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes < XssMatchTuple> objects (filters) in an
--- < XssMatchSet>. For each 'XssMatchTuple' object, you specify the
--- following values:
+-- Inserts or deletes < XssMatchTuple> objects (filters) in an < XssMatchSet>. For each 'XssMatchTuple' object, you specify the following values:
 --
--- -   'Action': Whether to insert the object into or delete the object
---     from the array. To change a 'XssMatchTuple', you delete the existing
---     object and add a new one.
--- -   'FieldToMatch': The part of web requests that you want AWS WAF to
---     inspect and, if you want AWS WAF to inspect a header, the name of
---     the header.
--- -   'TextTransformation': Which text transformation, if any, to perform
---     on the web request before inspecting the request for cross-site
---     scripting attacks.
+-- -   'Action': Whether to insert the object into or delete the object from the array. To change a 'XssMatchTuple', you delete the existing object and add a new one.
+-- -   'FieldToMatch': The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to inspect a header, the name of the header.
+-- -   'TextTransformation': Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
 --
--- You use 'XssMatchSet' objects to specify which CloudFront requests you
--- want to allow, block, or count. For example, if you\'re receiving
--- requests that contain cross-site scripting attacks in the request body
--- and you want to block the requests, you can create an 'XssMatchSet' with
--- the applicable settings, and then configure AWS WAF to block the
--- requests.
+-- You use 'XssMatchSet' objects to specify which CloudFront requests you want to allow, block, or count. For example, if you\'re receiving requests that contain cross-site scripting attacks in the request body and you want to block the requests, you can create an 'XssMatchSet' with the applicable settings, and then configure AWS WAF to block the requests.
 --
 -- To create and configure an 'XssMatchSet', perform the following steps:
 --
 -- 1.  Submit a < CreateXssMatchSet> request.
--- 2.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of an < UpdateIPSet> request.
--- 3.  Submit an 'UpdateXssMatchSet' request to specify the parts of web
---     requests that you want AWS WAF to inspect for cross-site scripting
---     attacks.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateIPSet> request.
+-- 3.  Submit an 'UpdateXssMatchSet' request to specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks.
 --
--- For more information about how to use the AWS WAF API to allow or block
--- HTTP requests, see the
--- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.UpdateXSSMatchSet
     (
     -- * Creating a Request
@@ -105,9 +87,7 @@ updateXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
     , _uxmsUpdates = mempty
     }
 
--- | The 'XssMatchSetId' of the 'XssMatchSet' that you want to update.
--- 'XssMatchSetId' is returned by < CreateXssMatchSet> and by
--- < ListXssMatchSets>.
+-- | The 'XssMatchSetId' of the 'XssMatchSet' that you want to update. 'XssMatchSetId' is returned by < CreateXssMatchSet> and by < ListXssMatchSets>.
 uxmsXSSMatchSetId :: Lens' UpdateXSSMatchSet Text
 uxmsXSSMatchSetId = lens _uxmsXSSMatchSetId (\ s a -> s{_uxmsXSSMatchSetId = a});
 
@@ -115,9 +95,7 @@ uxmsXSSMatchSetId = lens _uxmsXSSMatchSetId (\ s a -> s{_uxmsXSSMatchSetId = a})
 uxmsChangeToken :: Lens' UpdateXSSMatchSet Text
 uxmsChangeToken = lens _uxmsChangeToken (\ s a -> s{_uxmsChangeToken = a});
 
--- | An array of 'XssMatchSetUpdate' objects that you want to insert into or
--- delete from a < XssMatchSet>. For more information, see the applicable
--- data types:
+-- | An array of 'XssMatchSetUpdate' objects that you want to insert into or delete from a < XssMatchSet>. For more information, see the applicable data types:
 --
 -- -   < XssMatchSetUpdate>: Contains 'Action' and 'XssMatchTuple'
 -- -   < XssMatchTuple>: Contains 'FieldToMatch' and 'TextTransformation'
@@ -185,9 +163,7 @@ updateXSSMatchSetResponse pResponseStatus_ =
     , _uxmsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'UpdateXssMatchSet'
--- request. You can also use this value to query the status of the request.
--- For more information, see < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'UpdateXssMatchSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 uxmsrsChangeToken :: Lens' UpdateXSSMatchSetResponse (Maybe Text)
 uxmsrsChangeToken = lens _uxmsrsChangeToken (\ s a -> s{_uxmsrsChangeToken = a});
 

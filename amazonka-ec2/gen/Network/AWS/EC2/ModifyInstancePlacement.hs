@@ -18,26 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Set the instance affinity value for a specific stopped instance and
--- modify the instance tenancy setting.
+-- Set the instance affinity value for a specific stopped instance and modify the instance tenancy setting.
 --
--- Instance affinity is disabled by default. When instance affinity is
--- 'host' and it is not associated with a specific Dedicated host, the next
--- time it is launched it will automatically be associated with the host it
--- lands on. This relationship will persist if the instance is
--- stopped\/started, or rebooted.
+-- Instance affinity is disabled by default. When instance affinity is 'host' and it is not associated with a specific Dedicated host, the next time it is launched it will automatically be associated with the host it lands on. This relationship will persist if the instance is stopped\/started, or rebooted.
 --
--- You can modify the host ID associated with a stopped instance. If a
--- stopped instance has a new host ID association, the instance will target
--- that host when restarted.
+-- You can modify the host ID associated with a stopped instance. If a stopped instance has a new host ID association, the instance will target that host when restarted.
 --
--- You can modify the tenancy of a stopped instance with a tenancy of
--- 'host' or 'dedicated'.
+-- You can modify the tenancy of a stopped instance with a tenancy of 'host' or 'dedicated'.
 --
--- Affinity, hostID, and tenancy are not required parameters, but at least
--- one of them must be specified in the request. Affinity and tenancy can
--- be modified in the same request, but tenancy can only be modified on
--- instances that are stopped.
+-- Affinity, hostID, and tenancy are not required parameters, but at least one of them must be specified in the request. Affinity and tenancy can be modified in the same request, but tenancy can only be modified on instances that are stopped.
 module Network.AWS.EC2.ModifyInstancePlacement
     (
     -- * Creating a Request

@@ -63,8 +63,7 @@ getUser =
     { _guAccessToken = Nothing
     }
 
--- | The access token returned by the server response to get information
--- about the user.
+-- | The access token returned by the server response to get information about the user.
 guAccessToken :: Lens' GetUser (Maybe Text)
 guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . mapping _Sensitive;
 
@@ -105,8 +104,7 @@ instance ToPath GetUser where
 instance ToQuery GetUser where
         toQuery = const mempty
 
--- | Represents the response from the server from the request to get
--- information about the user.
+-- | Represents the response from the server from the request to get information about the user.
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
@@ -147,8 +145,7 @@ gursMFAOptions = lens _gursMFAOptions (\ s a -> s{_gursMFAOptions = a}) . _Defau
 gursResponseStatus :: Lens' GetUserResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 
--- | The user name of the user you wish to retrieve from the get user
--- request.
+-- | The user name of the user you wish to retrieve from the get user request.
 gursUsername :: Lens' GetUserResponse Text
 gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive;
 

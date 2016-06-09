@@ -247,7 +247,7 @@ apiGateway =
     , _svcEndpoint = defaultEndpoint apiGateway
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "APIGateway"
     , _svcRetry = retry
     }
   where

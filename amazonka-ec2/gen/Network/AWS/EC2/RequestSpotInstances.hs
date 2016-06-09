@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Spot instance request. Spot instances are instances that
--- Amazon EC2 launches when the bid price that you specify exceeds the
--- current Spot price. Amazon EC2 periodically sets the Spot price based on
--- available Spot Instance capacity and current Spot instance requests. For
--- more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Creates a Spot instance request. Spot instances are instances that Amazon EC2 launches when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically sets the Spot price based on available Spot Instance capacity and current Spot instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Creating a Request
@@ -118,25 +112,15 @@ requestSpotInstances pSpotPrice_ =
     , _rsisSpotPrice = pSpotPrice_
     }
 
--- | The required duration for the Spot instances (also known as Spot
--- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
--- 240, 300, or 360).
+-- | The required duration for the Spot instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
 --
--- The duration period starts as soon as your Spot instance receives its
--- instance ID. At the end of the duration period, Amazon EC2 marks the
--- Spot instance for termination and provides a Spot instance termination
--- notice, which gives the instance a two-minute warning before it
--- terminates.
+-- The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 --
--- Note that you can\'t specify an Availability Zone group or a launch
--- group if you specify a duration.
+-- Note that you can\'t specify an Availability Zone group or a launch group if you specify a duration.
 rsisBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
 rsisBlockDurationMinutes = lens _rsisBlockDurationMinutes (\ s a -> s{_rsisBlockDurationMinutes = a});
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
 rsisClientToken :: Lens' RequestSpotInstances (Maybe Text)
 rsisClientToken = lens _rsisClientToken (\ s a -> s{_rsisClientToken = a});
 
@@ -152,38 +136,21 @@ rsisLaunchSpecification = lens _rsisLaunchSpecification (\ s a -> s{_rsisLaunchS
 
 -- | The user-specified name for a logical grouping of bids.
 --
--- When you specify an Availability Zone group in a Spot Instance request,
--- all Spot instances in the request are launched in the same Availability
--- Zone. Instance proximity is maintained with this parameter, but the
--- choice of Availability Zone is not. The group applies only to bids for
--- Spot Instances of the same instance type. Any additional Spot instance
--- requests that are specified with the same Availability Zone group name
--- are launched in that same Availability Zone, as long as at least one
--- instance from the group is still active.
+-- When you specify an Availability Zone group in a Spot Instance request, all Spot instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to bids for Spot Instances of the same instance type. Any additional Spot instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.
 --
--- If there is no active instance running in the Availability Zone group
--- that you specify for a new Spot instance request (all instances are
--- terminated, the bid is expired, or the bid falls below current market),
--- then Amazon EC2 launches the instance in any Availability Zone where the
--- constraint can be met. Consequently, the subsequent set of Spot
--- instances could be placed in a different zone from the original request,
--- even if you specified the same Availability Zone group.
+-- If there is no active instance running in the Availability Zone group that you specify for a new Spot instance request (all instances are terminated, the bid is expired, or the bid falls below current market), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.
 --
 -- Default: Instances are launched in any available Availability Zone.
 rsisAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsisAvailabilityZoneGroup = lens _rsisAvailabilityZoneGroup (\ s a -> s{_rsisAvailabilityZoneGroup = a});
 
--- | The end date of the request. If this is a one-time request, the request
--- remains active until all instances launch, the request is canceled, or
--- this date is reached. If the request is persistent, it remains active
--- until it is canceled or this date and time is reached.
+-- | The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached.
 --
 -- Default: The request is effective indefinitely.
 rsisValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsisValidUntil = lens _rsisValidUntil (\ s a -> s{_rsisValidUntil = a}) . mapping _Time;
 
--- | The instance launch group. Launch groups are Spot instances that launch
--- together and terminate together.
+-- | The instance launch group. Launch groups are Spot instances that launch together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
 rsisLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
@@ -195,25 +162,17 @@ rsisLaunchGroup = lens _rsisLaunchGroup (\ s a -> s{_rsisLaunchGroup = a});
 rsisType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsisType = lens _rsisType (\ s a -> s{_rsisType = a});
 
--- | The start date of the request. If this is a one-time request, the
--- request becomes active at this date and time and remains active until
--- all instances launch, the request expires, or the request is canceled.
--- If the request is persistent, the request becomes active at this date
--- and time and remains active until it expires or is canceled.
+-- | The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
 --
 -- Default: The request is effective indefinitely.
 rsisValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsisValidFrom = lens _rsisValidFrom (\ s a -> s{_rsisValidFrom = a}) . mapping _Time;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsisDryRun :: Lens' RequestSpotInstances (Maybe Bool)
 rsisDryRun = lens _rsisDryRun (\ s a -> s{_rsisDryRun = a});
 
--- | The maximum hourly price (bid) for any Spot instance launched to fulfill
--- the request.
+-- | The maximum hourly price (bid) for any Spot instance launched to fulfill the request.
 rsisSpotPrice :: Lens' RequestSpotInstances Text
 rsisSpotPrice = lens _rsisSpotPrice (\ s a -> s{_rsisSpotPrice = a});
 

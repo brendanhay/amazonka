@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets usage information for an identity, including number of datasets and
--- data usage.
+-- Gets usage information for an identity, including number of datasets and data usage.
 --
--- This API can be called with temporary user credentials provided by
--- Cognito Identity or with developer credentials.
+-- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
     -- * Creating a Request
@@ -72,15 +70,11 @@ describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
     , _diuIdentityId = pIdentityId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
 diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 diuIdentityId :: Lens' DescribeIdentityUsage Text
 diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
 

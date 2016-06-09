@@ -67,10 +67,7 @@ grantAccess pInstanceId_ =
     , _gaInstanceId = pInstanceId_
     }
 
--- | The length of time (in minutes) that the grant is valid. When the grant
--- expires at the end of this period, the user will no longer be able to
--- use the credentials to log in. If the user is logged in at the time, he
--- or she automatically will be logged out.
+-- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
 gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
 
@@ -138,9 +135,7 @@ grantAccessResponse pResponseStatus_ =
     , _garsResponseStatus = pResponseStatus_
     }
 
--- | A 'TemporaryCredential' object that contains the data needed to log in
--- to the instance by RDP clients, such as the Microsoft Remote Desktop
--- Connection.
+-- | A 'TemporaryCredential' object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 

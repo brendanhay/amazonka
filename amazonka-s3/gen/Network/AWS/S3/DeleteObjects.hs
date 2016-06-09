@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation enables you to delete multiple objects from a bucket
--- using a single HTTP request. You may specify up to 1000 keys.
+-- This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
 module Network.AWS.S3.DeleteObjects
     (
     -- * Creating a Request
@@ -79,8 +78,7 @@ deleteObjects pBucket_ pDelete_ =
     , _dosDelete = pDelete_
     }
 
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
 dosMFA :: Lens' DeleteObjects (Maybe Text)
 dosMFA = lens _dosMFA (\ s a -> s{_dosMFA = a});
 

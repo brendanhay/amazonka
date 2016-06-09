@@ -1,5 +1,5 @@
 name:                  amazonka-waf
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon WAF SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,11 +13,7 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    This is the /AWS WAF API Reference/. This guide is for developers who
-    need detailed information about the AWS WAF API actions, data types, and
-    errors. For detailed information about AWS WAF features and an overview
-    of how to use the AWS WAF API, see the
-    <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+    This is the /AWS WAF API Reference/. This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -91,7 +87,7 @@ library
         , Network.AWS.WAF.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-waf-test
@@ -111,9 +107,9 @@ test-suite amazonka-waf-test
         , Test.AWS.WAF.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-waf == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-waf == 1.4.3.*
         , base
         , bytestring
         , tasty

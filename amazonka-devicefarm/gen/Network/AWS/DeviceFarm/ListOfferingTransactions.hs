@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all historical purchases, renewals, and system renewal
--- transactions for an AWS account. The list is paginated and ordered by a
--- descending timestamp (most recent transactions are first). The API
--- returns a 'NotEligible' error if the user is not permitted to invoke the
--- operation. Please contact
--- <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com>
--- if you believe that you should be able to invoke this operation.
+-- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
 module Network.AWS.DeviceFarm.ListOfferingTransactions
     (
     -- * Creating a Request
@@ -68,9 +62,7 @@ listOfferingTransactions =
     { _lotNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotNextToken :: Lens' ListOfferingTransactions (Maybe Text)
 lotNextToken = lens _lotNextToken (\ s a -> s{_lotNextToken = a});
 
@@ -139,14 +131,11 @@ listOfferingTransactionsResponse pResponseStatus_ =
     , _lotrsResponseStatus = pResponseStatus_
     }
 
--- | The audit log of subscriptions you have purchased and modified through
--- AWS Device Farm.
+-- | The audit log of subscriptions you have purchased and modified through AWS Device Farm.
 lotrsOfferingTransactions :: Lens' ListOfferingTransactionsResponse [OfferingTransaction]
 lotrsOfferingTransactions = lens _lotrsOfferingTransactions (\ s a -> s{_lotrsOfferingTransactions = a}) . _Default . _Coerce;
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotrsNextToken :: Lens' ListOfferingTransactionsResponse (Maybe Text)
 lotrsNextToken = lens _lotrsNextToken (\ s a -> s{_lotrsNextToken = a});
 

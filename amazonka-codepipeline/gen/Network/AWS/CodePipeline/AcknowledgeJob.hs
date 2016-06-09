@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a specified job and whether that job has been
--- received by the job worker. Only used for custom actions.
+-- Returns information about a specified job and whether that job has been received by the job worker. Only used for custom actions.
 module Network.AWS.CodePipeline.AcknowledgeJob
     (
     -- * Creating a Request
@@ -69,14 +68,11 @@ acknowledgeJob pJobId_ pNonce_ =
     , _ajNonce = pNonce_
     }
 
--- | The unique system-generated ID of the job for which you want to confirm
--- receipt.
+-- | The unique system-generated ID of the job for which you want to confirm receipt.
 ajJobId :: Lens' AcknowledgeJob Text
 ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. This number must
--- be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 ajNonce :: Lens' AcknowledgeJob Text
 ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
 

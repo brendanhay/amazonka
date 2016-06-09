@@ -8,16 +8,12 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
-Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it
-easy to process large amounts of data efficiently. Amazon EMR uses
-Hadoop processing combined with several AWS products to do tasks such as
-web indexing, data mining, log file analysis, machine learning,
-scientific simulation, and data warehousing.
+Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-emr)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

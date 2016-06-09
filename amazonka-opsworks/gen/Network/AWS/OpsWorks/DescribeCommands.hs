@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeCommands
     (
     -- * Creating a Request
@@ -77,21 +73,15 @@ describeCommands =
     , _dcCommandIds = Nothing
     }
 
--- | The deployment ID. If you include this parameter, 'DescribeCommands'
--- returns a description of the commands associated with the specified
--- deployment.
+-- | The deployment ID. If you include this parameter, 'DescribeCommands' returns a description of the commands associated with the specified deployment.
 dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
 dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 
--- | The instance ID. If you include this parameter, 'DescribeCommands'
--- returns a description of the commands associated with the specified
--- instance.
+-- | The instance ID. If you include this parameter, 'DescribeCommands' returns a description of the commands associated with the specified instance.
 dcInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
 
--- | An array of command IDs. If you include this parameter,
--- 'DescribeCommands' returns a description of the specified commands.
--- Otherwise, it returns a description of every command.
+-- | An array of command IDs. If you include this parameter, 'DescribeCommands' returns a description of the specified commands. Otherwise, it returns a description of every command.
 dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default . _Coerce;
 
@@ -156,8 +146,7 @@ describeCommandsResponse pResponseStatus_ =
     , _dcrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'Command' objects that describe each of the specified
--- commands.
+-- | An array of 'Command' objects that describe each of the specified commands.
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 

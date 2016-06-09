@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Causes the environment to restart the application container server
--- running on each Amazon EC2 instance.
+-- Causes the environment to restart the application container server running on each Amazon EC2 instance.
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Creating a Request
@@ -66,17 +65,13 @@ restartAppServer =
 
 -- | The name of the environment to restart the server for.
 --
--- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a});
 
 -- | The ID of the environment to restart the server for.
 --
--- Condition: You must specify either this or an EnvironmentName, or both.
--- If you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 

@@ -74,19 +74,15 @@ listAssociations pAssociationFilterList_ =
     , _laAssociationFilterList = _List1 # pAssociationFilterList_
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 laNextToken :: Lens' ListAssociations (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 laMaxResults :: Lens' ListAssociations (Maybe Natural)
 laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
 
--- | One or more filters. Use a filter to return a more specific list of
--- results.
+-- | One or more filters. Use a filter to return a more specific list of results.
 laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
@@ -163,8 +159,7 @@ listAssociationsResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

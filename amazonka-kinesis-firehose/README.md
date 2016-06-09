@@ -8,17 +8,14 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 Amazon Kinesis Firehose API Reference
 
-Amazon Kinesis Firehose is a fully-managed service that delivers
-real-time streaming data to destinations such as Amazon Simple Storage
-Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and
-Amazon Redshift.
+Amazon Kinesis Firehose is a fully-managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis-firehose)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

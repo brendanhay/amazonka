@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The 'DeleteDomain' operation deletes a domain. Any items (and their
--- attributes) in the domain are deleted as well. The 'DeleteDomain'
--- operation might take 10 or more seconds to complete.
+-- The 'DeleteDomain' operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The 'DeleteDomain' operation might take 10 or more seconds to complete.
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Creating a Request

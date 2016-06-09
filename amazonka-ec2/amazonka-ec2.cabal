@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,10 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Elastic Compute Cloud
 
-    Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing
-    capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2
-    eliminates your need to invest in hardware up front, so you can develop
-    and deploy applications faster.
+    Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -256,7 +253,7 @@ library
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -276,9 +273,9 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-ec2 == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-ec2 == 1.4.3.*
         , base
         , bytestring
         , tasty

@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Prepares to subscribe an endpoint by sending the endpoint a confirmation
--- message. To actually create a subscription, the endpoint owner must call
--- the 'ConfirmSubscription' action with the token from the confirmation
--- message. Confirmation tokens are valid for three days.
+-- Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are valid for three days.
 module Network.AWS.SNS.Subscribe
     (
     -- * Creating a Request
@@ -76,21 +73,15 @@ subscribe pTopicARN_ pProtocol_ =
     , _subProtocol = pProtocol_
     }
 
--- | The endpoint that you want to receive notifications. Endpoints vary by
--- protocol:
+-- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
 --
--- -   For the 'http' protocol, the endpoint is an URL beginning with
---     \"http:\/\/\"
--- -   For the 'https' protocol, the endpoint is a URL beginning with
---     \"https:\/\/\"
+-- -   For the 'http' protocol, the endpoint is an URL beginning with \"http:\/\/\"
+-- -   For the 'https' protocol, the endpoint is a URL beginning with \"https:\/\/\"
 -- -   For the 'email' protocol, the endpoint is an email address
 -- -   For the 'email-json' protocol, the endpoint is an email address
--- -   For the 'sms' protocol, the endpoint is a phone number of an
---     SMS-enabled device
--- -   For the 'sqs' protocol, the endpoint is the ARN of an Amazon SQS
---     queue
--- -   For the 'application' protocol, the endpoint is the EndpointArn of a
---     mobile app and device.
+-- -   For the 'sms' protocol, the endpoint is a phone number of an SMS-enabled device
+-- -   For the 'sqs' protocol, the endpoint is the ARN of an Amazon SQS queue
+-- -   For the 'application' protocol, the endpoint is the EndpointArn of a mobile app and device.
 subEndpoint :: Lens' Subscribe (Maybe Text)
 subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
@@ -106,8 +97,7 @@ subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
 -- -   'email-json' -- delivery of JSON-encoded message via SMTP
 -- -   'sms' -- delivery of message via SMS
 -- -   'sqs' -- delivery of JSON-encoded message to an Amazon SQS queue
--- -   'application' -- delivery of JSON-encoded message to an EndpointArn
---     for a mobile app and device.
+-- -   'application' -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
 subProtocol :: Lens' Subscribe Text
 subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 
@@ -163,9 +153,7 @@ subscribeResponse pResponseStatus_ =
     , _srsResponseStatus = pResponseStatus_
     }
 
--- | The ARN of the subscription, if the service was able to create a
--- subscription immediately (without requiring endpoint owner
--- confirmation).
+-- | The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation).
 srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 

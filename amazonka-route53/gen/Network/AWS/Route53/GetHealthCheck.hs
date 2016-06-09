@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the health check, send a 'GET' request to the
--- '\/Route 53 API version\/healthcheck\/health check ID' resource.
+-- To retrieve the health check, send a 'GET' request to the '\/Route 53 API version\/healthcheck\/health check ID' resource.
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request
@@ -43,8 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get a
--- health check.
+-- | A complex type that contains information about the request to get a health check.
 --
 -- /See:/ 'getHealthCheck' smart constructor.
 newtype GetHealthCheck = GetHealthCheck'
@@ -121,8 +119,7 @@ getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
 ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
 ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified health
--- check.
+-- | A complex type that contains the information about the specified health check.
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});
 

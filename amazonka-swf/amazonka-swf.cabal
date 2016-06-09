@@ -1,5 +1,5 @@
 name:                  amazonka-swf
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Simple Workflow Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,21 +15,11 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Simple Workflow Service
 
-    The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
-    applications that use Amazon\'s cloud to coordinate work across
-    distributed components. In Amazon SWF, a /task/ represents a logical
-    unit of work that is performed by a component of your workflow.
-    Coordinating tasks in a workflow involves managing intertask
-    dependencies, scheduling, and concurrency in accordance with the logical
-    flow of the application.
+    The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon\'s cloud to coordinate work across distributed components. In Amazon SWF, a /task/ represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
 
-    Amazon SWF gives you full control over implementing tasks and
-    coordinating them without worrying about underlying complexities such as
-    tracking their progress and maintaining their state.
+    Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
 
-    This documentation serves as reference only. For a broader overview of
-    the Amazon SWF programming model, see the
-    <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
+    This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -96,7 +86,7 @@ library
         , Network.AWS.SWF.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-swf-test
@@ -116,9 +106,9 @@ test-suite amazonka-swf-test
         , Test.AWS.SWF.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-swf == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-swf == 1.4.3.*
         , base
         , bytestring
         , tasty

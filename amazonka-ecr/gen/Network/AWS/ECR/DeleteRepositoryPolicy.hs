@@ -67,14 +67,11 @@ deleteRepositoryPolicy pRepositoryName_ =
     , _drpRepositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository policy to delete. If you do not specify a registry, the
--- default registry is assumed.
+-- | The AWS account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.
 drpRegistryId :: Lens' DeleteRepositoryPolicy (Maybe Text)
 drpRegistryId = lens _drpRegistryId (\ s a -> s{_drpRegistryId = a});
 
--- | The name of the repository that is associated with the repository policy
--- to delete.
+-- | The name of the repository that is associated with the repository policy to delete.
 drpRepositoryName :: Lens' DeleteRepositoryPolicy Text
 drpRepositoryName = lens _drpRepositoryName (\ s a -> s{_drpRepositoryName = a});
 

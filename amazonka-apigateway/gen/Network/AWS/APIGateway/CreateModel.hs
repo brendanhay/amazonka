@@ -87,8 +87,7 @@ createModel pRestAPIId_ pName_ pContentType_ =
     , _cmContentType = pContentType_
     }
 
--- | The schema for the model. For 'application\/json' models, this should be
--- <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- | The schema for the model. For 'application\/json' models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
 cmSchema :: Lens' CreateModel (Maybe Text)
 cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
 

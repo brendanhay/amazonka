@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches an Internet gateway from a VPC, disabling connectivity between
--- the Internet and the VPC. The VPC must not contain any running instances
--- with Elastic IP addresses.
+-- Detaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses.
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Creating a Request
@@ -72,10 +70,7 @@ detachInternetGateway pInternetGatewayId_ pVPCId_ =
     , _digVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
 digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a});
 

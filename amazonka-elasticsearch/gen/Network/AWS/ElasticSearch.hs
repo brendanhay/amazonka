@@ -13,13 +13,9 @@
 --
 -- Amazon Elasticsearch Configuration Service
 --
--- Use the Amazon Elasticsearch configuration API to create, configure, and
--- manage Elasticsearch domains.
+-- Use the Amazon Elasticsearch configuration API to create, configure, and manage Elasticsearch domains.
 --
--- The endpoint for configuration service requests is region-specific:
--- es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
--- a current list of supported regions and endpoints, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
+-- The endpoint for configuration service requests is region-specific: es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
 module Network.AWS.ElasticSearch
     (
     -- * Service Configuration

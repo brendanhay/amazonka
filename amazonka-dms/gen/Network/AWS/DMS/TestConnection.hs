@@ -71,8 +71,7 @@ testConnection pReplicationInstanceARN_ pEndpointARN_ =
 tcReplicationInstanceARN :: Lens' TestConnection Text
 tcReplicationInstanceARN = lens _tcReplicationInstanceARN (\ s a -> s{_tcReplicationInstanceARN = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 tcEndpointARN :: Lens' TestConnection Text
 tcEndpointARN = lens _tcEndpointARN (\ s a -> s{_tcEndpointARN = a});
 

@@ -1,5 +1,5 @@
 name:                  amazonka-ds
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Directory Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,9 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     AWS Directory Service
 
-    This is the /AWS Directory Service API Reference/. This guide provides
-    detailed information about AWS Directory Service operations, data types,
-    parameters, and errors.
+    This is the /AWS Directory Service API Reference/. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -82,7 +80,7 @@ library
         , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ds-test
@@ -102,9 +100,9 @@ test-suite amazonka-ds-test
         , Test.AWS.DirectoryService.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-ds == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-ds == 1.4.3.*
         , base
         , bytestring
         , tasty

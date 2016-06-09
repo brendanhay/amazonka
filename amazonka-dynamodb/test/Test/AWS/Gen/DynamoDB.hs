@@ -28,91 +28,91 @@ import Test.AWS.DynamoDB.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testPutItem $
+--         [ requestPutItem $
 --             putItem
 --
---         , testDeleteItem $
+--         , requestDeleteItem $
 --             deleteItem
 --
---         , testUpdateItem $
+--         , requestUpdateItem $
 --             updateItem
 --
---         , testDeleteTable $
+--         , requestDeleteTable $
 --             deleteTable
 --
---         , testUpdateTable $
+--         , requestUpdateTable $
 --             updateTable
 --
---         , testBatchGetItem $
+--         , requestBatchGetItem $
 --             batchGetItem
 --
---         , testDescribeTable $
+--         , requestDescribeTable $
 --             describeTable
 --
---         , testDescribeLimits $
+--         , requestDescribeLimits $
 --             describeLimits
 --
---         , testGetItem $
+--         , requestGetItem $
 --             getItem
 --
---         , testBatchWriteItem $
+--         , requestBatchWriteItem $
 --             batchWriteItem
 --
---         , testListTables $
+--         , requestListTables $
 --             listTables
 --
---         , testScan $
+--         , requestScan $
 --             scan
 --
---         , testQuery $
+--         , requestQuery $
 --             query
 --
---         , testCreateTable $
+--         , requestCreateTable $
 --             createTable
 --
 --           ]
 
 --     , testGroup "response"
---         [ testPutItemResponse $
+--         [ responsePutItem $
 --             putItemResponse
 --
---         , testDeleteItemResponse $
+--         , responseDeleteItem $
 --             deleteItemResponse
 --
---         , testUpdateItemResponse $
+--         , responseUpdateItem $
 --             updateItemResponse
 --
---         , testDeleteTableResponse $
+--         , responseDeleteTable $
 --             deleteTableResponse
 --
---         , testUpdateTableResponse $
+--         , responseUpdateTable $
 --             updateTableResponse
 --
---         , testBatchGetItemResponse $
+--         , responseBatchGetItem $
 --             batchGetItemResponse
 --
---         , testDescribeTableResponse $
+--         , responseDescribeTable $
 --             describeTableResponse
 --
---         , testDescribeLimitsResponse $
+--         , responseDescribeLimits $
 --             describeLimitsResponse
 --
---         , testGetItemResponse $
+--         , responseGetItem $
 --             getItemResponse
 --
---         , testBatchWriteItemResponse $
+--         , responseBatchWriteItem $
 --             batchWriteItemResponse
 --
---         , testListTablesResponse $
+--         , responseListTables $
 --             listTablesResponse
 --
---         , testScanResponse $
+--         , responseScan $
 --             scanResponse
 --
---         , testQueryResponse $
+--         , responseQuery $
 --             queryResponse
 --
---         , testCreateTableResponse $
+--         , responseCreateTable $
 --             createTableResponse
 --
 --           ]
@@ -120,171 +120,171 @@ import Test.AWS.DynamoDB.Internal
 
 -- Requests
 
-testPutItem :: PutItem -> TestTree
-testPutItem = req
+requestPutItem :: PutItem -> TestTree
+requestPutItem = req
     "PutItem"
     "fixture/PutItem.yaml"
 
-testDeleteItem :: DeleteItem -> TestTree
-testDeleteItem = req
+requestDeleteItem :: DeleteItem -> TestTree
+requestDeleteItem = req
     "DeleteItem"
     "fixture/DeleteItem.yaml"
 
-testUpdateItem :: UpdateItem -> TestTree
-testUpdateItem = req
+requestUpdateItem :: UpdateItem -> TestTree
+requestUpdateItem = req
     "UpdateItem"
     "fixture/UpdateItem.yaml"
 
-testDeleteTable :: DeleteTable -> TestTree
-testDeleteTable = req
+requestDeleteTable :: DeleteTable -> TestTree
+requestDeleteTable = req
     "DeleteTable"
     "fixture/DeleteTable.yaml"
 
-testUpdateTable :: UpdateTable -> TestTree
-testUpdateTable = req
+requestUpdateTable :: UpdateTable -> TestTree
+requestUpdateTable = req
     "UpdateTable"
     "fixture/UpdateTable.yaml"
 
-testBatchGetItem :: BatchGetItem -> TestTree
-testBatchGetItem = req
+requestBatchGetItem :: BatchGetItem -> TestTree
+requestBatchGetItem = req
     "BatchGetItem"
     "fixture/BatchGetItem.yaml"
 
-testDescribeTable :: DescribeTable -> TestTree
-testDescribeTable = req
+requestDescribeTable :: DescribeTable -> TestTree
+requestDescribeTable = req
     "DescribeTable"
     "fixture/DescribeTable.yaml"
 
-testDescribeLimits :: DescribeLimits -> TestTree
-testDescribeLimits = req
+requestDescribeLimits :: DescribeLimits -> TestTree
+requestDescribeLimits = req
     "DescribeLimits"
     "fixture/DescribeLimits.yaml"
 
-testGetItem :: GetItem -> TestTree
-testGetItem = req
+requestGetItem :: GetItem -> TestTree
+requestGetItem = req
     "GetItem"
     "fixture/GetItem.yaml"
 
-testBatchWriteItem :: BatchWriteItem -> TestTree
-testBatchWriteItem = req
+requestBatchWriteItem :: BatchWriteItem -> TestTree
+requestBatchWriteItem = req
     "BatchWriteItem"
     "fixture/BatchWriteItem.yaml"
 
-testListTables :: ListTables -> TestTree
-testListTables = req
+requestListTables :: ListTables -> TestTree
+requestListTables = req
     "ListTables"
     "fixture/ListTables.yaml"
 
-testScan :: Scan -> TestTree
-testScan = req
+requestScan :: Scan -> TestTree
+requestScan = req
     "Scan"
     "fixture/Scan.yaml"
 
-testQuery :: Query -> TestTree
-testQuery = req
+requestQuery :: Query -> TestTree
+requestQuery = req
     "Query"
     "fixture/Query.yaml"
 
-testCreateTable :: CreateTable -> TestTree
-testCreateTable = req
+requestCreateTable :: CreateTable -> TestTree
+requestCreateTable = req
     "CreateTable"
     "fixture/CreateTable.yaml"
 
 -- Responses
 
-testPutItemResponse :: PutItemResponse -> TestTree
-testPutItemResponse = res
+responsePutItem :: PutItemResponse -> TestTree
+responsePutItem = res
     "PutItemResponse"
     "fixture/PutItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy PutItem)
 
-testDeleteItemResponse :: DeleteItemResponse -> TestTree
-testDeleteItemResponse = res
+responseDeleteItem :: DeleteItemResponse -> TestTree
+responseDeleteItem = res
     "DeleteItemResponse"
     "fixture/DeleteItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy DeleteItem)
 
-testUpdateItemResponse :: UpdateItemResponse -> TestTree
-testUpdateItemResponse = res
+responseUpdateItem :: UpdateItemResponse -> TestTree
+responseUpdateItem = res
     "UpdateItemResponse"
     "fixture/UpdateItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy UpdateItem)
 
-testDeleteTableResponse :: DeleteTableResponse -> TestTree
-testDeleteTableResponse = res
+responseDeleteTable :: DeleteTableResponse -> TestTree
+responseDeleteTable = res
     "DeleteTableResponse"
     "fixture/DeleteTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy DeleteTable)
 
-testUpdateTableResponse :: UpdateTableResponse -> TestTree
-testUpdateTableResponse = res
+responseUpdateTable :: UpdateTableResponse -> TestTree
+responseUpdateTable = res
     "UpdateTableResponse"
     "fixture/UpdateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy UpdateTable)
 
-testBatchGetItemResponse :: BatchGetItemResponse -> TestTree
-testBatchGetItemResponse = res
+responseBatchGetItem :: BatchGetItemResponse -> TestTree
+responseBatchGetItem = res
     "BatchGetItemResponse"
     "fixture/BatchGetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchGetItem)
 
-testDescribeTableResponse :: DescribeTableResponse -> TestTree
-testDescribeTableResponse = res
+responseDescribeTable :: DescribeTableResponse -> TestTree
+responseDescribeTable = res
     "DescribeTableResponse"
     "fixture/DescribeTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy DescribeTable)
 
-testDescribeLimitsResponse :: DescribeLimitsResponse -> TestTree
-testDescribeLimitsResponse = res
+responseDescribeLimits :: DescribeLimitsResponse -> TestTree
+responseDescribeLimits = res
     "DescribeLimitsResponse"
     "fixture/DescribeLimitsResponse.proto"
     dynamoDB
     (Proxy :: Proxy DescribeLimits)
 
-testGetItemResponse :: GetItemResponse -> TestTree
-testGetItemResponse = res
+responseGetItem :: GetItemResponse -> TestTree
+responseGetItem = res
     "GetItemResponse"
     "fixture/GetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy GetItem)
 
-testBatchWriteItemResponse :: BatchWriteItemResponse -> TestTree
-testBatchWriteItemResponse = res
+responseBatchWriteItem :: BatchWriteItemResponse -> TestTree
+responseBatchWriteItem = res
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchWriteItem)
 
-testListTablesResponse :: ListTablesResponse -> TestTree
-testListTablesResponse = res
+responseListTables :: ListTablesResponse -> TestTree
+responseListTables = res
     "ListTablesResponse"
     "fixture/ListTablesResponse.proto"
     dynamoDB
     (Proxy :: Proxy ListTables)
 
-testScanResponse :: ScanResponse -> TestTree
-testScanResponse = res
+responseScan :: ScanResponse -> TestTree
+responseScan = res
     "ScanResponse"
     "fixture/ScanResponse.proto"
     dynamoDB
     (Proxy :: Proxy Scan)
 
-testQueryResponse :: QueryResponse -> TestTree
-testQueryResponse = res
+responseQuery :: QueryResponse -> TestTree
+responseQuery = res
     "QueryResponse"
     "fixture/QueryResponse.proto"
     dynamoDB
     (Proxy :: Proxy Query)
 
-testCreateTableResponse :: CreateTableResponse -> TestTree
-testCreateTableResponse = res
+responseCreateTable :: CreateTableResponse -> TestTree
+responseCreateTable = res
     "CreateTableResponse"
     "fixture/CreateTableResponse.proto"
     dynamoDB

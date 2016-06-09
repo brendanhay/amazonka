@@ -1,5 +1,5 @@
 compiler:   ghc-7.10.3
-resolver:   lts-5.15
+resolver:   lts-6.1
 flags:      {}
 extra-deps:
   - unordered-containers-0.2.7.0
@@ -9,6 +9,7 @@ packages:
   - examples
   - amazonka
   - amazonka-apigateway
+  - amazonka-application-autoscaling
   - amazonka-autoscaling
   - amazonka-certificatemanager
   - amazonka-cloudformation
@@ -30,6 +31,7 @@ packages:
   - amazonka-datapipeline
   - amazonka-devicefarm
   - amazonka-directconnect
+  - amazonka-discovery
   - amazonka-dms
   - amazonka-ds
   - amazonka-dynamodb

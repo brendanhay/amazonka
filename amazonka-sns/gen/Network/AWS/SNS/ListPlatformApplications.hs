@@ -18,15 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the platform application objects for the supported push
--- notification services, such as APNS and GCM. The results for
--- 'ListPlatformApplications' are paginated and return a limited list of
--- applications, up to 100. If additional records are available after the
--- first page results, then a NextToken string will be returned. To receive
--- the next page, you call 'ListPlatformApplications' using the NextToken
--- string received from the previous call. When there are no more records
--- to return, NextToken will be null. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for 'ListPlatformApplications' are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call 'ListPlatformApplications' using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListPlatformApplications
@@ -73,9 +65,7 @@ listPlatformApplications =
     { _lpaNextToken = Nothing
     }
 
--- | NextToken string is used when calling ListPlatformApplications action to
--- retrieve additional records that are available after the first page
--- results.
+-- | NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
@@ -145,13 +135,11 @@ listPlatformApplicationsResponse pResponseStatus_ =
     , _lparsResponseStatus = pResponseStatus_
     }
 
--- | Platform applications returned when calling ListPlatformApplications
--- action.
+-- | Platform applications returned when calling ListPlatformApplications action.
 lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
 lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default . _Coerce;
 
--- | NextToken string is returned when calling ListPlatformApplications
--- action if additional records are available after the first page results.
+-- | NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 

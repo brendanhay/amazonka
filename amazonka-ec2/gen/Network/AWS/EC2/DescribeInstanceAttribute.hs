@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified instance. You can
--- specify only one attribute at a time. Valid attribute values are:
--- 'instanceType' | 'kernel' | 'ramdisk' | 'userData' |
--- 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' |
--- 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' |
--- 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
+-- Describes the specified attribute of the specified instance. You can specify only one attribute at a time. Valid attribute values are: 'instanceType' | 'kernel' | 'ramdisk' | 'userData' | 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' | 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' | 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Creating a Request
@@ -91,10 +86,7 @@ describeInstanceAttribute pInstanceId_ pAttribute_ =
     , _diaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
 diaDryRun = lens _diaDryRun (\ s a -> s{_diaDryRun = a});
 
@@ -239,14 +231,11 @@ drsInstanceId = lens _drsInstanceId (\ s a -> s{_drsInstanceId = a});
 drsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
 drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default . _Coerce;
 
--- | Indicates whether source\/destination checking is enabled. A value of
--- 'true' means checking is enabled, and 'false' means checking is
--- disabled. This value must be 'false' for a NAT instance to perform NAT.
+-- | Indicates whether source\/destination checking is enabled. A value of 'true' means checking is enabled, and 'false' means checking is disabled. This value must be 'false' for a NAT instance to perform NAT.
 drsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsSourceDestCheck = lens _drsSourceDestCheck (\ s a -> s{_drsSourceDestCheck = a});
 
--- | If the value is 'true', you can\'t terminate the instance through the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
+-- | If the value is 'true', you can\'t terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
 drsDisableAPITermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsDisableAPITermination = lens _drsDisableAPITermination (\ s a -> s{_drsDisableAPITermination = a});
 
@@ -258,8 +247,7 @@ drsRAMDiskId = lens _drsRAMDiskId (\ s a -> s{_drsRAMDiskId = a});
 drsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsKernelId = lens _drsKernelId (\ s a -> s{_drsKernelId = a});
 
--- | The name of the root device (for example, '\/dev\/sda1' or
--- '\/dev\/xvda').
+-- | The name of the root device (for example, '\/dev\/sda1' or '\/dev\/xvda').
 drsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a});
 
@@ -279,9 +267,7 @@ drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 drsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsUserData = lens _drsUserData (\ s a -> s{_drsUserData = a});
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
+-- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 drsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsInstanceInitiatedShutdownBehavior = lens _drsInstanceInitiatedShutdownBehavior (\ s a -> s{_drsInstanceInitiatedShutdownBehavior = a});
 

@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the set of policies associated with the specified port on which
--- the back-end server is listening with a new set of policies. At this
--- time, only the back-end server authentication policy type can be applied
--- to the back-end ports; this policy type is composed of multiple public
--- key policies.
+-- Replaces the set of policies associated with the specified port on which the back-end server is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the back-end ports; this policy type is composed of multiple public key policies.
 --
--- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable
--- the policies, use the 'PolicyNames' parameter to list the policies that
--- you want to enable.
+-- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable the policies, use the 'PolicyNames' parameter to list the policies that you want to enable.
 --
--- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies>
--- to verify that the policy is associated with the back-end server.
+-- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies> to verify that the policy is associated with the back-end server.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Creating a Request
@@ -89,8 +82,7 @@ slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoad
 slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
 slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a});
 
--- | The names of the policies. If the list is empty, then all current
--- polices are removed from the back-end server.
+-- | The names of the policies. If the list is empty, then all current polices are removed from the back-end server.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
 

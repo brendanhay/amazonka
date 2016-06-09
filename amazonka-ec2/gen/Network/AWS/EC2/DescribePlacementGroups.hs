@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your placement groups. For more information
--- about placement groups and cluster instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes one or more of your placement groups. For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Creating a Request
@@ -78,8 +75,7 @@ describePlacementGroups =
 --
 -- -   'group-name' - The name of the placement group.
 --
--- -   'state' - The state of the placement group ('pending' | 'available'
---     | 'deleting' | 'deleted').
+-- -   'state' - The state of the placement group ('pending' | 'available' | 'deleting' | 'deleted').
 --
 -- -   'strategy' - The strategy of the placement group ('cluster').
 --
@@ -88,15 +84,11 @@ dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coe
 
 -- | One or more placement group names.
 --
--- Default: Describes all your placement groups, or only those otherwise
--- specified.
+-- Default: Describes all your placement groups, or only those otherwise specified.
 dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
 dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dpgsDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
 

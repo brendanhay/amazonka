@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a source identifier to an existing RDS event notification
--- subscription.
+-- Adds a source identifier to an existing RDS event notification subscription.
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Creating a Request
@@ -69,25 +68,18 @@ addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
     , _asitsSourceIdentifier = pSourceIdentifier_
     }
 
--- | The name of the RDS event notification subscription you want to add a
--- source identifier to.
+-- | The name of the RDS event notification subscription you want to add a source identifier to.
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
 
--- | The identifier of the event source to be added. An identifier must begin
--- with a letter and must contain only ASCII letters, digits, and hyphens;
--- it cannot end with a hyphen or contain two consecutive hyphens.
+-- | The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Constraints:
 --
--- -   If the source type is a DB instance, then a 'DBInstanceIdentifier'
---     must be supplied.
--- -   If the source type is a DB security group, a 'DBSecurityGroupName'
---     must be supplied.
--- -   If the source type is a DB parameter group, a 'DBParameterGroupName'
---     must be supplied.
--- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must
---     be supplied.
+-- -   If the source type is a DB instance, then a 'DBInstanceIdentifier' must be supplied.
+-- -   If the source type is a DB security group, a 'DBSecurityGroupName' must be supplied.
+-- -   If the source type is a DB parameter group, a 'DBParameterGroupName' must be supplied.
+-- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a subscription owner to set an attribute of the topic to a new
--- value.
+-- Allows a subscription owner to set an attribute of the topic to a new value.
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Creating a Request
@@ -79,8 +78,7 @@ ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a})
 ssaSubscriptionARN :: Lens' SetSubscriptionAttributes Text
 ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a});
 
--- | The name of the attribute you want to set. Only a subset of the
--- subscriptions attributes are mutable.
+-- | The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.
 --
 -- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text

@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a pipeline, its pipeline definition, and its run history. AWS
--- Data Pipeline attempts to cancel instances associated with the pipeline
--- that are currently being processed by task runners.
+-- Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.
 --
--- Deleting a pipeline cannot be undone. You cannot query or restore a
--- deleted pipeline. To temporarily pause a pipeline instead of deleting
--- it, call < SetStatus> with the status set to 'PAUSE' on individual
--- components. Components that are paused by < SetStatus> can be resumed.
+-- Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call < SetStatus> with the status set to 'PAUSE' on individual components. Components that are paused by < SetStatus> can be resumed.
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Creating a Request

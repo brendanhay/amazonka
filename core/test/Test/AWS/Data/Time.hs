@@ -30,17 +30,6 @@ tests = testGroup "time"
 
             , testFromText "aws"
                 "20141107T044213Z" (time :: AWSTime)
-
-            , testGroup "posix"
-                [ testFromText "integer"
-                    "1415335333" (time :: POSIX)
-
-                , testFromText "double"
-                    "1415335333.000" (time :: POSIX)
-
-                , testFromText "scientific"
-                    "1.415335333E9" (time :: POSIX)
-                ]
             ]
 
         , testGroup "serialise"
@@ -52,9 +41,6 @@ tests = testGroup "time"
 
             , testToText "aws"
                 "20141107T044213Z" (time :: AWSTime)
-
-            , testToText "posix"
-                "1415335333" (time :: POSIX)
             ]
         ]
 
@@ -81,17 +67,6 @@ tests = testGroup "time"
 
             , testFromXML "aws"
                 "20141107T044213Z" (time :: AWSTime)
-
-            , testGroup "posix"
-                [ testFromXML "integer"
-                    "1415335333" (time :: POSIX)
-
-                , testFromXML "double"
-                    "1415335333.000" (time :: POSIX)
-
-                , testFromXML "scientific"
-                    "1.415335333E9" (time :: POSIX)
-                ]
             ]
 
         , testGroup "serialise"
@@ -103,9 +78,6 @@ tests = testGroup "time"
 
             , testToXML "aws"
                 "20141107T044213Z" (time :: AWSTime)
-
-            , testToXML "posix"
-                "1415335333" (time :: POSIX)
             ]
         ]
 

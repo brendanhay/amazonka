@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a source identifier from an existing RDS event notification
--- subscription.
+-- Removes a source identifier from an existing RDS event notification subscription.
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Creating a Request
@@ -69,14 +68,11 @@ removeSourceIdentifierFromSubscription pSubscriptionName_ pSourceIdentifier_ =
     , _rsifsSourceIdentifier = pSourceIdentifier_
     }
 
--- | The name of the RDS event notification subscription you want to remove a
--- source identifier from.
+-- | The name of the RDS event notification subscription you want to remove a source identifier from.
 rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscriptionName = a});
 
--- | The source identifier to be removed from the subscription, such as the
--- __DB instance identifier__ for a DB instance or the name of a security
--- group.
+-- | The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a});
 

@@ -28,79 +28,79 @@ import Test.AWS.CloudTrail.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeTrails $
+--         [ requestDescribeTrails $
 --             describeTrails
 --
---         , testListPublicKeys $
+--         , requestListPublicKeys $
 --             listPublicKeys
 --
---         , testRemoveTags $
+--         , requestRemoveTags $
 --             removeTags
 --
---         , testLookupEvents $
+--         , requestLookupEvents $
 --             lookupEvents
 --
---         , testStopLogging $
+--         , requestStopLogging $
 --             stopLogging
 --
---         , testDeleteTrail $
+--         , requestDeleteTrail $
 --             deleteTrail
 --
---         , testUpdateTrail $
+--         , requestUpdateTrail $
 --             updateTrail
 --
---         , testCreateTrail $
+--         , requestCreateTrail $
 --             createTrail
 --
---         , testGetTrailStatus $
+--         , requestGetTrailStatus $
 --             getTrailStatus
 --
---         , testAddTags $
+--         , requestAddTags $
 --             addTags
 --
---         , testListTags $
+--         , requestListTags $
 --             listTags
 --
---         , testStartLogging $
+--         , requestStartLogging $
 --             startLogging
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeTrailsResponse $
+--         [ responseDescribeTrails $
 --             describeTrailsResponse
 --
---         , testListPublicKeysResponse $
+--         , responseListPublicKeys $
 --             listPublicKeysResponse
 --
---         , testRemoveTagsResponse $
+--         , responseRemoveTags $
 --             removeTagsResponse
 --
---         , testLookupEventsResponse $
+--         , responseLookupEvents $
 --             lookupEventsResponse
 --
---         , testStopLoggingResponse $
+--         , responseStopLogging $
 --             stopLoggingResponse
 --
---         , testDeleteTrailResponse $
+--         , responseDeleteTrail $
 --             deleteTrailResponse
 --
---         , testUpdateTrailResponse $
+--         , responseUpdateTrail $
 --             updateTrailResponse
 --
---         , testCreateTrailResponse $
+--         , responseCreateTrail $
 --             createTrailResponse
 --
---         , testGetTrailStatusResponse $
+--         , responseGetTrailStatus $
 --             getTrailStatusResponse
 --
---         , testAddTagsResponse $
+--         , responseAddTags $
 --             addTagsResponse
 --
---         , testListTagsResponse $
+--         , responseListTags $
 --             listTagsResponse
 --
---         , testStartLoggingResponse $
+--         , responseStartLogging $
 --             startLoggingResponse
 --
 --           ]
@@ -108,147 +108,147 @@ import Test.AWS.CloudTrail.Internal
 
 -- Requests
 
-testDescribeTrails :: DescribeTrails -> TestTree
-testDescribeTrails = req
+requestDescribeTrails :: DescribeTrails -> TestTree
+requestDescribeTrails = req
     "DescribeTrails"
     "fixture/DescribeTrails.yaml"
 
-testListPublicKeys :: ListPublicKeys -> TestTree
-testListPublicKeys = req
+requestListPublicKeys :: ListPublicKeys -> TestTree
+requestListPublicKeys = req
     "ListPublicKeys"
     "fixture/ListPublicKeys.yaml"
 
-testRemoveTags :: RemoveTags -> TestTree
-testRemoveTags = req
+requestRemoveTags :: RemoveTags -> TestTree
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
-testLookupEvents :: LookupEvents -> TestTree
-testLookupEvents = req
+requestLookupEvents :: LookupEvents -> TestTree
+requestLookupEvents = req
     "LookupEvents"
     "fixture/LookupEvents.yaml"
 
-testStopLogging :: StopLogging -> TestTree
-testStopLogging = req
+requestStopLogging :: StopLogging -> TestTree
+requestStopLogging = req
     "StopLogging"
     "fixture/StopLogging.yaml"
 
-testDeleteTrail :: DeleteTrail -> TestTree
-testDeleteTrail = req
+requestDeleteTrail :: DeleteTrail -> TestTree
+requestDeleteTrail = req
     "DeleteTrail"
     "fixture/DeleteTrail.yaml"
 
-testUpdateTrail :: UpdateTrail -> TestTree
-testUpdateTrail = req
+requestUpdateTrail :: UpdateTrail -> TestTree
+requestUpdateTrail = req
     "UpdateTrail"
     "fixture/UpdateTrail.yaml"
 
-testCreateTrail :: CreateTrail -> TestTree
-testCreateTrail = req
+requestCreateTrail :: CreateTrail -> TestTree
+requestCreateTrail = req
     "CreateTrail"
     "fixture/CreateTrail.yaml"
 
-testGetTrailStatus :: GetTrailStatus -> TestTree
-testGetTrailStatus = req
+requestGetTrailStatus :: GetTrailStatus -> TestTree
+requestGetTrailStatus = req
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
-testAddTags :: AddTags -> TestTree
-testAddTags = req
+requestAddTags :: AddTags -> TestTree
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
-testListTags :: ListTags -> TestTree
-testListTags = req
+requestListTags :: ListTags -> TestTree
+requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
-testStartLogging :: StartLogging -> TestTree
-testStartLogging = req
+requestStartLogging :: StartLogging -> TestTree
+requestStartLogging = req
     "StartLogging"
     "fixture/StartLogging.yaml"
 
 -- Responses
 
-testDescribeTrailsResponse :: DescribeTrailsResponse -> TestTree
-testDescribeTrailsResponse = res
+responseDescribeTrails :: DescribeTrailsResponse -> TestTree
+responseDescribeTrails = res
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse.proto"
     cloudTrail
     (Proxy :: Proxy DescribeTrails)
 
-testListPublicKeysResponse :: ListPublicKeysResponse -> TestTree
-testListPublicKeysResponse = res
+responseListPublicKeys :: ListPublicKeysResponse -> TestTree
+responseListPublicKeys = res
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
     cloudTrail
     (Proxy :: Proxy ListPublicKeys)
 
-testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
-testRemoveTagsResponse = res
+responseRemoveTags :: RemoveTagsResponse -> TestTree
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     cloudTrail
     (Proxy :: Proxy RemoveTags)
 
-testLookupEventsResponse :: LookupEventsResponse -> TestTree
-testLookupEventsResponse = res
+responseLookupEvents :: LookupEventsResponse -> TestTree
+responseLookupEvents = res
     "LookupEventsResponse"
     "fixture/LookupEventsResponse.proto"
     cloudTrail
     (Proxy :: Proxy LookupEvents)
 
-testStopLoggingResponse :: StopLoggingResponse -> TestTree
-testStopLoggingResponse = res
+responseStopLogging :: StopLoggingResponse -> TestTree
+responseStopLogging = res
     "StopLoggingResponse"
     "fixture/StopLoggingResponse.proto"
     cloudTrail
     (Proxy :: Proxy StopLogging)
 
-testDeleteTrailResponse :: DeleteTrailResponse -> TestTree
-testDeleteTrailResponse = res
+responseDeleteTrail :: DeleteTrailResponse -> TestTree
+responseDeleteTrail = res
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse.proto"
     cloudTrail
     (Proxy :: Proxy DeleteTrail)
 
-testUpdateTrailResponse :: UpdateTrailResponse -> TestTree
-testUpdateTrailResponse = res
+responseUpdateTrail :: UpdateTrailResponse -> TestTree
+responseUpdateTrail = res
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse.proto"
     cloudTrail
     (Proxy :: Proxy UpdateTrail)
 
-testCreateTrailResponse :: CreateTrailResponse -> TestTree
-testCreateTrailResponse = res
+responseCreateTrail :: CreateTrailResponse -> TestTree
+responseCreateTrail = res
     "CreateTrailResponse"
     "fixture/CreateTrailResponse.proto"
     cloudTrail
     (Proxy :: Proxy CreateTrail)
 
-testGetTrailStatusResponse :: GetTrailStatusResponse -> TestTree
-testGetTrailStatusResponse = res
+responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
+responseGetTrailStatus = res
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse.proto"
     cloudTrail
     (Proxy :: Proxy GetTrailStatus)
 
-testAddTagsResponse :: AddTagsResponse -> TestTree
-testAddTagsResponse = res
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     cloudTrail
     (Proxy :: Proxy AddTags)
 
-testListTagsResponse :: ListTagsResponse -> TestTree
-testListTagsResponse = res
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     cloudTrail
     (Proxy :: Proxy ListTags)
 
-testStartLoggingResponse :: StartLoggingResponse -> TestTree
-testStartLoggingResponse = res
+responseStartLogging :: StartLoggingResponse -> TestTree
+responseStartLogging = res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse.proto"
     cloudTrail

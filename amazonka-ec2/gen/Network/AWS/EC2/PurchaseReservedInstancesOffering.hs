@@ -18,21 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases a Reserved Instance for use with your account. With Reserved
--- Instances, you obtain a capacity reservation for a certain instance
--- configuration over a specified period of time and pay a lower hourly
--- rate compared to On-Demand instance pricing.
+-- Purchases a Reserved Instance for use with your account. With Reserved Instances, you obtain a capacity reservation for a certain instance configuration over a specified period of time and pay a lower hourly rate compared to On-Demand instance pricing.
 --
--- Use < DescribeReservedInstancesOfferings> to get a list of Reserved
--- Instance offerings that match your specifications. After you\'ve
--- purchased a Reserved Instance, you can check for your new Reserved
--- Instance with < DescribeReservedInstances>.
+-- Use < DescribeReservedInstancesOfferings> to get a list of Reserved Instance offerings that match your specifications. After you\'ve purchased a Reserved Instance, you can check for your new Reserved Instance with < DescribeReservedInstances>.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>
--- and
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Creating a Request
@@ -92,16 +82,11 @@ purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ 
     , _prioInstanceCount = pInstanceCount_
     }
 
--- | Specified for Reserved Instance Marketplace offerings to limit the total
--- order and ensure that the Reserved Instances are not purchased at
--- unexpected prices.
+-- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 

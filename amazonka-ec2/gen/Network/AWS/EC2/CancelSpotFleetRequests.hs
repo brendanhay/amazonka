@@ -20,13 +20,7 @@
 --
 -- Cancels the specified Spot fleet requests.
 --
--- After you cancel a Spot fleet request, the Spot fleet launches no new
--- Spot instances. You must specify whether the Spot fleet should also
--- terminate its Spot instances. If you terminate the instances, the Spot
--- fleet request enters the 'cancelled_terminating' state. Otherwise, the
--- Spot fleet request enters the 'cancelled_running' state and the
--- instances continue to run until they are interrupted or you terminate
--- them manually.
+-- After you cancel a Spot fleet request, the Spot fleet launches no new Spot instances. You must specify whether the Spot fleet should also terminate its Spot instances. If you terminate the instances, the Spot fleet request enters the 'cancelled_terminating' state. Otherwise, the Spot fleet request enters the 'cancelled_running' state and the instances continue to run until they are interrupted or you terminate them manually.
 module Network.AWS.EC2.CancelSpotFleetRequests
     (
     -- * Creating a Request
@@ -81,10 +75,7 @@ cancelSpotFleetRequests pTerminateInstances_ =
     , _csfrTerminateInstances = pTerminateInstances_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 csfrDryRun :: Lens' CancelSpotFleetRequests (Maybe Bool)
 csfrDryRun = lens _csfrDryRun (\ s a -> s{_csfrDryRun = a});
 
@@ -92,8 +83,7 @@ csfrDryRun = lens _csfrDryRun (\ s a -> s{_csfrDryRun = a});
 csfrSpotFleetRequestIds :: Lens' CancelSpotFleetRequests [Text]
 csfrSpotFleetRequestIds = lens _csfrSpotFleetRequestIds (\ s a -> s{_csfrSpotFleetRequestIds = a}) . _Coerce;
 
--- | Indicates whether to terminate instances for a Spot fleet request if it
--- is canceled successfully.
+-- | Indicates whether to terminate instances for a Spot fleet request if it is canceled successfully.
 csfrTerminateInstances :: Lens' CancelSpotFleetRequests Bool
 csfrTerminateInstances = lens _csfrTerminateInstances (\ s a -> s{_csfrTerminateInstances = a});
 
@@ -161,13 +151,11 @@ cancelSpotFleetRequestsResponse pResponseStatus_ =
     , _csfrrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the Spot fleet requests that are successfully
--- canceled.
+-- | Information about the Spot fleet requests that are successfully canceled.
 csfrrsSuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsSuccessItem]
 csfrrsSuccessfulFleetRequests = lens _csfrrsSuccessfulFleetRequests (\ s a -> s{_csfrrsSuccessfulFleetRequests = a}) . _Default . _Coerce;
 
--- | Information about the Spot fleet requests that are not successfully
--- canceled.
+-- | Information about the Spot fleet requests that are not successfully canceled.
 csfrrsUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsErrorItem]
 csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -> s{_csfrrsUnsuccessfulFleetRequests = a}) . _Default . _Coerce;
 

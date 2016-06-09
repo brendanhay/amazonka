@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the description for the specified stack; if no stack name was
--- specified, then it returns the description for all the stacks created.
+-- Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStacks
@@ -71,16 +70,13 @@ describeStacks =
     , _dStackName = Nothing
     }
 
--- | A string that identifies the next page of stacks that you want to
--- retrieve.
+-- | A string that identifies the next page of stacks that you want to retrieve.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- -   Running stacks: You can specify either the stack\'s name or its
---     unique stack ID.
+-- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
@@ -152,8 +148,7 @@ describeStacksResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB in size, a string that identifies the next
--- page of stacks. If no additional page exists, this value is null.
+-- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 

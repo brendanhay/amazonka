@@ -62,8 +62,7 @@ listPipelines =
     { _lpNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous list pipelines call,
--- which can be used to return the next set of pipelines in the list.
+-- | An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 lpNextToken :: Lens' ListPipelines (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
@@ -135,9 +134,7 @@ listPipelinesResponse pResponseStatus_ =
 lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
 lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
--- | If the amount of returned information is significantly large, an
--- identifier is also returned which can be used in a subsequent list
--- pipelines call to return the next set of pipelines in the list.
+-- | If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
 lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 

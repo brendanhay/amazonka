@@ -73,27 +73,17 @@ describeInternetGateways =
 
 -- | One or more filters.
 --
--- -   'attachment.state' - The current state of the attachment between the
---     gateway and the VPC ('available'). Present only if a VPC is
---     attached.
+-- -   'attachment.state' - The current state of the attachment between the gateway and the VPC ('available'). Present only if a VPC is attached.
 --
 -- -   'attachment.vpc-id' - The ID of an attached VPC.
 --
 -- -   'internet-gateway-id' - The ID of the Internet gateway.
 --
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
---     to the resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
 --
--- -   'tag-key' - The key of a tag assigned to the resource. This filter
---     is independent of the 'tag-value' filter. For example, if you use
---     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
---     you get any resources assigned both the tag key Purpose (regardless
---     of what the tag\'s value is), and the tag value X (regardless of
---     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   'tag-value' - The value of a tag assigned to the resource. This
---     filter is independent of the 'tag-key' filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
 --
 dFilters :: Lens' DescribeInternetGateways [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
@@ -104,10 +94,7 @@ dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 dInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 dInternetGatewayIds = lens _dInternetGatewayIds (\ s a -> s{_dInternetGatewayIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
 dDryRun = lens _dDryRun (\ s a -> s{_dDryRun = a});
 

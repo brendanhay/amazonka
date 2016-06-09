@@ -1,5 +1,5 @@
 name:                  amazonka-elastictranscoder
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Elastic Transcoder SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -68,7 +68,7 @@ library
         , Network.AWS.ElasticTranscoder.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elastictranscoder-test
@@ -88,9 +88,9 @@ test-suite amazonka-elastictranscoder-test
         , Test.AWS.ElasticTranscoder.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-elastictranscoder == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elastictranscoder == 1.4.3.*
         , base
         , bytestring
         , tasty

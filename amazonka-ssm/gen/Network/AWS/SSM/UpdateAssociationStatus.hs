@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status of the SSM document associated with the specified
--- instance.
+-- Updates the status of the SSM document associated with the specified instance.
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request

@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns list of aliases created for a Lambda function. For each alias,
--- the response includes information such as the alias ARN, description,
--- alias name, and the function version to which it points. For more
--- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:ListAliases action.
 module Network.AWS.Lambda.ListAliases
@@ -82,20 +78,15 @@ listAliases pFunctionName_ =
     , _laFunctionName = pFunctionName_
     }
 
--- | Optional string. An opaque pagination token returned from a previous
--- 'ListAliases' operation. If present, indicates where to continue the
--- listing.
+-- | Optional string. An opaque pagination token returned from a previous 'ListAliases' operation. If present, indicates where to continue the listing.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
--- | Optional integer. Specifies the maximum number of aliases to return in
--- response. This parameter value must be greater than 0.
+-- | Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
 laMaxItems :: Lens' ListAliases (Maybe Natural)
 laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
 
--- | If you specify this optional parameter, the API returns only the aliases
--- that are pointing to the specific Lambda function version, otherwise the
--- API returns all of the aliases created for the Lambda function.
+-- | If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
 laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
 

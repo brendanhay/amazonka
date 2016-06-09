@@ -20,9 +20,7 @@
 --
 -- Describes one or more of your subnets.
 --
--- For more information about subnets, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about subnets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.DescribeSubnets
     (
     -- * Creating a Request
@@ -83,48 +81,30 @@ dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default . _Coe
 
 -- | One or more filters.
 --
--- -   'availabilityZone' - The Availability Zone for the subnet. You can
---     also use 'availability-zone' as the filter name.
+-- -   'availabilityZone' - The Availability Zone for the subnet. You can also use 'availability-zone' as the filter name.
 --
--- -   'available-ip-address-count' - The number of IP addresses in the
---     subnet that are available.
+-- -   'available-ip-address-count' - The number of IP addresses in the subnet that are available.
 --
--- -   'cidrBlock' - The CIDR block of the subnet. The CIDR block you
---     specify must exactly match the subnet\'s CIDR block for information
---     to be returned for the subnet. You can also use 'cidr' or
---     'cidr-block' as the filter names.
+-- -   'cidrBlock' - The CIDR block of the subnet. The CIDR block you specify must exactly match the subnet\'s CIDR block for information to be returned for the subnet. You can also use 'cidr' or 'cidr-block' as the filter names.
 --
--- -   'defaultForAz' - Indicates whether this is the default subnet for
---     the Availability Zone. You can also use 'default-for-az' as the
---     filter name.
+-- -   'defaultForAz' - Indicates whether this is the default subnet for the Availability Zone. You can also use 'default-for-az' as the filter name.
 --
 -- -   'state' - The state of the subnet ('pending' | 'available').
 --
 -- -   'subnet-id' - The ID of the subnet.
 --
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
---     to the resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
 --
--- -   'tag-key' - The key of a tag assigned to the resource. This filter
---     is independent of the 'tag-value' filter. For example, if you use
---     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
---     you get any resources assigned both the tag key Purpose (regardless
---     of what the tag\'s value is), and the tag value X (regardless of
---     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   'tag-value' - The value of a tag assigned to the resource. This
---     filter is independent of the 'tag-key' filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
 --
 -- -   'vpc-id' - The ID of the VPC for the subnet.
 --
 dsFilters :: Lens' DescribeSubnets [Filter]
 dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
 dsDryRun = lens _dsDryRun (\ s a -> s{_dsDryRun = a});
 

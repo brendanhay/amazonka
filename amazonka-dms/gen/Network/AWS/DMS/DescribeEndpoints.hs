@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the endpoints for your account in the current
--- region.
+-- Returns information about the endpoints for your account in the current region.
 --
 module Network.AWS.DMS.DescribeEndpoints
     (
@@ -74,21 +73,15 @@ describeEndpoints =
 
 -- | Filters applied to the describe action.
 --
--- Valid filter names: endpoint-arn | endpoint-type | endpoint-id |
--- engine-name
+-- Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 deFilters :: Lens' DescribeEndpoints [Filter]
 deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 deMarker :: Lens' DescribeEndpoints (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -160,9 +153,7 @@ describeEndpointsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 

@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces an entry (rule) in a network ACL. For more information about
--- network ACLs, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- Replaces an entry (rule) in a network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.ReplaceNetworkACLEntry
     (
     -- * Creating a Request
@@ -107,20 +104,15 @@ replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgre
     , _rnaeCIdRBlock = pCIdRBlock_
     }
 
--- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)
--- for the protocol.
+-- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP) for the protocol.
 rnaeICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
 rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a});
 
--- | TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying 6 (TCP) or 17 (UDP) for the protocol.
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying 6 (TCP) or 17 (UDP) for the protocol.
 rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
 rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
 

@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the DELETED status to a 'BatchPrediction', rendering it
--- unusable.
+-- Assigns the DELETED status to a 'BatchPrediction', rendering it unusable.
 --
--- After using the 'DeleteBatchPrediction' operation, you can use the
--- < GetBatchPrediction> operation to verify that the status of the
--- 'BatchPrediction' changed to DELETED.
+-- After using the 'DeleteBatchPrediction' operation, you can use the < GetBatchPrediction> operation to verify that the status of the 'BatchPrediction' changed to DELETED.
 --
--- __Caution:__ The result of the 'DeleteBatchPrediction' operation is
--- irreversible.
+-- __Caution:__ The result of the 'DeleteBatchPrediction' operation is irreversible.
 module Network.AWS.MachineLearning.DeleteBatchPrediction
     (
     -- * Creating a Request
@@ -111,9 +107,7 @@ instance ToQuery DeleteBatchPrediction where
 
 -- | Represents the output of a < DeleteBatchPrediction> operation.
 --
--- You can use the < GetBatchPrediction> operation and check the value of
--- the 'Status' parameter to see whether a 'BatchPrediction' is marked as
--- 'DELETED'.
+-- You can use the < GetBatchPrediction> operation and check the value of the 'Status' parameter to see whether a 'BatchPrediction' is marked as 'DELETED'.
 --
 -- /See:/ 'deleteBatchPredictionResponse' smart constructor.
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
@@ -137,9 +131,7 @@ deleteBatchPredictionResponse pResponseStatus_ =
     , _dbprsResponseStatus = pResponseStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This
--- value should be identical to the value of the 'BatchPredictionID' in the
--- request.
+-- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This value should be identical to the value of the 'BatchPredictionID' in the request.
 dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
 

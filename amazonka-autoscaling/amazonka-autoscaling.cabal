@@ -1,5 +1,5 @@
 name:                  amazonka-autoscaling
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Auto Scaling SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,10 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Auto Scaling
 
-    Auto Scaling is designed to automatically launch or terminate EC2
-    instances based on user-defined policies, schedules, and health checks.
-    Use this service in conjunction with the Amazon CloudWatch and Elastic
-    Load Balancing services.
+    Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the Amazon CloudWatch and Elastic Load Balancing services.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -103,7 +100,7 @@ library
         , Network.AWS.AutoScaling.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-autoscaling-test
@@ -123,9 +120,9 @@ test-suite amazonka-autoscaling-test
         , Test.AWS.AutoScaling.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-autoscaling == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-autoscaling == 1.4.3.*
         , base
         , bytestring
         , tasty

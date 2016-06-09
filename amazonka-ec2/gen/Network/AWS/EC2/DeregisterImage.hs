@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters the specified AMI. After you deregister an AMI, it can\'t be
--- used to launch new instances.
+-- Deregisters the specified AMI. After you deregister an AMI, it can\'t be used to launch new instances.
 --
 -- This command does not delete the AMI.
 module Network.AWS.EC2.DeregisterImage
@@ -67,10 +66,7 @@ deregisterImage pImageId_ =
     , _diImageId = pImageId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 diDryRun :: Lens' DeregisterImage (Maybe Bool)
 diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a});
 

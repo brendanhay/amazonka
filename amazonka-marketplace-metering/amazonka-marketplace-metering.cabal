@@ -1,5 +1,5 @@
 name:                  amazonka-marketplace-metering
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Marketplace Metering SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,11 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     AWS Marketplace Metering Service
 
-    This reference provides descriptions of the low-level AWS Marketplace
-    Metering Service API.
+    This reference provides descriptions of the low-level AWS Marketplace Metering Service API.
 
-    AWS Marketplace sellers can use this API to submit usage data for custom
-    usage dimensions.
+    AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.
 
     __Submitting Metering Records__
 
@@ -60,7 +58,7 @@ library
         , Network.AWS.MarketplaceMetering.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-marketplace-metering-test
@@ -80,9 +78,9 @@ test-suite amazonka-marketplace-metering-test
         , Test.AWS.MarketplaceMetering.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-marketplace-metering == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-marketplace-metering == 1.4.3.*
         , base
         , bytestring
         , tasty

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the rules packages that are specified by the ARNs of the rules
--- packages.
+-- Describes the rules packages that are specified by the ARNs of the rules packages.
 module Network.AWS.Inspector.DescribeRulesPackages
     (
     -- * Creating a Request
@@ -148,8 +147,7 @@ drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus
 drprsRulesPackages :: Lens' DescribeRulesPackagesResponse [RulesPackage]
 drprsRulesPackages = lens _drprsRulesPackages (\ s a -> s{_drprsRulesPackages = a}) . _Coerce;
 
--- | Rules package details that cannot be described. An error code is
--- provided for each failed item.
+-- | Rules package details that cannot be described. An error code is provided for each failed item.
 drprsFailedItems :: Lens' DescribeRulesPackagesResponse (HashMap Text FailedItemDetails)
 drprsFailedItems = lens _drprsFailedItems (\ s a -> s{_drprsFailedItems = a}) . _Map;
 

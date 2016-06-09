@@ -79,8 +79,7 @@ instance ToQuery ListDomainNames where
                  ["Action" =: ("ListDomainNames" :: ByteString),
                   "Version" =: ("2013-01-01" :: ByteString)])
 
--- | The result of a 'ListDomainNames' request. Contains a list of the
--- domains owned by an account.
+-- | The result of a 'ListDomainNames' request. Contains a list of the domains owned by an account.
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'

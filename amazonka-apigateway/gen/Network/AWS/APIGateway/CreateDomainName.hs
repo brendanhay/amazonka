@@ -96,8 +96,7 @@ cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 cdnCertificateName :: Lens' CreateDomainName Text
 cdnCertificateName = lens _cdnCertificateName (\ s a -> s{_cdnCertificateName = a});
 
--- | The body of the server certificate provided by your certificate
--- authority.
+-- | The body of the server certificate provided by your certificate authority.
 cdnCertificateBody :: Lens' CreateDomainName Text
 cdnCertificateBody = lens _cdnCertificateBody (\ s a -> s{_cdnCertificateBody = a});
 
@@ -105,12 +104,7 @@ cdnCertificateBody = lens _cdnCertificateBody (\ s a -> s{_cdnCertificateBody = 
 cdnCertificatePrivateKey :: Lens' CreateDomainName Text
 cdnCertificatePrivateKey = lens _cdnCertificatePrivateKey (\ s a -> s{_cdnCertificatePrivateKey = a});
 
--- | The intermediate certificates and optionally the root certificate, one
--- after the other without any blank lines. If you include the root
--- certificate, your certificate chain must start with intermediate
--- certificates and end with the root certificate. Use the intermediate
--- certificates that were provided by your certificate authority. Do not
--- include any intermediaries that are not in the chain of trust path.
+-- | The intermediate certificates and optionally the root certificate, one after the other without any blank lines. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
 cdnCertificateChain :: Lens' CreateDomainName Text
 cdnCertificateChain = lens _cdnCertificateChain (\ s a -> s{_cdnCertificateChain = a});
 

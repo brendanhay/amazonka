@@ -73,9 +73,7 @@ forgotPassword pClientId_ pUsername_ =
     , _fpUsername = _Sensitive # pUsername_
     }
 
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 fpSecretHash :: Lens' ForgotPassword (Maybe Text)
 fpSecretHash = lens _fpSecretHash (\ s a -> s{_fpSecretHash = a}) . mapping _Sensitive;
 
@@ -83,8 +81,7 @@ fpSecretHash = lens _fpSecretHash (\ s a -> s{_fpSecretHash = a}) . mapping _Sen
 fpClientId :: Lens' ForgotPassword Text
 fpClientId = lens _fpClientId (\ s a -> s{_fpClientId = a}) . _Sensitive;
 
--- | The user name of the user for whom you want to enter a code to retrieve
--- a forgotten password.
+-- | The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 fpUsername :: Lens' ForgotPassword Text
 fpUsername = lens _fpUsername (\ s a -> s{_fpUsername = a}) . _Sensitive;
 
@@ -126,8 +123,7 @@ instance ToPath ForgotPassword where
 instance ToQuery ForgotPassword where
         toQuery = const mempty
 
--- | Respresents the response from the server regarding the request to reset
--- a password.
+-- | Respresents the response from the server regarding the request to reset a password.
 --
 -- /See:/ 'forgotPasswordResponse' smart constructor.
 data ForgotPasswordResponse = ForgotPasswordResponse'

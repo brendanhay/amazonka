@@ -72,7 +72,7 @@ importExport =
     , _svcEndpoint = defaultEndpoint importExport
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "ImportExport"
     , _svcRetry = retry
     }
   where
@@ -95,8 +95,7 @@ importExport =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The JOBID was missing, not found, or not associated with the AWS
--- account.
+-- | The JOBID was missing, not found, or not associated with the AWS account.
 _InvalidJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobIdException = _ServiceError . hasCode "InvalidJobIdException"
 
@@ -114,9 +113,7 @@ _InvalidFileSystemException :: AsError a => Getting (First ServiceError) a Servi
 _InvalidFileSystemException =
     _ServiceError . hasCode "InvalidFileSystemException"
 
--- | The AWS Access Key ID specified in the request did not match the
--- manifest\'s accessKeyId value. The manifest and the request
--- authentication must use the same AWS Access Key ID.
+-- | The AWS Access Key ID specified in the request did not match the manifest\'s accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
 _InvalidAccessKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAccessKeyIdException =
     _ServiceError . hasCode "InvalidAccessKeyIdException"
@@ -131,8 +128,7 @@ _UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a Ser
 _UnableToCancelJobIdException =
     _ServiceError . hasCode "UnableToCancelJobIdException"
 
--- | Your manifest file contained buckets from multiple regions. A job is
--- restricted to buckets from one region. Please correct and resubmit.
+-- | Your manifest file contained buckets from multiple regions. A job is restricted to buckets from one region. Please correct and resubmit.
 _MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException"
 
@@ -159,10 +155,7 @@ _BucketPermissionException :: AsError a => Getting (First ServiceError) a Servic
 _BucketPermissionException =
     _ServiceError . hasCode "BucketPermissionException"
 
--- | The specified bucket does not exist. Create the specified bucket or
--- change the manifest\'s bucket, exportBucket, or logBucket field to a
--- bucket that the account, as specified by the manifest\'s Access Key ID,
--- has write permissions to.
+-- | The specified bucket does not exist. Create the specified bucket or change the manifest\'s bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest\'s Access Key ID, has write permissions to.
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
@@ -183,15 +176,12 @@ _InvalidManifestFieldException =
 _InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCustomsException = _ServiceError . hasCode "InvalidCustomsException"
 
--- | One or more required fields were missing from the manifest file. Please
--- correct and resubmit.
+-- | One or more required fields were missing from the manifest file. Please correct and resubmit.
 _MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingManifestFieldException =
     _ServiceError . hasCode "MissingManifestFieldException"
 
--- | Each account can create only a certain number of jobs per day. If you
--- need to create more than this, please contact
--- awsimportexport\'amazon.com to explain your particular use case.
+-- | Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport\'amazon.com to explain your particular use case.
 _CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreateJobQuotaExceededException =
     _ServiceError . hasCode "CreateJobQuotaExceededException"

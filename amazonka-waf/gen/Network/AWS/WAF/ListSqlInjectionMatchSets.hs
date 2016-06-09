@@ -44,8 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to list the < SqlInjectionMatchSet> objects created by the
--- current AWS account.
+-- | A request to list the < SqlInjectionMatchSet> objects created by the current AWS account.
 --
 -- /See:/ 'listSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
@@ -69,21 +68,11 @@ listSqlInjectionMatchSets pLimit_ =
     , _lsimsLimit = _Nat # pLimit_
     }
 
--- | If you specify a value for 'Limit' and you have more
--- < SqlInjectionMatchSet> objects than the value of 'Limit', AWS WAF
--- returns a 'NextMarker' value in the response that allows you to list
--- another group of 'SqlInjectionMatchSets'. For the second and subsequent
--- 'ListSqlInjectionMatchSets' requests, specify the value of 'NextMarker'
--- from the previous response to get information about another batch of
--- 'SqlInjectionMatchSets'.
+-- | If you specify a value for 'Limit' and you have more < SqlInjectionMatchSet> objects than the value of 'Limit', AWS WAF returns a 'NextMarker' value in the response that allows you to list another group of 'SqlInjectionMatchSets'. For the second and subsequent 'ListSqlInjectionMatchSets' requests, specify the value of 'NextMarker' from the previous response to get information about another batch of 'SqlInjectionMatchSets'.
 lsimsNextMarker :: Lens' ListSqlInjectionMatchSets (Maybe Text)
 lsimsNextMarker = lens _lsimsNextMarker (\ s a -> s{_lsimsNextMarker = a});
 
--- | Specifies the number of < SqlInjectionMatchSet> objects that you want
--- AWS WAF to return for this request. If you have more
--- 'SqlInjectionMatchSet' objects than the number you specify for 'Limit',
--- the response includes a 'NextMarker' value that you can use to get
--- another batch of 'Rules'.
+-- | Specifies the number of < SqlInjectionMatchSet> objects that you want AWS WAF to return for this request. If you have more 'SqlInjectionMatchSet' objects than the number you specify for 'Limit', the response includes a 'NextMarker' value that you can use to get another batch of 'Rules'.
 lsimsLimit :: Lens' ListSqlInjectionMatchSets Natural
 lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . _Nat;
 
@@ -154,12 +143,7 @@ listSqlInjectionMatchSetsResponse pResponseStatus_ =
     , _lsimsrsResponseStatus = pResponseStatus_
     }
 
--- | If you have more < SqlInjectionMatchSet> objects than the number that
--- you specified for 'Limit' in the request, the response includes a
--- 'NextMarker' value. To list more 'SqlInjectionMatchSet' objects, submit
--- another 'ListSqlInjectionMatchSets' request, and specify the
--- 'NextMarker' value from the response in the 'NextMarker' value in the
--- next request.
+-- | If you have more < SqlInjectionMatchSet> objects than the number that you specified for 'Limit' in the request, the response includes a 'NextMarker' value. To list more 'SqlInjectionMatchSet' objects, submit another 'ListSqlInjectionMatchSets' request, and specify the 'NextMarker' value from the response in the 'NextMarker' value in the next request.
 lsimsrsNextMarker :: Lens' ListSqlInjectionMatchSetsResponse (Maybe Text)
 lsimsrsNextMarker = lens _lsimsrsNextMarker (\ s a -> s{_lsimsrsNextMarker = a});
 

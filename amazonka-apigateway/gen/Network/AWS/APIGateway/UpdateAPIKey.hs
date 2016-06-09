@@ -72,8 +72,7 @@ updateAPIKey pApiKey_ =
     , _uakApiKey = pApiKey_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
 uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
 

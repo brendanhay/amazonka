@@ -123,8 +123,7 @@ checkDNSAvailabilityResponse pResponseStatus_ =
     , _cdarsResponseStatus = pResponseStatus_
     }
 
--- | The fully qualified CNAME to reserve when < CreateEnvironment> is called
--- with the provided prefix.
+-- | The fully qualified CNAME to reserve when < CreateEnvironment> is called with the provided prefix.
 cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 

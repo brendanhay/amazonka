@@ -20,16 +20,9 @@
 --
 -- Creates an uninitialized HSM instance.
 --
--- There is an upfront fee charged for each HSM instance that you create
--- with the < CreateHsm> operation. If you accidentally provision an HSM
--- and want to request a refund, delete the instance using the < DeleteHsm>
--- operation, go to the
--- <https://console.aws.amazon.com/support/home#/ AWS Support Center>,
--- create a new case, and select __Account and Billing Support__.
+-- There is an upfront fee charged for each HSM instance that you create with the < CreateHsm> operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the < DeleteHsm> operation, go to the <https://console.aws.amazon.com/support/home#/ AWS Support Center>, create a new case, and select __Account and Billing Support__.
 --
--- It can take up to 20 minutes to create and provision an HSM. You can
--- monitor the status of the HSM with the < DescribeHsm> operation. The HSM
--- is ready to be initialized when the status changes to 'RUNNING'.
+-- It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the < DescribeHsm> operation. The HSM is ready to be initialized when the status changes to 'RUNNING'.
 module Network.AWS.CloudHSM.CreateHSM
     (
     -- * Creating a Request
@@ -111,13 +104,11 @@ createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     , _chSubscriptionType = pSubscriptionType_
     }
 
--- | A user-defined token to ensure idempotence. Subsequent calls to this
--- operation with the same token will be ignored.
+-- | A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
 chClientToken :: Lens' CreateHSM (Maybe Text)
 chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
 
--- | The IP address for the syslog monitoring server. The AWS CloudHSM
--- service only supports one syslog monitoring server.
+-- | The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 chSyslogIP :: Lens' CreateHSM (Maybe Text)
 chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
 
@@ -127,8 +118,7 @@ chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
 
 -- | The IP address to assign to the HSM\'s ENI.
 --
--- If an IP address is not specified, an IP address will be randomly chosen
--- from the CIDR range of the subnet.
+-- If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
 chEniIP :: Lens' CreateHSM (Maybe Text)
 chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a});
 
@@ -140,8 +130,7 @@ chSubnetId = lens _chSubnetId (\ s a -> s{_chSubnetId = a});
 chSSHKey :: Lens' CreateHSM Text
 chSSHKey = lens _chSSHKey (\ s a -> s{_chSSHKey = a});
 
--- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an
--- ENI on your behalf.
+-- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
 chIAMRoleARN :: Lens' CreateHSM Text
 chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a});
 

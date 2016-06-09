@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Takes a set of configuration settings and either a configuration
--- template or environment, and determines whether those values are valid.
+-- Takes a set of configuration settings and either a configuration template or environment, and determines whether those values are valid.
 --
--- This action returns a list of messages indicating any errors or warnings
--- associated with the selection of option values.
+-- This action returns a list of messages indicating any errors or warnings associated with the selection of option values.
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Creating a Request
@@ -89,13 +87,11 @@ vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
 
 -- | The name of the environment to validate the settings against.
 --
--- Condition: You cannot specify both this and a configuration template
--- name.
+-- Condition: You cannot specify both this and a configuration template name.
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
 
--- | The name of the application that the configuration template or
--- environment belongs to.
+-- | The name of the application that the configuration template or environment belongs to.
 vcsApplicationName :: Lens' ValidateConfigurationSettings Text
 vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = a});
 

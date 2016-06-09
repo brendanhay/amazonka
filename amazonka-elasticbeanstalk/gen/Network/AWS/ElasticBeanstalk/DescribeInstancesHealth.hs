@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns more detailed information about the health of the specified
--- instances (for example, CPU utilization, load average, and causes). The
--- __DescribeInstancesHealth__ operation is only available with AWS Elastic
--- Beanstalk Enhanced Health.
+-- Returns more detailed information about the health of the specified instances (for example, CPU utilization, load average, and causes). The __DescribeInstancesHealth__ operation is only available with AWS Elastic Beanstalk Enhanced Health.
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     (
     -- * Creating a Request
@@ -89,9 +86,7 @@ dihNextToken = lens _dihNextToken (\ s a -> s{_dihNextToken = a});
 dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
 dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a});
 
--- | Specifies the response elements you wish to receive. If no attribute
--- names are specified, AWS Elastic Beanstalk only returns a list of
--- instances.
+-- | Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns a list of instances.
 dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
 dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
 
@@ -168,8 +163,7 @@ describeInstancesHealthResponse pResponseStatus_ =
     , _dihrsResponseStatus = pResponseStatus_
     }
 
--- | Contains the response body with information about the health of the
--- instance.
+-- | Contains the response body with information about the health of the instance.
 dihrsInstanceHealthList :: Lens' DescribeInstancesHealthResponse [SingleInstanceHealth]
 dihrsInstanceHealthList = lens _dihrsInstanceHealthList (\ s a -> s{_dihrsInstanceHealthList = a}) . _Default . _Coerce;
 

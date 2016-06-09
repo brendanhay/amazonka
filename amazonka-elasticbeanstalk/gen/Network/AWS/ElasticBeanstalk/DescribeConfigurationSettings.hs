@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the settings for the specified configuration
--- set, that is, either a configuration template or the configuration set
--- associated with a running environment.
+-- Returns a description of the settings for the specified configuration set, that is, either a configuration template or the configuration set associated with a running environment.
 --
--- When describing the settings for the configuration set associated with a
--- running environment, it is possible to receive two sets of setting
--- descriptions. One is the deployed configuration set, and the other is a
--- draft configuration of an environment that is either in the process of
--- deployment or that failed to deploy.
+-- When describing the settings for the configuration set associated with a running environment, it is possible to receive two sets of setting descriptions. One is the deployed configuration set, and the other is a draft configuration of an environment that is either in the process of deployment or that failed to deploy.
 --
 -- Related Topics
 --
@@ -56,8 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Result message containing all of the configuration settings for a
--- specified solution stack or configuration template.
+-- | Result message containing all of the configuration settings for a specified solution stack or configuration template.
 --
 -- /See:/ 'describeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
@@ -87,20 +80,13 @@ describeConfigurationSettings pApplicationName_ =
 
 -- | The name of the configuration template to describe.
 --
--- Conditional: You must specify either this parameter or an
--- EnvironmentName, but not both. If you specify both, AWS Elastic
--- Beanstalk returns an 'InvalidParameterCombination' error. If you do not
--- specify either, AWS Elastic Beanstalk returns a
--- 'MissingRequiredParameter' error.
+-- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 
 -- | The name of the environment to describe.
 --
--- Condition: You must specify either this or a TemplateName, but not both.
--- If you specify both, AWS Elastic Beanstalk returns an
--- 'InvalidParameterCombination' error. If you do not specify either, AWS
--- Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
 
@@ -143,8 +129,7 @@ instance ToQuery DescribeConfigurationSettings where
                "EnvironmentName" =: _dcsEnvironmentName,
                "ApplicationName" =: _dcsApplicationName]
 
--- | The results from a request to change the configuration settings of an
--- environment.
+-- | The results from a request to change the configuration settings of an environment.
 --
 -- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'

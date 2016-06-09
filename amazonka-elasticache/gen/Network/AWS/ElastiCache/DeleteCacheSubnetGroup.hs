@@ -20,8 +20,7 @@
 --
 -- The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
 --
--- You cannot delete a cache subnet group if it is associated with any
--- cache clusters.
+-- You cannot delete a cache subnet group if it is associated with any cache clusters.
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Creating a Request
@@ -64,8 +63,7 @@ deleteCacheSubnetGroup pCacheSubnetGroupName_ =
 
 -- | The name of the cache subnet group to delete.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters or
--- hyphens.
+-- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
 dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
 

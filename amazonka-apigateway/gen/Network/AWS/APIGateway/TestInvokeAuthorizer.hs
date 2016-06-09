@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Simulate the execution of an < Authorizer> in your < RestApi> with
--- headers, parameters, and an incoming request body.
+-- Simulate the execution of an < Authorizer> in your < RestApi> with headers, parameters, and an incoming request body.
 module Network.AWS.APIGateway.TestInvokeAuthorizer
     (
     -- * Creating a Request
@@ -99,9 +98,7 @@ testInvokeAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _tiaAuthorizerId = pAuthorizerId_
     }
 
--- | [Optional] The URI path, including query string, of the simulated
--- invocation request. Use this to specify path parameters and query string
--- parameters.
+-- | [Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
 tiaPathWithQueryString :: Lens' TestInvokeAuthorizer (Maybe Text)
 tiaPathWithQueryString = lens _tiaPathWithQueryString (\ s a -> s{_tiaPathWithQueryString = a});
 
@@ -113,14 +110,11 @@ tiaBody = lens _tiaBody (\ s a -> s{_tiaBody = a});
 tiaAdditionalContext :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaAdditionalContext = lens _tiaAdditionalContext (\ s a -> s{_tiaAdditionalContext = a}) . _Default . _Map;
 
--- | A key-value map of stage variables to simulate an invocation on a
--- deployed < Stage>.
+-- | A key-value map of stage variables to simulate an invocation on a deployed < Stage>.
 tiaStageVariables :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaStageVariables = lens _tiaStageVariables (\ s a -> s{_tiaStageVariables = a}) . _Default . _Map;
 
--- | [Required] A key-value map of headers to simulate an incoming invocation
--- request. This is where the incoming authorization token, or identity
--- source, should be specified.
+-- | [Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.
 tiaHeaders :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaHeaders = lens _tiaHeaders (\ s a -> s{_tiaHeaders = a}) . _Default . _Map;
 
@@ -177,8 +171,7 @@ instance ToPath TestInvokeAuthorizer where
 instance ToQuery TestInvokeAuthorizer where
         toQuery = const mempty
 
--- | Represents the response of the test invoke request in for a custom
--- < Authorizer>
+-- | Represents the response of the test invoke request in for a custom < Authorizer>
 --
 -- /See:/ 'testInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
@@ -238,8 +231,7 @@ tiarsLatency = lens _tiarsLatency (\ s a -> s{_tiarsLatency = a});
 tiarsAuthorization :: Lens' TestInvokeAuthorizerResponse (HashMap Text [Text])
 tiarsAuthorization = lens _tiarsAuthorization (\ s a -> s{_tiarsAuthorization = a}) . _Default . _Map;
 
--- | The HTTP status code that the client would have received. Value is 0 if
--- the authorizer succeeded.
+-- | The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.
 tiarsClientStatus :: Lens' TestInvokeAuthorizerResponse (Maybe Int)
 tiarsClientStatus = lens _tiarsClientStatus (\ s a -> s{_tiarsClientStatus = a});
 

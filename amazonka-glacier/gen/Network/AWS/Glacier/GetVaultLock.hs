@@ -18,30 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the following attributes from the 'lock-policy'
--- subresource set on the specified vault:
+-- This operation retrieves the following attributes from the 'lock-policy' subresource set on the specified vault:
 --
 -- -   The vault lock policy set on the vault.
 --
--- -   The state of the vault lock, which is either 'InProgess' or
---     'Locked'.
+-- -   The state of the vault lock, which is either 'InProgess' or 'Locked'.
 --
--- -   When the lock ID expires. The lock ID is used to complete the vault
---     locking process.
+-- -   When the lock ID expires. The lock ID is used to complete the vault locking process.
 --
--- -   When the vault lock was initiated and put into the 'InProgress'
---     state.
+-- -   When the vault lock was initiated and put into the 'InProgress' state.
 --
--- A vault lock is put into the 'InProgress' state by calling
--- < InitiateVaultLock>. A vault lock is put into the 'Locked' state by
--- calling < CompleteVaultLock>. You can abort the vault locking process by
--- calling < AbortVaultLock>. For more information about the vault locking
--- process,
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
+-- A vault lock is put into the 'InProgress' state by calling < InitiateVaultLock>. A vault lock is put into the 'Locked' state by calling < CompleteVaultLock>. You can abort the vault locking process by calling < AbortVaultLock>. For more information about the vault locking process, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
--- If there is no vault lock policy set on the vault, the operation returns
--- a '404 Not found' error. For more information about vault lock policies,
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
+-- If there is no vault lock policy set on the vault, the operation returns a '404 Not found' error. For more information about vault lock policies, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
 module Network.AWS.Glacier.GetVaultLock
     (
     -- * Creating a Request
@@ -94,11 +83,7 @@ getVaultLock pAccountId_ pVaultName_ =
     , _gvlVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the
--- vault. You can either specify an AWS account ID or optionally a single
--- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
--- ID associated with the credentials used to sign the request. If you use
--- an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 gvlAccountId :: Lens' GetVaultLock Text
 gvlAccountId = lens _gvlAccountId (\ s a -> s{_gvlAccountId = a});
 
@@ -174,18 +159,15 @@ getVaultLockResponse pResponseStatus_ =
 gvlrsState :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsState = lens _gvlrsState (\ s a -> s{_gvlrsState = a});
 
--- | The UTC date and time at which the lock ID expires. This value can be
--- 'null' if the vault lock is in a 'Locked' state.
+-- | The UTC date and time at which the lock ID expires. This value can be 'null' if the vault lock is in a 'Locked' state.
 gvlrsExpirationDate :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsExpirationDate = lens _gvlrsExpirationDate (\ s a -> s{_gvlrsExpirationDate = a});
 
--- | The UTC date and time at which the vault lock was put into the
--- 'InProgress' state.
+-- | The UTC date and time at which the vault lock was put into the 'InProgress' state.
 gvlrsCreationDate :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsCreationDate = lens _gvlrsCreationDate (\ s a -> s{_gvlrsCreationDate = a});
 
--- | The vault lock policy as a JSON string, which uses \"\\\" as an escape
--- character.
+-- | The vault lock policy as a JSON string, which uses \"\\\" as an escape character.
 gvlrsPolicy :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 

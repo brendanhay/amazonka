@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a scheduled managed action immediately. A managed action can be
--- applied only if its status is 'Scheduled'. Get the status and action ID
--- of a managed action with < DescribeEnvironmentManagedActions>.
+-- Applies a scheduled managed action immediately. A managed action can be applied only if its status is 'Scheduled'. Get the status and action ID of a managed action with < DescribeEnvironmentManagedActions>.
 module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
     (
     -- * Creating a Request

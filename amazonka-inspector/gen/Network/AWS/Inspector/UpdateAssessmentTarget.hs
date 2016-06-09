@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the assessment target that is specified by the ARN of the
--- assessment target.
+-- Updates the assessment target that is specified by the ARN of the assessment target.
 module Network.AWS.Inspector.UpdateAssessmentTarget
     (
     -- * Creating a Request
@@ -78,8 +77,7 @@ uatAssessmentTargetARN = lens _uatAssessmentTargetARN (\ s a -> s{_uatAssessment
 uatAssessmentTargetName :: Lens' UpdateAssessmentTarget Text
 uatAssessmentTargetName = lens _uatAssessmentTargetName (\ s a -> s{_uatAssessmentTargetName = a});
 
--- | The ARN of the resource group that is used to specify the new resource
--- group to associate with the assessment target.
+-- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
 uatResourceGroupARN :: Lens' UpdateAssessmentTarget Text
 uatResourceGroupARN = lens _uatResourceGroupARN (\ s a -> s{_uatResourceGroupARN = a});
 

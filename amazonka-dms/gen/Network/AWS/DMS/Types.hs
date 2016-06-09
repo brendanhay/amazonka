@@ -218,7 +218,7 @@ dms =
     , _svcEndpoint = defaultEndpoint dms
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DMS"
     , _svcRetry = retry
     }
   where
@@ -249,14 +249,12 @@ _InvalidSubnet = _ServiceError . hasCode "InvalidSubnet"
 _KMSKeyNotAccessibleFault :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault"
 
--- | The replication subnet group does not cover enough Availability Zones
--- (AZs). Edit the replication subnet group and add more AZs.
+-- | The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
     _ServiceError . hasCode "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
--- | The resource is in a state that prevents it from being used for database
--- migration.
+-- | The resource is in a state that prevents it from being used for database migration.
 _InvalidResourceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateFault =
     _ServiceError . hasCode "InvalidResourceStateFault"

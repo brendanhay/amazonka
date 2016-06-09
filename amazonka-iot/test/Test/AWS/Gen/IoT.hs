@@ -28,307 +28,307 @@ import Test.AWS.IoT.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testListPolicies $
+--         [ requestListPolicies $
 --             listPolicies
 --
---         , testCreatePolicy $
+--         , requestCreatePolicy $
 --             createPolicy
 --
---         , testRegisterCertificate $
+--         , requestRegisterCertificate $
 --             registerCertificate
 --
---         , testListThingPrincipals $
+--         , requestListThingPrincipals $
 --             listThingPrincipals
 --
---         , testListPrincipalThings $
+--         , requestListPrincipalThings $
 --             listPrincipalThings
 --
---         , testGetLoggingOptions $
+--         , requestGetLoggingOptions $
 --             getLoggingOptions
 --
---         , testCreateCertificateFromCsr $
+--         , requestCreateCertificateFromCsr $
 --             createCertificateFromCsr
 --
---         , testDeleteThing $
+--         , requestDeleteThing $
 --             deleteThing
 --
---         , testUpdateThing $
+--         , requestUpdateThing $
 --             updateThing
 --
---         , testCancelCertificateTransfer $
+--         , requestCancelCertificateTransfer $
 --             cancelCertificateTransfer
 --
---         , testDeletePolicyVersion $
+--         , requestDeletePolicyVersion $
 --             deletePolicyVersion
 --
---         , testDisableTopicRule $
+--         , requestDisableTopicRule $
 --             disableTopicRule
 --
---         , testCreateTopicRule $
+--         , requestCreateTopicRule $
 --             createTopicRule
 --
---         , testCreatePolicyVersion $
+--         , requestCreatePolicyVersion $
 --             createPolicyVersion
 --
---         , testListCACertificates $
+--         , requestListCACertificates $
 --             listCACertificates
 --
---         , testDeleteTopicRule $
+--         , requestDeleteTopicRule $
 --             deleteTopicRule
 --
---         , testListPrincipalPolicies $
+--         , requestListPrincipalPolicies $
 --             listPrincipalPolicies
 --
---         , testDeleteCACertificate $
+--         , requestDeleteCACertificate $
 --             deleteCACertificate
 --
---         , testUpdateCACertificate $
+--         , requestUpdateCACertificate $
 --             updateCACertificate
 --
---         , testListTopicRules $
+--         , requestListTopicRules $
 --             listTopicRules
 --
---         , testTransferCertificate $
+--         , requestTransferCertificate $
 --             transferCertificate
 --
---         , testGetTopicRule $
+--         , requestGetTopicRule $
 --             getTopicRule
 --
---         , testDescribeThing $
+--         , requestDescribeThing $
 --             describeThing
 --
---         , testDeletePolicy $
+--         , requestDeletePolicy $
 --             deletePolicy
 --
---         , testListCertificates $
+--         , requestListCertificates $
 --             listCertificates
 --
---         , testGetPolicyVersion $
+--         , requestGetPolicyVersion $
 --             getPolicyVersion
 --
---         , testDeleteCertificate $
+--         , requestDeleteCertificate $
 --             deleteCertificate
 --
---         , testUpdateCertificate $
+--         , requestUpdateCertificate $
 --             updateCertificate
 --
---         , testDescribeCACertificate $
+--         , requestDescribeCACertificate $
 --             describeCACertificate
 --
---         , testGetRegistrationCode $
+--         , requestGetRegistrationCode $
 --             getRegistrationCode
 --
---         , testListCertificatesByCA $
+--         , requestListCertificatesByCA $
 --             listCertificatesByCA
 --
---         , testAttachThingPrincipal $
+--         , requestAttachThingPrincipal $
 --             attachThingPrincipal
 --
---         , testListThings $
+--         , requestListThings $
 --             listThings
 --
---         , testDetachPrincipalPolicy $
+--         , requestDetachPrincipalPolicy $
 --             detachPrincipalPolicy
 --
---         , testDeleteRegistrationCode $
+--         , requestDeleteRegistrationCode $
 --             deleteRegistrationCode
 --
---         , testCreateThing $
+--         , requestCreateThing $
 --             createThing
 --
---         , testDescribeCertificate $
+--         , requestDescribeCertificate $
 --             describeCertificate
 --
---         , testReplaceTopicRule $
+--         , requestReplaceTopicRule $
 --             replaceTopicRule
 --
---         , testSetDefaultPolicyVersion $
+--         , requestSetDefaultPolicyVersion $
 --             setDefaultPolicyVersion
 --
---         , testListPolicyVersions $
+--         , requestListPolicyVersions $
 --             listPolicyVersions
 --
---         , testCreateKeysAndCertificate $
+--         , requestCreateKeysAndCertificate $
 --             createKeysAndCertificate
 --
---         , testEnableTopicRule $
+--         , requestEnableTopicRule $
 --             enableTopicRule
 --
---         , testAcceptCertificateTransfer $
+--         , requestAcceptCertificateTransfer $
 --             acceptCertificateTransfer
 --
---         , testGetPolicy $
+--         , requestGetPolicy $
 --             getPolicy
 --
---         , testDescribeEndpoint $
+--         , requestDescribeEndpoint $
 --             describeEndpoint
 --
---         , testRegisterCACertificate $
+--         , requestRegisterCACertificate $
 --             registerCACertificate
 --
---         , testSetLoggingOptions $
+--         , requestSetLoggingOptions $
 --             setLoggingOptions
 --
---         , testAttachPrincipalPolicy $
+--         , requestAttachPrincipalPolicy $
 --             attachPrincipalPolicy
 --
---         , testRejectCertificateTransfer $
+--         , requestRejectCertificateTransfer $
 --             rejectCertificateTransfer
 --
---         , testDetachThingPrincipal $
+--         , requestDetachThingPrincipal $
 --             detachThingPrincipal
 --
 --           ]
 
 --     , testGroup "response"
---         [ testListPoliciesResponse $
+--         [ responseListPolicies $
 --             listPoliciesResponse
 --
---         , testCreatePolicyResponse $
+--         , responseCreatePolicy $
 --             createPolicyResponse
 --
---         , testRegisterCertificateResponse $
+--         , responseRegisterCertificate $
 --             registerCertificateResponse
 --
---         , testListThingPrincipalsResponse $
+--         , responseListThingPrincipals $
 --             listThingPrincipalsResponse
 --
---         , testListPrincipalThingsResponse $
+--         , responseListPrincipalThings $
 --             listPrincipalThingsResponse
 --
---         , testGetLoggingOptionsResponse $
+--         , responseGetLoggingOptions $
 --             getLoggingOptionsResponse
 --
---         , testCreateCertificateFromCsrResponse $
+--         , responseCreateCertificateFromCsr $
 --             createCertificateFromCsrResponse
 --
---         , testDeleteThingResponse $
+--         , responseDeleteThing $
 --             deleteThingResponse
 --
---         , testUpdateThingResponse $
+--         , responseUpdateThing $
 --             updateThingResponse
 --
---         , testCancelCertificateTransferResponse $
+--         , responseCancelCertificateTransfer $
 --             cancelCertificateTransferResponse
 --
---         , testDeletePolicyVersionResponse $
+--         , responseDeletePolicyVersion $
 --             deletePolicyVersionResponse
 --
---         , testDisableTopicRuleResponse $
+--         , responseDisableTopicRule $
 --             disableTopicRuleResponse
 --
---         , testCreateTopicRuleResponse $
+--         , responseCreateTopicRule $
 --             createTopicRuleResponse
 --
---         , testCreatePolicyVersionResponse $
+--         , responseCreatePolicyVersion $
 --             createPolicyVersionResponse
 --
---         , testListCACertificatesResponse $
+--         , responseListCACertificates $
 --             listCACertificatesResponse
 --
---         , testDeleteTopicRuleResponse $
+--         , responseDeleteTopicRule $
 --             deleteTopicRuleResponse
 --
---         , testListPrincipalPoliciesResponse $
+--         , responseListPrincipalPolicies $
 --             listPrincipalPoliciesResponse
 --
---         , testDeleteCACertificateResponse $
+--         , responseDeleteCACertificate $
 --             deleteCACertificateResponse
 --
---         , testUpdateCACertificateResponse $
+--         , responseUpdateCACertificate $
 --             updateCACertificateResponse
 --
---         , testListTopicRulesResponse $
+--         , responseListTopicRules $
 --             listTopicRulesResponse
 --
---         , testTransferCertificateResponse $
+--         , responseTransferCertificate $
 --             transferCertificateResponse
 --
---         , testGetTopicRuleResponse $
+--         , responseGetTopicRule $
 --             getTopicRuleResponse
 --
---         , testDescribeThingResponse $
+--         , responseDescribeThing $
 --             describeThingResponse
 --
---         , testDeletePolicyResponse $
+--         , responseDeletePolicy $
 --             deletePolicyResponse
 --
---         , testListCertificatesResponse $
+--         , responseListCertificates $
 --             listCertificatesResponse
 --
---         , testGetPolicyVersionResponse $
+--         , responseGetPolicyVersion $
 --             getPolicyVersionResponse
 --
---         , testDeleteCertificateResponse $
+--         , responseDeleteCertificate $
 --             deleteCertificateResponse
 --
---         , testUpdateCertificateResponse $
+--         , responseUpdateCertificate $
 --             updateCertificateResponse
 --
---         , testDescribeCACertificateResponse $
+--         , responseDescribeCACertificate $
 --             describeCACertificateResponse
 --
---         , testGetRegistrationCodeResponse $
+--         , responseGetRegistrationCode $
 --             getRegistrationCodeResponse
 --
---         , testListCertificatesByCAResponse $
+--         , responseListCertificatesByCA $
 --             listCertificatesByCAResponse
 --
---         , testAttachThingPrincipalResponse $
+--         , responseAttachThingPrincipal $
 --             attachThingPrincipalResponse
 --
---         , testListThingsResponse $
+--         , responseListThings $
 --             listThingsResponse
 --
---         , testDetachPrincipalPolicyResponse $
+--         , responseDetachPrincipalPolicy $
 --             detachPrincipalPolicyResponse
 --
---         , testDeleteRegistrationCodeResponse $
+--         , responseDeleteRegistrationCode $
 --             deleteRegistrationCodeResponse
 --
---         , testCreateThingResponse $
+--         , responseCreateThing $
 --             createThingResponse
 --
---         , testDescribeCertificateResponse $
+--         , responseDescribeCertificate $
 --             describeCertificateResponse
 --
---         , testReplaceTopicRuleResponse $
+--         , responseReplaceTopicRule $
 --             replaceTopicRuleResponse
 --
---         , testSetDefaultPolicyVersionResponse $
+--         , responseSetDefaultPolicyVersion $
 --             setDefaultPolicyVersionResponse
 --
---         , testListPolicyVersionsResponse $
+--         , responseListPolicyVersions $
 --             listPolicyVersionsResponse
 --
---         , testCreateKeysAndCertificateResponse $
+--         , responseCreateKeysAndCertificate $
 --             createKeysAndCertificateResponse
 --
---         , testEnableTopicRuleResponse $
+--         , responseEnableTopicRule $
 --             enableTopicRuleResponse
 --
---         , testAcceptCertificateTransferResponse $
+--         , responseAcceptCertificateTransfer $
 --             acceptCertificateTransferResponse
 --
---         , testGetPolicyResponse $
+--         , responseGetPolicy $
 --             getPolicyResponse
 --
---         , testDescribeEndpointResponse $
+--         , responseDescribeEndpoint $
 --             describeEndpointResponse
 --
---         , testRegisterCACertificateResponse $
+--         , responseRegisterCACertificate $
 --             registerCACertificateResponse
 --
---         , testSetLoggingOptionsResponse $
+--         , responseSetLoggingOptions $
 --             setLoggingOptionsResponse
 --
---         , testAttachPrincipalPolicyResponse $
+--         , responseAttachPrincipalPolicy $
 --             attachPrincipalPolicyResponse
 --
---         , testRejectCertificateTransferResponse $
+--         , responseRejectCertificateTransfer $
 --             rejectCertificateTransferResponse
 --
---         , testDetachThingPrincipalResponse $
+--         , responseDetachThingPrincipal $
 --             detachThingPrincipalResponse
 --
 --           ]
@@ -336,603 +336,603 @@ import Test.AWS.IoT.Internal
 
 -- Requests
 
-testListPolicies :: ListPolicies -> TestTree
-testListPolicies = req
+requestListPolicies :: ListPolicies -> TestTree
+requestListPolicies = req
     "ListPolicies"
     "fixture/ListPolicies.yaml"
 
-testCreatePolicy :: CreatePolicy -> TestTree
-testCreatePolicy = req
+requestCreatePolicy :: CreatePolicy -> TestTree
+requestCreatePolicy = req
     "CreatePolicy"
     "fixture/CreatePolicy.yaml"
 
-testRegisterCertificate :: RegisterCertificate -> TestTree
-testRegisterCertificate = req
+requestRegisterCertificate :: RegisterCertificate -> TestTree
+requestRegisterCertificate = req
     "RegisterCertificate"
     "fixture/RegisterCertificate.yaml"
 
-testListThingPrincipals :: ListThingPrincipals -> TestTree
-testListThingPrincipals = req
+requestListThingPrincipals :: ListThingPrincipals -> TestTree
+requestListThingPrincipals = req
     "ListThingPrincipals"
     "fixture/ListThingPrincipals.yaml"
 
-testListPrincipalThings :: ListPrincipalThings -> TestTree
-testListPrincipalThings = req
+requestListPrincipalThings :: ListPrincipalThings -> TestTree
+requestListPrincipalThings = req
     "ListPrincipalThings"
     "fixture/ListPrincipalThings.yaml"
 
-testGetLoggingOptions :: GetLoggingOptions -> TestTree
-testGetLoggingOptions = req
+requestGetLoggingOptions :: GetLoggingOptions -> TestTree
+requestGetLoggingOptions = req
     "GetLoggingOptions"
     "fixture/GetLoggingOptions.yaml"
 
-testCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
-testCreateCertificateFromCsr = req
+requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
+requestCreateCertificateFromCsr = req
     "CreateCertificateFromCsr"
     "fixture/CreateCertificateFromCsr.yaml"
 
-testDeleteThing :: DeleteThing -> TestTree
-testDeleteThing = req
+requestDeleteThing :: DeleteThing -> TestTree
+requestDeleteThing = req
     "DeleteThing"
     "fixture/DeleteThing.yaml"
 
-testUpdateThing :: UpdateThing -> TestTree
-testUpdateThing = req
+requestUpdateThing :: UpdateThing -> TestTree
+requestUpdateThing = req
     "UpdateThing"
     "fixture/UpdateThing.yaml"
 
-testCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
-testCancelCertificateTransfer = req
+requestCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
+requestCancelCertificateTransfer = req
     "CancelCertificateTransfer"
     "fixture/CancelCertificateTransfer.yaml"
 
-testDeletePolicyVersion :: DeletePolicyVersion -> TestTree
-testDeletePolicyVersion = req
+requestDeletePolicyVersion :: DeletePolicyVersion -> TestTree
+requestDeletePolicyVersion = req
     "DeletePolicyVersion"
     "fixture/DeletePolicyVersion.yaml"
 
-testDisableTopicRule :: DisableTopicRule -> TestTree
-testDisableTopicRule = req
+requestDisableTopicRule :: DisableTopicRule -> TestTree
+requestDisableTopicRule = req
     "DisableTopicRule"
     "fixture/DisableTopicRule.yaml"
 
-testCreateTopicRule :: CreateTopicRule -> TestTree
-testCreateTopicRule = req
+requestCreateTopicRule :: CreateTopicRule -> TestTree
+requestCreateTopicRule = req
     "CreateTopicRule"
     "fixture/CreateTopicRule.yaml"
 
-testCreatePolicyVersion :: CreatePolicyVersion -> TestTree
-testCreatePolicyVersion = req
+requestCreatePolicyVersion :: CreatePolicyVersion -> TestTree
+requestCreatePolicyVersion = req
     "CreatePolicyVersion"
     "fixture/CreatePolicyVersion.yaml"
 
-testListCACertificates :: ListCACertificates -> TestTree
-testListCACertificates = req
+requestListCACertificates :: ListCACertificates -> TestTree
+requestListCACertificates = req
     "ListCACertificates"
     "fixture/ListCACertificates.yaml"
 
-testDeleteTopicRule :: DeleteTopicRule -> TestTree
-testDeleteTopicRule = req
+requestDeleteTopicRule :: DeleteTopicRule -> TestTree
+requestDeleteTopicRule = req
     "DeleteTopicRule"
     "fixture/DeleteTopicRule.yaml"
 
-testListPrincipalPolicies :: ListPrincipalPolicies -> TestTree
-testListPrincipalPolicies = req
+requestListPrincipalPolicies :: ListPrincipalPolicies -> TestTree
+requestListPrincipalPolicies = req
     "ListPrincipalPolicies"
     "fixture/ListPrincipalPolicies.yaml"
 
-testDeleteCACertificate :: DeleteCACertificate -> TestTree
-testDeleteCACertificate = req
+requestDeleteCACertificate :: DeleteCACertificate -> TestTree
+requestDeleteCACertificate = req
     "DeleteCACertificate"
     "fixture/DeleteCACertificate.yaml"
 
-testUpdateCACertificate :: UpdateCACertificate -> TestTree
-testUpdateCACertificate = req
+requestUpdateCACertificate :: UpdateCACertificate -> TestTree
+requestUpdateCACertificate = req
     "UpdateCACertificate"
     "fixture/UpdateCACertificate.yaml"
 
-testListTopicRules :: ListTopicRules -> TestTree
-testListTopicRules = req
+requestListTopicRules :: ListTopicRules -> TestTree
+requestListTopicRules = req
     "ListTopicRules"
     "fixture/ListTopicRules.yaml"
 
-testTransferCertificate :: TransferCertificate -> TestTree
-testTransferCertificate = req
+requestTransferCertificate :: TransferCertificate -> TestTree
+requestTransferCertificate = req
     "TransferCertificate"
     "fixture/TransferCertificate.yaml"
 
-testGetTopicRule :: GetTopicRule -> TestTree
-testGetTopicRule = req
+requestGetTopicRule :: GetTopicRule -> TestTree
+requestGetTopicRule = req
     "GetTopicRule"
     "fixture/GetTopicRule.yaml"
 
-testDescribeThing :: DescribeThing -> TestTree
-testDescribeThing = req
+requestDescribeThing :: DescribeThing -> TestTree
+requestDescribeThing = req
     "DescribeThing"
     "fixture/DescribeThing.yaml"
 
-testDeletePolicy :: DeletePolicy -> TestTree
-testDeletePolicy = req
+requestDeletePolicy :: DeletePolicy -> TestTree
+requestDeletePolicy = req
     "DeletePolicy"
     "fixture/DeletePolicy.yaml"
 
-testListCertificates :: ListCertificates -> TestTree
-testListCertificates = req
+requestListCertificates :: ListCertificates -> TestTree
+requestListCertificates = req
     "ListCertificates"
     "fixture/ListCertificates.yaml"
 
-testGetPolicyVersion :: GetPolicyVersion -> TestTree
-testGetPolicyVersion = req
+requestGetPolicyVersion :: GetPolicyVersion -> TestTree
+requestGetPolicyVersion = req
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
-testDeleteCertificate :: DeleteCertificate -> TestTree
-testDeleteCertificate = req
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate = req
     "DeleteCertificate"
     "fixture/DeleteCertificate.yaml"
 
-testUpdateCertificate :: UpdateCertificate -> TestTree
-testUpdateCertificate = req
+requestUpdateCertificate :: UpdateCertificate -> TestTree
+requestUpdateCertificate = req
     "UpdateCertificate"
     "fixture/UpdateCertificate.yaml"
 
-testDescribeCACertificate :: DescribeCACertificate -> TestTree
-testDescribeCACertificate = req
+requestDescribeCACertificate :: DescribeCACertificate -> TestTree
+requestDescribeCACertificate = req
     "DescribeCACertificate"
     "fixture/DescribeCACertificate.yaml"
 
-testGetRegistrationCode :: GetRegistrationCode -> TestTree
-testGetRegistrationCode = req
+requestGetRegistrationCode :: GetRegistrationCode -> TestTree
+requestGetRegistrationCode = req
     "GetRegistrationCode"
     "fixture/GetRegistrationCode.yaml"
 
-testListCertificatesByCA :: ListCertificatesByCA -> TestTree
-testListCertificatesByCA = req
+requestListCertificatesByCA :: ListCertificatesByCA -> TestTree
+requestListCertificatesByCA = req
     "ListCertificatesByCA"
     "fixture/ListCertificatesByCA.yaml"
 
-testAttachThingPrincipal :: AttachThingPrincipal -> TestTree
-testAttachThingPrincipal = req
+requestAttachThingPrincipal :: AttachThingPrincipal -> TestTree
+requestAttachThingPrincipal = req
     "AttachThingPrincipal"
     "fixture/AttachThingPrincipal.yaml"
 
-testListThings :: ListThings -> TestTree
-testListThings = req
+requestListThings :: ListThings -> TestTree
+requestListThings = req
     "ListThings"
     "fixture/ListThings.yaml"
 
-testDetachPrincipalPolicy :: DetachPrincipalPolicy -> TestTree
-testDetachPrincipalPolicy = req
+requestDetachPrincipalPolicy :: DetachPrincipalPolicy -> TestTree
+requestDetachPrincipalPolicy = req
     "DetachPrincipalPolicy"
     "fixture/DetachPrincipalPolicy.yaml"
 
-testDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
-testDeleteRegistrationCode = req
+requestDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
+requestDeleteRegistrationCode = req
     "DeleteRegistrationCode"
     "fixture/DeleteRegistrationCode.yaml"
 
-testCreateThing :: CreateThing -> TestTree
-testCreateThing = req
+requestCreateThing :: CreateThing -> TestTree
+requestCreateThing = req
     "CreateThing"
     "fixture/CreateThing.yaml"
 
-testDescribeCertificate :: DescribeCertificate -> TestTree
-testDescribeCertificate = req
+requestDescribeCertificate :: DescribeCertificate -> TestTree
+requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
 
-testReplaceTopicRule :: ReplaceTopicRule -> TestTree
-testReplaceTopicRule = req
+requestReplaceTopicRule :: ReplaceTopicRule -> TestTree
+requestReplaceTopicRule = req
     "ReplaceTopicRule"
     "fixture/ReplaceTopicRule.yaml"
 
-testSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
-testSetDefaultPolicyVersion = req
+requestSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
+requestSetDefaultPolicyVersion = req
     "SetDefaultPolicyVersion"
     "fixture/SetDefaultPolicyVersion.yaml"
 
-testListPolicyVersions :: ListPolicyVersions -> TestTree
-testListPolicyVersions = req
+requestListPolicyVersions :: ListPolicyVersions -> TestTree
+requestListPolicyVersions = req
     "ListPolicyVersions"
     "fixture/ListPolicyVersions.yaml"
 
-testCreateKeysAndCertificate :: CreateKeysAndCertificate -> TestTree
-testCreateKeysAndCertificate = req
+requestCreateKeysAndCertificate :: CreateKeysAndCertificate -> TestTree
+requestCreateKeysAndCertificate = req
     "CreateKeysAndCertificate"
     "fixture/CreateKeysAndCertificate.yaml"
 
-testEnableTopicRule :: EnableTopicRule -> TestTree
-testEnableTopicRule = req
+requestEnableTopicRule :: EnableTopicRule -> TestTree
+requestEnableTopicRule = req
     "EnableTopicRule"
     "fixture/EnableTopicRule.yaml"
 
-testAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
-testAcceptCertificateTransfer = req
+requestAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
+requestAcceptCertificateTransfer = req
     "AcceptCertificateTransfer"
     "fixture/AcceptCertificateTransfer.yaml"
 
-testGetPolicy :: GetPolicy -> TestTree
-testGetPolicy = req
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy = req
     "GetPolicy"
     "fixture/GetPolicy.yaml"
 
-testDescribeEndpoint :: DescribeEndpoint -> TestTree
-testDescribeEndpoint = req
+requestDescribeEndpoint :: DescribeEndpoint -> TestTree
+requestDescribeEndpoint = req
     "DescribeEndpoint"
     "fixture/DescribeEndpoint.yaml"
 
-testRegisterCACertificate :: RegisterCACertificate -> TestTree
-testRegisterCACertificate = req
+requestRegisterCACertificate :: RegisterCACertificate -> TestTree
+requestRegisterCACertificate = req
     "RegisterCACertificate"
     "fixture/RegisterCACertificate.yaml"
 
-testSetLoggingOptions :: SetLoggingOptions -> TestTree
-testSetLoggingOptions = req
+requestSetLoggingOptions :: SetLoggingOptions -> TestTree
+requestSetLoggingOptions = req
     "SetLoggingOptions"
     "fixture/SetLoggingOptions.yaml"
 
-testAttachPrincipalPolicy :: AttachPrincipalPolicy -> TestTree
-testAttachPrincipalPolicy = req
+requestAttachPrincipalPolicy :: AttachPrincipalPolicy -> TestTree
+requestAttachPrincipalPolicy = req
     "AttachPrincipalPolicy"
     "fixture/AttachPrincipalPolicy.yaml"
 
-testRejectCertificateTransfer :: RejectCertificateTransfer -> TestTree
-testRejectCertificateTransfer = req
+requestRejectCertificateTransfer :: RejectCertificateTransfer -> TestTree
+requestRejectCertificateTransfer = req
     "RejectCertificateTransfer"
     "fixture/RejectCertificateTransfer.yaml"
 
-testDetachThingPrincipal :: DetachThingPrincipal -> TestTree
-testDetachThingPrincipal = req
+requestDetachThingPrincipal :: DetachThingPrincipal -> TestTree
+requestDetachThingPrincipal = req
     "DetachThingPrincipal"
     "fixture/DetachThingPrincipal.yaml"
 
 -- Responses
 
-testListPoliciesResponse :: ListPoliciesResponse -> TestTree
-testListPoliciesResponse = res
+responseListPolicies :: ListPoliciesResponse -> TestTree
+responseListPolicies = res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
     ioT
     (Proxy :: Proxy ListPolicies)
 
-testCreatePolicyResponse :: CreatePolicyResponse -> TestTree
-testCreatePolicyResponse = res
+responseCreatePolicy :: CreatePolicyResponse -> TestTree
+responseCreatePolicy = res
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
     ioT
     (Proxy :: Proxy CreatePolicy)
 
-testRegisterCertificateResponse :: RegisterCertificateResponse -> TestTree
-testRegisterCertificateResponse = res
+responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
+responseRegisterCertificate = res
     "RegisterCertificateResponse"
     "fixture/RegisterCertificateResponse.proto"
     ioT
     (Proxy :: Proxy RegisterCertificate)
 
-testListThingPrincipalsResponse :: ListThingPrincipalsResponse -> TestTree
-testListThingPrincipalsResponse = res
+responseListThingPrincipals :: ListThingPrincipalsResponse -> TestTree
+responseListThingPrincipals = res
     "ListThingPrincipalsResponse"
     "fixture/ListThingPrincipalsResponse.proto"
     ioT
     (Proxy :: Proxy ListThingPrincipals)
 
-testListPrincipalThingsResponse :: ListPrincipalThingsResponse -> TestTree
-testListPrincipalThingsResponse = res
+responseListPrincipalThings :: ListPrincipalThingsResponse -> TestTree
+responseListPrincipalThings = res
     "ListPrincipalThingsResponse"
     "fixture/ListPrincipalThingsResponse.proto"
     ioT
     (Proxy :: Proxy ListPrincipalThings)
 
-testGetLoggingOptionsResponse :: GetLoggingOptionsResponse -> TestTree
-testGetLoggingOptionsResponse = res
+responseGetLoggingOptions :: GetLoggingOptionsResponse -> TestTree
+responseGetLoggingOptions = res
     "GetLoggingOptionsResponse"
     "fixture/GetLoggingOptionsResponse.proto"
     ioT
     (Proxy :: Proxy GetLoggingOptions)
 
-testCreateCertificateFromCsrResponse :: CreateCertificateFromCsrResponse -> TestTree
-testCreateCertificateFromCsrResponse = res
+responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
+responseCreateCertificateFromCsr = res
     "CreateCertificateFromCsrResponse"
     "fixture/CreateCertificateFromCsrResponse.proto"
     ioT
     (Proxy :: Proxy CreateCertificateFromCsr)
 
-testDeleteThingResponse :: DeleteThingResponse -> TestTree
-testDeleteThingResponse = res
+responseDeleteThing :: DeleteThingResponse -> TestTree
+responseDeleteThing = res
     "DeleteThingResponse"
     "fixture/DeleteThingResponse.proto"
     ioT
     (Proxy :: Proxy DeleteThing)
 
-testUpdateThingResponse :: UpdateThingResponse -> TestTree
-testUpdateThingResponse = res
+responseUpdateThing :: UpdateThingResponse -> TestTree
+responseUpdateThing = res
     "UpdateThingResponse"
     "fixture/UpdateThingResponse.proto"
     ioT
     (Proxy :: Proxy UpdateThing)
 
-testCancelCertificateTransferResponse :: CancelCertificateTransferResponse -> TestTree
-testCancelCertificateTransferResponse = res
+responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
+responseCancelCertificateTransfer = res
     "CancelCertificateTransferResponse"
     "fixture/CancelCertificateTransferResponse.proto"
     ioT
     (Proxy :: Proxy CancelCertificateTransfer)
 
-testDeletePolicyVersionResponse :: DeletePolicyVersionResponse -> TestTree
-testDeletePolicyVersionResponse = res
+responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
+responseDeletePolicyVersion = res
     "DeletePolicyVersionResponse"
     "fixture/DeletePolicyVersionResponse.proto"
     ioT
     (Proxy :: Proxy DeletePolicyVersion)
 
-testDisableTopicRuleResponse :: DisableTopicRuleResponse -> TestTree
-testDisableTopicRuleResponse = res
+responseDisableTopicRule :: DisableTopicRuleResponse -> TestTree
+responseDisableTopicRule = res
     "DisableTopicRuleResponse"
     "fixture/DisableTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy DisableTopicRule)
 
-testCreateTopicRuleResponse :: CreateTopicRuleResponse -> TestTree
-testCreateTopicRuleResponse = res
+responseCreateTopicRule :: CreateTopicRuleResponse -> TestTree
+responseCreateTopicRule = res
     "CreateTopicRuleResponse"
     "fixture/CreateTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy CreateTopicRule)
 
-testCreatePolicyVersionResponse :: CreatePolicyVersionResponse -> TestTree
-testCreatePolicyVersionResponse = res
+responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
+responseCreatePolicyVersion = res
     "CreatePolicyVersionResponse"
     "fixture/CreatePolicyVersionResponse.proto"
     ioT
     (Proxy :: Proxy CreatePolicyVersion)
 
-testListCACertificatesResponse :: ListCACertificatesResponse -> TestTree
-testListCACertificatesResponse = res
+responseListCACertificates :: ListCACertificatesResponse -> TestTree
+responseListCACertificates = res
     "ListCACertificatesResponse"
     "fixture/ListCACertificatesResponse.proto"
     ioT
     (Proxy :: Proxy ListCACertificates)
 
-testDeleteTopicRuleResponse :: DeleteTopicRuleResponse -> TestTree
-testDeleteTopicRuleResponse = res
+responseDeleteTopicRule :: DeleteTopicRuleResponse -> TestTree
+responseDeleteTopicRule = res
     "DeleteTopicRuleResponse"
     "fixture/DeleteTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy DeleteTopicRule)
 
-testListPrincipalPoliciesResponse :: ListPrincipalPoliciesResponse -> TestTree
-testListPrincipalPoliciesResponse = res
+responseListPrincipalPolicies :: ListPrincipalPoliciesResponse -> TestTree
+responseListPrincipalPolicies = res
     "ListPrincipalPoliciesResponse"
     "fixture/ListPrincipalPoliciesResponse.proto"
     ioT
     (Proxy :: Proxy ListPrincipalPolicies)
 
-testDeleteCACertificateResponse :: DeleteCACertificateResponse -> TestTree
-testDeleteCACertificateResponse = res
+responseDeleteCACertificate :: DeleteCACertificateResponse -> TestTree
+responseDeleteCACertificate = res
     "DeleteCACertificateResponse"
     "fixture/DeleteCACertificateResponse.proto"
     ioT
     (Proxy :: Proxy DeleteCACertificate)
 
-testUpdateCACertificateResponse :: UpdateCACertificateResponse -> TestTree
-testUpdateCACertificateResponse = res
+responseUpdateCACertificate :: UpdateCACertificateResponse -> TestTree
+responseUpdateCACertificate = res
     "UpdateCACertificateResponse"
     "fixture/UpdateCACertificateResponse.proto"
     ioT
     (Proxy :: Proxy UpdateCACertificate)
 
-testListTopicRulesResponse :: ListTopicRulesResponse -> TestTree
-testListTopicRulesResponse = res
+responseListTopicRules :: ListTopicRulesResponse -> TestTree
+responseListTopicRules = res
     "ListTopicRulesResponse"
     "fixture/ListTopicRulesResponse.proto"
     ioT
     (Proxy :: Proxy ListTopicRules)
 
-testTransferCertificateResponse :: TransferCertificateResponse -> TestTree
-testTransferCertificateResponse = res
+responseTransferCertificate :: TransferCertificateResponse -> TestTree
+responseTransferCertificate = res
     "TransferCertificateResponse"
     "fixture/TransferCertificateResponse.proto"
     ioT
     (Proxy :: Proxy TransferCertificate)
 
-testGetTopicRuleResponse :: GetTopicRuleResponse -> TestTree
-testGetTopicRuleResponse = res
+responseGetTopicRule :: GetTopicRuleResponse -> TestTree
+responseGetTopicRule = res
     "GetTopicRuleResponse"
     "fixture/GetTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy GetTopicRule)
 
-testDescribeThingResponse :: DescribeThingResponse -> TestTree
-testDescribeThingResponse = res
+responseDescribeThing :: DescribeThingResponse -> TestTree
+responseDescribeThing = res
     "DescribeThingResponse"
     "fixture/DescribeThingResponse.proto"
     ioT
     (Proxy :: Proxy DescribeThing)
 
-testDeletePolicyResponse :: DeletePolicyResponse -> TestTree
-testDeletePolicyResponse = res
+responseDeletePolicy :: DeletePolicyResponse -> TestTree
+responseDeletePolicy = res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     ioT
     (Proxy :: Proxy DeletePolicy)
 
-testListCertificatesResponse :: ListCertificatesResponse -> TestTree
-testListCertificatesResponse = res
+responseListCertificates :: ListCertificatesResponse -> TestTree
+responseListCertificates = res
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
     ioT
     (Proxy :: Proxy ListCertificates)
 
-testGetPolicyVersionResponse :: GetPolicyVersionResponse -> TestTree
-testGetPolicyVersionResponse = res
+responseGetPolicyVersion :: GetPolicyVersionResponse -> TestTree
+responseGetPolicyVersion = res
     "GetPolicyVersionResponse"
     "fixture/GetPolicyVersionResponse.proto"
     ioT
     (Proxy :: Proxy GetPolicyVersion)
 
-testDeleteCertificateResponse :: DeleteCertificateResponse -> TestTree
-testDeleteCertificateResponse = res
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate = res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     ioT
     (Proxy :: Proxy DeleteCertificate)
 
-testUpdateCertificateResponse :: UpdateCertificateResponse -> TestTree
-testUpdateCertificateResponse = res
+responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
+responseUpdateCertificate = res
     "UpdateCertificateResponse"
     "fixture/UpdateCertificateResponse.proto"
     ioT
     (Proxy :: Proxy UpdateCertificate)
 
-testDescribeCACertificateResponse :: DescribeCACertificateResponse -> TestTree
-testDescribeCACertificateResponse = res
+responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
+responseDescribeCACertificate = res
     "DescribeCACertificateResponse"
     "fixture/DescribeCACertificateResponse.proto"
     ioT
     (Proxy :: Proxy DescribeCACertificate)
 
-testGetRegistrationCodeResponse :: GetRegistrationCodeResponse -> TestTree
-testGetRegistrationCodeResponse = res
+responseGetRegistrationCode :: GetRegistrationCodeResponse -> TestTree
+responseGetRegistrationCode = res
     "GetRegistrationCodeResponse"
     "fixture/GetRegistrationCodeResponse.proto"
     ioT
     (Proxy :: Proxy GetRegistrationCode)
 
-testListCertificatesByCAResponse :: ListCertificatesByCAResponse -> TestTree
-testListCertificatesByCAResponse = res
+responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
+responseListCertificatesByCA = res
     "ListCertificatesByCAResponse"
     "fixture/ListCertificatesByCAResponse.proto"
     ioT
     (Proxy :: Proxy ListCertificatesByCA)
 
-testAttachThingPrincipalResponse :: AttachThingPrincipalResponse -> TestTree
-testAttachThingPrincipalResponse = res
+responseAttachThingPrincipal :: AttachThingPrincipalResponse -> TestTree
+responseAttachThingPrincipal = res
     "AttachThingPrincipalResponse"
     "fixture/AttachThingPrincipalResponse.proto"
     ioT
     (Proxy :: Proxy AttachThingPrincipal)
 
-testListThingsResponse :: ListThingsResponse -> TestTree
-testListThingsResponse = res
+responseListThings :: ListThingsResponse -> TestTree
+responseListThings = res
     "ListThingsResponse"
     "fixture/ListThingsResponse.proto"
     ioT
     (Proxy :: Proxy ListThings)
 
-testDetachPrincipalPolicyResponse :: DetachPrincipalPolicyResponse -> TestTree
-testDetachPrincipalPolicyResponse = res
+responseDetachPrincipalPolicy :: DetachPrincipalPolicyResponse -> TestTree
+responseDetachPrincipalPolicy = res
     "DetachPrincipalPolicyResponse"
     "fixture/DetachPrincipalPolicyResponse.proto"
     ioT
     (Proxy :: Proxy DetachPrincipalPolicy)
 
-testDeleteRegistrationCodeResponse :: DeleteRegistrationCodeResponse -> TestTree
-testDeleteRegistrationCodeResponse = res
+responseDeleteRegistrationCode :: DeleteRegistrationCodeResponse -> TestTree
+responseDeleteRegistrationCode = res
     "DeleteRegistrationCodeResponse"
     "fixture/DeleteRegistrationCodeResponse.proto"
     ioT
     (Proxy :: Proxy DeleteRegistrationCode)
 
-testCreateThingResponse :: CreateThingResponse -> TestTree
-testCreateThingResponse = res
+responseCreateThing :: CreateThingResponse -> TestTree
+responseCreateThing = res
     "CreateThingResponse"
     "fixture/CreateThingResponse.proto"
     ioT
     (Proxy :: Proxy CreateThing)
 
-testDescribeCertificateResponse :: DescribeCertificateResponse -> TestTree
-testDescribeCertificateResponse = res
+responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
+responseDescribeCertificate = res
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
     ioT
     (Proxy :: Proxy DescribeCertificate)
 
-testReplaceTopicRuleResponse :: ReplaceTopicRuleResponse -> TestTree
-testReplaceTopicRuleResponse = res
+responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
+responseReplaceTopicRule = res
     "ReplaceTopicRuleResponse"
     "fixture/ReplaceTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy ReplaceTopicRule)
 
-testSetDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse -> TestTree
-testSetDefaultPolicyVersionResponse = res
+responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
+responseSetDefaultPolicyVersion = res
     "SetDefaultPolicyVersionResponse"
     "fixture/SetDefaultPolicyVersionResponse.proto"
     ioT
     (Proxy :: Proxy SetDefaultPolicyVersion)
 
-testListPolicyVersionsResponse :: ListPolicyVersionsResponse -> TestTree
-testListPolicyVersionsResponse = res
+responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
+responseListPolicyVersions = res
     "ListPolicyVersionsResponse"
     "fixture/ListPolicyVersionsResponse.proto"
     ioT
     (Proxy :: Proxy ListPolicyVersions)
 
-testCreateKeysAndCertificateResponse :: CreateKeysAndCertificateResponse -> TestTree
-testCreateKeysAndCertificateResponse = res
+responseCreateKeysAndCertificate :: CreateKeysAndCertificateResponse -> TestTree
+responseCreateKeysAndCertificate = res
     "CreateKeysAndCertificateResponse"
     "fixture/CreateKeysAndCertificateResponse.proto"
     ioT
     (Proxy :: Proxy CreateKeysAndCertificate)
 
-testEnableTopicRuleResponse :: EnableTopicRuleResponse -> TestTree
-testEnableTopicRuleResponse = res
+responseEnableTopicRule :: EnableTopicRuleResponse -> TestTree
+responseEnableTopicRule = res
     "EnableTopicRuleResponse"
     "fixture/EnableTopicRuleResponse.proto"
     ioT
     (Proxy :: Proxy EnableTopicRule)
 
-testAcceptCertificateTransferResponse :: AcceptCertificateTransferResponse -> TestTree
-testAcceptCertificateTransferResponse = res
+responseAcceptCertificateTransfer :: AcceptCertificateTransferResponse -> TestTree
+responseAcceptCertificateTransfer = res
     "AcceptCertificateTransferResponse"
     "fixture/AcceptCertificateTransferResponse.proto"
     ioT
     (Proxy :: Proxy AcceptCertificateTransfer)
 
-testGetPolicyResponse :: GetPolicyResponse -> TestTree
-testGetPolicyResponse = res
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     ioT
     (Proxy :: Proxy GetPolicy)
 
-testDescribeEndpointResponse :: DescribeEndpointResponse -> TestTree
-testDescribeEndpointResponse = res
+responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
+responseDescribeEndpoint = res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
     ioT
     (Proxy :: Proxy DescribeEndpoint)
 
-testRegisterCACertificateResponse :: RegisterCACertificateResponse -> TestTree
-testRegisterCACertificateResponse = res
+responseRegisterCACertificate :: RegisterCACertificateResponse -> TestTree
+responseRegisterCACertificate = res
     "RegisterCACertificateResponse"
     "fixture/RegisterCACertificateResponse.proto"
     ioT
     (Proxy :: Proxy RegisterCACertificate)
 
-testSetLoggingOptionsResponse :: SetLoggingOptionsResponse -> TestTree
-testSetLoggingOptionsResponse = res
+responseSetLoggingOptions :: SetLoggingOptionsResponse -> TestTree
+responseSetLoggingOptions = res
     "SetLoggingOptionsResponse"
     "fixture/SetLoggingOptionsResponse.proto"
     ioT
     (Proxy :: Proxy SetLoggingOptions)
 
-testAttachPrincipalPolicyResponse :: AttachPrincipalPolicyResponse -> TestTree
-testAttachPrincipalPolicyResponse = res
+responseAttachPrincipalPolicy :: AttachPrincipalPolicyResponse -> TestTree
+responseAttachPrincipalPolicy = res
     "AttachPrincipalPolicyResponse"
     "fixture/AttachPrincipalPolicyResponse.proto"
     ioT
     (Proxy :: Proxy AttachPrincipalPolicy)
 
-testRejectCertificateTransferResponse :: RejectCertificateTransferResponse -> TestTree
-testRejectCertificateTransferResponse = res
+responseRejectCertificateTransfer :: RejectCertificateTransferResponse -> TestTree
+responseRejectCertificateTransfer = res
     "RejectCertificateTransferResponse"
     "fixture/RejectCertificateTransferResponse.proto"
     ioT
     (Proxy :: Proxy RejectCertificateTransfer)
 
-testDetachThingPrincipalResponse :: DetachThingPrincipalResponse -> TestTree
-testDetachThingPrincipalResponse = res
+responseDetachThingPrincipal :: DetachThingPrincipalResponse -> TestTree
+responseDetachThingPrincipal = res
     "DetachThingPrincipalResponse"
     "fixture/DetachThingPrincipalResponse.proto"
     ioT

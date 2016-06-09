@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables enhanced Amazon Kinesis stream monitoring for shard-level
--- metrics.
+-- Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
 module Network.AWS.Kinesis.EnableEnhancedMonitoring
     (
     -- * Creating a Request
@@ -76,8 +75,7 @@ eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a});
 
 -- | List of shard-level metrics to enable.
 --
--- The following are the valid shard-level metrics. The value \"'ALL'\"
--- enables every metric.
+-- The following are the valid shard-level metrics. The value \"'ALL'\" enables every metric.
 --
 -- -   'IncomingBytes'
 -- -   'IncomingRecords'
@@ -88,9 +86,7 @@ eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a});
 -- -   'IteratorAgeMilliseconds'
 -- -   'ALL'
 --
--- For more information, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch>
--- in the /Amazon Kinesis Streams Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
 eemShardLevelMetrics :: Lens' EnableEnhancedMonitoring (NonEmpty MetricsName)
 eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _List1;
 

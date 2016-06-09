@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the notification actions associated with the specified Auto
--- Scaling group.
+-- Describes the notification actions associated with the specified Auto Scaling group.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
@@ -78,8 +77,7 @@ describeNotificationConfigurations =
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
 dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
 
@@ -161,8 +159,7 @@ describeNotificationConfigurationsResponse pResponseStatus_ =
     , _dncrsNotificationConfigurations = mempty
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 

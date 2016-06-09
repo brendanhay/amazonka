@@ -648,7 +648,7 @@ rds =
     , _svcEndpoint = defaultEndpoint rds
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "RDS"
     , _svcRetry = retry
     }
   where
@@ -671,8 +671,7 @@ rds =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | /SourceDBInstanceIdentifier/ refers to a DB instance with
--- /BackupRetentionPeriod/ equal to 0.
+-- | /SourceDBInstanceIdentifier/ refers to a DB instance with /BackupRetentionPeriod/ equal to 0.
 _PointInTimeRestoreNotEnabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _PointInTimeRestoreNotEnabledFault =
     _ServiceError . hasStatus 400 . hasCode "PointInTimeRestoreNotEnabled"
@@ -712,8 +711,7 @@ _DBParameterGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError)
 _DBParameterGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "DBParameterGroupAlreadyExists"
 
--- | Request would result in user exceeding the allowed number of DB
--- parameter groups.
+-- | Request would result in user exceeding the allowed number of DB parameter groups.
 _DBParameterGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "DBParameterGroupQuotaExceeded"
@@ -735,8 +733,7 @@ _ProvisionedIOPSNotAvailableInAZFault =
     _ServiceError .
     hasStatus 400 . hasCode "ProvisionedIopsNotAvailableInAZFault"
 
--- | The specified CIDRIP or EC2 security group is already authorized for the
--- specified DB security group.
+-- | The specified CIDRIP or EC2 security group is already authorized for the specified DB security group.
 _AuthorizationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
@@ -751,19 +748,16 @@ _SubscriptionNotFoundFault :: AsError a => Getting (First ServiceError) a Servic
 _SubscriptionNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound"
 
--- | The requested subnet is invalid, or multiple subnets were requested that
--- are not all in a common VPC.
+-- | The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
--- | You have exceeded the maximum number of account ids that you can share a
--- manual DB snapshot with.
+-- | You have exceeded the maximum number of account ids that you can share a manual DB snapshot with.
 _SharedSnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SharedSnapshotQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "SharedSnapshotQuotaExceeded"
 
--- | Request would result in user exceeding the allowed number of subnets in
--- a DB subnet groups.
+-- | Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
 _DBSubnetQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "DBSubnetQuotaExceededFault"
@@ -793,8 +787,7 @@ _StorageTypeNotSupportedFault :: AsError a => Getting (First ServiceError) a Ser
 _StorageTypeNotSupportedFault =
     _ServiceError . hasStatus 400 . hasCode "StorageTypeNotSupported"
 
--- | Request would result in user exceeding the allowed number of DB security
--- groups.
+-- | Request would result in user exceeding the allowed number of DB security groups.
 _DBSecurityGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.DBSecurityGroup"
@@ -809,8 +802,7 @@ _OptionGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a Se
 _OptionGroupQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "OptionGroupQuotaExceededFault"
 
--- | A DB security group with the name specified in /DBSecurityGroupName/
--- already exists.
+-- | A DB security group with the name specified in /DBSecurityGroupName/ already exists.
 _DBSecurityGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupAlreadyExists"
@@ -820,8 +812,7 @@ _SNSTopicARNNotFoundFault :: AsError a => Getting (First ServiceError) a Service
 _SNSTopicARNNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
--- | This error can occur if someone else is modifying a subscription. You
--- should retry the action.
+-- | This error can occur if someone else is modifying a subscription. You should retry the action.
 _InvalidEventSubscriptionStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEventSubscriptionStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidEventSubscriptionState"
@@ -836,20 +827,17 @@ _DBSnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceE
 _DBSnapshotNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBSnapshotNotFound"
 
--- | /DBClusterParameterGroupName/ does not refer to an existing DB Cluster
--- parameter group.
+-- | /DBClusterParameterGroupName/ does not refer to an existing DB Cluster parameter group.
 _DBClusterParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterParameterGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBClusterParameterGroupNotFound"
 
--- | User attempted to create a new DB cluster and the user has already
--- reached the maximum allowed DB cluster quota.
+-- | User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
 _DBClusterQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterQuotaExceededFault =
     _ServiceError . hasStatus 403 . hasCode "DBClusterQuotaExceededFault"
 
--- | Request would result in user exceeding the allowed number of DB
--- snapshots.
+-- | Request would result in user exceeding the allowed number of DB snapshots.
 _SnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceeded"
@@ -874,8 +862,7 @@ _DBSecurityGroupNotSupportedFault :: AsError a => Getting (First ServiceError) a
 _DBSecurityGroupNotSupportedFault =
     _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupNotSupported"
 
--- | Request would result in user exceeding the allowed number of DB
--- instances.
+-- | Request would result in user exceeding the allowed number of DB instances.
 _InstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded"
@@ -890,8 +877,7 @@ _DBParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a Se
 _DBParameterGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBParameterGroupNotFound"
 
--- | Indicates the DBSubnetGroup does not belong to the same VPC as that of
--- an existing cross region read replica of the same source instance.
+-- | Indicates the DBSubnetGroup does not belong to the same VPC as that of an existing cross region read replica of the same source instance.
 _InvalidDBSubnetGroupFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSubnetGroupFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupFault"
@@ -907,8 +893,7 @@ _InvalidDBSubnetStateFault :: AsError a => Getting (First ServiceError) a Servic
 _InvalidDBSubnetStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetStateFault"
 
--- | /DBClusterSnapshotIdentifier/ does not refer to an existing DB cluster
--- snapshot.
+-- | /DBClusterSnapshotIdentifier/ does not refer to an existing DB cluster snapshot.
 _DBClusterSnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterSnapshotNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBClusterSnapshotNotFoundFault"
@@ -918,8 +903,7 @@ _SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceErro
 _SNSInvalidTopicFault =
     _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic"
 
--- | Specified DB instance class is not available in the specified
--- Availability Zone.
+-- | Specified DB instance class is not available in the specified Availability Zone.
 _InsufficientDBInstanceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientDBInstanceCapacityFault =
     _ServiceError . hasStatus 400 . hasCode "InsufficientDBInstanceCapacity"
@@ -935,17 +919,14 @@ _SubscriptionAlreadyExistFault :: AsError a => Getting (First ServiceError) a Se
 _SubscriptionAlreadyExistFault =
     _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
 
--- | DB subnet group does not cover all Availability Zones after it is
--- created because users\' change.
+-- | DB subnet group does not cover all Availability Zones after it is created because users\' change.
 _InvalidVPCNetworkStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCNetworkStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
--- | Specified CIDRIP or EC2 security group is not authorized for the
--- specified DB security group.
+-- | Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.
 --
--- RDS may not also be authorized via IAM to perform necessary actions on
--- your behalf.
+-- RDS may not also be authorized via IAM to perform necessary actions on your behalf.
 _AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
@@ -955,14 +936,12 @@ _ReservedDBInstanceNotFoundFault :: AsError a => Getting (First ServiceError) a 
 _ReservedDBInstanceNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ReservedDBInstanceNotFound"
 
--- | Request would result in user exceeding the allowed number of DB subnet
--- groups.
+-- | Request would result in user exceeding the allowed number of DB subnet groups.
 _DBSubnetGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupQuotaExceeded"
 
--- | Indicates that the DBSubnetGroup should not be specified while creating
--- read replicas that lie in the same region as the source instance.
+-- | Indicates that the DBSubnetGroup should not be specified while creating read replicas that lie in the same region as the source instance.
 _DBSubnetGroupNotAllowedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupNotAllowedFault =
     _ServiceError . hasStatus 400 . hasCode "DBSubnetGroupNotAllowedFault"
@@ -972,9 +951,7 @@ _EventSubscriptionQuotaExceededFault :: AsError a => Getting (First ServiceError
 _EventSubscriptionQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded"
 
--- | There is insufficient storage available for the current action. You may
--- be able to resolve this error by updating your subnet group to use
--- different Availability Zones that have more storage available.
+-- | There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
 _InsufficientStorageClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientStorageClusterCapacityFault =
     _ServiceError .
@@ -1015,8 +992,7 @@ _DBSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a Servi
 _DBSubnetGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBSubnetGroupNotFoundFault"
 
--- | The DB upgrade failed because a resource the DB depends on could not be
--- modified.
+-- | The DB upgrade failed because a resource the DB depends on could not be modified.
 _DBUpgradeDependencyFailureFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBUpgradeDependencyFailureFault =
     _ServiceError . hasStatus 400 . hasCode "DBUpgradeDependencyFailure"
@@ -1036,8 +1012,7 @@ _DBInstanceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceE
 _DBInstanceNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBInstanceNotFound"
 
--- | Request would result in user exceeding the allowed amount of storage
--- available across all DB instances.
+-- | Request would result in user exceeding the allowed amount of storage available across all DB instances.
 _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _StorageQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "StorageQuotaExceeded"
@@ -1052,8 +1027,7 @@ _InvalidDBSubnetGroupStateFault :: AsError a => Getting (First ServiceError) a S
 _InvalidDBSubnetGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidDBSubnetGroupStateFault"
 
--- | Subnets in the DB subnet group should cover at least two Availability
--- Zones unless there is only one Availability Zone.
+-- | Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
 _DBSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupDoesNotCoverEnoughAZs =
     _ServiceError .

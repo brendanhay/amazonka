@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and
--- it is not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
 --
--- Registers an EC2 instance into the specified cluster. This instance
--- becomes available to place containers on.
+-- Registers an EC2 instance into the specified cluster. This instance becomes available to place containers on.
 module Network.AWS.ECS.RegisterContainerInstance
     (
     -- * Creating a Request
@@ -93,33 +91,23 @@ registerContainerInstance =
     , _rciTotalResources = Nothing
     }
 
--- | The instance identity document signature for the EC2 instance to
--- register. This signature can be found by running the following command
--- from the instance:
--- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/'
+-- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/'
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster with
--- which to register your container instance. If you do not specify a
--- cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed..
 rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
 rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 
--- | The instance identity document for the EC2 instance to register. This
--- document can be found by running the following command from the
--- instance:
--- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/'
+-- | The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/'
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
 
--- | The Amazon Resource Name (ARN) of the container instance (if it was
--- previously registered).
+-- | The Amazon Resource Name (ARN) of the container instance (if it was previously registered).
 rciContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
 rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContainerInstanceARN = a});
 
--- | The version information for the Amazon ECS container agent and Docker
--- daemon running on the container instance.
+-- | The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
 rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
 rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 

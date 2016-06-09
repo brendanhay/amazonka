@@ -156,7 +156,7 @@ glacier =
     , _svcEndpoint = defaultEndpoint glacier
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Glacier"
     , _svcRetry = retry
     }
   where
@@ -179,9 +179,7 @@ glacier =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if a retrieval job would exceed the current data policy\'s
--- retrieval rate limit. For more information about data retrieval
--- policies,
+-- | Returned if a retrieval job would exceed the current data policy\'s retrieval rate limit. For more information about data retrieval policies,
 _PolicyEnforcedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyEnforcedException =
     _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException"
@@ -191,8 +189,7 @@ _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a S
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
--- | Returned if, when uploading an archive, Amazon Glacier times out while
--- receiving the upload.
+-- | Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
 _RequestTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTimeoutException =
     _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException"
@@ -202,14 +199,12 @@ _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a Serv
 _ServiceUnavailableException =
     _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
 
--- | Returned if the specified resource, such as a vault, upload ID, or job
--- ID, does not exist.
+-- | Returned if the specified resource, such as a vault, upload ID, or job ID, does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
--- | Returned if the request results in a vault or account limit being
--- exceeded.
+-- | Returned if the request results in a vault or account limit being exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededException"

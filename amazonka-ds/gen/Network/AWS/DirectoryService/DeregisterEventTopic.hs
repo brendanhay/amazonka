@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified directory as a publisher to the specified SNS
--- topic.
+-- Removes the specified directory as a publisher to the specified SNS topic.
 module Network.AWS.DirectoryService.DeregisterEventTopic
     (
     -- * Creating a Request
@@ -43,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Removes the specified directory as a publisher to the specified SNS
--- topic.
+-- | Removes the specified directory as a publisher to the specified SNS topic.
 --
 -- /See:/ 'deregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
@@ -69,13 +67,11 @@ deregisterEventTopic pDirectoryId_ pTopicName_ =
     , _detTopicName = pTopicName_
     }
 
--- | The Directory ID to remove as a publisher. This directory will no longer
--- send messages to the specified SNS topic.
+-- | The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
 detDirectoryId :: Lens' DeregisterEventTopic Text
 detDirectoryId = lens _detDirectoryId (\ s a -> s{_detDirectoryId = a});
 
--- | The name of the SNS topic from which to remove the directory as a
--- publisher.
+-- | The name of the SNS topic from which to remove the directory as a publisher.
 detTopicName :: Lens' DeregisterEventTopic Text
 detTopicName = lens _detTopicName (\ s a -> s{_detTopicName = a});
 

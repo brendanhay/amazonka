@@ -8,18 +8,16 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 AWS Marketplace Metering Service
 
-This reference provides descriptions of the low-level AWS Marketplace
-Metering Service API.
+This reference provides descriptions of the low-level AWS Marketplace Metering Service API.
 
-AWS Marketplace sellers can use this API to submit usage data for custom
-usage dimensions.
+AWS Marketplace sellers can use this API to submit usage data for custom usage dimensions.
 
 __Submitting Metering Records__
 

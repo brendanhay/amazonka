@@ -91,20 +91,11 @@ putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _pmStatusCode = pStatusCode_
     }
 
--- | Specifies the < Model> resources used for the response\'s content type.
--- Response models are represented as a key\/value map, with a content type
--- as the key and a < Model> name as the value.
+-- | Specifies the < Model> resources used for the response\'s content type. Response models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
 pmResponseModels :: Lens' PutMethodResponse (HashMap Text Text)
 pmResponseModels = lens _pmResponseModels (\ s a -> s{_pmResponseModels = a}) . _Default . _Map;
 
--- | Represents response parameters that can be sent back to the caller by
--- Amazon API Gateway. Response parameters are represented as a key\/value
--- map, with a destination as the key and a Boolean flag as the value. The
--- Boolean flag is used to specify whether the parameter is required. A
--- destination must match the pattern 'method.response.header.{name}',
--- where 'name' is a valid, unique header name. Destinations specified here
--- are available to the integration for mapping from integration response
--- parameters.
+-- | Represents response parameters that can be sent back to the caller by Amazon API Gateway. Response parameters are represented as a key\/value map, with a destination as the key and a Boolean flag as the value. The Boolean flag is used to specify whether the parameter is required. A destination must match the pattern 'method.response.header.{name}', where 'name' is a valid, unique header name. Destinations specified here are available to the integration for mapping from integration response parameters.
 pmResponseParameters :: Lens' PutMethodResponse (HashMap Text Bool)
 pmResponseParameters = lens _pmResponseParameters (\ s a -> s{_pmResponseParameters = a}) . _Default . _Map;
 

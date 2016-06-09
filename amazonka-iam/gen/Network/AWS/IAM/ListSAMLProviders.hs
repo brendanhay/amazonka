@@ -20,8 +20,7 @@
 --
 -- Lists the SAML providers in the account.
 --
--- This operation requires
--- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Creating a Request

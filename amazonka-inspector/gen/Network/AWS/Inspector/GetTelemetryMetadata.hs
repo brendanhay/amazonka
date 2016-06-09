@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Information about the data that is collected for the specified
--- assessment run.
+-- Information about the data that is collected for the specified assessment run.
 module Network.AWS.Inspector.GetTelemetryMetadata
     (
     -- * Creating a Request
@@ -61,8 +60,7 @@ getTelemetryMetadata pAssessmentRunARN_ =
     { _gtmAssessmentRunARN = pAssessmentRunARN_
     }
 
--- | The ARN that specifies the assessment run that has the telemetry data
--- that you want to obtain.
+-- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 gtmAssessmentRunARN :: Lens' GetTelemetryMetadata Text
 gtmAssessmentRunARN = lens _gtmAssessmentRunARN (\ s a -> s{_gtmAssessmentRunARN = a});
 

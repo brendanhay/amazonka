@@ -20,10 +20,7 @@
 --
 -- Exports a running or stopped instance to an S3 bucket.
 --
--- For information about the supported operating systems, image formats,
--- and known limitations for the types of instances you can export, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html Exporting EC2 Instances>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html Exporting EC2 Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request
@@ -90,8 +87,7 @@ cietTargetEnvironment = lens _cietTargetEnvironment (\ s a -> s{_cietTargetEnvir
 cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
 cietExportToS3Task = lens _cietExportToS3Task (\ s a -> s{_cietExportToS3Task = a});
 
--- | A description for the conversion task or the resource being exported.
--- The maximum length is 255 bytes.
+-- | A description for the conversion task or the resource being exported. The maximum length is 255 bytes.
 cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietDescription = lens _cietDescription (\ s a -> s{_cietDescription = a});
 

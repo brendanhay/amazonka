@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling instances. If a list is not provided,
--- the call describes all instances.
+-- Describes one or more Auto Scaling instances. If a list is not provided, the call describes all instances.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
@@ -74,14 +73,11 @@ describeAutoScalingInstances =
     , _dasiMaxRecords = Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 
--- | The instances to describe; up to 50 instance IDs. If you omit this
--- parameter, all Auto Scaling instances are described. If you specify an
--- ID that does not exist, it is ignored with no error.
+-- | The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce;
 
@@ -158,8 +154,7 @@ describeAutoScalingInstancesResponse pResponseStatus_ =
     , _dasirsResponseStatus = pResponseStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
 

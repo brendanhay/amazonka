@@ -18,18 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Amazon ECS container agent on a specified container
--- instance. Updating the Amazon ECS container agent does not interrupt
--- running tasks or services on the container instance. The process for
--- updating the agent differs depending on whether your container instance
--- was launched with the Amazon ECS-optimized AMI or another operating
--- system.
+-- Updates the Amazon ECS container agent on a specified container instance. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with the Amazon ECS-optimized AMI or another operating system.
 --
--- 'UpdateContainerAgent' requires the Amazon ECS-optimized AMI or Amazon
--- Linux with the 'ecs-init' service installed and running. For help
--- updating the Amazon ECS container agent on other operating systems, see
--- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
--- in the /Amazon EC2 Container Service Developer Guide/.
+-- 'UpdateContainerAgent' requires the Amazon ECS-optimized AMI or Amazon Linux with the 'ecs-init' service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/.
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request
@@ -76,15 +67,11 @@ updateContainerAgent pContainerInstance_ =
     , _ucaContainerInstance = pContainerInstance_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- your container instance is running on. If you do not specify a cluster,
--- the default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
 ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
 
--- | The container instance ID or full Amazon Resource Name (ARN) entries for
--- the container instance on which you would like to update the Amazon ECS
--- container agent.
+-- | The container instance ID or full Amazon Resource Name (ARN) entries for the container instance on which you would like to update the Amazon ECS container agent.
 ucaContainerInstance :: Lens' UpdateContainerAgent Text
 ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 

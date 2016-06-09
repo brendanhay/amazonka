@@ -18,19 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current status of fleet capacity for one or more fleets.
--- This information includes the number of instances that have been
--- requested for the fleet and the number currently active. You can request
--- capacity for all fleets, or specify a list of one or more fleet IDs.
--- When requesting all fleets, use the pagination parameters to retrieve
--- results as a set of sequential pages. If successful, a < FleetCapacity>
--- object is returned for each requested fleet ID. When specifying a list
--- of fleet IDs, attribute objects are returned only for fleets that
--- currently exist.
+-- Retrieves the current status of fleet capacity for one or more fleets. This information includes the number of instances that have been requested for the fleet and the number currently active. You can request capacity for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetCapacity> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
--- Some API actions may limit the number of fleet IDs allowed in one
--- request. If a request exceeds this limit, the request fails and the
--- error message includes the maximum allowed.
+-- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetCapacity
     (
     -- * Creating a Request
@@ -84,22 +74,15 @@ describeFleetCapacity =
     , _dfcFleetIds = Nothing
     }
 
--- | Token indicating the start of the next sequential page of results. Use
--- the token that is returned with a previous call to this action. To
--- specify the start of the result set, do not specify a value. This
--- parameter is ignored when the request specifies one or a list of fleet
--- IDs.
+-- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcNextToken :: Lens' DescribeFleetCapacity (Maybe Text)
 dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with
--- /NextToken/ to get results as a set of sequential pages. This parameter
--- is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcLimit :: Lens' DescribeFleetCapacity (Maybe Natural)
 dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve capacity
--- information for.
+-- | Unique identifier for the fleet(s) you want to retrieve capacity information for.
 dfcFleetIds :: Lens' DescribeFleetCapacity (Maybe (NonEmpty Text))
 dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1;
 
@@ -170,19 +153,13 @@ describeFleetCapacityResponse pResponseStatus_ =
     , _dfcrsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to
--- this action. If no token is returned, these results represent the end of
--- the list.
+-- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- If a request has a limit that exactly matches the number of remaining
--- results, a token is returned even though there are no more results to
--- retrieve.
+-- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dfcrsNextToken :: Lens' DescribeFleetCapacityResponse (Maybe Text)
 dfcrsNextToken = lens _dfcrsNextToken (\ s a -> s{_dfcrsNextToken = a});
 
--- | Collection of objects containing capacity information for each requested
--- fleet ID. Leave this parameter empty to retrieve capacity information
--- for all fleets.
+-- | Collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 dfcrsFleetCapacity :: Lens' DescribeFleetCapacityResponse [FleetCapacity]
 dfcrsFleetCapacity = lens _dfcrsFleetCapacity (\ s a -> s{_dfcrsFleetCapacity = a}) . _Default . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation generates a pre-paid UPS shipping label that you will use
--- to ship your device to AWS for processing.
+-- This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.
 module Network.AWS.ImportExport.GetShippingLabel
     (
     -- * Creating a Request

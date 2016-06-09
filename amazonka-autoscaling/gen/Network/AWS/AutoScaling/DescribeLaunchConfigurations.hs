@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more launch configurations. If you omit the list of
--- names, then the call describes all launch configurations.
+-- Describes one or more launch configurations. If you omit the list of names, then the call describes all launch configurations.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -78,13 +77,11 @@ describeLaunchConfigurations =
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
 dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 
--- | The maximum number of items to return with this call. The default is
--- 100.
+-- | The maximum number of items to return with this call. The default is 100.
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 
@@ -158,8 +155,7 @@ describeLaunchConfigurationsResponse pResponseStatus_ =
     , _dlcrsLaunchConfigurations = mempty
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 

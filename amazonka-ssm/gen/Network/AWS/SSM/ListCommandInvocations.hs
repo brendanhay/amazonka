@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An invocation is copy of a command sent to a specific instance. A
--- command can apply to one or more instances. A command invocation applies
--- to one instance. For example, if a user executes SendCommand against
--- three instances, then a command invocation is created for each requested
--- instance ID. ListCommandInvocations provide status about command
--- execution.
+-- An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommandInvocations
@@ -97,13 +92,11 @@ listCommandInvocations =
 lciInstanceId :: Lens' ListCommandInvocations (Maybe Text)
 lciInstanceId = lens _lciInstanceId (\ s a -> s{_lciInstanceId = a});
 
--- | (Optional) One or more filters. Use a filter to return a more specific
--- list of results.
+-- | (Optional) One or more filters. Use a filter to return a more specific list of results.
 lciFilters :: Lens' ListCommandInvocations (Maybe (NonEmpty CommandFilter))
 lciFilters = lens _lciFilters (\ s a -> s{_lciFilters = a}) . mapping _List1;
 
--- | (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
+-- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lciNextToken :: Lens' ListCommandInvocations (Maybe Text)
 lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 
@@ -111,14 +104,11 @@ lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 lciCommandId :: Lens' ListCommandInvocations (Maybe Text)
 lciCommandId = lens _lciCommandId (\ s a -> s{_lciCommandId = a});
 
--- | (Optional) If set this returns the response of the command executions
--- and any command output. By default this is set to False.
+-- | (Optional) If set this returns the response of the command executions and any command output. By default this is set to False.
 lciDetails :: Lens' ListCommandInvocations (Maybe Bool)
 lciDetails = lens _lciDetails (\ s a -> s{_lciDetails = a});
 
--- | (Optional) The maximum number of items to return for this call. The call
--- also returns a token that you can specify in a subsequent call to get
--- the next set of results.
+-- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lciMaxResults :: Lens' ListCommandInvocations (Maybe Natural)
 lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a}) . mapping _Nat;
 
@@ -197,8 +187,7 @@ listCommandInvocationsResponse pResponseStatus_ =
     , _lcirsResponseStatus = pResponseStatus_
     }
 
--- | (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
+-- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lcirsNextToken :: Lens' ListCommandInvocationsResponse (Maybe Text)
 lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 

@@ -70,10 +70,7 @@ deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
     , _drDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
 
@@ -81,8 +78,7 @@ drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
 drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
 
--- | The CIDR range for the route. The value you specify must match the CIDR
--- for the route exactly.
+-- | The CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 drDestinationCIdRBlock :: Lens' DeleteRoute Text
 drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestinationCIdRBlock = a});
 

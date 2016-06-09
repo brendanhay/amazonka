@@ -119,22 +119,17 @@ uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsV
 
 -- | Can be one of the following values:
 --
--- -   'OFF' - MFA tokens are not required and cannot be specified during
---     user registration.
--- -   'ON' - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
--- -   'OPTIONAL' - Users have the option when registering to create an MFA
---     token.
+-- -   'OFF' - MFA tokens are not required and cannot be specified during user registration.
+-- -   'ON' - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
+-- -   'OPTIONAL' - Users have the option when registering to create an MFA token.
 uupMFAConfiguration :: Lens' UpdateUserPool (Maybe UserPoolMFAType)
 uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration = a});
 
--- | The AWS Lambda configuration information from the request to update the
--- user pool.
+-- | The AWS Lambda configuration information from the request to update the user pool.
 uupLambdaConfig :: Lens' UpdateUserPool (Maybe LambdaConfigType)
 uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a});
 
--- | The attributes that are automatically verified when the Amazon Cognito
--- service makes a request to update user pools.
+-- | The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
 uupAutoVerifiedAttributes :: Lens' UpdateUserPool [VerifiedAttributeType]
 uupAutoVerifiedAttributes = lens _uupAutoVerifiedAttributes (\ s a -> s{_uupAutoVerifiedAttributes = a}) . _Default . _Coerce;
 
@@ -193,8 +188,7 @@ instance ToPath UpdateUserPool where
 instance ToQuery UpdateUserPool where
         toQuery = const mempty
 
--- | Represents the response from the server when you make a request to
--- update the user pool.
+-- | Represents the response from the server when you make a request to update the user pool.
 --
 -- /See:/ 'updateUserPoolResponse' smart constructor.
 newtype UpdateUserPoolResponse = UpdateUserPoolResponse'

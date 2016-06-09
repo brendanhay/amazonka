@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns domain configuration information about the specified
--- Elasticsearch domain, including the domain ID, domain endpoint, and
--- domain ARN.
+-- Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
     (
     -- * Creating a Request
@@ -44,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeElasticsearchDomain'
--- operation.
+-- | Container for the parameters to the 'DescribeElasticsearchDomain' operation.
 --
 -- /See:/ 'describeElasticsearchDomain' smart constructor.
 newtype DescribeElasticsearchDomain = DescribeElasticsearchDomain'
@@ -94,8 +91,7 @@ instance ToPath DescribeElasticsearchDomain where
 instance ToQuery DescribeElasticsearchDomain where
         toQuery = const mempty
 
--- | The result of a 'DescribeElasticsearchDomain' request. Contains the
--- status of the domain specified in the request.
+-- | The result of a 'DescribeElasticsearchDomain' request. Contains the status of the domain specified in the request.
 --
 -- /See:/ 'describeElasticsearchDomainResponse' smart constructor.
 data DescribeElasticsearchDomainResponse = DescribeElasticsearchDomainResponse'

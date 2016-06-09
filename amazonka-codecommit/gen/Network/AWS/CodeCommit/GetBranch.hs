@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a repository branch, including its name and
--- the last commit ID.
+-- Returns information about a repository branch, including its name and the last commit ID.
 module Network.AWS.CodeCommit.GetBranch
     (
     -- * Creating a Request
@@ -71,8 +70,7 @@ getBranch =
 gbBranchName :: Lens' GetBranch (Maybe Text)
 gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
 
--- | The name of the repository that contains the branch for which you want
--- to retrieve information.
+-- | The name of the repository that contains the branch for which you want to retrieve information.
 gbRepositoryName :: Lens' GetBranch (Maybe Text)
 gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 

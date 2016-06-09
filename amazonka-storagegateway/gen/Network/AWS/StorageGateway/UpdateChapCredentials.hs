@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Challenge-Handshake Authentication Protocol (CHAP)
--- credentials for a specified iSCSI target. By default, a gateway does not
--- have CHAP enabled; however, for added security, you might use it.
+-- Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for added security, you might use it.
 --
--- When you update CHAP credentials, all existing connections on the target
--- are closed and initiators must reconnect with the new credentials.
+-- When you update CHAP credentials, all existing connections on the target are closed and initiators must reconnect with the new credentials.
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Creating a Request
@@ -53,10 +50,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < UpdateChapCredentialsInput$InitiatorName>
--- -   < UpdateChapCredentialsInput$SecretToAuthenticateInitiator>
--- -   < UpdateChapCredentialsInput$SecretToAuthenticateTarget>
--- -   < UpdateChapCredentialsInput$TargetARN>
+-- -   < UpdateChapCredentialsInput>InitiatorName>
+-- -   < UpdateChapCredentialsInput>SecretToAuthenticateInitiator>
+-- -   < UpdateChapCredentialsInput>SecretToAuthenticateTarget>
+-- -   < UpdateChapCredentialsInput>TargetARN>
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'
@@ -90,8 +87,7 @@ updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName
     , _uccInitiatorName = pInitiatorName_
     }
 
--- | The secret key that the target must provide to participate in mutual
--- CHAP with the initiator (e.g. Windows client).
+-- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
 --
 -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 --
@@ -99,14 +95,11 @@ updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName
 uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- < DescribeStorediSCSIVolumes> operation to return the TargetARN for
--- specified VolumeARN.
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the < DescribeStorediSCSIVolumes> operation to return the TargetARN for specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});
 
--- | The secret key that the initiator (for example, the Windows client) must
--- provide to participate in mutual CHAP with the target.
+-- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
 --
 -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
 uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
@@ -187,13 +180,11 @@ updateChapCredentialsResponse pResponseStatus_ =
     , _uccrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the target. This is the same target
--- specified in the request.
+-- | The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
 uccrsTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a});
 
--- | The iSCSI initiator that connects to the target. This is the same
--- initiator name specified in the request.
+-- | The iSCSI initiator that connects to the target. This is the same initiator name specified in the request.
 uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
 

@@ -21,8 +21,7 @@ import           Network.AWS.CloudWatchLogs.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A cross account destination that is the recipient of subscription log
--- events.
+-- | A cross account destination that is the recipient of subscription log events.
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
@@ -61,13 +60,11 @@ destination =
     , _dRoleARN = Nothing
     }
 
--- | ARN of the physical target where the log events will be delivered (eg.
--- ARN of a Kinesis stream).
+-- | ARN of the physical target where the log events will be delivered (eg. ARN of a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1,
--- 1970 00:00:00 UTC specifying when this destination was created.
+-- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC specifying when this destination was created.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
@@ -75,8 +72,7 @@ dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _
 dArn :: Lens' Destination (Maybe Text)
 dArn = lens _dArn (\ s a -> s{_dArn = a});
 
--- | An IAM policy document that governs which AWS accounts can create
--- subscription filters against this destination.
+-- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 dAccessPolicy :: Lens' Destination (Maybe Text)
 dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
 
@@ -154,8 +150,7 @@ exportTask =
     , _etExecutionInfo = Nothing
     }
 
--- | Prefix that was used as the start of Amazon S3 key for every object
--- exported.
+-- | Prefix that was used as the start of Amazon S3 key for every object exported.
 etDestinationPrefix :: Lens' ExportTask (Maybe Text)
 etDestinationPrefix = lens _etDestinationPrefix (\ s a -> s{_etDestinationPrefix = a});
 
@@ -175,15 +170,11 @@ etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1,
--- 1970 00:00:00 UTC. Events with a timestamp later than this time are not
--- exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
 
--- | A point in time expressed as the number of milliseconds since Jan 1,
--- 1970 00:00:00 UTC. Events with a timestamp prior to this time are not
--- exported.
+-- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
 
@@ -366,10 +357,7 @@ instance Hashable FilteredLogEvent
 
 instance NFData FilteredLogEvent
 
--- | A log event is a record of some activity that was recorded by the
--- application or resource being monitored. The log event record that
--- CloudWatch Logs understands contains two properties: the timestamp of
--- when the event occurred, and the raw event message.
+-- | A log event is a record of some activity that was recorded by the application or resource being monitored. The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message.
 --
 -- /See:/ 'inputLogEvent' smart constructor.
 data InputLogEvent = InputLogEvent'
@@ -587,9 +575,7 @@ instance Hashable LogStream
 
 instance NFData LogStream
 
--- | Metric filters can be used to express how CloudWatch Logs would extract
--- metric observations from ingested log events and transform them to
--- metric data in a CloudWatch metric.
+-- | Metric filters can be used to express how CloudWatch Logs would extract metric observations from ingested log events and transform them to metric data in a CloudWatch metric.
 --
 -- /See:/ 'metricFilter' smart constructor.
 data MetricFilter = MetricFilter'
@@ -858,8 +844,7 @@ instance Hashable RejectedLogEventsInfo
 
 instance NFData RejectedLogEventsInfo
 
--- | An object indicating the search status of a log stream in a
--- 'FilterLogEvents' request.
+-- | An object indicating the search status of a log stream in a 'FilterLogEvents' request.
 --
 -- /See:/ 'searchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
@@ -886,8 +871,7 @@ searchedLogStream =
 slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
 slsLogStreamName = lens _slsLogStreamName (\ s a -> s{_slsLogStreamName = a});
 
--- | Indicates whether all the events in this log stream were searched or
--- more data exists to search by paginating further.
+-- | Indicates whether all the events in this log stream were searched or more data exists to search by paginating further.
 slsSearchedCompletely :: Lens' SearchedLogStream (Maybe Bool)
 slsSearchedCompletely = lens _slsSearchedCompletely (\ s a -> s{_slsSearchedCompletely = a});
 

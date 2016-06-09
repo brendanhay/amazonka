@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the current status of an operation that is not
--- completed.
+-- This operation returns the current status of an operation that is not completed.
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Creating a Request
@@ -68,9 +67,7 @@ getOperationDetail pOperationId_ =
     { _godOperationId = pOperationId_
     }
 
--- | The identifier for the operation for which you want to get the status.
--- Amazon Route 53 returned the identifier in the response to the original
--- request.
+-- | The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.
 --
 -- Type: String
 --

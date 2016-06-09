@@ -231,7 +231,7 @@ ssm =
     , _svcEndpoint = defaultEndpoint ssm
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "SSM"
     , _svcRetry = retry
     }
   where
@@ -254,18 +254,15 @@ ssm =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The document does not support the platform type of the given instance
--- ID(s).
+-- | The document does not support the platform type of the given instance ID(s).
 _UnsupportedPlatformType :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedPlatformType = _ServiceError . hasCode "UnsupportedPlatformType"
 
--- | You must disassociate an SSM document from all instances before you can
--- delete it.
+-- | You must disassociate an SSM document from all instances before you can delete it.
 _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociatedInstances = _ServiceError . hasCode "AssociatedInstances"
 
--- | The instance is not in valid state. Valid states are: Running, Pending,
--- Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
+-- | The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
 _InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceId = _ServiceError . hasCode "InvalidInstanceId"
 
@@ -322,8 +319,7 @@ _AssociationDoesNotExist = _ServiceError . hasCode "AssociationDoesNotExist"
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
--- | There are concurrent updates for a resource that supports one update at
--- a time.
+-- | There are concurrent updates for a resource that supports one update at a time.
 _TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyUpdates = _ServiceError . hasCode "TooManyUpdates"
 
@@ -331,8 +327,7 @@ _TooManyUpdates = _ServiceError . hasCode "TooManyUpdates"
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxDocumentSizeExceeded = _ServiceError . hasCode "MaxDocumentSizeExceeded"
 
--- | You must specify values for all required parameters in the SSM document.
--- You can only supply values to parameters defined in the SSM document.
+-- | You must specify values for all required parameters in the SSM document. You can only supply values to parameters defined in the SSM document.
 _InvalidParameters :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameters = _ServiceError . hasCode "InvalidParameters"
 

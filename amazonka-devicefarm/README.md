@@ -8,14 +8,12 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
-AWS Device Farm is a service that enables mobile app developers to test
-Android, iOS, and Fire OS apps on physical phones, tablets, and other
-devices in the cloud.
+AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phones, tablets, and other devices in the cloud.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-devicefarm)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

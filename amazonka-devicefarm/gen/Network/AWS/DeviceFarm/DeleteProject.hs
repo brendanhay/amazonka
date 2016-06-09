@@ -63,8 +63,7 @@ deleteProject pArn_ =
     { _dpArn = pArn_
     }
 
--- | Represents the Amazon Resource Name (ARN) of the Device Farm project you
--- wish to delete.
+-- | Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
 dpArn :: Lens' DeleteProject Text
 dpArn = lens _dpArn (\ s a -> s{_dpArn = a});
 

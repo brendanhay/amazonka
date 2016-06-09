@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the versions of the specified policy, and identifies the default
--- version.
+-- Lists the versions of the specified policy, and identifies the default version.
 module Network.AWS.IoT.ListPolicyVersions
     (
     -- * Creating a Request

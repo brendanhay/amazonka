@@ -77,8 +77,7 @@ getAuthorizers pRestAPIId_ =
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | If not all < Authorizer> resources in the response were present, the
--- position will specificy where to start the next page of results.
+-- | If not all < Authorizer> resources in the response were present, the position will specificy where to start the next page of results.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 

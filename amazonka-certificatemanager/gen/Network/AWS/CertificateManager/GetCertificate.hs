@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an ACM Certificate and certificate chain for the certificate
--- specified by an ARN. The chain is an ordered list of certificates that
--- contains the root certificate, intermediate certificates of subordinate
--- CAs, and the ACM Certificate. The certificate and certificate chain are
--- base64 encoded. If you want to decode the certificate chain to see the
--- individual certificate fields, you can use OpenSSL.
+-- Retrieves an ACM Certificate and certificate chain for the certificate specified by an ARN. The chain is an ordered list of certificates that contains the root certificate, intermediate certificates of subordinate CAs, and the ACM Certificate. The certificate and certificate chain are base64 encoded. If you want to decode the certificate chain to see the individual certificate fields, you can use OpenSSL.
 --
--- Currently, ACM Certificates can be used only with Elastic Load Balancing
--- and Amazon CloudFront.
+-- Currently, ACM Certificates can be used only with Elastic Load Balancing and Amazon CloudFront.
 module Network.AWS.CertificateManager.GetCertificate
     (
     -- * Creating a Request
@@ -75,8 +69,7 @@ getCertificate pCertificateARN_ =
 --
 -- 'arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012'
 --
--- For more information about ARNs, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 gcCertificateARN :: Lens' GetCertificate Text
 gcCertificateARN = lens _gcCertificateARN (\ s a -> s{_gcCertificateARN = a});
 
@@ -143,13 +136,11 @@ getCertificateResponse pResponseStatus_ =
     , _gcrsResponseStatus = pResponseStatus_
     }
 
--- | String that contains the ACM Certificate represented by the ARN
--- specified at input.
+-- | String that contains the ACM Certificate represented by the ARN specified at input.
 gcrsCertificate :: Lens' GetCertificateResponse (Maybe Text)
 gcrsCertificate = lens _gcrsCertificate (\ s a -> s{_gcrsCertificate = a});
 
--- | The certificate chain that contains the root certificate issued by the
--- certificate authority (CA).
+-- | The certificate chain that contains the root certificate issued by the certificate authority (CA).
 gcrsCertificateChain :: Lens' GetCertificateResponse (Maybe Text)
 gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateChain = a});
 

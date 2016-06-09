@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of resources (for example, DB instances) that have at
--- least one pending maintenance action.
+-- Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
 module Network.AWS.RDS.DescribePendingMaintenanceActions
     (
     -- * Creating a Request
@@ -78,29 +77,19 @@ describePendingMaintenanceActions =
     , _dpmaResourceIdentifier = Nothing
     }
 
--- | A filter that specifies one or more resources to return pending
--- maintenance actions for.
+-- | A filter that specifies one or more resources to return pending maintenance actions for.
 --
 -- Supported filters:
 --
--- -   'db-instance-id' - Accepts DB instance identifiers and DB instance
---     Amazon Resource Names (ARNs). The results list will only include
---     pending maintenance actions for the DB instances identified by these
---     ARNs.
+-- -   'db-instance-id' - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribePendingMaintenanceActions' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by 'MaxRecords'.
 dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -185,10 +174,7 @@ describePendingMaintenanceActionsResponse pResponseStatus_ =
 dpmarsPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
 dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -> s{_dpmarsPendingMaintenanceActions = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribePendingMaintenanceActions' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by 'MaxRecords'.
 dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 

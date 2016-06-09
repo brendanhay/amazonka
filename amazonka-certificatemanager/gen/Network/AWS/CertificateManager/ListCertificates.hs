@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of the ACM Certificate ARNs, and the domain name for
--- each ARN, owned by the calling account. You can filter the list based on
--- the 'CertificateStatuses' parameter, and you can display up to
--- 'MaxItems' certificates at one time. If you have more than 'MaxItems'
--- certificates, use the 'NextToken' marker from the response object in
--- your next call to the 'ListCertificates' action to retrieve the next set
--- of certificate ARNs.
+-- Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned by the calling account. You can filter the list based on the 'CertificateStatuses' parameter, and you can display up to 'MaxItems' certificates at one time. If you have more than 'MaxItems' certificates, use the 'NextToken' marker from the response object in your next call to the 'ListCertificates' action to retrieve the next set of certificate ARNs.
 module Network.AWS.CertificateManager.ListCertificates
     (
     -- * Creating a Request
@@ -78,8 +72,7 @@ listCertificates =
     , _lcMaxItems = Nothing
     }
 
--- | Identifies the statuses of the ACM Certificates for which you want to
--- retrieve the ARNs. This can be one or more of the following values:
+-- | Identifies the statuses of the ACM Certificates for which you want to retrieve the ARNs. This can be one or more of the following values:
 --
 -- -   'PENDING_VALIDATION'
 --
@@ -98,20 +91,11 @@ listCertificates =
 lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
 lcCertificateStatuses = lens _lcCertificateStatuses (\ s a -> s{_lcCertificateStatuses = a}) . _Default . _Coerce;
 
--- | String that contains an opaque marker of the next ACM Certificate ARN to
--- be displayed. Use this parameter when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- have been truncated. Set it to an empty string the first time you call
--- this action, and set it to the value of the 'NextToken' element you
--- receive in the response object for subsequent calls.
+-- | String that contains an opaque marker of the next ACM Certificate ARN to be displayed. Use this parameter when paginating results, and only in a subsequent request after you\'ve received a response where the results have been truncated. Set it to an empty string the first time you call this action, and set it to the value of the 'NextToken' element you receive in the response object for subsequent calls.
 lcNextToken :: Lens' ListCertificates (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
--- | Specify this parameter when paginating results to indicate the maximum
--- number of ACM Certificates that you want to display for each response.
--- If there are additional certificates beyond the maximum you specify, use
--- the 'NextToken' value in your next call to the 'ListCertificates'
--- action.
+-- | Specify this parameter when paginating results to indicate the maximum number of ACM Certificates that you want to display for each response. If there are additional certificates beyond the maximum you specify, use the 'NextToken' value in your next call to the 'ListCertificates' action.
 lcMaxItems :: Lens' ListCertificates (Maybe Natural)
 lcMaxItems = lens _lcMaxItems (\ s a -> s{_lcMaxItems = a}) . mapping _Nat;
 
@@ -187,9 +171,7 @@ listCertificatesResponse pResponseStatus_ =
 lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
 lcrsCertificateSummaryList = lens _lcrsCertificateSummaryList (\ s a -> s{_lcrsCertificateSummaryList = a}) . _Default . _Coerce;
 
--- | If the list has been truncated, this value is present and should be used
--- for the 'NextToken' input parameter on your next call to
--- 'ListCertificates'.
+-- | If the list has been truncated, this value is present and should be used for the 'NextToken' input parameter on your next call to 'ListCertificates'.
 lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 

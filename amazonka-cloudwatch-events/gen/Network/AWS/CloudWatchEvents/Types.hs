@@ -92,7 +92,7 @@ cloudWatchEvents =
     , _svcEndpoint = defaultEndpoint cloudWatchEvents
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudWatchEvents"
     , _svcRetry = retry
     }
   where
@@ -115,8 +115,7 @@ cloudWatchEvents =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | This exception occurs if there is concurrent modification on rule or
--- target.
+-- | This exception occurs if there is concurrent modification on rule or target.
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
@@ -135,7 +134,6 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | This exception occurs if you try to create more rules or add more
--- targets to a rule than allowed by default.
+-- | This exception occurs if you try to create more rules or add more targets to a rule than allowed by default.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

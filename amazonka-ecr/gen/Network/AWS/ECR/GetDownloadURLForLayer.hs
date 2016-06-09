@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the pre-signed Amazon S3 download URL corresponding to an
--- image layer. You can only get URLs for image layers that are referenced
--- in an image.
+-- Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.GetDownloadURLForLayer
     (
     -- * Creating a Request
@@ -78,14 +74,11 @@ getDownloadURLForLayer pRepositoryName_ pLayerDigest_ =
     , _gduflLayerDigest = pLayerDigest_
     }
 
--- | The AWS account ID associated with the registry that contains the image
--- layer to download. If you do not specify a registry, the default
--- registry is assumed.
+-- | The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
 gduflRegistryId :: Lens' GetDownloadURLForLayer (Maybe Text)
 gduflRegistryId = lens _gduflRegistryId (\ s a -> s{_gduflRegistryId = a});
 
--- | The name of the repository that is associated with the image layer to
--- download.
+-- | The name of the repository that is associated with the image layer to download.
 gduflRepositoryName :: Lens' GetDownloadURLForLayer Text
 gduflRepositoryName = lens _gduflRepositoryName (\ s a -> s{_gduflRepositoryName = a});
 

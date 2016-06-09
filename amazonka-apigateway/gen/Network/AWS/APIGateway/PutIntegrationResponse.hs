@@ -105,13 +105,7 @@ piResponseTemplates = lens _piResponseTemplates (\ s a -> s{_piResponseTemplates
 piSelectionPattern :: Lens' PutIntegrationResponse (Maybe Text)
 piSelectionPattern = lens _piSelectionPattern (\ s a -> s{_piSelectionPattern = a});
 
--- | Represents response parameters that can be read from the backend
--- response. Response parameters are represented as a key\/value map, with
--- a destination as the key and a source as the value. A destination must
--- match an existing response parameter in the < Method>. The source can be
--- a header from the backend response, or a static value. Static values are
--- specified using enclosing single quotes, and backend response headers
--- can be read using the pattern 'integration.response.header.{name}'.
+-- | Represents response parameters that can be read from the backend response. Response parameters are represented as a key\/value map, with a destination as the key and a source as the value. A destination must match an existing response parameter in the < Method>. The source can be a header from the backend response, or a static value. Static values are specified using enclosing single quotes, and backend response headers can be read using the pattern 'integration.response.header.{name}'.
 piResponseParameters :: Lens' PutIntegrationResponse (HashMap Text Text)
 piResponseParameters = lens _piResponseParameters (\ s a -> s{_piResponseParameters = a}) . _Default . _Map;
 
@@ -127,8 +121,7 @@ piResourceId = lens _piResourceId (\ s a -> s{_piResourceId = a});
 piHttpMethod :: Lens' PutIntegrationResponse Text
 piHttpMethod = lens _piHttpMethod (\ s a -> s{_piHttpMethod = a});
 
--- | Specifies the status code that is used to map the integration response
--- to an existing < MethodResponse>.
+-- | Specifies the status code that is used to map the integration response to an existing < MethodResponse>.
 piStatusCode :: Lens' PutIntegrationResponse Text
 piStatusCode = lens _piStatusCode (\ s a -> s{_piStatusCode = a});
 

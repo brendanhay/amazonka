@@ -86,20 +86,11 @@ getExport pRestAPIId_ pStageName_ pExportType_ =
     , _geExportType = pExportType_
     }
 
--- | A key-value map of query string parameters that specify properties of
--- the export, depending on the requested exportType. For exportType
--- \'swagger\', any combination of the following parameters are supported:
--- \'integrations\' will export x-amazon-apigateway-integration extensions
--- \'authorizers\' will export x-amazon-apigateway-authorizer extensions
--- \'postman\' will export with Postman extensions, allowing for import to
--- the Postman tool
+-- | A key-value map of query string parameters that specify properties of the export, depending on the requested exportType. For exportType \'swagger\', any combination of the following parameters are supported: \'integrations\' will export x-amazon-apigateway-integration extensions \'authorizers\' will export x-amazon-apigateway-authorizer extensions \'postman\' will export with Postman extensions, allowing for import to the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
 geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _Map;
 
--- | The content-type of the export, for example \'application\/json\'.
--- Currently \'application\/json\' and \'application\/yaml\' are supported
--- for exportType \'swagger\'. Should be specifed in the \'Accept\' header
--- for direct API requests.
+-- | The content-type of the export, for example \'application\/json\'. Currently \'application\/json\' and \'application\/yaml\' are supported for exportType \'swagger\'. Should be specifed in the \'Accept\' header for direct API requests.
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a});
 
@@ -149,8 +140,7 @@ instance ToQuery GetExport where
                  toQuery
                    (toQueryMap "entry" "key" "value" <$> _geParameters)]
 
--- | The binary blob response to < GetExport>, which contains the generated
--- SDK.
+-- | The binary blob response to < GetExport>, which contains the generated SDK.
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
@@ -190,8 +180,7 @@ gersBody = lens _gersBody (\ s a -> s{_gersBody = a});
 gersContentDisposition :: Lens' GetExportResponse (Maybe Text)
 gersContentDisposition = lens _gersContentDisposition (\ s a -> s{_gersContentDisposition = a});
 
--- | The content-type header value in the HTTP response. This will correspond
--- to a valid \'accept\' type in the request.
+-- | The content-type header value in the HTTP response. This will correspond to a valid \'accept\' type in the request.
 gersContentType :: Lens' GetExportResponse (Maybe Text)
 gersContentType = lens _gersContentType (\ s a -> s{_gersContentType = a});
 

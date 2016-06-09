@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheParameterGroups/ action returns a list of cache
--- parameter group descriptions. If a cache parameter group name is
--- specified, the list will contain only the descriptions for that group.
+-- The /DescribeCacheParameterGroups/ action returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list will contain only the descriptions for that group.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
@@ -81,16 +79,11 @@ describeCacheParameterGroups =
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -169,8 +162,7 @@ describeCacheParameterGroupsResponse pResponseStatus_ =
     , _dcpgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of cache parameter groups. Each element in the list contains
--- detailed information about one cache parameter group.
+-- | A list of cache parameter groups. Each element in the list contains detailed information about one cache parameter group.
 dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
 dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default . _Coerce;
 

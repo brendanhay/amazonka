@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a directory with an SNS topic. This establishes the directory
--- as a publisher to the specified SNS topic. You can then receive email or
--- text (SMS) messages when the status of your directory changes. You get
--- notified if your directory goes from an Active status to an Impaired or
--- Inoperable status. You also receive a notification when the directory
--- returns to an Active status.
+-- Associates a directory with an SNS topic. This establishes the directory as a publisher to the specified SNS topic. You can then receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an Impaired or Inoperable status. You also receive a notification when the directory returns to an Active status.
 module Network.AWS.DirectoryService.RegisterEventTopic
     (
     -- * Creating a Request
@@ -74,8 +69,7 @@ registerEventTopic pDirectoryId_ pTopicName_ =
 retDirectoryId :: Lens' RegisterEventTopic Text
 retDirectoryId = lens _retDirectoryId (\ s a -> s{_retDirectoryId = a});
 
--- | The SNS topic name to which the directory will publish status messages.
--- This SNS topic must be in the same region as the specified Directory ID.
+-- | The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
 retTopicName :: Lens' RegisterEventTopic Text
 retTopicName = lens _retTopicName (\ s a -> s{_retTopicName = a});
 

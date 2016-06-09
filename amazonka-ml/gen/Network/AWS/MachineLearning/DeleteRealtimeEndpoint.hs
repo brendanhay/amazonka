@@ -104,8 +104,7 @@ instance ToQuery DeleteRealtimeEndpoint where
 
 -- | Represents the output of an < DeleteRealtimeEndpoint> operation.
 --
--- The result contains the 'MLModelId' and the endpoint information for the
--- 'MLModel'.
+-- The result contains the 'MLModelId' and the endpoint information for the 'MLModel'.
 --
 -- /See:/ 'deleteRealtimeEndpointResponse' smart constructor.
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
@@ -137,8 +136,7 @@ deleteRealtimeEndpointResponse pResponseStatus_ =
 drersRealtimeEndpointInfo :: Lens' DeleteRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
 drersRealtimeEndpointInfo = lens _drersRealtimeEndpointInfo (\ s a -> s{_drersRealtimeEndpointInfo = a});
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'. This value
--- should be identical to the value of the 'MLModelId' in the request.
+-- | A user-supplied ID that uniquely identifies the 'MLModel'. This value should be identical to the value of the 'MLModelId' in the request.
 drersMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
 

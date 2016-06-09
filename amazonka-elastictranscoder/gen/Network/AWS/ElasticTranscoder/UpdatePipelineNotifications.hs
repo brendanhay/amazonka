@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- With the UpdatePipelineNotifications operation, you can update Amazon
--- Simple Notification Service (Amazon SNS) notifications for a pipeline.
+-- With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.
 --
--- When you update notifications for a pipeline, Elastic Transcoder returns
--- the values that you specified in the request.
+-- When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Creating a Request
@@ -72,31 +70,18 @@ updatePipelineNotifications pId_ pNotifications_ =
     , _upnNotifications = pNotifications_
     }
 
--- | The identifier of the pipeline for which you want to change notification
--- settings.
+-- | The identifier of the pipeline for which you want to change notification settings.
 upnId :: Lens' UpdatePipelineNotifications Text
 upnId = lens _upnId (\ s a -> s{_upnId = a});
 
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status.
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
 --
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
+-- To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
 --
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process jobs that are added to this
---     pipeline. This is the ARN that Amazon SNS returned when you created
---     the topic.
--- -   __Completed__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job.
---     This is the ARN that Amazon SNS returned when you created the topic.
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Completed__: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
 
@@ -156,8 +141,7 @@ updatePipelineNotificationsResponse pResponseStatus_ =
     , _upnrsResponseStatus = pResponseStatus_
     }
 
--- | A section of the response body that provides information about the
--- pipeline.
+-- | A section of the response body that provides information about the pipeline.
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 

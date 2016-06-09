@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Lambda function. The function metadata is created from the
--- request parameters, and the code for the function is provided by a .zip
--- file in the request body. If the function name already exists, the
--- operation will fail. Note that the function name is case-sensitive.
+-- Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the operation will fail. Note that the function name is case-sensitive.
 --
--- If you are using versioning, you can also publish a version of the
--- Lambda function you are creating using the 'Publish' parameter. For more
--- information about versioning, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using versioning, you can also publish a version of the Lambda function you are creating using the 'Publish' parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the 'lambda:CreateFunction'
--- action.
+-- This operation requires permission for the 'lambda:CreateFunction' action.
 module Network.AWS.Lambda.CreateFunction
     (
     -- * Creating a Request
@@ -131,43 +124,27 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     , _cfCode = pCode_
     }
 
--- | The amount of memory, in MB, your Lambda function is given. Lambda uses
--- this memory size to infer the amount of CPU and memory allocated to your
--- function. Your function use-case determines your CPU and memory
--- requirements. For example, a database operation might need less memory
--- compared to an image processing function. The default value is 128 MB.
--- The value must be a multiple of 64 MB.
+-- | The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 cfMemorySize :: Lens' CreateFunction (Maybe Natural)
 cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
 
--- | If your Lambda function accesses resources in a VPC, you provide this
--- parameter identifying the list of security group IDs and subnet IDs.
--- These must belong to the same VPC. You must provide at least one
--- security group and one subnet ID.
+-- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
 cfVPCConfig = lens _cfVPCConfig (\ s a -> s{_cfVPCConfig = a});
 
--- | The function execution time at which Lambda should terminate the
--- function. Because the execution time has cost implications, we recommend
--- you set this value based on your expected execution time. The default is
--- 3 seconds.
+-- | The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 cfTimeout :: Lens' CreateFunction (Maybe Natural)
 cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
 
--- | A short, user-defined function description. Lambda does not use this
--- value. Assign a meaningful description as you see fit.
+-- | A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
 cfDescription :: Lens' CreateFunction (Maybe Text)
 cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 
--- | This boolean parameter can be used to request AWS Lambda to create the
--- Lambda function and publish a version as an atomic operation.
+-- | This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
 cfPublish :: Lens' CreateFunction (Maybe Bool)
 cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
--- | The name you want to assign to the function you are uploading. The
--- function names appear in the console and are returned in the
--- < ListFunctions> API. Function names are used to specify functions to
--- other AWS Lambda APIs, such as < Invoke>.
+-- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the < ListFunctions> API. Function names are used to specify functions to other AWS Lambda APIs, such as < Invoke>.
 cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
@@ -175,18 +152,11 @@ cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
--- it executes your function to access any other Amazon Web Services (AWS)
--- resources. For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
+-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
 cfRole :: Lens' CreateFunction Text
 cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
 
--- | The function within your code that Lambda calls to begin execution. For
--- Node.js, it is the /module-name/./export/ value in your function. For
--- Java, it can be 'package.class-name::handler' or 'package.class-name'.
--- For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
+-- | The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/./export/ value in your function. For Java, it can be 'package.class-name::handler' or 'package.class-name'. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
 cfHandler :: Lens' CreateFunction Text
 cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
 

@@ -136,9 +136,7 @@ createStreamingDistributionResponse pResponseStatus_ =
 csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdrsETag = lens _csdrsETag (\ s a -> s{_csdrsETag = a});
 
--- | The fully qualified URI of the new streaming distribution resource just
--- created. For example:
--- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/streaming-distribution\/EGTXBD79H29TRA8.
+-- | The fully qualified URI of the new streaming distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/streaming-distribution\/EGTXBD79H29TRA8.
 csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a});
 

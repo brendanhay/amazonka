@@ -44,8 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list an environment\'s upcoming and in-progress managed
--- actions.
+-- | Request to list an environment\'s upcoming and in-progress managed actions.
 --
 -- /See:/ 'describeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'

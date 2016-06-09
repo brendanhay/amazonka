@@ -18,26 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes attributes of your AWS account. The following are the
--- supported account attributes:
+-- Describes attributes of your AWS account. The following are the supported account attributes:
 --
--- -   'supported-platforms': Indicates whether your account can launch
---     instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
+-- -   'supported-platforms': Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
 --
--- -   'default-vpc': The ID of the default VPC for your account, or
---     'none'.
+-- -   'default-vpc': The ID of the default VPC for your account, or 'none'.
 --
--- -   'max-instances': The maximum number of On-Demand instances that you
---     can run.
+-- -   'max-instances': The maximum number of On-Demand instances that you can run.
 --
--- -   'vpc-max-security-groups-per-interface': The maximum number of
---     security groups that you can assign to a network interface.
+-- -   'vpc-max-security-groups-per-interface': The maximum number of security groups that you can assign to a network interface.
 --
--- -   'max-elastic-ips': The maximum number of Elastic IP addresses that
---     you can allocate for use with EC2-Classic.
+-- -   'max-elastic-ips': The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic.
 --
--- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses
---     that you can allocate for use with EC2-VPC.
+-- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.
 --
 module Network.AWS.EC2.DescribeAccountAttributes
     (
@@ -90,10 +83,7 @@ describeAccountAttributes =
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 

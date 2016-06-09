@@ -142,7 +142,7 @@ dataPipeline =
     , _svcEndpoint = defaultEndpoint dataPipeline
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DataPipeline"
     , _svcRetry = retry
     }
   where
@@ -165,10 +165,7 @@ dataPipeline =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The request was not valid. Verify that your request was properly
--- formatted, that the signature was generated with the correct
--- credentials, and that you haven\'t exceeded any of the service limits
--- for your account.
+-- | The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven\'t exceeded any of the service limits for your account.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
@@ -180,8 +177,7 @@ _InternalServiceError = _ServiceError . hasCode "InternalServiceError"
 _PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException"
 
--- | The specified pipeline was not found. Verify that you used the correct
--- user and account identifiers.
+-- | The specified pipeline was not found. Verify that you used the correct user and account identifiers.
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Amazon EC2 Container Service container instances. Returns
--- metadata about registered and remaining resources on each container
--- instance requested.
+-- Describes Amazon EC2 Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request
@@ -67,14 +65,11 @@ describeContainerInstances =
     , _dciContainerInstances = mempty
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container instances to describe. If you do not specify a
--- cluster, the default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
 dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 
--- | A space-separated list of container instance IDs or full Amazon Resource
--- Name (ARN) entries.
+-- | A space-separated list of container instance IDs or full Amazon Resource Name (ARN) entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables multi-factor authentication (MFA) with the Remote Authentication
--- Dial In User Service (RADIUS) server for an AD Connector directory.
+-- Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
 module Network.AWS.DirectoryService.EnableRadius
     (
     -- * Creating a Request
@@ -72,8 +71,7 @@ enableRadius pDirectoryId_ pRadiusSettings_ =
 erDirectoryId :: Lens' EnableRadius Text
 erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS
--- server.
+-- | A < RadiusSettings> object that contains information about the RADIUS server.
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
 

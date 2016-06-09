@@ -111,8 +111,7 @@ lpMaxParts = lens _lpMaxParts (\ s a -> s{_lpMaxParts = a});
 lpRequestPayer :: Lens' ListParts (Maybe RequestPayer)
 lpRequestPayer = lens _lpRequestPayer (\ s a -> s{_lpRequestPayer = a});
 
--- | Specifies the part after which listing should begin. Only parts with
--- higher part numbers will be listed.
+-- | Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
 lpPartNumberMarker :: Lens' ListParts (Maybe Int)
 lpPartNumberMarker = lens _lpPartNumberMarker (\ s a -> s{_lpPartNumberMarker = a});
 
@@ -273,19 +272,15 @@ lprsInitiator = lens _lprsInitiator (\ s a -> s{_lprsInitiator = a});
 lprsBucket :: Lens' ListPartsResponse (Maybe BucketName)
 lprsBucket = lens _lprsBucket (\ s a -> s{_lprsBucket = a});
 
--- | Date when multipart upload will become eligible for abort operation by
--- lifecycle.
+-- | Date when multipart upload will become eligible for abort operation by lifecycle.
 lprsAbortDate :: Lens' ListPartsResponse (Maybe UTCTime)
 lprsAbortDate = lens _lprsAbortDate (\ s a -> s{_lprsAbortDate = a}) . mapping _Time;
 
--- | When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
+-- | When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
 lprsNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
 lprsNextPartNumberMarker = lens _lprsNextPartNumberMarker (\ s a -> s{_lprsNextPartNumberMarker = a});
 
--- | Id of the lifecycle rule that makes a multipart upload eligible for
--- abort operation.
+-- | Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
 lprsAbortRuleId :: Lens' ListPartsResponse (Maybe Text)
 lprsAbortRuleId = lens _lprsAbortRuleId (\ s a -> s{_lprsAbortRuleId = a});
 

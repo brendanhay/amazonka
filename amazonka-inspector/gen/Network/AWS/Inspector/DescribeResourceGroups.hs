@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the resource groups that are specified by the ARNs of the
--- resource groups.
+-- Describes the resource groups that are specified by the ARNs of the resource groups.
 module Network.AWS.Inspector.DescribeResourceGroups
     (
     -- * Creating a Request
@@ -139,8 +138,7 @@ drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus
 drgrsResourceGroups :: Lens' DescribeResourceGroupsResponse [ResourceGroup]
 drgrsResourceGroups = lens _drgrsResourceGroups (\ s a -> s{_drgrsResourceGroups = a}) . _Coerce;
 
--- | Resource group details that cannot be described. An error code is
--- provided for each failed item.
+-- | Resource group details that cannot be described. An error code is provided for each failed item.
 drgrsFailedItems :: Lens' DescribeResourceGroupsResponse (HashMap Text FailedItemDetails)
 drgrsFailedItems = lens _drgrsFailedItems (\ s a -> s{_drgrsFailedItems = a}) . _Map;
 

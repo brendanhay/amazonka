@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the current status and future status of all offerings purchased by
--- an AWS account. The response indicates how many offerings are currently
--- available and the offerings that will be available in the next period.
--- The API returns a 'NotEligible' error if the user is not permitted to
--- invoke the operation. Please contact
--- <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com>
--- if you believe that you should be able to invoke this operation.
+-- Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
 module Network.AWS.DeviceFarm.GetOfferingStatus
     (
     -- * Creating a Request
@@ -50,8 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the request to retrieve the offering status for the specified
--- customer or account.
+-- | Represents the request to retrieve the offering status for the specified customer or account.
 --
 -- /See:/ 'getOfferingStatus' smart constructor.
 newtype GetOfferingStatus = GetOfferingStatus'
@@ -70,9 +63,7 @@ getOfferingStatus =
     { _gosNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosNextToken :: Lens' GetOfferingStatus (Maybe Text)
 gosNextToken = lens _gosNextToken (\ s a -> s{_gosNextToken = a});
 
@@ -153,9 +144,7 @@ gosrsNextPeriod = lens _gosrsNextPeriod (\ s a -> s{_gosrsNextPeriod = a}) . _De
 gosrsCurrent :: Lens' GetOfferingStatusResponse (HashMap Text OfferingStatus)
 gosrsCurrent = lens _gosrsCurrent (\ s a -> s{_gosrsCurrent = a}) . _Default . _Map;
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosrsNextToken :: Lens' GetOfferingStatusResponse (Maybe Text)
 gosrsNextToken = lens _gosrsNextToken (\ s a -> s{_gosrsNextToken = a});
 

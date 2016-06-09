@@ -20,12 +20,9 @@
 --
 -- Assigns the DELETED status to a 'DataSource', rendering it unusable.
 --
--- After using the 'DeleteDataSource' operation, you can use the
--- < GetDataSource> operation to verify that the status of the 'DataSource'
--- changed to DELETED.
+-- After using the 'DeleteDataSource' operation, you can use the < GetDataSource> operation to verify that the status of the 'DataSource' changed to DELETED.
 --
--- __Caution:__ The results of the 'DeleteDataSource' operation are
--- irreversible.
+-- __Caution:__ The results of the 'DeleteDataSource' operation are irreversible.
 module Network.AWS.MachineLearning.DeleteDataSource
     (
     -- * Creating a Request
@@ -129,8 +126,7 @@ deleteDataSourceResponse pResponseStatus_ =
     , _ddsrsResponseStatus = pResponseStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the 'DataSource'. This value
--- should be identical to the value of the 'DataSourceID' in the request.
+-- | A user-supplied ID that uniquely identifies the 'DataSource'. This value should be identical to the value of the 'DataSourceID' in the request.
 ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a});
 

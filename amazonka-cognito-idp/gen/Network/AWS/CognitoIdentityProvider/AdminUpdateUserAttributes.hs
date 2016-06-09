@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified user\'s attributes, including developer
--- attributes, as an administrator. Works on any user.
+-- Updates the specified user\'s attributes, including developer attributes, as an administrator. Works on any user.
 module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     (
     -- * Creating a Request
@@ -44,8 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the request to update the user\'s attributes as an
--- administrator.
+-- | Represents the request to update the user\'s attributes as an administrator.
 --
 -- /See:/ 'adminUpdateUserAttributes' smart constructor.
 data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
@@ -74,8 +72,7 @@ adminUpdateUserAttributes pUserPoolId_ pUsername_ =
     , _auuaUserAttributes = mempty
     }
 
--- | The user pool ID for the user pool where you want to update user
--- attributes.
+-- | The user pool ID for the user pool where you want to update user attributes.
 auuaUserPoolId :: Lens' AdminUpdateUserAttributes Text
 auuaUserPoolId = lens _auuaUserPoolId (\ s a -> s{_auuaUserPoolId = a});
 
@@ -125,8 +122,7 @@ instance ToPath AdminUpdateUserAttributes where
 instance ToQuery AdminUpdateUserAttributes where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to update user
--- attributes as an administrator.
+-- | Represents the response from the server for the request to update user attributes as an administrator.
 --
 -- /See:/ 'adminUpdateUserAttributesResponse' smart constructor.
 newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'

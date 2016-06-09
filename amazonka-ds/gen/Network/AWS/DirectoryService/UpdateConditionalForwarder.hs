@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a conditional forwarder that has been set up for your AWS
--- directory.
+-- Updates a conditional forwarder that has been set up for your AWS directory.
 module Network.AWS.DirectoryService.UpdateConditionalForwarder
     (
     -- * Creating a Request
@@ -71,18 +70,15 @@ updateConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
     , _ucfDNSIPAddrs = mempty
     }
 
--- | The directory ID of the AWS directory for which to update the
--- conditional forwarder.
+-- | The directory ID of the AWS directory for which to update the conditional forwarder.
 ucfDirectoryId :: Lens' UpdateConditionalForwarder Text
 ucfDirectoryId = lens _ucfDirectoryId (\ s a -> s{_ucfDirectoryId = a});
 
--- | The fully qualified domain name (FQDN) of the remote domain with which
--- you will set up a trust relationship.
+-- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 ucfRemoteDomainName :: Lens' UpdateConditionalForwarder Text
 ucfRemoteDomainName = lens _ucfRemoteDomainName (\ s a -> s{_ucfRemoteDomainName = a});
 
--- | The updated IP addresses of the remote DNS server associated with the
--- conditional forwarder.
+-- | The updated IP addresses of the remote DNS server associated with the conditional forwarder.
 ucfDNSIPAddrs :: Lens' UpdateConditionalForwarder [Text]
 ucfDNSIPAddrs = lens _ucfDNSIPAddrs (\ s a -> s{_ucfDNSIPAddrs = a}) . _Coerce;
 

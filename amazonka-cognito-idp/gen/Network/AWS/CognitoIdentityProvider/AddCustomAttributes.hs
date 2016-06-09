@@ -67,8 +67,7 @@ addCustomAttributes pUserPoolId_ pCustomAttributes_ =
     , _acaCustomAttributes = _List1 # pCustomAttributes_
     }
 
--- | The user pool ID for the user pool where you want to add custom
--- attributes.
+-- | The user pool ID for the user pool where you want to add custom attributes.
 acaUserPoolId :: Lens' AddCustomAttributes Text
 acaUserPoolId = lens _acaUserPoolId (\ s a -> s{_acaUserPoolId = a});
 
@@ -112,8 +111,7 @@ instance ToPath AddCustomAttributes where
 instance ToQuery AddCustomAttributes where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to add custom
--- attributes.
+-- | Represents the response from the server for the request to add custom attributes.
 --
 -- /See:/ 'addCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'

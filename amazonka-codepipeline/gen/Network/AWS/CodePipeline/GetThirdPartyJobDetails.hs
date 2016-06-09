@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests the details of a job for a third party action. Only used for
--- partner actions.
+-- Requests the details of a job for a third party action. Only used for partner actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the Amazon S3 bucket used to store artifacts for the pipeline, if
--- the action requires access to that Amazon S3 bucket for input or output
--- artifacts. Additionally, this API returns any secret values defined for
--- the action.
+-- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
 module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     (
     -- * Creating a Request
@@ -79,9 +74,7 @@ getThirdPartyJobDetails pJobId_ pClientToken_ =
 gtpjdJobId :: Lens' GetThirdPartyJobDetails Text
 gtpjdJobId = lens _gtpjdJobId (\ s a -> s{_gtpjdJobId = a});
 
--- | The clientToken portion of the clientId and clientToken pair used to
--- verify that the calling entity is allowed access to the job and its
--- details.
+-- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 gtpjdClientToken :: Lens' GetThirdPartyJobDetails Text
 gtpjdClientToken = lens _gtpjdClientToken (\ s a -> s{_gtpjdClientToken = a});
 
@@ -146,8 +139,7 @@ getThirdPartyJobDetailsResponse pResponseStatus_ =
     , _gtpjdrsResponseStatus = pResponseStatus_
     }
 
--- | The details of the job, including any protected values defined for the
--- job.
+-- | The details of the job, including any protected values defined for the job.
 gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobDetails)
 gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a});
 

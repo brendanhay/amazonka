@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the user attribute verification code for the specified attribute
--- name.
+-- Gets the user attribute verification code for the specified attribute name.
 module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
     (
     -- * Creating a Request
@@ -68,13 +67,11 @@ getUserAttributeVerificationCode pAttributeName_ =
     , _guavcAttributeName = pAttributeName_
     }
 
--- | The access token returned by the server response to get the user
--- attribute verification code.
+-- | The access token returned by the server response to get the user attribute verification code.
 guavcAccessToken :: Lens' GetUserAttributeVerificationCode (Maybe Text)
 guavcAccessToken = lens _guavcAccessToken (\ s a -> s{_guavcAccessToken = a}) . mapping _Sensitive;
 
--- | The attribute name returned by the server response to get the user
--- attribute verification code.
+-- | The attribute name returned by the server response to get the user attribute verification code.
 guavcAttributeName :: Lens' GetUserAttributeVerificationCode Text
 guavcAttributeName = lens _guavcAttributeName (\ s a -> s{_guavcAttributeName = a});
 
@@ -121,8 +118,7 @@ instance ToQuery GetUserAttributeVerificationCode
          where
         toQuery = const mempty
 
--- | The verification code response returned by the server response to get
--- the user attribute verification code.
+-- | The verification code response returned by the server response to get the user attribute verification code.
 --
 -- /See:/ 'getUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
@@ -146,8 +142,7 @@ getUserAttributeVerificationCodeResponse pResponseStatus_ =
     , _guavcrsResponseStatus = pResponseStatus_
     }
 
--- | The code delivery details returned by the server response to get the
--- user attribute verification code.
+-- | The code delivery details returned by the server response to get the user attribute verification code.
 guavcrsCodeDeliveryDetails :: Lens' GetUserAttributeVerificationCodeResponse (Maybe CodeDeliveryDetailsType)
 guavcrsCodeDeliveryDetails = lens _guavcrsCodeDeliveryDetails (\ s a -> s{_guavcrsCodeDeliveryDetails = a});
 

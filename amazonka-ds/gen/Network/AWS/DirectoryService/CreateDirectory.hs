@@ -93,8 +93,7 @@ createDirectory pName_ pPassword_ pSize_ =
 cShortName :: Lens' CreateDirectory (Maybe Text)
 cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
--- | A < DirectoryVpcSettings> object that contains additional information
--- for the operation.
+-- | A < DirectoryVpcSettings> object that contains additional information for the operation.
 cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
 cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 
@@ -106,9 +105,7 @@ cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 cName :: Lens' CreateDirectory Text
 cName = lens _cName (\ s a -> s{_cName = a});
 
--- | The password for the directory administrator. The directory creation
--- process creates a directory administrator account with the username
--- 'Administrator' and this password.
+-- | The password for the directory administrator. The directory creation process creates a directory administrator account with the username 'Administrator' and this password.
 cPassword :: Lens' CreateDirectory Text
 cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive;
 

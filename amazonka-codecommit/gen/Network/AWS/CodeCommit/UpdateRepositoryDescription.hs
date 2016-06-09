@@ -20,12 +20,7 @@
 --
 -- Sets or changes the comment or description for a repository.
 --
--- The description field for a repository accepts all HTML characters and
--- all valid Unicode characters. Applications that do not HTML-encode the
--- description and display it in a web page could expose users to
--- potentially malicious code. Make sure that you HTML-encode the
--- description field in any application that uses this API to display the
--- repository description on a web page.
+-- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
 module Network.AWS.CodeCommit.UpdateRepositoryDescription
     (
     -- * Creating a Request
@@ -71,13 +66,11 @@ updateRepositoryDescription pRepositoryName_ =
     , _urdRepositoryName = pRepositoryName_
     }
 
--- | The new comment or description for the specified repository. Repository
--- descriptions are limited to 1,000 characters.
+-- | The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.
 urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
 urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a});
 
--- | The name of the repository to set or change the comment or description
--- for.
+-- | The name of the repository to set or change the comment or description for.
 urdRepositoryName :: Lens' UpdateRepositoryDescription Text
 urdRepositoryName = lens _urdRepositoryName (\ s a -> s{_urdRepositoryName = a});
 

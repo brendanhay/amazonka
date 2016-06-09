@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a Boolean value that indicates whether key rotation is enabled
--- for the specified key.
+-- Retrieves a Boolean value that indicates whether key rotation is enabled for the specified key.
 module Network.AWS.KMS.GetKeyRotationStatus
     (
     -- * Creating a Request
@@ -61,13 +60,10 @@ getKeyRotationStatus pKeyId_ =
     { _gkrsKeyId = pKeyId_
     }
 
--- | A unique identifier for the customer master key. This value can be a
--- globally unique identifier or the fully specified ARN to a key.
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
 --
--- -   Key ARN Example -
---     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
--- -   Globally Unique Key ID Example -
---     12345678-1234-1234-1234-123456789012
+-- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 

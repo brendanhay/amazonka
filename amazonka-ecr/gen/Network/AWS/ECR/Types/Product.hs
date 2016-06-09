@@ -48,22 +48,15 @@ authorizationData =
     , _adAuthorizationToken = Nothing
     }
 
--- | The Unix time in seconds and milliseconds when the authorization token
--- expires. Authorization tokens are valid for 12 hours.
+-- | The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
 adExpiresAt :: Lens' AuthorizationData (Maybe UTCTime)
 adExpiresAt = lens _adExpiresAt (\ s a -> s{_adExpiresAt = a}) . mapping _Time;
 
--- | The registry URL to use for this authorization token in a 'docker login'
--- command. The Amazon ECR registry URL format is
--- 'https:\/\/aws_account_id.dkr.ecr.region.amazonaws.com'. For example,
--- 'https:\/\/012345678910.dkr.ecr.us-east-1.amazonaws.com'..
+-- | The registry URL to use for this authorization token in a 'docker login' command. The Amazon ECR registry URL format is 'https:\/\/aws_account_id.dkr.ecr.region.amazonaws.com'. For example, 'https:\/\/012345678910.dkr.ecr.us-east-1.amazonaws.com'..
 adProxyEndpoint :: Lens' AuthorizationData (Maybe Text)
 adProxyEndpoint = lens _adProxyEndpoint (\ s a -> s{_adProxyEndpoint = a});
 
--- | A base64-encoded string that contains authorization data for the
--- specified Amazon ECR registry. When the string is decoded, it is
--- presented in the format 'user:password' for private registry
--- authentication using 'docker login'.
+-- | A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format 'user:password' for private registry authentication using 'docker login'.
 adAuthorizationToken :: Lens' AuthorizationData (Maybe Text)
 adAuthorizationToken = lens _adAuthorizationToken (\ s a -> s{_adAuthorizationToken = a});
 
@@ -114,8 +107,7 @@ image =
 iRegistryId :: Lens' Image (Maybe Text)
 iRegistryId = lens _iRegistryId (\ s a -> s{_iRegistryId = a});
 
--- | An object containing the image tag and image digest associated with an
--- image.
+-- | An object containing the image tag and image digest associated with an image.
 iImageId :: Lens' Image (Maybe ImageIdentifier)
 iImageId = lens _iImageId (\ s a -> s{_iImageId = a});
 
@@ -269,8 +261,7 @@ lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a});
 lLayerSize :: Lens' Layer (Maybe Integer)
 lLayerSize = lens _lLayerSize (\ s a -> s{_lLayerSize = a});
 
--- | The availability status of the image layer. Valid values are 'AVAILABLE'
--- and 'UNAVAILABLE'.
+-- | The availability status of the image layer. Valid values are 'AVAILABLE' and 'UNAVAILABLE'.
 lLayerAvailability :: Lens' Layer (Maybe LayerAvailability)
 lLayerAvailability = lens _lLayerAvailability (\ s a -> s{_lLayerAvailability = a});
 
@@ -366,21 +357,15 @@ repository =
     , _rRepositoryName = Nothing
     }
 
--- | The Amazon Resource Name (ARN) that identifies the repository. The ARN
--- contains the 'arn:aws:ecr' namespace, followed by the region of the
--- repository, the AWS account ID of the repository owner, the repository
--- namespace, and then the repository name. For example,
--- 'arn:aws:ecr:region:012345678910:repository\/test'.
+-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the 'arn:aws:ecr' namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, 'arn:aws:ecr:region:012345678910:repository\/test'.
 rRepositoryARN :: Lens' Repository (Maybe Text)
 rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
 
--- | The AWS account ID associated with the registry that contains the
--- repository.
+-- | The AWS account ID associated with the registry that contains the repository.
 rRegistryId :: Lens' Repository (Maybe Text)
 rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a});
 
--- | The URI for the repository. You can use this URI for Docker 'push' and
--- 'pull' operations.
+-- | The URI for the repository. You can use this URI for Docker 'push' and 'pull' operations.
 rRepositoryURI :: Lens' Repository (Maybe Text)
 rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a});
 

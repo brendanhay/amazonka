@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a player to a game session and creates a player session record. A
--- game session must be in an ACTIVE state, have a creation policy of
--- ALLOW_ALL, and have an open player slot before players can be added to
--- the session.
+-- Adds a player to a game session and creates a player session record. A game session must be in an ACTIVE state, have a creation policy of ALLOW_ALL, and have an open player slot before players can be added to the session.
 --
--- To create a player session, specify a game session ID and player ID. If
--- successful, the player is added to the game session and a new
--- < PlayerSession> object is returned.
+-- To create a player session, specify a game session ID and player ID. If successful, the player is added to the game session and a new < PlayerSession> object is returned.
 module Network.AWS.GameLift.CreatePlayerSession
     (
     -- * Creating a Request
@@ -75,8 +70,7 @@ createPlayerSession pGameSessionId_ pPlayerId_ =
     , _cPlayerId = pPlayerId_
     }
 
--- | Unique identifier for a game session. Specify the game session you want
--- to add a player to.
+-- | Unique identifier for a game session. Specify the game session you want to add a player to.
 cGameSessionId :: Lens' CreatePlayerSession Text
 cGameSessionId = lens _cGameSessionId (\ s a -> s{_cGameSessionId = a});
 

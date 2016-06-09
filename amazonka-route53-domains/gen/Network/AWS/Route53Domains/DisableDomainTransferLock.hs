@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation removes the transfer lock on the domain (specifically the
--- 'clientTransferProhibited' status) to allow domain transfers. We
--- recommend you refrain from performing this action unless you intend to
--- transfer the domain to a different registrar. Successful submission
--- returns an operation ID that you can use to track the progress and
--- completion of the action. If the request is not completed successfully,
--- the domain registrant will be notified by email.
+-- This operation removes the transfer lock on the domain (specifically the 'clientTransferProhibited' status) to allow domain transfers. We recommend you refrain from performing this action unless you intend to transfer the domain to a different registrar. Successful submission returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.DisableDomainTransferLock
     (
     -- * Creating a Request
@@ -74,9 +68,7 @@ disableDomainTransferLock pDomainName_ =
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
@@ -146,8 +138,7 @@ disableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
 ddtlrsResponseStatus :: Lens' DisableDomainTransferLockResponse Int
 ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\ s a -> s{_ddtlrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --

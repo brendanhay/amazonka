@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new log stream in the specified log group. The name of the log
--- stream must be unique within the log group. There is no limit on the
--- number of log streams that can exist in a log group.
+-- Creates a new log stream in the specified log group. The name of the log stream must be unique within the log group. There is no limit on the number of log streams that can exist in a log group.
 --
 -- You must use the following guidelines when naming a log stream:
 --

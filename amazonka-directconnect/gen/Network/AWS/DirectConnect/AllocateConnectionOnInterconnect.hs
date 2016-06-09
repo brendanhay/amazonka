@@ -20,8 +20,7 @@
 --
 -- Creates a hosted connection on an interconnect.
 --
--- Allocates a VLAN number and a specified amount of bandwidth for use by a
--- hosted connection on the given interconnect.
+-- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Creating a Request
@@ -56,8 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the AllocateConnectionOnInterconnect
--- operation.
+-- | Container for the parameters to the AllocateConnectionOnInterconnect operation.
 --
 -- /See:/ 'allocateConnectionOnInterconnect' smart constructor.
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
@@ -113,8 +111,7 @@ acoiBandwidth = lens _acoiBandwidth (\ s a -> s{_acoiBandwidth = a});
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
 acoiConnectionName = lens _acoiConnectionName (\ s a -> s{_acoiConnectionName = a});
 
--- | Numeric account Id of the customer for whom the connection will be
--- provisioned.
+-- | Numeric account Id of the customer for whom the connection will be provisioned.
 --
 -- Example: 123443215678
 --

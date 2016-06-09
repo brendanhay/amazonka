@@ -20,8 +20,7 @@
 --
 -- Creates one or more WorkSpaces.
 --
--- This operation is asynchronous and returns before the WorkSpaces are
--- created.
+-- This operation is asynchronous and returns before the WorkSpaces are created.
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
     -- * Creating a Request
@@ -133,17 +132,13 @@ createWorkspacesResponse pResponseStatus_ =
     , _cwrsResponseStatus = pResponseStatus_
     }
 
--- | An array of structures that represent the WorkSpaces that could not be
--- created.
+-- | An array of structures that represent the WorkSpaces that could not be created.
 cwrsFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
 cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
--- Because this operation is asynchronous, the identifier in 'WorkspaceId'
--- is not immediately available. If you immediately call
--- < DescribeWorkspaces> with this identifier, no information will be
--- returned.
+-- Because this operation is asynchronous, the identifier in 'WorkspaceId' is not immediately available. If you immediately call < DescribeWorkspaces> with this identifier, no information will be returned.
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 

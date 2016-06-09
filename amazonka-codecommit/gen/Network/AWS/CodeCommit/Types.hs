@@ -139,7 +139,7 @@ codeCommit =
     , _svcEndpoint = defaultEndpoint codeCommit
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CodeCommit"
     , _svcRetry = retry
     }
   where
@@ -162,9 +162,7 @@ codeCommit =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The region for the trigger target does not match the region for the
--- repository. Triggers must be created in the same region as the target
--- for the trigger.
+-- | The region for the trigger target does not match the region for the repository. Triggers must be created in the same region as the target for the trigger.
 _InvalidRepositoryTriggerRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerRegionException =
     _ServiceError . hasCode "InvalidRepositoryTriggerRegionException"
@@ -189,8 +187,7 @@ _InvalidRepositoryTriggerCustomDataException :: AsError a => Getting (First Serv
 _InvalidRepositoryTriggerCustomDataException =
     _ServiceError . hasCode "InvalidRepositoryTriggerCustomDataException"
 
--- | The maximum number of allowed repository names was exceeded. Currently,
--- this number is 25.
+-- | The maximum number of allowed repository names was exceeded. Currently, this number is 25.
 _MaximumRepositoryNamesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumRepositoryNamesExceededException =
     _ServiceError . hasCode "MaximumRepositoryNamesExceededException"
@@ -220,8 +217,7 @@ _BranchNameRequiredException :: AsError a => Getting (First ServiceError) a Serv
 _BranchNameRequiredException =
     _ServiceError . hasCode "BranchNameRequiredException"
 
--- | The list of triggers for the repository is required but was not
--- specified.
+-- | The list of triggers for the repository is required but was not specified.
 _RepositoryTriggersListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggersListRequiredException =
     _ServiceError . hasCode "RepositoryTriggersListRequiredException"
@@ -231,9 +227,7 @@ _EncryptionKeyUnavailableException :: AsError a => Getting (First ServiceError) 
 _EncryptionKeyUnavailableException =
     _ServiceError . hasCode "EncryptionKeyUnavailableException"
 
--- | The Amazon Resource Name (ARN) for the trigger is not valid for the
--- specified destination. The most common reason for this error is that the
--- ARN does not meet the requirements for the service type.
+-- | The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.
 _InvalidRepositoryTriggerDestinationARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerDestinationARNException =
     _ServiceError . hasCode "InvalidRepositoryTriggerDestinationArnException"
@@ -305,20 +299,17 @@ _CommitIdRequiredException =
 _InvalidCommitIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCommitIdException = _ServiceError . hasCode "InvalidCommitIdException"
 
--- | A destination ARN for the target service for the trigger is required but
--- was not specified.
+-- | A destination ARN for the target service for the trigger is required but was not specified.
 _RepositoryTriggerDestinationARNRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerDestinationARNRequiredException =
     _ServiceError . hasCode "RepositoryTriggerDestinationArnRequiredException"
 
--- | The specified commit does not exist or no commit was specified, and the
--- specified repository has no default branch.
+-- | The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
 _CommitDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _CommitDoesNotExistException =
     _ServiceError . hasCode "CommitDoesNotExistException"
 
--- | At least one branch name is required but was not specified in the
--- trigger configuration.
+-- | At least one branch name is required but was not specified in the trigger configuration.
 _RepositoryTriggerBranchNameListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerBranchNameListRequiredException =
     _ServiceError . hasCode "RepositoryTriggerBranchNameListRequiredException"
@@ -343,18 +334,14 @@ _RepositoryLimitExceededException :: AsError a => Getting (First ServiceError) a
 _RepositoryLimitExceededException =
     _ServiceError . hasCode "RepositoryLimitExceededException"
 
--- | One or more events specified for the trigger is not valid. Check to make
--- sure that all events specified match the requirements for allowed
--- events.
+-- | One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.
 _InvalidRepositoryTriggerEventsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerEventsException =
     _ServiceError . hasCode "InvalidRepositoryTriggerEventsException"
 
 -- | At least one specified repository name is not valid.
 --
--- This exception only occurs when a specified repository name is not
--- valid. Other exceptions occur when a required repository parameter is
--- missing, or when a specified repository does not exist.
+-- This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
 _InvalidRepositoryNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryNameException =
     _ServiceError . hasCode "InvalidRepositoryNameException"

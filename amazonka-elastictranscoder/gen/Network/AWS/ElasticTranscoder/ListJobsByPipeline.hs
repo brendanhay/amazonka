@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ListJobsByPipeline operation gets a list of the jobs currently in a
--- pipeline.
+-- The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.
 --
--- Elastic Transcoder returns all of the jobs currently in the specified
--- pipeline. The response body contains one element for each job that
--- satisfies the search criteria.
+-- Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains one element for each job that satisfies the search criteria.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
@@ -81,15 +78,11 @@ listJobsByPipeline pPipelineId_ =
     , _ljbpPipelineId = pPipelineId_
     }
 
--- | To list jobs in chronological order by the date and time that they were
--- submitted, enter 'true'. To list jobs in reverse chronological order,
--- enter 'false'.
+-- | To list jobs in chronological order by the date and time that they were submitted, enter 'true'. To list jobs in reverse chronological order, enter 'false'.
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use
--- 'pageToken' in subsequent 'GET' requests to get each successive page of
--- results.
+-- | When Elastic Transcoder returns more than one page of results, use 'pageToken' in subsequent 'GET' requests to get each successive page of results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
 
@@ -162,10 +155,7 @@ listJobsByPipelineResponse pResponseStatus_ =
     , _ljbprsResponseStatus = pResponseStatus_
     }
 
--- | A value that you use to access the second and subsequent pages of
--- results, if any. When the jobs in the specified pipeline fit on one page
--- or when you\'ve reached the last page of results, the value of
--- 'NextPageToken' is 'null'.
+-- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you\'ve reached the last page of results, the value of 'NextPageToken' is 'null'.
 ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a});
 

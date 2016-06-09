@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by an AWS Lambda function to deliver evaluation results to AWS
--- Config. This action is required in every AWS Lambda function that is
--- invoked by an AWS Config rule.
+-- Used by an AWS Lambda function to deliver evaluation results to AWS Config. This action is required in every AWS Lambda function that is invoked by an AWS Config rule.
 module Network.AWS.Config.PutEvaluations
     (
     -- * Creating a Request
@@ -67,14 +65,11 @@ putEvaluations pResultToken_ =
     , _peResultToken = pResultToken_
     }
 
--- | The assessments that the AWS Lambda function performs. Each evaluation
--- identifies an AWS resource and indicates whether it complies with the
--- AWS Config rule that invokes the AWS Lambda function.
+-- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 peEvaluations :: Lens' PutEvaluations [Evaluation]
 peEvaluations = lens _peEvaluations (\ s a -> s{_peEvaluations = a}) . _Default . _Coerce;
 
--- | An encrypted token that associates an evaluation with an AWS Config
--- rule. Identifies the rule and the event that triggered the evaluation
+-- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
 peResultToken :: Lens' PutEvaluations Text
 peResultToken = lens _peResultToken (\ s a -> s{_peResultToken = a});
 

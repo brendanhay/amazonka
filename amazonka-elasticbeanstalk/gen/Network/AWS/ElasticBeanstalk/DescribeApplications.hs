@@ -61,8 +61,7 @@ describeApplications =
     { _daApplicationNames = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to only include those with the specified names.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce;
 

@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the requested sending authorization policies for the given
--- identity (email address or domain). The policies are returned as a map
--- of policy names to policy contents. You can retrieve a maximum of 20
--- policies at a time.
+-- Returns the requested sending authorization policies for the given identity (email address or domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.
 --
--- This API is for the identity owner only. If you have not verified the
--- identity, this API will return an error.
+-- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to
--- authorize other senders to use its identities. For information about
--- using sending authorization, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.GetIdentityPolicies
@@ -78,19 +71,13 @@ getIdentityPolicies pIdentity_ =
     , _gipPolicyNames = mempty
     }
 
--- | The identity for which the policies will be retrieved. You can specify
--- an identity by using its name or by using its Amazon Resource Name
--- (ARN). Examples: 'user\'example.com', 'example.com',
--- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
+-- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: 'user\'example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 gipIdentity :: Lens' GetIdentityPolicies Text
 gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
 
--- | A list of the names of policies to be retrieved. You can retrieve a
--- maximum of 20 policies at a time. If you do not know the names of the
--- policies that are attached to the identity, you can use
--- 'ListIdentityPolicies'.
+-- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use 'ListIdentityPolicies'.
 gipPolicyNames :: Lens' GetIdentityPolicies [Text]
 gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
 

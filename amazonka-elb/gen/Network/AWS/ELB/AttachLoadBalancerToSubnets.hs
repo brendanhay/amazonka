@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more subnets to the set of configured subnets for the
--- specified load balancer.
+-- Adds one or more subnets to the set of configured subnets for the specified load balancer.
 --
--- The load balancer evenly distributes requests across all registered
--- subnets. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC>
--- in the /Elastic Load Balancing Developer Guide/.
+-- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Creating a Request
@@ -75,8 +71,7 @@ attachLoadBalancerToSubnets pLoadBalancerName_ =
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
 albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalancerName = a});
 
--- | The IDs of the subnets to add for the load balancer. You can add only
--- one subnet per Availability Zone.
+-- | The IDs of the subnets to add for the load balancer. You can add only one subnet per Availability Zone.
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a}) . _Coerce;
 

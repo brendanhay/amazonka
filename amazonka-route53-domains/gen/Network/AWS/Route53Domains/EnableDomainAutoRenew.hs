@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation configures Amazon Route 53 to automatically renew the
--- specified domain before the domain registration expires. The cost of
--- renewing your domain registration is billed to your AWS account.
+-- This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires. The cost of renewing your domain registration is billed to your AWS account.
 --
--- The period during which you can renew a domain name varies by TLD. For a
--- list of TLDs and their renewal policies, see
--- <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times \"Renewal, restoration, and deletion times\">
--- on the website for our registrar partner, Gandi. Route 53 requires that
--- you renew before the end of the renewal period that is listed on the
--- Gandi website so we can complete processing before the deadline.
+-- The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times \"Renewal, restoration, and deletion times\"> on the website for our registrar partner, Gandi. Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
     -- * Creating a Request

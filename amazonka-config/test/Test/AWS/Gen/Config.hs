@@ -28,145 +28,145 @@ import Test.AWS.Config.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetResourceConfigHistory $
+--         [ requestGetResourceConfigHistory $
 --             getResourceConfigHistory
 --
---         , testDescribeComplianceByConfigRule $
+--         , requestDescribeComplianceByConfigRule $
 --             describeComplianceByConfigRule
 --
---         , testStopConfigurationRecorder $
+--         , requestStopConfigurationRecorder $
 --             stopConfigurationRecorder
 --
---         , testDescribeConfigRules $
+--         , requestDescribeConfigRules $
 --             describeConfigRules
 --
---         , testPutConfigRule $
+--         , requestPutConfigRule $
 --             putConfigRule
 --
---         , testDeleteConfigRule $
+--         , requestDeleteConfigRule $
 --             deleteConfigRule
 --
---         , testGetComplianceDetailsByResource $
+--         , requestGetComplianceDetailsByResource $
 --             getComplianceDetailsByResource
 --
---         , testDeliverConfigSnapshot $
+--         , requestDeliverConfigSnapshot $
 --             deliverConfigSnapshot
 --
---         , testDescribeConfigRuleEvaluationStatus $
+--         , requestDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatus
 --
---         , testDescribeComplianceByResource $
+--         , requestDescribeComplianceByResource $
 --             describeComplianceByResource
 --
---         , testPutEvaluations $
+--         , requestPutEvaluations $
 --             putEvaluations
 --
---         , testDescribeConfigurationRecorders $
+--         , requestDescribeConfigurationRecorders $
 --             describeConfigurationRecorders
 --
---         , testStartConfigurationRecorder $
+--         , requestStartConfigurationRecorder $
 --             startConfigurationRecorder
 --
---         , testGetComplianceSummaryByConfigRule $
+--         , requestGetComplianceSummaryByConfigRule $
 --             getComplianceSummaryByConfigRule
 --
---         , testDescribeConfigurationRecorderStatus $
+--         , requestDescribeConfigurationRecorderStatus $
 --             describeConfigurationRecorderStatus
 --
---         , testPutConfigurationRecorder $
+--         , requestPutConfigurationRecorder $
 --             putConfigurationRecorder
 --
---         , testGetComplianceSummaryByResourceType $
+--         , requestGetComplianceSummaryByResourceType $
 --             getComplianceSummaryByResourceType
 --
---         , testDescribeDeliveryChannelStatus $
+--         , requestDescribeDeliveryChannelStatus $
 --             describeDeliveryChannelStatus
 --
---         , testPutDeliveryChannel $
+--         , requestPutDeliveryChannel $
 --             putDeliveryChannel
 --
---         , testGetComplianceDetailsByConfigRule $
+--         , requestGetComplianceDetailsByConfigRule $
 --             getComplianceDetailsByConfigRule
 --
---         , testDeleteDeliveryChannel $
+--         , requestDeleteDeliveryChannel $
 --             deleteDeliveryChannel
 --
---         , testListDiscoveredResources $
+--         , requestListDiscoveredResources $
 --             listDiscoveredResources
 --
---         , testDescribeDeliveryChannels $
+--         , requestDescribeDeliveryChannels $
 --             describeDeliveryChannels
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetResourceConfigHistoryResponse $
+--         [ responseGetResourceConfigHistory $
 --             getResourceConfigHistoryResponse
 --
---         , testDescribeComplianceByConfigRuleResponse $
+--         , responseDescribeComplianceByConfigRule $
 --             describeComplianceByConfigRuleResponse
 --
---         , testStopConfigurationRecorderResponse $
+--         , responseStopConfigurationRecorder $
 --             stopConfigurationRecorderResponse
 --
---         , testDescribeConfigRulesResponse $
+--         , responseDescribeConfigRules $
 --             describeConfigRulesResponse
 --
---         , testPutConfigRuleResponse $
+--         , responsePutConfigRule $
 --             putConfigRuleResponse
 --
---         , testDeleteConfigRuleResponse $
+--         , responseDeleteConfigRule $
 --             deleteConfigRuleResponse
 --
---         , testGetComplianceDetailsByResourceResponse $
+--         , responseGetComplianceDetailsByResource $
 --             getComplianceDetailsByResourceResponse
 --
---         , testDeliverConfigSnapshotResponse $
+--         , responseDeliverConfigSnapshot $
 --             deliverConfigSnapshotResponse
 --
---         , testDescribeConfigRuleEvaluationStatusResponse $
+--         , responseDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatusResponse
 --
---         , testDescribeComplianceByResourceResponse $
+--         , responseDescribeComplianceByResource $
 --             describeComplianceByResourceResponse
 --
---         , testPutEvaluationsResponse $
+--         , responsePutEvaluations $
 --             putEvaluationsResponse
 --
---         , testDescribeConfigurationRecordersResponse $
+--         , responseDescribeConfigurationRecorders $
 --             describeConfigurationRecordersResponse
 --
---         , testStartConfigurationRecorderResponse $
+--         , responseStartConfigurationRecorder $
 --             startConfigurationRecorderResponse
 --
---         , testGetComplianceSummaryByConfigRuleResponse $
+--         , responseGetComplianceSummaryByConfigRule $
 --             getComplianceSummaryByConfigRuleResponse
 --
---         , testDescribeConfigurationRecorderStatusResponse $
+--         , responseDescribeConfigurationRecorderStatus $
 --             describeConfigurationRecorderStatusResponse
 --
---         , testPutConfigurationRecorderResponse $
+--         , responsePutConfigurationRecorder $
 --             putConfigurationRecorderResponse
 --
---         , testGetComplianceSummaryByResourceTypeResponse $
+--         , responseGetComplianceSummaryByResourceType $
 --             getComplianceSummaryByResourceTypeResponse
 --
---         , testDescribeDeliveryChannelStatusResponse $
+--         , responseDescribeDeliveryChannelStatus $
 --             describeDeliveryChannelStatusResponse
 --
---         , testPutDeliveryChannelResponse $
+--         , responsePutDeliveryChannel $
 --             putDeliveryChannelResponse
 --
---         , testGetComplianceDetailsByConfigRuleResponse $
+--         , responseGetComplianceDetailsByConfigRule $
 --             getComplianceDetailsByConfigRuleResponse
 --
---         , testDeleteDeliveryChannelResponse $
+--         , responseDeleteDeliveryChannel $
 --             deleteDeliveryChannelResponse
 --
---         , testListDiscoveredResourcesResponse $
+--         , responseListDiscoveredResources $
 --             listDiscoveredResourcesResponse
 --
---         , testDescribeDeliveryChannelsResponse $
+--         , responseDescribeDeliveryChannels $
 --             describeDeliveryChannelsResponse
 --
 --           ]
@@ -174,279 +174,279 @@ import Test.AWS.Config.Internal
 
 -- Requests
 
-testGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
-testGetResourceConfigHistory = req
+requestGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
+requestGetResourceConfigHistory = req
     "GetResourceConfigHistory"
     "fixture/GetResourceConfigHistory.yaml"
 
-testDescribeComplianceByConfigRule :: DescribeComplianceByConfigRule -> TestTree
-testDescribeComplianceByConfigRule = req
+requestDescribeComplianceByConfigRule :: DescribeComplianceByConfigRule -> TestTree
+requestDescribeComplianceByConfigRule = req
     "DescribeComplianceByConfigRule"
     "fixture/DescribeComplianceByConfigRule.yaml"
 
-testStopConfigurationRecorder :: StopConfigurationRecorder -> TestTree
-testStopConfigurationRecorder = req
+requestStopConfigurationRecorder :: StopConfigurationRecorder -> TestTree
+requestStopConfigurationRecorder = req
     "StopConfigurationRecorder"
     "fixture/StopConfigurationRecorder.yaml"
 
-testDescribeConfigRules :: DescribeConfigRules -> TestTree
-testDescribeConfigRules = req
+requestDescribeConfigRules :: DescribeConfigRules -> TestTree
+requestDescribeConfigRules = req
     "DescribeConfigRules"
     "fixture/DescribeConfigRules.yaml"
 
-testPutConfigRule :: PutConfigRule -> TestTree
-testPutConfigRule = req
+requestPutConfigRule :: PutConfigRule -> TestTree
+requestPutConfigRule = req
     "PutConfigRule"
     "fixture/PutConfigRule.yaml"
 
-testDeleteConfigRule :: DeleteConfigRule -> TestTree
-testDeleteConfigRule = req
+requestDeleteConfigRule :: DeleteConfigRule -> TestTree
+requestDeleteConfigRule = req
     "DeleteConfigRule"
     "fixture/DeleteConfigRule.yaml"
 
-testGetComplianceDetailsByResource :: GetComplianceDetailsByResource -> TestTree
-testGetComplianceDetailsByResource = req
+requestGetComplianceDetailsByResource :: GetComplianceDetailsByResource -> TestTree
+requestGetComplianceDetailsByResource = req
     "GetComplianceDetailsByResource"
     "fixture/GetComplianceDetailsByResource.yaml"
 
-testDeliverConfigSnapshot :: DeliverConfigSnapshot -> TestTree
-testDeliverConfigSnapshot = req
+requestDeliverConfigSnapshot :: DeliverConfigSnapshot -> TestTree
+requestDeliverConfigSnapshot = req
     "DeliverConfigSnapshot"
     "fixture/DeliverConfigSnapshot.yaml"
 
-testDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatus -> TestTree
-testDescribeConfigRuleEvaluationStatus = req
+requestDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatus -> TestTree
+requestDescribeConfigRuleEvaluationStatus = req
     "DescribeConfigRuleEvaluationStatus"
     "fixture/DescribeConfigRuleEvaluationStatus.yaml"
 
-testDescribeComplianceByResource :: DescribeComplianceByResource -> TestTree
-testDescribeComplianceByResource = req
+requestDescribeComplianceByResource :: DescribeComplianceByResource -> TestTree
+requestDescribeComplianceByResource = req
     "DescribeComplianceByResource"
     "fixture/DescribeComplianceByResource.yaml"
 
-testPutEvaluations :: PutEvaluations -> TestTree
-testPutEvaluations = req
+requestPutEvaluations :: PutEvaluations -> TestTree
+requestPutEvaluations = req
     "PutEvaluations"
     "fixture/PutEvaluations.yaml"
 
-testDescribeConfigurationRecorders :: DescribeConfigurationRecorders -> TestTree
-testDescribeConfigurationRecorders = req
+requestDescribeConfigurationRecorders :: DescribeConfigurationRecorders -> TestTree
+requestDescribeConfigurationRecorders = req
     "DescribeConfigurationRecorders"
     "fixture/DescribeConfigurationRecorders.yaml"
 
-testStartConfigurationRecorder :: StartConfigurationRecorder -> TestTree
-testStartConfigurationRecorder = req
+requestStartConfigurationRecorder :: StartConfigurationRecorder -> TestTree
+requestStartConfigurationRecorder = req
     "StartConfigurationRecorder"
     "fixture/StartConfigurationRecorder.yaml"
 
-testGetComplianceSummaryByConfigRule :: GetComplianceSummaryByConfigRule -> TestTree
-testGetComplianceSummaryByConfigRule = req
+requestGetComplianceSummaryByConfigRule :: GetComplianceSummaryByConfigRule -> TestTree
+requestGetComplianceSummaryByConfigRule = req
     "GetComplianceSummaryByConfigRule"
     "fixture/GetComplianceSummaryByConfigRule.yaml"
 
-testDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus -> TestTree
-testDescribeConfigurationRecorderStatus = req
+requestDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus -> TestTree
+requestDescribeConfigurationRecorderStatus = req
     "DescribeConfigurationRecorderStatus"
     "fixture/DescribeConfigurationRecorderStatus.yaml"
 
-testPutConfigurationRecorder :: PutConfigurationRecorder -> TestTree
-testPutConfigurationRecorder = req
+requestPutConfigurationRecorder :: PutConfigurationRecorder -> TestTree
+requestPutConfigurationRecorder = req
     "PutConfigurationRecorder"
     "fixture/PutConfigurationRecorder.yaml"
 
-testGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceType -> TestTree
-testGetComplianceSummaryByResourceType = req
+requestGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceType -> TestTree
+requestGetComplianceSummaryByResourceType = req
     "GetComplianceSummaryByResourceType"
     "fixture/GetComplianceSummaryByResourceType.yaml"
 
-testDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
-testDescribeDeliveryChannelStatus = req
+requestDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
+requestDescribeDeliveryChannelStatus = req
     "DescribeDeliveryChannelStatus"
     "fixture/DescribeDeliveryChannelStatus.yaml"
 
-testPutDeliveryChannel :: PutDeliveryChannel -> TestTree
-testPutDeliveryChannel = req
+requestPutDeliveryChannel :: PutDeliveryChannel -> TestTree
+requestPutDeliveryChannel = req
     "PutDeliveryChannel"
     "fixture/PutDeliveryChannel.yaml"
 
-testGetComplianceDetailsByConfigRule :: GetComplianceDetailsByConfigRule -> TestTree
-testGetComplianceDetailsByConfigRule = req
+requestGetComplianceDetailsByConfigRule :: GetComplianceDetailsByConfigRule -> TestTree
+requestGetComplianceDetailsByConfigRule = req
     "GetComplianceDetailsByConfigRule"
     "fixture/GetComplianceDetailsByConfigRule.yaml"
 
-testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
-testDeleteDeliveryChannel = req
+requestDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
+requestDeleteDeliveryChannel = req
     "DeleteDeliveryChannel"
     "fixture/DeleteDeliveryChannel.yaml"
 
-testListDiscoveredResources :: ListDiscoveredResources -> TestTree
-testListDiscoveredResources = req
+requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
+requestListDiscoveredResources = req
     "ListDiscoveredResources"
     "fixture/ListDiscoveredResources.yaml"
 
-testDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
-testDescribeDeliveryChannels = req
+requestDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
+requestDescribeDeliveryChannels = req
     "DescribeDeliveryChannels"
     "fixture/DescribeDeliveryChannels.yaml"
 
 -- Responses
 
-testGetResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse -> TestTree
-testGetResourceConfigHistoryResponse = res
+responseGetResourceConfigHistory :: GetResourceConfigHistoryResponse -> TestTree
+responseGetResourceConfigHistory = res
     "GetResourceConfigHistoryResponse"
     "fixture/GetResourceConfigHistoryResponse.proto"
     config
     (Proxy :: Proxy GetResourceConfigHistory)
 
-testDescribeComplianceByConfigRuleResponse :: DescribeComplianceByConfigRuleResponse -> TestTree
-testDescribeComplianceByConfigRuleResponse = res
+responseDescribeComplianceByConfigRule :: DescribeComplianceByConfigRuleResponse -> TestTree
+responseDescribeComplianceByConfigRule = res
     "DescribeComplianceByConfigRuleResponse"
     "fixture/DescribeComplianceByConfigRuleResponse.proto"
     config
     (Proxy :: Proxy DescribeComplianceByConfigRule)
 
-testStopConfigurationRecorderResponse :: StopConfigurationRecorderResponse -> TestTree
-testStopConfigurationRecorderResponse = res
+responseStopConfigurationRecorder :: StopConfigurationRecorderResponse -> TestTree
+responseStopConfigurationRecorder = res
     "StopConfigurationRecorderResponse"
     "fixture/StopConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy StopConfigurationRecorder)
 
-testDescribeConfigRulesResponse :: DescribeConfigRulesResponse -> TestTree
-testDescribeConfigRulesResponse = res
+responseDescribeConfigRules :: DescribeConfigRulesResponse -> TestTree
+responseDescribeConfigRules = res
     "DescribeConfigRulesResponse"
     "fixture/DescribeConfigRulesResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigRules)
 
-testPutConfigRuleResponse :: PutConfigRuleResponse -> TestTree
-testPutConfigRuleResponse = res
+responsePutConfigRule :: PutConfigRuleResponse -> TestTree
+responsePutConfigRule = res
     "PutConfigRuleResponse"
     "fixture/PutConfigRuleResponse.proto"
     config
     (Proxy :: Proxy PutConfigRule)
 
-testDeleteConfigRuleResponse :: DeleteConfigRuleResponse -> TestTree
-testDeleteConfigRuleResponse = res
+responseDeleteConfigRule :: DeleteConfigRuleResponse -> TestTree
+responseDeleteConfigRule = res
     "DeleteConfigRuleResponse"
     "fixture/DeleteConfigRuleResponse.proto"
     config
     (Proxy :: Proxy DeleteConfigRule)
 
-testGetComplianceDetailsByResourceResponse :: GetComplianceDetailsByResourceResponse -> TestTree
-testGetComplianceDetailsByResourceResponse = res
+responseGetComplianceDetailsByResource :: GetComplianceDetailsByResourceResponse -> TestTree
+responseGetComplianceDetailsByResource = res
     "GetComplianceDetailsByResourceResponse"
     "fixture/GetComplianceDetailsByResourceResponse.proto"
     config
     (Proxy :: Proxy GetComplianceDetailsByResource)
 
-testDeliverConfigSnapshotResponse :: DeliverConfigSnapshotResponse -> TestTree
-testDeliverConfigSnapshotResponse = res
+responseDeliverConfigSnapshot :: DeliverConfigSnapshotResponse -> TestTree
+responseDeliverConfigSnapshot = res
     "DeliverConfigSnapshotResponse"
     "fixture/DeliverConfigSnapshotResponse.proto"
     config
     (Proxy :: Proxy DeliverConfigSnapshot)
 
-testDescribeConfigRuleEvaluationStatusResponse :: DescribeConfigRuleEvaluationStatusResponse -> TestTree
-testDescribeConfigRuleEvaluationStatusResponse = res
+responseDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatusResponse -> TestTree
+responseDescribeConfigRuleEvaluationStatus = res
     "DescribeConfigRuleEvaluationStatusResponse"
     "fixture/DescribeConfigRuleEvaluationStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigRuleEvaluationStatus)
 
-testDescribeComplianceByResourceResponse :: DescribeComplianceByResourceResponse -> TestTree
-testDescribeComplianceByResourceResponse = res
+responseDescribeComplianceByResource :: DescribeComplianceByResourceResponse -> TestTree
+responseDescribeComplianceByResource = res
     "DescribeComplianceByResourceResponse"
     "fixture/DescribeComplianceByResourceResponse.proto"
     config
     (Proxy :: Proxy DescribeComplianceByResource)
 
-testPutEvaluationsResponse :: PutEvaluationsResponse -> TestTree
-testPutEvaluationsResponse = res
+responsePutEvaluations :: PutEvaluationsResponse -> TestTree
+responsePutEvaluations = res
     "PutEvaluationsResponse"
     "fixture/PutEvaluationsResponse.proto"
     config
     (Proxy :: Proxy PutEvaluations)
 
-testDescribeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse -> TestTree
-testDescribeConfigurationRecordersResponse = res
+responseDescribeConfigurationRecorders :: DescribeConfigurationRecordersResponse -> TestTree
+responseDescribeConfigurationRecorders = res
     "DescribeConfigurationRecordersResponse"
     "fixture/DescribeConfigurationRecordersResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigurationRecorders)
 
-testStartConfigurationRecorderResponse :: StartConfigurationRecorderResponse -> TestTree
-testStartConfigurationRecorderResponse = res
+responseStartConfigurationRecorder :: StartConfigurationRecorderResponse -> TestTree
+responseStartConfigurationRecorder = res
     "StartConfigurationRecorderResponse"
     "fixture/StartConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy StartConfigurationRecorder)
 
-testGetComplianceSummaryByConfigRuleResponse :: GetComplianceSummaryByConfigRuleResponse -> TestTree
-testGetComplianceSummaryByConfigRuleResponse = res
+responseGetComplianceSummaryByConfigRule :: GetComplianceSummaryByConfigRuleResponse -> TestTree
+responseGetComplianceSummaryByConfigRule = res
     "GetComplianceSummaryByConfigRuleResponse"
     "fixture/GetComplianceSummaryByConfigRuleResponse.proto"
     config
     (Proxy :: Proxy GetComplianceSummaryByConfigRule)
 
-testDescribeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse -> TestTree
-testDescribeConfigurationRecorderStatusResponse = res
+responseDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatusResponse -> TestTree
+responseDescribeConfigurationRecorderStatus = res
     "DescribeConfigurationRecorderStatusResponse"
     "fixture/DescribeConfigurationRecorderStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigurationRecorderStatus)
 
-testPutConfigurationRecorderResponse :: PutConfigurationRecorderResponse -> TestTree
-testPutConfigurationRecorderResponse = res
+responsePutConfigurationRecorder :: PutConfigurationRecorderResponse -> TestTree
+responsePutConfigurationRecorder = res
     "PutConfigurationRecorderResponse"
     "fixture/PutConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy PutConfigurationRecorder)
 
-testGetComplianceSummaryByResourceTypeResponse :: GetComplianceSummaryByResourceTypeResponse -> TestTree
-testGetComplianceSummaryByResourceTypeResponse = res
+responseGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceTypeResponse -> TestTree
+responseGetComplianceSummaryByResourceType = res
     "GetComplianceSummaryByResourceTypeResponse"
     "fixture/GetComplianceSummaryByResourceTypeResponse.proto"
     config
     (Proxy :: Proxy GetComplianceSummaryByResourceType)
 
-testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
-testDescribeDeliveryChannelStatusResponse = res
+responseDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatusResponse -> TestTree
+responseDescribeDeliveryChannelStatus = res
     "DescribeDeliveryChannelStatusResponse"
     "fixture/DescribeDeliveryChannelStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeDeliveryChannelStatus)
 
-testPutDeliveryChannelResponse :: PutDeliveryChannelResponse -> TestTree
-testPutDeliveryChannelResponse = res
+responsePutDeliveryChannel :: PutDeliveryChannelResponse -> TestTree
+responsePutDeliveryChannel = res
     "PutDeliveryChannelResponse"
     "fixture/PutDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy PutDeliveryChannel)
 
-testGetComplianceDetailsByConfigRuleResponse :: GetComplianceDetailsByConfigRuleResponse -> TestTree
-testGetComplianceDetailsByConfigRuleResponse = res
+responseGetComplianceDetailsByConfigRule :: GetComplianceDetailsByConfigRuleResponse -> TestTree
+responseGetComplianceDetailsByConfigRule = res
     "GetComplianceDetailsByConfigRuleResponse"
     "fixture/GetComplianceDetailsByConfigRuleResponse.proto"
     config
     (Proxy :: Proxy GetComplianceDetailsByConfigRule)
 
-testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
-testDeleteDeliveryChannelResponse = res
+responseDeleteDeliveryChannel :: DeleteDeliveryChannelResponse -> TestTree
+responseDeleteDeliveryChannel = res
     "DeleteDeliveryChannelResponse"
     "fixture/DeleteDeliveryChannelResponse.proto"
     config
     (Proxy :: Proxy DeleteDeliveryChannel)
 
-testListDiscoveredResourcesResponse :: ListDiscoveredResourcesResponse -> TestTree
-testListDiscoveredResourcesResponse = res
+responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
+responseListDiscoveredResources = res
     "ListDiscoveredResourcesResponse"
     "fixture/ListDiscoveredResourcesResponse.proto"
     config
     (Proxy :: Proxy ListDiscoveredResources)
 
-testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
-testDescribeDeliveryChannelsResponse = res
+responseDescribeDeliveryChannels :: DescribeDeliveryChannelsResponse -> TestTree
+responseDescribeDeliveryChannels = res
     "DescribeDeliveryChannelsResponse"
     "fixture/DescribeDeliveryChannelsResponse.proto"
     config

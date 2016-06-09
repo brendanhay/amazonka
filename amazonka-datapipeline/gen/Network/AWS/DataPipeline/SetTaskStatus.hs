@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call 'SetTaskStatus' to notify AWS Data Pipeline that a
--- task is completed and provide information about the final status. A task
--- runner makes this call regardless of whether the task was sucessful. A
--- task runner does not need to call 'SetTaskStatus' for tasks that are
--- canceled by the web service during a call to < ReportTaskProgress>.
+-- Task runners call 'SetTaskStatus' to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call 'SetTaskStatus' for tasks that are canceled by the web service during a call to < ReportTaskProgress>.
 module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Creating a Request
@@ -86,34 +82,23 @@ setTaskStatus pTaskId_ pTaskStatus_ =
     , _stsTaskStatus = pTaskStatus_
     }
 
--- | If an error occurred during the task, this value specifies the stack
--- trace associated with the error. This value is set on the physical
--- attempt object. It is used to display error information to the user. The
--- web service does not parse this value.
+-- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 stsErrorStackTrace = lens _stsErrorStackTrace (\ s a -> s{_stsErrorStackTrace = a});
 
--- | If an error occurred during the task, this value specifies the error
--- code. This value is set on the physical attempt object. It is used to
--- display error information to the user. It should not start with string
--- \"Service_\" which is reserved by the system.
+-- | If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.
 stsErrorId :: Lens' SetTaskStatus (Maybe Text)
 stsErrorId = lens _stsErrorId (\ s a -> s{_stsErrorId = a});
 
--- | If an error occurred during the task, this value specifies a text
--- description of the error. This value is set on the physical attempt
--- object. It is used to display error information to the user. The web
--- service does not parse this value.
+-- | If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
 stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a});
 
--- | The ID of the task assigned to the task runner. This value is provided
--- in the response for < PollForTask>.
+-- | The ID of the task assigned to the task runner. This value is provided in the response for < PollForTask>.
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
 
--- | If 'FINISHED', the task successfully completed. If 'FAILED', the task
--- ended unsuccessfully. Preconditions use false.
+-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task ended unsuccessfully. Preconditions use false.
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
 

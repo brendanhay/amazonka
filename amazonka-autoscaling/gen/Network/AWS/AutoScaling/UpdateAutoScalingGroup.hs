@@ -20,28 +20,15 @@
 --
 -- Updates the configuration for the specified Auto Scaling group.
 --
--- To update an Auto Scaling group with a launch configuration with
--- 'InstanceMonitoring' set to 'False', you must first disable the
--- collection of group metrics. Otherwise, you will get an error. If you
--- have previously enabled the collection of group metrics, you can disable
--- it using < DisableMetricsCollection>.
+-- To update an Auto Scaling group with a launch configuration with 'InstanceMonitoring' set to 'False', you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using < DisableMetricsCollection>.
 --
--- The new settings are registered upon the completion of this call. Any
--- launch configuration settings take effect on any triggers after this
--- call returns. Scaling activities that are currently in progress aren\'t
--- affected.
+-- The new settings are registered upon the completion of this call. Any launch configuration settings take effect on any triggers after this call returns. Scaling activities that are currently in progress aren\'t affected.
 --
 -- Note the following:
 --
--- -   If you specify a new value for 'MinSize' without specifying a value
---     for 'DesiredCapacity', and the new 'MinSize' is larger than the
---     current size of the group, we implicitly call < SetDesiredCapacity>
---     to set the size of the group to the new value of 'MinSize'.
+-- -   If you specify a new value for 'MinSize' without specifying a value for 'DesiredCapacity', and the new 'MinSize' is larger than the current size of the group, we implicitly call < SetDesiredCapacity> to set the size of the group to the new value of 'MinSize'.
 --
--- -   If you specify a new value for 'MaxSize' without specifying a value
---     for 'DesiredCapacity', and the new 'MaxSize' is smaller than the
---     current size of the group, we implicitly call < SetDesiredCapacity>
---     to set the size of the group to the new value of 'MaxSize'.
+-- -   If you specify a new value for 'MaxSize' without specifying a value for 'DesiredCapacity', and the new 'MaxSize' is smaller than the current size of the group, we implicitly call < SetDesiredCapacity> to set the size of the group to the new value of 'MaxSize'.
 --
 -- -   All other optional parameters are left unchanged if not specified.
 --
@@ -143,50 +130,33 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
     , _uasgAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | A standalone termination policy or a list of termination policies used
--- to select the instance to terminate. The policies are executed in the
--- order that they are listed.
+-- | A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling Developer Guide/.
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce;
 
--- | The amount of time, in seconds, that Auto Scaling waits before checking
--- the health status of an EC2 instance that has come into service. The
--- default is 300.
+-- | The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default is 300.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling Developer Guide/.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
 
--- | Indicates whether newly launched instances are protected from
--- termination by Auto Scaling when scaling in.
+-- | Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
 uasgNewInstancesProtectedFromScaleIn :: Lens' UpdateAutoScalingGroup (Maybe Bool)
 uasgNewInstancesProtectedFromScaleIn = lens _uasgNewInstancesProtectedFromScaleIn (\ s a -> s{_uasgNewInstancesProtectedFromScaleIn = a});
 
--- | The ID of the subnet, if you are launching into a VPC. You can specify
--- several subnets in a comma-separated list.
+-- | The ID of the subnet, if you are launching into a VPC. You can specify several subnets in a comma-separated list.
 --
--- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure
--- that the subnets\' Availability Zones match the values you specify for
--- 'AvailabilityZones'.
+-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the subnets\' Availability Zones match the values you specify for 'AvailabilityZones'.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling Developer Guide/.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});
 
--- | The amount of time, in seconds, after a scaling activity completes
--- before another scaling activity can start. The default is 300.
+-- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling Developer Guide/.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a});
 
@@ -198,9 +168,7 @@ uasgMaxSize = lens _uasgMaxSize (\ s a -> s{_uasgMaxSize = a});
 uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
 uasgAvailabilityZones = lens _uasgAvailabilityZones (\ s a -> s{_uasgAvailabilityZones = a}) . mapping _List1;
 
--- | The number of EC2 instances that should be running in the Auto Scaling
--- group. This number must be greater than or equal to the minimum size of
--- the group and less than or equal to the maximum size of the group.
+-- | The number of EC2 instances that should be running in the Auto Scaling group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
 uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDesiredCapacity = lens _uasgDesiredCapacity (\ s a -> s{_uasgDesiredCapacity = a});
 
@@ -212,15 +180,11 @@ uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a});
 uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a});
 
--- | The service to use for the health checks. The valid values are 'EC2' and
--- 'ELB'.
+-- | The service to use for the health checks. The valid values are 'EC2' and 'ELB'.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a});
 
--- | The name of the placement group into which you\'ll launch your
--- instances, if any. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The name of the placement group into which you\'ll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/.
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup = lens _uasgPlacementGroup (\ s a -> s{_uasgPlacementGroup = a});
 

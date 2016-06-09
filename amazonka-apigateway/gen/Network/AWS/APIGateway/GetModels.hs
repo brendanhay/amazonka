@@ -76,13 +76,11 @@ getModels pRestAPIId_ =
     , _gmsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of models in the collection to get information about.
--- The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of models in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gmsLimit :: Lens' GetModels (Maybe Int)
 gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
 
--- | The position of the next set of results in the < Models> resource to get
--- information about.
+-- | The position of the next set of results in the < Models> resource to get information about.
 gmsPosition :: Lens' GetModels (Maybe Text)
 gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 

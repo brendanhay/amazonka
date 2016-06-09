@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,17 +13,7 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    Amazon CloudFront is a web service that speeds up distribution of your
-    static and dynamic web content, for example, .html, .css, .php, image,
-    and media files, to end users. CloudFront delivers your content through
-    a worldwide network of edge locations. When an end user requests content
-    that you\'re serving with CloudFront, the user is routed to the edge
-    location that provides the lowest latency, so content is delivered with
-    the best possible performance. If the content is already in that edge
-    location, CloudFront delivers it immediately. If the content is not
-    currently in that edge location, CloudFront retrieves it from an Amazon
-    S3 bucket or an HTTP server (for example, a web server) that you have
-    identified as the source for the definitive version of your content.
+    Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you\'re serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -81,7 +71,7 @@ library
         , Network.AWS.CloudFront.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudfront-test
@@ -101,9 +91,9 @@ test-suite amazonka-cloudfront-test
         , Test.AWS.CloudFront.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-cloudfront == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-cloudfront == 1.4.3.*
         , base
         , bytestring
         , tasty

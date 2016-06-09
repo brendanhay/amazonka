@@ -128,13 +128,11 @@ crtCdcStartTime = lens _crtCdcStartTime (\ s a -> s{_crtCdcStartTime = a}) . map
 crtReplicationTaskIdentifier :: Lens' CreateReplicationTask Text
 crtReplicationTaskIdentifier = lens _crtReplicationTaskIdentifier (\ s a -> s{_crtReplicationTaskIdentifier = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 crtSourceEndpointARN :: Lens' CreateReplicationTask Text
 crtSourceEndpointARN = lens _crtSourceEndpointARN (\ s a -> s{_crtSourceEndpointARN = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 crtTargetEndpointARN :: Lens' CreateReplicationTask Text
 crtTargetEndpointARN = lens _crtTargetEndpointARN (\ s a -> s{_crtTargetEndpointARN = a});
 

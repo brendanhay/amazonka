@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified role. The role must not have any policies
--- attached. For more information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
--- Make sure you do not have any Amazon EC2 instances running with the role
--- you are about to delete. Deleting a role or instance profile that is
--- associated with a running instance will break any applications running
--- on the instance.
+-- Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
 module Network.AWS.IAM.DeleteRole
     (
     -- * Creating a Request

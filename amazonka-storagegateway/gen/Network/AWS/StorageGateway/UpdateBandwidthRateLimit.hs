@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the bandwidth rate limits of a gateway. You can update both the
--- upload and download bandwidth rate limit or specify only one of the two.
--- If you don\'t set a bandwidth rate limit, the existing rate limit
--- remains.
+-- Updates the bandwidth rate limits of a gateway. You can update both the upload and download bandwidth rate limit or specify only one of the two. If you don\'t set a bandwidth rate limit, the existing rate limit remains.
 --
--- By default, a gateway\'s bandwidth rate limits are not set. If you
--- don\'t set any limit, the gateway does not have any limitations on its
--- bandwidth usage and could potentially use the maximum available
--- bandwidth.
+-- By default, a gateway\'s bandwidth rate limits are not set. If you don\'t set any limit, the gateway does not have any limitations on its bandwidth usage and could potentially use the maximum available bandwidth.
 --
--- To specify which gateway to update, use the Amazon Resource Name (ARN)
--- of the gateway in your request.
+-- To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Creating a Request
@@ -57,8 +50,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec>
--- -   < UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec>
+-- -   < UpdateBandwidthRateLimitInput>AverageDownloadRateLimitInBitsPerSec>
+-- -   < UpdateBandwidthRateLimitInput>AverageUploadRateLimitInBitsPerSec>
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
@@ -138,8 +131,7 @@ instance ToPath UpdateBandwidthRateLimit where
 instance ToQuery UpdateBandwidthRateLimit where
         toQuery = const mempty
 
--- | A JSON object containing the of the gateway whose throttle information
--- was updated.
+-- | A JSON object containing the of the gateway whose throttle information was updated.
 --
 -- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'

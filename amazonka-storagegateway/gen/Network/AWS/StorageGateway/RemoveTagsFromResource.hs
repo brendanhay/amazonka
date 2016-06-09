@@ -67,13 +67,11 @@ removeTagsFromResource pResourceARN_ =
     , _rtfrTagKeys = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource you want to remove the
--- tags from.
+-- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
--- | The keys of the tags you want to remove from the specified resource. A
--- tag is composed of a key\/value pair.
+-- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key\/value pair.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 
@@ -138,8 +136,7 @@ removeTagsFromResourceResponse pResponseStatus_ =
     , _rtfrrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the resource that the tags were
--- removed from.
+-- | The Amazon Resource Name (ARN) of the resource that the tags were removed from.
 rtfrrsResourceARN :: Lens' RemoveTagsFromResourceResponse (Maybe Text)
 rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a});
 

@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,13 +13,7 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
-    a simple web services interface that you can use to store and retrieve
-    any amount of data, at any time, from anywhere on the web. It gives any
-    developer access to the same highly scalable, reliable, fast,
-    inexpensive data storage infrastructure that Amazon uses to run its own
-    global network of web sites. The service aims to maximize benefits of
-    scale and to pass those benefits on to developers.
+    Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -110,7 +104,7 @@ library
         , Network.AWS.S3.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
         , lens >= 4.4
         , text >= 1.1
@@ -132,9 +126,9 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-s3 == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-s3 == 1.4.3.*
         , base
         , bytestring
         , tasty

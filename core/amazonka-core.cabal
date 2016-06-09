@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.4.1
+version:               1.4.3
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -109,7 +109,7 @@ library
             , time       >= 1.2 && < 1.5
     else
         build-depends:
-              time       >= 1.5 && < 1.6
+              time       >= 1.5
 
 test-suite tests
     type:              exitcode-stdio-1.0

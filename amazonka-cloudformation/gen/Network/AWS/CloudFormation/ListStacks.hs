@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the summary information for stacks whose status matches the
--- specified StackStatusFilter. Summary information for stacks that have
--- been deleted is kept for 90 days after the stack is deleted. If no
--- StackStatusFilter is specified, summary information for all stacks is
--- returned (including existing stacks and stacks that have been deleted).
+-- Returns the summary information for stacks whose status matches the specified StackStatusFilter. Summary information for stacks that have been deleted is kept for 90 days after the stack is deleted. If no StackStatusFilter is specified, summary information for all stacks is returned (including existing stacks and stacks that have been deleted).
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStacks
@@ -74,15 +70,11 @@ listStacks =
     , _lsStackStatusFilter = Nothing
     }
 
--- | A string that identifies the next page of stacks that you want to
--- retrieve.
+-- | A string that identifies the next page of stacks that you want to retrieve.
 lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
--- | Stack status to use as a filter. Specify one or more stack status codes
--- to list only stacks with the specified status codes. For a complete list
--- of stack status codes, see the 'StackStatus' parameter of the < Stack>
--- data type.
+-- | Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the 'StackStatus' parameter of the < Stack> data type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default . _Coerce;
 
@@ -153,13 +145,11 @@ listStacksResponse pResponseStatus_ =
     , _lsrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB in size, a string that identifies the next
--- page of stacks. If no additional page exists, this value is null.
+-- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | A list of 'StackSummary' structures containing information about the
--- specified stacks.
+-- | A list of 'StackSummary' structures containing information about the specified stacks.
 lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
 

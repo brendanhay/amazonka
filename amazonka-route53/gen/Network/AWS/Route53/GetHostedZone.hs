@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the delegation set for a hosted zone, send a 'GET' request
--- to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource.
--- The delegation set is the four Amazon Route 53 name servers that were
--- assigned to the hosted zone when you created it.
+-- To retrieve the delegation set for a hosted zone, send a 'GET' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The delegation set is the four Amazon Route 53 name servers that were assigned to the hosted zone when you created it.
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Creating a Request
@@ -67,8 +64,7 @@ getHostedZone pId_ =
     { _ghzId = pId_
     }
 
--- | The ID of the hosted zone for which you want to get a list of the name
--- servers in the delegation set.
+-- | The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.
 ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
@@ -132,13 +128,11 @@ getHostedZoneResponse pResponseStatus_ pHostedZone_ =
     , _ghzrsHostedZone = pHostedZone_
     }
 
--- | A complex type that contains information about VPCs associated with the
--- specified hosted zone.
+-- | A complex type that contains information about VPCs associated with the specified hosted zone.
 ghzrsVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
 ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 
--- | A complex type that contains information about the name servers for the
--- specified hosted zone.
+-- | A complex type that contains information about the name servers for the specified hosted zone.
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
@@ -146,8 +140,7 @@ ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = 
 ghzrsResponseStatus :: Lens' GetHostedZoneResponse Int
 ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified hosted
--- zone.
+-- | A complex type that contains the information about the specified hosted zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});
 

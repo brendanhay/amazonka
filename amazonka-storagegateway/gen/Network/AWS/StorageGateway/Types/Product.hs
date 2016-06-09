@@ -116,8 +116,7 @@ instance Hashable CachediSCSIVolume
 
 instance NFData CachediSCSIVolume
 
--- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
--- that supports authentication between your gateway and iSCSI initiators.
+-- | Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.
 --
 -- /See:/ 'chapInfo' smart constructor.
 data ChapInfo = ChapInfo'
@@ -150,13 +149,11 @@ chapInfo =
 
 -- | The Amazon Resource Name (ARN) of the volume.
 --
--- /Valid Values/: 50 to 500 lowercase letters, numbers, periods (.), and
--- hyphens (-).
+-- /Valid Values/: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\ s a -> s{_ciTargetARN = a});
 
--- | The secret key that the initiator (for example, the Windows client) must
--- provide to participate in mutual CHAP with the target.
+-- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
 ciSecretToAuthenticateInitiator :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateInitiator = lens _ciSecretToAuthenticateInitiator (\ s a -> s{_ciSecretToAuthenticateInitiator = a});
 
@@ -164,8 +161,7 @@ ciSecretToAuthenticateInitiator = lens _ciSecretToAuthenticateInitiator (\ s a -
 ciInitiatorName :: Lens' ChapInfo (Maybe Text)
 ciInitiatorName = lens _ciInitiatorName (\ s a -> s{_ciInitiatorName = a});
 
--- | The secret key that the target must provide to participate in mutual
--- CHAP with the initiator (e.g. Windows client).
+-- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
 ciSecretToAuthenticateTarget :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateTarget = lens _ciSecretToAuthenticateTarget (\ s a -> s{_ciSecretToAuthenticateTarget = a});
 
@@ -214,8 +210,7 @@ deviceiSCSIAttributes =
     , _dscsiaNetworkInterfacePort = Nothing
     }
 
--- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI
--- qualified name(iqn) of a tape drive or media changer target.
+-- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
 dscsiaTargetARN = lens _dscsiaTargetARN (\ s a -> s{_dscsiaTargetARN = a});
 
@@ -416,8 +411,7 @@ networkInterface =
     , _niIPv4Address = Nothing
     }
 
--- | The Internet Protocol version 6 (IPv6) address of the interface.
--- /Currently not supported/.
+-- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/.
 niIPv6Address :: Lens' NetworkInterface (Maybe Text)
 niIPv6Address = lens _niIPv6Address (\ s a -> s{_niIPv6Address = a});
 
@@ -654,8 +648,7 @@ tTapeStatus = lens _tTapeStatus (\ s a -> s{_tTapeStatus = a});
 tTapeARN :: Lens' Tape (Maybe Text)
 tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
 
--- | For archiving virtual tapes, indicates how much data remains to be
--- uploaded before archiving is complete.
+-- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
 --
 -- Range: 0 (not started) to 100 (complete).
 tProgress :: Lens' Tape (Maybe Double)
@@ -665,8 +658,7 @@ tProgress = lens _tProgress (\ s a -> s{_tProgress = a});
 tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
 tTapeSizeInBytes = lens _tTapeSizeInBytes (\ s a -> s{_tTapeSizeInBytes = a});
 
--- | The virtual tape library (VTL) device that the virtual tape is
--- associated with.
+-- | The virtual tape library (VTL) device that the virtual tape is associated with.
 tVTLDevice :: Lens' Tape (Maybe Text)
 tVTLDevice = lens _tVTLDevice (\ s a -> s{_tVTLDevice = a});
 
@@ -685,8 +677,7 @@ instance Hashable Tape
 
 instance NFData Tape
 
--- | Represents a virtual tape that is archived in the virtual tape shelf
--- (VTS).
+-- | Represents a virtual tape that is archived in the virtual tape shelf (VTS).
 --
 -- /See:/ 'tapeArchive' smart constructor.
 data TapeArchive = TapeArchive'
@@ -743,13 +734,11 @@ taTapeSizeInBytes = lens _taTapeSizeInBytes (\ s a -> s{_taTapeSizeInBytes = a})
 
 -- | The time that the archiving of the virtual tape was completed.
 --
--- The string format of the completion time is in the ISO8601 extended
--- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
+-- The string format of the completion time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
 taCompletionTime :: Lens' TapeArchive (Maybe UTCTime)
 taCompletionTime = lens _taCompletionTime (\ s a -> s{_taCompletionTime = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape
--- is being retrieved to.
+-- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to.
 --
 -- The virtual tape is retrieved from the virtual tape shelf (VTS).
 taRetrievedTo :: Lens' TapeArchive (Maybe Text)
@@ -805,11 +794,9 @@ tapeRecoveryPointInfo =
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\ s a -> s{_trpiTapeStatus = a});
 
--- | The time when the point-in-time view of the virtual tape was replicated
--- for later recovery.
+-- | The time when the point-in-time view of the virtual tape was replicated for later recovery.
 --
--- The string format of the tape recovery point time is in the ISO8601
--- extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
+-- The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
 trpiTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe UTCTime)
 trpiTapeRecoveryPointTime = lens _trpiTapeRecoveryPointTime (\ s a -> s{_trpiTapeRecoveryPointTime = a}) . mapping _Time;
 
@@ -878,8 +865,7 @@ vtldDeviceiSCSIAttributes = lens _vtldDeviceiSCSIAttributes (\ s a -> s{_vtldDev
 vtldVTLDeviceVendor :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceVendor = lens _vtldVTLDeviceVendor (\ s a -> s{_vtldVTLDeviceVendor = a});
 
--- | Specifies the unique Amazon Resource Name (ARN) of the device (tape
--- drive or media changer).
+-- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
 vtldVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceARN = lens _vtldVTLDeviceARN (\ s a -> s{_vtldVTLDeviceARN = a});
 

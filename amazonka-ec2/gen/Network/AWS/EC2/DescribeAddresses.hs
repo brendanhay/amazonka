@@ -20,10 +20,7 @@
 --
 -- Describes one or more of your Elastic IP addresses.
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or
--- in a VPC. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeAddresses
     (
     -- * Creating a Request
@@ -87,19 +84,15 @@ describeAddresses =
 --
 -- -   'association-id' - [EC2-VPC] The association ID for the address.
 --
--- -   'domain' - Indicates whether the address is for use in EC2-Classic
---     ('standard') or in a VPC ('vpc').
+-- -   'domain' - Indicates whether the address is for use in EC2-Classic ('standard') or in a VPC ('vpc').
 --
--- -   'instance-id' - The ID of the instance the address is associated
---     with, if any.
+-- -   'instance-id' - The ID of the instance the address is associated with, if any.
 --
--- -   'network-interface-id' - [EC2-VPC] The ID of the network interface
---     that the address is associated with, if any.
+-- -   'network-interface-id' - [EC2-VPC] The ID of the network interface that the address is associated with, if any.
 --
 -- -   'network-interface-owner-id' - The AWS account ID of the owner.
 --
--- -   'private-ip-address' - [EC2-VPC] The private IP address associated
---     with the Elastic IP address.
+-- -   'private-ip-address' - [EC2-VPC] The private IP address associated with the Elastic IP address.
 --
 -- -   'public-ip' - The Elastic IP address.
 --
@@ -118,10 +111,7 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coe
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 

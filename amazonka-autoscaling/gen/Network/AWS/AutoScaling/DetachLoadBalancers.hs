@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more load balancers from the specified Auto Scaling
--- group.
+-- Removes one or more load balancers from the specified Auto Scaling group.
 --
--- When you detach a load balancer, it enters the 'Removing' state while
--- deregistering the instances in the group. When all instances are
--- deregistered, then you can no longer describe the load balancer using
--- < DescribeLoadBalancers>. Note that the instances remain running.
+-- When you detach a load balancer, it enters the 'Removing' state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using < DescribeLoadBalancers>. Note that the instances remain running.
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (
     -- * Creating a Request

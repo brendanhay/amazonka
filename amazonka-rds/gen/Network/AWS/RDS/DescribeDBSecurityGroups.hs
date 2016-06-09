@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'DBSecurityGroup' descriptions. If a
--- 'DBSecurityGroupName' is specified, the list will contain only the
--- descriptions of the specified DB security group.
+-- Returns a list of 'DBSecurityGroup' descriptions. If a 'DBSecurityGroupName' is specified, the list will contain only the descriptions of the specified DB security group.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSecurityGroups
@@ -86,17 +84,11 @@ describeDBSecurityGroups =
 ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
 ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBSecurityGroups' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBSecurityGroups' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddbsgMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -150,8 +142,7 @@ instance ToQuery DescribeDBSecurityGroups where
                "MaxRecords" =: _ddbsgMaxRecords,
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBSecurityGroups> action.
+-- | Contains the result of a successful invocation of the < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
@@ -183,9 +174,7 @@ describeDBSecurityGroupsResponse pResponseStatus_ =
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgrsDBSecurityGroups = lens _ddbsgrsDBSecurityGroups (\ s a -> s{_ddbsgrsDBSecurityGroups = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrsMarker = lens _ddbsgrsMarker (\ s a -> s{_ddbsgrsMarker = a});
 

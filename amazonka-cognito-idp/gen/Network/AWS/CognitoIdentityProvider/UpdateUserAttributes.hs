@@ -112,8 +112,7 @@ instance ToPath UpdateUserAttributes where
 instance ToQuery UpdateUserAttributes where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to update user
--- attributes.
+-- | Represents the response from the server for the request to update user attributes.
 --
 -- /See:/ 'updateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
@@ -137,8 +136,7 @@ updateUserAttributesResponse pResponseStatus_ =
     , _uuarsResponseStatus = pResponseStatus_
     }
 
--- | The code delivery details list from the server for the request to update
--- user attributes.
+-- | The code delivery details list from the server for the request to update user attributes.
 uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
 uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce;
 

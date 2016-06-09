@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the URL of an existing queue. This action provides a simple way
--- to retrieve the URL of an Amazon SQS queue.
+-- Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue.
 --
--- To access a queue that belongs to another AWS account, use the
--- 'QueueOwnerAWSAccountId' parameter to specify the account ID of the
--- queue\'s owner. The queue\'s owner must grant you permission to access
--- the queue. For more information about shared queue access, see
--- < AddPermission> or go to
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues>
--- in the /Amazon SQS Developer Guide/.
+-- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue\'s owner. The queue\'s owner must grant you permission to access the queue. For more information about shared queue access, see < AddPermission> or go to <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request
@@ -78,8 +71,7 @@ getQueueURL pQueueName_ =
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters;
--- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
@@ -111,9 +103,7 @@ instance ToQuery GetQueueURL where
                  _gquQueueOwnerAWSAccountId,
                "QueueName" =: _gquQueueName]
 
--- | For more information, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses>
--- in the /Amazon SQS Developer Guide/.
+-- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon SQS Developer Guide/.
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'

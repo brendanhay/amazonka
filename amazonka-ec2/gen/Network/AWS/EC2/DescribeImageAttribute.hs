@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified AMI. You can specify
--- only one attribute at a time.
+-- Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Creating a Request
@@ -81,10 +80,7 @@ describeImageAttribute pImageId_ pAttribute_ =
     , _diaiAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
 
@@ -94,10 +90,7 @@ diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 
 -- | The AMI attribute.
 --
--- __Note__: Depending on your account privileges, the 'blockDeviceMapping'
--- attribute may return a 'Client.AuthFailure' error. If this happens, use
--- < DescribeImages> to get information about the block device mapping for
--- the AMI.
+-- __Note__: Depending on your account privileges, the 'blockDeviceMapping' attribute may return a 'Client.AuthFailure' error. If this happens, use < DescribeImages> to get information about the block device mapping for the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
 

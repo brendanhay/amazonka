@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Client method for returning the configuration information and metadata
--- of the specified user pool client.
+-- Client method for returning the configuration information and metadata of the specified user pool client.
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     (
     -- * Creating a Request
@@ -114,8 +113,7 @@ instance ToPath DescribeUserPoolClient where
 instance ToQuery DescribeUserPoolClient where
         toQuery = const mempty
 
--- | Represents the response from the server from a request to describe the
--- user pool client.
+-- | Represents the response from the server from a request to describe the user pool client.
 --
 -- /See:/ 'describeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
@@ -139,8 +137,7 @@ describeUserPoolClientResponse pResponseStatus_ =
     , _dupcrsResponseStatus = pResponseStatus_
     }
 
--- | The user pool client from a server response to describe the user pool
--- client.
+-- | The user pool client from a server response to describe the user pool client.
 dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
 dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a});
 

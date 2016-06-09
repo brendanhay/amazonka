@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Renames a repository. The repository name must be unique across the
--- calling AWS account. In addition, repository names are limited to 100
--- alphanumeric, dash, and underscore characters, and cannot include
--- certain characters. The suffix \".git\" is prohibited. For a full
--- description of the limits on repository names, see
--- <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits>
--- in the AWS CodeCommit User Guide.
+-- Renames a repository. The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. The suffix \".git\" is prohibited. For a full description of the limits on repository names, see <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits> in the AWS CodeCommit User Guide.
 module Network.AWS.CodeCommit.UpdateRepositoryName
     (
     -- * Creating a Request

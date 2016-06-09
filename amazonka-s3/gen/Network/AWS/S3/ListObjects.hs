@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns some or all (up to 1000) of the objects in a bucket. You can use
--- the request parameters as selection criteria to return a subset of the
--- objects in a bucket.
+-- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
 --
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
@@ -111,8 +109,7 @@ loEncodingType = lens _loEncodingType (\ s a -> s{_loEncodingType = a});
 loMarker :: Lens' ListObjects (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
--- | Sets the maximum number of keys returned in the response. The response
--- might contain fewer keys but will never contain more.
+-- | Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 loMaxKeys :: Lens' ListObjects (Maybe Int)
 loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a});
 
@@ -259,14 +256,7 @@ lorsName = lens _lorsName (\ s a -> s{_lorsName = a});
 lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a});
 
--- | When response is truncated (the IsTruncated element value in the
--- response is true), you can use the key name in this field as marker in
--- the subsequent request to get next set of objects. Amazon S3 lists
--- objects in alphabetical order Note: This element is returned only if you
--- have delimiter request parameter specified. If response does not include
--- the NextMaker and it is truncated, you can use the value of the last Key
--- in the response as the marker in the subsequent request to get the next
--- set of object keys.
+-- | When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
 lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsNextMarker = lens _lorsNextMarker (\ s a -> s{_lorsNextMarker = a});
 
@@ -274,8 +264,7 @@ lorsNextMarker = lens _lorsNextMarker (\ s a -> s{_lorsNextMarker = a});
 lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
 lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a});
 
--- | A flag that indicates whether or not Amazon S3 returned all of the
--- results that satisfied the search criteria.
+-- | A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
 lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
 lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the AuthCode for the domain. To transfer a domain
--- to another registrar, you provide this value to the new registrar.
+-- This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Creating a Request
@@ -69,9 +68,7 @@ retrieveDomainAuthCode pDomainName_ =
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text

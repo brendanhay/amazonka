@@ -18,23 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new interconnect between a AWS Direct Connect partner\'s
--- network and a specific AWS Direct Connect location.
+-- Creates a new interconnect between a AWS Direct Connect partner\'s network and a specific AWS Direct Connect location.
 --
--- An interconnect is a connection which is capable of hosting other
--- connections. The AWS Direct Connect partner can use an interconnect to
--- provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do
--- not have their own connections. Like a standard connection, an
--- interconnect links the AWS Direct Connect partner\'s network to an AWS
--- Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet
--- fiber-optic cable. One end is connected to the partner\'s router, the
--- other to an AWS Direct Connect router.
+-- An interconnect is a connection which is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the AWS Direct Connect partner\'s network to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is connected to the partner\'s router, the other to an AWS Direct Connect router.
 --
--- For each end customer, the AWS Direct Connect partner provisions a
--- connection on their interconnect by calling
--- AllocateConnectionOnInterconnect. The end customer can then connect to
--- AWS resources by creating a virtual interface on their connection, using
--- the VLAN assigned to them by the AWS Direct Connect partner.
+-- For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling AllocateConnectionOnInterconnect. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect partner.
 module Network.AWS.DirectConnect.CreateInterconnect
     (
     -- * Creating a Request

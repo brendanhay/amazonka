@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds metadata tags to a DMS resource, including replication instance,
--- endpoint, security group, and migration task. These tags can also be
--- used with cost allocation reporting to track cost associated with DMS
--- resources, or used in a Condition statement in an IAM policy for DMS.
+-- Adds metadata tags to a DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS.
 --
 module Network.AWS.DMS.AddTagsToResource
     (
@@ -68,9 +65,7 @@ addTagsToResource pResourceARN_ =
     , _attrTags = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be
--- added to. AWS DMS resources include a replication instance, endpoint,
--- and a replication task.
+-- | The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be added to. AWS DMS resources include a replication instance, endpoint, and a replication task.
 attrResourceARN :: Lens' AddTagsToResource Text
 attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
 

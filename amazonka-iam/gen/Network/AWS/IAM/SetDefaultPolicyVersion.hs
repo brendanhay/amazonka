@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the specified version of the specified policy as the policy\'s
--- default (operative) version.
+-- Sets the specified version of the specified policy as the policy\'s default (operative) version.
 --
--- This action affects all users, groups, and roles that the policy is
--- attached to. To list the users, groups, and roles that the policy is
--- attached to, use the < ListEntitiesForPolicy> API.
+-- This action affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the < ListEntitiesForPolicy> API.
 --
--- For information about managed policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -78,9 +73,7 @@ sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
 
 -- | The version of the policy to set as the default (operative) version.
 --
--- For more information about managed policy versions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /IAM User Guide/.
+-- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 sdpvVersionId :: Lens' SetDefaultPolicyVersion Text
 sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
 

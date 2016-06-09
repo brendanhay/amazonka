@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot copy grant that permits Amazon Redshift to use a
--- customer master key (CMK) from AWS Key Management Service (AWS KMS) to
--- encrypt copied snapshots in a destination region.
+-- Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.
 --
--- For more information about managing snapshot copy grants, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
     (
     -- * Creating a Request
@@ -78,9 +74,7 @@ createSnapshotCopyGrant pSnapshotCopyGrantName_ =
     , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
     }
 
--- | The unique identifier of the customer master key (CMK) to which to grant
--- Amazon Redshift permission. If no key is specified, the default key is
--- used.
+-- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
 cscgKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
 cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
 
@@ -88,8 +82,7 @@ cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
 cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
 cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce;
 
--- | The name of the snapshot copy grant. This name must be unique in the
--- region for the AWS account.
+-- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
 --
 -- Constraints:
 --

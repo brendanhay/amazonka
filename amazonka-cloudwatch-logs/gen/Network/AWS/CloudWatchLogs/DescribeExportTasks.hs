@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the export tasks that are associated with the AWS account
--- making the request. The export tasks can be filtered based on 'TaskId'
--- or 'TaskStatus'.
+-- Returns all the export tasks that are associated with the AWS account making the request. The export tasks can be filtered based on 'TaskId' or 'TaskStatus'.
 --
--- By default, this operation returns up to 50 export tasks that satisfy
--- the specified filters. If there are more export tasks to list, the
--- response would contain a 'nextToken' value in the response body. You can
--- also limit the number of export tasks returned in the response by
--- specifying the 'limit' parameter in the request.
+-- By default, this operation returns up to 50 export tasks that satisfy the specified filters. If there are more export tasks to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of export tasks returned in the response by specifying the 'limit' parameter in the request.
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
     (
     -- * Creating a Request
@@ -83,24 +77,19 @@ describeExportTasks =
     , _detStatusCode = Nothing
     }
 
--- | Export task that matches the specified task Id will be returned. This
--- can result in zero or one export task.
+-- | Export task that matches the specified task Id will be returned. This can result in zero or one export task.
 detTaskId :: Lens' DescribeExportTasks (Maybe Text)
 detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a});
 
--- | A string token used for pagination that points to the next page of
--- results. It must be a value obtained from the response of the previous
--- 'DescribeExportTasks' request.
+-- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeExportTasks' request.
 detNextToken :: Lens' DescribeExportTasks (Maybe Text)
 detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
 
--- | The maximum number of items returned in the response. If you don\'t
--- specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
 detLimit :: Lens' DescribeExportTasks (Maybe Natural)
 detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat;
 
--- | All export tasks that matches the specified status code will be
--- returned. This can return zero or more export tasks.
+-- | All export tasks that matches the specified status code will be returned. This can return zero or more export tasks.
 detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
 detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});
 

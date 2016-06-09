@@ -1,5 +1,5 @@
 name:                  amazonka-importexport
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Import/Export SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,13 +13,7 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    AWS Import\/Export Service AWS Import\/Export accelerates transferring
-    large amounts of data between the AWS cloud and portable storage devices
-    that you mail to us. AWS Import\/Export transfers data directly onto and
-    off of your storage devices using Amazon\'s high-speed internal network
-    and bypassing the Internet. For large data sets, AWS Import\/Export is
-    often faster than Internet transfer and more cost effective than
-    upgrading your connectivity.
+    AWS Import\/Export Service AWS Import\/Export accelerates transferring large amounts of data between the AWS cloud and portable storage devices that you mail to us. AWS Import\/Export transfers data directly onto and off of your storage devices using Amazon\'s high-speed internal network and bypassing the Internet. For large data sets, AWS Import\/Export is often faster than Internet transfer and more cost effective than upgrading your connectivity.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -61,7 +55,7 @@ library
         , Network.AWS.ImportExport.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-importexport-test
@@ -81,9 +75,9 @@ test-suite amazonka-importexport-test
         , Test.AWS.ImportExport.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-importexport == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-importexport == 1.4.3.*
         , base
         , bytestring
         , tasty

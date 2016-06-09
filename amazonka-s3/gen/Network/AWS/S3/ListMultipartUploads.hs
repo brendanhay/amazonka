@@ -104,13 +104,11 @@ listMultipartUploads pBucket_ =
     , _lmuBucket = pBucket_
     }
 
--- | Together with upload-id-marker, this parameter specifies the multipart
--- upload after which listing should begin.
+-- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
 lmuKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuKeyMarker = lens _lmuKeyMarker (\ s a -> s{_lmuKeyMarker = a});
 
--- | Lists in-progress uploads only for those keys that begin with the
--- specified prefix.
+-- | Lists in-progress uploads only for those keys that begin with the specified prefix.
 lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
 lmuPrefix = lens _lmuPrefix (\ s a -> s{_lmuPrefix = a});
 
@@ -118,15 +116,11 @@ lmuPrefix = lens _lmuPrefix (\ s a -> s{_lmuPrefix = a});
 lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
 lmuEncodingType = lens _lmuEncodingType (\ s a -> s{_lmuEncodingType = a});
 
--- | Together with key-marker, specifies the multipart upload after which
--- listing should begin. If key-marker is not specified, the
--- upload-id-marker parameter is ignored.
+-- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
 lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker = lens _lmuUploadIdMarker (\ s a -> s{_lmuUploadIdMarker = a});
 
--- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
--- in the response body. 1,000 is the maximum number of uploads that can be
--- returned in a response.
+-- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
 lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
 lmuMaxUploads = lens _lmuMaxUploads (\ s a -> s{_lmuMaxUploads = a});
 
@@ -260,9 +254,7 @@ listMultipartUploadsResponse pResponseStatus_ =
 lmursKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursKeyMarker = lens _lmursKeyMarker (\ s a -> s{_lmursKeyMarker = a});
 
--- | When a prefix is provided in the request, this field contains the
--- specified prefix. The result contains only keys starting with the
--- specified prefix.
+-- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
 lmursPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursPrefix = lens _lmursPrefix (\ s a -> s{_lmursPrefix = a});
 
@@ -282,13 +274,11 @@ lmursBucket = lens _lmursBucket (\ s a -> s{_lmursBucket = a});
 lmursUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursUploadIdMarker = lens _lmursUploadIdMarker (\ s a -> s{_lmursUploadIdMarker = a});
 
--- | Maximum number of multipart uploads that could have been included in the
--- response.
+-- | Maximum number of multipart uploads that could have been included in the response.
 lmursMaxUploads :: Lens' ListMultipartUploadsResponse (Maybe Int)
 lmursMaxUploads = lens _lmursMaxUploads (\ s a -> s{_lmursMaxUploads = a});
 
--- | When a list is truncated, this element specifies the value that should
--- be used for the key-marker request parameter in a subsequent request.
+-- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
 lmursNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextKeyMarker = lens _lmursNextKeyMarker (\ s a -> s{_lmursNextKeyMarker = a});
 
@@ -296,16 +286,11 @@ lmursNextKeyMarker = lens _lmursNextKeyMarker (\ s a -> s{_lmursNextKeyMarker = 
 lmursUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmursUploads = lens _lmursUploads (\ s a -> s{_lmursUploads = a}) . _Default . _Coerce;
 
--- | Indicates whether the returned list of multipart uploads is truncated. A
--- value of true indicates that the list was truncated. The list can be
--- truncated if the number of multipart uploads exceeds the limit allowed
--- or specified by max uploads.
+-- | Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
 lmursIsTruncated :: Lens' ListMultipartUploadsResponse (Maybe Bool)
 lmursIsTruncated = lens _lmursIsTruncated (\ s a -> s{_lmursIsTruncated = a});
 
--- | When a list is truncated, this element specifies the value that should
--- be used for the upload-id-marker request parameter in a subsequent
--- request.
+-- | When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
 lmursNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUploadIdMarker = a});
 

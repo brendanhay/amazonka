@@ -20,8 +20,7 @@
 --
 -- Modifies the certificate used by the client.
 --
--- This action can potentially start a workflow to install the new
--- certificate on the client\'s HSMs.
+-- This action can potentially start a workflow to install the new certificate on the client\'s HSMs.
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
     -- * Creating a Request

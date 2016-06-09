@@ -20,25 +20,11 @@
 --
 -- Updates the name and\/or the path of the specified server certificate.
 --
--- For more information about working with server certificates, including a
--- list of AWS services that can use the server certificates that you
--- manage with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
--- in the /IAM User Guide/.
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
 --
--- You should understand the implications of changing a server
--- certificate\'s path or name. For more information, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts Renaming a Server Certificate>
--- in the /IAM User Guide/.
+-- You should understand the implications of changing a server certificate\'s path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts Renaming a Server Certificate> in the /IAM User Guide/.
 --
--- To change a server certificate name the requester must have appropriate
--- permissions on both the source object and the target object. For
--- example, to change the name from ProductionCert to ProdCert, the entity
--- making the request must have permission on ProductionCert and ProdCert,
--- or must have permission on all (*). For more information about
--- permissions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
--- in the /IAM User Guide/.
+-- To change a server certificate name the requester must have appropriate permissions on both the source object and the target object. For example, to change the name from ProductionCert to ProdCert, the entity making the request must have permission on ProductionCert and ProdCert, or must have permission on all (*). For more information about permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management> in the /IAM User Guide/.
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Creating a Request
@@ -87,14 +73,11 @@ updateServerCertificate pServerCertificateName_ =
     , _uServerCertificateName = pServerCertificateName_
     }
 
--- | The new name for the server certificate. Include this only if you are
--- updating the server certificate\'s name. The name of the certificate
--- cannot contain any spaces.
+-- | The new name for the server certificate. Include this only if you are updating the server certificate\'s name. The name of the certificate cannot contain any spaces.
 uNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 uNewServerCertificateName = lens _uNewServerCertificateName (\ s a -> s{_uNewServerCertificateName = a});
 
--- | The new path for the server certificate. Include this only if you are
--- updating the server certificate\'s path.
+-- | The new path for the server certificate. Include this only if you are updating the server certificate\'s path.
 uNewPath :: Lens' UpdateServerCertificate (Maybe Text)
 uNewPath = lens _uNewPath (\ s a -> s{_uNewPath = a});
 

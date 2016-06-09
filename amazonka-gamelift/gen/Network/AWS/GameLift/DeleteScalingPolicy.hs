@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a fleet scaling policy. This action means that the policy is no
--- longer in force and removes all record of it. To delete a scaling
--- policy, specify both the scaling policy name and the fleet ID it is
--- associated with.
+-- Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.
 module Network.AWS.GameLift.DeleteScalingPolicy
     (
     -- * Creating a Request
@@ -68,8 +65,7 @@ deleteScalingPolicy pName_ pFleetId_ =
     , _dspFleetId = pFleetId_
     }
 
--- | Descriptive label associated with this scaling policy. Policy names do
--- not need to be unique.
+-- | Descriptive label associated with this scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
 dspName = lens _dspName (\ s a -> s{_dspName = a});
 

@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initiates a stop request for the current test run. AWS Device Farm will
--- immediately stop the run on devices where tests have not started
--- executing, and you will not be billed for these devices. On devices
--- where tests have started executing, Setup Suite and Teardown Suite tests
--- will run to completion before stopping execution on those devices. You
--- will be billed for Setup, Teardown, and any tests that were in progress
--- or already completed.
+-- Initiates a stop request for the current test run. AWS Device Farm will immediately stop the run on devices where tests have not started executing, and you will not be billed for these devices. On devices where tests have started executing, Setup Suite and Teardown Suite tests will run to completion before stopping execution on those devices. You will be billed for Setup, Teardown, and any tests that were in progress or already completed.
 module Network.AWS.DeviceFarm.StopRun
     (
     -- * Creating a Request
@@ -68,8 +62,7 @@ stopRun pArn_ =
     { _srArn = pArn_
     }
 
--- | Represents the Amazon Resource Name (ARN) of the Device Farm run you
--- wish to stop.
+-- | Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 srArn :: Lens' StopRun Text
 srArn = lens _srArn (\ s a -> s{_srArn = a});
 

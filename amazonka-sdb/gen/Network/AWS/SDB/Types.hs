@@ -93,7 +93,7 @@ sdb =
     , _svcEndpoint = defaultEndpoint sdb
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SDB"
     , _svcRetry = retry
     }
   where
@@ -163,8 +163,7 @@ _NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a Ser
 _NumberItemAttributesExceeded =
     _ServiceError . hasStatus 409 . hasCode "NumberItemAttributesExceeded"
 
--- | A timeout occurred when attempting to query the specified domain with
--- specified query expression.
+-- | A timeout occurred when attempting to query the specified domain with specified query expression.
 _RequestTimeout :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTimeout = _ServiceError . hasStatus 408 . hasCode "RequestTimeout"
 

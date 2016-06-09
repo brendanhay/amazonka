@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as upload buffer for a
--- specified gateway. This operation is supported for both the
--- gateway-stored and gateway-cached volume architectures.
+-- Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for both the gateway-stored and gateway-cached volume architectures.
 --
--- In the request, you specify the gateway Amazon Resource Name (ARN) to
--- which you want to add upload buffer, and one or more disk IDs that you
--- want to configure as upload buffer.
+-- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add upload buffer, and one or more disk IDs that you want to configure as upload buffer.
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
     -- * Creating a Request

@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts recording configurations of the AWS resources you have selected
--- to record in your AWS account.
+-- Starts recording configurations of the AWS resources you have selected to record in your AWS account.
 --
--- You must have created at least one delivery channel to successfully
--- start the configuration recorder.
+-- You must have created at least one delivery channel to successfully start the configuration recorder.
 module Network.AWS.Config.StartConfigurationRecorder
     (
     -- * Creating a Request
@@ -63,8 +61,7 @@ startConfigurationRecorder pConfigurationRecorderName_ =
     { _sConfigurationRecorderName = pConfigurationRecorderName_
     }
 
--- | The name of the recorder object that records each configuration change
--- made to the resources.
+-- | The name of the recorder object that records each configuration change made to the resources.
 sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
 sConfigurationRecorderName = lens _sConfigurationRecorderName (\ s a -> s{_sConfigurationRecorderName = a});
 

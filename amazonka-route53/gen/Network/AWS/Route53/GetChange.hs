@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action returns the current status of a change batch request. The
--- status is one of the following values:
+-- This action returns the current status of a change batch request. The status is one of the following values:
 --
--- - 'PENDING' indicates that the changes in this request have not
--- replicated to all Amazon Route 53 DNS servers. This is the initial
--- status of all change batch requests.
+-- - 'PENDING' indicates that the changes in this request have not replicated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
 --
--- - 'INSYNC' indicates that the changes have replicated to all Amazon
--- Route 53 DNS servers.
+-- - 'INSYNC' indicates that the changes have replicated to all Amazon Route 53 DNS servers.
 module Network.AWS.Route53.GetChange
     (
     -- * Creating a Request
@@ -70,9 +66,7 @@ getChange pId_ =
     { _gcId = pId_
     }
 
--- | The ID of the change batch request. The value that you specify here is
--- the value that 'ChangeResourceRecordSets' returned in the Id element
--- when you submitted the request.
+-- | The ID of the change batch request. The value that you specify here is the value that 'ChangeResourceRecordSets' returned in the Id element when you submitted the request.
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
@@ -128,9 +122,7 @@ getChangeResponse pResponseStatus_ pChangeInfo_ =
 gcrsResponseStatus :: Lens' GetChangeResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
--- | A complex type that contains information about the specified change
--- batch, including the change batch ID, the status of the change, and the
--- date and time of the request.
+-- | A complex type that contains information about the specified change batch, including the change batch ID, the status of the change, and the date and time of the request.
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});
 

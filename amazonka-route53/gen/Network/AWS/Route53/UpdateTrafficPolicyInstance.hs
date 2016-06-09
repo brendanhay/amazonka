@@ -18,34 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the resource record sets in a specified hosted zone that were
--- created based on the settings in a specified traffic policy version.
+-- Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.
 --
--- The DNS type of the resource record sets that you\'re updating must
--- match the DNS type in the JSON document that is associated with the
--- traffic policy version that you\'re using to update the traffic policy
--- instance.
+-- The DNS type of the resource record sets that you\'re updating must match the DNS type in the JSON document that is associated with the traffic policy version that you\'re using to update the traffic policy instance.
 --
--- When you update a traffic policy instance, Amazon Route 53 continues to
--- respond to DNS queries for the root resource record set name (such as
--- example.com) while it replaces one group of resource record sets with
--- another. Amazon Route 53 performs the following operations:
+-- When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name (such as example.com) while it replaces one group of resource record sets with another. Amazon Route 53 performs the following operations:
 --
--- 1.  Amazon Route 53 creates a new group of resource record sets based on
---     the specified traffic policy. This is true regardless of how
---     substantial the differences are between the existing resource record
---     sets and the new resource record sets.
--- 2.  When all of the new resource record sets have been created, Amazon
---     Route 53 starts to respond to DNS queries for the root resource
---     record set name (such as example.com) by using the new resource
---     record sets.
--- 3.  Amazon Route 53 deletes the old group of resource record sets that
---     are associated with the root resource record set name.
+-- 1.  Amazon Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true regardless of how substantial the differences are between the existing resource record sets and the new resource record sets.
+-- 2.  When all of the new resource record sets have been created, Amazon Route 53 starts to respond to DNS queries for the root resource record set name (such as example.com) by using the new resource record sets.
+-- 3.  Amazon Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.
 --
--- To update a traffic policy instance, send a 'POST' request to the
--- '\/Route 53 API version\/trafficpolicyinstance\/traffic policy ID'
--- resource. The request body must include a document with an
--- 'UpdateTrafficPolicyInstanceRequest' element.
+-- To update a traffic policy instance, send a 'POST' request to the '\/Route 53 API version\/trafficpolicyinstance\/traffic policy ID' resource. The request body must include a document with an 'UpdateTrafficPolicyInstanceRequest' element.
 module Network.AWS.Route53.UpdateTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -72,8 +55,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the resource record sets
--- that you want to update based on a specified traffic policy instance.
+-- | A complex type that contains information about the resource record sets that you want to update based on a specified traffic policy instance.
 --
 -- /See:/ 'updateTrafficPolicyInstance' smart constructor.
 data UpdateTrafficPolicyInstance = UpdateTrafficPolicyInstance'
@@ -112,19 +94,15 @@ updateTrafficPolicyInstance pId_ pTTL_ pTrafficPolicyId_ pTrafficPolicyVersion_ 
 utpiId :: Lens' UpdateTrafficPolicyInstance Text
 utpiId = lens _utpiId (\ s a -> s{_utpiId = a});
 
--- | The TTL that you want Amazon Route 53 to assign to all of the updated
--- resource record sets.
+-- | The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.
 utpiTTL :: Lens' UpdateTrafficPolicyInstance Natural
 utpiTTL = lens _utpiTTL (\ s a -> s{_utpiTTL = a}) . _Nat;
 
--- | The ID of the traffic policy that you want Amazon Route 53 to use to
--- update resource record sets for the specified traffic policy instance.
+-- | The ID of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
 utpiTrafficPolicyId :: Lens' UpdateTrafficPolicyInstance Text
 utpiTrafficPolicyId = lens _utpiTrafficPolicyId (\ s a -> s{_utpiTrafficPolicyId = a});
 
--- | The version of the traffic policy that you want Amazon Route 53 to use
--- to update resource record sets for the specified traffic policy
--- instance.
+-- | The version of the traffic policy that you want Amazon Route 53 to use to update resource record sets for the specified traffic policy instance.
 utpiTrafficPolicyVersion :: Lens' UpdateTrafficPolicyInstance Natural
 utpiTrafficPolicyVersion = lens _utpiTrafficPolicyVersion (\ s a -> s{_utpiTrafficPolicyVersion = a}) . _Nat;
 
@@ -166,8 +144,7 @@ instance ToXML UpdateTrafficPolicyInstance where
                "TrafficPolicyId" @= _utpiTrafficPolicyId,
                "TrafficPolicyVersion" @= _utpiTrafficPolicyVersion]
 
--- | A complex type that contains information about the resource record sets
--- that Amazon Route 53 created based on a specified traffic policy.
+-- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
 -- /See:/ 'updateTrafficPolicyInstanceResponse' smart constructor.
 data UpdateTrafficPolicyInstanceResponse = UpdateTrafficPolicyInstanceResponse'
@@ -196,8 +173,7 @@ updateTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ =
 utpirsResponseStatus :: Lens' UpdateTrafficPolicyInstanceResponse Int
 utpirsResponseStatus = lens _utpirsResponseStatus (\ s a -> s{_utpirsResponseStatus = a});
 
--- | A complex type that contains settings for the updated traffic policy
--- instance.
+-- | A complex type that contains settings for the updated traffic policy instance.
 utpirsTrafficPolicyInstance :: Lens' UpdateTrafficPolicyInstanceResponse TrafficPolicyInstance
 utpirsTrafficPolicyInstance = lens _utpirsTrafficPolicyInstance (\ s a -> s{_utpirsTrafficPolicyInstance = a});
 

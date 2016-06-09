@@ -18,13 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a prediction for the observation using the specified
--- 'ML Model'.
+-- Generates a prediction for the observation using the specified 'ML Model'.
 --
 -- Note
 --
--- Not all response parameters will be populated. Whether a response
--- parameter is populated depends on the type of model requested.
+-- Not all response parameters will be populated. Whether a response parameter is populated depends on the type of model requested.
 module Network.AWS.MachineLearning.Predict
     (
     -- * Creating a Request

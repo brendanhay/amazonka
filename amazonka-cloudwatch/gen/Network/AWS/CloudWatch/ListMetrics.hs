@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of valid metrics stored for the AWS account owner.
--- Returned metrics can be used with < GetMetricStatistics> to obtain
--- statistical data for a given metric.
+-- Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with < GetMetricStatistics> to obtain statistical data for a given metric.
 --
--- Up to 500 results are returned for any one call. To retrieve further
--- results, use returned 'NextToken' values with subsequent 'ListMetrics'
--- operations.
+-- Up to 500 results are returned for any one call. To retrieve further results, use returned 'NextToken' values with subsequent 'ListMetrics' operations.
 --
--- If you create a metric with the < PutMetricData> action, allow up to
--- fifteen minutes for the metric to appear in calls to the 'ListMetrics'
--- action. Statistics about the metric, however, are available sooner using
--- < GetMetricStatistics>.
+-- If you create a metric with the < PutMetricData> action, allow up to fifteen minutes for the metric to appear in calls to the 'ListMetrics' action. Statistics about the metric, however, are available sooner using < GetMetricStatistics>.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
@@ -97,8 +90,7 @@ lmMetricName = lens _lmMetricName (\ s a -> s{_lmMetricName = a});
 lmNamespace :: Lens' ListMetrics (Maybe Text)
 lmNamespace = lens _lmNamespace (\ s a -> s{_lmNamespace = a});
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 

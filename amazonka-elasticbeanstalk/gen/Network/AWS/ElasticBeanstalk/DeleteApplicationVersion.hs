@@ -20,8 +20,7 @@
 --
 -- Deletes the specified version from the specified application.
 --
--- You cannot delete an application version that is associated with a
--- running environment.
+-- You cannot delete an application version that is associated with a running environment.
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Creating a Request
@@ -75,10 +74,8 @@ deleteApplicationVersion pApplicationName_ pVersionLabel_ =
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 --
--- -   'true': An attempt is made to delete the associated Amazon S3 source
---     bundle specified at time of creation.
--- -   'false': No action is taken on the Amazon S3 source bundle specified
---     at time of creation.
+-- -   'true': An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.
+-- -   'false': No action is taken on the Amazon S3 source bundle specified at time of creation.
 --
 -- Valid Values: 'true' | 'false'
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)

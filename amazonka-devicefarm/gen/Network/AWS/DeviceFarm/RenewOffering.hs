@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Explicitly sets the quantity of devices to renew for an offering,
--- starting from the 'effectiveDate' of the next period. The API returns a
--- 'NotEligible' error if the user is not permitted to invoke the
--- operation. Please contact
--- <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com>
--- if you believe that you should be able to invoke this operation.
+-- Explicitly sets the quantity of devices to renew for an offering, starting from the 'effectiveDate' of the next period. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
 module Network.AWS.DeviceFarm.RenewOffering
     (
     -- * Creating a Request

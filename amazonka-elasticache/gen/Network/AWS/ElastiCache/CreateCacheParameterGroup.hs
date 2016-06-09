@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /CreateCacheParameterGroup/ action creates a new cache parameter
--- group. A cache parameter group is a collection of parameters that you
--- apply to all of the nodes in a cache cluster.
+-- The /CreateCacheParameterGroup/ action creates a new cache parameter group. A cache parameter group is a collection of parameters that you apply to all of the nodes in a cache cluster.
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Creating a Request
@@ -80,8 +78,7 @@ createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ 
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a});
 
--- | The name of the cache parameter group family the cache parameter group
--- can be used with.
+-- | The name of the cache parameter group family the cache parameter group can be used with.
 --
 -- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text

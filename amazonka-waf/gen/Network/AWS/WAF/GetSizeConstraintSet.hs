@@ -60,9 +60,7 @@ getSizeConstraintSet pSizeConstraintSetId_ =
     { _gscsSizeConstraintSetId = pSizeConstraintSetId_
     }
 
--- | The 'SizeConstraintSetId' of the < SizeConstraintSet> that you want to
--- get. 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and
--- by < ListSizeConstraintSets>.
+-- | The 'SizeConstraintSetId' of the < SizeConstraintSet> that you want to get. 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and by < ListSizeConstraintSets>.
 gscsSizeConstraintSetId :: Lens' GetSizeConstraintSet Text
 gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeConstraintSetId = a});
 
@@ -125,15 +123,10 @@ getSizeConstraintSetResponse pResponseStatus_ =
     , _gscsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < SizeConstraintSet> that you specified in the
--- 'GetSizeConstraintSet' request. For more information, see the following
--- topics:
+-- | Information about the < SizeConstraintSet> that you specified in the 'GetSizeConstraintSet' request. For more information, see the following topics:
 --
--- -   < SizeConstraintSet>: Contains 'SizeConstraintSetId',
---     'SizeConstraints', and 'Name'
--- -   'SizeConstraints': Contains an array of < SizeConstraint> objects.
---     Each 'SizeConstraint' object contains < FieldToMatch>,
---     'TextTransformation', 'ComparisonOperator', and 'Size'
+-- -   < SizeConstraintSet>: Contains 'SizeConstraintSetId', 'SizeConstraints', and 'Name'
+-- -   'SizeConstraints': Contains an array of < SizeConstraint> objects. Each 'SizeConstraint' object contains < FieldToMatch>, 'TextTransformation', 'ComparisonOperator', and 'Size'
 -- -   < FieldToMatch>: Contains 'Data' and 'Type'
 gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
 gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a});

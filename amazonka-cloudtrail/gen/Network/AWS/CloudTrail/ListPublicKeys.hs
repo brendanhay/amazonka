@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all public keys whose private keys were used to sign the digest
--- files within the specified time range. The public key is needed to
--- validate digest files that were signed with its corresponding private
--- key.
+-- Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.
 --
--- CloudTrail uses different private\/public key pairs per region. Each
--- digest file is signed with a private key unique to its region.
--- Therefore, when you validate a digest file from a particular region, you
--- must look in the same region for its corresponding public key.
+-- CloudTrail uses different private\/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.
 module Network.AWS.CloudTrail.ListPublicKeys
     (
     -- * Creating a Request
@@ -80,9 +74,7 @@ listPublicKeys =
     , _lpkEndTime = Nothing
     }
 
--- | Optionally specifies, in UTC, the start of the time range to look up
--- public keys for CloudTrail digest files. If not specified, the current
--- time is used, and the current public key is returned.
+-- | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
 lpkStartTime :: Lens' ListPublicKeys (Maybe UTCTime)
 lpkStartTime = lens _lpkStartTime (\ s a -> s{_lpkStartTime = a}) . mapping _Time;
 
@@ -90,9 +82,7 @@ lpkStartTime = lens _lpkStartTime (\ s a -> s{_lpkStartTime = a}) . mapping _Tim
 lpkNextToken :: Lens' ListPublicKeys (Maybe Text)
 lpkNextToken = lens _lpkNextToken (\ s a -> s{_lpkNextToken = a});
 
--- | Optionally specifies, in UTC, the end of the time range to look up
--- public keys for CloudTrail digest files. If not specified, the current
--- time is used.
+-- | Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
 lpkEndTime :: Lens' ListPublicKeys (Maybe UTCTime)
 lpkEndTime = lens _lpkEndTime (\ s a -> s{_lpkEndTime = a}) . mapping _Time;
 
@@ -135,8 +125,7 @@ instance ToPath ListPublicKeys where
 instance ToQuery ListPublicKeys where
         toQuery = const mempty
 
--- | Returns the objects or data listed below if successful. Otherwise,
--- returns an error.
+-- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'listPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'

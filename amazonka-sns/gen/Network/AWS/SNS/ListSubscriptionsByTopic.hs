@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the subscriptions to a specific topic. Each call
--- returns a limited list of subscriptions, up to 100. If there are more
--- subscriptions, a 'NextToken' is also returned. Use the 'NextToken'
--- parameter in a new 'ListSubscriptionsByTopic' call to get further
--- results.
+-- Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptionsByTopic' call to get further results.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptionsByTopic
@@ -150,8 +146,7 @@ listSubscriptionsByTopicResponse pResponseStatus_ =
     , _lsbtrsResponseStatus = pResponseStatus_
     }
 
--- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This
--- element is returned if there are more subscriptions to retrieve.
+-- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This element is returned if there are more subscriptions to retrieve.
 lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 

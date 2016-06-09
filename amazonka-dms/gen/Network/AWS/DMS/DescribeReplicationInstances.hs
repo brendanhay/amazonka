@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about replication instances for your account in the
--- current region.
+-- Returns information about replication instances for your account in the current region.
 --
 module Network.AWS.DMS.DescribeReplicationInstances
     (
@@ -74,21 +73,15 @@ describeReplicationInstances =
 
 -- | Filters applied to the describe action.
 --
--- Valid filter names: replication-instance-arn | replication-instance-id |
--- replication-instance-class | engine-version
+-- Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
 driFilters :: Lens' DescribeReplicationInstances [Filter]
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 driMarker :: Lens' DescribeReplicationInstances (Maybe Text)
 driMarker = lens _driMarker (\ s a -> s{_driMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -163,9 +156,7 @@ describeReplicationInstancesResponse pResponseStatus_ =
     , _drisrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drisrsMarker :: Lens' DescribeReplicationInstancesResponse (Maybe Text)
 drisrsMarker = lens _drisrsMarker (\ s a -> s{_drisrsMarker = a});
 

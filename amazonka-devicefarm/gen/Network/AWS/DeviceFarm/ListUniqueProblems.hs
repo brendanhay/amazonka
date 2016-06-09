@@ -71,9 +71,7 @@ listUniqueProblems pArn_ =
     , _lupArn = pArn_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
 lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
 
@@ -155,9 +153,7 @@ listUniqueProblemsResponse pResponseStatus_ =
     , _luprsResponseStatus = pResponseStatus_
     }
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 luprsNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
 luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 

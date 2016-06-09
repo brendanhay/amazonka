@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the default engine and system parameter information for the
--- cluster database engine.
+-- Returns the default engine and system parameter information for the cluster database engine.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     (
     -- * Creating a Request
@@ -86,17 +83,11 @@ describeEngineDefaultClusterParameters pDBParameterGroupFamily_ =
 dedcpFilters :: Lens' DescribeEngineDefaultClusterParameters [Filter]
 dedcpFilters = lens _dedcpFilters (\ s a -> s{_dedcpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribeEngineDefaultClusterParameters' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeEngineDefaultClusterParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dedcpMarker :: Lens' DescribeEngineDefaultClusterParameters (Maybe Text)
 dedcpMarker = lens _dedcpMarker (\ s a -> s{_dedcpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -104,8 +95,7 @@ dedcpMarker = lens _dedcpMarker (\ s a -> s{_dedcpMarker = a});
 dedcpMaxRecords :: Lens' DescribeEngineDefaultClusterParameters (Maybe Int)
 dedcpMaxRecords = lens _dedcpMaxRecords (\ s a -> s{_dedcpMaxRecords = a});
 
--- | The name of the DB cluster parameter group family to return engine
--- parameter information for.
+-- | The name of the DB cluster parameter group family to return engine parameter information for.
 dedcpDBParameterGroupFamily :: Lens' DescribeEngineDefaultClusterParameters Text
 dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_dedcpDBParameterGroupFamily = a});
 

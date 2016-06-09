@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified snapshot. You can
--- specify only one attribute at a time.
+-- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
 --
--- For more information about EBS snapshots, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Creating a Request
@@ -80,10 +77,7 @@ describeSnapshotAttribute pSnapshotId_ pAttribute_ =
     , _dsaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
 

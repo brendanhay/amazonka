@@ -43,8 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about one or more
--- < Stage> resources.
+-- | Requests Amazon API Gateway to get information about one or more < Stage> resources.
 --
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
@@ -104,8 +103,7 @@ instance ToQuery GetStages where
         toQuery GetStages'{..}
           = mconcat ["deploymentId" =: _gsDeploymentId]
 
--- | A list of < Stage> resource that are associated with the < ApiKey>
--- resource.
+-- | A list of < Stage> resource that are associated with the < ApiKey> resource.
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'

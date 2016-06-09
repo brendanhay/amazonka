@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a policy with the specified attributes for the specified load
--- balancer.
+-- Creates a policy with the specified attributes for the specified load balancer.
 --
--- Policies are settings that are saved for your load balancer and that can
--- be applied to the front-end listener or the back-end application server,
--- depending on the policy type.
+-- Policies are settings that are saved for your load balancer and that can be applied to the front-end listener or the back-end application server, depending on the policy type.
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -89,13 +86,11 @@ clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttribu
 clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
 clbpLoadBalancerName = lens _clbpLoadBalancerName (\ s a -> s{_clbpLoadBalancerName = a});
 
--- | The name of the load balancer policy to be created. This name must be
--- unique within the set of policies for this load balancer.
+-- | The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
 clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a});
 
--- | The name of the base policy type. To get the list of policy types, use
--- < DescribeLoadBalancerPolicyTypes>.
+-- | The name of the base policy type. To get the list of policy types, use < DescribeLoadBalancerPolicyTypes>.
 clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a});
 

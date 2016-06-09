@@ -21,10 +21,7 @@ import           Network.AWS.CloudWatch.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The 'AlarmHistoryItem' data type contains descriptive information about
--- the history of a specific alarm. If you call < DescribeAlarmHistory>,
--- Amazon CloudWatch returns this data type as part of the
--- DescribeAlarmHistoryResult data type.
+-- | The 'AlarmHistoryItem' data type contains descriptive information about the history of a specific alarm. If you call < DescribeAlarmHistory>, Amazon CloudWatch returns this data type as part of the DescribeAlarmHistoryResult data type.
 --
 -- /See:/ 'alarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
@@ -91,8 +88,7 @@ instance Hashable AlarmHistoryItem
 
 instance NFData AlarmHistoryItem
 
--- | The 'Datapoint' data type encapsulates the statistical data that Amazon
--- CloudWatch computes from metric data.
+-- | The 'Datapoint' data type encapsulates the statistical data that Amazon CloudWatch computes from metric data.
 --
 -- /See:/ 'datapoint' smart constructor.
 data Datapoint = Datapoint'
@@ -135,8 +131,7 @@ datapoint =
     , _dTimestamp = Nothing
     }
 
--- | The number of metric values that contributed to the aggregate value of
--- this datapoint.
+-- | The number of metric values that contributed to the aggregate value of this datapoint.
 dSampleCount :: Lens' Datapoint (Maybe Double)
 dSampleCount = lens _dSampleCount (\ s a -> s{_dSampleCount = a});
 
@@ -178,8 +173,7 @@ instance Hashable Datapoint
 
 instance NFData Datapoint
 
--- | The 'Dimension' data type further expands on the identity of a metric
--- using a Name, Value pair.
+-- | The 'Dimension' data type further expands on the identity of a metric using a Name, Value pair.
 --
 -- For examples that use one or more dimensions, see < PutMetricData>.
 --
@@ -226,8 +220,7 @@ instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
 
--- | The 'DimensionFilter' data type is used to filter < ListMetrics>
--- results.
+-- | The 'DimensionFilter' data type is used to filter < ListMetrics> results.
 --
 -- /See:/ 'dimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
@@ -253,8 +246,7 @@ dimensionFilter pName_ =
 
 -- | The value of the dimension to be matched.
 --
--- Specifying a 'Name' without specifying a 'Value' returns all values
--- associated with that 'Name'.
+-- Specifying a 'Name' without specifying a 'Value' returns all values associated with that 'Name'.
 dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
@@ -270,13 +262,9 @@ instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
           = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
--- | The 'Metric' data type contains information about a specific metric. If
--- you call < ListMetrics>, Amazon CloudWatch returns information contained
--- by this data type.
+-- | The 'Metric' data type contains information about a specific metric. If you call < ListMetrics>, Amazon CloudWatch returns information contained by this data type.
 --
--- The example in the Examples section publishes two metrics named buffers
--- and latency. Both metrics are in the examples namespace. Both metrics
--- have two dimensions, InstanceID and InstanceType.
+-- The example in the Examples section publishes two metrics named buffers and latency. Both metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType.
 --
 -- /See:/ 'metric' smart constructor.
 data Metric = Metric'
@@ -326,8 +314,7 @@ instance Hashable Metric
 
 instance NFData Metric
 
--- | The < MetricAlarm> data type represents an alarm. You can use
--- < PutMetricAlarm> to create or update an alarm.
+-- | The < MetricAlarm> data type represents an alarm. You can use < PutMetricAlarm> to create or update an alarm.
 --
 -- /See:/ 'metricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
@@ -442,8 +429,7 @@ maPeriod = lens _maPeriod (\ s a -> s{_maPeriod = a}) . mapping _Nat;
 maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = a});
 
--- | The number of periods over which data is compared to the specified
--- threshold.
+-- | The number of periods over which data is compared to the specified threshold.
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods = lens _maEvaluationPeriods (\ s a -> s{_maEvaluationPeriods = a}) . mapping _Nat;
 
@@ -455,15 +441,11 @@ maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 
--- | The arithmetic operation to use when comparing the specified 'Statistic'
--- and 'Threshold'. The specified 'Statistic' value is used as the first
--- operand.
+-- | The arithmetic operation to use when comparing the specified 'Statistic' and 'Threshold'. The specified 'Statistic' value is used as the first operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOperator = a});
 
--- | The list of actions to execute when this alarm transitions into an 'OK'
--- state from any other state. Each action is specified as an Amazon
--- Resource Name (ARN).
+-- | The list of actions to execute when this alarm transitions into an 'OK' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
 
@@ -479,14 +461,11 @@ maThreshold = lens _maThreshold (\ s a -> s{_maThreshold = a});
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestamp (\ s a -> s{_maAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time;
 
--- | Indicates whether actions should be executed during any changes to the
--- alarm\'s state.
+-- | Indicates whether actions should be executed during any changes to the alarm\'s state.
 maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
 
--- | The list of actions to execute when this alarm transitions into an
--- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
--- as an Amazon Resource Name (ARN).
+-- | The list of actions to execute when this alarm transitions into an 'INSUFFICIENT_DATA' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
 -- The current WSDL lists this attribute as 'UnknownActions'.
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
@@ -508,9 +487,7 @@ maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _
 maAlarmARN :: Lens' MetricAlarm (Maybe Text)
 maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 
--- | The list of actions to execute when this alarm transitions into an
--- 'ALARM' state from any other state. Each action is specified as an
--- Amazon Resource Name (ARN).
+-- | The list of actions to execute when this alarm transitions into an 'ALARM' state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default . _Coerce;
 
@@ -559,9 +536,7 @@ instance Hashable MetricAlarm
 
 instance NFData MetricAlarm
 
--- | The 'MetricDatum' data type encapsulates the information sent with
--- < PutMetricData> to either create a new metric or add new values to be
--- aggregated into an existing metric.
+-- | The 'MetricDatum' data type encapsulates the information sent with < PutMetricData> to either create a new metric or add new values to be aggregated into an existing metric.
 --
 -- /See:/ 'metricDatum' smart constructor.
 data MetricDatum = MetricDatum'
@@ -603,17 +578,11 @@ metricDatum pMetricName_ =
 
 -- | The value for the metric.
 --
--- Although the 'Value' parameter accepts numbers of type 'Double', Amazon
--- CloudWatch rejects values that are either too small or too large. Values
--- must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or
--- 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN,
--- +Infinity, -Infinity) are not supported.
+-- Although the 'Value' parameter accepts numbers of type 'Double', Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 
--- | A list of dimensions associated with the metric. Note, when using the
--- Dimensions value in a query, you need to append .member.N to it (e.g.,
--- Dimensions.member.N).
+-- | A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N).
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _Coerce;
 
@@ -621,9 +590,7 @@ mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a});
 
--- | The time stamp used for the metric in ISO 8601 Universal Coordinated
--- Time (UTC) format. If not specified, the default value is set to the
--- time the metric data was received.
+-- | The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received.
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\ s a -> s{_mdTimestamp = a}) . mapping _Time;
 
@@ -649,9 +616,7 @@ instance ToQuery MetricDatum where
                "StatisticValues" =: _mdStatisticValues,
                "MetricName" =: _mdMetricName]
 
--- | The 'StatisticSet' data type describes the 'StatisticValues' component
--- of < MetricDatum>, and represents a set of statistics that describes a
--- specific metric.
+-- | The 'StatisticSet' data type describes the 'StatisticValues' component of < MetricDatum>, and represents a set of statistics that describes a specific metric.
 --
 -- /See:/ 'statisticSet' smart constructor.
 data StatisticSet = StatisticSet'

@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about provisioned Aurora DB clusters. This API
--- supports pagination.
+-- Returns information about provisioned Aurora DB clusters. This API supports pagination.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DescribeDBClusters
     (
     -- * Creating a Request
@@ -82,9 +79,7 @@ describeDBClusters =
     , _ddcMaxRecords = Nothing
     }
 
--- | The user-supplied DB cluster identifier. If this parameter is specified,
--- information from only the specific DB cluster is returned. This
--- parameter isn\'t case-sensitive.
+-- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --
@@ -98,17 +93,11 @@ ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\ s a -> s{_ddcDBClusterI
 ddcFilters :: Lens' DescribeDBClusters [Filter]
 ddcFilters = lens _ddcFilters (\ s a -> s{_ddcFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- < DescribeDBClusters> request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous < DescribeDBClusters> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddcMarker :: Lens' DescribeDBClusters (Maybe Text)
 ddcMarker = lens _ddcMarker (\ s a -> s{_ddcMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -150,8 +139,7 @@ instance ToQuery DescribeDBClusters where
                "Marker" =: _ddcMarker,
                "MaxRecords" =: _ddcMaxRecords]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBClusters> action.
+-- | Contains the result of a successful invocation of the < DescribeDBClusters> action.
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
@@ -183,8 +171,7 @@ describeDBClustersResponse pResponseStatus_ =
 ddcrsDBClusters :: Lens' DescribeDBClustersResponse [DBCluster]
 ddcrsDBClusters = lens _ddcrsDBClusters (\ s a -> s{_ddcrsDBClusters = a}) . _Default . _Coerce;
 
--- | A pagination token that can be used in a subsequent DescribeDBClusters
--- request.
+-- | A pagination token that can be used in a subsequent DescribeDBClusters request.
 ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
 ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 

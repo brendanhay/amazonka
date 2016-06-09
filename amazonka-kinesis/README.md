@@ -8,15 +8,14 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 Amazon Kinesis Streams Service API Reference
 
-Amazon Kinesis Streams is a managed service that scales elastically for
-real time processing of streaming big data.
+Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

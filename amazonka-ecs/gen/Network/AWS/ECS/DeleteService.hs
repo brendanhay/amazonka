@@ -18,21 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified service within a cluster. You can delete a service
--- if you have no running tasks in it and the desired task count is zero.
--- If the service is actively maintaining tasks, you cannot delete it, and
--- you must update the service to a desired task count of zero. For more
--- information, see < UpdateService>.
+-- Deletes a specified service within a cluster. You can delete a service if you have no running tasks in it and the desired task count is zero. If the service is actively maintaining tasks, you cannot delete it, and you must update the service to a desired task count of zero. For more information, see < UpdateService>.
 --
--- When you delete a service, if there are still running tasks that require
--- cleanup, the service status moves from 'ACTIVE' to 'DRAINING', and the
--- service is no longer visible in the console or in < ListServices> API
--- operations. After the tasks have stopped, then the service status moves
--- from 'DRAINING' to 'INACTIVE'. Services in the 'DRAINING' or 'INACTIVE'
--- status can still be viewed with < DescribeServices> API operations;
--- however, in the future, 'INACTIVE' services may be cleaned up and purged
--- from Amazon ECS record keeping, and < DescribeServices> API operations
--- on those services will return a 'ServiceNotFoundException' error.
+-- When you delete a service, if there are still running tasks that require cleanup, the service status moves from 'ACTIVE' to 'DRAINING', and the service is no longer visible in the console or in < ListServices> API operations. After the tasks have stopped, then the service status moves from 'DRAINING' to 'INACTIVE'. Services in the 'DRAINING' or 'INACTIVE' status can still be viewed with < DescribeServices> API operations; however, in the future, 'INACTIVE' services may be cleaned up and purged from Amazon ECS record keeping, and < DescribeServices> API operations on those services will return a 'ServiceNotFoundException' error.
 module Network.AWS.ECS.DeleteService
     (
     -- * Creating a Request
@@ -79,8 +67,7 @@ deleteService pService_ =
     , _dsService = pService_
     }
 
--- | The name of the cluster that hosts the service to delete. If you do not
--- specify a cluster, the default cluster is assumed.
+-- | The name of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
 dsCluster :: Lens' DeleteService (Maybe Text)
 dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 

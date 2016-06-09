@@ -20,9 +20,7 @@
 --
 -- Obtains information about the trust relationships for this account.
 --
--- If no input parameters are provided, such as DirectoryId or TrustIds,
--- this request describes all the trust relationships belonging to the
--- account.
+-- If no input parameters are provided, such as DirectoryId or TrustIds, this request describes all the trust relationships belonging to the account.
 module Network.AWS.DirectoryService.DescribeTrusts
     (
     -- * Creating a Request
@@ -50,9 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the trust relationships for a particular Microsoft AD in the
--- AWS cloud. If no input parameters are are provided, such as directory ID
--- or trust ID, this request describes all the trust relationships.
+-- | Describes the trust relationships for a particular Microsoft AD in the AWS cloud. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.
 --
 -- /See:/ 'describeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
@@ -83,19 +79,15 @@ describeTrusts =
     , _dtLimit = Nothing
     }
 
--- | The Directory ID of the AWS directory that is a part of the requested
--- trust relationship.
+-- | The Directory ID of the AWS directory that is a part of the requested trust relationship.
 dtDirectoryId :: Lens' DescribeTrusts (Maybe Text)
 dtDirectoryId = lens _dtDirectoryId (\ s a -> s{_dtDirectoryId = a});
 
--- | The /DescribeTrustsResult.NextToken/ value from a previous call to
--- < DescribeTrusts>. Pass null if this is the first call.
+-- | The /DescribeTrustsResult.NextToken/ value from a previous call to < DescribeTrusts>. Pass null if this is the first call.
 dtNextToken :: Lens' DescribeTrusts (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
--- | A list of identifiers of the trust relationships for which to obtain the
--- information. If this member is null, all trust relationships that belong
--- to the current account are returned.
+-- | A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.
 --
 -- An empty list results in an 'InvalidParameterException' being thrown.
 dtTrustIds :: Lens' DescribeTrusts [Text]
@@ -170,18 +162,13 @@ describeTrustsResponse pResponseStatus_ =
     , _dtrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value for the
--- /NextToken/ parameter in a subsequent call to < DescribeTrusts> to
--- retrieve the next set of items.
+-- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to < DescribeTrusts> to retrieve the next set of items.
 dtrsNextToken :: Lens' DescribeTrustsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | The list of Trust objects that were retrieved.
 --
--- It is possible that this list contains less than the number of items
--- specified in the /Limit/ member of the request. This occurs if there are
--- less than the requested number of items left to retrieve, or if the
--- limitations of the operation have been exceeded.
+-- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 dtrsTrusts :: Lens' DescribeTrustsResponse [Trust]
 dtrsTrusts = lens _dtrsTrusts (\ s a -> s{_dtrsTrusts = a}) . _Default . _Coerce;
 

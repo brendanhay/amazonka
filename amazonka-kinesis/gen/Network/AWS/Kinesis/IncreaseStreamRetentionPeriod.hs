@@ -18,18 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Increases the Amazon Kinesis stream\'s retention period, which is the
--- length of time data records are accessible after they are added to the
--- stream. The maximum value of a stream\'s retention period is 168 hours
--- (7 days).
+-- Increases the Amazon Kinesis stream\'s retention period, which is the length of time data records are accessible after they are added to the stream. The maximum value of a stream\'s retention period is 168 hours (7 days).
 --
--- Upon choosing a longer stream retention period, this operation will
--- increase the time period records are accessible that have not yet
--- expired. However, it will not make previous data that has expired (older
--- than the stream\'s previous retention period) accessible after the
--- operation has been called. For example, if a stream\'s retention period
--- is set to 24 hours and is increased to 168 hours, any data that is older
--- than 24 hours will remain inaccessible to consumer applications.
+-- Upon choosing a longer stream retention period, this operation will increase the time period records are accessible that have not yet expired. However, it will not make previous data that has expired (older than the stream\'s previous retention period) accessible after the operation has been called. For example, if a stream\'s retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours will remain inaccessible to consumer applications.
 module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     (
     -- * Creating a Request
@@ -80,8 +71,7 @@ increaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
 isrpStreamName :: Lens' IncreaseStreamRetentionPeriod Text
 isrpStreamName = lens _isrpStreamName (\ s a -> s{_isrpStreamName = a});
 
--- | The new retention period of the stream, in hours. Must be more than the
--- current retention period.
+-- | The new retention period of the stream, in hours. Must be more than the current retention period.
 isrpRetentionPeriodHours :: Lens' IncreaseStreamRetentionPeriod Natural
 isrpRetentionPeriodHours = lens _isrpRetentionPeriodHours (\ s a -> s{_isrpRetentionPeriodHours = a}) . _Nat;
 

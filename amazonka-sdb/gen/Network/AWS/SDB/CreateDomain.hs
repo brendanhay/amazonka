@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The 'CreateDomain' operation creates a new domain. The domain name
--- should be unique among the domains associated with the Access Key ID
--- provided in the request. The 'CreateDomain' operation may take 10 or
--- more seconds to complete.
+-- The 'CreateDomain' operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The 'CreateDomain' operation may take 10 or more seconds to complete.
 --
 -- The client can create up to 100 domains per account.
 --
--- If the client requires additional domains, go to
--- <http://aws.amazon.com/contact-us/simpledb-limit-request/>.
+-- If the client requires additional domains, go to <http://aws.amazon.com/contact-us/simpledb-limit-request/>.
 module Network.AWS.SDB.CreateDomain
     (
     -- * Creating a Request
@@ -65,9 +61,7 @@ createDomain pDomainName_ =
     { _cdDomainName = pDomainName_
     }
 
--- | The name of the domain to create. The name can range between 3 and 255
--- characters and can contain the following characters: a-z, A-Z, 0-9,
--- \'_\', \'-\', and \'.\'.
+-- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, \'_\', \'-\', and \'.\'.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 

@@ -18,14 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
--- operation is terminated.
+-- Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
 --
 -- The DB cluster snapshot must be in the 'available' state to be deleted.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DeleteDBClusterSnapshot
     (
     -- * Creating a Request
@@ -71,8 +68,7 @@ deleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
 
 -- | The identifier of the DB cluster snapshot to delete.
 --
--- Constraints: Must be the name of an existing DB cluster snapshot in the
--- 'available' state.
+-- Constraints: Must be the name of an existing DB cluster snapshot in the 'available' state.
 ddcsDBClusterSnapshotIdentifier :: Lens' DeleteDBClusterSnapshot Text
 ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -> s{_ddcsDBClusterSnapshotIdentifier = a});
 

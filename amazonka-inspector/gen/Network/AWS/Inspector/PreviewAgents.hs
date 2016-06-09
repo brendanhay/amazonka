@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Previews the agents installed on the EC2 instances that are part of the
--- specified assessment target.
+-- Previews the agents installed on the EC2 instances that are part of the specified assessment target.
 module Network.AWS.Inspector.PreviewAgents
     (
     -- * Creating a Request
@@ -72,16 +71,11 @@ previewAgents pPreviewAgentsARN_ =
     , _paPreviewAgentsARN = pPreviewAgentsARN_
     }
 
--- | You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the __PreviewAgents__
--- action. Subsequent calls to the action fill __nextToken__ in the request
--- with the value of __NextToken__ from the previous response to continue
--- listing data.
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 paNextToken :: Lens' PreviewAgents (Maybe Text)
 paNextToken = lens _paNextToken (\ s a -> s{_paNextToken = a});
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 paMaxResults :: Lens' PreviewAgents (Maybe Int)
 paMaxResults = lens _paMaxResults (\ s a -> s{_paMaxResults = a});
 
@@ -152,10 +146,7 @@ previewAgentsResponse pResponseStatus_ =
     , _parsAgentPreviews = mempty
     }
 
--- | When a response is generated, if there is more data to be listed, this
--- parameter is present in the response and contains the value to use for
--- the __nextToken__ parameter in a subsequent pagination request. If there
--- is no more data to be listed, this parameter is set to null.
+-- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 parsNextToken :: Lens' PreviewAgentsResponse (Maybe Text)
 parsNextToken = lens _parsNextToken (\ s a -> s{_parsNextToken = a});
 

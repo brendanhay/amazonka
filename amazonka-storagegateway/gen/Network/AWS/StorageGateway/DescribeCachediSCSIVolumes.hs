@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the gateway volumes specified in the request.
--- This operation is supported only for the gateway-cached volume
--- architecture.
+-- Returns a description of the gateway volumes specified in the request. This operation is supported only for the gateway-cached volume architecture.
 --
--- The list of gateway volumes in the request must be from one gateway. In
--- the response Amazon Storage Gateway returns volume information sorted by
--- volume Amazon Resource Name (ARN).
+-- The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume Amazon Resource Name (ARN).
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
     -- * Creating a Request
@@ -130,8 +126,7 @@ describeCachediSCSIVolumesResponse pResponseStatus_ =
     , _dcscsivrsResponseStatus = pResponseStatus_
     }
 
--- | An array of objects where each object contains metadata about one cached
--- volume.
+-- | An array of objects where each object contains metadata about one cached volume.
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
 dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
 

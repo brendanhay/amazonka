@@ -28,475 +28,475 @@ import Test.AWS.RDS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeDBClusterParameterGroups $
+--         [ requestDescribeDBClusterParameterGroups $
 --             describeDBClusterParameterGroups
 --
---         , testPromoteReadReplica $
+--         , requestPromoteReadReplica $
 --             promoteReadReplica
 --
---         , testDescribeDBEngineVersions $
+--         , requestDescribeDBEngineVersions $
 --             describeDBEngineVersions
 --
---         , testCopyDBSnapshot $
+--         , requestCopyDBSnapshot $
 --             copyDBSnapshot
 --
---         , testAddSourceIdentifierToSubscription $
+--         , requestAddSourceIdentifierToSubscription $
 --             addSourceIdentifierToSubscription
 --
---         , testModifyDBInstance $
+--         , requestModifyDBInstance $
 --             modifyDBInstance
 --
---         , testModifyEventSubscription $
+--         , requestModifyEventSubscription $
 --             modifyEventSubscription
 --
---         , testResetDBClusterParameterGroup $
+--         , requestResetDBClusterParameterGroup $
 --             resetDBClusterParameterGroup
 --
---         , testDescribeEvents $
+--         , requestDescribeEvents $
 --             describeEvents
 --
---         , testDescribeEngineDefaultParameters $
+--         , requestDescribeEngineDefaultParameters $
 --             describeEngineDefaultParameters
 --
---         , testDescribeOptionGroups $
+--         , requestDescribeOptionGroups $
 --             describeOptionGroups
 --
---         , testDescribeDBLogFiles $
+--         , requestDescribeDBLogFiles $
 --             describeDBLogFiles
 --
---         , testDescribeDBClusters $
+--         , requestDescribeDBClusters $
 --             describeDBClusters
 --
---         , testModifyDBSubnetGroup $
+--         , requestModifyDBSubnetGroup $
 --             modifyDBSubnetGroup
 --
---         , testListTagsForResource $
+--         , requestListTagsForResource $
 --             listTagsForResource
 --
---         , testDeleteOptionGroup $
+--         , requestDeleteOptionGroup $
 --             deleteOptionGroup
 --
---         , testDeleteDBCluster $
+--         , requestDeleteDBCluster $
 --             deleteDBCluster
 --
---         , testDescribeReservedDBInstances $
+--         , requestDescribeReservedDBInstances $
 --             describeReservedDBInstances
 --
---         , testCopyDBParameterGroup $
+--         , requestCopyDBParameterGroup $
 --             copyDBParameterGroup
 --
---         , testRemoveSourceIdentifierFromSubscription $
+--         , requestRemoveSourceIdentifierFromSubscription $
 --             removeSourceIdentifierFromSubscription
 --
---         , testDescribeEngineDefaultClusterParameters $
+--         , requestDescribeEngineDefaultClusterParameters $
 --             describeEngineDefaultClusterParameters
 --
---         , testDescribeDBSnapshotAttributes $
+--         , requestDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributes
 --
---         , testRemoveTagsFromResource $
+--         , requestRemoveTagsFromResource $
 --             removeTagsFromResource
 --
---         , testRestoreDBInstanceFromDBSnapshot $
+--         , requestRestoreDBInstanceFromDBSnapshot $
 --             restoreDBInstanceFromDBSnapshot
 --
---         , testCreateEventSubscription $
+--         , requestCreateEventSubscription $
 --             createEventSubscription
 --
---         , testPurchaseReservedDBInstancesOffering $
+--         , requestPurchaseReservedDBInstancesOffering $
 --             purchaseReservedDBInstancesOffering
 --
---         , testCreateDBInstance $
+--         , requestCreateDBInstance $
 --             createDBInstance
 --
---         , testDeleteDBClusterParameterGroup $
+--         , requestDeleteDBClusterParameterGroup $
 --             deleteDBClusterParameterGroup
 --
---         , testDescribeCertificates $
+--         , requestDescribeCertificates $
 --             describeCertificates
 --
---         , testAuthorizeDBSecurityGroupIngress $
+--         , requestAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngress
 --
---         , testRestoreDBClusterFromSnapshot $
+--         , requestRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshot
 --
---         , testDescribeOrderableDBInstanceOptions $
+--         , requestDescribeOrderableDBInstanceOptions $
 --             describeOrderableDBInstanceOptions
 --
---         , testCreateDBClusterParameterGroup $
+--         , requestCreateDBClusterParameterGroup $
 --             createDBClusterParameterGroup
 --
---         , testCreateDBSnapshot $
+--         , requestCreateDBSnapshot $
 --             createDBSnapshot
 --
---         , testDeleteEventSubscription $
+--         , requestDeleteEventSubscription $
 --             deleteEventSubscription
 --
---         , testDescribeDBParameterGroups $
+--         , requestDescribeDBParameterGroups $
 --             describeDBParameterGroups
 --
---         , testModifyDBSnapshotAttribute $
+--         , requestModifyDBSnapshotAttribute $
 --             modifyDBSnapshotAttribute
 --
---         , testDeleteDBClusterSnapshot $
+--         , requestDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshot
 --
---         , testDescribeOptionGroupOptions $
+--         , requestDescribeOptionGroupOptions $
 --             describeOptionGroupOptions
 --
---         , testDescribeEventSubscriptions $
+--         , requestDescribeEventSubscriptions $
 --             describeEventSubscriptions
 --
---         , testAddTagsToResource $
+--         , requestAddTagsToResource $
 --             addTagsToResource
 --
---         , testDescribeDBParameters $
+--         , requestDescribeDBParameters $
 --             describeDBParameters
 --
---         , testCreateDBClusterSnapshot $
+--         , requestCreateDBClusterSnapshot $
 --             createDBClusterSnapshot
 --
---         , testDescribeDBSnapshots $
+--         , requestDescribeDBSnapshots $
 --             describeDBSnapshots
 --
---         , testDescribeDBSubnetGroups $
+--         , requestDescribeDBSubnetGroups $
 --             describeDBSubnetGroups
 --
---         , testModifyOptionGroup $
+--         , requestModifyOptionGroup $
 --             modifyOptionGroup
 --
---         , testCreateDBParameterGroup $
+--         , requestCreateDBParameterGroup $
 --             createDBParameterGroup
 --
---         , testModifyDBCluster $
+--         , requestModifyDBCluster $
 --             modifyDBCluster
 --
---         , testDescribeEventCategories $
+--         , requestDescribeEventCategories $
 --             describeEventCategories
 --
---         , testModifyDBClusterParameterGroup $
+--         , requestModifyDBClusterParameterGroup $
 --             modifyDBClusterParameterGroup
 --
---         , testRestoreDBInstanceToPointInTime $
+--         , requestRestoreDBInstanceToPointInTime $
 --             restoreDBInstanceToPointInTime
 --
---         , testDescribePendingMaintenanceActions $
+--         , requestDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActions
 --
---         , testCopyDBClusterSnapshot $
+--         , requestCopyDBClusterSnapshot $
 --             copyDBClusterSnapshot
 --
---         , testResetDBParameterGroup $
+--         , requestResetDBParameterGroup $
 --             resetDBParameterGroup
 --
---         , testCreateDBCluster $
+--         , requestCreateDBCluster $
 --             createDBCluster
 --
---         , testFailoverDBCluster $
+--         , requestFailoverDBCluster $
 --             failoverDBCluster
 --
---         , testRevokeDBSecurityGroupIngress $
+--         , requestRevokeDBSecurityGroupIngress $
 --             revokeDBSecurityGroupIngress
 --
---         , testModifyDBParameterGroup $
+--         , requestModifyDBParameterGroup $
 --             modifyDBParameterGroup
 --
---         , testApplyPendingMaintenanceAction $
+--         , requestApplyPendingMaintenanceAction $
 --             applyPendingMaintenanceAction
 --
---         , testCreateOptionGroup $
+--         , requestCreateOptionGroup $
 --             createOptionGroup
 --
---         , testDescribeAccountAttributes $
+--         , requestDescribeAccountAttributes $
 --             describeAccountAttributes
 --
---         , testDeleteDBSnapshot $
+--         , requestDeleteDBSnapshot $
 --             deleteDBSnapshot
 --
---         , testDescribeDBClusterParameters $
+--         , requestDescribeDBClusterParameters $
 --             describeDBClusterParameters
 --
---         , testDeleteDBSubnetGroup $
+--         , requestDeleteDBSubnetGroup $
 --             deleteDBSubnetGroup
 --
---         , testCreateDBSecurityGroup $
+--         , requestCreateDBSecurityGroup $
 --             createDBSecurityGroup
 --
---         , testDescribeDBClusterSnapshots $
+--         , requestDescribeDBClusterSnapshots $
 --             describeDBClusterSnapshots
 --
---         , testRebootDBInstance $
+--         , requestRebootDBInstance $
 --             rebootDBInstance
 --
---         , testCreateDBSubnetGroup $
+--         , requestCreateDBSubnetGroup $
 --             createDBSubnetGroup
 --
---         , testDescribeReservedDBInstancesOfferings $
+--         , requestDescribeReservedDBInstancesOfferings $
 --             describeReservedDBInstancesOfferings
 --
---         , testDeleteDBSecurityGroup $
+--         , requestDeleteDBSecurityGroup $
 --             deleteDBSecurityGroup
 --
---         , testDeleteDBInstance $
+--         , requestDeleteDBInstance $
 --             deleteDBInstance
 --
---         , testCreateDBInstanceReadReplica $
+--         , requestCreateDBInstanceReadReplica $
 --             createDBInstanceReadReplica
 --
---         , testDeleteDBParameterGroup $
+--         , requestDeleteDBParameterGroup $
 --             deleteDBParameterGroup
 --
---         , testDescribeDBSecurityGroups $
+--         , requestDescribeDBSecurityGroups $
 --             describeDBSecurityGroups
 --
---         , testCopyOptionGroup $
+--         , requestCopyOptionGroup $
 --             copyOptionGroup
 --
---         , testRestoreDBClusterToPointInTime $
+--         , requestRestoreDBClusterToPointInTime $
 --             restoreDBClusterToPointInTime
 --
---         , testDescribeDBInstances $
+--         , requestDescribeDBInstances $
 --             describeDBInstances
 --
---         , testDownloadDBLogFilePortion $
+--         , requestDownloadDBLogFilePortion $
 --             downloadDBLogFilePortion
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeDBClusterParameterGroupsResponse $
+--         [ responseDescribeDBClusterParameterGroups $
 --             describeDBClusterParameterGroupsResponse
 --
---         , testPromoteReadReplicaResponse $
+--         , responsePromoteReadReplica $
 --             promoteReadReplicaResponse
 --
---         , testDescribeDBEngineVersionsResponse $
+--         , responseDescribeDBEngineVersions $
 --             describeDBEngineVersionsResponse
 --
---         , testCopyDBSnapshotResponse $
+--         , responseCopyDBSnapshot $
 --             copyDBSnapshotResponse
 --
---         , testAddSourceIdentifierToSubscriptionResponse $
+--         , responseAddSourceIdentifierToSubscription $
 --             addSourceIdentifierToSubscriptionResponse
 --
---         , testModifyDBInstanceResponse $
+--         , responseModifyDBInstance $
 --             modifyDBInstanceResponse
 --
---         , testModifyEventSubscriptionResponse $
+--         , responseModifyEventSubscription $
 --             modifyEventSubscriptionResponse
 --
---         , testResetDBClusterParameterGroupResponse $
+--         , responseResetDBClusterParameterGroup $
 --             dbClusterParameterGroupNameMessage
 --
---         , testDescribeEventsResponse $
+--         , responseDescribeEvents $
 --             describeEventsResponse
 --
---         , testDescribeEngineDefaultParametersResponse $
+--         , responseDescribeEngineDefaultParameters $
 --             describeEngineDefaultParametersResponse
 --
---         , testDescribeOptionGroupsResponse $
+--         , responseDescribeOptionGroups $
 --             describeOptionGroupsResponse
 --
---         , testDescribeDBLogFilesResponse $
+--         , responseDescribeDBLogFiles $
 --             describeDBLogFilesResponse
 --
---         , testDescribeDBClustersResponse $
+--         , responseDescribeDBClusters $
 --             describeDBClustersResponse
 --
---         , testModifyDBSubnetGroupResponse $
+--         , responseModifyDBSubnetGroup $
 --             modifyDBSubnetGroupResponse
 --
---         , testListTagsForResourceResponse $
+--         , responseListTagsForResource $
 --             listTagsForResourceResponse
 --
---         , testDeleteOptionGroupResponse $
+--         , responseDeleteOptionGroup $
 --             deleteOptionGroupResponse
 --
---         , testDeleteDBClusterResponse $
+--         , responseDeleteDBCluster $
 --             deleteDBClusterResponse
 --
---         , testDescribeReservedDBInstancesResponse $
+--         , responseDescribeReservedDBInstances $
 --             describeReservedDBInstancesResponse
 --
---         , testCopyDBParameterGroupResponse $
+--         , responseCopyDBParameterGroup $
 --             copyDBParameterGroupResponse
 --
---         , testRemoveSourceIdentifierFromSubscriptionResponse $
+--         , responseRemoveSourceIdentifierFromSubscription $
 --             removeSourceIdentifierFromSubscriptionResponse
 --
---         , testDescribeEngineDefaultClusterParametersResponse $
+--         , responseDescribeEngineDefaultClusterParameters $
 --             describeEngineDefaultClusterParametersResponse
 --
---         , testDescribeDBSnapshotAttributesResponse $
+--         , responseDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributesResponse
 --
---         , testRemoveTagsFromResourceResponse $
+--         , responseRemoveTagsFromResource $
 --             removeTagsFromResourceResponse
 --
---         , testRestoreDBInstanceFromDBSnapshotResponse $
+--         , responseRestoreDBInstanceFromDBSnapshot $
 --             restoreDBInstanceFromDBSnapshotResponse
 --
---         , testCreateEventSubscriptionResponse $
+--         , responseCreateEventSubscription $
 --             createEventSubscriptionResponse
 --
---         , testPurchaseReservedDBInstancesOfferingResponse $
+--         , responsePurchaseReservedDBInstancesOffering $
 --             purchaseReservedDBInstancesOfferingResponse
 --
---         , testCreateDBInstanceResponse $
+--         , responseCreateDBInstance $
 --             createDBInstanceResponse
 --
---         , testDeleteDBClusterParameterGroupResponse $
+--         , responseDeleteDBClusterParameterGroup $
 --             deleteDBClusterParameterGroupResponse
 --
---         , testDescribeCertificatesResponse $
+--         , responseDescribeCertificates $
 --             describeCertificatesResponse
 --
---         , testAuthorizeDBSecurityGroupIngressResponse $
+--         , responseAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngressResponse
 --
---         , testRestoreDBClusterFromSnapshotResponse $
+--         , responseRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshotResponse
 --
---         , testDescribeOrderableDBInstanceOptionsResponse $
+--         , responseDescribeOrderableDBInstanceOptions $
 --             describeOrderableDBInstanceOptionsResponse
 --
---         , testCreateDBClusterParameterGroupResponse $
+--         , responseCreateDBClusterParameterGroup $
 --             createDBClusterParameterGroupResponse
 --
---         , testCreateDBSnapshotResponse $
+--         , responseCreateDBSnapshot $
 --             createDBSnapshotResponse
 --
---         , testDeleteEventSubscriptionResponse $
+--         , responseDeleteEventSubscription $
 --             deleteEventSubscriptionResponse
 --
---         , testDescribeDBParameterGroupsResponse $
+--         , responseDescribeDBParameterGroups $
 --             describeDBParameterGroupsResponse
 --
---         , testModifyDBSnapshotAttributeResponse $
+--         , responseModifyDBSnapshotAttribute $
 --             modifyDBSnapshotAttributeResponse
 --
---         , testDeleteDBClusterSnapshotResponse $
+--         , responseDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshotResponse
 --
---         , testDescribeOptionGroupOptionsResponse $
+--         , responseDescribeOptionGroupOptions $
 --             describeOptionGroupOptionsResponse
 --
---         , testDescribeEventSubscriptionsResponse $
+--         , responseDescribeEventSubscriptions $
 --             describeEventSubscriptionsResponse
 --
---         , testAddTagsToResourceResponse $
+--         , responseAddTagsToResource $
 --             addTagsToResourceResponse
 --
---         , testDescribeDBParametersResponse $
+--         , responseDescribeDBParameters $
 --             describeDBParametersResponse
 --
---         , testCreateDBClusterSnapshotResponse $
+--         , responseCreateDBClusterSnapshot $
 --             createDBClusterSnapshotResponse
 --
---         , testDescribeDBSnapshotsResponse $
+--         , responseDescribeDBSnapshots $
 --             describeDBSnapshotsResponse
 --
---         , testDescribeDBSubnetGroupsResponse $
+--         , responseDescribeDBSubnetGroups $
 --             describeDBSubnetGroupsResponse
 --
---         , testModifyOptionGroupResponse $
+--         , responseModifyOptionGroup $
 --             modifyOptionGroupResponse
 --
---         , testCreateDBParameterGroupResponse $
+--         , responseCreateDBParameterGroup $
 --             createDBParameterGroupResponse
 --
---         , testModifyDBClusterResponse $
+--         , responseModifyDBCluster $
 --             modifyDBClusterResponse
 --
---         , testDescribeEventCategoriesResponse $
+--         , responseDescribeEventCategories $
 --             describeEventCategoriesResponse
 --
---         , testModifyDBClusterParameterGroupResponse $
+--         , responseModifyDBClusterParameterGroup $
 --             dbClusterParameterGroupNameMessage
 --
---         , testRestoreDBInstanceToPointInTimeResponse $
+--         , responseRestoreDBInstanceToPointInTime $
 --             restoreDBInstanceToPointInTimeResponse
 --
---         , testDescribePendingMaintenanceActionsResponse $
+--         , responseDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActionsResponse
 --
---         , testCopyDBClusterSnapshotResponse $
+--         , responseCopyDBClusterSnapshot $
 --             copyDBClusterSnapshotResponse
 --
---         , testResetDBParameterGroupResponse $
+--         , responseResetDBParameterGroup $
 --             dbParameterGroupNameMessage
 --
---         , testCreateDBClusterResponse $
+--         , responseCreateDBCluster $
 --             createDBClusterResponse
 --
---         , testFailoverDBClusterResponse $
+--         , responseFailoverDBCluster $
 --             failoverDBClusterResponse
 --
---         , testRevokeDBSecurityGroupIngressResponse $
+--         , responseRevokeDBSecurityGroupIngress $
 --             revokeDBSecurityGroupIngressResponse
 --
---         , testModifyDBParameterGroupResponse $
+--         , responseModifyDBParameterGroup $
 --             dbParameterGroupNameMessage
 --
---         , testApplyPendingMaintenanceActionResponse $
+--         , responseApplyPendingMaintenanceAction $
 --             applyPendingMaintenanceActionResponse
 --
---         , testCreateOptionGroupResponse $
+--         , responseCreateOptionGroup $
 --             createOptionGroupResponse
 --
---         , testDescribeAccountAttributesResponse $
+--         , responseDescribeAccountAttributes $
 --             describeAccountAttributesResponse
 --
---         , testDeleteDBSnapshotResponse $
+--         , responseDeleteDBSnapshot $
 --             deleteDBSnapshotResponse
 --
---         , testDescribeDBClusterParametersResponse $
+--         , responseDescribeDBClusterParameters $
 --             describeDBClusterParametersResponse
 --
---         , testDeleteDBSubnetGroupResponse $
+--         , responseDeleteDBSubnetGroup $
 --             deleteDBSubnetGroupResponse
 --
---         , testCreateDBSecurityGroupResponse $
+--         , responseCreateDBSecurityGroup $
 --             createDBSecurityGroupResponse
 --
---         , testDescribeDBClusterSnapshotsResponse $
+--         , responseDescribeDBClusterSnapshots $
 --             describeDBClusterSnapshotsResponse
 --
---         , testRebootDBInstanceResponse $
+--         , responseRebootDBInstance $
 --             rebootDBInstanceResponse
 --
---         , testCreateDBSubnetGroupResponse $
+--         , responseCreateDBSubnetGroup $
 --             createDBSubnetGroupResponse
 --
---         , testDescribeReservedDBInstancesOfferingsResponse $
+--         , responseDescribeReservedDBInstancesOfferings $
 --             describeReservedDBInstancesOfferingsResponse
 --
---         , testDeleteDBSecurityGroupResponse $
+--         , responseDeleteDBSecurityGroup $
 --             deleteDBSecurityGroupResponse
 --
---         , testDeleteDBInstanceResponse $
+--         , responseDeleteDBInstance $
 --             deleteDBInstanceResponse
 --
---         , testCreateDBInstanceReadReplicaResponse $
+--         , responseCreateDBInstanceReadReplica $
 --             createDBInstanceReadReplicaResponse
 --
---         , testDeleteDBParameterGroupResponse $
+--         , responseDeleteDBParameterGroup $
 --             deleteDBParameterGroupResponse
 --
---         , testDescribeDBSecurityGroupsResponse $
+--         , responseDescribeDBSecurityGroups $
 --             describeDBSecurityGroupsResponse
 --
---         , testCopyOptionGroupResponse $
+--         , responseCopyOptionGroup $
 --             copyOptionGroupResponse
 --
---         , testRestoreDBClusterToPointInTimeResponse $
+--         , responseRestoreDBClusterToPointInTime $
 --             restoreDBClusterToPointInTimeResponse
 --
---         , testDescribeDBInstancesResponse $
+--         , responseDescribeDBInstances $
 --             describeDBInstancesResponse
 --
---         , testDownloadDBLogFilePortionResponse $
+--         , responseDownloadDBLogFilePortion $
 --             downloadDBLogFilePortionResponse
 --
 --           ]
@@ -504,939 +504,939 @@ import Test.AWS.RDS.Internal
 
 -- Requests
 
-testDescribeDBClusterParameterGroups :: DescribeDBClusterParameterGroups -> TestTree
-testDescribeDBClusterParameterGroups = req
+requestDescribeDBClusterParameterGroups :: DescribeDBClusterParameterGroups -> TestTree
+requestDescribeDBClusterParameterGroups = req
     "DescribeDBClusterParameterGroups"
     "fixture/DescribeDBClusterParameterGroups.yaml"
 
-testPromoteReadReplica :: PromoteReadReplica -> TestTree
-testPromoteReadReplica = req
+requestPromoteReadReplica :: PromoteReadReplica -> TestTree
+requestPromoteReadReplica = req
     "PromoteReadReplica"
     "fixture/PromoteReadReplica.yaml"
 
-testDescribeDBEngineVersions :: DescribeDBEngineVersions -> TestTree
-testDescribeDBEngineVersions = req
+requestDescribeDBEngineVersions :: DescribeDBEngineVersions -> TestTree
+requestDescribeDBEngineVersions = req
     "DescribeDBEngineVersions"
     "fixture/DescribeDBEngineVersions.yaml"
 
-testCopyDBSnapshot :: CopyDBSnapshot -> TestTree
-testCopyDBSnapshot = req
+requestCopyDBSnapshot :: CopyDBSnapshot -> TestTree
+requestCopyDBSnapshot = req
     "CopyDBSnapshot"
     "fixture/CopyDBSnapshot.yaml"
 
-testAddSourceIdentifierToSubscription :: AddSourceIdentifierToSubscription -> TestTree
-testAddSourceIdentifierToSubscription = req
+requestAddSourceIdentifierToSubscription :: AddSourceIdentifierToSubscription -> TestTree
+requestAddSourceIdentifierToSubscription = req
     "AddSourceIdentifierToSubscription"
     "fixture/AddSourceIdentifierToSubscription.yaml"
 
-testModifyDBInstance :: ModifyDBInstance -> TestTree
-testModifyDBInstance = req
+requestModifyDBInstance :: ModifyDBInstance -> TestTree
+requestModifyDBInstance = req
     "ModifyDBInstance"
     "fixture/ModifyDBInstance.yaml"
 
-testModifyEventSubscription :: ModifyEventSubscription -> TestTree
-testModifyEventSubscription = req
+requestModifyEventSubscription :: ModifyEventSubscription -> TestTree
+requestModifyEventSubscription = req
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
 
-testResetDBClusterParameterGroup :: ResetDBClusterParameterGroup -> TestTree
-testResetDBClusterParameterGroup = req
+requestResetDBClusterParameterGroup :: ResetDBClusterParameterGroup -> TestTree
+requestResetDBClusterParameterGroup = req
     "ResetDBClusterParameterGroup"
     "fixture/ResetDBClusterParameterGroup.yaml"
 
-testDescribeEvents :: DescribeEvents -> TestTree
-testDescribeEvents = req
+requestDescribeEvents :: DescribeEvents -> TestTree
+requestDescribeEvents = req
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
 
-testDescribeEngineDefaultParameters :: DescribeEngineDefaultParameters -> TestTree
-testDescribeEngineDefaultParameters = req
+requestDescribeEngineDefaultParameters :: DescribeEngineDefaultParameters -> TestTree
+requestDescribeEngineDefaultParameters = req
     "DescribeEngineDefaultParameters"
     "fixture/DescribeEngineDefaultParameters.yaml"
 
-testDescribeOptionGroups :: DescribeOptionGroups -> TestTree
-testDescribeOptionGroups = req
+requestDescribeOptionGroups :: DescribeOptionGroups -> TestTree
+requestDescribeOptionGroups = req
     "DescribeOptionGroups"
     "fixture/DescribeOptionGroups.yaml"
 
-testDescribeDBLogFiles :: DescribeDBLogFiles -> TestTree
-testDescribeDBLogFiles = req
+requestDescribeDBLogFiles :: DescribeDBLogFiles -> TestTree
+requestDescribeDBLogFiles = req
     "DescribeDBLogFiles"
     "fixture/DescribeDBLogFiles.yaml"
 
-testDescribeDBClusters :: DescribeDBClusters -> TestTree
-testDescribeDBClusters = req
+requestDescribeDBClusters :: DescribeDBClusters -> TestTree
+requestDescribeDBClusters = req
     "DescribeDBClusters"
     "fixture/DescribeDBClusters.yaml"
 
-testModifyDBSubnetGroup :: ModifyDBSubnetGroup -> TestTree
-testModifyDBSubnetGroup = req
+requestModifyDBSubnetGroup :: ModifyDBSubnetGroup -> TestTree
+requestModifyDBSubnetGroup = req
     "ModifyDBSubnetGroup"
     "fixture/ModifyDBSubnetGroup.yaml"
 
-testListTagsForResource :: ListTagsForResource -> TestTree
-testListTagsForResource = req
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-testDeleteOptionGroup :: DeleteOptionGroup -> TestTree
-testDeleteOptionGroup = req
+requestDeleteOptionGroup :: DeleteOptionGroup -> TestTree
+requestDeleteOptionGroup = req
     "DeleteOptionGroup"
     "fixture/DeleteOptionGroup.yaml"
 
-testDeleteDBCluster :: DeleteDBCluster -> TestTree
-testDeleteDBCluster = req
+requestDeleteDBCluster :: DeleteDBCluster -> TestTree
+requestDeleteDBCluster = req
     "DeleteDBCluster"
     "fixture/DeleteDBCluster.yaml"
 
-testDescribeReservedDBInstances :: DescribeReservedDBInstances -> TestTree
-testDescribeReservedDBInstances = req
+requestDescribeReservedDBInstances :: DescribeReservedDBInstances -> TestTree
+requestDescribeReservedDBInstances = req
     "DescribeReservedDBInstances"
     "fixture/DescribeReservedDBInstances.yaml"
 
-testCopyDBParameterGroup :: CopyDBParameterGroup -> TestTree
-testCopyDBParameterGroup = req
+requestCopyDBParameterGroup :: CopyDBParameterGroup -> TestTree
+requestCopyDBParameterGroup = req
     "CopyDBParameterGroup"
     "fixture/CopyDBParameterGroup.yaml"
 
-testRemoveSourceIdentifierFromSubscription :: RemoveSourceIdentifierFromSubscription -> TestTree
-testRemoveSourceIdentifierFromSubscription = req
+requestRemoveSourceIdentifierFromSubscription :: RemoveSourceIdentifierFromSubscription -> TestTree
+requestRemoveSourceIdentifierFromSubscription = req
     "RemoveSourceIdentifierFromSubscription"
     "fixture/RemoveSourceIdentifierFromSubscription.yaml"
 
-testDescribeEngineDefaultClusterParameters :: DescribeEngineDefaultClusterParameters -> TestTree
-testDescribeEngineDefaultClusterParameters = req
+requestDescribeEngineDefaultClusterParameters :: DescribeEngineDefaultClusterParameters -> TestTree
+requestDescribeEngineDefaultClusterParameters = req
     "DescribeEngineDefaultClusterParameters"
     "fixture/DescribeEngineDefaultClusterParameters.yaml"
 
-testDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributes -> TestTree
-testDescribeDBSnapshotAttributes = req
+requestDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributes -> TestTree
+requestDescribeDBSnapshotAttributes = req
     "DescribeDBSnapshotAttributes"
     "fixture/DescribeDBSnapshotAttributes.yaml"
 
-testRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
-testRemoveTagsFromResource = req
+requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+requestRemoveTagsFromResource = req
     "RemoveTagsFromResource"
     "fixture/RemoveTagsFromResource.yaml"
 
-testRestoreDBInstanceFromDBSnapshot :: RestoreDBInstanceFromDBSnapshot -> TestTree
-testRestoreDBInstanceFromDBSnapshot = req
+requestRestoreDBInstanceFromDBSnapshot :: RestoreDBInstanceFromDBSnapshot -> TestTree
+requestRestoreDBInstanceFromDBSnapshot = req
     "RestoreDBInstanceFromDBSnapshot"
     "fixture/RestoreDBInstanceFromDBSnapshot.yaml"
 
-testCreateEventSubscription :: CreateEventSubscription -> TestTree
-testCreateEventSubscription = req
+requestCreateEventSubscription :: CreateEventSubscription -> TestTree
+requestCreateEventSubscription = req
     "CreateEventSubscription"
     "fixture/CreateEventSubscription.yaml"
 
-testPurchaseReservedDBInstancesOffering :: PurchaseReservedDBInstancesOffering -> TestTree
-testPurchaseReservedDBInstancesOffering = req
+requestPurchaseReservedDBInstancesOffering :: PurchaseReservedDBInstancesOffering -> TestTree
+requestPurchaseReservedDBInstancesOffering = req
     "PurchaseReservedDBInstancesOffering"
     "fixture/PurchaseReservedDBInstancesOffering.yaml"
 
-testCreateDBInstance :: CreateDBInstance -> TestTree
-testCreateDBInstance = req
+requestCreateDBInstance :: CreateDBInstance -> TestTree
+requestCreateDBInstance = req
     "CreateDBInstance"
     "fixture/CreateDBInstance.yaml"
 
-testDeleteDBClusterParameterGroup :: DeleteDBClusterParameterGroup -> TestTree
-testDeleteDBClusterParameterGroup = req
+requestDeleteDBClusterParameterGroup :: DeleteDBClusterParameterGroup -> TestTree
+requestDeleteDBClusterParameterGroup = req
     "DeleteDBClusterParameterGroup"
     "fixture/DeleteDBClusterParameterGroup.yaml"
 
-testDescribeCertificates :: DescribeCertificates -> TestTree
-testDescribeCertificates = req
+requestDescribeCertificates :: DescribeCertificates -> TestTree
+requestDescribeCertificates = req
     "DescribeCertificates"
     "fixture/DescribeCertificates.yaml"
 
-testAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngress -> TestTree
-testAuthorizeDBSecurityGroupIngress = req
+requestAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngress -> TestTree
+requestAuthorizeDBSecurityGroupIngress = req
     "AuthorizeDBSecurityGroupIngress"
     "fixture/AuthorizeDBSecurityGroupIngress.yaml"
 
-testRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshot -> TestTree
-testRestoreDBClusterFromSnapshot = req
+requestRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshot -> TestTree
+requestRestoreDBClusterFromSnapshot = req
     "RestoreDBClusterFromSnapshot"
     "fixture/RestoreDBClusterFromSnapshot.yaml"
 
-testDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptions -> TestTree
-testDescribeOrderableDBInstanceOptions = req
+requestDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptions -> TestTree
+requestDescribeOrderableDBInstanceOptions = req
     "DescribeOrderableDBInstanceOptions"
     "fixture/DescribeOrderableDBInstanceOptions.yaml"
 
-testCreateDBClusterParameterGroup :: CreateDBClusterParameterGroup -> TestTree
-testCreateDBClusterParameterGroup = req
+requestCreateDBClusterParameterGroup :: CreateDBClusterParameterGroup -> TestTree
+requestCreateDBClusterParameterGroup = req
     "CreateDBClusterParameterGroup"
     "fixture/CreateDBClusterParameterGroup.yaml"
 
-testCreateDBSnapshot :: CreateDBSnapshot -> TestTree
-testCreateDBSnapshot = req
+requestCreateDBSnapshot :: CreateDBSnapshot -> TestTree
+requestCreateDBSnapshot = req
     "CreateDBSnapshot"
     "fixture/CreateDBSnapshot.yaml"
 
-testDeleteEventSubscription :: DeleteEventSubscription -> TestTree
-testDeleteEventSubscription = req
+requestDeleteEventSubscription :: DeleteEventSubscription -> TestTree
+requestDeleteEventSubscription = req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
 
-testDescribeDBParameterGroups :: DescribeDBParameterGroups -> TestTree
-testDescribeDBParameterGroups = req
+requestDescribeDBParameterGroups :: DescribeDBParameterGroups -> TestTree
+requestDescribeDBParameterGroups = req
     "DescribeDBParameterGroups"
     "fixture/DescribeDBParameterGroups.yaml"
 
-testModifyDBSnapshotAttribute :: ModifyDBSnapshotAttribute -> TestTree
-testModifyDBSnapshotAttribute = req
+requestModifyDBSnapshotAttribute :: ModifyDBSnapshotAttribute -> TestTree
+requestModifyDBSnapshotAttribute = req
     "ModifyDBSnapshotAttribute"
     "fixture/ModifyDBSnapshotAttribute.yaml"
 
-testDeleteDBClusterSnapshot :: DeleteDBClusterSnapshot -> TestTree
-testDeleteDBClusterSnapshot = req
+requestDeleteDBClusterSnapshot :: DeleteDBClusterSnapshot -> TestTree
+requestDeleteDBClusterSnapshot = req
     "DeleteDBClusterSnapshot"
     "fixture/DeleteDBClusterSnapshot.yaml"
 
-testDescribeOptionGroupOptions :: DescribeOptionGroupOptions -> TestTree
-testDescribeOptionGroupOptions = req
+requestDescribeOptionGroupOptions :: DescribeOptionGroupOptions -> TestTree
+requestDescribeOptionGroupOptions = req
     "DescribeOptionGroupOptions"
     "fixture/DescribeOptionGroupOptions.yaml"
 
-testDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
-testDescribeEventSubscriptions = req
+requestDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
+requestDescribeEventSubscriptions = req
     "DescribeEventSubscriptions"
     "fixture/DescribeEventSubscriptions.yaml"
 
-testAddTagsToResource :: AddTagsToResource -> TestTree
-testAddTagsToResource = req
+requestAddTagsToResource :: AddTagsToResource -> TestTree
+requestAddTagsToResource = req
     "AddTagsToResource"
     "fixture/AddTagsToResource.yaml"
 
-testDescribeDBParameters :: DescribeDBParameters -> TestTree
-testDescribeDBParameters = req
+requestDescribeDBParameters :: DescribeDBParameters -> TestTree
+requestDescribeDBParameters = req
     "DescribeDBParameters"
     "fixture/DescribeDBParameters.yaml"
 
-testCreateDBClusterSnapshot :: CreateDBClusterSnapshot -> TestTree
-testCreateDBClusterSnapshot = req
+requestCreateDBClusterSnapshot :: CreateDBClusterSnapshot -> TestTree
+requestCreateDBClusterSnapshot = req
     "CreateDBClusterSnapshot"
     "fixture/CreateDBClusterSnapshot.yaml"
 
-testDescribeDBSnapshots :: DescribeDBSnapshots -> TestTree
-testDescribeDBSnapshots = req
+requestDescribeDBSnapshots :: DescribeDBSnapshots -> TestTree
+requestDescribeDBSnapshots = req
     "DescribeDBSnapshots"
     "fixture/DescribeDBSnapshots.yaml"
 
-testDescribeDBSubnetGroups :: DescribeDBSubnetGroups -> TestTree
-testDescribeDBSubnetGroups = req
+requestDescribeDBSubnetGroups :: DescribeDBSubnetGroups -> TestTree
+requestDescribeDBSubnetGroups = req
     "DescribeDBSubnetGroups"
     "fixture/DescribeDBSubnetGroups.yaml"
 
-testModifyOptionGroup :: ModifyOptionGroup -> TestTree
-testModifyOptionGroup = req
+requestModifyOptionGroup :: ModifyOptionGroup -> TestTree
+requestModifyOptionGroup = req
     "ModifyOptionGroup"
     "fixture/ModifyOptionGroup.yaml"
 
-testCreateDBParameterGroup :: CreateDBParameterGroup -> TestTree
-testCreateDBParameterGroup = req
+requestCreateDBParameterGroup :: CreateDBParameterGroup -> TestTree
+requestCreateDBParameterGroup = req
     "CreateDBParameterGroup"
     "fixture/CreateDBParameterGroup.yaml"
 
-testModifyDBCluster :: ModifyDBCluster -> TestTree
-testModifyDBCluster = req
+requestModifyDBCluster :: ModifyDBCluster -> TestTree
+requestModifyDBCluster = req
     "ModifyDBCluster"
     "fixture/ModifyDBCluster.yaml"
 
-testDescribeEventCategories :: DescribeEventCategories -> TestTree
-testDescribeEventCategories = req
+requestDescribeEventCategories :: DescribeEventCategories -> TestTree
+requestDescribeEventCategories = req
     "DescribeEventCategories"
     "fixture/DescribeEventCategories.yaml"
 
-testModifyDBClusterParameterGroup :: ModifyDBClusterParameterGroup -> TestTree
-testModifyDBClusterParameterGroup = req
+requestModifyDBClusterParameterGroup :: ModifyDBClusterParameterGroup -> TestTree
+requestModifyDBClusterParameterGroup = req
     "ModifyDBClusterParameterGroup"
     "fixture/ModifyDBClusterParameterGroup.yaml"
 
-testRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTime -> TestTree
-testRestoreDBInstanceToPointInTime = req
+requestRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTime -> TestTree
+requestRestoreDBInstanceToPointInTime = req
     "RestoreDBInstanceToPointInTime"
     "fixture/RestoreDBInstanceToPointInTime.yaml"
 
-testDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
-testDescribePendingMaintenanceActions = req
+requestDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
+requestDescribePendingMaintenanceActions = req
     "DescribePendingMaintenanceActions"
     "fixture/DescribePendingMaintenanceActions.yaml"
 
-testCopyDBClusterSnapshot :: CopyDBClusterSnapshot -> TestTree
-testCopyDBClusterSnapshot = req
+requestCopyDBClusterSnapshot :: CopyDBClusterSnapshot -> TestTree
+requestCopyDBClusterSnapshot = req
     "CopyDBClusterSnapshot"
     "fixture/CopyDBClusterSnapshot.yaml"
 
-testResetDBParameterGroup :: ResetDBParameterGroup -> TestTree
-testResetDBParameterGroup = req
+requestResetDBParameterGroup :: ResetDBParameterGroup -> TestTree
+requestResetDBParameterGroup = req
     "ResetDBParameterGroup"
     "fixture/ResetDBParameterGroup.yaml"
 
-testCreateDBCluster :: CreateDBCluster -> TestTree
-testCreateDBCluster = req
+requestCreateDBCluster :: CreateDBCluster -> TestTree
+requestCreateDBCluster = req
     "CreateDBCluster"
     "fixture/CreateDBCluster.yaml"
 
-testFailoverDBCluster :: FailoverDBCluster -> TestTree
-testFailoverDBCluster = req
+requestFailoverDBCluster :: FailoverDBCluster -> TestTree
+requestFailoverDBCluster = req
     "FailoverDBCluster"
     "fixture/FailoverDBCluster.yaml"
 
-testRevokeDBSecurityGroupIngress :: RevokeDBSecurityGroupIngress -> TestTree
-testRevokeDBSecurityGroupIngress = req
+requestRevokeDBSecurityGroupIngress :: RevokeDBSecurityGroupIngress -> TestTree
+requestRevokeDBSecurityGroupIngress = req
     "RevokeDBSecurityGroupIngress"
     "fixture/RevokeDBSecurityGroupIngress.yaml"
 
-testModifyDBParameterGroup :: ModifyDBParameterGroup -> TestTree
-testModifyDBParameterGroup = req
+requestModifyDBParameterGroup :: ModifyDBParameterGroup -> TestTree
+requestModifyDBParameterGroup = req
     "ModifyDBParameterGroup"
     "fixture/ModifyDBParameterGroup.yaml"
 
-testApplyPendingMaintenanceAction :: ApplyPendingMaintenanceAction -> TestTree
-testApplyPendingMaintenanceAction = req
+requestApplyPendingMaintenanceAction :: ApplyPendingMaintenanceAction -> TestTree
+requestApplyPendingMaintenanceAction = req
     "ApplyPendingMaintenanceAction"
     "fixture/ApplyPendingMaintenanceAction.yaml"
 
-testCreateOptionGroup :: CreateOptionGroup -> TestTree
-testCreateOptionGroup = req
+requestCreateOptionGroup :: CreateOptionGroup -> TestTree
+requestCreateOptionGroup = req
     "CreateOptionGroup"
     "fixture/CreateOptionGroup.yaml"
 
-testDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-testDescribeAccountAttributes = req
+requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+requestDescribeAccountAttributes = req
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
 
-testDeleteDBSnapshot :: DeleteDBSnapshot -> TestTree
-testDeleteDBSnapshot = req
+requestDeleteDBSnapshot :: DeleteDBSnapshot -> TestTree
+requestDeleteDBSnapshot = req
     "DeleteDBSnapshot"
     "fixture/DeleteDBSnapshot.yaml"
 
-testDescribeDBClusterParameters :: DescribeDBClusterParameters -> TestTree
-testDescribeDBClusterParameters = req
+requestDescribeDBClusterParameters :: DescribeDBClusterParameters -> TestTree
+requestDescribeDBClusterParameters = req
     "DescribeDBClusterParameters"
     "fixture/DescribeDBClusterParameters.yaml"
 
-testDeleteDBSubnetGroup :: DeleteDBSubnetGroup -> TestTree
-testDeleteDBSubnetGroup = req
+requestDeleteDBSubnetGroup :: DeleteDBSubnetGroup -> TestTree
+requestDeleteDBSubnetGroup = req
     "DeleteDBSubnetGroup"
     "fixture/DeleteDBSubnetGroup.yaml"
 
-testCreateDBSecurityGroup :: CreateDBSecurityGroup -> TestTree
-testCreateDBSecurityGroup = req
+requestCreateDBSecurityGroup :: CreateDBSecurityGroup -> TestTree
+requestCreateDBSecurityGroup = req
     "CreateDBSecurityGroup"
     "fixture/CreateDBSecurityGroup.yaml"
 
-testDescribeDBClusterSnapshots :: DescribeDBClusterSnapshots -> TestTree
-testDescribeDBClusterSnapshots = req
+requestDescribeDBClusterSnapshots :: DescribeDBClusterSnapshots -> TestTree
+requestDescribeDBClusterSnapshots = req
     "DescribeDBClusterSnapshots"
     "fixture/DescribeDBClusterSnapshots.yaml"
 
-testRebootDBInstance :: RebootDBInstance -> TestTree
-testRebootDBInstance = req
+requestRebootDBInstance :: RebootDBInstance -> TestTree
+requestRebootDBInstance = req
     "RebootDBInstance"
     "fixture/RebootDBInstance.yaml"
 
-testCreateDBSubnetGroup :: CreateDBSubnetGroup -> TestTree
-testCreateDBSubnetGroup = req
+requestCreateDBSubnetGroup :: CreateDBSubnetGroup -> TestTree
+requestCreateDBSubnetGroup = req
     "CreateDBSubnetGroup"
     "fixture/CreateDBSubnetGroup.yaml"
 
-testDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings -> TestTree
-testDescribeReservedDBInstancesOfferings = req
+requestDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings -> TestTree
+requestDescribeReservedDBInstancesOfferings = req
     "DescribeReservedDBInstancesOfferings"
     "fixture/DescribeReservedDBInstancesOfferings.yaml"
 
-testDeleteDBSecurityGroup :: DeleteDBSecurityGroup -> TestTree
-testDeleteDBSecurityGroup = req
+requestDeleteDBSecurityGroup :: DeleteDBSecurityGroup -> TestTree
+requestDeleteDBSecurityGroup = req
     "DeleteDBSecurityGroup"
     "fixture/DeleteDBSecurityGroup.yaml"
 
-testDeleteDBInstance :: DeleteDBInstance -> TestTree
-testDeleteDBInstance = req
+requestDeleteDBInstance :: DeleteDBInstance -> TestTree
+requestDeleteDBInstance = req
     "DeleteDBInstance"
     "fixture/DeleteDBInstance.yaml"
 
-testCreateDBInstanceReadReplica :: CreateDBInstanceReadReplica -> TestTree
-testCreateDBInstanceReadReplica = req
+requestCreateDBInstanceReadReplica :: CreateDBInstanceReadReplica -> TestTree
+requestCreateDBInstanceReadReplica = req
     "CreateDBInstanceReadReplica"
     "fixture/CreateDBInstanceReadReplica.yaml"
 
-testDeleteDBParameterGroup :: DeleteDBParameterGroup -> TestTree
-testDeleteDBParameterGroup = req
+requestDeleteDBParameterGroup :: DeleteDBParameterGroup -> TestTree
+requestDeleteDBParameterGroup = req
     "DeleteDBParameterGroup"
     "fixture/DeleteDBParameterGroup.yaml"
 
-testDescribeDBSecurityGroups :: DescribeDBSecurityGroups -> TestTree
-testDescribeDBSecurityGroups = req
+requestDescribeDBSecurityGroups :: DescribeDBSecurityGroups -> TestTree
+requestDescribeDBSecurityGroups = req
     "DescribeDBSecurityGroups"
     "fixture/DescribeDBSecurityGroups.yaml"
 
-testCopyOptionGroup :: CopyOptionGroup -> TestTree
-testCopyOptionGroup = req
+requestCopyOptionGroup :: CopyOptionGroup -> TestTree
+requestCopyOptionGroup = req
     "CopyOptionGroup"
     "fixture/CopyOptionGroup.yaml"
 
-testRestoreDBClusterToPointInTime :: RestoreDBClusterToPointInTime -> TestTree
-testRestoreDBClusterToPointInTime = req
+requestRestoreDBClusterToPointInTime :: RestoreDBClusterToPointInTime -> TestTree
+requestRestoreDBClusterToPointInTime = req
     "RestoreDBClusterToPointInTime"
     "fixture/RestoreDBClusterToPointInTime.yaml"
 
-testDescribeDBInstances :: DescribeDBInstances -> TestTree
-testDescribeDBInstances = req
+requestDescribeDBInstances :: DescribeDBInstances -> TestTree
+requestDescribeDBInstances = req
     "DescribeDBInstances"
     "fixture/DescribeDBInstances.yaml"
 
-testDownloadDBLogFilePortion :: DownloadDBLogFilePortion -> TestTree
-testDownloadDBLogFilePortion = req
+requestDownloadDBLogFilePortion :: DownloadDBLogFilePortion -> TestTree
+requestDownloadDBLogFilePortion = req
     "DownloadDBLogFilePortion"
     "fixture/DownloadDBLogFilePortion.yaml"
 
 -- Responses
 
-testDescribeDBClusterParameterGroupsResponse :: DescribeDBClusterParameterGroupsResponse -> TestTree
-testDescribeDBClusterParameterGroupsResponse = res
+responseDescribeDBClusterParameterGroups :: DescribeDBClusterParameterGroupsResponse -> TestTree
+responseDescribeDBClusterParameterGroups = res
     "DescribeDBClusterParameterGroupsResponse"
     "fixture/DescribeDBClusterParameterGroupsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBClusterParameterGroups)
 
-testPromoteReadReplicaResponse :: PromoteReadReplicaResponse -> TestTree
-testPromoteReadReplicaResponse = res
+responsePromoteReadReplica :: PromoteReadReplicaResponse -> TestTree
+responsePromoteReadReplica = res
     "PromoteReadReplicaResponse"
     "fixture/PromoteReadReplicaResponse.proto"
     rds
     (Proxy :: Proxy PromoteReadReplica)
 
-testDescribeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse -> TestTree
-testDescribeDBEngineVersionsResponse = res
+responseDescribeDBEngineVersions :: DescribeDBEngineVersionsResponse -> TestTree
+responseDescribeDBEngineVersions = res
     "DescribeDBEngineVersionsResponse"
     "fixture/DescribeDBEngineVersionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBEngineVersions)
 
-testCopyDBSnapshotResponse :: CopyDBSnapshotResponse -> TestTree
-testCopyDBSnapshotResponse = res
+responseCopyDBSnapshot :: CopyDBSnapshotResponse -> TestTree
+responseCopyDBSnapshot = res
     "CopyDBSnapshotResponse"
     "fixture/CopyDBSnapshotResponse.proto"
     rds
     (Proxy :: Proxy CopyDBSnapshot)
 
-testAddSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse -> TestTree
-testAddSourceIdentifierToSubscriptionResponse = res
+responseAddSourceIdentifierToSubscription :: AddSourceIdentifierToSubscriptionResponse -> TestTree
+responseAddSourceIdentifierToSubscription = res
     "AddSourceIdentifierToSubscriptionResponse"
     "fixture/AddSourceIdentifierToSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy AddSourceIdentifierToSubscription)
 
-testModifyDBInstanceResponse :: ModifyDBInstanceResponse -> TestTree
-testModifyDBInstanceResponse = res
+responseModifyDBInstance :: ModifyDBInstanceResponse -> TestTree
+responseModifyDBInstance = res
     "ModifyDBInstanceResponse"
     "fixture/ModifyDBInstanceResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBInstance)
 
-testModifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse -> TestTree
-testModifyEventSubscriptionResponse = res
+responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
+responseModifyEventSubscription = res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy ModifyEventSubscription)
 
-testResetDBClusterParameterGroupResponse :: DBClusterParameterGroupNameMessage -> TestTree
-testResetDBClusterParameterGroupResponse = res
+responseResetDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
+responseResetDBClusterParameterGroup = res
     "ResetDBClusterParameterGroupResponse"
     "fixture/ResetDBClusterParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy ResetDBClusterParameterGroup)
 
-testDescribeEventsResponse :: DescribeEventsResponse -> TestTree
-testDescribeEventsResponse = res
+responseDescribeEvents :: DescribeEventsResponse -> TestTree
+responseDescribeEvents = res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     rds
     (Proxy :: Proxy DescribeEvents)
 
-testDescribeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse -> TestTree
-testDescribeEngineDefaultParametersResponse = res
+responseDescribeEngineDefaultParameters :: DescribeEngineDefaultParametersResponse -> TestTree
+responseDescribeEngineDefaultParameters = res
     "DescribeEngineDefaultParametersResponse"
     "fixture/DescribeEngineDefaultParametersResponse.proto"
     rds
     (Proxy :: Proxy DescribeEngineDefaultParameters)
 
-testDescribeOptionGroupsResponse :: DescribeOptionGroupsResponse -> TestTree
-testDescribeOptionGroupsResponse = res
+responseDescribeOptionGroups :: DescribeOptionGroupsResponse -> TestTree
+responseDescribeOptionGroups = res
     "DescribeOptionGroupsResponse"
     "fixture/DescribeOptionGroupsResponse.proto"
     rds
     (Proxy :: Proxy DescribeOptionGroups)
 
-testDescribeDBLogFilesResponse :: DescribeDBLogFilesResponse -> TestTree
-testDescribeDBLogFilesResponse = res
+responseDescribeDBLogFiles :: DescribeDBLogFilesResponse -> TestTree
+responseDescribeDBLogFiles = res
     "DescribeDBLogFilesResponse"
     "fixture/DescribeDBLogFilesResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBLogFiles)
 
-testDescribeDBClustersResponse :: DescribeDBClustersResponse -> TestTree
-testDescribeDBClustersResponse = res
+responseDescribeDBClusters :: DescribeDBClustersResponse -> TestTree
+responseDescribeDBClusters = res
     "DescribeDBClustersResponse"
     "fixture/DescribeDBClustersResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBClusters)
 
-testModifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse -> TestTree
-testModifyDBSubnetGroupResponse = res
+responseModifyDBSubnetGroup :: ModifyDBSubnetGroupResponse -> TestTree
+responseModifyDBSubnetGroup = res
     "ModifyDBSubnetGroupResponse"
     "fixture/ModifyDBSubnetGroupResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBSubnetGroup)
 
-testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
-testListTagsForResourceResponse = res
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     rds
     (Proxy :: Proxy ListTagsForResource)
 
-testDeleteOptionGroupResponse :: DeleteOptionGroupResponse -> TestTree
-testDeleteOptionGroupResponse = res
+responseDeleteOptionGroup :: DeleteOptionGroupResponse -> TestTree
+responseDeleteOptionGroup = res
     "DeleteOptionGroupResponse"
     "fixture/DeleteOptionGroupResponse.proto"
     rds
     (Proxy :: Proxy DeleteOptionGroup)
 
-testDeleteDBClusterResponse :: DeleteDBClusterResponse -> TestTree
-testDeleteDBClusterResponse = res
+responseDeleteDBCluster :: DeleteDBClusterResponse -> TestTree
+responseDeleteDBCluster = res
     "DeleteDBClusterResponse"
     "fixture/DeleteDBClusterResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBCluster)
 
-testDescribeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse -> TestTree
-testDescribeReservedDBInstancesResponse = res
+responseDescribeReservedDBInstances :: DescribeReservedDBInstancesResponse -> TestTree
+responseDescribeReservedDBInstances = res
     "DescribeReservedDBInstancesResponse"
     "fixture/DescribeReservedDBInstancesResponse.proto"
     rds
     (Proxy :: Proxy DescribeReservedDBInstances)
 
-testCopyDBParameterGroupResponse :: CopyDBParameterGroupResponse -> TestTree
-testCopyDBParameterGroupResponse = res
+responseCopyDBParameterGroup :: CopyDBParameterGroupResponse -> TestTree
+responseCopyDBParameterGroup = res
     "CopyDBParameterGroupResponse"
     "fixture/CopyDBParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy CopyDBParameterGroup)
 
-testRemoveSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
-testRemoveSourceIdentifierFromSubscriptionResponse = res
+responseRemoveSourceIdentifierFromSubscription :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
+responseRemoveSourceIdentifierFromSubscription = res
     "RemoveSourceIdentifierFromSubscriptionResponse"
     "fixture/RemoveSourceIdentifierFromSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
 
-testDescribeEngineDefaultClusterParametersResponse :: DescribeEngineDefaultClusterParametersResponse -> TestTree
-testDescribeEngineDefaultClusterParametersResponse = res
+responseDescribeEngineDefaultClusterParameters :: DescribeEngineDefaultClusterParametersResponse -> TestTree
+responseDescribeEngineDefaultClusterParameters = res
     "DescribeEngineDefaultClusterParametersResponse"
     "fixture/DescribeEngineDefaultClusterParametersResponse.proto"
     rds
     (Proxy :: Proxy DescribeEngineDefaultClusterParameters)
 
-testDescribeDBSnapshotAttributesResponse :: DescribeDBSnapshotAttributesResponse -> TestTree
-testDescribeDBSnapshotAttributesResponse = res
+responseDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributesResponse -> TestTree
+responseDescribeDBSnapshotAttributes = res
     "DescribeDBSnapshotAttributesResponse"
     "fixture/DescribeDBSnapshotAttributesResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBSnapshotAttributes)
 
-testRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse -> TestTree
-testRemoveTagsFromResourceResponse = res
+responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
+responseRemoveTagsFromResource = res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
     rds
     (Proxy :: Proxy RemoveTagsFromResource)
 
-testRestoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
-testRestoreDBInstanceFromDBSnapshotResponse = res
+responseRestoreDBInstanceFromDBSnapshot :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
+responseRestoreDBInstanceFromDBSnapshot = res
     "RestoreDBInstanceFromDBSnapshotResponse"
     "fixture/RestoreDBInstanceFromDBSnapshotResponse.proto"
     rds
     (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
 
-testCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse -> TestTree
-testCreateEventSubscriptionResponse = res
+responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
+responseCreateEventSubscription = res
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy CreateEventSubscription)
 
-testPurchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
-testPurchaseReservedDBInstancesOfferingResponse = res
+responsePurchaseReservedDBInstancesOffering :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
+responsePurchaseReservedDBInstancesOffering = res
     "PurchaseReservedDBInstancesOfferingResponse"
     "fixture/PurchaseReservedDBInstancesOfferingResponse.proto"
     rds
     (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
 
-testCreateDBInstanceResponse :: CreateDBInstanceResponse -> TestTree
-testCreateDBInstanceResponse = res
+responseCreateDBInstance :: CreateDBInstanceResponse -> TestTree
+responseCreateDBInstance = res
     "CreateDBInstanceResponse"
     "fixture/CreateDBInstanceResponse.proto"
     rds
     (Proxy :: Proxy CreateDBInstance)
 
-testDeleteDBClusterParameterGroupResponse :: DeleteDBClusterParameterGroupResponse -> TestTree
-testDeleteDBClusterParameterGroupResponse = res
+responseDeleteDBClusterParameterGroup :: DeleteDBClusterParameterGroupResponse -> TestTree
+responseDeleteDBClusterParameterGroup = res
     "DeleteDBClusterParameterGroupResponse"
     "fixture/DeleteDBClusterParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBClusterParameterGroup)
 
-testDescribeCertificatesResponse :: DescribeCertificatesResponse -> TestTree
-testDescribeCertificatesResponse = res
+responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
+responseDescribeCertificates = res
     "DescribeCertificatesResponse"
     "fixture/DescribeCertificatesResponse.proto"
     rds
     (Proxy :: Proxy DescribeCertificates)
 
-testAuthorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
-testAuthorizeDBSecurityGroupIngressResponse = res
+responseAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
+responseAuthorizeDBSecurityGroupIngress = res
     "AuthorizeDBSecurityGroupIngressResponse"
     "fixture/AuthorizeDBSecurityGroupIngressResponse.proto"
     rds
     (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
 
-testRestoreDBClusterFromSnapshotResponse :: RestoreDBClusterFromSnapshotResponse -> TestTree
-testRestoreDBClusterFromSnapshotResponse = res
+responseRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshotResponse -> TestTree
+responseRestoreDBClusterFromSnapshot = res
     "RestoreDBClusterFromSnapshotResponse"
     "fixture/RestoreDBClusterFromSnapshotResponse.proto"
     rds
     (Proxy :: Proxy RestoreDBClusterFromSnapshot)
 
-testDescribeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
-testDescribeOrderableDBInstanceOptionsResponse = res
+responseDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
+responseDescribeOrderableDBInstanceOptions = res
     "DescribeOrderableDBInstanceOptionsResponse"
     "fixture/DescribeOrderableDBInstanceOptionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
 
-testCreateDBClusterParameterGroupResponse :: CreateDBClusterParameterGroupResponse -> TestTree
-testCreateDBClusterParameterGroupResponse = res
+responseCreateDBClusterParameterGroup :: CreateDBClusterParameterGroupResponse -> TestTree
+responseCreateDBClusterParameterGroup = res
     "CreateDBClusterParameterGroupResponse"
     "fixture/CreateDBClusterParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy CreateDBClusterParameterGroup)
 
-testCreateDBSnapshotResponse :: CreateDBSnapshotResponse -> TestTree
-testCreateDBSnapshotResponse = res
+responseCreateDBSnapshot :: CreateDBSnapshotResponse -> TestTree
+responseCreateDBSnapshot = res
     "CreateDBSnapshotResponse"
     "fixture/CreateDBSnapshotResponse.proto"
     rds
     (Proxy :: Proxy CreateDBSnapshot)
 
-testDeleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse -> TestTree
-testDeleteEventSubscriptionResponse = res
+responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
+responseDeleteEventSubscription = res
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
     rds
     (Proxy :: Proxy DeleteEventSubscription)
 
-testDescribeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse -> TestTree
-testDescribeDBParameterGroupsResponse = res
+responseDescribeDBParameterGroups :: DescribeDBParameterGroupsResponse -> TestTree
+responseDescribeDBParameterGroups = res
     "DescribeDBParameterGroupsResponse"
     "fixture/DescribeDBParameterGroupsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBParameterGroups)
 
-testModifyDBSnapshotAttributeResponse :: ModifyDBSnapshotAttributeResponse -> TestTree
-testModifyDBSnapshotAttributeResponse = res
+responseModifyDBSnapshotAttribute :: ModifyDBSnapshotAttributeResponse -> TestTree
+responseModifyDBSnapshotAttribute = res
     "ModifyDBSnapshotAttributeResponse"
     "fixture/ModifyDBSnapshotAttributeResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBSnapshotAttribute)
 
-testDeleteDBClusterSnapshotResponse :: DeleteDBClusterSnapshotResponse -> TestTree
-testDeleteDBClusterSnapshotResponse = res
+responseDeleteDBClusterSnapshot :: DeleteDBClusterSnapshotResponse -> TestTree
+responseDeleteDBClusterSnapshot = res
     "DeleteDBClusterSnapshotResponse"
     "fixture/DeleteDBClusterSnapshotResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBClusterSnapshot)
 
-testDescribeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse -> TestTree
-testDescribeOptionGroupOptionsResponse = res
+responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
+responseDescribeOptionGroupOptions = res
     "DescribeOptionGroupOptionsResponse"
     "fixture/DescribeOptionGroupOptionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeOptionGroupOptions)
 
-testDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse -> TestTree
-testDescribeEventSubscriptionsResponse = res
+responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
+responseDescribeEventSubscriptions = res
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeEventSubscriptions)
 
-testAddTagsToResourceResponse :: AddTagsToResourceResponse -> TestTree
-testAddTagsToResourceResponse = res
+responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
+responseAddTagsToResource = res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
     rds
     (Proxy :: Proxy AddTagsToResource)
 
-testDescribeDBParametersResponse :: DescribeDBParametersResponse -> TestTree
-testDescribeDBParametersResponse = res
+responseDescribeDBParameters :: DescribeDBParametersResponse -> TestTree
+responseDescribeDBParameters = res
     "DescribeDBParametersResponse"
     "fixture/DescribeDBParametersResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBParameters)
 
-testCreateDBClusterSnapshotResponse :: CreateDBClusterSnapshotResponse -> TestTree
-testCreateDBClusterSnapshotResponse = res
+responseCreateDBClusterSnapshot :: CreateDBClusterSnapshotResponse -> TestTree
+responseCreateDBClusterSnapshot = res
     "CreateDBClusterSnapshotResponse"
     "fixture/CreateDBClusterSnapshotResponse.proto"
     rds
     (Proxy :: Proxy CreateDBClusterSnapshot)
 
-testDescribeDBSnapshotsResponse :: DescribeDBSnapshotsResponse -> TestTree
-testDescribeDBSnapshotsResponse = res
+responseDescribeDBSnapshots :: DescribeDBSnapshotsResponse -> TestTree
+responseDescribeDBSnapshots = res
     "DescribeDBSnapshotsResponse"
     "fixture/DescribeDBSnapshotsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBSnapshots)
 
-testDescribeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse -> TestTree
-testDescribeDBSubnetGroupsResponse = res
+responseDescribeDBSubnetGroups :: DescribeDBSubnetGroupsResponse -> TestTree
+responseDescribeDBSubnetGroups = res
     "DescribeDBSubnetGroupsResponse"
     "fixture/DescribeDBSubnetGroupsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBSubnetGroups)
 
-testModifyOptionGroupResponse :: ModifyOptionGroupResponse -> TestTree
-testModifyOptionGroupResponse = res
+responseModifyOptionGroup :: ModifyOptionGroupResponse -> TestTree
+responseModifyOptionGroup = res
     "ModifyOptionGroupResponse"
     "fixture/ModifyOptionGroupResponse.proto"
     rds
     (Proxy :: Proxy ModifyOptionGroup)
 
-testCreateDBParameterGroupResponse :: CreateDBParameterGroupResponse -> TestTree
-testCreateDBParameterGroupResponse = res
+responseCreateDBParameterGroup :: CreateDBParameterGroupResponse -> TestTree
+responseCreateDBParameterGroup = res
     "CreateDBParameterGroupResponse"
     "fixture/CreateDBParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy CreateDBParameterGroup)
 
-testModifyDBClusterResponse :: ModifyDBClusterResponse -> TestTree
-testModifyDBClusterResponse = res
+responseModifyDBCluster :: ModifyDBClusterResponse -> TestTree
+responseModifyDBCluster = res
     "ModifyDBClusterResponse"
     "fixture/ModifyDBClusterResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBCluster)
 
-testDescribeEventCategoriesResponse :: DescribeEventCategoriesResponse -> TestTree
-testDescribeEventCategoriesResponse = res
+responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
+responseDescribeEventCategories = res
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
     rds
     (Proxy :: Proxy DescribeEventCategories)
 
-testModifyDBClusterParameterGroupResponse :: DBClusterParameterGroupNameMessage -> TestTree
-testModifyDBClusterParameterGroupResponse = res
+responseModifyDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
+responseModifyDBClusterParameterGroup = res
     "ModifyDBClusterParameterGroupResponse"
     "fixture/ModifyDBClusterParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBClusterParameterGroup)
 
-testRestoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse -> TestTree
-testRestoreDBInstanceToPointInTimeResponse = res
+responseRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTimeResponse -> TestTree
+responseRestoreDBInstanceToPointInTime = res
     "RestoreDBInstanceToPointInTimeResponse"
     "fixture/RestoreDBInstanceToPointInTimeResponse.proto"
     rds
     (Proxy :: Proxy RestoreDBInstanceToPointInTime)
 
-testDescribePendingMaintenanceActionsResponse :: DescribePendingMaintenanceActionsResponse -> TestTree
-testDescribePendingMaintenanceActionsResponse = res
+responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
+responseDescribePendingMaintenanceActions = res
     "DescribePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse.proto"
     rds
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
-testCopyDBClusterSnapshotResponse :: CopyDBClusterSnapshotResponse -> TestTree
-testCopyDBClusterSnapshotResponse = res
+responseCopyDBClusterSnapshot :: CopyDBClusterSnapshotResponse -> TestTree
+responseCopyDBClusterSnapshot = res
     "CopyDBClusterSnapshotResponse"
     "fixture/CopyDBClusterSnapshotResponse.proto"
     rds
     (Proxy :: Proxy CopyDBClusterSnapshot)
 
-testResetDBParameterGroupResponse :: DBParameterGroupNameMessage -> TestTree
-testResetDBParameterGroupResponse = res
+responseResetDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
+responseResetDBParameterGroup = res
     "ResetDBParameterGroupResponse"
     "fixture/ResetDBParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy ResetDBParameterGroup)
 
-testCreateDBClusterResponse :: CreateDBClusterResponse -> TestTree
-testCreateDBClusterResponse = res
+responseCreateDBCluster :: CreateDBClusterResponse -> TestTree
+responseCreateDBCluster = res
     "CreateDBClusterResponse"
     "fixture/CreateDBClusterResponse.proto"
     rds
     (Proxy :: Proxy CreateDBCluster)
 
-testFailoverDBClusterResponse :: FailoverDBClusterResponse -> TestTree
-testFailoverDBClusterResponse = res
+responseFailoverDBCluster :: FailoverDBClusterResponse -> TestTree
+responseFailoverDBCluster = res
     "FailoverDBClusterResponse"
     "fixture/FailoverDBClusterResponse.proto"
     rds
     (Proxy :: Proxy FailoverDBCluster)
 
-testRevokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse -> TestTree
-testRevokeDBSecurityGroupIngressResponse = res
+responseRevokeDBSecurityGroupIngress :: RevokeDBSecurityGroupIngressResponse -> TestTree
+responseRevokeDBSecurityGroupIngress = res
     "RevokeDBSecurityGroupIngressResponse"
     "fixture/RevokeDBSecurityGroupIngressResponse.proto"
     rds
     (Proxy :: Proxy RevokeDBSecurityGroupIngress)
 
-testModifyDBParameterGroupResponse :: DBParameterGroupNameMessage -> TestTree
-testModifyDBParameterGroupResponse = res
+responseModifyDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
+responseModifyDBParameterGroup = res
     "ModifyDBParameterGroupResponse"
     "fixture/ModifyDBParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBParameterGroup)
 
-testApplyPendingMaintenanceActionResponse :: ApplyPendingMaintenanceActionResponse -> TestTree
-testApplyPendingMaintenanceActionResponse = res
+responseApplyPendingMaintenanceAction :: ApplyPendingMaintenanceActionResponse -> TestTree
+responseApplyPendingMaintenanceAction = res
     "ApplyPendingMaintenanceActionResponse"
     "fixture/ApplyPendingMaintenanceActionResponse.proto"
     rds
     (Proxy :: Proxy ApplyPendingMaintenanceAction)
 
-testCreateOptionGroupResponse :: CreateOptionGroupResponse -> TestTree
-testCreateOptionGroupResponse = res
+responseCreateOptionGroup :: CreateOptionGroupResponse -> TestTree
+responseCreateOptionGroup = res
     "CreateOptionGroupResponse"
     "fixture/CreateOptionGroupResponse.proto"
     rds
     (Proxy :: Proxy CreateOptionGroup)
 
-testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
-testDescribeAccountAttributesResponse = res
+responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
+responseDescribeAccountAttributes = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     rds
     (Proxy :: Proxy DescribeAccountAttributes)
 
-testDeleteDBSnapshotResponse :: DeleteDBSnapshotResponse -> TestTree
-testDeleteDBSnapshotResponse = res
+responseDeleteDBSnapshot :: DeleteDBSnapshotResponse -> TestTree
+responseDeleteDBSnapshot = res
     "DeleteDBSnapshotResponse"
     "fixture/DeleteDBSnapshotResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBSnapshot)
 
-testDescribeDBClusterParametersResponse :: DescribeDBClusterParametersResponse -> TestTree
-testDescribeDBClusterParametersResponse = res
+responseDescribeDBClusterParameters :: DescribeDBClusterParametersResponse -> TestTree
+responseDescribeDBClusterParameters = res
     "DescribeDBClusterParametersResponse"
     "fixture/DescribeDBClusterParametersResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBClusterParameters)
 
-testDeleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse -> TestTree
-testDeleteDBSubnetGroupResponse = res
+responseDeleteDBSubnetGroup :: DeleteDBSubnetGroupResponse -> TestTree
+responseDeleteDBSubnetGroup = res
     "DeleteDBSubnetGroupResponse"
     "fixture/DeleteDBSubnetGroupResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBSubnetGroup)
 
-testCreateDBSecurityGroupResponse :: CreateDBSecurityGroupResponse -> TestTree
-testCreateDBSecurityGroupResponse = res
+responseCreateDBSecurityGroup :: CreateDBSecurityGroupResponse -> TestTree
+responseCreateDBSecurityGroup = res
     "CreateDBSecurityGroupResponse"
     "fixture/CreateDBSecurityGroupResponse.proto"
     rds
     (Proxy :: Proxy CreateDBSecurityGroup)
 
-testDescribeDBClusterSnapshotsResponse :: DescribeDBClusterSnapshotsResponse -> TestTree
-testDescribeDBClusterSnapshotsResponse = res
+responseDescribeDBClusterSnapshots :: DescribeDBClusterSnapshotsResponse -> TestTree
+responseDescribeDBClusterSnapshots = res
     "DescribeDBClusterSnapshotsResponse"
     "fixture/DescribeDBClusterSnapshotsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBClusterSnapshots)
 
-testRebootDBInstanceResponse :: RebootDBInstanceResponse -> TestTree
-testRebootDBInstanceResponse = res
+responseRebootDBInstance :: RebootDBInstanceResponse -> TestTree
+responseRebootDBInstance = res
     "RebootDBInstanceResponse"
     "fixture/RebootDBInstanceResponse.proto"
     rds
     (Proxy :: Proxy RebootDBInstance)
 
-testCreateDBSubnetGroupResponse :: CreateDBSubnetGroupResponse -> TestTree
-testCreateDBSubnetGroupResponse = res
+responseCreateDBSubnetGroup :: CreateDBSubnetGroupResponse -> TestTree
+responseCreateDBSubnetGroup = res
     "CreateDBSubnetGroupResponse"
     "fixture/CreateDBSubnetGroupResponse.proto"
     rds
     (Proxy :: Proxy CreateDBSubnetGroup)
 
-testDescribeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
-testDescribeReservedDBInstancesOfferingsResponse = res
+responseDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
+responseDescribeReservedDBInstancesOfferings = res
     "DescribeReservedDBInstancesOfferingsResponse"
     "fixture/DescribeReservedDBInstancesOfferingsResponse.proto"
     rds
     (Proxy :: Proxy DescribeReservedDBInstancesOfferings)
 
-testDeleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse -> TestTree
-testDeleteDBSecurityGroupResponse = res
+responseDeleteDBSecurityGroup :: DeleteDBSecurityGroupResponse -> TestTree
+responseDeleteDBSecurityGroup = res
     "DeleteDBSecurityGroupResponse"
     "fixture/DeleteDBSecurityGroupResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBSecurityGroup)
 
-testDeleteDBInstanceResponse :: DeleteDBInstanceResponse -> TestTree
-testDeleteDBInstanceResponse = res
+responseDeleteDBInstance :: DeleteDBInstanceResponse -> TestTree
+responseDeleteDBInstance = res
     "DeleteDBInstanceResponse"
     "fixture/DeleteDBInstanceResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBInstance)
 
-testCreateDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse -> TestTree
-testCreateDBInstanceReadReplicaResponse = res
+responseCreateDBInstanceReadReplica :: CreateDBInstanceReadReplicaResponse -> TestTree
+responseCreateDBInstanceReadReplica = res
     "CreateDBInstanceReadReplicaResponse"
     "fixture/CreateDBInstanceReadReplicaResponse.proto"
     rds
     (Proxy :: Proxy CreateDBInstanceReadReplica)
 
-testDeleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse -> TestTree
-testDeleteDBParameterGroupResponse = res
+responseDeleteDBParameterGroup :: DeleteDBParameterGroupResponse -> TestTree
+responseDeleteDBParameterGroup = res
     "DeleteDBParameterGroupResponse"
     "fixture/DeleteDBParameterGroupResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBParameterGroup)
 
-testDescribeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse -> TestTree
-testDescribeDBSecurityGroupsResponse = res
+responseDescribeDBSecurityGroups :: DescribeDBSecurityGroupsResponse -> TestTree
+responseDescribeDBSecurityGroups = res
     "DescribeDBSecurityGroupsResponse"
     "fixture/DescribeDBSecurityGroupsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBSecurityGroups)
 
-testCopyOptionGroupResponse :: CopyOptionGroupResponse -> TestTree
-testCopyOptionGroupResponse = res
+responseCopyOptionGroup :: CopyOptionGroupResponse -> TestTree
+responseCopyOptionGroup = res
     "CopyOptionGroupResponse"
     "fixture/CopyOptionGroupResponse.proto"
     rds
     (Proxy :: Proxy CopyOptionGroup)
 
-testRestoreDBClusterToPointInTimeResponse :: RestoreDBClusterToPointInTimeResponse -> TestTree
-testRestoreDBClusterToPointInTimeResponse = res
+responseRestoreDBClusterToPointInTime :: RestoreDBClusterToPointInTimeResponse -> TestTree
+responseRestoreDBClusterToPointInTime = res
     "RestoreDBClusterToPointInTimeResponse"
     "fixture/RestoreDBClusterToPointInTimeResponse.proto"
     rds
     (Proxy :: Proxy RestoreDBClusterToPointInTime)
 
-testDescribeDBInstancesResponse :: DescribeDBInstancesResponse -> TestTree
-testDescribeDBInstancesResponse = res
+responseDescribeDBInstances :: DescribeDBInstancesResponse -> TestTree
+responseDescribeDBInstances = res
     "DescribeDBInstancesResponse"
     "fixture/DescribeDBInstancesResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBInstances)
 
-testDownloadDBLogFilePortionResponse :: DownloadDBLogFilePortionResponse -> TestTree
-testDownloadDBLogFilePortionResponse = res
+responseDownloadDBLogFilePortion :: DownloadDBLogFilePortionResponse -> TestTree
+responseDownloadDBLogFilePortion = res
     "DownloadDBLogFilePortionResponse"
     "fixture/DownloadDBLogFilePortionResponse.proto"
     rds

@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns credentials for the provided identity ID. Any provided logins
--- will be validated against supported login providers. If the token is for
--- cognito-identity.amazonaws.com, it will be passed through to AWS
--- Security Token Service with the appropriate role for the token.
+-- Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.
 --
 -- This is a public API. You do not need any credentials to call this API.
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
@@ -73,8 +70,7 @@ getCredentialsForIdentity pIdentityId_ =
     , _gcfiIdentityId = pIdentityId_
     }
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
 gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
 
@@ -120,8 +116,7 @@ instance ToPath GetCredentialsForIdentity where
 instance ToQuery GetCredentialsForIdentity where
         toQuery = const mempty
 
--- | Returned in response to a successful 'GetCredentialsForIdentity'
--- operation.
+-- | Returned in response to a successful 'GetCredentialsForIdentity' operation.
 --
 -- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'

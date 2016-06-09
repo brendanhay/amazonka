@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about replication tasks for your account in the
--- current region.
+-- Returns information about replication tasks for your account in the current region.
 --
 module Network.AWS.DMS.DescribeReplicationTasks
     (
@@ -74,21 +73,15 @@ describeReplicationTasks =
 
 -- | Filters applied to the describe action.
 --
--- Valid filter names: replication-task-arn | replication-task-id |
--- migration-type | endpoint-arn | replication-instance-arn
+-- Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
 drtFilters :: Lens' DescribeReplicationTasks [Filter]
 drtFilters = lens _drtFilters (\ s a -> s{_drtFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drtMarker :: Lens' DescribeReplicationTasks (Maybe Text)
 drtMarker = lens _drtMarker (\ s a -> s{_drtMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -166,9 +159,7 @@ describeReplicationTasksResponse pResponseStatus_ =
 drtsrsReplicationTasks :: Lens' DescribeReplicationTasksResponse [ReplicationTask]
 drtsrsReplicationTasks = lens _drtsrsReplicationTasks (\ s a -> s{_drtsrsReplicationTasks = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drtsrsMarker :: Lens' DescribeReplicationTasksResponse (Maybe Text)
 drtsrsMarker = lens _drtsrsMarker (\ s a -> s{_drtsrsMarker = a});
 

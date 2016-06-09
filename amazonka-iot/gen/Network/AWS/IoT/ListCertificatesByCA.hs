@@ -82,8 +82,7 @@ listCertificatesByCA pCaCertificateId_ =
 lcbcaMarker :: Lens' ListCertificatesByCA (Maybe Text)
 lcbcaMarker = lens _lcbcaMarker (\ s a -> s{_lcbcaMarker = a});
 
--- | Specifies the order for results. If True, the results are returned in
--- ascending order, based on the creation date.
+-- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 lcbcaAscendingOrder :: Lens' ListCertificatesByCA (Maybe Bool)
 lcbcaAscendingOrder = lens _lcbcaAscendingOrder (\ s a -> s{_lcbcaAscendingOrder = a});
 
@@ -91,8 +90,7 @@ lcbcaAscendingOrder = lens _lcbcaAscendingOrder (\ s a -> s{_lcbcaAscendingOrder
 lcbcaPageSize :: Lens' ListCertificatesByCA (Maybe Natural)
 lcbcaPageSize = lens _lcbcaPageSize (\ s a -> s{_lcbcaPageSize = a}) . mapping _Nat;
 
--- | The ID of the CA certificate. This operation will list all registered
--- device certificate that were signed by this CA certificate.
+-- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
 lcbcaCaCertificateId :: Lens' ListCertificatesByCA Text
 lcbcaCaCertificateId = lens _lcbcaCaCertificateId (\ s a -> s{_lcbcaCaCertificateId = a});
 
@@ -159,8 +157,7 @@ listCertificatesByCAResponse pResponseStatus_ =
 lcbcarsCertificates :: Lens' ListCertificatesByCAResponse [Certificate]
 lcbcarsCertificates = lens _lcbcarsCertificates (\ s a -> s{_lcbcarsCertificates = a}) . _Default . _Coerce;
 
--- | The marker for the next set of results, or null if there are no
--- additional results.
+-- | The marker for the next set of results, or null if there are no additional results.
 lcbcarsNextMarker :: Lens' ListCertificatesByCAResponse (Maybe Text)
 lcbcarsNextMarker = lens _lcbcarsNextMarker (\ s a -> s{_lcbcarsNextMarker = a});
 

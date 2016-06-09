@@ -20,8 +20,7 @@
 --
 -- Updates a receipt rule.
 --
--- For information about managing receipt rules, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.UpdateReceiptRule

@@ -83,9 +83,7 @@ gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 --
 -- -   BUILTIN_FUZZ: The built-in fuzz type.
 --
--- -   BUILTIN_EXPLORER: For Android, an app explorer that will traverse an
---     Android app, interacting with it and capturing screenshots at the
---     same time.
+-- -   BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.
 --
 -- -   APPIUM_JAVA_JUNIT: The Appium Java JUnit type.
 --

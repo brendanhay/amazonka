@@ -18,24 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an IAM entity to describe an identity provider (IdP) that
--- supports <http://openid.net/connect/ OpenID Connect (OIDC)>.
+-- Creates an IAM entity to describe an identity provider (IdP) that supports <http://openid.net/connect/ OpenID Connect (OIDC)>.
 --
--- The OIDC provider that you create with this operation can be used as a
--- principal in a role\'s trust policy to establish a trust relationship
--- between AWS and the OIDC provider.
+-- The OIDC provider that you create with this operation can be used as a principal in a role\'s trust policy to establish a trust relationship between AWS and the OIDC provider.
 --
--- When you create the IAM OIDC provider, you specify the URL of the OIDC
--- identity provider (IdP) to trust, a list of client IDs (also known as
--- audiences) that identify the application or applications that are
--- allowed to authenticate using the OIDC provider, and a list of
--- thumbprints of the server certificate(s) that the IdP uses. You get all
--- of this information from the OIDC IdP that you want to use for access to
--- AWS.
+-- When you create the IAM OIDC provider, you specify the URL of the OIDC identity provider (IdP) to trust, a list of client IDs (also known as audiences) that identify the application or applications that are allowed to authenticate using the OIDC provider, and a list of thumbprints of the server certificate(s) that the IdP uses. You get all of this information from the OIDC IdP that you want to use for access to AWS.
 --
--- Because trust for the OIDC provider is ultimately derived from the IAM
--- provider that this action creates, it is a best practice to limit access
--- to the < CreateOpenIDConnectProvider> action to highly-privileged users.
+-- Because trust for the OIDC provider is ultimately derived from the IAM provider that this action creates, it is a best practice to limit access to the < CreateOpenIDConnectProvider> action to highly-privileged users.
 module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -87,56 +76,27 @@ createOpenIdConnectProvider pURL_ =
     , _coicpThumbprintList = mempty
     }
 
--- | A list of client IDs (also known as audiences). When a mobile or web app
--- registers with an OpenID Connect provider, they establish a value that
--- identifies the application. (This is the value that\'s sent as the
--- 'client_id' parameter on OAuth requests.)
+-- | A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that\'s sent as the 'client_id' parameter on OAuth requests.)
 --
--- You can register multiple client IDs with the same provider. For
--- example, you might have multiple applications that use the same OIDC
--- provider. You cannot register more than 100 client IDs with a single IAM
--- OIDC provider.
+-- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
 --
--- There is no defined format for a client ID. The
--- 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255
--- characters long.
+-- There is no defined format for a client ID. The 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255 characters long.
 coicpClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
 coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default . _Coerce;
 
--- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
--- and should correspond to the 'iss' claim in the provider\'s OpenID
--- Connect ID tokens. Per the OIDC standard, path components are allowed
--- but query parameters are not. Typically the URL consists of only a host
--- name, like \"https:\/\/server.example.org\" or
--- \"https:\/\/example.com\".
+-- | The URL of the identity provider. The URL must begin with \"https:\/\/\" and should correspond to the 'iss' claim in the provider\'s OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a host name, like \"https:\/\/server.example.org\" or \"https:\/\/example.com\".
 --
--- You cannot register the same provider multiple times in a single AWS
--- account. If you try to submit a URL that has already been used for an
--- OpenID Connect provider in the AWS account, you will get an error.
+-- You cannot register the same provider multiple times in a single AWS account. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
 coicpURL :: Lens' CreateOpenIdConnectProvider Text
 coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 
--- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
--- identity provider\'s server certificate(s). Typically this list includes
--- only one entry. However, IAM lets you have up to five thumbprints for an
--- OIDC provider. This lets you maintain multiple thumbprints if the
--- identity provider is rotating certificates.
+-- | A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider\'s server certificate(s). Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
 --
--- The server certificate thumbprint is the hex-encoded SHA-1 hash value of
--- the X.509 certificate used by the domain where the OpenID Connect
--- provider makes its keys available. It is always a 40-character string.
+-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
 --
--- You must provide at least one thumbprint when creating an IAM OIDC
--- provider. For example, if the OIDC provider is 'server.example.com' and
--- the provider stores its keys at
--- \"https:\/\/keys.server.example.com\/openid-connect\", the thumbprint
--- string would be the hex-encoded SHA-1 hash value of the certificate used
--- by https:\/\/keys.server.example.com.
+-- You must provide at least one thumbprint when creating an IAM OIDC provider. For example, if the OIDC provider is 'server.example.com' and the provider stores its keys at \"https:\/\/keys.server.example.com\/openid-connect\", the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https:\/\/keys.server.example.com.
 --
--- For more information about obtaining the OIDC provider\'s thumbprint,
--- see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider>
--- in the /IAM User Guide/.
+-- For more information about obtaining the OIDC provider\'s thumbprint, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider> in the /IAM User Guide/.
 coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
 coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a}) . _Coerce;
 
@@ -175,8 +135,7 @@ instance ToQuery CreateOpenIdConnectProvider where
                "ThumbprintList" =:
                  toQueryList "member" _coicpThumbprintList]
 
--- | Contains the response to a successful < CreateOpenIDConnectProvider>
--- request.
+-- | Contains the response to a successful < CreateOpenIDConnectProvider> request.
 --
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
@@ -200,9 +159,7 @@ createOpenIdConnectProviderResponse pResponseStatus_ =
     , _coicprsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
--- was created. For more information, see
--- < OpenIDConnectProviderListEntry>.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that was created. For more information, see < OpenIDConnectProviderListEntry>.
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 

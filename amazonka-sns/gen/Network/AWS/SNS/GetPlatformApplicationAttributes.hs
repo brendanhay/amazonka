@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the attributes of the platform application object for the
--- supported push notification services, such as APNS and GCM. For more
--- information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Creating a Request
@@ -131,15 +128,10 @@ getPlatformApplicationAttributesResponse pResponseStatus_ =
 
 -- | Attributes include the following:
 --
--- -   'EventEndpointCreated' -- Topic ARN to which EndpointCreated event
---     notifications should be sent.
--- -   'EventEndpointDeleted' -- Topic ARN to which EndpointDeleted event
---     notifications should be sent.
--- -   'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event
---     notifications should be sent.
--- -   'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event
---     notifications should be sent upon Direct Publish delivery failure
---     (permanent) to one of the application\'s endpoints.
+-- -   'EventEndpointCreated' -- Topic ARN to which EndpointCreated event notifications should be sent.
+-- -   'EventEndpointDeleted' -- Topic ARN to which EndpointDeleted event notifications should be sent.
+-- -   'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event notifications should be sent.
+-- -   'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application\'s endpoints.
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 

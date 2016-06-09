@@ -104,8 +104,7 @@ describeDBEngineVersions =
 ddevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a});
 
--- | Indicates that only the default version of the specified engine or
--- engine and major version combination is returned.
+-- | Indicates that only the default version of the specified engine or engine and major version combination is returned.
 ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
 
@@ -127,22 +126,15 @@ ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
 ddevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a});
 
--- | If this parameter is specified, and if the requested engine supports the
--- CharacterSetName parameter for CreateDBInstance, the response includes a
--- list of supported character sets for each engine version.
+-- | If this parameter is specified, and if the requested engine supports the CharacterSetName parameter for CreateDBInstance, the response includes a list of supported character sets for each engine version.
 ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
 
--- | The maximum number of records to include in the response. If more than
--- the 'MaxRecords' value is available, a pagination token called a marker
--- is included in the response so that the following results can be
--- retrieved.
+-- | The maximum number of records to include in the response. If more than the 'MaxRecords' value is available, a pagination token called a marker is included in the response so that the following results can be retrieved.
 --
 -- Default: 100
 --
@@ -198,8 +190,7 @@ instance ToQuery DescribeDBEngineVersions where
                "Marker" =: _ddevMarker,
                "MaxRecords" =: _ddevMaxRecords]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBEngineVersions> action.
+-- | Contains the result of a successful invocation of the < DescribeDBEngineVersions> action.
 --
 -- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
@@ -227,9 +218,7 @@ describeDBEngineVersionsResponse pResponseStatus_ =
     , _ddevrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
 

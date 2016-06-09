@@ -20,23 +20,13 @@
 --
 -- Creates a Spot fleet request.
 --
--- You can submit a single request that includes multiple launch
--- specifications that vary by instance type, AMI, Availability Zone, or
--- subnet.
+-- You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.
 --
--- By default, the Spot fleet requests Spot instances in the Spot pool
--- where the price per unit is the lowest. Each launch specification can
--- include its own instance weighting that reflects the value of the
--- instance type to your application workload.
+-- By default, the Spot fleet requests Spot instances in the Spot pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.
 --
--- Alternatively, you can specify that the Spot fleet distribute the target
--- capacity across the Spot pools included in its launch specifications. By
--- ensuring that the Spot instances in your Spot fleet are in different
--- Spot pools, you can improve the availability of your fleet.
+-- Alternatively, you can specify that the Spot fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot instances in your Spot fleet are in different Spot pools, you can improve the availability of your fleet.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.RequestSpotFleet
     (
     -- * Creating a Request
@@ -85,10 +75,7 @@ requestSpotFleet pSpotFleetRequestConfig_ =
     , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
 rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a});
 

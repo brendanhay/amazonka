@@ -8,22 +8,14 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 AWS Certificate Manager
 
-Welcome to the AWS Certificate Manager (ACM) Command Reference. This
-guide provides descriptions, syntax, and usage examples for each ACM
-command. You can use AWS Certificate Manager to request ACM Certificates
-for your AWS-based websites and applications. For general information
-about using ACM and for more information about using the console, see
-the
-<http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager User Guide>.
-For more information about using the ACM API, see the
-<http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html AWS Certificate Manager API Reference>.
+Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide provides descriptions, syntax, and usage examples for each ACM command. You can use AWS Certificate Manager to request ACM Certificates for your AWS-based websites and applications. For general information about using ACM and for more information about using the console, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager User Guide>. For more information about using the ACM API, see the <http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html AWS Certificate Manager API Reference>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-certificatemanager)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

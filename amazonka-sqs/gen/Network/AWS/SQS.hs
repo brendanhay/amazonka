@@ -11,15 +11,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Welcome to the /Amazon Simple Queue Service API Reference/. This section
--- describes who should read this guide, how the guide is organized, and
--- other resources related to the Amazon Simple Queue Service (Amazon SQS).
+-- Welcome to the /Amazon Simple Queue Service API Reference/. This section describes who should read this guide, how the guide is organized, and other resources related to the Amazon Simple Queue Service (Amazon SQS).
 --
--- Amazon SQS offers reliable and scalable hosted queues for storing
--- messages as they travel between computers. By using Amazon SQS, you can
--- move data between distributed components of your applications that
--- perform different tasks without losing messages or requiring each
--- component to be always available.
+-- Amazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.
 --
 -- Helpful Links:
 --
@@ -30,16 +24,13 @@
 -- -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
 -- -   <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 --
--- We also provide SDKs that enable you to access Amazon SQS from your
--- preferred programming language. The SDKs contain functionality that
--- automatically takes care of tasks such as:
+-- We also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:
 --
 -- -   Cryptographically signing your service requests
 -- -   Retrying requests
 -- -   Handling error responses
 --
--- For a list of available SDKs, go to
--- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+-- For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 module Network.AWS.SQS
     (
     -- * Service Configuration

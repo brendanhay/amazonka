@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of products or offerings that the user can manage through
--- the API. Each offering record indicates the recurring price per unit and
--- the frequency for that offering. The API returns a 'NotEligible' error
--- if the user is not permitted to invoke the operation. Please contact
--- <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com>
--- if you believe that you should be able to invoke this operation.
+-- Returns a list of products or offerings that the user can manage through the API. Each offering record indicates the recurring price per unit and the frequency for that offering. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
 module Network.AWS.DeviceFarm.ListOfferings
     (
     -- * Creating a Request
@@ -67,9 +62,7 @@ listOfferings =
     { _loNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 loNextToken :: Lens' ListOfferings (Maybe Text)
 loNextToken = lens _loNextToken (\ s a -> s{_loNextToken = a});
 
@@ -136,9 +129,7 @@ listOfferingsResponse pResponseStatus_ =
     , _lorsResponseStatus = pResponseStatus_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lorsNextToken :: Lens' ListOfferingsResponse (Maybe Text)
 lorsNextToken = lens _lorsNextToken (\ s a -> s{_lorsNextToken = a});
 

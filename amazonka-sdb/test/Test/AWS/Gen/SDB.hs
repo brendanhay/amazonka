@@ -28,67 +28,67 @@ import Test.AWS.SDB.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testBatchDeleteAttributes $
+--         [ requestBatchDeleteAttributes $
 --             batchDeleteAttributes
 --
---         , testBatchPutAttributes $
+--         , requestBatchPutAttributes $
 --             batchPutAttributes
 --
---         , testGetAttributes $
+--         , requestGetAttributes $
 --             getAttributes
 --
---         , testCreateDomain $
+--         , requestCreateDomain $
 --             createDomain
 --
---         , testDomainMetadata $
+--         , requestDomainMetadata $
 --             domainMetadata
 --
---         , testSelect $
+--         , requestSelect $
 --             select
 --
---         , testDeleteAttributes $
+--         , requestDeleteAttributes $
 --             deleteAttributes
 --
---         , testPutAttributes $
+--         , requestPutAttributes $
 --             putAttributes
 --
---         , testDeleteDomain $
+--         , requestDeleteDomain $
 --             deleteDomain
 --
---         , testListDomains $
+--         , requestListDomains $
 --             listDomains
 --
 --           ]
 
 --     , testGroup "response"
---         [ testBatchDeleteAttributesResponse $
+--         [ responseBatchDeleteAttributes $
 --             batchDeleteAttributesResponse
 --
---         , testBatchPutAttributesResponse $
+--         , responseBatchPutAttributes $
 --             batchPutAttributesResponse
 --
---         , testGetAttributesResponse $
+--         , responseGetAttributes $
 --             getAttributesResponse
 --
---         , testCreateDomainResponse $
+--         , responseCreateDomain $
 --             createDomainResponse
 --
---         , testDomainMetadataResponse $
+--         , responseDomainMetadata $
 --             domainMetadataResponse
 --
---         , testSelectResponse $
+--         , responseSelect $
 --             selectResponse
 --
---         , testDeleteAttributesResponse $
+--         , responseDeleteAttributes $
 --             deleteAttributesResponse
 --
---         , testPutAttributesResponse $
+--         , responsePutAttributes $
 --             putAttributesResponse
 --
---         , testDeleteDomainResponse $
+--         , responseDeleteDomain $
 --             deleteDomainResponse
 --
---         , testListDomainsResponse $
+--         , responseListDomains $
 --             listDomainsResponse
 --
 --           ]
@@ -96,123 +96,123 @@ import Test.AWS.SDB.Internal
 
 -- Requests
 
-testBatchDeleteAttributes :: BatchDeleteAttributes -> TestTree
-testBatchDeleteAttributes = req
+requestBatchDeleteAttributes :: BatchDeleteAttributes -> TestTree
+requestBatchDeleteAttributes = req
     "BatchDeleteAttributes"
     "fixture/BatchDeleteAttributes.yaml"
 
-testBatchPutAttributes :: BatchPutAttributes -> TestTree
-testBatchPutAttributes = req
+requestBatchPutAttributes :: BatchPutAttributes -> TestTree
+requestBatchPutAttributes = req
     "BatchPutAttributes"
     "fixture/BatchPutAttributes.yaml"
 
-testGetAttributes :: GetAttributes -> TestTree
-testGetAttributes = req
+requestGetAttributes :: GetAttributes -> TestTree
+requestGetAttributes = req
     "GetAttributes"
     "fixture/GetAttributes.yaml"
 
-testCreateDomain :: CreateDomain -> TestTree
-testCreateDomain = req
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain = req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
-testDomainMetadata :: DomainMetadata -> TestTree
-testDomainMetadata = req
+requestDomainMetadata :: DomainMetadata -> TestTree
+requestDomainMetadata = req
     "DomainMetadata"
     "fixture/DomainMetadata.yaml"
 
-testSelect :: Select -> TestTree
-testSelect = req
+requestSelect :: Select -> TestTree
+requestSelect = req
     "Select"
     "fixture/Select.yaml"
 
-testDeleteAttributes :: DeleteAttributes -> TestTree
-testDeleteAttributes = req
+requestDeleteAttributes :: DeleteAttributes -> TestTree
+requestDeleteAttributes = req
     "DeleteAttributes"
     "fixture/DeleteAttributes.yaml"
 
-testPutAttributes :: PutAttributes -> TestTree
-testPutAttributes = req
+requestPutAttributes :: PutAttributes -> TestTree
+requestPutAttributes = req
     "PutAttributes"
     "fixture/PutAttributes.yaml"
 
-testDeleteDomain :: DeleteDomain -> TestTree
-testDeleteDomain = req
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain = req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
-testListDomains :: ListDomains -> TestTree
-testListDomains = req
+requestListDomains :: ListDomains -> TestTree
+requestListDomains = req
     "ListDomains"
     "fixture/ListDomains.yaml"
 
 -- Responses
 
-testBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse -> TestTree
-testBatchDeleteAttributesResponse = res
+responseBatchDeleteAttributes :: BatchDeleteAttributesResponse -> TestTree
+responseBatchDeleteAttributes = res
     "BatchDeleteAttributesResponse"
     "fixture/BatchDeleteAttributesResponse.proto"
     sdb
     (Proxy :: Proxy BatchDeleteAttributes)
 
-testBatchPutAttributesResponse :: BatchPutAttributesResponse -> TestTree
-testBatchPutAttributesResponse = res
+responseBatchPutAttributes :: BatchPutAttributesResponse -> TestTree
+responseBatchPutAttributes = res
     "BatchPutAttributesResponse"
     "fixture/BatchPutAttributesResponse.proto"
     sdb
     (Proxy :: Proxy BatchPutAttributes)
 
-testGetAttributesResponse :: GetAttributesResponse -> TestTree
-testGetAttributesResponse = res
+responseGetAttributes :: GetAttributesResponse -> TestTree
+responseGetAttributes = res
     "GetAttributesResponse"
     "fixture/GetAttributesResponse.proto"
     sdb
     (Proxy :: Proxy GetAttributes)
 
-testCreateDomainResponse :: CreateDomainResponse -> TestTree
-testCreateDomainResponse = res
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain = res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     sdb
     (Proxy :: Proxy CreateDomain)
 
-testDomainMetadataResponse :: DomainMetadataResponse -> TestTree
-testDomainMetadataResponse = res
+responseDomainMetadata :: DomainMetadataResponse -> TestTree
+responseDomainMetadata = res
     "DomainMetadataResponse"
     "fixture/DomainMetadataResponse.proto"
     sdb
     (Proxy :: Proxy DomainMetadata)
 
-testSelectResponse :: SelectResponse -> TestTree
-testSelectResponse = res
+responseSelect :: SelectResponse -> TestTree
+responseSelect = res
     "SelectResponse"
     "fixture/SelectResponse.proto"
     sdb
     (Proxy :: Proxy Select)
 
-testDeleteAttributesResponse :: DeleteAttributesResponse -> TestTree
-testDeleteAttributesResponse = res
+responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
+responseDeleteAttributes = res
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse.proto"
     sdb
     (Proxy :: Proxy DeleteAttributes)
 
-testPutAttributesResponse :: PutAttributesResponse -> TestTree
-testPutAttributesResponse = res
+responsePutAttributes :: PutAttributesResponse -> TestTree
+responsePutAttributes = res
     "PutAttributesResponse"
     "fixture/PutAttributesResponse.proto"
     sdb
     (Proxy :: Proxy PutAttributes)
 
-testDeleteDomainResponse :: DeleteDomainResponse -> TestTree
-testDeleteDomainResponse = res
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain = res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     sdb
     (Proxy :: Proxy DeleteDomain)
 
-testListDomainsResponse :: ListDomainsResponse -> TestTree
-testListDomainsResponse = res
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     sdb

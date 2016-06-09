@@ -18,20 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified inline policy document that is embedded with the
--- specified role.
+-- Retrieves the specified inline policy document that is embedded with the specified role.
 --
--- A role can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a role, use < GetPolicy> to
--- determine the policy\'s default version, then use < GetPolicyVersion> to
--- retrieve the policy document.
+-- A role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
 --
--- For more information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- For more information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
+-- For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 module Network.AWS.IAM.GetRolePolicy
     (
     -- * Creating a Request

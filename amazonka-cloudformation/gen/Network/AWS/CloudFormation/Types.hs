@@ -253,7 +253,7 @@ cloudFormation =
     , _svcEndpoint = defaultEndpoint cloudFormation
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "CloudFormation"
     , _svcRetry = retry
     }
   where
@@ -276,21 +276,17 @@ cloudFormation =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified change set name or ID doesn\'t exit. To view valid change
--- sets for a stack, use the 'ListChangeSets' action.
+-- | The specified change set name or ID doesn\'t exit. To view valid change sets for a stack, use the 'ListChangeSets' action.
 _ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ChangeSetNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ChangeSetNotFound"
 
--- | The specified change set cannot be used to update the stack. For
--- example, the change set status might be 'CREATE_IN_PROGRESS' or the
--- stack status might be 'UPDATE_IN_PROGRESS'.
+-- | The specified change set cannot be used to update the stack. For example, the change set status might be 'CREATE_IN_PROGRESS' or the stack status might be 'UPDATE_IN_PROGRESS'.
 _InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeSetStatusException =
     _ServiceError . hasStatus 400 . hasCode "InvalidChangeSetStatus"
 
--- | The template contains resources with capabilities that were not
--- specified in the Capabilities parameter.
+-- | The template contains resources with capabilities that were not specified in the Capabilities parameter.
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"

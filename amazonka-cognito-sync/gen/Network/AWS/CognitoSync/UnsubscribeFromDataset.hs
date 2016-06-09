@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unsubscribes from receiving notifications when a dataset is modified by
--- another device.
+-- Unsubscribes from receiving notifications when a dataset is modified by another device.
 --
--- This API can only be called with temporary credentials provided by
--- Cognito Identity. You cannot call this API with developer credentials.
+-- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
     -- * Creating a Request
@@ -83,9 +81,7 @@ unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     , _ufdDeviceId = pDeviceId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. The ID of the pool to which this identity belongs.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
 ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
 ufdIdentityPoolId = lens _ufdIdentityPoolId (\ s a -> s{_ufdIdentityPoolId = a});
 

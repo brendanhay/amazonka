@@ -18,21 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the parameters of a DB cluster parameter group to the default
--- value. To reset specific parameters submit a list of the following:
--- 'ParameterName' and 'ApplyMethod'. To reset the entire DB cluster
--- parameter group, specify the 'DBClusterParameterGroupName' and
--- 'ResetAllParameters' parameters.
+-- Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB cluster parameter group, specify the 'DBClusterParameterGroupName' and 'ResetAllParameters' parameters.
 --
--- When resetting the entire group, dynamic parameters are updated
--- immediately and static parameters are set to 'pending-reboot' to take
--- effect on the next DB instance restart or < RebootDBInstance> request.
--- You must call < RebootDBInstance> for every DB instance in your DB
--- cluster that you want the updated static parameter to apply to.
+-- When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to 'pending-reboot' to take effect on the next DB instance restart or < RebootDBInstance> request. You must call < RebootDBInstance> for every DB instance in your DB cluster that you want the updated static parameter to apply to.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.ResetDBClusterParameterGroup
     (
     -- * Creating a Request
@@ -85,16 +75,11 @@ resetDBClusterParameterGroup pDBClusterParameterGroupName_ =
     , _rdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
     }
 
--- | A value that is set to 'true' to reset all parameters in the DB cluster
--- parameter group to their default values, and 'false' otherwise. You
--- cannot use this parameter if there is a list of parameter names
--- specified for the 'Parameters' parameter.
+-- | A value that is set to 'true' to reset all parameters in the DB cluster parameter group to their default values, and 'false' otherwise. You cannot use this parameter if there is a list of parameter names specified for the 'Parameters' parameter.
 rdcpgResetAllParameters :: Lens' ResetDBClusterParameterGroup (Maybe Bool)
 rdcpgResetAllParameters = lens _rdcpgResetAllParameters (\ s a -> s{_rdcpgResetAllParameters = a});
 
--- | A list of parameter names in the DB cluster parameter group to reset to
--- the default values. You cannot use this parameter if the
--- 'ResetAllParameters' parameter is set to 'true'.
+-- | A list of parameter names in the DB cluster parameter group to reset to the default values. You cannot use this parameter if the 'ResetAllParameters' parameter is set to 'true'.
 rdcpgParameters :: Lens' ResetDBClusterParameterGroup [Parameter]
 rdcpgParameters = lens _rdcpgParameters (\ s a -> s{_rdcpgParameters = a}) . _Default . _Coerce;
 

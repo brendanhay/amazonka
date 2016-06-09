@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the contact information for a particular domain.
--- Information for at least one contact (registrant, administrator, or
--- technical) must be supplied for update.
+-- This operation updates the contact information for a particular domain. Information for at least one contact (registrant, administrator, or technical) must be supplied for update.
 --
--- If the update is successful, this method returns an operation ID that
--- you can use to track the progress and completion of the action. If the
--- request is not completed successfully, the domain registrant will be
--- notified by email.
+-- If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Creating a Request
@@ -88,9 +83,7 @@ updateDomainContact pDomainName_ =
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
--- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
--- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -100,9 +93,7 @@ udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantCont
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
--- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
--- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -112,9 +103,7 @@ udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . map
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
--- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
--- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -126,9 +115,7 @@ udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mappin
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
--- are not supported.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
 --
 -- Required: Yes
 udcDomainName :: Lens' UpdateDomainContact Text
@@ -202,8 +189,7 @@ updateDomainContactResponse pResponseStatus_ pOperationId_ =
 udcrsResponseStatus :: Lens' UpdateDomainContactResponse Int
 udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --

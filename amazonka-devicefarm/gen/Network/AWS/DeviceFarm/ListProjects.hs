@@ -74,9 +74,7 @@ listProjects =
 lpArn :: Lens' ListProjects (Maybe Text)
 lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lpNextToken :: Lens' ListProjects (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
@@ -151,9 +149,7 @@ listProjectsResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 

@@ -18,31 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decodes additional information about the authorization status of a
--- request from an encoded message returned in response to an AWS request.
+-- Decodes additional information about the authorization status of a request from an encoded message returned in response to an AWS request.
 --
--- For example, if a user is not authorized to perform an action that he or
--- she has requested, the request returns a 'Client.UnauthorizedOperation'
--- response (an HTTP 403 response). Some AWS actions additionally return an
--- encoded message that can provide details about this authorization
--- failure.
+-- For example, if a user is not authorized to perform an action that he or she has requested, the request returns a 'Client.UnauthorizedOperation' response (an HTTP 403 response). Some AWS actions additionally return an encoded message that can provide details about this authorization failure.
 --
--- Only certain AWS actions return an encoded authorization message. The
--- documentation for an individual action indicates whether that action
--- returns an encoded message in addition to returning an HTTP code.
+-- Only certain AWS actions return an encoded authorization message. The documentation for an individual action indicates whether that action returns an encoded message in addition to returning an HTTP code.
 --
--- The message is encoded because the details of the authorization status
--- can constitute privileged information that the user who requested the
--- action should not see. To decode an authorization status message, a user
--- must be granted permissions via an IAM policy to request the
--- 'DecodeAuthorizationMessage' ('sts:DecodeAuthorizationMessage') action.
+-- The message is encoded because the details of the authorization status can constitute privileged information that the user who requested the action should not see. To decode an authorization status message, a user must be granted permissions via an IAM policy to request the 'DecodeAuthorizationMessage' ('sts:DecodeAuthorizationMessage') action.
 --
 -- The decoded message includes the following type of information:
 --
--- -   Whether the request was denied due to an explicit deny or due to the
---     absence of an explicit allow. For more information, see
---     <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow Determining Whether a Request is Allowed or Denied>
---     in the /IAM User Guide/.
+-- -   Whether the request was denied due to an explicit deny or due to the absence of an explicit allow. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow Determining Whether a Request is Allowed or Denied> in the /IAM User Guide/.
 --
 -- -   The principal who made the request.
 --
@@ -126,9 +112,7 @@ instance ToQuery DecodeAuthorizationMessage where
                "Version" =: ("2011-06-15" :: ByteString),
                "EncodedMessage" =: _damEncodedMessage]
 
--- | A document that contains additional information about the authorization
--- status of a request from an encoded message that is returned in response
--- to an AWS request.
+-- | A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request.
 --
 -- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'

@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- If you want to learn why a health check is currently failing or why it
--- failed most recently (if at all), you can get the failure reason for the
--- most recent failure. Send a 'GET' request to the
--- '\/Route 53 API version\/healthcheck\/health check ID\/lastfailurereason'
--- resource.
+-- If you want to learn why a health check is currently failing or why it failed most recently (if at all), you can get the failure reason for the most recent failure. Send a 'GET' request to the '\/Route 53 API version\/healthcheck\/health check ID\/lastfailurereason' resource.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
     (
     -- * Creating a Request
@@ -46,8 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get the
--- most recent failure reason for a health check.
+-- | A complex type that contains information about the request to get the most recent failure reason for a health check.
 --
 -- /See:/ 'getHealthCheckLastFailureReason' smart constructor.
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
@@ -67,8 +62,7 @@ getHealthCheckLastFailureReason pHealthCheckId_ =
     { _ghclfrHealthCheckId = pHealthCheckId_
     }
 
--- | The ID of the health check for which you want to retrieve the reason for
--- the most recent failure.
+-- | The ID of the health check for which you want to retrieve the reason for the most recent failure.
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
 ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a});
 
@@ -103,8 +97,7 @@ instance ToQuery GetHealthCheckLastFailureReason
          where
         toQuery = const mempty
 
--- | A complex type that contains information about the most recent failure
--- for the specified health check.
+-- | A complex type that contains information about the most recent failure for the specified health check.
 --
 -- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
@@ -132,8 +125,7 @@ getHealthCheckLastFailureReasonResponse pResponseStatus_ =
 ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
 ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsResponseStatus = a});
 
--- | A list that contains one 'HealthCheckObservation' element for each
--- Amazon Route 53 health checker.
+-- | A list that contains one 'HealthCheckObservation' element for each Amazon Route 53 health checker.
 ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;
 

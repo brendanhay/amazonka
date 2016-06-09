@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a data key encrypted by a customer master key without the
--- plaintext copy of that key. Otherwise, this API functions exactly like
--- < GenerateDataKey>. You can use this API to, for example, satisfy an
--- audit requirement that an encrypted key be made available without
--- exposing the plaintext copy of that key.
+-- Returns a data key encrypted by a customer master key without the plaintext copy of that key. Otherwise, this API functions exactly like < GenerateDataKey>. You can use this API to, for example, satisfy an audit requirement that an encrypted key be made available without exposing the plaintext copy of that key.
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
     -- * Creating a Request
@@ -85,40 +81,29 @@ generateDataKeyWithoutPlaintext pKeyId_ =
     , _gdkwpKeyId = pKeyId_
     }
 
--- | Value that identifies the encryption algorithm and key size. Currently
--- this can be AES_128 or AES_256.
+-- | Value that identifies the encryption algorithm and key size. Currently this can be AES_128 or AES_256.
 gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
 gdkwpKeySpec = lens _gdkwpKeySpec (\ s a -> s{_gdkwpKeySpec = a});
 
--- | Name:value pair that contains additional data to be authenticated during
--- the encryption and decryption processes.
+-- | Name:value pair that contains additional data to be authenticated during the encryption and decryption processes.
 gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
 gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Default . _Map;
 
--- | Integer that contains the number of bytes to generate. Common values are
--- 128, 256, 512, 1024 and so on. We recommend that you use the 'KeySpec'
--- parameter instead.
+-- | Integer that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. We recommend that you use the 'KeySpec' parameter instead.
 gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
 gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = a}) . mapping _Nat;
 
 -- | A list of grant tokens.
 --
--- For more information, go to
--- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
 gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a}) . _Default . _Coerce;
 
--- | A unique identifier for the customer master key. This value can be a
--- globally unique identifier, a fully specified ARN to either an alias or
--- a key, or an alias name prefixed by \"alias\/\".
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
 --
--- -   Key ARN Example -
---     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
--- -   Alias ARN Example -
---     arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
--- -   Globally Unique Key ID Example -
---     12345678-1234-1234-1234-123456789012
+-- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+-- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
 gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
 gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
@@ -193,17 +178,13 @@ generateDataKeyWithoutPlaintextResponse pResponseStatus_ =
     , _gdkwprsResponseStatus = pResponseStatus_
     }
 
--- | System generated unique identifier of the key to be used to decrypt the
--- encrypted copy of the data key.
+-- | System generated unique identifier of the key to be used to decrypt the encrypted copy of the data key.
 gdkwprsKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprsKeyId = lens _gdkwprsKeyId (\ s a -> s{_gdkwprsKeyId = a});
 
--- | Ciphertext that contains the wrapped data key. You must store the blob
--- and encryption context so that the key can be used in a future decrypt
--- operation.
+-- | Ciphertext that contains the wrapped data key. You must store the blob and encryption context so that the key can be used in a future decrypt operation.
 --
--- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
--- not encoded.
+-- If you are using the CLI, the value is Base64 encoded. Otherwise, it is not encoded.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.

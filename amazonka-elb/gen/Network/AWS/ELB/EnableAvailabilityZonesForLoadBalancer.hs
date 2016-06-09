@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified Availability Zones to the set of Availability Zones
--- for the specified load balancer.
+-- Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.
 --
--- The load balancer evenly distributes requests across all its registered
--- Availability Zones that contain instances.
+-- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
@@ -77,8 +73,7 @@ enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
 eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBalancerName = a});
 
--- | The Availability Zones. These must be in the same region as the load
--- balancer.
+-- | The Availability Zones. These must be in the same region as the load balancer.
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
 eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a}) . _Coerce;
 

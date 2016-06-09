@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your queues. The maximum number of queues that can be
--- returned is 1000. If you specify a value for the optional
--- 'QueueNamePrefix' parameter, only queues with a name beginning with the
--- specified value are returned.
+-- Returns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional 'QueueNamePrefix' parameter, only queues with a name beginning with the specified value are returned.
 module Network.AWS.SQS.ListQueues
     (
     -- * Creating a Request
@@ -62,8 +59,7 @@ listQueues =
     { _lqQueueNamePrefix = Nothing
     }
 
--- | A string to use for filtering the list results. Only those queues whose
--- name begins with the specified string are returned.
+-- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 

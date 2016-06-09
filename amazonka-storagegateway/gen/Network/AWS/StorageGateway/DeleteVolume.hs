@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified gateway volume that you previously created using
--- the < CreateCachediSCSIVolume> or < CreateStorediSCSIVolume> API. For
--- gateway-stored volumes, the local disk that was configured as the
--- storage volume is not deleted. You can reuse the local disk to create
--- another storage volume.
+-- Deletes the specified gateway volume that you previously created using the < CreateCachediSCSIVolume> or < CreateStorediSCSIVolume> API. For gateway-stored volumes, the local disk that was configured as the storage volume is not deleted. You can reuse the local disk to create another storage volume.
 --
--- Before you delete a gateway volume, make sure there are no iSCSI
--- connections to the volume you are deleting. You should also make sure
--- there is no snapshot in progress. You can use the Amazon Elastic Compute
--- Cloud (Amazon EC2) API to query snapshots on the volume you are deleting
--- and check the snapshot status. For more information, go to
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
--- in the /Amazon Elastic Compute Cloud API Reference/.
+-- Before you delete a gateway volume, make sure there are no iSCSI connections to the volume you are deleting. You should also make sure there is no snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are deleting and check the snapshot status. For more information, go to <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/.
 --
--- In the request, you must provide the Amazon Resource Name (ARN) of the
--- storage volume you want to delete.
+-- In the request, you must provide the Amazon Resource Name (ARN) of the storage volume you want to delete.
 module Network.AWS.StorageGateway.DeleteVolume
     (
     -- * Creating a Request
@@ -57,7 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the < DeleteVolumeInput$VolumeARN> to delete.
+-- | A JSON object containing the < DeleteVolumeInput>VolumeARN> to delete.
 --
 -- /See:/ 'deleteVolume' smart constructor.
 newtype DeleteVolume = DeleteVolume'
@@ -77,8 +66,7 @@ deleteVolume pVolumeARN_ =
     { _dvVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
--- operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
 
@@ -140,8 +128,7 @@ deleteVolumeResponse pResponseStatus_ =
     , _dvrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
--- It is the same ARN you provided in the request.
+-- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
 dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 

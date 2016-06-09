@@ -74,8 +74,7 @@ updateDistribution pDistributionConfig_ pId_ =
     , _udId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the
--- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the distribution\'s configuration. For example: E2QWRUHAPOMQZL.
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
 

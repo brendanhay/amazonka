@@ -40,8 +40,8 @@ httpStatus = _Error . f
             -> TransportError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
         TransportError e
             -> pure (TransportError e)
-        SerializeError (SerializeError' a s e)
-            -> g s <&> \x -> SerializeError (SerializeError' a x e)
+        SerializeError (SerializeError' a s b e)
+            -> g s <&> \x -> SerializeError (SerializeError' a x b e)
         ServiceError e
             -> g (_serviceStatus e) <&> \x -> ServiceError (e { _serviceStatus = x })
 
@@ -132,6 +132,6 @@ decodeError :: Abbrev
 decodeError a s h bs e
     | LBS.null bs = parseRESTError a s h bs
     | otherwise   =
-        either (SerializeError . SerializeError' a s)
+        either (SerializeError . SerializeError' a s (Just bs))
                ServiceError
                e

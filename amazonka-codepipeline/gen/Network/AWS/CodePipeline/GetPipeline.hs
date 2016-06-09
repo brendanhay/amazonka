@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the metadata, structure, stages, and actions of a pipeline. Can
--- be used to return the entire structure of a pipeline in JSON format,
--- which can then be modified and used to update the pipeline structure
--- with < UpdatePipeline>.
+-- Returns the metadata, structure, stages, and actions of a pipeline. Can be used to return the entire structure of a pipeline in JSON format, which can then be modified and used to update the pipeline structure with < UpdatePipeline>.
 module Network.AWS.CodePipeline.GetPipeline
     (
     -- * Creating a Request
@@ -70,13 +67,11 @@ getPipeline pName_ =
     , _gpName = pName_
     }
 
--- | The version number of the pipeline. If you do not specify a version,
--- defaults to the most current version.
+-- | The version number of the pipeline. If you do not specify a version, defaults to the most current version.
 gpVersion :: Lens' GetPipeline (Maybe Natural)
 gpVersion = lens _gpVersion (\ s a -> s{_gpVersion = a}) . mapping _Nat;
 
--- | The name of the pipeline for which you want to get information. Pipeline
--- names must be unique under an Amazon Web Services (AWS) user account.
+-- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an Amazon Web Services (AWS) user account.
 gpName :: Lens' GetPipeline Text
 gpName = lens _gpName (\ s a -> s{_gpName = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides cluster configuration information about the specified
--- Elasticsearch domain, such as the state, creation date, update version,
--- and update date for cluster options.
+-- Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -44,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeElasticsearchDomainConfig'
--- operation. Specifies the domain name for which you want configuration
--- information.
+-- | Container for the parameters to the 'DescribeElasticsearchDomainConfig' operation. Specifies the domain name for which you want configuration information.
 --
 -- /See:/ 'describeElasticsearchDomainConfig' smart constructor.
 newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
@@ -100,8 +96,7 @@ instance ToQuery DescribeElasticsearchDomainConfig
          where
         toQuery = const mempty
 
--- | The result of a 'DescribeElasticsearchDomainConfig' request. Contains
--- the configuration information of the requested domain.
+-- | The result of a 'DescribeElasticsearchDomainConfig' request. Contains the configuration information of the requested domain.
 --
 -- /See:/ 'describeElasticsearchDomainConfigResponse' smart constructor.
 data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
@@ -130,8 +125,7 @@ describeElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
 dedcrsResponseStatus :: Lens' DescribeElasticsearchDomainConfigResponse Int
 dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseStatus = a});
 
--- | The configuration information of the domain requested in the
--- 'DescribeElasticsearchDomainConfig' request.
+-- | The configuration information of the domain requested in the 'DescribeElasticsearchDomainConfig' request.
 dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
 dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a});
 

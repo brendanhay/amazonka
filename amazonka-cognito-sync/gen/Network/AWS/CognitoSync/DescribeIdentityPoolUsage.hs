@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets usage details (for example, data storage) about a particular
--- identity pool.
+-- Gets usage details (for example, data storage) about a particular identity pool.
 --
--- This API can only be called with developer credentials. You cannot call
--- this API with the temporary user credentials provided by Cognito
--- Identity.
+-- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
     -- * Creating a Request
@@ -67,9 +64,7 @@ describeIdentityPoolUsage pIdentityPoolId_ =
     { _dipuIdentityPoolId = pIdentityPoolId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
 dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
 

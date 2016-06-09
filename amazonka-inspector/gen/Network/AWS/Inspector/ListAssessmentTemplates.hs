@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the assessment templates that correspond to the assessment targets
--- that are specified by the ARNs of the assessment targets.
+-- Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.
 module Network.AWS.Inspector.ListAssessmentTemplates
     (
     -- * Creating a Request
@@ -76,30 +75,21 @@ listAssessmentTemplates =
     , _latAssessmentTargetARNs = Nothing
     }
 
--- | You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the
--- __ListAssessmentTemplates__ action. Subsequent calls to the action fill
--- __nextToken__ in the request with the value of __NextToken__ from the
--- previous response to continue listing data.
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 latNextToken :: Lens' ListAssessmentTemplates (Maybe Text)
 latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 
--- | You can use this parameter to specify a subset of data to be included in
--- the action\'s response.
+-- | You can use this parameter to specify a subset of data to be included in the action\'s response.
 --
--- For a record to match a filter, all specified filter attributes must
--- match. When multiple values are specified for a filter attribute, any of
--- the values can match.
+-- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 latFilter :: Lens' ListAssessmentTemplates (Maybe AssessmentTemplateFilter)
 latFilter = lens _latFilter (\ s a -> s{_latFilter = a});
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 latMaxResults :: Lens' ListAssessmentTemplates (Maybe Int)
 latMaxResults = lens _latMaxResults (\ s a -> s{_latMaxResults = a});
 
--- | A list of ARNs that specifies the assessment targets whose assessment
--- templates you want to list.
+-- | A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
 latAssessmentTargetARNs :: Lens' ListAssessmentTemplates [Text]
 latAssessmentTargetARNs = lens _latAssessmentTargetARNs (\ s a -> s{_latAssessmentTargetARNs = a}) . _Default . _Coerce;
 
@@ -170,10 +160,7 @@ listAssessmentTemplatesResponse pResponseStatus_ =
     , _latrsAssessmentTemplateARNs = mempty
     }
 
--- | When a response is generated, if there is more data to be listed, this
--- parameter is present in the response and contains the value to use for
--- the __nextToken__ parameter in a subsequent pagination request. If there
--- is no more data to be listed, this parameter is set to null.
+-- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 latrsNextToken :: Lens' ListAssessmentTemplatesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
@@ -181,8 +168,7 @@ latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 latrsResponseStatus :: Lens' ListAssessmentTemplatesResponse Int
 latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
 
--- | A list of ARNs that specifies the assessment templates returned by the
--- action.
+-- | A list of ARNs that specifies the assessment templates returned by the action.
 latrsAssessmentTemplateARNs :: Lens' ListAssessmentTemplatesResponse [Text]
 latrsAssessmentTemplateARNs = lens _latrsAssessmentTemplateARNs (\ s a -> s{_latrsAssessmentTemplateARNs = a}) . _Coerce;
 

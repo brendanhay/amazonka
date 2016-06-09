@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables monitoring of the specified metrics for the specified Auto
--- Scaling group.
+-- Enables monitoring of the specified metrics for the specified Auto Scaling group.
 --
--- You can only enable metrics collection if 'InstanceMonitoring' in the
--- launch configuration for the group is set to 'True'.
+-- You can only enable metrics collection if 'InstanceMonitoring' in the launch configuration for the group is set to 'True'.
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Creating a Request
@@ -72,8 +70,7 @@ enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
     , _emcGranularity = pGranularity_
     }
 
--- | One or more of the following metrics. If you omit this parameter, all
--- metrics are enabled.
+-- | One or more of the following metrics. If you omit this parameter, all metrics are enabled.
 --
 -- -   'GroupMinSize'
 --
@@ -91,8 +88,7 @@ enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
 --
 -- -   'GroupTotalInstances'
 --
--- Note that the 'GroupStandbyInstances' metric is not enabled by default.
--- You must explicitly request this metric.
+-- Note that the 'GroupStandbyInstances' metric is not enabled by default. You must explicitly request this metric.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce;
 
@@ -100,8 +96,7 @@ emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
 emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a});
 
--- | The granularity to associate with the metrics to collect. The only valid
--- value is '1Minute'.
+-- | The granularity to associate with the metrics to collect. The only valid value is '1Minute'.
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
 

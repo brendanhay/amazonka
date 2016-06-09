@@ -18,14 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Validates the specified pipeline and starts processing pipeline tasks.
--- If the pipeline does not pass validation, activation fails.
+-- Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.
 --
--- If you need to pause the pipeline to investigate an issue with a
--- component, such as a data source or script, call < DeactivatePipeline>.
+-- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call < DeactivatePipeline>.
 --
--- To activate a finished pipeline, modify the end date for the pipeline
--- and then activate it.
+-- To activate a finished pipeline, modify the end date for the pipeline and then activate it.
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request
@@ -78,8 +75,7 @@ activatePipeline pPipelineId_ =
     , _apPipelineId = pPipelineId_
     }
 
--- | The date and time to resume the pipeline. By default, the pipeline
--- resumes from the last completed execution.
+-- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
 apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
 

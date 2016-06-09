@@ -23,9 +23,7 @@
 -- -   maximum number of instances allowed per AWS account (service limit)
 -- -   current usage level for the AWS account
 --
--- Service limits vary depending on region. Available regions for GameLift
--- can be found in the AWS Management Console for GameLift (see the
--- drop-down list in the upper right corner).
+-- Service limits vary depending on region. Available regions for GameLift can be found in the AWS Management Console for GameLift (see the drop-down list in the upper right corner).
 module Network.AWS.GameLift.DescribeEC2InstanceLimits
     (
     -- * Creating a Request
@@ -68,12 +66,7 @@ describeEC2InstanceLimits =
     { _deilEC2InstanceType = Nothing
     }
 
--- | Type of EC2 instances used in the fleet. EC2 instance types define the
--- CPU, memory, storage, and networking capacity of the fleetaposs hosts.
--- Amazon GameLift supports the EC2 instance types listed below. See
--- <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>
--- for detailed descriptions of each. Leave this parameter blank to
--- retrieve limits for all types.
+-- | Type of EC2 instances used in the fleet. EC2 instance types define the CPU, memory, storage, and networking capacity of the fleetaposs hosts. Amazon GameLift supports the EC2 instance types listed below. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions of each. Leave this parameter blank to retrieve limits for all types.
 deilEC2InstanceType :: Lens' DescribeEC2InstanceLimits (Maybe EC2InstanceType)
 deilEC2InstanceType = lens _deilEC2InstanceType (\ s a -> s{_deilEC2InstanceType = a});
 
@@ -137,8 +130,7 @@ describeEC2InstanceLimitsResponse pResponseStatus_ =
     , _deilrsResponseStatus = pResponseStatus_
     }
 
--- | Object containing the maximum number of instances for the specified
--- instance type.
+-- | Object containing the maximum number of instances for the specified instance type.
 deilrsEC2InstanceLimits :: Lens' DescribeEC2InstanceLimitsResponse [EC2InstanceLimit]
 deilrsEC2InstanceLimits = lens _deilrsEC2InstanceLimits (\ s a -> s{_deilrsEC2InstanceLimits = a}) . _Default . _Coerce;
 

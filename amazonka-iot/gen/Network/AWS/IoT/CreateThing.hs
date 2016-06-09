@@ -68,9 +68,7 @@ createThing pThingName_ =
     , _ctThingName = pThingName_
     }
 
--- | The attribute payload, which consists of up to 3 name\/value pairs in a
--- JSON document (for example,
--- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | The attribute payload, which consists of up to 3 name\/value pairs in a JSON document (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 

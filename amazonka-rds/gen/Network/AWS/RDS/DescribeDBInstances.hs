@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about provisioned RDS instances. This API supports
--- pagination.
+-- Returns information about provisioned RDS instances. This API supports pagination.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBInstances
@@ -85,9 +84,7 @@ describeDBInstances =
 ddbiFilters :: Lens' DescribeDBInstances [Filter]
 ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default . _Coerce;
 
--- | The user-supplied instance identifier. If this parameter is specified,
--- information from only the specific DB instance is returned. This
--- parameter isn\'t case-sensitive.
+-- | The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --
@@ -97,17 +94,11 @@ ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default . _Coe
 ddbiDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBInstanceIdentifier = a});
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBInstances' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBInstances' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
 ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -156,8 +147,7 @@ instance ToQuery DescribeDBInstances where
                "Marker" =: _ddbiMarker,
                "MaxRecords" =: _ddbiMaxRecords]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBInstances> action.
+-- | Contains the result of a successful invocation of the < DescribeDBInstances> action.
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
@@ -189,9 +179,7 @@ describeDBInstancesResponse pResponseStatus_ =
 ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 ddbirsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 

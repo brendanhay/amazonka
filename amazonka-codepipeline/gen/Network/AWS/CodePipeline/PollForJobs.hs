@@ -20,11 +20,7 @@
 --
 -- Returns information about any jobs for AWS CodePipeline to act upon.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the Amazon S3 bucket used to store artifacts for the pipeline, if
--- the action requires access to that Amazon S3 bucket for input or output
--- artifacts. Additionally, this API returns any secret values defined for
--- the action.
+-- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
 module Network.AWS.CodePipeline.PollForJobs
     (
     -- * Creating a Request
@@ -82,11 +78,7 @@ pollForJobs pActionTypeId_ =
 pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
 pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . mapping _Nat;
 
--- | A map of property names and values. For an action type with no queryable
--- properties, this value must be null or an empty map. For an action type
--- with a queryable property, you must supply that property as a key in the
--- map. Only jobs whose action configuration matches the mapped value will
--- be returned.
+-- | A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value will be returned.
 pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
 pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
 

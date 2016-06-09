@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified version of the specified policy. You cannot delete
--- the default version of a policy using this API. To delete the default
--- version of a policy, use < DeletePolicy>. To find out which version of a
--- policy is marked as the default version, use ListPolicyVersions.
+-- Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use < DeletePolicy>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.
 module Network.AWS.IoT.DeletePolicyVersion
     (
     -- * Creating a Request

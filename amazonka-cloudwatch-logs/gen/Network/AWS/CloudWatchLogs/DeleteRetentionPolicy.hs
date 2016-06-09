@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the retention policy of the specified log group. Log events
--- would not expire if they belong to log groups without a retention
--- policy.
+-- Deletes the retention policy of the specified log group. Log events would not expire if they belong to log groups without a retention policy.
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
     -- * Creating a Request
@@ -59,8 +57,7 @@ deleteRetentionPolicy pLogGroupName_ =
     { _drpLogGroupName = pLogGroupName_
     }
 
--- | The name of the log group that is associated with the retention policy
--- to delete.
+-- | The name of the log group that is associated with the retention policy to delete.
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
 

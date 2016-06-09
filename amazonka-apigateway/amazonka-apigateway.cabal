@@ -1,5 +1,5 @@
 name:                  amazonka-apigateway
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon API Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,11 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon API Gateway
 
-    Amazon API Gateway helps developers deliver robust, secure and scalable
-    mobile and web application backends. Amazon API Gateway allows
-    developers to securely connect mobile and web applications to APIs that
-    run on AWS Lambda, Amazon EC2, or other publicly addressable web
-    services that are hosted outside of AWS.
+    Amazon API Gateway helps developers deliver robust, secure and scalable mobile and web application backends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -132,7 +128,7 @@ library
         , Network.AWS.APIGateway.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-apigateway-test
@@ -152,9 +148,9 @@ test-suite amazonka-apigateway-test
         , Test.AWS.APIGateway.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-apigateway == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-apigateway == 1.4.3.*
         , base
         , bytestring
         , tasty

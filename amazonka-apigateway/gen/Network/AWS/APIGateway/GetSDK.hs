@@ -81,11 +81,7 @@ getSDK pRestAPIId_ pStageName_ pSdkType_ =
     , _gsdkSdkType = pSdkType_
     }
 
--- | A key-value map of query string parameters that specify properties of
--- the SDK, depending on the requested sdkType. For sdkType \'objectivec\',
--- a parameter named \"classPrefix\" is required. For sdkType \'android\',
--- parameters named \"groupId\", \"artifactId\", \"artifactVersion\", and
--- \"invokerPackage\" are required.
+-- | A key-value map of query string parameters that specify properties of the SDK, depending on the requested sdkType. For sdkType \'objectivec\', a parameter named \"classPrefix\" is required. For sdkType \'android\', parameters named \"groupId\", \"artifactId\", \"artifactVersion\", and \"invokerPackage\" are required.
 gsdkParameters :: Lens' GetSDK (HashMap Text Text)
 gsdkParameters = lens _gsdkParameters (\ s a -> s{_gsdkParameters = a}) . _Default . _Map;
 
@@ -97,8 +93,7 @@ gsdkRestAPIId = lens _gsdkRestAPIId (\ s a -> s{_gsdkRestAPIId = a});
 gsdkStageName :: Lens' GetSDK Text
 gsdkStageName = lens _gsdkStageName (\ s a -> s{_gsdkStageName = a});
 
--- | The language for the generated SDK. Currently javascript, android, and
--- objectivec (for iOS) are supported.
+-- | The language for the generated SDK. Currently javascript, android, and objectivec (for iOS) are supported.
 gsdkSdkType :: Lens' GetSDK Text
 gsdkSdkType = lens _gsdkSdkType (\ s a -> s{_gsdkSdkType = a});
 

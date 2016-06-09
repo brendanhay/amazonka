@@ -20,10 +20,7 @@
 --
 -- The CancelJob operation cancels an unfinished job.
 --
--- You can only cancel a job that has a status of 'Submitted'. To prevent a
--- pipeline from starting to process a job while you\'re getting the job
--- identifier, use < UpdatePipelineStatus> to temporarily pause the
--- pipeline.
+-- You can only cancel a job that has a status of 'Submitted'. To prevent a pipeline from starting to process a job while you\'re getting the job identifier, use < UpdatePipelineStatus> to temporarily pause the pipeline.
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Creating a Request
@@ -68,8 +65,7 @@ cancelJob pId_ =
 
 -- | The identifier of the job that you want to cancel.
 --
--- To get a list of the jobs (including their 'jobId') that have a status
--- of 'Submitted', use the < ListJobsByStatus> API action.
+-- To get a list of the jobs (including their 'jobId') that have a status of 'Submitted', use the < ListJobsByStatus> API action.
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 
@@ -95,8 +91,7 @@ instance ToPath CancelJob where
 instance ToQuery CancelJob where
         toQuery = const mempty
 
--- | The response body contains a JSON object. If the job is successfully
--- canceled, the value of 'Success' is 'true'.
+-- | The response body contains a JSON object. If the job is successfully canceled, the value of 'Success' is 'true'.
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'

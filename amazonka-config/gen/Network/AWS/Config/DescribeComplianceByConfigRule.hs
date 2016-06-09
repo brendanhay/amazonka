@@ -18,30 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indicates whether the specified AWS Config rules are compliant. If a
--- rule is noncompliant, this action returns the number of AWS resources
--- that do not comply with the rule.
+-- Indicates whether the specified AWS Config rules are compliant. If a rule is noncompliant, this action returns the number of AWS resources that do not comply with the rule.
 --
--- A rule is compliant if all of the evaluated resources comply with it,
--- and it is noncompliant if any of these resources do not comply.
+-- A rule is compliant if all of the evaluated resources comply with it, and it is noncompliant if any of these resources do not comply.
 --
--- If AWS Config has no current evaluation results for the rule, it returns
--- 'INSUFFICIENT_DATA'. This result might indicate one of the following
--- conditions:
+-- If AWS Config has no current evaluation results for the rule, it returns 'INSUFFICIENT_DATA'. This result might indicate one of the following conditions:
 --
--- -   AWS Config has never invoked an evaluation for the rule. To check
---     whether it has, use the 'DescribeConfigRuleEvaluationStatus' action
---     to get the 'LastSuccessfulInvocationTime' and
---     'LastFailedInvocationTime'.
--- -   The rule\'s AWS Lambda function is failing to send evaluation
---     results to AWS Config. Verify that the role that you assigned to
---     your configuration recorder includes the 'config:PutEvaluations'
---     permission. If the rule is a customer managed rule, verify that the
---     AWS Lambda execution role includes the 'config:PutEvaluations'
---     permission.
--- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for
---     all evaluation results. This can occur if the resources were deleted
---     or removed from the rule\'s scope.
+-- -   AWS Config has never invoked an evaluation for the rule. To check whether it has, use the 'DescribeConfigRuleEvaluationStatus' action to get the 'LastSuccessfulInvocationTime' and 'LastFailedInvocationTime'.
+-- -   The rule\'s AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the 'config:PutEvaluations' permission. If the rule is a customer managed rule, verify that the AWS Lambda execution role includes the 'config:PutEvaluations' permission.
+-- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for all evaluation results. This can occur if the resources were deleted or removed from the rule\'s scope.
 module Network.AWS.Config.DescribeComplianceByConfigRule
     (
     -- * Creating a Request
@@ -99,13 +84,11 @@ dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNa
 
 -- | Filters the results by compliance.
 --
--- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
--- 'INSUFFICIENT_DATA'.
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and 'INSUFFICIENT_DATA'.
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get
--- the next page of results in a paginated response.
+-- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbcrNextToken :: Lens' DescribeComplianceByConfigRule (Maybe Text)
 dcbcrNextToken = lens _dcbcrNextToken (\ s a -> s{_dcbcrNextToken = a});
 
@@ -181,8 +164,7 @@ describeComplianceByConfigRuleResponse pResponseStatus_ =
 dcbcrrsComplianceByConfigRules :: Lens' DescribeComplianceByConfigRuleResponse [ComplianceByConfigRule]
 dcbcrrsComplianceByConfigRules = lens _dcbcrrsComplianceByConfigRules (\ s a -> s{_dcbcrrsComplianceByConfigRules = a}) . _Default . _Coerce;
 
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 dcbcrrsNextToken :: Lens' DescribeComplianceByConfigRuleResponse (Maybe Text)
 dcbcrrsNextToken = lens _dcbcrrsNextToken (\ s a -> s{_dcbcrrsNextToken = a});
 

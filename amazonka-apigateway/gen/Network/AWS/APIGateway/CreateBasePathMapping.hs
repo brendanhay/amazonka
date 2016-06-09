@@ -79,16 +79,11 @@ createBasePathMapping pDomainName_ pRestAPIId_ =
     , _cbpmRestAPIId = pRestAPIId_
     }
 
--- | The name of the API\'s stage that you want to use for this mapping.
--- Leave this blank if you do not want callers to explicitly specify the
--- stage name after any base path name.
+-- | The name of the API\'s stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
 cbpmStage :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmStage = lens _cbpmStage (\ s a -> s{_cbpmStage = a});
 
--- | The base path name that callers of the API must provide as part of the
--- URL after the domain name. This value must be unique for all of the
--- mappings across a single API. Leave this blank if you do not want
--- callers to specify a base path name after the domain name.
+-- | The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify a base path name after the domain name.
 cbpmBasePath :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmBasePath = lens _cbpmBasePath (\ s a -> s{_cbpmBasePath = a});
 

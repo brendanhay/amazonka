@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the names of the rules that the given target is put to. You can
--- see which of the rules in Amazon CloudWatch Events can invoke a specific
--- target in your account. If you have more rules in your account than the
--- given limit, the results will be paginated. In that case, use the next
--- token returned in the response and repeat ListRulesByTarget until the
--- NextToken in the response is returned as null.
+-- Lists the names of the rules that the given target is put to. You can see which of the rules in Amazon CloudWatch Events can invoke a specific target in your account. If you have more rules in your account than the given limit, the results will be paginated. In that case, use the next token returned in the response and repeat ListRulesByTarget until the NextToken in the response is returned as null.
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     (
     -- * Creating a Request
@@ -78,8 +73,7 @@ listRuleNamesByTarget pTargetARN_ =
     , _lrnbtTargetARN = pTargetARN_
     }
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 lrnbtNextToken :: Lens' ListRuleNamesByTarget (Maybe Text)
 lrnbtNextToken = lens _lrnbtNextToken (\ s a -> s{_lrnbtNextToken = a});
 
@@ -87,8 +81,7 @@ lrnbtNextToken = lens _lrnbtNextToken (\ s a -> s{_lrnbtNextToken = a});
 lrnbtLimit :: Lens' ListRuleNamesByTarget (Maybe Natural)
 lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat;
 
--- | The Amazon Resource Name (ARN) of the target resource that you want to
--- list the rules for.
+-- | The Amazon Resource Name (ARN) of the target resource that you want to list the rules for.
 lrnbtTargetARN :: Lens' ListRuleNamesByTarget Text
 lrnbtTargetARN = lens _lrnbtTargetARN (\ s a -> s{_lrnbtTargetARN = a});
 

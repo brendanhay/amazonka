@@ -176,8 +176,7 @@ describeHAPGResponse pResponseStatus_ =
 dhapgrsState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
 dhapgrsState = lens _dhapgrsState (\ s a -> s{_dhapgrsState = a});
 
--- | The date and time the high-availability partition group was last
--- modified.
+-- | The date and time the high-availability partition group was last modified.
 dhapgrsLastModifiedTimestamp :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\ s a -> s{_dhapgrsLastModifiedTimestamp = a});
 
@@ -197,8 +196,7 @@ dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a})
 dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\ s a -> s{_dhapgrsHSMsLastActionFailed = a}) . _Default . _Coerce;
 
--- | The list of partition serial numbers that belong to the
--- high-availability partition group.
+-- | The list of partition serial numbers that belong to the high-availability partition group.
 dhapgrsPartitionSerialList :: Lens' DescribeHAPGResponse [Text]
 dhapgrsPartitionSerialList = lens _dhapgrsPartitionSerialList (\ s a -> s{_dhapgrsPartitionSerialList = a}) . _Default . _Coerce;
 

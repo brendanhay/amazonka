@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters the specified instances from the specified load balancer.
--- After the instance is deregistered, it no longer receives traffic from
--- the load balancer.
+-- Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.
 --
--- You can use < DescribeLoadBalancers> to verify that the instance is
--- deregistered from the load balancer.
+-- You can use < DescribeLoadBalancers> to verify that the instance is deregistered from the load balancer.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Creating a Request

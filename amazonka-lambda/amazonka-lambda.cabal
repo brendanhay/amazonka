@@ -1,5 +1,5 @@
 name:                  amazonka-lambda
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon Lambda SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -17,12 +17,7 @@ description:
 
     __Overview__
 
-    This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide
-    provides additional information. For the service overview, go to
-    <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>,
-    and for information about how the service works, go to
-    <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
-    in the /AWS Lambda Developer Guide/.
+    This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide provides additional information. For the service overview, go to <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>, and for information about how the service works, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -81,7 +76,7 @@ library
         , Network.AWS.Lambda.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-lambda-test
@@ -101,9 +96,9 @@ test-suite amazonka-lambda-test
         , Test.AWS.Lambda.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-lambda == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-lambda == 1.4.3.*
         , base
         , bytestring
         , tasty

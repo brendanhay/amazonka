@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a virtual private gateway. A virtual private gateway is the
--- endpoint on the VPC side of your VPN connection. You can create a
--- virtual private gateway before creating the VPC itself.
+-- Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
 --
--- For more information about virtual private gateways, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateVPNGateway
     (
     -- * Creating a Request
@@ -82,10 +78,7 @@ createVPNGateway pType_ =
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
 cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
 

@@ -20,9 +20,7 @@
 --
 -- Updates the thing shadow for the specified thing.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow>
--- in the /AWS IoT Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow> in the /AWS IoT Developer Guide/.
 module Network.AWS.IoTDataPlane.UpdateThingShadow
     (
     -- * Creating a Request

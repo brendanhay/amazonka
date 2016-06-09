@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deactivates the specified running pipeline. The pipeline is set to the
--- 'DEACTIVATING' state until the deactivation process completes.
+-- Deactivates the specified running pipeline. The pipeline is set to the 'DEACTIVATING' state until the deactivation process completes.
 --
--- To resume a deactivated pipeline, use < ActivatePipeline>. By default,
--- the pipeline resumes from the last completed execution. Optionally, you
--- can specify the date and time to resume the pipeline.
+-- To resume a deactivated pipeline, use < ActivatePipeline>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request
@@ -71,9 +68,7 @@ deactivatePipeline pPipelineId_ =
     , _dPipelineId = pPipelineId_
     }
 
--- | Indicates whether to cancel any running objects. The default is true,
--- which sets the state of any running objects to 'CANCELED'. If this value
--- is false, the pipeline is deactivated after all running objects finish.
+-- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to 'CANCELED'. If this value is false, the pipeline is deactivated after all running objects finish.
 dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
 dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
 

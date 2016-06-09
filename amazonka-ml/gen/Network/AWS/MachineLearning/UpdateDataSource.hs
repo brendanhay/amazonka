@@ -20,8 +20,7 @@
 --
 -- Updates the 'DataSourceName' of a 'DataSource'.
 --
--- You can use the < GetDataSource> operation to view the contents of the
--- updated data element.
+-- You can use the < GetDataSource> operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateDataSource
     (
     -- * Creating a Request
@@ -73,8 +72,7 @@ updateDataSource pDataSourceId_ pDataSourceName_ =
 udsDataSourceId :: Lens' UpdateDataSource Text
 udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
 
--- | A new user-supplied name or description of the 'DataSource' that will
--- replace the current description.
+-- | A new user-supplied name or description of the 'DataSource' that will replace the current description.
 udsDataSourceName :: Lens' UpdateDataSource Text
 udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
 
@@ -115,8 +113,7 @@ instance ToQuery UpdateDataSource where
 
 -- | Represents the output of an < UpdateDataSource> operation.
 --
--- You can see the updated content by using the < GetBatchPrediction>
--- operation.
+-- You can see the updated content by using the < GetBatchPrediction> operation.
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
@@ -140,8 +137,7 @@ updateDataSourceResponse pResponseStatus_ =
     , _udsrsResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'DataSource' during creation. This value should
--- be identical to the value of the 'DataSourceID' in the request.
+-- | The ID assigned to the 'DataSource' during creation. This value should be identical to the value of the 'DataSourceID' in the request.
 udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
 

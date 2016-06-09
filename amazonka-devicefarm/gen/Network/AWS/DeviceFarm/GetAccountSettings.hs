@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of unmetered iOS and\/or unmetered Android devices
--- that have been purchased by the account.
+-- Returns the number of unmetered iOS and\/or unmetered Android devices that have been purchased by the account.
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request
@@ -87,8 +86,7 @@ instance ToPath GetAccountSettings where
 instance ToQuery GetAccountSettings where
         toQuery = const mempty
 
--- | Represents the account settings return values from the
--- 'GetAccountSettings' request.
+-- | Represents the account settings return values from the 'GetAccountSettings' request.
 --
 -- /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'

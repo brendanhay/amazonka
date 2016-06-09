@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the receipt rule sets that exist under your AWS account. If there
--- are additional receipt rule sets to be retrieved, you will receive a
--- 'NextToken' that you can provide to the next call to
--- 'ListReceiptRuleSets' to retrieve the additional entries.
+-- Lists the receipt rule sets that exist under your AWS account. If there are additional receipt rule sets to be retrieved, you will receive a 'NextToken' that you can provide to the next call to 'ListReceiptRuleSets' to retrieve the additional entries.
 --
--- For information about managing receipt rule sets, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.ListReceiptRuleSets
@@ -68,8 +64,7 @@ listReceiptRuleSets =
     { _lrrsNextToken = Nothing
     }
 
--- | A token returned from a previous call to 'ListReceiptRuleSets' to
--- indicate the position in the receipt rule set list.
+-- | A token returned from a previous call to 'ListReceiptRuleSets' to indicate the position in the receipt rule set list.
 lrrsNextToken :: Lens' ListReceiptRuleSets (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
@@ -129,15 +124,11 @@ listReceiptRuleSetsResponse pResponseStatus_ =
     , _lrrsrsResponseStatus = pResponseStatus_
     }
 
--- | The metadata for the currently active receipt rule set. The metadata
--- consists of the rule set name and the timestamp of when the rule set was
--- created.
+-- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
 lrrsrsRuleSets :: Lens' ListReceiptRuleSetsResponse [ReceiptRuleSetMetadata]
 lrrsrsRuleSets = lens _lrrsrsRuleSets (\ s a -> s{_lrrsrsRuleSets = a}) . _Default . _Coerce;
 
--- | A token indicating that there are additional receipt rule sets available
--- to be listed. Pass this token to successive calls of
--- 'ListReceiptRuleSets' to retrieve up to 100 receipt rule sets at a time.
+-- | A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of 'ListReceiptRuleSets' to retrieve up to 100 receipt rule sets at a time.
 lrrsrsNextToken :: Lens' ListReceiptRuleSetsResponse (Maybe Text)
 lrrsrsNextToken = lens _lrrsrsNextToken (\ s a -> s{_lrrsrsNextToken = a});
 

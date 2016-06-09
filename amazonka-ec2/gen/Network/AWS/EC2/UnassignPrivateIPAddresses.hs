@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unassigns one or more secondary private IP addresses from a network
--- interface.
+-- Unassigns one or more secondary private IP addresses from a network interface.
 module Network.AWS.EC2.UnassignPrivateIPAddresses
     (
     -- * Creating a Request
@@ -69,9 +68,7 @@ unassignPrivateIPAddresses pNetworkInterfaceId_ =
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
 upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkInterfaceId = a});
 
--- | The secondary private IP addresses to unassign from the network
--- interface. You can specify this option multiple times to unassign more
--- than one IP address.
+-- | The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
 upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
 upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a}) . _Coerce;
 

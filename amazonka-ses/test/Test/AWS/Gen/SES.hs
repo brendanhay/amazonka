@@ -28,253 +28,253 @@ import Test.AWS.SES.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testCreateReceiptRuleSet $
+--         [ requestCreateReceiptRuleSet $
 --             createReceiptRuleSet
 --
---         , testGetSendQuota $
+--         , requestGetSendQuota $
 --             getSendQuota
 --
---         , testPutIdentityPolicy $
+--         , requestPutIdentityPolicy $
 --             putIdentityPolicy
 --
---         , testDeleteIdentityPolicy $
+--         , requestDeleteIdentityPolicy $
 --             deleteIdentityPolicy
 --
---         , testGetIdentityNotificationAttributes $
+--         , requestGetIdentityNotificationAttributes $
 --             getIdentityNotificationAttributes
 --
---         , testListIdentityPolicies $
+--         , requestListIdentityPolicies $
 --             listIdentityPolicies
 --
---         , testSetIdentityDkimEnabled $
+--         , requestSetIdentityDkimEnabled $
 --             setIdentityDkimEnabled
 --
---         , testListReceiptFilters $
+--         , requestListReceiptFilters $
 --             listReceiptFilters
 --
---         , testDescribeReceiptRuleSet $
+--         , requestDescribeReceiptRuleSet $
 --             describeReceiptRuleSet
 --
---         , testGetIdentityMailFromDomainAttributes $
+--         , requestGetIdentityMailFromDomainAttributes $
 --             getIdentityMailFromDomainAttributes
 --
---         , testCreateReceiptFilter $
+--         , requestCreateReceiptFilter $
 --             createReceiptFilter
 --
---         , testSetIdentityMailFromDomain $
+--         , requestSetIdentityMailFromDomain $
 --             setIdentityMailFromDomain
 --
---         , testSetIdentityFeedbackForwardingEnabled $
+--         , requestSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabled
 --
---         , testGetIdentityVerificationAttributes $
+--         , requestGetIdentityVerificationAttributes $
 --             getIdentityVerificationAttributes
 --
---         , testGetIdentityPolicies $
+--         , requestGetIdentityPolicies $
 --             getIdentityPolicies
 --
---         , testVerifyDomainIdentity $
+--         , requestVerifyDomainIdentity $
 --             verifyDomainIdentity
 --
---         , testReorderReceiptRuleSet $
+--         , requestReorderReceiptRuleSet $
 --             reorderReceiptRuleSet
 --
---         , testListReceiptRuleSets $
+--         , requestListReceiptRuleSets $
 --             listReceiptRuleSets
 --
---         , testDeleteReceiptRuleSet $
+--         , requestDeleteReceiptRuleSet $
 --             deleteReceiptRuleSet
 --
---         , testSetReceiptRulePosition $
+--         , requestSetReceiptRulePosition $
 --             setReceiptRulePosition
 --
---         , testSendBounce $
+--         , requestSendBounce $
 --             sendBounce
 --
---         , testGetIdentityDkimAttributes $
+--         , requestGetIdentityDkimAttributes $
 --             getIdentityDkimAttributes
 --
---         , testVerifyDomainDkim $
+--         , requestVerifyDomainDkim $
 --             verifyDomainDkim
 --
---         , testSendRawEmail $
+--         , requestSendRawEmail $
 --             sendRawEmail
 --
---         , testGetSendStatistics $
+--         , requestGetSendStatistics $
 --             getSendStatistics
 --
---         , testDeleteIdentity $
+--         , requestDeleteIdentity $
 --             deleteIdentity
 --
---         , testDescribeReceiptRule $
+--         , requestDescribeReceiptRule $
 --             describeReceiptRule
 --
---         , testListIdentities $
+--         , requestListIdentities $
 --             listIdentities
 --
---         , testVerifyEmailIdentity $
+--         , requestVerifyEmailIdentity $
 --             verifyEmailIdentity
 --
---         , testVerifyEmailAddress $
+--         , requestVerifyEmailAddress $
 --             verifyEmailAddress
 --
---         , testDeleteVerifiedEmailAddress $
+--         , requestDeleteVerifiedEmailAddress $
 --             deleteVerifiedEmailAddress
 --
---         , testDeleteReceiptFilter $
+--         , requestDeleteReceiptFilter $
 --             deleteReceiptFilter
 --
---         , testListVerifiedEmailAddresses $
+--         , requestListVerifiedEmailAddresses $
 --             listVerifiedEmailAddresses
 --
---         , testSetIdentityNotificationTopic $
+--         , requestSetIdentityNotificationTopic $
 --             setIdentityNotificationTopic
 --
---         , testSendEmail $
+--         , requestSendEmail $
 --             sendEmail
 --
---         , testDeleteReceiptRule $
+--         , requestDeleteReceiptRule $
 --             deleteReceiptRule
 --
---         , testUpdateReceiptRule $
+--         , requestUpdateReceiptRule $
 --             updateReceiptRule
 --
---         , testCloneReceiptRuleSet $
+--         , requestCloneReceiptRuleSet $
 --             cloneReceiptRuleSet
 --
---         , testCreateReceiptRule $
+--         , requestCreateReceiptRule $
 --             createReceiptRule
 --
---         , testSetActiveReceiptRuleSet $
+--         , requestSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSet
 --
---         , testDescribeActiveReceiptRuleSet $
+--         , requestDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ testCreateReceiptRuleSetResponse $
+--         [ responseCreateReceiptRuleSet $
 --             createReceiptRuleSetResponse
 --
---         , testGetSendQuotaResponse $
+--         , responseGetSendQuota $
 --             getSendQuotaResponse
 --
---         , testPutIdentityPolicyResponse $
+--         , responsePutIdentityPolicy $
 --             putIdentityPolicyResponse
 --
---         , testDeleteIdentityPolicyResponse $
+--         , responseDeleteIdentityPolicy $
 --             deleteIdentityPolicyResponse
 --
---         , testGetIdentityNotificationAttributesResponse $
+--         , responseGetIdentityNotificationAttributes $
 --             getIdentityNotificationAttributesResponse
 --
---         , testListIdentityPoliciesResponse $
+--         , responseListIdentityPolicies $
 --             listIdentityPoliciesResponse
 --
---         , testSetIdentityDkimEnabledResponse $
+--         , responseSetIdentityDkimEnabled $
 --             setIdentityDkimEnabledResponse
 --
---         , testListReceiptFiltersResponse $
+--         , responseListReceiptFilters $
 --             listReceiptFiltersResponse
 --
---         , testDescribeReceiptRuleSetResponse $
+--         , responseDescribeReceiptRuleSet $
 --             describeReceiptRuleSetResponse
 --
---         , testGetIdentityMailFromDomainAttributesResponse $
+--         , responseGetIdentityMailFromDomainAttributes $
 --             getIdentityMailFromDomainAttributesResponse
 --
---         , testCreateReceiptFilterResponse $
+--         , responseCreateReceiptFilter $
 --             createReceiptFilterResponse
 --
---         , testSetIdentityMailFromDomainResponse $
+--         , responseSetIdentityMailFromDomain $
 --             setIdentityMailFromDomainResponse
 --
---         , testSetIdentityFeedbackForwardingEnabledResponse $
+--         , responseSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabledResponse
 --
---         , testGetIdentityVerificationAttributesResponse $
+--         , responseGetIdentityVerificationAttributes $
 --             getIdentityVerificationAttributesResponse
 --
---         , testGetIdentityPoliciesResponse $
+--         , responseGetIdentityPolicies $
 --             getIdentityPoliciesResponse
 --
---         , testVerifyDomainIdentityResponse $
+--         , responseVerifyDomainIdentity $
 --             verifyDomainIdentityResponse
 --
---         , testReorderReceiptRuleSetResponse $
+--         , responseReorderReceiptRuleSet $
 --             reorderReceiptRuleSetResponse
 --
---         , testListReceiptRuleSetsResponse $
+--         , responseListReceiptRuleSets $
 --             listReceiptRuleSetsResponse
 --
---         , testDeleteReceiptRuleSetResponse $
+--         , responseDeleteReceiptRuleSet $
 --             deleteReceiptRuleSetResponse
 --
---         , testSetReceiptRulePositionResponse $
+--         , responseSetReceiptRulePosition $
 --             setReceiptRulePositionResponse
 --
---         , testSendBounceResponse $
+--         , responseSendBounce $
 --             sendBounceResponse
 --
---         , testGetIdentityDkimAttributesResponse $
+--         , responseGetIdentityDkimAttributes $
 --             getIdentityDkimAttributesResponse
 --
---         , testVerifyDomainDkimResponse $
+--         , responseVerifyDomainDkim $
 --             verifyDomainDkimResponse
 --
---         , testSendRawEmailResponse $
+--         , responseSendRawEmail $
 --             sendRawEmailResponse
 --
---         , testGetSendStatisticsResponse $
+--         , responseGetSendStatistics $
 --             getSendStatisticsResponse
 --
---         , testDeleteIdentityResponse $
+--         , responseDeleteIdentity $
 --             deleteIdentityResponse
 --
---         , testDescribeReceiptRuleResponse $
+--         , responseDescribeReceiptRule $
 --             describeReceiptRuleResponse
 --
---         , testListIdentitiesResponse $
+--         , responseListIdentities $
 --             listIdentitiesResponse
 --
---         , testVerifyEmailIdentityResponse $
+--         , responseVerifyEmailIdentity $
 --             verifyEmailIdentityResponse
 --
---         , testVerifyEmailAddressResponse $
+--         , responseVerifyEmailAddress $
 --             verifyEmailAddressResponse
 --
---         , testDeleteVerifiedEmailAddressResponse $
+--         , responseDeleteVerifiedEmailAddress $
 --             deleteVerifiedEmailAddressResponse
 --
---         , testDeleteReceiptFilterResponse $
+--         , responseDeleteReceiptFilter $
 --             deleteReceiptFilterResponse
 --
---         , testListVerifiedEmailAddressesResponse $
+--         , responseListVerifiedEmailAddresses $
 --             listVerifiedEmailAddressesResponse
 --
---         , testSetIdentityNotificationTopicResponse $
+--         , responseSetIdentityNotificationTopic $
 --             setIdentityNotificationTopicResponse
 --
---         , testSendEmailResponse $
+--         , responseSendEmail $
 --             sendEmailResponse
 --
---         , testDeleteReceiptRuleResponse $
+--         , responseDeleteReceiptRule $
 --             deleteReceiptRuleResponse
 --
---         , testUpdateReceiptRuleResponse $
+--         , responseUpdateReceiptRule $
 --             updateReceiptRuleResponse
 --
---         , testCloneReceiptRuleSetResponse $
+--         , responseCloneReceiptRuleSet $
 --             cloneReceiptRuleSetResponse
 --
---         , testCreateReceiptRuleResponse $
+--         , responseCreateReceiptRule $
 --             createReceiptRuleResponse
 --
---         , testSetActiveReceiptRuleSetResponse $
+--         , responseSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSetResponse
 --
---         , testDescribeActiveReceiptRuleSetResponse $
+--         , responseDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSetResponse
 --
 --           ]
@@ -282,495 +282,495 @@ import Test.AWS.SES.Internal
 
 -- Requests
 
-testCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
-testCreateReceiptRuleSet = req
+requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
+requestCreateReceiptRuleSet = req
     "CreateReceiptRuleSet"
     "fixture/CreateReceiptRuleSet.yaml"
 
-testGetSendQuota :: GetSendQuota -> TestTree
-testGetSendQuota = req
+requestGetSendQuota :: GetSendQuota -> TestTree
+requestGetSendQuota = req
     "GetSendQuota"
     "fixture/GetSendQuota.yaml"
 
-testPutIdentityPolicy :: PutIdentityPolicy -> TestTree
-testPutIdentityPolicy = req
+requestPutIdentityPolicy :: PutIdentityPolicy -> TestTree
+requestPutIdentityPolicy = req
     "PutIdentityPolicy"
     "fixture/PutIdentityPolicy.yaml"
 
-testDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
-testDeleteIdentityPolicy = req
+requestDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
+requestDeleteIdentityPolicy = req
     "DeleteIdentityPolicy"
     "fixture/DeleteIdentityPolicy.yaml"
 
-testGetIdentityNotificationAttributes :: GetIdentityNotificationAttributes -> TestTree
-testGetIdentityNotificationAttributes = req
+requestGetIdentityNotificationAttributes :: GetIdentityNotificationAttributes -> TestTree
+requestGetIdentityNotificationAttributes = req
     "GetIdentityNotificationAttributes"
     "fixture/GetIdentityNotificationAttributes.yaml"
 
-testListIdentityPolicies :: ListIdentityPolicies -> TestTree
-testListIdentityPolicies = req
+requestListIdentityPolicies :: ListIdentityPolicies -> TestTree
+requestListIdentityPolicies = req
     "ListIdentityPolicies"
     "fixture/ListIdentityPolicies.yaml"
 
-testSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
-testSetIdentityDkimEnabled = req
+requestSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
+requestSetIdentityDkimEnabled = req
     "SetIdentityDkimEnabled"
     "fixture/SetIdentityDkimEnabled.yaml"
 
-testListReceiptFilters :: ListReceiptFilters -> TestTree
-testListReceiptFilters = req
+requestListReceiptFilters :: ListReceiptFilters -> TestTree
+requestListReceiptFilters = req
     "ListReceiptFilters"
     "fixture/ListReceiptFilters.yaml"
 
-testDescribeReceiptRuleSet :: DescribeReceiptRuleSet -> TestTree
-testDescribeReceiptRuleSet = req
+requestDescribeReceiptRuleSet :: DescribeReceiptRuleSet -> TestTree
+requestDescribeReceiptRuleSet = req
     "DescribeReceiptRuleSet"
     "fixture/DescribeReceiptRuleSet.yaml"
 
-testGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes -> TestTree
-testGetIdentityMailFromDomainAttributes = req
+requestGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes -> TestTree
+requestGetIdentityMailFromDomainAttributes = req
     "GetIdentityMailFromDomainAttributes"
     "fixture/GetIdentityMailFromDomainAttributes.yaml"
 
-testCreateReceiptFilter :: CreateReceiptFilter -> TestTree
-testCreateReceiptFilter = req
+requestCreateReceiptFilter :: CreateReceiptFilter -> TestTree
+requestCreateReceiptFilter = req
     "CreateReceiptFilter"
     "fixture/CreateReceiptFilter.yaml"
 
-testSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
-testSetIdentityMailFromDomain = req
+requestSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
+requestSetIdentityMailFromDomain = req
     "SetIdentityMailFromDomain"
     "fixture/SetIdentityMailFromDomain.yaml"
 
-testSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
-testSetIdentityFeedbackForwardingEnabled = req
+requestSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
+requestSetIdentityFeedbackForwardingEnabled = req
     "SetIdentityFeedbackForwardingEnabled"
     "fixture/SetIdentityFeedbackForwardingEnabled.yaml"
 
-testGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> TestTree
-testGetIdentityVerificationAttributes = req
+requestGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> TestTree
+requestGetIdentityVerificationAttributes = req
     "GetIdentityVerificationAttributes"
     "fixture/GetIdentityVerificationAttributes.yaml"
 
-testGetIdentityPolicies :: GetIdentityPolicies -> TestTree
-testGetIdentityPolicies = req
+requestGetIdentityPolicies :: GetIdentityPolicies -> TestTree
+requestGetIdentityPolicies = req
     "GetIdentityPolicies"
     "fixture/GetIdentityPolicies.yaml"
 
-testVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
-testVerifyDomainIdentity = req
+requestVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
+requestVerifyDomainIdentity = req
     "VerifyDomainIdentity"
     "fixture/VerifyDomainIdentity.yaml"
 
-testReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
-testReorderReceiptRuleSet = req
+requestReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
+requestReorderReceiptRuleSet = req
     "ReorderReceiptRuleSet"
     "fixture/ReorderReceiptRuleSet.yaml"
 
-testListReceiptRuleSets :: ListReceiptRuleSets -> TestTree
-testListReceiptRuleSets = req
+requestListReceiptRuleSets :: ListReceiptRuleSets -> TestTree
+requestListReceiptRuleSets = req
     "ListReceiptRuleSets"
     "fixture/ListReceiptRuleSets.yaml"
 
-testDeleteReceiptRuleSet :: DeleteReceiptRuleSet -> TestTree
-testDeleteReceiptRuleSet = req
+requestDeleteReceiptRuleSet :: DeleteReceiptRuleSet -> TestTree
+requestDeleteReceiptRuleSet = req
     "DeleteReceiptRuleSet"
     "fixture/DeleteReceiptRuleSet.yaml"
 
-testSetReceiptRulePosition :: SetReceiptRulePosition -> TestTree
-testSetReceiptRulePosition = req
+requestSetReceiptRulePosition :: SetReceiptRulePosition -> TestTree
+requestSetReceiptRulePosition = req
     "SetReceiptRulePosition"
     "fixture/SetReceiptRulePosition.yaml"
 
-testSendBounce :: SendBounce -> TestTree
-testSendBounce = req
+requestSendBounce :: SendBounce -> TestTree
+requestSendBounce = req
     "SendBounce"
     "fixture/SendBounce.yaml"
 
-testGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
-testGetIdentityDkimAttributes = req
+requestGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
+requestGetIdentityDkimAttributes = req
     "GetIdentityDkimAttributes"
     "fixture/GetIdentityDkimAttributes.yaml"
 
-testVerifyDomainDkim :: VerifyDomainDkim -> TestTree
-testVerifyDomainDkim = req
+requestVerifyDomainDkim :: VerifyDomainDkim -> TestTree
+requestVerifyDomainDkim = req
     "VerifyDomainDkim"
     "fixture/VerifyDomainDkim.yaml"
 
-testSendRawEmail :: SendRawEmail -> TestTree
-testSendRawEmail = req
+requestSendRawEmail :: SendRawEmail -> TestTree
+requestSendRawEmail = req
     "SendRawEmail"
     "fixture/SendRawEmail.yaml"
 
-testGetSendStatistics :: GetSendStatistics -> TestTree
-testGetSendStatistics = req
+requestGetSendStatistics :: GetSendStatistics -> TestTree
+requestGetSendStatistics = req
     "GetSendStatistics"
     "fixture/GetSendStatistics.yaml"
 
-testDeleteIdentity :: DeleteIdentity -> TestTree
-testDeleteIdentity = req
+requestDeleteIdentity :: DeleteIdentity -> TestTree
+requestDeleteIdentity = req
     "DeleteIdentity"
     "fixture/DeleteIdentity.yaml"
 
-testDescribeReceiptRule :: DescribeReceiptRule -> TestTree
-testDescribeReceiptRule = req
+requestDescribeReceiptRule :: DescribeReceiptRule -> TestTree
+requestDescribeReceiptRule = req
     "DescribeReceiptRule"
     "fixture/DescribeReceiptRule.yaml"
 
-testListIdentities :: ListIdentities -> TestTree
-testListIdentities = req
+requestListIdentities :: ListIdentities -> TestTree
+requestListIdentities = req
     "ListIdentities"
     "fixture/ListIdentities.yaml"
 
-testVerifyEmailIdentity :: VerifyEmailIdentity -> TestTree
-testVerifyEmailIdentity = req
+requestVerifyEmailIdentity :: VerifyEmailIdentity -> TestTree
+requestVerifyEmailIdentity = req
     "VerifyEmailIdentity"
     "fixture/VerifyEmailIdentity.yaml"
 
-testVerifyEmailAddress :: VerifyEmailAddress -> TestTree
-testVerifyEmailAddress = req
+requestVerifyEmailAddress :: VerifyEmailAddress -> TestTree
+requestVerifyEmailAddress = req
     "VerifyEmailAddress"
     "fixture/VerifyEmailAddress.yaml"
 
-testDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
-testDeleteVerifiedEmailAddress = req
+requestDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
+requestDeleteVerifiedEmailAddress = req
     "DeleteVerifiedEmailAddress"
     "fixture/DeleteVerifiedEmailAddress.yaml"
 
-testDeleteReceiptFilter :: DeleteReceiptFilter -> TestTree
-testDeleteReceiptFilter = req
+requestDeleteReceiptFilter :: DeleteReceiptFilter -> TestTree
+requestDeleteReceiptFilter = req
     "DeleteReceiptFilter"
     "fixture/DeleteReceiptFilter.yaml"
 
-testListVerifiedEmailAddresses :: ListVerifiedEmailAddresses -> TestTree
-testListVerifiedEmailAddresses = req
+requestListVerifiedEmailAddresses :: ListVerifiedEmailAddresses -> TestTree
+requestListVerifiedEmailAddresses = req
     "ListVerifiedEmailAddresses"
     "fixture/ListVerifiedEmailAddresses.yaml"
 
-testSetIdentityNotificationTopic :: SetIdentityNotificationTopic -> TestTree
-testSetIdentityNotificationTopic = req
+requestSetIdentityNotificationTopic :: SetIdentityNotificationTopic -> TestTree
+requestSetIdentityNotificationTopic = req
     "SetIdentityNotificationTopic"
     "fixture/SetIdentityNotificationTopic.yaml"
 
-testSendEmail :: SendEmail -> TestTree
-testSendEmail = req
+requestSendEmail :: SendEmail -> TestTree
+requestSendEmail = req
     "SendEmail"
     "fixture/SendEmail.yaml"
 
-testDeleteReceiptRule :: DeleteReceiptRule -> TestTree
-testDeleteReceiptRule = req
+requestDeleteReceiptRule :: DeleteReceiptRule -> TestTree
+requestDeleteReceiptRule = req
     "DeleteReceiptRule"
     "fixture/DeleteReceiptRule.yaml"
 
-testUpdateReceiptRule :: UpdateReceiptRule -> TestTree
-testUpdateReceiptRule = req
+requestUpdateReceiptRule :: UpdateReceiptRule -> TestTree
+requestUpdateReceiptRule = req
     "UpdateReceiptRule"
     "fixture/UpdateReceiptRule.yaml"
 
-testCloneReceiptRuleSet :: CloneReceiptRuleSet -> TestTree
-testCloneReceiptRuleSet = req
+requestCloneReceiptRuleSet :: CloneReceiptRuleSet -> TestTree
+requestCloneReceiptRuleSet = req
     "CloneReceiptRuleSet"
     "fixture/CloneReceiptRuleSet.yaml"
 
-testCreateReceiptRule :: CreateReceiptRule -> TestTree
-testCreateReceiptRule = req
+requestCreateReceiptRule :: CreateReceiptRule -> TestTree
+requestCreateReceiptRule = req
     "CreateReceiptRule"
     "fixture/CreateReceiptRule.yaml"
 
-testSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
-testSetActiveReceiptRuleSet = req
+requestSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
+requestSetActiveReceiptRuleSet = req
     "SetActiveReceiptRuleSet"
     "fixture/SetActiveReceiptRuleSet.yaml"
 
-testDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSet -> TestTree
-testDescribeActiveReceiptRuleSet = req
+requestDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSet -> TestTree
+requestDescribeActiveReceiptRuleSet = req
     "DescribeActiveReceiptRuleSet"
     "fixture/DescribeActiveReceiptRuleSet.yaml"
 
 -- Responses
 
-testCreateReceiptRuleSetResponse :: CreateReceiptRuleSetResponse -> TestTree
-testCreateReceiptRuleSetResponse = res
+responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
+responseCreateReceiptRuleSet = res
     "CreateReceiptRuleSetResponse"
     "fixture/CreateReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy CreateReceiptRuleSet)
 
-testGetSendQuotaResponse :: GetSendQuotaResponse -> TestTree
-testGetSendQuotaResponse = res
+responseGetSendQuota :: GetSendQuotaResponse -> TestTree
+responseGetSendQuota = res
     "GetSendQuotaResponse"
     "fixture/GetSendQuotaResponse.proto"
     ses
     (Proxy :: Proxy GetSendQuota)
 
-testPutIdentityPolicyResponse :: PutIdentityPolicyResponse -> TestTree
-testPutIdentityPolicyResponse = res
+responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
+responsePutIdentityPolicy = res
     "PutIdentityPolicyResponse"
     "fixture/PutIdentityPolicyResponse.proto"
     ses
     (Proxy :: Proxy PutIdentityPolicy)
 
-testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
-testDeleteIdentityPolicyResponse = res
+responseDeleteIdentityPolicy :: DeleteIdentityPolicyResponse -> TestTree
+responseDeleteIdentityPolicy = res
     "DeleteIdentityPolicyResponse"
     "fixture/DeleteIdentityPolicyResponse.proto"
     ses
     (Proxy :: Proxy DeleteIdentityPolicy)
 
-testGetIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse -> TestTree
-testGetIdentityNotificationAttributesResponse = res
+responseGetIdentityNotificationAttributes :: GetIdentityNotificationAttributesResponse -> TestTree
+responseGetIdentityNotificationAttributes = res
     "GetIdentityNotificationAttributesResponse"
     "fixture/GetIdentityNotificationAttributesResponse.proto"
     ses
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
-testListIdentityPoliciesResponse :: ListIdentityPoliciesResponse -> TestTree
-testListIdentityPoliciesResponse = res
+responseListIdentityPolicies :: ListIdentityPoliciesResponse -> TestTree
+responseListIdentityPolicies = res
     "ListIdentityPoliciesResponse"
     "fixture/ListIdentityPoliciesResponse.proto"
     ses
     (Proxy :: Proxy ListIdentityPolicies)
 
-testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
-testSetIdentityDkimEnabledResponse = res
+responseSetIdentityDkimEnabled :: SetIdentityDkimEnabledResponse -> TestTree
+responseSetIdentityDkimEnabled = res
     "SetIdentityDkimEnabledResponse"
     "fixture/SetIdentityDkimEnabledResponse.proto"
     ses
     (Proxy :: Proxy SetIdentityDkimEnabled)
 
-testListReceiptFiltersResponse :: ListReceiptFiltersResponse -> TestTree
-testListReceiptFiltersResponse = res
+responseListReceiptFilters :: ListReceiptFiltersResponse -> TestTree
+responseListReceiptFilters = res
     "ListReceiptFiltersResponse"
     "fixture/ListReceiptFiltersResponse.proto"
     ses
     (Proxy :: Proxy ListReceiptFilters)
 
-testDescribeReceiptRuleSetResponse :: DescribeReceiptRuleSetResponse -> TestTree
-testDescribeReceiptRuleSetResponse = res
+responseDescribeReceiptRuleSet :: DescribeReceiptRuleSetResponse -> TestTree
+responseDescribeReceiptRuleSet = res
     "DescribeReceiptRuleSetResponse"
     "fixture/DescribeReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy DescribeReceiptRuleSet)
 
-testGetIdentityMailFromDomainAttributesResponse :: GetIdentityMailFromDomainAttributesResponse -> TestTree
-testGetIdentityMailFromDomainAttributesResponse = res
+responseGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> TestTree
+responseGetIdentityMailFromDomainAttributes = res
     "GetIdentityMailFromDomainAttributesResponse"
     "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
     ses
     (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
 
-testCreateReceiptFilterResponse :: CreateReceiptFilterResponse -> TestTree
-testCreateReceiptFilterResponse = res
+responseCreateReceiptFilter :: CreateReceiptFilterResponse -> TestTree
+responseCreateReceiptFilter = res
     "CreateReceiptFilterResponse"
     "fixture/CreateReceiptFilterResponse.proto"
     ses
     (Proxy :: Proxy CreateReceiptFilter)
 
-testSetIdentityMailFromDomainResponse :: SetIdentityMailFromDomainResponse -> TestTree
-testSetIdentityMailFromDomainResponse = res
+responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
+responseSetIdentityMailFromDomain = res
     "SetIdentityMailFromDomainResponse"
     "fixture/SetIdentityMailFromDomainResponse.proto"
     ses
     (Proxy :: Proxy SetIdentityMailFromDomain)
 
-testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
-testSetIdentityFeedbackForwardingEnabledResponse = res
+responseSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
+responseSetIdentityFeedbackForwardingEnabled = res
     "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
     ses
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
-testGetIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesResponse -> TestTree
-testGetIdentityVerificationAttributesResponse = res
+responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
+responseGetIdentityVerificationAttributes = res
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse.proto"
     ses
     (Proxy :: Proxy GetIdentityVerificationAttributes)
 
-testGetIdentityPoliciesResponse :: GetIdentityPoliciesResponse -> TestTree
-testGetIdentityPoliciesResponse = res
+responseGetIdentityPolicies :: GetIdentityPoliciesResponse -> TestTree
+responseGetIdentityPolicies = res
     "GetIdentityPoliciesResponse"
     "fixture/GetIdentityPoliciesResponse.proto"
     ses
     (Proxy :: Proxy GetIdentityPolicies)
 
-testVerifyDomainIdentityResponse :: VerifyDomainIdentityResponse -> TestTree
-testVerifyDomainIdentityResponse = res
+responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
+responseVerifyDomainIdentity = res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainIdentity)
 
-testReorderReceiptRuleSetResponse :: ReorderReceiptRuleSetResponse -> TestTree
-testReorderReceiptRuleSetResponse = res
+responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
+responseReorderReceiptRuleSet = res
     "ReorderReceiptRuleSetResponse"
     "fixture/ReorderReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy ReorderReceiptRuleSet)
 
-testListReceiptRuleSetsResponse :: ListReceiptRuleSetsResponse -> TestTree
-testListReceiptRuleSetsResponse = res
+responseListReceiptRuleSets :: ListReceiptRuleSetsResponse -> TestTree
+responseListReceiptRuleSets = res
     "ListReceiptRuleSetsResponse"
     "fixture/ListReceiptRuleSetsResponse.proto"
     ses
     (Proxy :: Proxy ListReceiptRuleSets)
 
-testDeleteReceiptRuleSetResponse :: DeleteReceiptRuleSetResponse -> TestTree
-testDeleteReceiptRuleSetResponse = res
+responseDeleteReceiptRuleSet :: DeleteReceiptRuleSetResponse -> TestTree
+responseDeleteReceiptRuleSet = res
     "DeleteReceiptRuleSetResponse"
     "fixture/DeleteReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy DeleteReceiptRuleSet)
 
-testSetReceiptRulePositionResponse :: SetReceiptRulePositionResponse -> TestTree
-testSetReceiptRulePositionResponse = res
+responseSetReceiptRulePosition :: SetReceiptRulePositionResponse -> TestTree
+responseSetReceiptRulePosition = res
     "SetReceiptRulePositionResponse"
     "fixture/SetReceiptRulePositionResponse.proto"
     ses
     (Proxy :: Proxy SetReceiptRulePosition)
 
-testSendBounceResponse :: SendBounceResponse -> TestTree
-testSendBounceResponse = res
+responseSendBounce :: SendBounceResponse -> TestTree
+responseSendBounce = res
     "SendBounceResponse"
     "fixture/SendBounceResponse.proto"
     ses
     (Proxy :: Proxy SendBounce)
 
-testGetIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse -> TestTree
-testGetIdentityDkimAttributesResponse = res
+responseGetIdentityDkimAttributes :: GetIdentityDkimAttributesResponse -> TestTree
+responseGetIdentityDkimAttributes = res
     "GetIdentityDkimAttributesResponse"
     "fixture/GetIdentityDkimAttributesResponse.proto"
     ses
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
-testVerifyDomainDkimResponse :: VerifyDomainDkimResponse -> TestTree
-testVerifyDomainDkimResponse = res
+responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
+responseVerifyDomainDkim = res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainDkim)
 
-testSendRawEmailResponse :: SendRawEmailResponse -> TestTree
-testSendRawEmailResponse = res
+responseSendRawEmail :: SendRawEmailResponse -> TestTree
+responseSendRawEmail = res
     "SendRawEmailResponse"
     "fixture/SendRawEmailResponse.proto"
     ses
     (Proxy :: Proxy SendRawEmail)
 
-testGetSendStatisticsResponse :: GetSendStatisticsResponse -> TestTree
-testGetSendStatisticsResponse = res
+responseGetSendStatistics :: GetSendStatisticsResponse -> TestTree
+responseGetSendStatistics = res
     "GetSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse.proto"
     ses
     (Proxy :: Proxy GetSendStatistics)
 
-testDeleteIdentityResponse :: DeleteIdentityResponse -> TestTree
-testDeleteIdentityResponse = res
+responseDeleteIdentity :: DeleteIdentityResponse -> TestTree
+responseDeleteIdentity = res
     "DeleteIdentityResponse"
     "fixture/DeleteIdentityResponse.proto"
     ses
     (Proxy :: Proxy DeleteIdentity)
 
-testDescribeReceiptRuleResponse :: DescribeReceiptRuleResponse -> TestTree
-testDescribeReceiptRuleResponse = res
+responseDescribeReceiptRule :: DescribeReceiptRuleResponse -> TestTree
+responseDescribeReceiptRule = res
     "DescribeReceiptRuleResponse"
     "fixture/DescribeReceiptRuleResponse.proto"
     ses
     (Proxy :: Proxy DescribeReceiptRule)
 
-testListIdentitiesResponse :: ListIdentitiesResponse -> TestTree
-testListIdentitiesResponse = res
+responseListIdentities :: ListIdentitiesResponse -> TestTree
+responseListIdentities = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
     ses
     (Proxy :: Proxy ListIdentities)
 
-testVerifyEmailIdentityResponse :: VerifyEmailIdentityResponse -> TestTree
-testVerifyEmailIdentityResponse = res
+responseVerifyEmailIdentity :: VerifyEmailIdentityResponse -> TestTree
+responseVerifyEmailIdentity = res
     "VerifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse.proto"
     ses
     (Proxy :: Proxy VerifyEmailIdentity)
 
-testVerifyEmailAddressResponse :: VerifyEmailAddressResponse -> TestTree
-testVerifyEmailAddressResponse = res
+responseVerifyEmailAddress :: VerifyEmailAddressResponse -> TestTree
+responseVerifyEmailAddress = res
     "VerifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse.proto"
     ses
     (Proxy :: Proxy VerifyEmailAddress)
 
-testDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse -> TestTree
-testDeleteVerifiedEmailAddressResponse = res
+responseDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddressResponse -> TestTree
+responseDeleteVerifiedEmailAddress = res
     "DeleteVerifiedEmailAddressResponse"
     "fixture/DeleteVerifiedEmailAddressResponse.proto"
     ses
     (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
-testDeleteReceiptFilterResponse :: DeleteReceiptFilterResponse -> TestTree
-testDeleteReceiptFilterResponse = res
+responseDeleteReceiptFilter :: DeleteReceiptFilterResponse -> TestTree
+responseDeleteReceiptFilter = res
     "DeleteReceiptFilterResponse"
     "fixture/DeleteReceiptFilterResponse.proto"
     ses
     (Proxy :: Proxy DeleteReceiptFilter)
 
-testListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse -> TestTree
-testListVerifiedEmailAddressesResponse = res
+responseListVerifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> TestTree
+responseListVerifiedEmailAddresses = res
     "ListVerifiedEmailAddressesResponse"
     "fixture/ListVerifiedEmailAddressesResponse.proto"
     ses
     (Proxy :: Proxy ListVerifiedEmailAddresses)
 
-testSetIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse -> TestTree
-testSetIdentityNotificationTopicResponse = res
+responseSetIdentityNotificationTopic :: SetIdentityNotificationTopicResponse -> TestTree
+responseSetIdentityNotificationTopic = res
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse.proto"
     ses
     (Proxy :: Proxy SetIdentityNotificationTopic)
 
-testSendEmailResponse :: SendEmailResponse -> TestTree
-testSendEmailResponse = res
+responseSendEmail :: SendEmailResponse -> TestTree
+responseSendEmail = res
     "SendEmailResponse"
     "fixture/SendEmailResponse.proto"
     ses
     (Proxy :: Proxy SendEmail)
 
-testDeleteReceiptRuleResponse :: DeleteReceiptRuleResponse -> TestTree
-testDeleteReceiptRuleResponse = res
+responseDeleteReceiptRule :: DeleteReceiptRuleResponse -> TestTree
+responseDeleteReceiptRule = res
     "DeleteReceiptRuleResponse"
     "fixture/DeleteReceiptRuleResponse.proto"
     ses
     (Proxy :: Proxy DeleteReceiptRule)
 
-testUpdateReceiptRuleResponse :: UpdateReceiptRuleResponse -> TestTree
-testUpdateReceiptRuleResponse = res
+responseUpdateReceiptRule :: UpdateReceiptRuleResponse -> TestTree
+responseUpdateReceiptRule = res
     "UpdateReceiptRuleResponse"
     "fixture/UpdateReceiptRuleResponse.proto"
     ses
     (Proxy :: Proxy UpdateReceiptRule)
 
-testCloneReceiptRuleSetResponse :: CloneReceiptRuleSetResponse -> TestTree
-testCloneReceiptRuleSetResponse = res
+responseCloneReceiptRuleSet :: CloneReceiptRuleSetResponse -> TestTree
+responseCloneReceiptRuleSet = res
     "CloneReceiptRuleSetResponse"
     "fixture/CloneReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy CloneReceiptRuleSet)
 
-testCreateReceiptRuleResponse :: CreateReceiptRuleResponse -> TestTree
-testCreateReceiptRuleResponse = res
+responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
+responseCreateReceiptRule = res
     "CreateReceiptRuleResponse"
     "fixture/CreateReceiptRuleResponse.proto"
     ses
     (Proxy :: Proxy CreateReceiptRule)
 
-testSetActiveReceiptRuleSetResponse :: SetActiveReceiptRuleSetResponse -> TestTree
-testSetActiveReceiptRuleSetResponse = res
+responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
+responseSetActiveReceiptRuleSet = res
     "SetActiveReceiptRuleSetResponse"
     "fixture/SetActiveReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy SetActiveReceiptRuleSet)
 
-testDescribeActiveReceiptRuleSetResponse :: DescribeActiveReceiptRuleSetResponse -> TestTree
-testDescribeActiveReceiptRuleSetResponse = res
+responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
+responseDescribeActiveReceiptRuleSet = res
     "DescribeActiveReceiptRuleSetResponse"
     "fixture/DescribeActiveReceiptRuleSetResponse.proto"
     ses

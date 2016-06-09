@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns table statistics on the database migration task, including table
--- name, rows inserted, rows updated, and rows deleted.
+-- Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
 --
 module Network.AWS.DMS.DescribeTableStatistics
     (
@@ -74,16 +73,11 @@ describeTableStatistics pReplicationTaskARN_ =
     , _dtsReplicationTaskARN = pReplicationTaskARN_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dtsMarker :: Lens' DescribeTableStatistics (Maybe Text)
 dtsMarker = lens _dtsMarker (\ s a -> s{_dtsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -170,9 +164,7 @@ describeTableStatisticsResponse pResponseStatus_ =
 dtsrsReplicationTaskARN :: Lens' DescribeTableStatisticsResponse (Maybe Text)
 dtsrsReplicationTaskARN = lens _dtsrsReplicationTaskARN (\ s a -> s{_dtsrsReplicationTaskARN = a});
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dtsrsMarker :: Lens' DescribeTableStatisticsResponse (Maybe Text)
 dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 

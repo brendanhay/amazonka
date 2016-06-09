@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all available Trusted Advisor checks,
--- including name, ID, category, description, and metadata. You must
--- specify a language code; English (\"en\") and Japanese (\"ja\") are
--- currently supported. The response contains a
--- < TrustedAdvisorCheckDescription> for each check.
+-- Returns information about all available Trusted Advisor checks, including name, ID, category, description, and metadata. You must specify a language code; English (\"en\") and Japanese (\"ja\") are currently supported. The response contains a < TrustedAdvisorCheckDescription> for each check.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
     -- * Creating a Request
@@ -64,10 +60,7 @@ describeTrustedAdvisorChecks pLanguage_ =
     { _dtacLanguage = pLanguage_
     }
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
@@ -107,8 +100,7 @@ instance ToPath DescribeTrustedAdvisorChecks where
 instance ToQuery DescribeTrustedAdvisorChecks where
         toQuery = const mempty
 
--- | Information about the Trusted Advisor checks returned by the
--- < DescribeTrustedAdvisorChecks> operation.
+-- | Information about the Trusted Advisor checks returned by the < DescribeTrustedAdvisorChecks> operation.
 --
 -- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'

@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 2048-bit RSA key pair and issues an X.509 certificate using
--- the issued public key.
+-- Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.
 --
--- __Note__ This is the only time AWS IoT issues the private key for this
--- certificate, so it is important to keep it in a secure location.
+-- __Note__ This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.
 module Network.AWS.IoT.CreateKeysAndCertificate
     (
     -- * Creating a Request
@@ -150,8 +148,7 @@ ckacrsCertificatePem = lens _ckacrsCertificatePem (\ s a -> s{_ckacrsCertificate
 ckacrsCertificateARN :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
 ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificateARN = a});
 
--- | The ID of the certificate. AWS IoT issues a default subject name for the
--- certificate (for example, AWS IoT Certificate).
+-- | The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
 ckacrsCertificateId :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
 ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a});
 

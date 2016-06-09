@@ -62,9 +62,7 @@ getXSSMatchSet pXSSMatchSetId_ =
     { _gxmsXSSMatchSetId = pXSSMatchSetId_
     }
 
--- | The 'XssMatchSetId' of the < XssMatchSet> that you want to get.
--- 'XssMatchSetId' is returned by < CreateXssMatchSet> and by
--- < ListXssMatchSets>.
+-- | The 'XssMatchSetId' of the < XssMatchSet> that you want to get. 'XssMatchSetId' is returned by < CreateXssMatchSet> and by < ListXssMatchSets>.
 gxmsXSSMatchSetId :: Lens' GetXSSMatchSet Text
 gxmsXSSMatchSetId = lens _gxmsXSSMatchSetId (\ s a -> s{_gxmsXSSMatchSetId = a});
 
@@ -126,14 +124,10 @@ getXSSMatchSetResponse pResponseStatus_ =
     , _gxmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < XssMatchSet> that you specified in the
--- 'GetXssMatchSet' request. For more information, see the following
--- topics:
+-- | Information about the < XssMatchSet> that you specified in the 'GetXssMatchSet' request. For more information, see the following topics:
 --
--- -   < XssMatchSet>: Contains 'Name', 'XssMatchSetId', and an array of
---     'XssMatchTuple' objects
--- -   < XssMatchTuple>: Each 'XssMatchTuple' object contains
---     'FieldToMatch' and 'TextTransformation'
+-- -   < XssMatchSet>: Contains 'Name', 'XssMatchSetId', and an array of 'XssMatchTuple' objects
+-- -   < XssMatchTuple>: Each 'XssMatchTuple' object contains 'FieldToMatch' and 'TextTransformation'
 -- -   < FieldToMatch>: Contains 'Data' and 'Type'
 gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
 gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a});

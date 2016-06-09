@@ -1,5 +1,5 @@
 name:                  amazonka-iot
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon IoT SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,16 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     AWS IoT
 
-    AWS IoT provides secure, bi-directional communication between
-    Internet-connected things (such as sensors, actuators, embedded devices,
-    or smart appliances) and the AWS cloud. You can discover your custom
-    IoT-Data endpoint to communicate with, configure rules for data
-    processing and integration with other services, organize resources
-    associated with each thing (Thing Registry), configure logging, and
-    create and manage policies and credentials to authenticate things.
+    AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.
 
-    For more information about how AWS IoT works, see the
-    <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
+    For more information about how AWS IoT works, see the <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -110,7 +103,7 @@ library
         , Network.AWS.IoT.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iot-test
@@ -130,9 +123,9 @@ test-suite amazonka-iot-test
         , Test.AWS.IoT.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-iot == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-iot == 1.4.3.*
         , base
         , bytestring
         , tasty

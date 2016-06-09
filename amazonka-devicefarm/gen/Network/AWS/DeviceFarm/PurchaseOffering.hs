@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Immediately purchases offerings for an AWS account. Offerings renew with
--- the latest total purchased quantity for an offering, unless the renewal
--- was overridden. The API returns a 'NotEligible' error if the user is not
--- permitted to invoke the operation. Please contact
--- <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com>
--- if you believe that you should be able to invoke this operation.
+-- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
 module Network.AWS.DeviceFarm.PurchaseOffering
     (
     -- * Creating a Request

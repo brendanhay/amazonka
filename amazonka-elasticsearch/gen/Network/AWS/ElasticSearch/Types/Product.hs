@@ -21,8 +21,7 @@ import           Network.AWS.ElasticSearch.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The configured access rules for the domain\'s document and search
--- endpoints, and the current status of those rules.
+-- | The configured access rules for the domain\'s document and search endpoints, and the current status of those rules.
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
@@ -47,15 +46,11 @@ accessPoliciesStatus pOptions_ pStatus_ =
     , _apsStatus = pStatus_
     }
 
--- | The access policy configured for the Elasticsearch domain. Access
--- policies may be resource-based, IP-based, or IAM-based. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies>for
--- more information.
+-- | The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies>for more information.
 apsOptions :: Lens' AccessPoliciesStatus Text
 apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
 
--- | The status of the access policy for the Elasticsearch domain. See
--- 'OptionStatus' for the status information that\'s included.
+-- | The status of the access policy for the Elasticsearch domain. See 'OptionStatus' for the status information that\'s included.
 apsStatus :: Lens' AccessPoliciesStatus OptionStatus
 apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
 
@@ -70,19 +65,12 @@ instance Hashable AccessPoliciesStatus
 
 instance NFData AccessPoliciesStatus
 
--- | Status of the advanced options for the specified Elasticsearch domain.
--- Currently, the following advanced options are available:
+-- | Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:
 --
--- -   Option to allow references to indices in an HTTP request body. Must
---     be 'false' when configuring access to individual sub-resources. By
---     default, the value is 'true'. See
---     <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
---     for more information.
--- -   Option to specify the percentage of heap space that is allocated to
---     field data. By default, this setting is unbounded.
+-- -   Option to allow references to indices in an HTTP request body. Must be 'false' when configuring access to individual sub-resources. By default, the value is 'true'. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- -   Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options>.
+-- For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options>.
 --
 -- /See:/ 'advancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
@@ -106,13 +94,11 @@ advancedOptionsStatus pStatus_ =
     , _aosStatus = pStatus_
     }
 
--- | Specifies the status of advanced options for the specified Elasticsearch
--- domain.
+-- | Specifies the status of advanced options for the specified Elasticsearch domain.
 aosOptions :: Lens' AdvancedOptionsStatus (HashMap Text Text)
 aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a}) . _Map;
 
--- | Specifies the status of 'OptionStatus' for advanced options for the
--- specified Elasticsearch domain.
+-- | Specifies the status of 'OptionStatus' for advanced options for the specified Elasticsearch domain.
 aosStatus :: Lens' AdvancedOptionsStatus OptionStatus
 aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a});
 
@@ -157,9 +143,7 @@ instance Hashable DomainInfo
 
 instance NFData DomainInfo
 
--- | Options to enable, disable, and specify the properties of EBS storage
--- volumes. For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage>.
+-- | Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage>.
 --
 -- /See:/ 'ebsOptions' smart constructor.
 data EBSOptions = EBSOptions'
@@ -257,8 +241,7 @@ ebsOptionsStatus pOptions_ pStatus_ =
 eosOptions :: Lens' EBSOptionsStatus EBSOptions
 eosOptions = lens _eosOptions (\ s a -> s{_eosOptions = a});
 
--- | Specifies the status of the EBS options for the specified Elasticsearch
--- domain.
+-- | Specifies the status of the EBS options for the specified Elasticsearch domain.
 eosStatus :: Lens' EBSOptionsStatus OptionStatus
 eosStatus = lens _eosStatus (\ s a -> s{_eosStatus = a});
 
@@ -273,8 +256,7 @@ instance Hashable EBSOptionsStatus
 
 instance NFData EBSOptionsStatus
 
--- | Specifies the configuration for the domain cluster, such as the type and
--- number of instances.
+-- | Specifies the configuration for the domain cluster, such as the type and number of instances.
 --
 -- /See:/ 'elasticsearchClusterConfig' smart constructor.
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
@@ -313,8 +295,7 @@ elasticsearchClusterConfig =
     , _eccInstanceType = Nothing
     }
 
--- | Total number of dedicated master nodes, active and on standby, for the
--- cluster.
+-- | Total number of dedicated master nodes, active and on standby, for the cluster.
 eccDedicatedMasterCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
 eccDedicatedMasterCount = lens _eccDedicatedMasterCount (\ s a -> s{_eccDedicatedMasterCount = a});
 
@@ -322,10 +303,7 @@ eccDedicatedMasterCount = lens _eccDedicatedMasterCount (\ s a -> s{_eccDedicate
 eccDedicatedMasterType :: Lens' ElasticsearchClusterConfig (Maybe ESPartitionInstanceType)
 eccDedicatedMasterType = lens _eccDedicatedMasterType (\ s a -> s{_eccDedicatedMasterType = a});
 
--- | A boolean value to indicate whether a dedicated master node is enabled.
--- See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes>
--- for more information.
+-- | A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
 eccDedicatedMasterEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
 eccDedicatedMasterEnabled = lens _eccDedicatedMasterEnabled (\ s a -> s{_eccDedicatedMasterEnabled = a});
 
@@ -333,9 +311,7 @@ eccDedicatedMasterEnabled = lens _eccDedicatedMasterEnabled (\ s a -> s{_eccDedi
 eccInstanceCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
 eccInstanceCount = lens _eccInstanceCount (\ s a -> s{_eccInstanceCount = a});
 
--- | A boolean value to indicate whether zone awareness is enabled. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness>
--- for more information.
+-- | A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
 eccZoneAwarenessEnabled :: Lens' ElasticsearchClusterConfig (Maybe Bool)
 eccZoneAwarenessEnabled = lens _eccZoneAwarenessEnabled (\ s a -> s{_eccZoneAwarenessEnabled = a});
 
@@ -374,8 +350,7 @@ instance ToJSON ElasticsearchClusterConfig where
                     _eccZoneAwarenessEnabled,
                   ("InstanceType" .=) <$> _eccInstanceType])
 
--- | Specifies the configuration status for the specified Elasticsearch
--- domain.
+-- | Specifies the configuration status for the specified Elasticsearch domain.
 --
 -- /See:/ 'elasticsearchClusterConfigStatus' smart constructor.
 data ElasticsearchClusterConfigStatus = ElasticsearchClusterConfigStatus'
@@ -400,13 +375,11 @@ elasticsearchClusterConfigStatus pOptions_ pStatus_ =
     , _eccsStatus = pStatus_
     }
 
--- | Specifies the cluster configuration for the specified Elasticsearch
--- domain.
+-- | Specifies the cluster configuration for the specified Elasticsearch domain.
 eccsOptions :: Lens' ElasticsearchClusterConfigStatus ElasticsearchClusterConfig
 eccsOptions = lens _eccsOptions (\ s a -> s{_eccsOptions = a});
 
--- | Specifies the status of the configuration for the specified
--- Elasticsearch domain.
+-- | Specifies the status of the configuration for the specified Elasticsearch domain.
 eccsStatus :: Lens' ElasticsearchClusterConfigStatus OptionStatus
 eccsStatus = lens _eccsStatus (\ s a -> s{_eccsStatus = a});
 
@@ -473,9 +446,7 @@ edcElasticsearchClusterConfig = lens _edcElasticsearchClusterConfig (\ s a -> s{
 edcSnapshotOptions :: Lens' ElasticsearchDomainConfig (Maybe SnapshotOptionsStatus)
 edcSnapshotOptions = lens _edcSnapshotOptions (\ s a -> s{_edcSnapshotOptions = a});
 
--- | Specifies the 'AdvancedOptions' for the domain. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options>
--- for more information.
+-- | Specifies the 'AdvancedOptions' for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
 edcAdvancedOptions :: Lens' ElasticsearchDomainConfig (Maybe AdvancedOptionsStatus)
 edcAdvancedOptions = lens _edcAdvancedOptions (\ s a -> s{_edcAdvancedOptions = a});
 
@@ -560,9 +531,7 @@ elasticsearchDomainStatus pDomainId_ pDomainName_ pARN_ pElasticsearchClusterCon
     , _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
     }
 
--- | The 'EBSOptions' for the specified domain. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage>
--- for more information.
+-- | The 'EBSOptions' for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
 edsEBSOptions :: Lens' ElasticsearchDomainStatus (Maybe EBSOptions)
 edsEBSOptions = lens _edsEBSOptions (\ s a -> s{_edsEBSOptions = a});
 
@@ -570,8 +539,7 @@ edsEBSOptions = lens _edsEBSOptions (\ s a -> s{_edsEBSOptions = a});
 edsAccessPolicies :: Lens' ElasticsearchDomainStatus (Maybe Text)
 edsAccessPolicies = lens _edsAccessPolicies (\ s a -> s{_edsAccessPolicies = a});
 
--- | The domain creation status. 'True' if the creation of an Elasticsearch
--- domain is complete. 'False' if domain creation is still in progress.
+-- | The domain creation status. 'True' if the creation of an Elasticsearch domain is complete. 'False' if domain creation is still in progress.
 edsCreated :: Lens' ElasticsearchDomainStatus (Maybe Bool)
 edsCreated = lens _edsCreated (\ s a -> s{_edsCreated = a});
 
@@ -579,21 +547,15 @@ edsCreated = lens _edsCreated (\ s a -> s{_edsCreated = a});
 edsSnapshotOptions :: Lens' ElasticsearchDomainStatus (Maybe SnapshotOptions)
 edsSnapshotOptions = lens _edsSnapshotOptions (\ s a -> s{_edsSnapshotOptions = a});
 
--- | The domain deletion status. 'True' if a delete request has been received
--- for the domain but resource cleanup is still in progress. 'False' if the
--- domain has not been deleted. Once domain deletion is complete, the
--- status of the domain is no longer returned.
+-- | The domain deletion status. 'True' if a delete request has been received for the domain but resource cleanup is still in progress. 'False' if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
 edsDeleted :: Lens' ElasticsearchDomainStatus (Maybe Bool)
 edsDeleted = lens _edsDeleted (\ s a -> s{_edsDeleted = a});
 
--- | The status of the Elasticsearch domain configuration. 'True' if Amazon
--- Elasticsearch Service is processing configuration changes. 'False' if
--- the configuration is active.
+-- | The status of the Elasticsearch domain configuration. 'True' if Amazon Elasticsearch Service is processing configuration changes. 'False' if the configuration is active.
 edsProcessing :: Lens' ElasticsearchDomainStatus (Maybe Bool)
 edsProcessing = lens _edsProcessing (\ s a -> s{_edsProcessing = a});
 
--- | The Elasticsearch domain endpoint that you use to submit index and
--- search requests.
+-- | The Elasticsearch domain endpoint that you use to submit index and search requests.
 edsEndpoint :: Lens' ElasticsearchDomainStatus (Maybe Text)
 edsEndpoint = lens _edsEndpoint (\ s a -> s{_edsEndpoint = a});
 
@@ -605,16 +567,11 @@ edsAdvancedOptions = lens _edsAdvancedOptions (\ s a -> s{_edsAdvancedOptions = 
 edsDomainId :: Lens' ElasticsearchDomainStatus Text
 edsDomainId = lens _edsDomainId (\ s a -> s{_edsDomainId = a});
 
--- | The name of an Elasticsearch domain. Domain names are unique across the
--- domains owned by an account within an AWS region. Domain names start
--- with a letter or number and can contain the following characters: a-z
--- (lowercase), 0-9, and - (hyphen).
+-- | The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
 edsDomainName :: Lens' ElasticsearchDomainStatus Text
 edsDomainName = lens _edsDomainName (\ s a -> s{_edsDomainName = a});
 
--- | The Amazon resource name (ARN) of an Elasticsearch domain. See
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities>
--- in /Using AWS Identity and Access Management/ for more information.
+-- | The Amazon resource name (ARN) of an Elasticsearch domain. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities> in /Using AWS Identity and Access Management/ for more information.
 edsARN :: Lens' ElasticsearchDomainStatus Text
 edsARN = lens _edsARN (\ s a -> s{_edsARN = a});
 
@@ -715,9 +672,7 @@ instance Hashable OptionStatus
 
 instance NFData OptionStatus
 
--- | Specifies the time, in UTC format, when the service takes a daily
--- automated snapshot of the specified Elasticsearch domain. Default value
--- is '0' hours.
+-- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is '0' hours.
 --
 -- /See:/ 'snapshotOptions' smart constructor.
 newtype SnapshotOptions = SnapshotOptions'
@@ -736,9 +691,7 @@ snapshotOptions =
     { _soAutomatedSnapshotStartHour = Nothing
     }
 
--- | Specifies the time, in UTC format, when the service takes a daily
--- automated snapshot of the specified Elasticsearch domain. Default value
--- is '0' hours.
+-- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is '0' hours.
 soAutomatedSnapshotStartHour :: Lens' SnapshotOptions (Maybe Int)
 soAutomatedSnapshotStartHour = lens _soAutomatedSnapshotStartHour (\ s a -> s{_soAutomatedSnapshotStartHour = a});
 
@@ -785,8 +738,7 @@ snapshotOptionsStatus pOptions_ pStatus_ =
     , _sosStatus = pStatus_
     }
 
--- | Specifies the daily snapshot options specified for the Elasticsearch
--- domain.
+-- | Specifies the daily snapshot options specified for the Elasticsearch domain.
 sosOptions :: Lens' SnapshotOptionsStatus SnapshotOptions
 sosOptions = lens _sosOptions (\ s a -> s{_sosOptions = a});
 
@@ -830,15 +782,11 @@ tag pKey_ pValue_ =
     , _tagValue = pValue_
     }
 
--- | Specifies the 'TagKey', the name of the tag. Tag keys must be unique for
--- the Elasticsearch domain to which they are attached.
+-- | Specifies the 'TagKey', the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
--- | Specifies the 'TagValue', the value assigned to the corresponding tag
--- key. Tag values can be null and do not have to be unique in a tag set.
--- For example, you can have a key value pair in a tag set of
--- 'project : Trinity' and 'cost-center : Trinity'
+-- | Specifies the 'TagValue', the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of 'project : Trinity' and 'cost-center : Trinity'
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 

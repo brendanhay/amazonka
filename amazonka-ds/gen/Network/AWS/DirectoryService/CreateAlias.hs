@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for a directory and assigns the alias to the directory.
--- The alias is used to construct the access URL for the directory, such as
--- 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'.
+-- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'.
 --
--- After an alias has been created, it cannot be deleted or reused, so this
--- operation should only be used when absolutely necessary.
+-- After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
 module Network.AWS.DirectoryService.CreateAlias
     (
     -- * Creating a Request
@@ -80,9 +77,7 @@ caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 
 -- | The requested alias.
 --
--- The alias must be unique amongst all aliases in AWS. This operation
--- throws an 'EntityAlreadyExistsException' error if the alias already
--- exists.
+-- The alias must be unique amongst all aliases in AWS. This operation throws an 'EntityAlreadyExistsException' error if the alias already exists.
 caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 

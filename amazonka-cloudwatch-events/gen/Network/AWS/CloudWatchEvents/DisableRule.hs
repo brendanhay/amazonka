@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a rule. A disabled rule won\'t match any events, and won\'t
--- self-trigger if it has a schedule expression.
+-- Disables a rule. A disabled rule won\'t match any events, and won\'t self-trigger if it has a schedule expression.
 --
--- __Note:__ When you disable a rule, incoming events might still continue
--- to match to the disabled rule. Please allow a short period of time for
--- changes to take effect.
+-- __Note:__ When you disable a rule, incoming events might still continue to match to the disabled rule. Please allow a short period of time for changes to take effect.
 module Network.AWS.CloudWatchEvents.DisableRule
     (
     -- * Creating a Request

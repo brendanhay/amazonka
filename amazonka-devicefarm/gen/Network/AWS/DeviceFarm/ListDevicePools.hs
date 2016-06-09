@@ -76,9 +76,7 @@ listDevicePools pArn_ =
     , _ldpArn = pArn_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ldpNextToken :: Lens' ListDevicePools (Maybe Text)
 ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
 
@@ -86,11 +84,9 @@ ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
 --
 -- Allowed values include:
 --
--- -   CURATED: A device pool that is created and managed by AWS Device
---     Farm.
+-- -   CURATED: A device pool that is created and managed by AWS Device Farm.
 --
--- -   PRIVATE: A device pool that is created and managed by the device
---     pool developer.
+-- -   PRIVATE: A device pool that is created and managed by the device pool developer.
 --
 ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
 ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
@@ -176,9 +172,7 @@ listDevicePoolsResponse pResponseStatus_ =
 ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
 ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default . _Coerce;
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
 ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 

@@ -20,8 +20,7 @@
 --
 -- Returns the details of the specified receipt rule set.
 --
--- For information about managing receipt rule sets, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DescribeReceiptRuleSet
@@ -127,13 +126,11 @@ describeReceiptRuleSetResponse pResponseStatus_ =
     , _desrsResponseStatus = pResponseStatus_
     }
 
--- | A list of the receipt rules that belong to the specified receipt rule
--- set.
+-- | A list of the receipt rules that belong to the specified receipt rule set.
 desrsRules :: Lens' DescribeReceiptRuleSetResponse [ReceiptRule]
 desrsRules = lens _desrsRules (\ s a -> s{_desrsRules = a}) . _Default . _Coerce;
 
--- | The metadata for the receipt rule set, which consists of the rule set
--- name and the timestamp of when the rule set was created.
+-- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
 desrsMetadata :: Lens' DescribeReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
 desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a});
 

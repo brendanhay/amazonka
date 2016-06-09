@@ -20,11 +20,7 @@
 --
 -- Detaches a specified Elastic Load Balancing instance from its layer.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     (
     -- * Creating a Request
@@ -73,8 +69,7 @@ detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
 delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
 delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\ s a -> s{_delbElasticLoadBalancerName = a});
 
--- | The ID of the layer that the Elastic Load Balancing instance is attached
--- to.
+-- | The ID of the layer that the Elastic Load Balancing instance is attached to.
 delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
 

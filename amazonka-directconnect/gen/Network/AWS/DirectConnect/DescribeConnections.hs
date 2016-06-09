@@ -20,8 +20,7 @@
 --
 -- Displays all connections in this region.
 --
--- If a connection ID is provided, the call returns only that particular
--- connection.
+-- If a connection ID is provided, the call returns only that particular connection.
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Creating a Request

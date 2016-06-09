@@ -27,7 +27,7 @@ tests = []
 fixtures :: [TestTree]
 fixtures =
     [ testGroup "request" $
-        [ testSendMessage $
+        [ requestSendMessage $
             sendMessage url "This+is+a+test+message"
                 & smMessageAttributes .~ Map.fromList
                     [ ("test_attribute_name_1", messageAttributeValue "String"
@@ -36,10 +36,10 @@ fixtures =
                         & mavStringValue ?~ "test_attribute_value_2")
                     ]
 
-        , testChangeMessageVisibility $
+        , requestChangeMessageVisibility $
             changeMessageVisibility url handle 60
 
-        , testChangeMessageVisibilityBatch $
+        , requestChangeMessageVisibilityBatch $
             changeMessageVisibilityBatch url
                & cmvbEntries .~
                    [ changeMessageVisibilityBatchRequestEntry
@@ -52,16 +52,16 @@ fixtures =
         ]
 
     , testGroup "response"
-        [ testGetQueueURLResponse $ getQueueURLResponse 200 url
-        , testPurgeQueueResponse  $ purgeQueueResponse
+        [ responseGetQueueURL $ getQueueURLResponse 200 url
+        , responsePurgeQueue  $ purgeQueueResponse
 
-        , testSendMessageResponse $
+        , responseSendMessage $
             sendMessageResponse 200
                 & smrsMessageId              ?~ "5fea7756-0ea4-451a-a703-a558b933e274"
                 & smrsMD5OfMessageBody       ?~ "fafb00f5732ab283681e124bf8747ed1"
                 & smrsMD5OfMessageAttributes ?~ "3ae8f24a165a8cedc005670c81a27295"
 
-        , testReceiveMessageResponse $
+        , responseReceiveMessage $
             receiveMessageResponse 200 & rmrsMessages .~
                 [ message
                     & mMessageId         ?~ "5fea7756-0ea4-451a-a703-a558b933e274"

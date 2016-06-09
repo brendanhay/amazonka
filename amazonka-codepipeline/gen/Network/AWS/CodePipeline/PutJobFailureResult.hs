@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents the failure of a job as returned to the pipeline by a job
--- worker. Only used for custom actions.
+-- Represents the failure of a job as returned to the pipeline by a job worker. Only used for custom actions.
 module Network.AWS.CodePipeline.PutJobFailureResult
     (
     -- * Creating a Request
@@ -66,8 +65,7 @@ putJobFailureResult pJobId_ pFailureDetails_ =
     , _pjfrFailureDetails = pFailureDetails_
     }
 
--- | The unique system-generated ID of the job that failed. This is the same
--- ID returned from PollForJobs.
+-- | The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
 pjfrJobId :: Lens' PutJobFailureResult Text
 pjfrJobId = lens _pjfrJobId (\ s a -> s{_pjfrJobId = a});
 

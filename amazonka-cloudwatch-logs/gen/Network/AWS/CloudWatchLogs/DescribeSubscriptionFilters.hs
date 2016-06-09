@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the subscription filters associated with the specified log
--- group. The list returned in the response is ASCII-sorted by filter name.
+-- Returns all the subscription filters associated with the specified log group. The list returned in the response is ASCII-sorted by filter name.
 --
--- By default, this operation returns up to 50 subscription filters. If
--- there are more subscription filters to list, the response would contain
--- a 'nextToken' value in the response body. You can also limit the number
--- of subscription filters returned in the response by specifying the
--- 'limit' parameter in the request.
+-- By default, this operation returns up to 50 subscription filters. If there are more subscription filters to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of subscription filters returned in the response by specifying the 'limit' parameter in the request.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
@@ -86,9 +81,7 @@ describeSubscriptionFilters pLogGroupName_ =
     , _dsfLogGroupName = pLogGroupName_
     }
 
--- | Will only return subscription filters that match the provided
--- filterNamePrefix. If you don\'t specify a value, no prefix filter is
--- applied.
+-- | Will only return subscription filters that match the provided filterNamePrefix. If you don\'t specify a value, no prefix filter is applied.
 dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfFilterNamePrefix = lens _dsfFilterNamePrefix (\ s a -> s{_dsfFilterNamePrefix = a});
 

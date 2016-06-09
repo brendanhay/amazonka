@@ -20,9 +20,7 @@
 --
 -- Gets the configuration settings of an identity pool.
 --
--- This API can only be called with developer credentials. You cannot call
--- this API with the temporary user credentials provided by Cognito
--- Identity.
+-- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
     -- * Creating a Request
@@ -68,9 +66,7 @@ getIdentityPoolConfiguration pIdentityPoolId_ =
     { _gipcIdentityPoolId = pIdentityPoolId_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. This is the ID of the pool for which to return a configuration.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
 gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = a});
 
@@ -139,9 +135,7 @@ getIdentityPoolConfigurationResponse pResponseStatus_ =
     , _gipcrsResponseStatus = pResponseStatus_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 gipcrsIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
 gipcrsIdentityPoolId = lens _gipcrsIdentityPoolId (\ s a -> s{_gipcrsIdentityPoolId = a});
 

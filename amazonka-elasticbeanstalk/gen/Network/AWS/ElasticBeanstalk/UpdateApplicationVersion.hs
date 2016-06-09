@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified application version to have the specified
--- properties.
+-- Updates the specified application version to have the specified properties.
 --
--- If a property (for example, 'description') is not provided, the value
--- remains unchanged. To clear properties, specify an empty string.
+-- If a property (for example, 'description') is not provided, the value remains unchanged. To clear properties, specify an empty string.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Creating a Request
@@ -82,15 +80,13 @@ uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a});
 
 -- | The name of the application associated with this version.
 --
--- If no application is found with this name, 'UpdateApplication' returns
--- an 'InvalidParameterValue' error.
+-- If no application is found with this name, 'UpdateApplication' returns an 'InvalidParameterValue' error.
 uavApplicationName :: Lens' UpdateApplicationVersion Text
 uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = a});
 
 -- | The name of the version to update.
 --
--- If no application version is found with this label, 'UpdateApplication'
--- returns an 'InvalidParameterValue' error.
+-- If no application version is found with this label, 'UpdateApplication' returns an 'InvalidParameterValue' error.
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 

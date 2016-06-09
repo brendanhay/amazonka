@@ -1,0 +1,98 @@
+name:                  amazonka-application-autoscaling
+version:               1.4.3
+synopsis:              Amazon Application Auto Scaling SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Auto Scaling.
+
+    At this time, Application Auto Scaling only supports scaling Amazon ECS services.
+
+    For example, you can use Application Auto Scaling to accomplish the following tasks:
+
+    -   Define scaling policies for automatically adjusting your application’s resources
+
+    -   Scale your resources in response to CloudWatch alarms
+
+    -   View history of your scaling events
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ApplicationAutoScaling" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.ApplicationAutoScaling
+        , Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+        , Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+        , Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+        , Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+        , Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+        , Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+        , Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+        , Network.AWS.ApplicationAutoScaling.Types
+        , Network.AWS.ApplicationAutoScaling.Waiters
+
+    other-modules:
+          Network.AWS.ApplicationAutoScaling.Types.Product
+        , Network.AWS.ApplicationAutoScaling.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.3.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-application-autoscaling-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ApplicationAutoScaling
+        , Test.AWS.Gen.ApplicationAutoScaling
+        , Test.AWS.ApplicationAutoScaling.Internal
+
+    build-depends:
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-application-autoscaling == 1.4.3.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

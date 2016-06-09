@@ -64,17 +64,21 @@ instance ToJSON Help where
         . flatten
       where
         f '@' = '\''
+        f '$' = '>'
         f  x  = x
 
 data Desc = Desc !Int Help
 
 instance ToJSON Desc where
-    toJSON (Desc n h) = toJSON . wrap (replicate n ' ') $ flatten h
+    toJSON (Desc n h) = toJSON
+        . Text.replace "@" "\n    @\n    "
+        . wrap (replicate n ' ')
+        $ flatten h
 
 flatten :: Help -> String
 flatten = \case
     Help xs -> foldMap flatten xs
-    Pan  d  -> writeHaddock def d
+    Pan  d  -> writeHaddock (def { writerColumns = 2056 }) d
     Raw  t  -> Text.unpack t
 
 wrap :: String -> String -> Text

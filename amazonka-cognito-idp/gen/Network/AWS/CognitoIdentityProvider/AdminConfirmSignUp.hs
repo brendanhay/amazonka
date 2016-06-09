@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms user registration as an admin without using a confirmation
--- code. Works on any user.
+-- Confirms user registration as an admin without using a confirmation code. Works on any user.
 module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
     (
     -- * Creating a Request
@@ -112,8 +111,7 @@ instance ToPath AdminConfirmSignUp where
 instance ToQuery AdminConfirmSignUp where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to confirm
--- registration.
+-- | Represents the response from the server for the request to confirm registration.
 --
 -- /See:/ 'adminConfirmSignUpResponse' smart constructor.
 newtype AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'

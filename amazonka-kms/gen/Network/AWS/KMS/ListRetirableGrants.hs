@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all grants for which the grant\'s 'RetiringPrincipal'
--- matches the one specified.
+-- Returns a list of all grants for which the grant\'s 'RetiringPrincipal' matches the one specified.
 --
--- A typical use is to list all grants that you are able to retire. To
--- retire a grant, use < RetireGrant>.
+-- A typical use is to list all grants that you are able to retire. To retire a grant, use < RetireGrant>.
 module Network.AWS.KMS.ListRetirableGrants
     (
     -- * Creating a Request
@@ -75,31 +73,19 @@ listRetirableGrants pRetiringPrincipal_ =
     , _lrgRetiringPrincipal = pRetiringPrincipal_
     }
 
--- | Use this parameter only when paginating results and only in a subsequent
--- request after you receive a response with truncated results. Set it to
--- the value of 'NextMarker' from the response you just received.
+-- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of 'NextMarker' from the response you just received.
 lrgMarker :: Lens' ListRetirableGrants (Maybe Text)
 lrgMarker = lens _lrgMarker (\ s a -> s{_lrgMarker = a});
 
--- | When paginating results, specify the maximum number of items to return
--- in the response. If additional items exist beyond the number you
--- specify, the 'Truncated' element in the response is set to true.
+-- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the 'Truncated' element in the response is set to true.
 --
--- This value is optional. If you include a value, it must be between 1 and
--- 100, inclusive. If you do not include a value, it defaults to 50.
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 lrgLimit :: Lens' ListRetirableGrants (Maybe Natural)
 lrgLimit = lens _lrgLimit (\ s a -> s{_lrgLimit = a}) . mapping _Nat;
 
 -- | The retiring principal for which to list grants.
 --
--- To specify the retiring principal, use the
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an AWS principal. Valid AWS principals include AWS accounts (root),
--- IAM users, federated users, and assumed role users. For examples of the
--- ARN syntax for specifying a principal, go to
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- To specify the retiring principal, use the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/.
 lrgRetiringPrincipal :: Lens' ListRetirableGrants Text
 lrgRetiringPrincipal = lens _lrgRetiringPrincipal (\ s a -> s{_lrgRetiringPrincipal = a});
 

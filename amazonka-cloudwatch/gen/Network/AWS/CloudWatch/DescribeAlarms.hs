@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves alarms with the specified names. If no name is specified, all
--- alarms for the user are returned. Alarms can be retrieved by using only
--- a prefix for the alarm name, the alarm state, or a prefix for any
--- action.
+-- Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
@@ -91,8 +88,7 @@ describeAlarms =
     , _daMaxRecords = Nothing
     }
 
--- | The alarm name prefix. 'AlarmNames' cannot be specified if this
--- parameter is specified.
+-- | The alarm name prefix. 'AlarmNames' cannot be specified if this parameter is specified.
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 
@@ -100,8 +96,7 @@ daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a})
 daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
 daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 daNextToken :: Lens' DescribeAlarms (Maybe Text)
 daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 

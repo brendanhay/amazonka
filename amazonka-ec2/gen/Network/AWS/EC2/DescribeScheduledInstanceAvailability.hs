@@ -20,15 +20,9 @@
 --
 -- Finds available schedules that meet the specified criteria.
 --
--- You can search for an available schedule no more than 3 months in
--- advance. You must meet the minimum required duration of 1,200 hours per
--- year. For example, the minimum daily schedule is 4 hours, the minimum
--- weekly schedule is 24 hours, and the minimum monthly schedule is 100
--- hours.
+-- You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
 --
--- After you find a schedule that meets your needs, call
--- < PurchaseScheduledInstances> to purchase Scheduled Instances with that
--- schedule.
+-- After you find a schedule that meets your needs, call < PurchaseScheduledInstances> to purchase Scheduled Instances with that schedule.
 module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     (
     -- * Creating a Request
@@ -109,22 +103,17 @@ describeScheduledInstanceAvailability pRecurrence_ pFirstSlotStartTimeRange_ =
     , _dsiaFirstSlotStartTimeRange = pFirstSlotStartTimeRange_
     }
 
--- | The minimum available duration, in hours. The minimum required duration
--- is 1,200 hours per year. For example, the minimum daily schedule is 4
--- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
--- schedule is 100 hours.
+-- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
 dsiaMinSlotDurationInHours :: Lens' DescribeScheduledInstanceAvailability (Maybe Int)
 dsiaMinSlotDurationInHours = lens _dsiaMinSlotDurationInHours (\ s a -> s{_dsiaMinSlotDurationInHours = a});
 
 -- | One or more filters.
 --
--- -   'availability-zone' - The Availability Zone (for example,
---     'us-west-2a').
+-- -   'availability-zone' - The Availability Zone (for example, 'us-west-2a').
 --
 -- -   'instance-type' - The instance type (for example, 'c4.large').
 --
--- -   'network-platform' - The network platform ('EC2-Classic' or
---     'EC2-VPC').
+-- -   'network-platform' - The network platform ('EC2-Classic' or 'EC2-VPC').
 --
 -- -   'platform' - The platform ('Linux\/UNIX' or 'Windows').
 --
@@ -135,22 +124,15 @@ dsiaFilters = lens _dsiaFilters (\ s a -> s{_dsiaFilters = a}) . _Default . _Coe
 dsiaNextToken :: Lens' DescribeScheduledInstanceAvailability (Maybe Text)
 dsiaNextToken = lens _dsiaNextToken (\ s a -> s{_dsiaNextToken = a});
 
--- | The maximum available duration, in hours. This value must be greater
--- than 'MinSlotDurationInHours' and less than 1,720.
+-- | The maximum available duration, in hours. This value must be greater than 'MinSlotDurationInHours' and less than 1,720.
 dsiaMaxSlotDurationInHours :: Lens' DescribeScheduledInstanceAvailability (Maybe Int)
 dsiaMaxSlotDurationInHours = lens _dsiaMaxSlotDurationInHours (\ s a -> s{_dsiaMaxSlotDurationInHours = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsiaDryRun :: Lens' DescribeScheduledInstanceAvailability (Maybe Bool)
 dsiaDryRun = lens _dsiaDryRun (\ s a -> s{_dsiaDryRun = a});
 
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 300. The default value is 300. To retrieve the
--- remaining results, make another call with the returned 'NextToken'
--- value.
+-- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned 'NextToken' value.
 dsiaMaxResults :: Lens' DescribeScheduledInstanceAvailability (Maybe Int)
 dsiaMaxResults = lens _dsiaMaxResults (\ s a -> s{_dsiaMaxResults = a});
 
@@ -241,8 +223,7 @@ describeScheduledInstanceAvailabilityResponse pResponseStatus_ =
 dsiarsScheduledInstanceAvailabilitySet :: Lens' DescribeScheduledInstanceAvailabilityResponse [ScheduledInstanceAvailability]
 dsiarsScheduledInstanceAvailabilitySet = lens _dsiarsScheduledInstanceAvailabilitySet (\ s a -> s{_dsiarsScheduledInstanceAvailabilitySet = a}) . _Default . _Coerce;
 
--- | The token required to retrieve the next set of results. This value is
--- 'null' when there are no more results to return.
+-- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
 dsiarsNextToken :: Lens' DescribeScheduledInstanceAvailabilityResponse (Maybe Text)
 dsiarsNextToken = lens _dsiarsNextToken (\ s a -> s{_dsiarsNextToken = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the null version (if there is one) of an object and inserts a
--- delete marker, which becomes the latest version of the object. If there
--- isn\'t a null version, Amazon S3 does not remove any objects.
+-- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn\'t a null version, Amazon S3 does not remove any objects.
 module Network.AWS.S3.DeleteObject
     (
     -- * Creating a Request
@@ -89,8 +87,7 @@ deleteObject pBucket_ pKey_ =
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
 doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
 
@@ -170,13 +167,11 @@ deleteObjectResponse pResponseStatus_ =
 dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
 dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
 
--- | Returns the version ID of the delete marker created as a result of the
--- DELETE operation.
+-- | Returns the version ID of the delete marker created as a result of the DELETE operation.
 dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
 dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
 
--- | Specifies whether the versioned object that was permanently deleted was
--- (true) or was not (false) a delete marker.
+-- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 

@@ -305,15 +305,11 @@ command =
 cStatus :: Lens' Command (Maybe CommandStatus)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
--- | If this time is reached and the command has not already started
--- executing, it will not execute. Calculated based on the ExpiresAfter
--- user input provided as part of the SendCommand API.
+-- | If this time is reached and the command has not already started executing, it will not execute. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
 cExpiresAfter :: Lens' Command (Maybe UTCTime)
 cExpiresAfter = lens _cExpiresAfter (\ s a -> s{_cExpiresAfter = a}) . mapping _Time;
 
--- | The S3 directory path inside the bucket where the responses to the
--- command executions should be stored. This was requested when issuing the
--- command.
+-- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cOutputS3KeyPrefix :: Lens' Command (Maybe Text)
 cOutputS3KeyPrefix = lens _cOutputS3KeyPrefix (\ s a -> s{_cOutputS3KeyPrefix = a});
 
@@ -329,18 +325,15 @@ cInstanceIds = lens _cInstanceIds (\ s a -> s{_cInstanceIds = a}) . mapping _Lis
 cCommandId :: Lens' Command (Maybe Text)
 cCommandId = lens _cCommandId (\ s a -> s{_cCommandId = a});
 
--- | The parameter values to be inserted in the SSM document when executing
--- the command.
+-- | The parameter values to be inserted in the SSM document when executing the command.
 cParameters :: Lens' Command (HashMap Text [Text])
 cParameters = lens _cParameters (\ s a -> s{_cParameters = a}) . _Default . _Map;
 
--- | User-specified information about the command, such as a brief
--- description of what the command should do.
+-- | User-specified information about the command, such as a brief description of what the command should do.
 cComment :: Lens' Command (Maybe Text)
 cComment = lens _cComment (\ s a -> s{_cComment = a});
 
--- | The S3 bucket where the responses to the command executions should be
--- stored. This was requested when issuing the command.
+-- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cOutputS3BucketName :: Lens' Command (Maybe Text)
 cOutputS3BucketName = lens _cOutputS3BucketName (\ s a -> s{_cOutputS3BucketName = a});
 
@@ -410,12 +403,7 @@ instance ToJSON CommandFilter where
               (catMaybes
                  [Just ("key" .= _cfKey), Just ("value" .= _cfValue)])
 
--- | An invocation is copy of a command sent to a specific instance. A
--- command can apply to one or more instances. A command invocation applies
--- to one instance. For example, if a user executes SendCommand against
--- three instances, then a command invocation is created for each requested
--- instance ID. A command invocation returns status and detail information
--- about a command you executed.
+-- | An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you executed.
 --
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
@@ -482,8 +470,7 @@ ciDocumentName = lens _ciDocumentName (\ s a -> s{_ciDocumentName = a});
 ciCommandId :: Lens' CommandInvocation (Maybe Text)
 ciCommandId = lens _ciCommandId (\ s a -> s{_ciCommandId = a});
 
--- | User-specified information about the command, such as a brief
--- description of what the command should do.
+-- | User-specified information about the command, such as a brief description of what the command should do.
 ciComment :: Lens' CommandInvocation (Maybe Text)
 ciComment = lens _ciComment (\ s a -> s{_ciComment = a});
 
@@ -559,8 +546,7 @@ commandPlugin =
     , _cpResponseFinishDateTime = Nothing
     }
 
--- | The status of this plugin. You can execute a document with multiple
--- plugins.
+-- | The status of this plugin. You can execute a document with multiple plugins.
 cpStatus :: Lens' CommandPlugin (Maybe CommandPluginStatus)
 cpStatus = lens _cpStatus (\ s a -> s{_cpStatus = a});
 
@@ -568,9 +554,7 @@ cpStatus = lens _cpStatus (\ s a -> s{_cpStatus = a});
 cpResponseStartDateTime :: Lens' CommandPlugin (Maybe UTCTime)
 cpResponseStartDateTime = lens _cpResponseStartDateTime (\ s a -> s{_cpResponseStartDateTime = a}) . mapping _Time;
 
--- | The S3 directory path inside the bucket where the responses to the
--- command executions should be stored. This was requested when issuing the
--- command.
+-- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cpOutputS3KeyPrefix :: Lens' CommandPlugin (Maybe Text)
 cpOutputS3KeyPrefix = lens _cpOutputS3KeyPrefix (\ s a -> s{_cpOutputS3KeyPrefix = a});
 
@@ -582,19 +566,15 @@ cpResponseCode = lens _cpResponseCode (\ s a -> s{_cpResponseCode = a});
 cpOutput :: Lens' CommandPlugin (Maybe Text)
 cpOutput = lens _cpOutput (\ s a -> s{_cpOutput = a});
 
--- | The name of the plugin. Must be one of the following: aws:updateAgent,
--- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
--- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
+-- | The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
 cpName :: Lens' CommandPlugin (Maybe Text)
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
--- | The S3 bucket where the responses to the command executions should be
--- stored. This was requested when issuing the command.
+-- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cpOutputS3BucketName :: Lens' CommandPlugin (Maybe Text)
 cpOutputS3BucketName = lens _cpOutputS3BucketName (\ s a -> s{_cpOutputS3BucketName = a});
 
--- | The time the plugin stopped executing. Could stop prematurely if, for
--- example, a cancel command was sent.
+-- | The time the plugin stopped executing. Could stop prematurely if, for example, a cancel command was sent.
 cpResponseFinishDateTime :: Lens' CommandPlugin (Maybe UTCTime)
 cpResponseFinishDateTime = lens _cpResponseFinishDateTime (\ s a -> s{_cpResponseFinishDateTime = a}) . mapping _Time;
 
@@ -723,8 +703,7 @@ documentDescription =
 dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | The SHA1 hash of the document, which you can use for verification
--- purposes.
+-- | The SHA1 hash of the document, which you can use for verification purposes.
 dSha1 :: Lens' DocumentDescription (Maybe Text)
 dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a});
 
@@ -883,9 +862,7 @@ documentParameter =
 dpName :: Lens' DocumentParameter (Maybe Text)
 dpName = lens _dpName (\ s a -> s{_dpName = a});
 
--- | If specified, the default values for the parameters. Parameters without
--- a default value are required. Parameters with a default value are
--- optional.
+-- | If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 dpDefaultValue :: Lens' DocumentParameter (Maybe Text)
 dpDefaultValue = lens _dpDefaultValue (\ s a -> s{_dpDefaultValue = a});
 
@@ -893,8 +870,7 @@ dpDefaultValue = lens _dpDefaultValue (\ s a -> s{_dpDefaultValue = a});
 dpType :: Lens' DocumentParameter (Maybe DocumentParameterType)
 dpType = lens _dpType (\ s a -> s{_dpType = a});
 
--- | A description of what the parameter does, how to use it, the default
--- value, and whether or not the parameter is optional.
+-- | A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 dpDescription :: Lens' DocumentParameter (Maybe Text)
 dpDescription = lens _dpDescription (\ s a -> s{_dpDescription = a});
 
@@ -1021,8 +997,7 @@ iiPingStatus = lens _iiPingStatus (\ s a -> s{_iiPingStatus = a});
 iiPlatformVersion :: Lens' InstanceInformation (Maybe Text)
 iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a});
 
--- | Indicates whether latest version of the SSM agent is running on your
--- instance.
+-- | Indicates whether latest version of the SSM agent is running on your instance.
 iiIsLatestVersion :: Lens' InstanceInformation (Maybe Bool)
 iiIsLatestVersion = lens _iiIsLatestVersion (\ s a -> s{_iiIsLatestVersion = a});
 

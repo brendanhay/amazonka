@@ -20,11 +20,7 @@
 --
 -- Retrieves information about the specified server certificate.
 --
--- For more information about working with server certificates, including a
--- list of AWS services that can use the server certificates that you
--- manage with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
--- in the /IAM User Guide/.
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Creating a Request
@@ -66,8 +62,7 @@ getServerCertificate pServerCertificateName_ =
     { _gscServerCertificateName = pServerCertificateName_
     }
 
--- | The name of the server certificate you want to retrieve information
--- about.
+-- | The name of the server certificate you want to retrieve information about.
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
 

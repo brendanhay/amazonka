@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a collection of alias records for this AWS account. You can
--- filter the result set by alias name and\/or routing strategy type. Use
--- the pagination parameters to retrieve results in sequential pages.
+-- Retrieves a collection of alias records for this AWS account. You can filter the result set by alias name and\/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
 --
 -- Aliases are not listed in any particular order.
 module Network.AWS.GameLift.ListAliases
@@ -81,32 +79,22 @@ listAliases =
     , _laLimit = Nothing
     }
 
--- | Type of routing to filter results on. Use this parameter to retrieve
--- only aliases of a certain type. To retrieve all aliases, leave this
--- parameter empty. Possible routing types include:
+-- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include:
 --
--- -   SIMPLE: The alias resolves to one specific fleet. Use this type when
---     routing to active fleets.
--- -   TERMINAL: The alias does not resolve to a fleet but instead can be
---     used to display a message to the user. A terminal alias throws a
---     TerminalRoutingStrategyException with the < RoutingStrategy> message
---     embedded.
+-- -   SIMPLE: The alias resolves to one specific fleet. Use this type when routing to active fleets.
+-- -   TERMINAL: The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the < RoutingStrategy> message embedded.
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
 laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrategyType = a});
 
--- | Token indicating the start of the next sequential page of results. Use
--- the token that is returned with a previous call to this action. To
--- specify the start of the result set, do not specify a value.
+-- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 laNextToken :: Lens' ListAliases (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
--- | Descriptive label associated with this alias. Alias names do not need to
--- be unique.
+-- | Descriptive label associated with this alias. Alias names do not need to be unique.
 laName :: Lens' ListAliases (Maybe Text)
 laName = lens _laName (\ s a -> s{_laName = a});
 
--- | Maximum number of results to return. You can use this parameter with
--- /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
@@ -180,13 +168,9 @@ listAliasesResponse pResponseStatus_ =
 larsAliases :: Lens' ListAliasesResponse [Alias]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
--- | Token indicating where to resume retrieving results on the next call to
--- this action. If no token is returned, these results represent the end of
--- the list.
+-- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- If a request has a limit that exactly matches the number of remaining
--- results, a token is returned even though there are no more results to
--- retrieve.
+-- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 larsNextToken :: Lens' ListAliasesResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

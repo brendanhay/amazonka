@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a shard iterator. A shard iterator provides information about
--- how to retrieve the stream records from within a shard. Use the shard
--- iterator in a subsequent 'GetRecords' request to read the stream records
--- from the shard.
+-- Returns a shard iterator. A shard iterator provides information about how to retrieve the stream records from within a shard. Use the shard iterator in a subsequent 'GetRecords' request to read the stream records from the shard.
 --
--- A shard iterator expires 15 minutes after it is returned to the
--- requester.
+-- A shard iterator expires 15 minutes after it is returned to the requester.
 module Network.AWS.DynamoDBStreams.GetShardIterator
     (
     -- * Creating a Request
@@ -85,8 +81,7 @@ getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
     , _gsiShardIteratorType = pShardIteratorType_
     }
 
--- | The sequence number of a stream record in the shard from which to start
--- reading.
+-- | The sequence number of a stream record in the shard from which to start reading.
 gsiSequenceNumber :: Lens' GetShardIterator (Maybe Text)
 gsiSequenceNumber = lens _gsiSequenceNumber (\ s a -> s{_gsiSequenceNumber = a});
 
@@ -94,29 +89,19 @@ gsiSequenceNumber = lens _gsiSequenceNumber (\ s a -> s{_gsiSequenceNumber = a})
 gsiStreamARN :: Lens' GetShardIterator Text
 gsiStreamARN = lens _gsiStreamARN (\ s a -> s{_gsiStreamARN = a});
 
--- | The identifier of the shard. The iterator will be returned for this
--- shard ID.
+-- | The identifier of the shard. The iterator will be returned for this shard ID.
 gsiShardId :: Lens' GetShardIterator Text
 gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 
--- | Determines how the shard iterator is used to start reading stream
--- records from the shard:
+-- | Determines how the shard iterator is used to start reading stream records from the shard:
 --
--- -   'AT_SEQUENCE_NUMBER' - Start reading exactly from the position
---     denoted by a specific sequence number.
+-- -   'AT_SEQUENCE_NUMBER' - Start reading exactly from the position denoted by a specific sequence number.
 --
--- -   'AFTER_SEQUENCE_NUMBER' - Start reading right after the position
---     denoted by a specific sequence number.
+-- -   'AFTER_SEQUENCE_NUMBER' - Start reading right after the position denoted by a specific sequence number.
 --
--- -   'TRIM_HORIZON' - Start reading at the last (untrimmed) stream
---     record, which is the oldest record in the shard. In DynamoDB
---     Streams, there is a 24 hour limit on data retention. Stream records
---     whose age exceeds this limit are subject to removal (trimming) from
---     the stream.
+-- -   'TRIM_HORIZON' - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.
 --
--- -   'LATEST' - Start reading just after the most recent stream record in
---     the shard, so that you always read the most recent data in the
---     shard.
+-- -   'LATEST' - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
 --
 gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
 gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
@@ -183,9 +168,7 @@ getShardIteratorResponse pResponseStatus_ =
     , _gsirsResponseStatus = pResponseStatus_
     }
 
--- | The position in the shard from which to start reading stream records
--- sequentially. A shard iterator specifies this position using the
--- sequence number of a stream record in a shard.
+-- | The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 

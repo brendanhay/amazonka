@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC
--- that has EC2-Classic instances linked to it.
+-- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.
 module Network.AWS.EC2.DisableVPCClassicLink
     (
     -- * Creating a Request
@@ -68,10 +67,7 @@ disableVPCClassicLink pVPCId_ =
     , _dvpcclVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
 dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a});
 

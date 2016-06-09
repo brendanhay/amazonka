@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Marks a custom action as deleted. PollForJobs for the custom action will
--- fail after the action is marked for deletion. Only used for custom
--- actions.
+-- Marks a custom action as deleted. PollForJobs for the custom action will fail after the action is marked for deletion. Only used for custom actions.
 --
--- You cannot recreate a custom action after it has been deleted unless you
--- increase the version number of the action.
+-- You cannot recreate a custom action after it has been deleted unless you increase the version number of the action.
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
     -- * Creating a Request
@@ -46,8 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a delete custom action operation. The custom
--- action will be marked as deleted.
+-- | Represents the input of a delete custom action operation. The custom action will be marked as deleted.
 --
 -- /See:/ 'deleteCustomActionType' smart constructor.
 data DeleteCustomActionType = DeleteCustomActionType'
@@ -77,13 +73,11 @@ deleteCustomActionType pCategory_ pProvider_ pVersion_ =
     , _dcatVersion = pVersion_
     }
 
--- | The category of the custom action that you want to delete, such as
--- source or deploy.
+-- | The category of the custom action that you want to delete, such as source or deploy.
 dcatCategory :: Lens' DeleteCustomActionType ActionCategory
 dcatCategory = lens _dcatCategory (\ s a -> s{_dcatCategory = a});
 
--- | The provider of the service used in the custom action, such as AWS
--- CodeDeploy.
+-- | The provider of the service used in the custom action, such as AWS CodeDeploy.
 dcatProvider :: Lens' DeleteCustomActionType Text
 dcatProvider = lens _dcatProvider (\ s a -> s{_dcatProvider = a});
 

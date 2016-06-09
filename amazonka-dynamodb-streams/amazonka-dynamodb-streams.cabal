@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb-streams
-version:               1.4.1
+version:               1.4.3
 synopsis:              Amazon DynamoDB Streams SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,32 +15,23 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon DynamoDB Streams
 
-    This is the Amazon DynamoDB Streams API Reference. This guide describes
-    the low-level API actions for accessing streams and processing stream
-    records. For information about application development with DynamoDB
-    Streams, see the
-    <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html Amazon DynamoDB Developer Guide>.
+    This is the Amazon DynamoDB Streams API Reference. This guide describes the low-level API actions for accessing streams and processing stream records. For information about application development with DynamoDB Streams, see the <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html Amazon DynamoDB Developer Guide>.
 
-    Note that this document is intended for use with the following DynamoDB
-    documentation:
+    Note that this document is intended for use with the following DynamoDB documentation:
 
     -   <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ Amazon DynamoDB Developer Guide>
 
     -   <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/ Amazon DynamoDB API Reference>
 
-    The following are short descriptions of each low-level DynamoDB Streams
-    API action, organized by function.
+    The following are short descriptions of each low-level DynamoDB Streams API action, organized by function.
 
-    -   /DescribeStream/ - Returns detailed information about a particular
-        stream.
+    -   /DescribeStream/ - Returns detailed information about a particular stream.
 
     -   /GetRecords/ - Retrieves the stream records from within a shard.
 
-    -   /GetShardIterator/ - Returns information on how to retrieve the
-        streams record from a shard with a given shard ID.
+    -   /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
 
-    -   /ListStreams/ - Returns a list of all the streams associated with
-        the current AWS account and endpoint.
+    -   /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -80,7 +71,7 @@ library
         , Network.AWS.DynamoDBStreams.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.3.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dynamodb-streams-test
@@ -100,9 +91,9 @@ test-suite amazonka-dynamodb-streams-test
         , Test.AWS.DynamoDBStreams.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-dynamodb-streams == 1.4.1.*
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-dynamodb-streams == 1.4.3.*
         , base
         , bytestring
         , tasty

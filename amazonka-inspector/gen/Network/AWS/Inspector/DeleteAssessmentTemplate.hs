@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the assessment template that is specified by the ARN of the
--- assessment template.
+-- Deletes the assessment template that is specified by the ARN of the assessment template.
 module Network.AWS.Inspector.DeleteAssessmentTemplate
     (
     -- * Creating a Request

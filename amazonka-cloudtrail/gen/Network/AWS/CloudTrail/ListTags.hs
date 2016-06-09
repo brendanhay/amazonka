@@ -73,9 +73,7 @@ listTags =
 ltNextToken :: Lens' ListTags (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | Specifies a list of trail ARNs whose tags will be listed. The list has a
--- limit of 20 ARNs. The format of a trail ARN is
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 ltResourceIdList :: Lens' ListTags [Text]
 ltResourceIdList = lens _ltResourceIdList (\ s a -> s{_ltResourceIdList = a}) . _Coerce;
 
@@ -117,8 +115,7 @@ instance ToPath ListTags where
 instance ToQuery ListTags where
         toQuery = const mempty
 
--- | Returns the objects or data listed below if successful. Otherwise,
--- returns an error.
+-- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'

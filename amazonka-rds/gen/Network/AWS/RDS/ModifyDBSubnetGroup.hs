@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing DB subnet group. DB subnet groups must contain at
--- least one subnet in at least two AZs in the region.
+-- Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region.
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
     -- * Creating a Request
@@ -77,11 +76,9 @@ modifyDBSubnetGroup pDBSubnetGroupName_ =
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
 
--- | The name for the DB subnet group. This value is stored as a lowercase
--- string.
+-- | The name for the DB subnet group. This value is stored as a lowercase string.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be default.
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text

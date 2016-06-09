@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves history for the specified alarm. Filter alarms by date range
--- or item type. If an alarm name is not specified, Amazon CloudWatch
--- returns histories for all of the owner\'s alarms.
+-- Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner\'s alarms.
 --
--- Amazon CloudWatch retains the history of an alarm for two weeks, whether
--- or not you delete the alarm.
+-- Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
@@ -109,8 +106,7 @@ dahEndDate = lens _dahEndDate (\ s a -> s{_dahEndDate = a}) . mapping _Time;
 dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
 dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Time;
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
 

@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a manual snapshot of the specified cluster. The cluster must be
--- in the 'available' state.
+-- Creates a manual snapshot of the specified cluster. The cluster must be in the 'available' state.
 --
--- For more information about working with snapshots, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Creating a Request
@@ -82,8 +79,7 @@ createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
 ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 
--- | A unique identifier for the snapshot that you are requesting. This
--- identifier must be unique for all snapshots within the AWS account.
+-- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.
 --
 -- Constraints:
 --

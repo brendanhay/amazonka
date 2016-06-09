@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the type of medium changer in a gateway-VTL. When you activate a
--- gateway-VTL, you select a medium changer type for the gateway-VTL. This
--- operation enables you to select a different type of medium changer after
--- a gateway-VTL is activated.
+-- Updates the type of medium changer in a gateway-VTL. When you activate a gateway-VTL, you select a medium changer type for the gateway-VTL. This operation enables you to select a different type of medium changer after a gateway-VTL is activated.
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
     -- * Creating a Request

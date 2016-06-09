@@ -20,8 +20,7 @@
 --
 -- Deletes the specified Auto Scaling policy.
 --
--- Deleting a policy deletes the underlying alarm action, but does not
--- delete the alarm, even if it no longer has an associated action.
+-- Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
 module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Creating a Request

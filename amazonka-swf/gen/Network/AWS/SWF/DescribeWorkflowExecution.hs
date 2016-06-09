@@ -18,29 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified workflow execution including its
--- type and some statistics.
+-- Returns information about the specified workflow execution including its type and some statistics.
 --
--- This operation is eventually consistent. The results are best effort and
--- may not exactly reflect recent updates and changes.
+-- This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF
--- resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to
---     only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this
---     action.
+-- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action,
--- or the parameter values fall outside the specified constraints, the
--- action fails. The associated event attribute\'s __cause__ parameter will
--- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
--- see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 module Network.AWS.SWF.DescribeWorkflowExecution
     (
     -- * Creating a Request
@@ -185,17 +175,11 @@ describeWorkflowExecutionResponse pResponseStatus_ pExecutionInfo_ pExecutionCon
     , _dwersOpenCounts = pOpenCounts_
     }
 
--- | The time when the last activity task was scheduled for this workflow
--- execution. You can use this information to determine if the workflow has
--- not made progress for an unusually long period of time and might require
--- a corrective action.
+-- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
 dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe UTCTime)
 dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a -> s{_dwersLatestActivityTaskTimestamp = a}) . mapping _Time;
 
--- | The latest executionContext provided by the decider for this workflow
--- execution. A decider can provide an executionContext (a free-form
--- string) when closing a decision task using
--- < RespondDecisionTaskCompleted>.
+-- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using < RespondDecisionTaskCompleted>.
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 
@@ -207,13 +191,11 @@ dwersResponseStatus = lens _dwersResponseStatus (\ s a -> s{_dwersResponseStatus
 dwersExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
 dwersExecutionInfo = lens _dwersExecutionInfo (\ s a -> s{_dwersExecutionInfo = a});
 
--- | The configuration settings for this workflow execution including timeout
--- values, tasklist etc.
+-- | The configuration settings for this workflow execution including timeout values, tasklist etc.
 dwersExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
 dwersExecutionConfiguration = lens _dwersExecutionConfiguration (\ s a -> s{_dwersExecutionConfiguration = a});
 
--- | The number of tasks for this workflow execution. This includes open and
--- closed tasks of all types.
+-- | The number of tasks for this workflow execution. This includes open and closed tasks of all types.
 dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwersOpenCounts = lens _dwersOpenCounts (\ s a -> s{_dwersOpenCounts = a});
 

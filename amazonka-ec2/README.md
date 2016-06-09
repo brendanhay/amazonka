@@ -8,17 +8,14 @@
 
 ## Version
 
-`1.4.1`
+`1.4.3`
 
 
 ## Description
 
 Amazon Elastic Compute Cloud
 
-Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing
-capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2
-eliminates your need to invest in hardware up front, so you can develop
-and deploy applications faster.
+Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ec2)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing image repository. If a repository contains images,
--- you must use the 'force' option to delete it.
+-- Deletes an existing image repository. If a repository contains images, you must use the 'force' option to delete it.
 module Network.AWS.ECR.DeleteRepository
     (
     -- * Creating a Request
@@ -75,9 +74,7 @@ deleteRepository pRepositoryName_ =
 dForce :: Lens' DeleteRepository (Maybe Bool)
 dForce = lens _dForce (\ s a -> s{_dForce = a});
 
--- | The AWS account ID associated with the registry that contains the
--- repository to delete. If you do not specify a registry, the default
--- registry is assumed.
+-- | The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
 dRegistryId :: Lens' DeleteRepository (Maybe Text)
 dRegistryId = lens _dRegistryId (\ s a -> s{_dRegistryId = a});
 

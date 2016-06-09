@@ -28,103 +28,103 @@ import Test.AWS.SSM.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeDocument $
+--         [ requestDescribeDocument $
 --             describeDocument
 --
---         , testCreateAssociation $
+--         , requestCreateAssociation $
 --             createAssociation
 --
---         , testCreateDocument $
+--         , requestCreateDocument $
 --             createDocument
 --
---         , testListCommandInvocations $
+--         , requestListCommandInvocations $
 --             listCommandInvocations
 --
---         , testListDocuments $
+--         , requestListDocuments $
 --             listDocuments
 --
---         , testGetDocument $
+--         , requestGetDocument $
 --             getDocument
 --
---         , testCancelCommand $
+--         , requestCancelCommand $
 --             cancelCommand
 --
---         , testDescribeAssociation $
+--         , requestDescribeAssociation $
 --             describeAssociation
 --
---         , testUpdateAssociationStatus $
+--         , requestUpdateAssociationStatus $
 --             updateAssociationStatus
 --
---         , testDescribeInstanceInformation $
+--         , requestDescribeInstanceInformation $
 --             describeInstanceInformation
 --
---         , testListAssociations $
+--         , requestListAssociations $
 --             listAssociations
 --
---         , testDeleteAssociation $
+--         , requestDeleteAssociation $
 --             deleteAssociation
 --
---         , testSendCommand $
+--         , requestSendCommand $
 --             sendCommand
 --
---         , testListCommands $
+--         , requestListCommands $
 --             listCommands
 --
---         , testDeleteDocument $
+--         , requestDeleteDocument $
 --             deleteDocument
 --
---         , testCreateAssociationBatch $
+--         , requestCreateAssociationBatch $
 --             createAssociationBatch
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeDocumentResponse $
+--         [ responseDescribeDocument $
 --             describeDocumentResponse
 --
---         , testCreateAssociationResponse $
+--         , responseCreateAssociation $
 --             createAssociationResponse
 --
---         , testCreateDocumentResponse $
+--         , responseCreateDocument $
 --             createDocumentResponse
 --
---         , testListCommandInvocationsResponse $
+--         , responseListCommandInvocations $
 --             listCommandInvocationsResponse
 --
---         , testListDocumentsResponse $
+--         , responseListDocuments $
 --             listDocumentsResponse
 --
---         , testGetDocumentResponse $
+--         , responseGetDocument $
 --             getDocumentResponse
 --
---         , testCancelCommandResponse $
+--         , responseCancelCommand $
 --             cancelCommandResponse
 --
---         , testDescribeAssociationResponse $
+--         , responseDescribeAssociation $
 --             describeAssociationResponse
 --
---         , testUpdateAssociationStatusResponse $
+--         , responseUpdateAssociationStatus $
 --             updateAssociationStatusResponse
 --
---         , testDescribeInstanceInformationResponse $
+--         , responseDescribeInstanceInformation $
 --             describeInstanceInformationResponse
 --
---         , testListAssociationsResponse $
+--         , responseListAssociations $
 --             listAssociationsResponse
 --
---         , testDeleteAssociationResponse $
+--         , responseDeleteAssociation $
 --             deleteAssociationResponse
 --
---         , testSendCommandResponse $
+--         , responseSendCommand $
 --             sendCommandResponse
 --
---         , testListCommandsResponse $
+--         , responseListCommands $
 --             listCommandsResponse
 --
---         , testDeleteDocumentResponse $
+--         , responseDeleteDocument $
 --             deleteDocumentResponse
 --
---         , testCreateAssociationBatchResponse $
+--         , responseCreateAssociationBatch $
 --             createAssociationBatchResponse
 --
 --           ]
@@ -132,195 +132,195 @@ import Test.AWS.SSM.Internal
 
 -- Requests
 
-testDescribeDocument :: DescribeDocument -> TestTree
-testDescribeDocument = req
+requestDescribeDocument :: DescribeDocument -> TestTree
+requestDescribeDocument = req
     "DescribeDocument"
     "fixture/DescribeDocument.yaml"
 
-testCreateAssociation :: CreateAssociation -> TestTree
-testCreateAssociation = req
+requestCreateAssociation :: CreateAssociation -> TestTree
+requestCreateAssociation = req
     "CreateAssociation"
     "fixture/CreateAssociation.yaml"
 
-testCreateDocument :: CreateDocument -> TestTree
-testCreateDocument = req
+requestCreateDocument :: CreateDocument -> TestTree
+requestCreateDocument = req
     "CreateDocument"
     "fixture/CreateDocument.yaml"
 
-testListCommandInvocations :: ListCommandInvocations -> TestTree
-testListCommandInvocations = req
+requestListCommandInvocations :: ListCommandInvocations -> TestTree
+requestListCommandInvocations = req
     "ListCommandInvocations"
     "fixture/ListCommandInvocations.yaml"
 
-testListDocuments :: ListDocuments -> TestTree
-testListDocuments = req
+requestListDocuments :: ListDocuments -> TestTree
+requestListDocuments = req
     "ListDocuments"
     "fixture/ListDocuments.yaml"
 
-testGetDocument :: GetDocument -> TestTree
-testGetDocument = req
+requestGetDocument :: GetDocument -> TestTree
+requestGetDocument = req
     "GetDocument"
     "fixture/GetDocument.yaml"
 
-testCancelCommand :: CancelCommand -> TestTree
-testCancelCommand = req
+requestCancelCommand :: CancelCommand -> TestTree
+requestCancelCommand = req
     "CancelCommand"
     "fixture/CancelCommand.yaml"
 
-testDescribeAssociation :: DescribeAssociation -> TestTree
-testDescribeAssociation = req
+requestDescribeAssociation :: DescribeAssociation -> TestTree
+requestDescribeAssociation = req
     "DescribeAssociation"
     "fixture/DescribeAssociation.yaml"
 
-testUpdateAssociationStatus :: UpdateAssociationStatus -> TestTree
-testUpdateAssociationStatus = req
+requestUpdateAssociationStatus :: UpdateAssociationStatus -> TestTree
+requestUpdateAssociationStatus = req
     "UpdateAssociationStatus"
     "fixture/UpdateAssociationStatus.yaml"
 
-testDescribeInstanceInformation :: DescribeInstanceInformation -> TestTree
-testDescribeInstanceInformation = req
+requestDescribeInstanceInformation :: DescribeInstanceInformation -> TestTree
+requestDescribeInstanceInformation = req
     "DescribeInstanceInformation"
     "fixture/DescribeInstanceInformation.yaml"
 
-testListAssociations :: ListAssociations -> TestTree
-testListAssociations = req
+requestListAssociations :: ListAssociations -> TestTree
+requestListAssociations = req
     "ListAssociations"
     "fixture/ListAssociations.yaml"
 
-testDeleteAssociation :: DeleteAssociation -> TestTree
-testDeleteAssociation = req
+requestDeleteAssociation :: DeleteAssociation -> TestTree
+requestDeleteAssociation = req
     "DeleteAssociation"
     "fixture/DeleteAssociation.yaml"
 
-testSendCommand :: SendCommand -> TestTree
-testSendCommand = req
+requestSendCommand :: SendCommand -> TestTree
+requestSendCommand = req
     "SendCommand"
     "fixture/SendCommand.yaml"
 
-testListCommands :: ListCommands -> TestTree
-testListCommands = req
+requestListCommands :: ListCommands -> TestTree
+requestListCommands = req
     "ListCommands"
     "fixture/ListCommands.yaml"
 
-testDeleteDocument :: DeleteDocument -> TestTree
-testDeleteDocument = req
+requestDeleteDocument :: DeleteDocument -> TestTree
+requestDeleteDocument = req
     "DeleteDocument"
     "fixture/DeleteDocument.yaml"
 
-testCreateAssociationBatch :: CreateAssociationBatch -> TestTree
-testCreateAssociationBatch = req
+requestCreateAssociationBatch :: CreateAssociationBatch -> TestTree
+requestCreateAssociationBatch = req
     "CreateAssociationBatch"
     "fixture/CreateAssociationBatch.yaml"
 
 -- Responses
 
-testDescribeDocumentResponse :: DescribeDocumentResponse -> TestTree
-testDescribeDocumentResponse = res
+responseDescribeDocument :: DescribeDocumentResponse -> TestTree
+responseDescribeDocument = res
     "DescribeDocumentResponse"
     "fixture/DescribeDocumentResponse.proto"
     ssm
     (Proxy :: Proxy DescribeDocument)
 
-testCreateAssociationResponse :: CreateAssociationResponse -> TestTree
-testCreateAssociationResponse = res
+responseCreateAssociation :: CreateAssociationResponse -> TestTree
+responseCreateAssociation = res
     "CreateAssociationResponse"
     "fixture/CreateAssociationResponse.proto"
     ssm
     (Proxy :: Proxy CreateAssociation)
 
-testCreateDocumentResponse :: CreateDocumentResponse -> TestTree
-testCreateDocumentResponse = res
+responseCreateDocument :: CreateDocumentResponse -> TestTree
+responseCreateDocument = res
     "CreateDocumentResponse"
     "fixture/CreateDocumentResponse.proto"
     ssm
     (Proxy :: Proxy CreateDocument)
 
-testListCommandInvocationsResponse :: ListCommandInvocationsResponse -> TestTree
-testListCommandInvocationsResponse = res
+responseListCommandInvocations :: ListCommandInvocationsResponse -> TestTree
+responseListCommandInvocations = res
     "ListCommandInvocationsResponse"
     "fixture/ListCommandInvocationsResponse.proto"
     ssm
     (Proxy :: Proxy ListCommandInvocations)
 
-testListDocumentsResponse :: ListDocumentsResponse -> TestTree
-testListDocumentsResponse = res
+responseListDocuments :: ListDocumentsResponse -> TestTree
+responseListDocuments = res
     "ListDocumentsResponse"
     "fixture/ListDocumentsResponse.proto"
     ssm
     (Proxy :: Proxy ListDocuments)
 
-testGetDocumentResponse :: GetDocumentResponse -> TestTree
-testGetDocumentResponse = res
+responseGetDocument :: GetDocumentResponse -> TestTree
+responseGetDocument = res
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
     ssm
     (Proxy :: Proxy GetDocument)
 
-testCancelCommandResponse :: CancelCommandResponse -> TestTree
-testCancelCommandResponse = res
+responseCancelCommand :: CancelCommandResponse -> TestTree
+responseCancelCommand = res
     "CancelCommandResponse"
     "fixture/CancelCommandResponse.proto"
     ssm
     (Proxy :: Proxy CancelCommand)
 
-testDescribeAssociationResponse :: DescribeAssociationResponse -> TestTree
-testDescribeAssociationResponse = res
+responseDescribeAssociation :: DescribeAssociationResponse -> TestTree
+responseDescribeAssociation = res
     "DescribeAssociationResponse"
     "fixture/DescribeAssociationResponse.proto"
     ssm
     (Proxy :: Proxy DescribeAssociation)
 
-testUpdateAssociationStatusResponse :: UpdateAssociationStatusResponse -> TestTree
-testUpdateAssociationStatusResponse = res
+responseUpdateAssociationStatus :: UpdateAssociationStatusResponse -> TestTree
+responseUpdateAssociationStatus = res
     "UpdateAssociationStatusResponse"
     "fixture/UpdateAssociationStatusResponse.proto"
     ssm
     (Proxy :: Proxy UpdateAssociationStatus)
 
-testDescribeInstanceInformationResponse :: DescribeInstanceInformationResponse -> TestTree
-testDescribeInstanceInformationResponse = res
+responseDescribeInstanceInformation :: DescribeInstanceInformationResponse -> TestTree
+responseDescribeInstanceInformation = res
     "DescribeInstanceInformationResponse"
     "fixture/DescribeInstanceInformationResponse.proto"
     ssm
     (Proxy :: Proxy DescribeInstanceInformation)
 
-testListAssociationsResponse :: ListAssociationsResponse -> TestTree
-testListAssociationsResponse = res
+responseListAssociations :: ListAssociationsResponse -> TestTree
+responseListAssociations = res
     "ListAssociationsResponse"
     "fixture/ListAssociationsResponse.proto"
     ssm
     (Proxy :: Proxy ListAssociations)
 
-testDeleteAssociationResponse :: DeleteAssociationResponse -> TestTree
-testDeleteAssociationResponse = res
+responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
+responseDeleteAssociation = res
     "DeleteAssociationResponse"
     "fixture/DeleteAssociationResponse.proto"
     ssm
     (Proxy :: Proxy DeleteAssociation)
 
-testSendCommandResponse :: SendCommandResponse -> TestTree
-testSendCommandResponse = res
+responseSendCommand :: SendCommandResponse -> TestTree
+responseSendCommand = res
     "SendCommandResponse"
     "fixture/SendCommandResponse.proto"
     ssm
     (Proxy :: Proxy SendCommand)
 
-testListCommandsResponse :: ListCommandsResponse -> TestTree
-testListCommandsResponse = res
+responseListCommands :: ListCommandsResponse -> TestTree
+responseListCommands = res
     "ListCommandsResponse"
     "fixture/ListCommandsResponse.proto"
     ssm
     (Proxy :: Proxy ListCommands)
 
-testDeleteDocumentResponse :: DeleteDocumentResponse -> TestTree
-testDeleteDocumentResponse = res
+responseDeleteDocument :: DeleteDocumentResponse -> TestTree
+responseDeleteDocument = res
     "DeleteDocumentResponse"
     "fixture/DeleteDocumentResponse.proto"
     ssm
     (Proxy :: Proxy DeleteDocument)
 
-testCreateAssociationBatchResponse :: CreateAssociationBatchResponse -> TestTree
-testCreateAssociationBatchResponse = res
+responseCreateAssociationBatch :: CreateAssociationBatchResponse -> TestTree
+responseCreateAssociationBatch = res
     "CreateAssociationBatchResponse"
     "fixture/CreateAssociationBatchResponse.proto"
     ssm

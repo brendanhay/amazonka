@@ -18,16 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier'
--- or the list of 'DeveloperUserIdentifier's associated with an
--- 'IdentityId' for an existing identity. Either 'IdentityID' or
--- 'DeveloperUserIdentifier' must not be null. If you supply only one of
--- these values, the other value will be searched in the database and
--- returned as a part of the response. If you supply both,
--- 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If the
--- values are verified against the database, the response returns both
--- values and is the same as the request. Otherwise a
--- 'ResourceConflictException' is thrown.
+-- Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier' or the list of 'DeveloperUserIdentifier's associated with an 'IdentityId' for an existing identity. Either 'IdentityID' or 'DeveloperUserIdentifier' must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a 'ResourceConflictException' is thrown.
 --
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
@@ -95,18 +86,11 @@ lookupDeveloperIdentity pIdentityPoolId_ =
     , _ldiIdentityPoolId = pIdentityPoolId_
     }
 
--- | A unique ID used by your backend authentication process to identify a
--- user. Typically, a developer identity provider would issue many
--- developer user identifiers, in keeping with the number of users.
+-- | A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.
 ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\ s a -> s{_ldiDeveloperUserIdentifier = a});
 
--- | A pagination token. The first call you make will have 'NextToken' set to
--- null. After that the service will return 'NextToken' values as needed.
--- For example, let\'s say you make a request with 'MaxResults' set to 10,
--- and there are 20 matches in the database. The service will return a
--- pagination token as a part of the response. This token can be used to
--- call the API again and get results starting from the 11th match.
+-- | A pagination token. The first call you make will have 'NextToken' set to null. After that the service will return 'NextToken' values as needed. For example, let\'s say you make a request with 'MaxResults' set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
 ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
@@ -197,12 +181,7 @@ lookupDeveloperIdentityResponse pResponseStatus_ =
     , _ldirsResponseStatus = pResponseStatus_
     }
 
--- | A pagination token. The first call you make will have 'NextToken' set to
--- null. After that the service will return 'NextToken' values as needed.
--- For example, let\'s say you make a request with 'MaxResults' set to 10,
--- and there are 20 matches in the database. The service will return a
--- pagination token as a part of the response. This token can be used to
--- call the API again and get results starting from the 11th match.
+-- | A pagination token. The first call you make will have 'NextToken' set to null. After that the service will return 'NextToken' values as needed. For example, let\'s say you make a request with 'MaxResults' set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
 ldirsNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 
@@ -210,9 +189,7 @@ ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 ldirsIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirsIdentityId = lens _ldirsIdentityId (\ s a -> s{_ldirsIdentityId = a});
 
--- | This is the list of developer user identifiers associated with an
--- identity ID. Cognito supports the association of multiple developer user
--- identifiers with an identity ID.
+-- | This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.
 ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce;
 

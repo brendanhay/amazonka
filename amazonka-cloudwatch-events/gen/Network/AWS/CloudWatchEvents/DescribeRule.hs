@@ -170,8 +170,7 @@ drrsState = lens _drrsState (\ s a -> s{_drrsState = a});
 drrsARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsARN = lens _drrsARN (\ s a -> s{_drrsARN = a});
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
--- minutes)\".
+-- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
 drrsScheduleExpression :: Lens' DescribeRuleResponse (Maybe Text)
 drrsScheduleExpression = lens _drrsScheduleExpression (\ s a -> s{_drrsScheduleExpression = a});
 

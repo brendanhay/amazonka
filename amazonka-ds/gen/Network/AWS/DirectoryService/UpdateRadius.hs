@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Remote Authentication Dial In User Service (RADIUS) server
--- information for an AD Connector directory.
+-- Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector directory.
 module Network.AWS.DirectoryService.UpdateRadius
     (
     -- * Creating a Request
@@ -68,13 +67,11 @@ updateRadius pDirectoryId_ pRadiusSettings_ =
     , _urRadiusSettings = pRadiusSettings_
     }
 
--- | The identifier of the directory for which to update the RADIUS server
--- information.
+-- | The identifier of the directory for which to update the RADIUS server information.
 urDirectoryId :: Lens' UpdateRadius Text
 urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS
--- server.
+-- | A < RadiusSettings> object that contains information about the RADIUS server.
 urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 

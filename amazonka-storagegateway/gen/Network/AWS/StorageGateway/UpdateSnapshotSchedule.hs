@@ -20,14 +20,9 @@
 --
 -- Updates a snapshot schedule configured for a gateway volume.
 --
--- The default snapshot schedule for volume is once every 24 hours,
--- starting at the creation time of the volume. You can use this API to
--- change the snapshot schedule configured for the volume.
+-- The default snapshot schedule for volume is once every 24 hours, starting at the creation time of the volume. You can use this API to change the snapshot schedule configured for the volume.
 --
--- In the request you must identify the gateway volume whose snapshot
--- schedule you want to update, and the schedule information, including
--- when you want the snapshot to begin on a day and the frequency (in
--- hours) of snapshots.
+-- In the request you must identify the gateway volume whose snapshot schedule you want to update, and the schedule information, including when you want the snapshot to begin on a day and the frequency (in hours) of snapshots.
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Creating a Request
@@ -56,10 +51,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < UpdateSnapshotScheduleInput$Description>
--- -   < UpdateSnapshotScheduleInput$RecurrenceInHours>
--- -   < UpdateSnapshotScheduleInput$StartAt>
--- -   < UpdateSnapshotScheduleInput$VolumeARN>
+-- -   < UpdateSnapshotScheduleInput>Description>
+-- -   < UpdateSnapshotScheduleInput>RecurrenceInHours>
+-- -   < UpdateSnapshotScheduleInput>StartAt>
+-- -   < UpdateSnapshotScheduleInput>VolumeARN>
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
@@ -93,19 +88,15 @@ updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
     , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
     }
 
--- | Optional description of the snapshot that overwrites the existing
--- description.
+-- | Optional description of the snapshot that overwrites the existing description.
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
--- operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
 
--- | The hour of the day at which the snapshot schedule begins represented as
--- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
--- time zone of the gateway.
+-- | The hour of the day at which the snapshot schedule begins represented as /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
 

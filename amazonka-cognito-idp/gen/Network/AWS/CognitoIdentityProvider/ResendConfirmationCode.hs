@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resends the confirmation (for confirmation of registration) to a
--- specific user in the user pool.
+-- Resends the confirmation (for confirmation of registration) to a specific user in the user pool.
 module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     (
     -- * Creating a Request
@@ -74,9 +73,7 @@ resendConfirmationCode pClientId_ pUsername_ =
     , _rccUsername = _Sensitive # pUsername_
     }
 
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 rccSecretHash :: Lens' ResendConfirmationCode (Maybe Text)
 rccSecretHash = lens _rccSecretHash (\ s a -> s{_rccSecretHash = a}) . mapping _Sensitive;
 
@@ -84,8 +81,7 @@ rccSecretHash = lens _rccSecretHash (\ s a -> s{_rccSecretHash = a}) . mapping _
 rccClientId :: Lens' ResendConfirmationCode Text
 rccClientId = lens _rccClientId (\ s a -> s{_rccClientId = a}) . _Sensitive;
 
--- | The user name of the user to whom you wish to resend a confirmation
--- code.
+-- | The user name of the user to whom you wish to resend a confirmation code.
 rccUsername :: Lens' ResendConfirmationCode Text
 rccUsername = lens _rccUsername (\ s a -> s{_rccUsername = a}) . _Sensitive;
 
@@ -128,8 +124,7 @@ instance ToPath ResendConfirmationCode where
 instance ToQuery ResendConfirmationCode where
         toQuery = const mempty
 
--- | The response from the server when the Amazon Cognito service makes the
--- request to resend a confirmation code.
+-- | The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.
 --
 -- /See:/ 'resendConfirmationCodeResponse' smart constructor.
 data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'

@@ -299,17 +299,20 @@ The key functions dealing with the request/response lifecycle are:
 
 * 'await'
 
-To utilise these, you will need to specify what 'Region' you wish to operate in
-and your Amazon credentials for AuthN/AuthZ purposes.
+These functions have constraints that types from the @amazonka-*@ libraries
+satisfy. To utilise these, you will need to specify what 'Region' you wish to
+operate in and your Amazon credentials for AuthN/AuthZ purposes.
 
 'Credentials' can be supplied in a number of ways. Either via explicit keys,
-via session profiles, or have Amazonka determine the credentials from an
+via session profiles, or have Amazonka retrieve the credentials from an
 underlying IAM Role/Profile.
 
 As a basic example, you might wish to store an object in an S3 bucket using
 <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:
 
 @
+{-# LANGUAGE OverloadedStrings #-}
+
 import Control.Lens
 import Network.AWS
 import Network.AWS.S3
@@ -317,20 +320,20 @@ import System.IO
 
 example :: IO PutObjectResponse
 example = do
-    -- To specify configuration preferences, 'newEnv' is used to create a new 'Env'. The 'Region' denotes the AWS region requests will be performed against,
-    -- and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
-    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM Profile:
-    e <- newEnv Frankfurt Discover
-
     -- A new 'Logger' to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
-    l <- newLogger Debug stdout
+    lgr  <- newLogger Debug stdout
 
-    -- The payload (and hash) for the S3 object is retrieved from a FilePath:
-    b <- sourceFileIO "local\/path\/to\/object-payload"
+    -- To specify configuration preferences, 'newEnv' is used to create a new configuration environment.
+    -- The 'Region' denotes the AWS region requests will be performed against, and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
+    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM Profile:
+    env  <- newEnv Frankfurt Discover
 
-    -- We now run the AWS computation with the overriden logger, performing the PutObject request:
-    runResourceT . runAWS (e & envLogger .~ l) $
-        send (putObject "bucket-name" "object-key" b)
+    -- The payload (and hash) for the S3 object is retrieved from a 'FilePath':
+    body <- sourceFileIO "local\/path\/to\/object-payload"
+
+    -- We now run the 'AWS' computation with the overriden logger, performing the 'PutObject' request:
+    runResourceT . runAWS (env & envLogger .~ lgr) $
+        send (putObject "bucket-name" "object-key" body)
 @
 -}
 

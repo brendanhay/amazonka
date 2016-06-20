@@ -48,7 +48,7 @@ _Base64 = iso unBase64 Base64
 -- the underlying serialisers (JSON, XML) use Text internally.
 instance FromText Base64 where
     parser = AText.takeText >>=
-        either fail (return . Base64)
+        either fail (pure . Base64)
             . BA.convertFromBase BA.Base64
             . Text.encodeUtf8
 

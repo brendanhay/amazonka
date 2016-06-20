@@ -1,7 +1,7 @@
 # Change Log
 
 ## [1.4.3](https://github.com/brendanhay/amazonka/tree/1.4.3)
-Released: **09 June, 2016**, Compare: [1.4.3](https://github.com/brendanhay/amazonka/compare/1.4.2...1.4.3)
+Released: **09 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.2...1.4.3)
 
 ### Fixed
 
@@ -9,14 +9,14 @@ Released: **09 June, 2016**, Compare: [1.4.3](https://github.com/brendanhay/amaz
 - CloudWatchLogs `FilterLogEvents` pagination now correctly returns all results. [\#296](https://github.com/brendanhay/amazonka/issues/296)
 - Documentation code samples for IoT, Lambda, and Discovery are now correctly Haddock formatted.
 
-### Changes
+### Changed
 
 - Documentation is now formatted more consistently at the expense of longer line columns.
 - `POSIX` timestamps no longer have unecessary (and misleading) Text/XML instances.
 
 
 ## [1.4.2](https://github.com/brendanhay/amazonka/tree/1.4.2)
-Released: **03 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.1...1.4.2)
+Released: **03 June, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amazonka/compare/1.4.1...1.4.2)
 
 ### Fixed
 
@@ -24,7 +24,7 @@ Released: **03 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amaz
 - APIGateway now correctly parses and encodes `ISO8601` formatted timestamps. [\#291](https://github.com/brendanhay/amazonka/issues/291)
 - `~/.aws/credentials` now correctly parses with leading newlines. [\#290](https://github.com/brendanhay/amazonka/issues/290)
 
-### Changes
+### Changed
 
 - `SerializeError` now contains the unparsed response body. [\#293](https://github.com/brendanhay/amazonka/pull/293)
 
@@ -44,14 +44,14 @@ Released: **03 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amaz
 
 
 ## [1.4.1](https://github.com/brendanhay/amazonka/tree/1.4.1)
-Released: **09 May, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amazonka/compare/1.4.0...1.4.1)
+Released: **09 May, 2016**, Compare: [1.4.0](https://github.com/brendanhay/amazonka/compare/1.4.0...1.4.1)
 
 ### Fixed
 
 - AutoScaling `DescribeAutoScalingInstances` response field `LaunchConfigurationName` is now optional. [\#281](https://github.com/brendanhay/amazonka/issues/281)
 - SWF `PollForDecisionTask` and `PollForActivityTask` response fields are now optional. [\#285](https://github.com/brendanhay/amazonka/issues/285)
 
-### Changes
+### Changed
 
 - `NFData` instances generated for all eligible types. [\#283](https://github.com/brendanhay/amazonka/issues/283)
 - Additional retry cases for HTTP `5XX` response codes. [c5e494e](https://github.com/brendanhay/amazonka/commit/c5e494e2a97fcf2e9210527ed5e8547f1be898de)
@@ -99,7 +99,7 @@ Please review the linked commit for each library for specific changes:
 
 
 ## [1.4.0](https://github.com/brendanhay/amazonka/tree/1.4.0)
-Released: **21 March, 2016**, Compare: [1.4.0](https://github.com/brendanhay/amazonka/compare/1.3.7...1.4.0)
+Released: **21 March, 2016**, Compare: [1.3.7](https://github.com/brendanhay/amazonka/compare/1.3.7...1.4.0)
 
 ### Fixed
 
@@ -158,13 +158,13 @@ Please see the relevant libraries for specific changes:
 
 
 ## [1.3.7](https://github.com/brendanhay/amazonka/tree/1.3.7)
-Released: **18 December, 2015**, Compare: [1.3.7](https://github.com/brendanhay/amazonka/compare/1.3.6...1.3.7)
+Released: **18 December, 2015**, Compare: [1.3.6](https://github.com/brendanhay/amazonka/compare/1.3.6...1.3.7)
 
 ### Fixed
 
 - Fix SWF `PollFor{Activity,Decision}Task` response deserialisation. [\#257](https://github.com/brendanhay/amazonka/issues/257)
 
-### Changes
+### Changed
 
 - The `ErrorCode` type constructor is now exported. [\#258](https://github.com/brendanhay/amazonka/issues/258)
 - Add `Bounded` instances for all enumerations with stable values. [\#255](https://github.com/brendanhay/amazonka/issues/255)
@@ -189,7 +189,7 @@ Released: **18 December, 2015**, Compare: [1.3.7](https://github.com/brendanhay/
 
 
 ## [1.3.6](https://github.com/brendanhay/amazonka/tree/1.3.6)
-Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/amazonka/compare/1.3.5.1...1.3.6)
+Released: **18 November, 2015**, Compare: [1.3.5.1](https://github.com/brendanhay/amazonka/compare/1.3.5.1...1.3.6)
 
 ### Fixed
 
@@ -197,7 +197,7 @@ Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/
 - Fix S3 `BucketLocationConstraint` type de/serialisation. [\#249](https://github.com/brendanhay/amazonka/issues/249)
 - Fix S3 `PutBucketACL` header vs request body serialisation. [\#241](https://github.com/brendanhay/amazonka/issues/241)
 
-### Changes
+### Changed
 
 - `await` responses now indicate request fulfillment. [\#245](https://github.com/brendanhay/amazonka/issues/245)
 
@@ -216,7 +216,7 @@ Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/
 
 
 ## [1.3.5.1](https://github.com/brendanhay/amazonka/tree/1.3.5.1)
-Released: **18 November, 2015**, Compare: [1.3.5.1](https://github.com/brendanhay/amazonka/compare/1.3.5...1.3.5.1)
+Released: **18 November, 2015**, Compare: [1.3.5](https://github.com/brendanhay/amazonka/compare/1.3.5...1.3.5.1)
 
 ### Fixed
 
@@ -225,7 +225,7 @@ Released: **18 November, 2015**, Compare: [1.3.5.1](https://github.com/brendanha
 
 
 ## [1.3.5](https://github.com/brendanhay/amazonka/tree/1.3.5)
-Released: **27 October, 2015**, Compare: [1.3.5](https://github.com/brendanhay/amazonka/compare/1.3.4...1.3.5)
+Released: **27 October, 2015**, Compare: [1.3.4](https://github.com/brendanhay/amazonka/compare/1.3.4...1.3.5)
 
 ### Updated Services Definitions
 
@@ -239,7 +239,7 @@ Released: **27 October, 2015**, Compare: [1.3.5](https://github.com/brendanhay/a
 
 
 ## [1.3.4](https://github.com/brendanhay/amazonka/tree/1.3.4)
-Released: **25 October, 2015**, Compare: [1.3.4](https://github.com/brendanhay/amazonka/compare/1.3.3...1.3.4)
+Released: **25 October, 2015**, Compare: [1.3.3](https://github.com/brendanhay/amazonka/compare/1.3.3...1.3.4)
 
 ### Updated Services Definitions
 

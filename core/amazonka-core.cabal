@@ -83,7 +83,7 @@ library
         , deepseq              >= 1.4
         , exceptions           >= 0.6
         , hashable             >= 1.2
-        , http-conduit         >= 2.1.4
+        , http-conduit         >= 2.1.4 && < 2.2
         , http-types           >= 0.8
         , lens                 >= 4.4
         , memory               >= 0.6

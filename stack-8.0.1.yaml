@@ -1,14 +1,10 @@
 compiler:   ghc-8.0.1
-resolver:   nightly-2016-06-07
+resolver:   nightly-2016-07-07
 flags:      {}
 extra-deps:
-  # amazonka-test / GHC8
-  - groom-0.1.2
-  # amazonka-s3-encryption / GHC8
-  - conduit-combinators-1.0.3.1
-  - chunked-data-0.2.0
-  - mono-traversable-0.10.2
-  - dlist-instances-0.1
+  - http-conduit-2.2.0
+  - http-client-0.5.0.1
+  - http-client-tls-0.3.0
 packages:
   - core
   - test

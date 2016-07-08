@@ -203,10 +203,14 @@ newEnvWith r c p m =
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
 retryConnectionFailure :: Int -> Int -> HttpException -> Bool
-retryConnectionFailure limit n = \case
-    _ | n >= limit                -> False
-    NoResponseDataReceived        -> True
-    FailedConnectionException  {} -> True
-    FailedConnectionException2 {} -> True
-    TlsException               {} -> True
-    _                             -> False
+retryConnectionFailure _     _ InvalidUrlException {}      = False
+retryConnectionFailure limit n (HttpExceptionRequest _ ex)
+    | n >= limit = False
+    | otherwise  =
+        case ex of
+            NoResponseDataReceived -> True
+            ConnectionTimeout      -> True
+            ConnectionClosed       -> True
+            ConnectionFailure {}   -> True
+            InternalException {}   -> True
+            _                      -> False

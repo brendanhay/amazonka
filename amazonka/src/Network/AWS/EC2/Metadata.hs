@@ -305,10 +305,11 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
     x <- try $ get m (latest <> "user-data")
     case x of
-        Right b                 -> return (Just b)
-        Left (StatusCodeException s _ _)
-            | fromEnum s == 404 -> return Nothing
-        Left e                  -> throwM e
+        Right b -> return (Just b)
+        Left (HttpExceptionRequest _ (StatusCodeException rs _))
+            | fromEnum (responseStatus rs) == 404
+                -> return Nothing
+        Left e  -> throwM e
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
 get m url = liftIO (strip `liftM` request m url)
@@ -319,6 +320,6 @@ get m url = liftIO (strip `liftM` request m url)
 
 request :: Manager -> Text -> IO ByteString
 request m url = do
-    rq <- parseUrl (Text.unpack url)
+    rq <- parseUrlThrow (Text.unpack url)
     rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

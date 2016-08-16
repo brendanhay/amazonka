@@ -75,7 +75,7 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObject' smart constructor.
 data PutObject = PutObject'
-    { _poContentLength           :: !(Maybe Int)
+    { _poContentLength           :: !(Maybe Integer)
     , _poExpires                 :: !(Maybe RFC822)
     , _poGrantReadACP            :: !(Maybe Text)
     , _poSSECustomerAlgorithm    :: !(Maybe Text)
@@ -190,7 +190,7 @@ putObject pBucket_ pKey_ pBody_ =
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
-poContentLength :: Lens' PutObject (Maybe Int)
+poContentLength :: Lens' PutObject (Maybe Integer)
 poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a});
 
 -- | The date and time at which the object is no longer cacheable.

@@ -61,7 +61,7 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPart' smart constructor.
 data UploadPart = UploadPart'
-    { _upContentLength        :: !(Maybe Int)
+    { _upContentLength        :: !(Maybe Integer)
     , _upSSECustomerAlgorithm :: !(Maybe Text)
     , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
     , _upRequestPayer         :: !(Maybe RequestPayer)
@@ -122,7 +122,7 @@ uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
-upContentLength :: Lens' UploadPart (Maybe Int)
+upContentLength :: Lens' UploadPart (Maybe Integer)
 upContentLength = lens _upContentLength (\ s a -> s{_upContentLength = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).

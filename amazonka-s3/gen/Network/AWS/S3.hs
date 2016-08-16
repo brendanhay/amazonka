@@ -98,6 +98,9 @@ module Network.AWS.S3
     -- ** PutBucketAccelerateConfiguration
     , module Network.AWS.S3.PutBucketAccelerateConfiguration
 
+    -- ** ListObjectsV
+    , module Network.AWS.S3.ListObjectsV
+
     -- ** GetObject
     , module Network.AWS.S3.GetObject
 
@@ -710,6 +713,7 @@ import           Network.AWS.S3.Internal
 import           Network.AWS.S3.ListBuckets
 import           Network.AWS.S3.ListMultipartUploads
 import           Network.AWS.S3.ListObjects
+import           Network.AWS.S3.ListObjectsV
 import           Network.AWS.S3.ListObjectVersions
 import           Network.AWS.S3.ListParts
 import           Network.AWS.S3.PutBucketAccelerateConfiguration

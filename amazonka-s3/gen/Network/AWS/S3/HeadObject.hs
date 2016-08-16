@@ -257,7 +257,7 @@ data HeadObjectResponse = HeadObjectResponse'
     { _horsRequestCharged          :: !(Maybe RequestCharged)
     , _horsETag                    :: !(Maybe ETag)
     , _horsVersionId               :: !(Maybe ObjectVersionId)
-    , _horsContentLength           :: !(Maybe Int)
+    , _horsContentLength           :: !(Maybe Integer)
     , _horsExpires                 :: !(Maybe RFC822)
     , _horsRestore                 :: !(Maybe Text)
     , _horsExpiration              :: !(Maybe Text)
@@ -379,7 +379,7 @@ horsVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
 horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a});
 
 -- | Size of the body in bytes.
-horsContentLength :: Lens' HeadObjectResponse (Maybe Int)
+horsContentLength :: Lens' HeadObjectResponse (Maybe Integer)
 horsContentLength = lens _horsContentLength (\ s a -> s{_horsContentLength = a});
 
 -- | The date and time at which the object is no longer cacheable.

@@ -21,6 +21,92 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Route53Domains.Types.Sum
 
+-- | /See:/ 'billingRecord' smart constructor.
+data BillingRecord = BillingRecord'
+    { _brOperation  :: !(Maybe OperationType)
+    , _brInvoiceId  :: !(Maybe Text)
+    , _brDomainName :: !(Maybe Text)
+    , _brBillDate   :: !(Maybe POSIX)
+    , _brPrice      :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BillingRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brOperation'
+--
+-- * 'brInvoiceId'
+--
+-- * 'brDomainName'
+--
+-- * 'brBillDate'
+--
+-- * 'brPrice'
+billingRecord
+    :: BillingRecord
+billingRecord =
+    BillingRecord'
+    { _brOperation = Nothing
+    , _brInvoiceId = Nothing
+    , _brDomainName = Nothing
+    , _brBillDate = Nothing
+    , _brPrice = Nothing
+    }
+
+-- | The operation that you were charged for.
+--
+-- Type: String
+--
+-- Valid values:
+--
+-- -   'REGISTER_DOMAIN'
+-- -   'TRANSFER_IN_DOMAIN'
+-- -   'RENEW_DOMAIN'
+-- -   'CHANGE_DOMAIN_OWNER'
+brOperation :: Lens' BillingRecord (Maybe OperationType)
+brOperation = lens _brOperation (\ s a -> s{_brOperation = a});
+
+-- | The ID of the invoice that is associated with the billing record.
+--
+-- Type: String
+brInvoiceId :: Lens' BillingRecord (Maybe Text)
+brInvoiceId = lens _brInvoiceId (\ s a -> s{_brInvoiceId = a});
+
+-- | The name of a domain.
+--
+-- Type: String
+brDomainName :: Lens' BillingRecord (Maybe Text)
+brDomainName = lens _brDomainName (\ s a -> s{_brDomainName = a});
+
+-- | The date that the operation was billed, in Unix format.
+--
+-- Type: Double
+brBillDate :: Lens' BillingRecord (Maybe UTCTime)
+brBillDate = lens _brBillDate (\ s a -> s{_brBillDate = a}) . mapping _Time;
+
+-- | The price that you were charged for the operation, in US dollars.
+--
+-- Type: Double
+--
+-- Example value: 12.0
+brPrice :: Lens' BillingRecord (Maybe Double)
+brPrice = lens _brPrice (\ s a -> s{_brPrice = a});
+
+instance FromJSON BillingRecord where
+        parseJSON
+          = withObject "BillingRecord"
+              (\ x ->
+                 BillingRecord' <$>
+                   (x .:? "Operation") <*> (x .:? "InvoiceId") <*>
+                     (x .:? "DomainName")
+                     <*> (x .:? "BillDate")
+                     <*> (x .:? "Price"))
+
+instance Hashable BillingRecord
+
+instance NFData BillingRecord
+
 -- | ContactDetail includes the following elements.
 --
 -- /See:/ 'contactDetail' smart constructor.
@@ -330,6 +416,46 @@ instance ToJSON ContactDetail where
                   ("FirstName" .=) <$> _cdFirstName,
                   ("CountryCode" .=) <$> _cdCountryCode,
                   ("ContactType" .=) <$> _cdContactType])
+
+-- | /See:/ 'domainSuggestion' smart constructor.
+data DomainSuggestion = DomainSuggestion'
+    { _dAvailability :: !(Maybe Text)
+    , _dDomainName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainSuggestion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dAvailability'
+--
+-- * 'dDomainName'
+domainSuggestion
+    :: DomainSuggestion
+domainSuggestion =
+    DomainSuggestion'
+    { _dAvailability = Nothing
+    , _dDomainName = Nothing
+    }
+
+-- | Undocumented member.
+dAvailability :: Lens' DomainSuggestion (Maybe Text)
+dAvailability = lens _dAvailability (\ s a -> s{_dAvailability = a});
+
+-- | Undocumented member.
+dDomainName :: Lens' DomainSuggestion (Maybe Text)
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
+
+instance FromJSON DomainSuggestion where
+        parseJSON
+          = withObject "DomainSuggestion"
+              (\ x ->
+                 DomainSuggestion' <$>
+                   (x .:? "Availability") <*> (x .:? "DomainName"))
+
+instance Hashable DomainSuggestion
+
+instance NFData DomainSuggestion
 
 -- | /See:/ 'domainSummary' smart constructor.
 data DomainSummary = DomainSummary'

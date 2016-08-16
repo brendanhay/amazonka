@@ -49,11 +49,13 @@ library
         , Network.AWS.Route53Domains.EnableDomainTransferLock
         , Network.AWS.Route53Domains.GetContactReachabilityStatus
         , Network.AWS.Route53Domains.GetDomainDetail
+        , Network.AWS.Route53Domains.GetDomainSuggestions
         , Network.AWS.Route53Domains.GetOperationDetail
         , Network.AWS.Route53Domains.ListDomains
         , Network.AWS.Route53Domains.ListOperations
         , Network.AWS.Route53Domains.ListTagsForDomain
         , Network.AWS.Route53Domains.RegisterDomain
+        , Network.AWS.Route53Domains.RenewDomain
         , Network.AWS.Route53Domains.ResendContactReachabilityEmail
         , Network.AWS.Route53Domains.RetrieveDomainAuthCode
         , Network.AWS.Route53Domains.TransferDomain
@@ -62,6 +64,7 @@ library
         , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
         , Network.AWS.Route53Domains.UpdateDomainNameservers
         , Network.AWS.Route53Domains.UpdateTagsForDomain
+        , Network.AWS.Route53Domains.ViewBilling
         , Network.AWS.Route53Domains.Waiters
 
     other-modules:

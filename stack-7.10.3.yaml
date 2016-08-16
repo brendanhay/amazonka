@@ -58,6 +58,7 @@ packages:
   - amazonka-iot
   - amazonka-iot-dataplane
   - amazonka-kinesis
+  - amazonka-kinesis-analytics
   - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
@@ -72,7 +73,9 @@ packages:
   - amazonka-s3
   - amazonka-s3-encryption
   - amazonka-sdb
+  - amazonka-servicecatalog
   - amazonka-ses
+  - amazonka-snowball
   - amazonka-sns
   - amazonka-sqs
   - amazonka-ssm

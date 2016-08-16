@@ -177,6 +177,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-kinesis
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-kinesis-analytics
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-kinesis-firehose
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-kms
@@ -203,7 +205,11 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-sdb
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-servicecatalog
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-ses
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-snowball
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-sns
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }

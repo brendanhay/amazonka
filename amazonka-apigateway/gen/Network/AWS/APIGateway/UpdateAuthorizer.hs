@@ -35,6 +35,7 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     -- * Response Lenses
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds

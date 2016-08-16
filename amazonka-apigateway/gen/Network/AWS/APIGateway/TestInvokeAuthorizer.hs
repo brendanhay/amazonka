@@ -41,6 +41,7 @@ module Network.AWS.APIGateway.TestInvokeAuthorizer
     , tiarsPrincipalId
     , tiarsLatency
     , tiarsAuthorization
+    , tiarsClaims
     , tiarsClientStatus
     , tiarsPolicy
     , tiarsResponseStatus
@@ -137,6 +138,7 @@ instance AWSRequest TestInvokeAuthorizer where
                    (x .?> "log") <*> (x .?> "principalId") <*>
                      (x .?> "latency")
                      <*> (x .?> "authorization" .!@ mempty)
+                     <*> (x .?> "claims" .!@ mempty)
                      <*> (x .?> "clientStatus")
                      <*> (x .?> "policy")
                      <*> (pure (fromEnum s)))
@@ -179,6 +181,7 @@ data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
     , _tiarsPrincipalId    :: !(Maybe Text)
     , _tiarsLatency        :: !(Maybe Integer)
     , _tiarsAuthorization  :: !(Maybe (Map Text [Text]))
+    , _tiarsClaims         :: !(Maybe (Map Text Text))
     , _tiarsClientStatus   :: !(Maybe Int)
     , _tiarsPolicy         :: !(Maybe Text)
     , _tiarsResponseStatus :: !Int
@@ -196,6 +199,8 @@ data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
 --
 -- * 'tiarsAuthorization'
 --
+-- * 'tiarsClaims'
+--
 -- * 'tiarsClientStatus'
 --
 -- * 'tiarsPolicy'
@@ -210,6 +215,7 @@ testInvokeAuthorizerResponse pResponseStatus_ =
     , _tiarsPrincipalId = Nothing
     , _tiarsLatency = Nothing
     , _tiarsAuthorization = Nothing
+    , _tiarsClaims = Nothing
     , _tiarsClientStatus = Nothing
     , _tiarsPolicy = Nothing
     , _tiarsResponseStatus = pResponseStatus_
@@ -230,6 +236,10 @@ tiarsLatency = lens _tiarsLatency (\ s a -> s{_tiarsLatency = a});
 -- | Undocumented member.
 tiarsAuthorization :: Lens' TestInvokeAuthorizerResponse (HashMap Text [Text])
 tiarsAuthorization = lens _tiarsAuthorization (\ s a -> s{_tiarsAuthorization = a}) . _Default . _Map;
+
+-- | Undocumented member.
+tiarsClaims :: Lens' TestInvokeAuthorizerResponse (HashMap Text Text)
+tiarsClaims = lens _tiarsClaims (\ s a -> s{_tiarsClaims = a}) . _Default . _Map;
 
 -- | The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.
 tiarsClientStatus :: Lens' TestInvokeAuthorizerResponse (Maybe Int)

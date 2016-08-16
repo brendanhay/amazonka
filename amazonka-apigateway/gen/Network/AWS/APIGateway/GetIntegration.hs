@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetIntegration
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace

@@ -157,6 +157,7 @@ instance NFData Account
 data Authorizer = Authorizer'
     { _aAuthorizerURI                :: !(Maybe Text)
     , _aIdentityValidationExpression :: !(Maybe Text)
+    , _aProviderARNs                 :: !(Maybe [Text])
     , _aName                         :: !(Maybe Text)
     , _aId                           :: !(Maybe Text)
     , _aAuthorizerResultTtlInSeconds :: !(Maybe Int)
@@ -173,6 +174,8 @@ data Authorizer = Authorizer'
 -- * 'aAuthorizerURI'
 --
 -- * 'aIdentityValidationExpression'
+--
+-- * 'aProviderARNs'
 --
 -- * 'aName'
 --
@@ -193,6 +196,7 @@ authorizer =
     Authorizer'
     { _aAuthorizerURI = Nothing
     , _aIdentityValidationExpression = Nothing
+    , _aProviderARNs = Nothing
     , _aName = Nothing
     , _aId = Nothing
     , _aAuthorizerResultTtlInSeconds = Nothing
@@ -209,6 +213,10 @@ aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
 -- | A validation expression for the incoming identity. For TOKEN authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn\'t match, the client receives a 401 Unauthorized response.
 aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
 aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
+
+-- | Undocumented member.
+aProviderARNs :: Lens' Authorizer [Text]
+aProviderARNs = lens _aProviderARNs (\ s a -> s{_aProviderARNs = a}) . _Default . _Coerce;
 
 -- | [Required] The name of the authorizer.
 aName :: Lens' Authorizer (Maybe Text)
@@ -245,6 +253,7 @@ instance FromJSON Authorizer where
                  Authorizer' <$>
                    (x .:? "authorizerUri") <*>
                      (x .:? "identityValidationExpression")
+                     <*> (x .:? "providerARNs" .!= mempty)
                      <*> (x .:? "name")
                      <*> (x .:? "id")
                      <*> (x .:? "authorizerResultTtlInSeconds")
@@ -507,6 +516,7 @@ data Integration = Integration'
     , _iRequestTemplates     :: !(Maybe (Map Text Text))
     , _iCredentials          :: !(Maybe Text)
     , _iRequestParameters    :: !(Maybe (Map Text Text))
+    , _iPassthroughBehavior  :: !(Maybe Text)
     , _iUri                  :: !(Maybe Text)
     , _iIntegrationResponses :: !(Maybe (Map Text IntegrationResponse))
     , _iCacheNamespace       :: !(Maybe Text)
@@ -526,6 +536,8 @@ data Integration = Integration'
 --
 -- * 'iRequestParameters'
 --
+-- * 'iPassthroughBehavior'
+--
 -- * 'iUri'
 --
 -- * 'iIntegrationResponses'
@@ -543,6 +555,7 @@ integration =
     , _iRequestTemplates = Nothing
     , _iCredentials = Nothing
     , _iRequestParameters = Nothing
+    , _iPassthroughBehavior = Nothing
     , _iUri = Nothing
     , _iIntegrationResponses = Nothing
     , _iCacheNamespace = Nothing
@@ -554,7 +567,7 @@ integration =
 iHttpMethod :: Lens' Integration (Maybe Text)
 iHttpMethod = lens _iHttpMethod (\ s a -> s{_iHttpMethod = a});
 
--- | Specifies the integration\'s request templates.
+-- | Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 iRequestTemplates :: Lens' Integration (HashMap Text Text)
 iRequestTemplates = lens _iRequestTemplates (\ s a -> s{_iRequestTemplates = a}) . _Default . _Map;
 
@@ -565,6 +578,16 @@ iCredentials = lens _iCredentials (\ s a -> s{_iCredentials = a});
 -- | Represents requests parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
 iRequestParameters :: Lens' Integration (HashMap Text Text)
 iRequestParameters = lens _iRequestParameters (\ s a -> s{_iRequestParameters = a}) . _Default . _Map;
+
+-- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available requestTemplates defined on the Integration. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
+--
+-- 'WHEN_NO_MATCH' passes the request body for unmapped content types through to the Integration backend without transformation.
+--
+-- 'NEVER' rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
+--
+-- 'WHEN_NO_TEMPLATES' will allow pass-through when the Integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
+iPassthroughBehavior :: Lens' Integration (Maybe Text)
+iPassthroughBehavior = lens _iPassthroughBehavior (\ s a -> s{_iPassthroughBehavior = a});
 
 -- | Specifies the integration\'s Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification>. For AWS integrations, the URI should be of the form 'arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}\/{service_api}'. 'Region', 'subdomain' and 'service' are used to determine the right endpoint. For AWS services that use the 'Action=' query string parameter, 'service_api' should be a valid action for the desired service. For RESTful AWS service APIs, 'path' is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial '\/'.
 iUri :: Lens' Integration (Maybe Text)
@@ -595,6 +618,7 @@ instance FromJSON Integration where
                      (x .:? "requestTemplates" .!= mempty)
                      <*> (x .:? "credentials")
                      <*> (x .:? "requestParameters" .!= mempty)
+                     <*> (x .:? "passthroughBehavior")
                      <*> (x .:? "uri")
                      <*> (x .:? "integrationResponses" .!= mempty)
                      <*> (x .:? "cacheNamespace")

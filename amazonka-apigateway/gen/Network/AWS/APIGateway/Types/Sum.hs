@@ -20,18 +20,21 @@ module Network.AWS.APIGateway.Types.Sum where
 import           Network.AWS.Prelude
 
 -- | The authorizer type. Only current value is TOKEN.
-data AuthorizerType =
-    Token
+data AuthorizerType
+    = CognitoUserPools
+    | Token
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AuthorizerType where
     parser = takeLowerText >>= \case
+        "cognito_user_pools" -> pure CognitoUserPools
         "token" -> pure Token
         e -> fromTextError $ "Failure parsing AuthorizerType from value: '" <> e
-           <> "'. Accepted values: TOKEN"
+           <> "'. Accepted values: COGNITO_USER_POOLS, TOKEN"
 
 instance ToText AuthorizerType where
     toText = \case
+        CognitoUserPools -> "COGNITO_USER_POOLS"
         Token -> "TOKEN"
 
 instance Hashable     AuthorizerType

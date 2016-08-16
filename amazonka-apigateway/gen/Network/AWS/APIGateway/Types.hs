@@ -67,6 +67,7 @@ module Network.AWS.APIGateway.Types
     , authorizer
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
@@ -114,6 +115,7 @@ module Network.AWS.APIGateway.Types
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace

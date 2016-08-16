@@ -325,6 +325,7 @@ module Network.AWS.APIGateway
     , authorizer
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
@@ -372,6 +373,7 @@ module Network.AWS.APIGateway
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace

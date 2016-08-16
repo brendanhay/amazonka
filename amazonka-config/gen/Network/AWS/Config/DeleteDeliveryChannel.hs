@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified delivery channel.
+-- Deletes the delivery channel.
 --
--- The delivery channel cannot be deleted if it is the only delivery channel and the configuration recorder is still running. To delete the delivery channel, stop the running configuration recorder using the < StopConfigurationRecorder> action.
+-- Before you can delete the delivery channel, you must stop the configuration recorder by using the < StopConfigurationRecorder> action.
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request

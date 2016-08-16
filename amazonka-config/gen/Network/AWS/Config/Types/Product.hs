@@ -381,7 +381,9 @@ instance Hashable ConfigExportDeliveryInfo
 
 instance NFData ConfigExportDeliveryInfo
 
--- | An AWS Lambda function that evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource, or when it delivers a configuration snapshot of the resources in the account.
+-- | An AWS Lambda function that evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
+--
+-- You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see < ConfigSnapshotDeliveryProperties>.
 --
 -- For more information about developing and using AWS Config rules, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config> in the /AWS Config Developer Guide/.
 --
@@ -443,9 +445,13 @@ crInputParameters = lens _crInputParameters (\ s a -> s{_crInputParameters = a})
 crConfigRuleName :: Lens' ConfigRule (Maybe Text)
 crConfigRuleName = lens _crConfigRuleName (\ s a -> s{_crConfigRuleName = a});
 
--- | The maximum frequency at which the AWS Config rule runs evaluations.
+-- | If you want to create a rule that evaluates at a frequency that is independent of the configuration snapshot delivery, use the 'MaximumExecutionFrequency' parameter in the < SourceDetail> object.
 --
--- If your rule is periodic, meaning it runs an evaluation when AWS Config delivers a configuration snapshot, then it cannot run evaluations more frequently than AWS Config delivers the snapshots. For periodic rules, set the value of the 'MaximumExecutionFrequency' key to be equal to or greater than the value of the 'deliveryFrequency' key, which is part of 'ConfigSnapshotDeliveryProperties'. To update the frequency with which AWS Config delivers your snapshots, use the 'PutDeliveryChannel' action.
+-- If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:
+--
+-- A rule that runs an evaluation when AWS Config delivers a configuration snapshot cannot run evaluations more frequently than AWS Config delivers the snapshots. Set the value of the 'MaximumExecutionFrequency' to be equal to or greater than the value of the 'deliveryFrequency' key, which is part of 'ConfigSnapshotDeliveryProperties'.
+--
+-- For more information, see < ConfigSnapshotDeliveryProperties>.
 crMaximumExecutionFrequency :: Lens' ConfigRule (Maybe MaximumExecutionFrequency)
 crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crMaximumExecutionFrequency = a});
 
@@ -457,11 +463,13 @@ crConfigRuleId = lens _crConfigRuleId (\ s a -> s{_crConfigRuleId = a});
 crScope :: Lens' ConfigRule (Maybe Scope)
 crScope = lens _crScope (\ s a -> s{_crScope = a});
 
--- | Indicates whether the AWS Config rule is active or currently being deleted by AWS Config.
+-- | Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the Config rule.
 --
--- AWS Config sets the state of a rule to 'DELETING' temporarily after you use the 'DeleteConfigRule' request to delete the rule. After AWS Config finishes deleting a rule, the rule and all of its evaluations are erased and no longer available.
+-- AWS Config sets the state of the rule to 'EVALUATING' temporarily after you use the 'StartConfigRulesEvaluation' request to evaluate your resources against the Config rule.
 --
--- You cannot add a rule to AWS Config that has the state set to 'DELETING'. If you want to delete a rule, you must use the 'DeleteConfigRule' request.
+-- AWS Config sets the state of the rule to 'DELETING_RESULTS' temporarily after you use the 'DeleteEvaluationResults' request to delete the current evaluation results for the Config rule.
+--
+-- AWS Config sets the state of a rule to 'DELETING' temporarily after you use the 'DeleteConfigRule' request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.
 crConfigRuleState :: Lens' ConfigRule (Maybe ConfigRuleState)
 crConfigRuleState = lens _crConfigRuleState (\ s a -> s{_crConfigRuleState = a});
 
@@ -473,7 +481,7 @@ crDescription = lens _crDescription (\ s a -> s{_crDescription = a});
 crConfigRuleARN :: Lens' ConfigRule (Maybe Text)
 crConfigRuleARN = lens _crConfigRuleARN (\ s a -> s{_crConfigRuleARN = a});
 
--- | Provides the rule owner (AWS or customer), the rule identifier, and the events that cause the function to evaluate your AWS resources.
+-- | Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 crSource :: Lens' ConfigRule Source
 crSource = lens _crSource (\ s a -> s{_crSource = a});
 
@@ -513,7 +521,7 @@ instance ToJSON ConfigRule where
 
 -- | Status information for your AWS managed Config rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.
 --
--- This action does not return status information about customer managed Config rules.
+-- This action does not return status information about custom Config rules.
 --
 -- /See:/ 'configRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
@@ -640,7 +648,27 @@ instance Hashable ConfigRuleEvaluationStatus
 
 instance NFData ConfigRuleEvaluationStatus
 
--- | Options for how AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
+-- | Shows the options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
+--
+-- If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:
+--
+-- The frequency for a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot is set by one of two values, depending on which is less frequent:
+--
+-- -   The value for the 'deliveryFrequency' parameter within the delivery channel configuration, which sets how often AWS Config delivers configuration snapshots. This value also sets how often AWS Config invokes evaluations for Config rules.
+--
+-- -   The value for the 'MaximumExecutionFrequency' parameter, which sets the maximum frequency with which AWS Config invokes evaluations for the rule. For more information, see < ConfigRule>.
+--
+-- If the 'deliveryFrequency' value is less frequent than the 'MaximumExecutionFrequency' value for a rule, AWS Config invokes the rule only as often as the 'deliveryFrequency' value.
+--
+-- 1.  For example, you have a rule and you specify the 'MaximumExecutionFrequency' value to be 'Six_Hours'.
+--
+-- 2.  You then specify the delivery channel 'deliveryFrequency' value to 'TwentyFour_Hours'.
+--
+-- 3.  Because the value for 'deliveryFrequency' is less frequent than 'MaximumExecutionFrequency', AWS Config invokes evaluations for the rule every 24 hours.
+--
+-- You should set the 'MaximumExecutionFrequency' value to be at least as frequent as the 'deliveryFrequency' value. You can view the 'deliveryFrequency' value by using the 'DescribeDeliveryChannnels' action.
+--
+-- To update the frequency with which AWS Config delivers your configuration snapshots, use the 'PutDeliveryChannel' action.
 --
 -- /See:/ 'configSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
@@ -659,7 +687,7 @@ configSnapshotDeliveryProperties =
     { _csdpDeliveryFrequency = Nothing
     }
 
--- | The frequency with which a AWS Config recurringly delivers configuration snapshots.
+-- | The frequency with which AWS Config delivers configuration snapshots.
 csdpDeliveryFrequency :: Lens' ConfigSnapshotDeliveryProperties (Maybe MaximumExecutionFrequency)
 csdpDeliveryFrequency = lens _csdpDeliveryFrequency (\ s a -> s{_csdpDeliveryFrequency = a});
 
@@ -761,6 +789,7 @@ data ConfigurationItem = ConfigurationItem'
     , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
     , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
     , _ciAccountId                    :: !(Maybe Text)
+    , _ciSupplementaryConfiguration   :: !(Maybe (Map Text Text))
     , _ciAvailabilityZone             :: !(Maybe Text)
     , _ciRelationships                :: !(Maybe [Relationship])
     , _ciVersion                      :: !(Maybe Text)
@@ -793,6 +822,8 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciAccountId'
 --
+-- * 'ciSupplementaryConfiguration'
+--
 -- * 'ciAvailabilityZone'
 --
 -- * 'ciRelationships'
@@ -821,6 +852,7 @@ configurationItem =
     , _ciConfigurationItemStatus = Nothing
     , _ciConfigurationItemCaptureTime = Nothing
     , _ciAccountId = Nothing
+    , _ciSupplementaryConfiguration = Nothing
     , _ciAvailabilityZone = Nothing
     , _ciRelationships = Nothing
     , _ciVersion = Nothing
@@ -866,6 +898,10 @@ ciConfigurationItemCaptureTime = lens _ciConfigurationItemCaptureTime (\ s a -> 
 -- | The 12 digit AWS account ID associated with the resource.
 ciAccountId :: Lens' ConfigurationItem (Maybe Text)
 ciAccountId = lens _ciAccountId (\ s a -> s{_ciAccountId = a});
+
+-- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the 'configuration' parameter.
+ciSupplementaryConfiguration :: Lens' ConfigurationItem (HashMap Text Text)
+ciSupplementaryConfiguration = lens _ciSupplementaryConfiguration (\ s a -> s{_ciSupplementaryConfiguration = a}) . _Default . _Map;
 
 -- | The Availability Zone associated with the resource.
 ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
@@ -918,6 +954,7 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "configurationItemStatus")
                      <*> (x .:? "configurationItemCaptureTime")
                      <*> (x .:? "accountId")
+                     <*> (x .:? "supplementaryConfiguration" .!= mempty)
                      <*> (x .:? "availabilityZone")
                      <*> (x .:? "relationships" .!= mempty)
                      <*> (x .:? "version")
@@ -1086,7 +1123,7 @@ instance Hashable ConfigurationRecorderStatus
 
 instance NFData ConfigurationRecorderStatus
 
--- | A logical container used for storing the configuration changes of an AWS resource.
+-- | The channel through which AWS Config delivers notifications and updated configuration states.
 --
 -- /See:/ 'deliveryChannel' smart constructor.
 data DeliveryChannel = DeliveryChannel'
@@ -1125,11 +1162,13 @@ deliveryChannel =
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
 dcS3KeyPrefix = lens _dcS3KeyPrefix (\ s a -> s{_dcS3KeyPrefix = a});
 
--- | The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications to.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+--
+-- If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a});
 
--- | The name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name.
+-- | The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
 dcName :: Lens' DeliveryChannel (Maybe Text)
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -1137,7 +1176,9 @@ dcName = lens _dcName (\ s a -> s{_dcName = a});
 dcConfigSnapshotDeliveryProperties :: Lens' DeliveryChannel (Maybe ConfigSnapshotDeliveryProperties)
 dcConfigSnapshotDeliveryProperties = lens _dcConfigSnapshotDeliveryProperties (\ s a -> s{_dcConfigSnapshotDeliveryProperties = a});
 
--- | The name of the Amazon S3 bucket used to store configuration history for the delivery channel.
+-- | The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+--
+-- If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
 dcS3BucketName = lens _dcS3BucketName (\ s a -> s{_dcS3BucketName = a});
 
@@ -1807,7 +1848,7 @@ source =
 
 -- | For AWS managed Config rules, a pre-defined identifier from a list. To reference the list, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
 --
--- For customer managed Config rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function.
+-- For custom Config rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function.
 sSourceIdentifier :: Lens' Source (Maybe Text)
 sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
 
@@ -1839,12 +1880,13 @@ instance ToJSON Source where
                   ("Owner" .=) <$> _sOwner,
                   ("SourceDetails" .=) <$> _sSourceDetails])
 
--- | Provides the source and type of the event that triggers AWS Config to evaluate your AWS resources against a rule.
+-- | Provides the source and the message type that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
 --
 -- /See:/ 'sourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
-    { _sdMessageType :: !(Maybe MessageType)
-    , _sdEventSource :: !(Maybe EventSource)
+    { _sdMessageType               :: !(Maybe MessageType)
+    , _sdMaximumExecutionFrequency :: !(Maybe MaximumExecutionFrequency)
+    , _sdEventSource               :: !(Maybe EventSource)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SourceDetail' with the minimum fields required to make a request.
@@ -1853,18 +1895,31 @@ data SourceDetail = SourceDetail'
 --
 -- * 'sdMessageType'
 --
+-- * 'sdMaximumExecutionFrequency'
+--
 -- * 'sdEventSource'
 sourceDetail
     :: SourceDetail
 sourceDetail =
     SourceDetail'
     { _sdMessageType = Nothing
+    , _sdMaximumExecutionFrequency = Nothing
     , _sdEventSource = Nothing
     }
 
--- | The type of SNS message that triggers AWS Config to run an evaluation. For evaluations that are initiated when AWS Config delivers a configuration item change notification, you must use 'ConfigurationItemChangeNotification'. For evaluations that are initiated when AWS Config delivers a configuration snapshot, you must use 'ConfigurationSnapshotDeliveryCompleted'.
+-- | The type of SNS message that triggers AWS Config to run an evaluation.
+--
+-- For evaluations that are initiated when AWS Config delivers a configuration item change notification, you must use 'ConfigurationItemChangeNotification'.
+--
+-- For evaluations that are initiated at a frequency that you choose (for example, every 24 hours), you must use 'ScheduledNotification'.
+--
+-- For evaluations that are initiated when AWS Config delivers a configuration snapshot, you must use 'ConfigurationSnapshotDeliveryCompleted'.
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
 sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
+
+-- | If the trigger type for your rule includes periodic, AWS Config runs evaluations for the rule at a frequency that you choose. If you specify a value for 'MaximumExecutionFrequency', then 'MessageType' must use the 'ScheduledNotification' value.
+sdMaximumExecutionFrequency :: Lens' SourceDetail (Maybe MaximumExecutionFrequency)
+sdMaximumExecutionFrequency = lens _sdMaximumExecutionFrequency (\ s a -> s{_sdMaximumExecutionFrequency = a});
 
 -- | The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 sdEventSource :: Lens' SourceDetail (Maybe EventSource)
@@ -1875,7 +1930,9 @@ instance FromJSON SourceDetail where
           = withObject "SourceDetail"
               (\ x ->
                  SourceDetail' <$>
-                   (x .:? "MessageType") <*> (x .:? "EventSource"))
+                   (x .:? "MessageType") <*>
+                     (x .:? "MaximumExecutionFrequency")
+                     <*> (x .:? "EventSource"))
 
 instance Hashable SourceDetail
 
@@ -1886,4 +1943,6 @@ instance ToJSON SourceDetail where
           = object
               (catMaybes
                  [("MessageType" .=) <$> _sdMessageType,
+                  ("MaximumExecutionFrequency" .=) <$>
+                    _sdMaximumExecutionFrequency,
                   ("EventSource" .=) <$> _sdEventSource])

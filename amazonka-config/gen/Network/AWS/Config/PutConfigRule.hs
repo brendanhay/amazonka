@@ -20,9 +20,9 @@
 --
 -- Adds or updates an AWS Config rule for evaluating whether your AWS resources comply with your desired configurations.
 --
--- You can use this action for customer managed Config rules and AWS managed Config rules. A customer managed Config rule is a custom rule that you develop and maintain. An AWS managed Config rule is a customizable, predefined rule that is provided by AWS Config.
+-- You can use this action for custom Config rules and AWS managed Config rules. A custom Config rule is a rule that you develop and maintain. An AWS managed Config rule is a customizable, predefined rule that AWS Config provides.
 --
--- If you are adding a new customer managed Config rule, you must first create the AWS Lambda function that the rule invokes to evaluate your resources. When you use the 'PutConfigRule' action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for the 'SourceIdentifier' key. This key is part of the 'Source' object, which is part of the 'ConfigRule' object.
+-- If you are adding a new custom Config rule, you must first create the AWS Lambda function that the rule invokes to evaluate your resources. When you use the 'PutConfigRule' action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for the 'SourceIdentifier' key. This key is part of the 'Source' object, which is part of the 'ConfigRule' object.
 --
 -- If you are adding a new AWS managed Config rule, specify the rule\'s identifier for the 'SourceIdentifier' key. To reference AWS managed Config rule identifiers, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
 --

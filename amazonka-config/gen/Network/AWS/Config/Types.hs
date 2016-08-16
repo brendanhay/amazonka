@@ -42,6 +42,7 @@ module Network.AWS.Config.Types
     , _MaxNumberOfDeliveryChannelsExceededException
     , _NoSuchConfigurationRecorderException
     , _InvalidS3KeyPrefixException
+    , _LimitExceededException
     , _ResourceInUseException
 
     -- * ChronologicalOrder
@@ -178,6 +179,7 @@ module Network.AWS.Config.Types
     , ciConfigurationItemStatus
     , ciConfigurationItemCaptureTime
     , ciAccountId
+    , ciSupplementaryConfiguration
     , ciAvailabilityZone
     , ciRelationships
     , ciVersion
@@ -297,6 +299,7 @@ module Network.AWS.Config.Types
     , SourceDetail
     , sourceDetail
     , sdMessageType
+    , sdMaximumExecutionFrequency
     , sdEventSource
     ) where
 
@@ -470,6 +473,10 @@ _InvalidS3KeyPrefixException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidS3KeyPrefixException =
     _ServiceError . hasCode "InvalidS3KeyPrefixException"
 
--- | The rule is currently being deleted. Wait for a while and try again.
+-- | This exception is thrown when the previous < StartConfigRulesEvaluation> call is in progress or a previous evaluation is in progress.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | The rule is currently being deleted or the rule is deleting your evaluation results. Try your request again later.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

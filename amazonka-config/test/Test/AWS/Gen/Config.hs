@@ -40,6 +40,9 @@ import Test.AWS.Config.Internal
 --         , requestDescribeConfigRules $
 --             describeConfigRules
 --
+--         , requestDeleteEvaluationResults $
+--             deleteEvaluationResults
+--
 --         , requestPutConfigRule $
 --             putConfigRule
 --
@@ -54,6 +57,9 @@ import Test.AWS.Config.Internal
 --
 --         , requestDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatus
+--
+--         , requestStartConfigRulesEvaluation $
+--             startConfigRulesEvaluation
 --
 --         , requestDescribeComplianceByResource $
 --             describeComplianceByResource
@@ -75,6 +81,9 @@ import Test.AWS.Config.Internal
 --
 --         , requestPutConfigurationRecorder $
 --             putConfigurationRecorder
+--
+--         , requestDeleteConfigurationRecorder $
+--             deleteConfigurationRecorder
 --
 --         , requestGetComplianceSummaryByResourceType $
 --             getComplianceSummaryByResourceType
@@ -112,6 +121,9 @@ import Test.AWS.Config.Internal
 --         , responseDescribeConfigRules $
 --             describeConfigRulesResponse
 --
+--         , responseDeleteEvaluationResults $
+--             deleteEvaluationResultsResponse
+--
 --         , responsePutConfigRule $
 --             putConfigRuleResponse
 --
@@ -126,6 +138,9 @@ import Test.AWS.Config.Internal
 --
 --         , responseDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatusResponse
+--
+--         , responseStartConfigRulesEvaluation $
+--             startConfigRulesEvaluationResponse
 --
 --         , responseDescribeComplianceByResource $
 --             describeComplianceByResourceResponse
@@ -147,6 +162,9 @@ import Test.AWS.Config.Internal
 --
 --         , responsePutConfigurationRecorder $
 --             putConfigurationRecorderResponse
+--
+--         , responseDeleteConfigurationRecorder $
+--             deleteConfigurationRecorderResponse
 --
 --         , responseGetComplianceSummaryByResourceType $
 --             getComplianceSummaryByResourceTypeResponse
@@ -194,6 +212,11 @@ requestDescribeConfigRules = req
     "DescribeConfigRules"
     "fixture/DescribeConfigRules.yaml"
 
+requestDeleteEvaluationResults :: DeleteEvaluationResults -> TestTree
+requestDeleteEvaluationResults = req
+    "DeleteEvaluationResults"
+    "fixture/DeleteEvaluationResults.yaml"
+
 requestPutConfigRule :: PutConfigRule -> TestTree
 requestPutConfigRule = req
     "PutConfigRule"
@@ -218,6 +241,11 @@ requestDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatus 
 requestDescribeConfigRuleEvaluationStatus = req
     "DescribeConfigRuleEvaluationStatus"
     "fixture/DescribeConfigRuleEvaluationStatus.yaml"
+
+requestStartConfigRulesEvaluation :: StartConfigRulesEvaluation -> TestTree
+requestStartConfigRulesEvaluation = req
+    "StartConfigRulesEvaluation"
+    "fixture/StartConfigRulesEvaluation.yaml"
 
 requestDescribeComplianceByResource :: DescribeComplianceByResource -> TestTree
 requestDescribeComplianceByResource = req
@@ -253,6 +281,11 @@ requestPutConfigurationRecorder :: PutConfigurationRecorder -> TestTree
 requestPutConfigurationRecorder = req
     "PutConfigurationRecorder"
     "fixture/PutConfigurationRecorder.yaml"
+
+requestDeleteConfigurationRecorder :: DeleteConfigurationRecorder -> TestTree
+requestDeleteConfigurationRecorder = req
+    "DeleteConfigurationRecorder"
+    "fixture/DeleteConfigurationRecorder.yaml"
 
 requestGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceType -> TestTree
 requestGetComplianceSummaryByResourceType = req
@@ -319,6 +352,13 @@ responseDescribeConfigRules = res
     config
     (Proxy :: Proxy DescribeConfigRules)
 
+responseDeleteEvaluationResults :: DeleteEvaluationResultsResponse -> TestTree
+responseDeleteEvaluationResults = res
+    "DeleteEvaluationResultsResponse"
+    "fixture/DeleteEvaluationResultsResponse.proto"
+    config
+    (Proxy :: Proxy DeleteEvaluationResults)
+
 responsePutConfigRule :: PutConfigRuleResponse -> TestTree
 responsePutConfigRule = res
     "PutConfigRuleResponse"
@@ -353,6 +393,13 @@ responseDescribeConfigRuleEvaluationStatus = res
     "fixture/DescribeConfigRuleEvaluationStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigRuleEvaluationStatus)
+
+responseStartConfigRulesEvaluation :: StartConfigRulesEvaluationResponse -> TestTree
+responseStartConfigRulesEvaluation = res
+    "StartConfigRulesEvaluationResponse"
+    "fixture/StartConfigRulesEvaluationResponse.proto"
+    config
+    (Proxy :: Proxy StartConfigRulesEvaluation)
 
 responseDescribeComplianceByResource :: DescribeComplianceByResourceResponse -> TestTree
 responseDescribeComplianceByResource = res
@@ -402,6 +449,13 @@ responsePutConfigurationRecorder = res
     "fixture/PutConfigurationRecorderResponse.proto"
     config
     (Proxy :: Proxy PutConfigurationRecorder)
+
+responseDeleteConfigurationRecorder :: DeleteConfigurationRecorderResponse -> TestTree
+responseDeleteConfigurationRecorder = res
+    "DeleteConfigurationRecorderResponse"
+    "fixture/DeleteConfigurationRecorderResponse.proto"
+    config
+    (Proxy :: Proxy DeleteConfigurationRecorder)
 
 responseGetComplianceSummaryByResourceType :: GetComplianceSummaryByResourceTypeResponse -> TestTree
 responseGetComplianceSummaryByResourceType = res

@@ -108,6 +108,9 @@ module Network.AWS.Config
     -- ** InvalidS3KeyPrefixException
     , _InvalidS3KeyPrefixException
 
+    -- ** LimitExceededException
+    , _LimitExceededException
+
     -- ** ResourceInUseException
     , _ResourceInUseException
 
@@ -129,6 +132,9 @@ module Network.AWS.Config
     -- ** DescribeConfigRules
     , module Network.AWS.Config.DescribeConfigRules
 
+    -- ** DeleteEvaluationResults
+    , module Network.AWS.Config.DeleteEvaluationResults
+
     -- ** PutConfigRule
     , module Network.AWS.Config.PutConfigRule
 
@@ -143,6 +149,9 @@ module Network.AWS.Config
 
     -- ** DescribeConfigRuleEvaluationStatus
     , module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+
+    -- ** StartConfigRulesEvaluation
+    , module Network.AWS.Config.StartConfigRulesEvaluation
 
     -- ** DescribeComplianceByResource
     , module Network.AWS.Config.DescribeComplianceByResource
@@ -164,6 +173,9 @@ module Network.AWS.Config
 
     -- ** PutConfigurationRecorder
     , module Network.AWS.Config.PutConfigurationRecorder
+
+    -- ** DeleteConfigurationRecorder
+    , module Network.AWS.Config.DeleteConfigurationRecorder
 
     -- ** GetComplianceSummaryByResourceType
     , module Network.AWS.Config.GetComplianceSummaryByResourceType
@@ -322,6 +334,7 @@ module Network.AWS.Config
     , ciConfigurationItemStatus
     , ciConfigurationItemCaptureTime
     , ciAccountId
+    , ciSupplementaryConfiguration
     , ciAvailabilityZone
     , ciRelationships
     , ciVersion
@@ -441,11 +454,14 @@ module Network.AWS.Config
     , SourceDetail
     , sourceDetail
     , sdMessageType
+    , sdMaximumExecutionFrequency
     , sdEventSource
     ) where
 
 import           Network.AWS.Config.DeleteConfigRule
+import           Network.AWS.Config.DeleteConfigurationRecorder
 import           Network.AWS.Config.DeleteDeliveryChannel
+import           Network.AWS.Config.DeleteEvaluationResults
 import           Network.AWS.Config.DeliverConfigSnapshot
 import           Network.AWS.Config.DescribeComplianceByConfigRule
 import           Network.AWS.Config.DescribeComplianceByResource
@@ -465,6 +481,7 @@ import           Network.AWS.Config.PutConfigRule
 import           Network.AWS.Config.PutConfigurationRecorder
 import           Network.AWS.Config.PutDeliveryChannel
 import           Network.AWS.Config.PutEvaluations
+import           Network.AWS.Config.StartConfigRulesEvaluation
 import           Network.AWS.Config.StartConfigurationRecorder
 import           Network.AWS.Config.StopConfigurationRecorder
 import           Network.AWS.Config.Types

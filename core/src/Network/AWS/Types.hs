@@ -567,6 +567,7 @@ data Region
     | Tokyo           -- ^ Asia Pacific / ap-northeast-1
     | Singapore       -- ^ Asia Pacific / ap-southeast-1
     | Sydney          -- ^ Asia Pacific / ap-southeast-2
+    | Bombay          -- ^ Asia Pacific / ap-south-1
     | Beijing         -- ^ China / cn-north-1
     | NorthVirginia   -- ^ US / us-east-1
     | NorthCalifornia -- ^ US / us-west-1
@@ -586,6 +587,7 @@ instance FromText Region where
         "ap-northeast-1"     -> pure Tokyo
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
+        "ap-south-1"         -> pure Bombay
         "cn-north-1"         -> pure Beijing
         "us-east-1"          -> pure NorthVirginia
         "us-west-2"          -> pure Oregon
@@ -602,6 +604,7 @@ instance ToText Region where
         Tokyo           -> "ap-northeast-1"
         Singapore       -> "ap-southeast-1"
         Sydney          -> "ap-southeast-2"
+        Bombay          -> "ap-south-1"
         Beijing         -> "cn-north-1"
         NorthVirginia   -> "us-east-1"
         NorthCalifornia -> "us-west-1"

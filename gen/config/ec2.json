@@ -228,6 +228,9 @@
                 "name": "DeleteTag",
                 "deriving": []
             }
+        },
+        "FleetType": {
+            "enumPrefix": "FT"
         }
     }
 }

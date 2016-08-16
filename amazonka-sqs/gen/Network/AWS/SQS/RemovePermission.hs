@@ -40,7 +40,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'removePermission' smart constructor.
+-- |
+--
+-- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
     { _rpQueueURL :: !Text
     , _rpLabel    :: !Text
@@ -64,6 +66,8 @@ removePermission pQueueURL_ pLabel_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 rpQueueURL :: Lens' RemovePermission Text
 rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 

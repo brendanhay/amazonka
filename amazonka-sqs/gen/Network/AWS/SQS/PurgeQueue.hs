@@ -43,7 +43,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'purgeQueue' smart constructor.
+-- |
+--
+-- /See:/ 'purgeQueue' smart constructor.
 newtype PurgeQueue = PurgeQueue'
     { _pqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -62,6 +64,8 @@ purgeQueue pQueueURL_ =
     }
 
 -- | The queue URL of the queue to delete the messages from when using the 'PurgeQueue' API.
+--
+-- Queue URLs are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 

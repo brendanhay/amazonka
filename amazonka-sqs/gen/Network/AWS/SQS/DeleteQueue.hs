@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'deleteQueue' smart constructor.
+-- |
+--
+-- /See:/ 'deleteQueue' smart constructor.
 newtype DeleteQueue = DeleteQueue'
     { _dqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -64,6 +66,8 @@ deleteQueue pQueueURL_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 dqQueueURL :: Lens' DeleteQueue Text
 dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
 

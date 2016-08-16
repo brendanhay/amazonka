@@ -42,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'listQueues' smart constructor.
+-- |
+--
+-- /See:/ 'listQueues' smart constructor.
 newtype ListQueues = ListQueues'
     { _lqQueueNamePrefix :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -60,6 +62,8 @@ listQueues =
     }
 
 -- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
+--
+-- Queue names are case-sensitive.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 

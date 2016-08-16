@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'getQueueURL' smart constructor.
+-- |
+--
+-- /See:/ 'getQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
     { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
     , _gquQueueName              :: !Text
@@ -72,6 +74,8 @@ gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+--
+-- Queue names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 

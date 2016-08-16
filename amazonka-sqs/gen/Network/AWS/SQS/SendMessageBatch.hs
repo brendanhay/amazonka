@@ -32,9 +32,9 @@
 --
 -- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
--- '&Attribute.1=this'
+-- '&amp;Attribute.1=this'
 --
--- '&Attribute.2=that'
+-- '&amp;Attribute.2=that'
 module Network.AWS.SQS.SendMessageBatch
     (
     -- * Creating a Request
@@ -60,7 +60,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'sendMessageBatch' smart constructor.
+-- |
+--
+-- /See:/ 'sendMessageBatch' smart constructor.
 data SendMessageBatch = SendMessageBatch'
     { _smbQueueURL :: !Text
     , _smbEntries  :: ![SendMessageBatchRequestEntry]
@@ -83,6 +85,8 @@ sendMessageBatch pQueueURL_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 smbQueueURL :: Lens' SendMessageBatch Text
 smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 

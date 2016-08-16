@@ -78,6 +78,8 @@ changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 cmvQueueURL :: Lens' ChangeMessageVisibility Text
 cmvQueueURL = lens _cmvQueueURL (\ s a -> s{_cmvQueueURL = a});
 

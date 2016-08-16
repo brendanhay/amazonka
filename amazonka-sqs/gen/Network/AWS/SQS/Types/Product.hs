@@ -86,11 +86,11 @@ instance NFData BatchResultErrorEntry
 --
 -- All of the following parameters are list parameters that must be prefixed with 'ChangeMessageVisibilityBatchRequestEntry.n', where 'n' is an integer value starting with 1. For example, a parameter list for this action might look like this:
 --
--- '&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2'
+-- '&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2'
 --
--- '&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle'
+-- '&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=\<replaceable>Your_Receipt_Handle\<\/replaceable>'
 --
--- '&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45'
+-- '&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45'
 --
 -- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
@@ -402,7 +402,9 @@ mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 mavBinaryListValues :: Lens' MessageAttributeValue [ByteString]
 mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a}) . _Default . _Coerce;
 
--- | Amazon SQS supports the following logical data types: String, Number, and Binary. In addition, you can append your own custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types>.
+-- | Amazon SQS supports the following logical data types: String, Number, and Binary. For the Number data type, you must use StringValue.
+--
+-- You can also append custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types>.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 

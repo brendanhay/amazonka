@@ -44,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'listDeadLetterSourceQueues' smart constructor.
+-- |
+--
+-- /See:/ 'listDeadLetterSourceQueues' smart constructor.
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
     { _ldlsqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -63,6 +65,8 @@ listDeadLetterSourceQueues pQueueURL_ =
     }
 
 -- | The queue URL of a dead letter queue.
+--
+-- Queue URLs are case-sensitive.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 

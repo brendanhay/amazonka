@@ -41,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | < The request that specifies the name of a trail to delete.>
+-- | The request that specifies the name of a trail to delete.
 --
 -- /See:/ 'deleteTrail' smart constructor.
 newtype DeleteTrail = DeleteTrail'
@@ -61,7 +61,9 @@ deleteTrail pName_ =
     { _dtName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 

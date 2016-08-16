@@ -36,6 +36,7 @@ module Network.AWS.CloudTrail.Types
     , _TrailNotProvidedException
     , _InvalidS3BucketNameException
     , _InvalidCloudWatchLogsLogGroupARNException
+    , _KMSException
     , _S3BucketDoesNotExistException
     , _InvalidNextTokenException
     , _InvalidTagParameterException
@@ -100,6 +101,7 @@ module Network.AWS.CloudTrail.Types
     , tLogFileValidationEnabled
     , tTrailARN
     , tS3KeyPrefix
+    , tSNSTopicARN
     , tSNSTopicName
     , tCloudWatchLogsLogGroupARN
     , tKMSKeyId
@@ -171,7 +173,7 @@ _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a Se
 _UnsupportedOperationException =
     _ServiceError . hasCode "UnsupportedOperationException"
 
--- | This exception is thrown when the KMS key is disabled.
+-- | This exception is deprecated.
 _KMSKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyDisabledException = _ServiceError . hasCode "KmsKeyDisabledException"
 
@@ -195,7 +197,9 @@ _TagsLimitExceededException :: AsError a => Getting (First ServiceError) a Servi
 _TagsLimitExceededException =
     _ServiceError . hasCode "TagsLimitExceededException"
 
--- | This exception is thrown when an operation is called with an invalid trail ARN. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | This exception is thrown when an operation is called with an invalid trail ARN. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 _CloudTrailARNInvalidException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudTrailARNInvalidException =
     _ServiceError . hasCode "CloudTrailARNInvalidException"
@@ -208,10 +212,15 @@ _InvalidLookupAttributesException =
 -- | This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+--
 -- -   Start with a letter or number, and end with a letter or number
+--
 -- -   Be between 3 and 128 characters
+--
 -- -   Have no adjacent periods, underscores or dashes. Names like 'my-_namespace' and 'my--namespace' are invalid.
+--
 -- -   Not be in IP address format (for example, 192.168.5.4)
+--
 _InvalidTrailNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrailNameException =
     _ServiceError . hasCode "InvalidTrailNameException"
@@ -253,6 +262,10 @@ _InvalidS3BucketNameException =
 _InvalidCloudWatchLogsLogGroupARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCloudWatchLogsLogGroupARNException =
     _ServiceError . hasCode "InvalidCloudWatchLogsLogGroupArnException"
+
+-- | This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.
+_KMSException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSException = _ServiceError . hasCode "KmsException"
 
 -- | This exception is thrown when the specified S3 bucket does not exist.
 _S3BucketDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError

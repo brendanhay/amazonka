@@ -43,6 +43,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsLogFileValidationEnabled
     , ctrsTrailARN
     , ctrsS3KeyPrefix
+    , ctrsSNSTopicARN
     , ctrsSNSTopicName
     , ctrsCloudWatchLogsLogGroupARN
     , ctrsKMSKeyId
@@ -141,9 +142,13 @@ ctCloudWatchLogsLogGroupARN = lens _ctCloudWatchLogsLogGroupARN (\ s a -> s{_ctC
 -- Examples:
 --
 -- -   alias\/MyAliasName
+--
 -- -   arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+--
 -- -   arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   12345678-1234-1234-1234-123456789012
+--
 ctKMSKeyId :: Lens' CreateTrail (Maybe Text)
 ctKMSKeyId = lens _ctKMSKeyId (\ s a -> s{_ctKMSKeyId = a});
 
@@ -162,10 +167,15 @@ ctIsMultiRegionTrail = lens _ctIsMultiRegionTrail (\ s a -> s{_ctIsMultiRegionTr
 -- | Specifies the name of the trail. The name must meet the following requirements:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+--
 -- -   Start with a letter or number, and end with a letter or number
+--
 -- -   Be between 3 and 128 characters
+--
 -- -   Have no adjacent periods, underscores or dashes. Names like 'my-_namespace' and 'my--namespace' are invalid.
+--
 -- -   Not be in IP address format (for example, 192.168.5.4)
+--
 ctName :: Lens' CreateTrail Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 
@@ -183,6 +193,7 @@ instance AWSRequest CreateTrail where
                    (x .?> "LogFileValidationEnabled") <*>
                      (x .?> "TrailARN")
                      <*> (x .?> "S3KeyPrefix")
+                     <*> (x .?> "SnsTopicARN")
                      <*> (x .?> "SnsTopicName")
                      <*> (x .?> "CloudWatchLogsLogGroupArn")
                      <*> (x .?> "KmsKeyId")
@@ -239,6 +250,7 @@ data CreateTrailResponse = CreateTrailResponse'
     { _ctrsLogFileValidationEnabled   :: !(Maybe Bool)
     , _ctrsTrailARN                   :: !(Maybe Text)
     , _ctrsS3KeyPrefix                :: !(Maybe Text)
+    , _ctrsSNSTopicARN                :: !(Maybe Text)
     , _ctrsSNSTopicName               :: !(Maybe Text)
     , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _ctrsKMSKeyId                   :: !(Maybe Text)
@@ -259,6 +271,8 @@ data CreateTrailResponse = CreateTrailResponse'
 -- * 'ctrsTrailARN'
 --
 -- * 'ctrsS3KeyPrefix'
+--
+-- * 'ctrsSNSTopicARN'
 --
 -- * 'ctrsSNSTopicName'
 --
@@ -285,6 +299,7 @@ createTrailResponse pResponseStatus_ =
     { _ctrsLogFileValidationEnabled = Nothing
     , _ctrsTrailARN = Nothing
     , _ctrsS3KeyPrefix = Nothing
+    , _ctrsSNSTopicARN = Nothing
     , _ctrsSNSTopicName = Nothing
     , _ctrsCloudWatchLogsLogGroupARN = Nothing
     , _ctrsKMSKeyId = Nothing
@@ -300,7 +315,9 @@ createTrailResponse pResponseStatus_ =
 ctrsLogFileValidationEnabled :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsLogFileValidationEnabled = lens _ctrsLogFileValidationEnabled (\ s a -> s{_ctrsLogFileValidationEnabled = a});
 
--- | Specifies the ARN of the trail that was created.
+-- | Specifies the ARN of the trail that was created. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 ctrsTrailARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsTrailARN = lens _ctrsTrailARN (\ s a -> s{_ctrsTrailARN = a});
 
@@ -308,7 +325,13 @@ ctrsTrailARN = lens _ctrsTrailARN (\ s a -> s{_ctrsTrailARN = a});
 ctrsS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3KeyPrefix = lens _ctrsS3KeyPrefix (\ s a -> s{_ctrsS3KeyPrefix = a});
 
--- | Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
+--
+-- 'arn:aws:sns:us-east-1:123456789012:MyTopic'
+ctrsSNSTopicARN :: Lens' CreateTrailResponse (Maybe Text)
+ctrsSNSTopicARN = lens _ctrsSNSTopicARN (\ s a -> s{_ctrsSNSTopicARN = a});
+
+-- | This field is deprecated. Use SnsTopicARN.
 ctrsSNSTopicName :: Lens' CreateTrailResponse (Maybe Text)
 ctrsSNSTopicName = lens _ctrsSNSTopicName (\ s a -> s{_ctrsSNSTopicName = a});
 

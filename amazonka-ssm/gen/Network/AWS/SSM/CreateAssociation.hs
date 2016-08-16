@@ -37,8 +37,8 @@ module Network.AWS.SSM.CreateAssociation
     , createAssociationResponse
     , CreateAssociationResponse
     -- * Response Lenses
-    , carsAssociationDescription
-    , carsResponseStatus
+    , crsAssociationDescription
+    , crsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -83,7 +83,7 @@ caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | The Windows Server instance ID.
+-- | The instance ID.
 caInstanceId :: Lens' CreateAssociation Text
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
@@ -126,32 +126,32 @@ instance ToQuery CreateAssociation where
 
 -- | /See:/ 'createAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
-    { _carsAssociationDescription :: !(Maybe AssociationDescription)
-    , _carsResponseStatus         :: !Int
+    { _crsAssociationDescription :: !(Maybe AssociationDescription)
+    , _crsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsAssociationDescription'
+-- * 'crsAssociationDescription'
 --
--- * 'carsResponseStatus'
+-- * 'crsResponseStatus'
 createAssociationResponse
-    :: Int -- ^ 'carsResponseStatus'
+    :: Int -- ^ 'crsResponseStatus'
     -> CreateAssociationResponse
 createAssociationResponse pResponseStatus_ =
     CreateAssociationResponse'
-    { _carsAssociationDescription = Nothing
-    , _carsResponseStatus = pResponseStatus_
+    { _crsAssociationDescription = Nothing
+    , _crsResponseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
-carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
-carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
+crsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
+crsAssociationDescription = lens _crsAssociationDescription (\ s a -> s{_crsAssociationDescription = a});
 
 -- | The response status code.
-carsResponseStatus :: Lens' CreateAssociationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+crsResponseStatus :: Lens' CreateAssociationResponse Int
+crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
 instance NFData CreateAssociationResponse

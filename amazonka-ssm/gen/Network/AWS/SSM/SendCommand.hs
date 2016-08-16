@@ -25,8 +25,12 @@ module Network.AWS.SSM.SendCommand
       sendCommand
     , SendCommand
     -- * Request Lenses
+    , scServiceRoleARN
+    , scNotificationConfig
+    , scDocumentHashType
     , scOutputS3KeyPrefix
     , scParameters
+    , scDocumentHash
     , scTimeoutSeconds
     , scComment
     , scOutputS3BucketName
@@ -50,8 +54,12 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendCommand' smart constructor.
 data SendCommand = SendCommand'
-    { _scOutputS3KeyPrefix  :: !(Maybe Text)
+    { _scServiceRoleARN     :: !(Maybe Text)
+    , _scNotificationConfig :: !(Maybe NotificationConfig)
+    , _scDocumentHashType   :: !(Maybe DocumentHashType)
+    , _scOutputS3KeyPrefix  :: !(Maybe Text)
     , _scParameters         :: !(Maybe (Map Text [Text]))
+    , _scDocumentHash       :: !(Maybe Text)
     , _scTimeoutSeconds     :: !(Maybe Nat)
     , _scComment            :: !(Maybe Text)
     , _scOutputS3BucketName :: !(Maybe Text)
@@ -63,9 +71,17 @@ data SendCommand = SendCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'scServiceRoleARN'
+--
+-- * 'scNotificationConfig'
+--
+-- * 'scDocumentHashType'
+--
 -- * 'scOutputS3KeyPrefix'
 --
 -- * 'scParameters'
+--
+-- * 'scDocumentHash'
 --
 -- * 'scTimeoutSeconds'
 --
@@ -82,14 +98,32 @@ sendCommand
     -> SendCommand
 sendCommand pInstanceIds_ pDocumentName_ =
     SendCommand'
-    { _scOutputS3KeyPrefix = Nothing
+    { _scServiceRoleARN = Nothing
+    , _scNotificationConfig = Nothing
+    , _scDocumentHashType = Nothing
+    , _scOutputS3KeyPrefix = Nothing
     , _scParameters = Nothing
+    , _scDocumentHash = Nothing
     , _scTimeoutSeconds = Nothing
     , _scComment = Nothing
     , _scOutputS3BucketName = Nothing
     , _scInstanceIds = _List1 # pInstanceIds_
     , _scDocumentName = pDocumentName_
     }
+
+-- | The IAM role that SSM uses to send notifications.
+scServiceRoleARN :: Lens' SendCommand (Maybe Text)
+scServiceRoleARN = lens _scServiceRoleARN (\ s a -> s{_scServiceRoleARN = a});
+
+-- | Configurations for sending notifications.
+scNotificationConfig :: Lens' SendCommand (Maybe NotificationConfig)
+scNotificationConfig = lens _scNotificationConfig (\ s a -> s{_scNotificationConfig = a});
+
+-- | Sha256 or Sha1.
+--
+-- Sha1 hashes have been deprecated.
+scDocumentHashType :: Lens' SendCommand (Maybe DocumentHashType)
+scDocumentHashType = lens _scDocumentHashType (\ s a -> s{_scDocumentHashType = a});
 
 -- | The directory structure within the S3 bucket where the responses should be stored.
 scOutputS3KeyPrefix :: Lens' SendCommand (Maybe Text)
@@ -98,6 +132,12 @@ scOutputS3KeyPrefix = lens _scOutputS3KeyPrefix (\ s a -> s{_scOutputS3KeyPrefix
 -- | The required and optional parameters specified in the SSM document being executed.
 scParameters :: Lens' SendCommand (HashMap Text [Text])
 scParameters = lens _scParameters (\ s a -> s{_scParameters = a}) . _Default . _Map;
+
+-- | The Sha256 or Sha1 hash created by the system when the document was created.
+--
+-- Sha1 hashes have been deprecated.
+scDocumentHash :: Lens' SendCommand (Maybe Text)
+scDocumentHash = lens _scDocumentHash (\ s a -> s{_scDocumentHash = a});
 
 -- | If this time is reached and the command has not already started executing, it will not execute.
 scTimeoutSeconds :: Lens' SendCommand (Maybe Natural)
@@ -111,7 +151,7 @@ scComment = lens _scComment (\ s a -> s{_scComment = a});
 scOutputS3BucketName :: Lens' SendCommand (Maybe Text)
 scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketName = a});
 
--- | Required. The instance IDs where the command should execute.
+-- | Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
 scInstanceIds :: Lens' SendCommand (NonEmpty Text)
 scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _List1;
 
@@ -145,8 +185,12 @@ instance ToJSON SendCommand where
         toJSON SendCommand'{..}
           = object
               (catMaybes
-                 [("OutputS3KeyPrefix" .=) <$> _scOutputS3KeyPrefix,
+                 [("ServiceRoleArn" .=) <$> _scServiceRoleARN,
+                  ("NotificationConfig" .=) <$> _scNotificationConfig,
+                  ("DocumentHashType" .=) <$> _scDocumentHashType,
+                  ("OutputS3KeyPrefix" .=) <$> _scOutputS3KeyPrefix,
                   ("Parameters" .=) <$> _scParameters,
+                  ("DocumentHash" .=) <$> _scDocumentHash,
                   ("TimeoutSeconds" .=) <$> _scTimeoutSeconds,
                   ("Comment" .=) <$> _scComment,
                   ("OutputS3BucketName" .=) <$> _scOutputS3BucketName,

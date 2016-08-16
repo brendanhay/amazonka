@@ -11,11 +11,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Simple Systems Manager (SSM) enables you to remotely manage the configuration of your Amazon EC2 instance. Using SSM, you can run scripts or commands using either EC2 Run Command or SSM Config. (SSM Config is currently available only for Windows instances.)
+-- This is the Amazon EC2 Simple Systems Manager (SSM) API Reference. SSM enables you to remotely manage the configuration of your Amazon EC2 instances, virtual machines (VMs), or servers in your on-premises environment or in an environment provided by other cloud providers using scripts, commands, or the Amazon EC2 console. SSM includes an on-demand solution called /Amazon EC2 Run Command/ and a lightweight instance configuration solution called /SSM Config/.
+--
+-- This references is intended to be used with the EC2 Run Command User Guide for <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/execute-remote-commands.html Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/execute-remote-commands.html Windows>.
+--
+-- You must register your on-premises servers and VMs through an activation process before you can configure them using Run Command. Registered servers and VMs are called /managed instances/. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managed-instances.html Setting Up Run Command On Managed Instances (On-Premises Servers and VMs) on Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/managed-instances.html Setting Up Run Command On Managed Instances (On-Premises Servers and VMs) on Windows>.
 --
 -- __Run Command__
 --
--- Run Command provides an on-demand experience for executing commands. You can use pre-defined Amazon SSM documents to perform the actions listed later in this section, or you can create your own documents. With these documents, you can remotely configure your instances by sending commands using the __Commands__ page in the <http://console.aws.amazon.com/ec2/ Amazon EC2 console>, <http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html AWS Tools for Windows PowerShell>, or the <http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html AWS CLI>.
+-- Run Command provides an on-demand experience for executing commands. You can use pre-defined SSM documents to perform the actions listed later in this section, or you can create your own documents. With these documents, you can remotely configure your instances by sending commands using the __Commands__ page in the <http://console.aws.amazon.com/ec2/ Amazon EC2 console>, <http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html AWS Tools for Windows PowerShell>, the <http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html AWS CLI>, or AWS SDKs.
 --
 -- Run Command reports the status of the command execution for each instance targeted by a command. You can also audit the command execution to understand who executed commands, when, and what changes were made. By switching between different SSM documents, you can quickly configure your instances with different types of commands. To get started with Run Command, verify that your environment meets the prerequisites for remotely running commands on EC2 instances (<http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/remote-commands-prereq.html Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/remote-commands-prereq.html Windows>).
 --
@@ -25,65 +29,44 @@
 --
 -- SSM Config and Run Command include the following pre-defined documents.
 --
--- Amazon Pre-defined SSM Documents
+-- __Linux__
 --
--- Name Description Platform
+-- -   __AWS-RunShellScript__ to run shell scripts
 --
--- AWS-RunShellScript
+-- -   __AWS-UpdateSSMAgent__ to update the Amazon SSM agent
 --
--- Run shell scripts
+-- __Windows__
 --
--- Linux
+-- -   __AWS-JoinDirectoryServiceDomain__ to join an AWS Directory
 --
--- AWS-UpdateSSMAgent
+-- -   __AWS-RunPowerShellScript__ to run PowerShell commands or scripts
 --
--- Update the Amazon SSM agent
+-- -   __AWS-UpdateEC2Config__ to update the EC2Config service
 --
--- Linux
+-- -   __AWS-ConfigureWindowsUpdate__ to configure Windows Update settings
 --
--- AWS-JoinDirectoryServiceDomain
+-- -   __AWS-InstallApplication__ to install, repair, or uninstall software using an MSI package
 --
--- Join an AWS Directory
+-- -   __AWS-InstallPowerShellModule__ to install PowerShell modules
 --
--- Windows
+-- -   __AWS-ConfigureCloudWatch__ to configure Amazon CloudWatch Logs to monitor applications and systems
 --
--- AWS-RunPowerShellScript
+-- -   __AWS-ListWindowsInventory__ to collect information about an EC2 instance running in Windows.
 --
--- Run PowerShell commands or scripts
+-- -   __AWS-FindWindowsUpdates__ to scan an instance and determines which updates are missing.
 --
--- Windows
+-- -   __AWS-InstallMissingWindowsUpdates__ to install missing updates on your EC2 instance.
 --
--- AWS-UpdateEC2Config
+-- -   __AWS-InstallSpecificWindowsUpdates__ to install one or more specific updates.
 --
--- Update the EC2Config service
+-- The commands or scripts specified in SSM documents run with administrative privilege on your instances because the Amazon SSM agent runs as root on Linux and the EC2Config service runs in the Local System account on Windows. If a user has permission to execute any of the pre-defined SSM documents (any document that begins with AWS-*) then that user also has administrator access to the instance. Delegate access to Run Command and SSM Config judiciously. This becomes extremely important if you create your own SSM documents. Amazon Web Services does not provide guidance about how to create secure SSM documents. You create SSM documents and delegate access to Run Command at your own risk. As a security best practice, we recommend that you assign access to \"AWS-*\" documents, especially the AWS-RunShellScript document on Linux and the AWS-RunPowerShellScript document on Windows, to trusted administrators only. You can create SSM documents for specific tasks and delegate access to non-administrators.
 --
--- Windows
+-- For information about creating and sharing SSM documents, see the following topics in the SSM User Guide:
 --
--- AWS-ConfigureWindowsUpdate
+-- -   <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-ssm-doc.html Creating SSM Documents> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssm-sharing.html Sharing SSM Documents> (Linux)
 --
--- Configure Windows Update settings
+-- -   <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/create-ssm-doc.html Creating SSM Documents> and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ssm-sharing.html Sharing SSM Documents> (Windows)
 --
--- Windows
---
--- AWS-InstallApplication
---
--- Install, repair, or uninstall software using an MSI package
---
--- Windows
---
--- AWS-InstallPowerShellModule
---
--- Install PowerShell modules
---
--- Windows
---
--- AWS-ConfigureCloudWatch
---
--- Configure Amazon CloudWatch Logs to monitor applications and systems
---
--- Windows
---
--- The commands or scripts specified in SSM documents run with administrative privilege on your instances because the Amazon SSM agent runs as root on Linux and the EC2Config service runs in the Local System account on Windows. If a user has permission to execute any of the pre-defined SSM documents (any document that begins with AWS-*) then that user also has administrator access to the instance. Delegate access to SSM and Run Command judiciously. This becomes extremely important if you create your own SSM documents. Amazon Web Services does not provide guidance about how to create secure SSM documents. You create SSM documents and delegate access to Run Command at your own risk. As a security best practice, we recommend that you assign access to \"AWS-*\" documents, especially the AWS-RunShellScript document on Linux and the AWS-RunPowerShellScript document on Windows, to trusted administrators only. You can create SSM documents for specific tasks and delegate access to non-administrators.
 module Network.AWS.SSM
     (
     -- * Service Configuration
@@ -94,6 +77,9 @@ module Network.AWS.SSM
 
     -- ** UnsupportedPlatformType
     , _UnsupportedPlatformType
+
+    -- ** InvalidPermissionType
+    , _InvalidPermissionType
 
     -- ** AssociatedInstances
     , _AssociatedInstances
@@ -110,11 +96,17 @@ module Network.AWS.SSM
     -- ** InvalidOutputFolder
     , _InvalidOutputFolder
 
+    -- ** InvalidActivationId
+    , _InvalidActivationId
+
     -- ** InvalidCommandId
     , _InvalidCommandId
 
     -- ** DuplicateInstanceId
     , _DuplicateInstanceId
+
+    -- ** InvalidResourceType
+    , _InvalidResourceType
 
     -- ** InvalidDocument
     , _InvalidDocument
@@ -140,14 +132,32 @@ module Network.AWS.SSM
     -- ** InternalServerError
     , _InternalServerError
 
+    -- ** InvalidRole
+    , _InvalidRole
+
     -- ** TooManyUpdates
     , _TooManyUpdates
+
+    -- ** InvalidActivation
+    , _InvalidActivation
 
     -- ** MaxDocumentSizeExceeded
     , _MaxDocumentSizeExceeded
 
+    -- ** InvalidDocumentOperation
+    , _InvalidDocumentOperation
+
     -- ** InvalidParameters
     , _InvalidParameters
+
+    -- ** InvalidResourceId
+    , _InvalidResourceId
+
+    -- ** InvalidNotificationConfig
+    , _InvalidNotificationConfig
+
+    -- ** DocumentPermissionLimit
+    , _DocumentPermissionLimit
 
     -- ** DocumentAlreadyExists
     , _DocumentAlreadyExists
@@ -155,11 +165,20 @@ module Network.AWS.SSM
     -- ** DocumentLimitExceeded
     , _DocumentLimitExceeded
 
+    -- ** InvalidFilter
+    , _InvalidFilter
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DescribeActivations
+    , module Network.AWS.SSM.DescribeActivations
+
+    -- ** ListTagsForResource
+    , module Network.AWS.SSM.ListTagsForResource
 
     -- ** DescribeDocument
     , module Network.AWS.SSM.DescribeDocument
@@ -167,8 +186,17 @@ module Network.AWS.SSM
     -- ** CreateAssociation
     , module Network.AWS.SSM.CreateAssociation
 
+    -- ** DeleteActivation
+    , module Network.AWS.SSM.DeleteActivation
+
+    -- ** CreateActivation
+    , module Network.AWS.SSM.CreateActivation
+
     -- ** CreateDocument
     , module Network.AWS.SSM.CreateDocument
+
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.SSM.RemoveTagsFromResource
 
     -- ** ListCommandInvocations (Paginated)
     , module Network.AWS.SSM.ListCommandInvocations
@@ -176,14 +204,26 @@ module Network.AWS.SSM
     -- ** ListDocuments (Paginated)
     , module Network.AWS.SSM.ListDocuments
 
+    -- ** UpdateManagedInstanceRole
+    , module Network.AWS.SSM.UpdateManagedInstanceRole
+
     -- ** GetDocument
     , module Network.AWS.SSM.GetDocument
+
+    -- ** AddTagsToResource
+    , module Network.AWS.SSM.AddTagsToResource
 
     -- ** CancelCommand
     , module Network.AWS.SSM.CancelCommand
 
+    -- ** DeregisterManagedInstance
+    , module Network.AWS.SSM.DeregisterManagedInstance
+
     -- ** DescribeAssociation
     , module Network.AWS.SSM.DescribeAssociation
+
+    -- ** ModifyDocumentPermission
+    , module Network.AWS.SSM.ModifyDocumentPermission
 
     -- ** UpdateAssociationStatus
     , module Network.AWS.SSM.UpdateAssociationStatus
@@ -205,6 +245,9 @@ module Network.AWS.SSM
 
     -- ** DeleteDocument
     , module Network.AWS.SSM.DeleteDocument
+
+    -- ** DescribeDocumentPermission
+    , module Network.AWS.SSM.DescribeDocumentPermission
 
     -- ** CreateAssociationBatch
     , module Network.AWS.SSM.CreateAssociationBatch
@@ -229,11 +272,20 @@ module Network.AWS.SSM
     -- ** CommandStatus
     , CommandStatus (..)
 
+    -- ** DescribeActivationsFilterKeys
+    , DescribeActivationsFilterKeys (..)
+
     -- ** DocumentFilterKey
     , DocumentFilterKey (..)
 
+    -- ** DocumentHashType
+    , DocumentHashType (..)
+
     -- ** DocumentParameterType
     , DocumentParameterType (..)
+
+    -- ** DocumentPermissionType
+    , DocumentPermissionType (..)
 
     -- ** DocumentStatus
     , DocumentStatus (..)
@@ -244,11 +296,36 @@ module Network.AWS.SSM
     -- ** InstanceInformationFilterKey
     , InstanceInformationFilterKey (..)
 
+    -- ** NotificationEvent
+    , NotificationEvent (..)
+
+    -- ** NotificationType
+    , NotificationType (..)
+
     -- ** PingStatus
     , PingStatus (..)
 
     -- ** PlatformType
     , PlatformType (..)
+
+    -- ** ResourceType
+    , ResourceType (..)
+
+    -- ** ResourceTypeForTagging
+    , ResourceTypeForTagging (..)
+
+    -- ** Activation
+    , Activation
+    , activation
+    , aExpired
+    , aDefaultInstanceName
+    , aActivationId
+    , aCreatedDate
+    , aRegistrationLimit
+    , aExpirationDate
+    , aDescription
+    , aRegistrationsCount
+    , aIAMRole
 
     -- ** Association
     , Association
@@ -284,6 +361,7 @@ module Network.AWS.SSM
     , command
     , cStatus
     , cExpiresAfter
+    , cNotificationConfig
     , cOutputS3KeyPrefix
     , cDocumentName
     , cInstanceIds
@@ -292,6 +370,7 @@ module Network.AWS.SSM
     , cComment
     , cOutputS3BucketName
     , cRequestedDateTime
+    , cServiceRole
 
     -- ** CommandFilter
     , CommandFilter
@@ -304,12 +383,14 @@ module Network.AWS.SSM
     , commandInvocation
     , ciInstanceId
     , ciStatus
+    , ciNotificationConfig
     , ciCommandPlugins
     , ciDocumentName
     , ciCommandId
     , ciComment
     , ciTraceOutput
     , ciRequestedDateTime
+    , ciServiceRole
 
     -- ** CommandPlugin
     , CommandPlugin
@@ -330,14 +411,23 @@ module Network.AWS.SSM
     , cabreName
     , cabreParameters
 
+    -- ** DescribeActivationsFilter
+    , DescribeActivationsFilter
+    , describeActivationsFilter
+    , dafFilterKey
+    , dafFilterValues
+
     -- ** DocumentDescription
     , DocumentDescription
     , documentDescription
     , dStatus
+    , dHash
     , dSha1
+    , dOwner
     , dPlatformTypes
     , dCreatedDate
     , dName
+    , dHashType
     , dParameters
     , dDescription
 
@@ -350,6 +440,7 @@ module Network.AWS.SSM
     -- ** DocumentIdentifier
     , DocumentIdentifier
     , documentIdentifier
+    , diOwner
     , diPlatformTypes
     , diName
 
@@ -373,37 +464,67 @@ module Network.AWS.SSM
     , instanceInformation
     , iiInstanceId
     , iiPingStatus
+    , iiIPAddress
+    , iiResourceType
+    , iiRegistrationDate
     , iiPlatformVersion
     , iiIsLatestVersion
     , iiAgentVersion
     , iiLastPingDateTime
+    , iiActivationId
+    , iiName
     , iiPlatformType
     , iiPlatformName
+    , iiComputerName
+    , iiIAMRole
 
     -- ** InstanceInformationFilter
     , InstanceInformationFilter
     , instanceInformationFilter
     , iifKey
     , iifValueSet
+
+    -- ** NotificationConfig
+    , NotificationConfig
+    , notificationConfig
+    , ncNotificationEvents
+    , ncNotificationType
+    , ncNotificationARN
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
     ) where
 
+import           Network.AWS.SSM.AddTagsToResource
 import           Network.AWS.SSM.CancelCommand
+import           Network.AWS.SSM.CreateActivation
 import           Network.AWS.SSM.CreateAssociation
 import           Network.AWS.SSM.CreateAssociationBatch
 import           Network.AWS.SSM.CreateDocument
+import           Network.AWS.SSM.DeleteActivation
 import           Network.AWS.SSM.DeleteAssociation
 import           Network.AWS.SSM.DeleteDocument
+import           Network.AWS.SSM.DeregisterManagedInstance
+import           Network.AWS.SSM.DescribeActivations
 import           Network.AWS.SSM.DescribeAssociation
 import           Network.AWS.SSM.DescribeDocument
+import           Network.AWS.SSM.DescribeDocumentPermission
 import           Network.AWS.SSM.DescribeInstanceInformation
 import           Network.AWS.SSM.GetDocument
 import           Network.AWS.SSM.ListAssociations
 import           Network.AWS.SSM.ListCommandInvocations
 import           Network.AWS.SSM.ListCommands
 import           Network.AWS.SSM.ListDocuments
+import           Network.AWS.SSM.ListTagsForResource
+import           Network.AWS.SSM.ModifyDocumentPermission
+import           Network.AWS.SSM.RemoveTagsFromResource
 import           Network.AWS.SSM.SendCommand
 import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.UpdateAssociationStatus
+import           Network.AWS.SSM.UpdateManagedInstanceRole
 import           Network.AWS.SSM.Waiters
 
 {- $errors

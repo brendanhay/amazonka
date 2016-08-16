@@ -226,6 +226,35 @@ instance ToHeader     CommandStatus
 instance FromJSON CommandStatus where
     parseJSON = parseJSONText "CommandStatus"
 
+data DescribeActivationsFilterKeys
+    = ActivationIds
+    | DefaultInstanceName
+    | IAMRole
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DescribeActivationsFilterKeys where
+    parser = takeLowerText >>= \case
+        "activationids" -> pure ActivationIds
+        "defaultinstancename" -> pure DefaultInstanceName
+        "iamrole" -> pure IAMRole
+        e -> fromTextError $ "Failure parsing DescribeActivationsFilterKeys from value: '" <> e
+           <> "'. Accepted values: ActivationIds, DefaultInstanceName, IamRole"
+
+instance ToText DescribeActivationsFilterKeys where
+    toText = \case
+        ActivationIds -> "ActivationIds"
+        DefaultInstanceName -> "DefaultInstanceName"
+        IAMRole -> "IamRole"
+
+instance Hashable     DescribeActivationsFilterKeys
+instance NFData       DescribeActivationsFilterKeys
+instance ToByteString DescribeActivationsFilterKeys
+instance ToQuery      DescribeActivationsFilterKeys
+instance ToHeader     DescribeActivationsFilterKeys
+
+instance ToJSON DescribeActivationsFilterKeys where
+    toJSON = toJSONText
+
 data DocumentFilterKey
     = Name
     | Owner
@@ -255,6 +284,35 @@ instance ToHeader     DocumentFilterKey
 instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
 
+data DocumentHashType
+    = SHA1
+    | SHA256
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DocumentHashType where
+    parser = takeLowerText >>= \case
+        "sha1" -> pure SHA1
+        "sha256" -> pure SHA256
+        e -> fromTextError $ "Failure parsing DocumentHashType from value: '" <> e
+           <> "'. Accepted values: Sha1, Sha256"
+
+instance ToText DocumentHashType where
+    toText = \case
+        SHA1 -> "Sha1"
+        SHA256 -> "Sha256"
+
+instance Hashable     DocumentHashType
+instance NFData       DocumentHashType
+instance ToByteString DocumentHashType
+instance ToQuery      DocumentHashType
+instance ToHeader     DocumentHashType
+
+instance ToJSON DocumentHashType where
+    toJSON = toJSONText
+
+instance FromJSON DocumentHashType where
+    parseJSON = parseJSONText "DocumentHashType"
+
 data DocumentParameterType
     = String
     | StringList
@@ -280,6 +338,29 @@ instance ToHeader     DocumentParameterType
 
 instance FromJSON DocumentParameterType where
     parseJSON = parseJSONText "DocumentParameterType"
+
+data DocumentPermissionType =
+    Share
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DocumentPermissionType where
+    parser = takeLowerText >>= \case
+        "share" -> pure Share
+        e -> fromTextError $ "Failure parsing DocumentPermissionType from value: '" <> e
+           <> "'. Accepted values: Share"
+
+instance ToText DocumentPermissionType where
+    toText = \case
+        Share -> "Share"
+
+instance Hashable     DocumentPermissionType
+instance NFData       DocumentPermissionType
+instance ToByteString DocumentPermissionType
+instance ToQuery      DocumentPermissionType
+instance ToHeader     DocumentPermissionType
+
+instance ToJSON DocumentPermissionType where
+    toJSON = toJSONText
 
 data DocumentStatus
     = Active
@@ -340,27 +421,36 @@ instance FromJSON Fault where
     parseJSON = parseJSONText "Fault"
 
 data InstanceInformationFilterKey
-    = IIFKAgentVersion
+    = IIFKActivationIds
+    | IIFKAgentVersion
+    | IIFKIAMRole
     | IIFKInstanceIds
     | IIFKPingStatus
     | IIFKPlatformTypes
+    | IIFKResourceType
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceInformationFilterKey where
     parser = takeLowerText >>= \case
+        "activationids" -> pure IIFKActivationIds
         "agentversion" -> pure IIFKAgentVersion
+        "iamrole" -> pure IIFKIAMRole
         "instanceids" -> pure IIFKInstanceIds
         "pingstatus" -> pure IIFKPingStatus
         "platformtypes" -> pure IIFKPlatformTypes
+        "resourcetype" -> pure IIFKResourceType
         e -> fromTextError $ "Failure parsing InstanceInformationFilterKey from value: '" <> e
-           <> "'. Accepted values: AgentVersion, InstanceIds, PingStatus, PlatformTypes"
+           <> "'. Accepted values: ActivationIds, AgentVersion, IamRole, InstanceIds, PingStatus, PlatformTypes, ResourceType"
 
 instance ToText InstanceInformationFilterKey where
     toText = \case
+        IIFKActivationIds -> "ActivationIds"
         IIFKAgentVersion -> "AgentVersion"
+        IIFKIAMRole -> "IamRole"
         IIFKInstanceIds -> "InstanceIds"
         IIFKPingStatus -> "PingStatus"
         IIFKPlatformTypes -> "PlatformTypes"
+        IIFKResourceType -> "ResourceType"
 
 instance Hashable     InstanceInformationFilterKey
 instance NFData       InstanceInformationFilterKey
@@ -370,6 +460,76 @@ instance ToHeader     InstanceInformationFilterKey
 
 instance ToJSON InstanceInformationFilterKey where
     toJSON = toJSONText
+
+data NotificationEvent
+    = NEAll
+    | NECancelled
+    | NEFailed
+    | NEInProgress
+    | NESuccess
+    | NETimedOut
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NotificationEvent where
+    parser = takeLowerText >>= \case
+        "all" -> pure NEAll
+        "cancelled" -> pure NECancelled
+        "failed" -> pure NEFailed
+        "inprogress" -> pure NEInProgress
+        "success" -> pure NESuccess
+        "timedout" -> pure NETimedOut
+        e -> fromTextError $ "Failure parsing NotificationEvent from value: '" <> e
+           <> "'. Accepted values: All, Cancelled, Failed, InProgress, Success, TimedOut"
+
+instance ToText NotificationEvent where
+    toText = \case
+        NEAll -> "All"
+        NECancelled -> "Cancelled"
+        NEFailed -> "Failed"
+        NEInProgress -> "InProgress"
+        NESuccess -> "Success"
+        NETimedOut -> "TimedOut"
+
+instance Hashable     NotificationEvent
+instance NFData       NotificationEvent
+instance ToByteString NotificationEvent
+instance ToQuery      NotificationEvent
+instance ToHeader     NotificationEvent
+
+instance ToJSON NotificationEvent where
+    toJSON = toJSONText
+
+instance FromJSON NotificationEvent where
+    parseJSON = parseJSONText "NotificationEvent"
+
+data NotificationType
+    = Command
+    | Invocation
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NotificationType where
+    parser = takeLowerText >>= \case
+        "command" -> pure Command
+        "invocation" -> pure Invocation
+        e -> fromTextError $ "Failure parsing NotificationType from value: '" <> e
+           <> "'. Accepted values: Command, Invocation"
+
+instance ToText NotificationType where
+    toText = \case
+        Command -> "Command"
+        Invocation -> "Invocation"
+
+instance Hashable     NotificationType
+instance NFData       NotificationType
+instance ToByteString NotificationType
+instance ToQuery      NotificationType
+instance ToHeader     NotificationType
+
+instance ToJSON NotificationType where
+    toJSON = toJSONText
+
+instance FromJSON NotificationType where
+    parseJSON = parseJSONText "NotificationType"
 
 data PingStatus
     = ConnectionLost
@@ -425,3 +585,55 @@ instance ToHeader     PlatformType
 
 instance FromJSON PlatformType where
     parseJSON = parseJSONText "PlatformType"
+
+data ResourceType
+    = Document
+    | EC2Instance
+    | ManagedInstance
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ResourceType where
+    parser = takeLowerText >>= \case
+        "document" -> pure Document
+        "ec2instance" -> pure EC2Instance
+        "managedinstance" -> pure ManagedInstance
+        e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
+           <> "'. Accepted values: Document, EC2Instance, ManagedInstance"
+
+instance ToText ResourceType where
+    toText = \case
+        Document -> "Document"
+        EC2Instance -> "EC2Instance"
+        ManagedInstance -> "ManagedInstance"
+
+instance Hashable     ResourceType
+instance NFData       ResourceType
+instance ToByteString ResourceType
+instance ToQuery      ResourceType
+instance ToHeader     ResourceType
+
+instance FromJSON ResourceType where
+    parseJSON = parseJSONText "ResourceType"
+
+data ResourceTypeForTagging =
+    RTFTManagedInstance
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ResourceTypeForTagging where
+    parser = takeLowerText >>= \case
+        "managedinstance" -> pure RTFTManagedInstance
+        e -> fromTextError $ "Failure parsing ResourceTypeForTagging from value: '" <> e
+           <> "'. Accepted values: ManagedInstance"
+
+instance ToText ResourceTypeForTagging where
+    toText = \case
+        RTFTManagedInstance -> "ManagedInstance"
+
+instance Hashable     ResourceTypeForTagging
+instance NFData       ResourceTypeForTagging
+instance ToByteString ResourceTypeForTagging
+instance ToQuery      ResourceTypeForTagging
+instance ToHeader     ResourceTypeForTagging
+
+instance ToJSON ResourceTypeForTagging where
+    toJSON = toJSONText

@@ -29,9 +29,12 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     , cupSmsAuthenticationMessage
     , cupEmailVerificationSubject
     , cupAliasAttributes
+    , cupEmailConfiguration
     , cupSmsVerificationMessage
     , cupMFAConfiguration
     , cupLambdaConfig
+    , cupSmsConfiguration
+    , cupDeviceConfiguration
     , cupAutoVerifiedAttributes
     , cupPolicies
     , cupPoolName
@@ -59,9 +62,12 @@ data CreateUserPool = CreateUserPool'
     , _cupSmsAuthenticationMessage :: !(Maybe Text)
     , _cupEmailVerificationSubject :: !(Maybe Text)
     , _cupAliasAttributes          :: !(Maybe [AliasAttributeType])
+    , _cupEmailConfiguration       :: !(Maybe EmailConfigurationType)
     , _cupSmsVerificationMessage   :: !(Maybe Text)
     , _cupMFAConfiguration         :: !(Maybe UserPoolMFAType)
     , _cupLambdaConfig             :: !(Maybe LambdaConfigType)
+    , _cupSmsConfiguration         :: !(Maybe SmsConfigurationType)
+    , _cupDeviceConfiguration      :: !(Maybe DeviceConfigurationType)
     , _cupAutoVerifiedAttributes   :: !(Maybe [VerifiedAttributeType])
     , _cupPolicies                 :: !(Maybe UserPoolPolicyType)
     , _cupPoolName                 :: !Text
@@ -79,11 +85,17 @@ data CreateUserPool = CreateUserPool'
 --
 -- * 'cupAliasAttributes'
 --
+-- * 'cupEmailConfiguration'
+--
 -- * 'cupSmsVerificationMessage'
 --
 -- * 'cupMFAConfiguration'
 --
 -- * 'cupLambdaConfig'
+--
+-- * 'cupSmsConfiguration'
+--
+-- * 'cupDeviceConfiguration'
 --
 -- * 'cupAutoVerifiedAttributes'
 --
@@ -99,9 +111,12 @@ createUserPool pPoolName_ =
     , _cupSmsAuthenticationMessage = Nothing
     , _cupEmailVerificationSubject = Nothing
     , _cupAliasAttributes = Nothing
+    , _cupEmailConfiguration = Nothing
     , _cupSmsVerificationMessage = Nothing
     , _cupMFAConfiguration = Nothing
     , _cupLambdaConfig = Nothing
+    , _cupSmsConfiguration = Nothing
+    , _cupDeviceConfiguration = Nothing
     , _cupAutoVerifiedAttributes = Nothing
     , _cupPolicies = Nothing
     , _cupPoolName = pPoolName_
@@ -123,6 +138,10 @@ cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cup
 cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
 cupAliasAttributes = lens _cupAliasAttributes (\ s a -> s{_cupAliasAttributes = a}) . _Default . _Coerce;
 
+-- | The email configuration.
+cupEmailConfiguration :: Lens' CreateUserPool (Maybe EmailConfigurationType)
+cupEmailConfiguration = lens _cupEmailConfiguration (\ s a -> s{_cupEmailConfiguration = a});
+
 -- | A string representing the SMS verification message.
 cupSmsVerificationMessage :: Lens' CreateUserPool (Maybe Text)
 cupSmsVerificationMessage = lens _cupSmsVerificationMessage (\ s a -> s{_cupSmsVerificationMessage = a});
@@ -134,6 +153,14 @@ cupMFAConfiguration = lens _cupMFAConfiguration (\ s a -> s{_cupMFAConfiguration
 -- | The Lambda trigger configuration information for the new user pool.
 cupLambdaConfig :: Lens' CreateUserPool (Maybe LambdaConfigType)
 cupLambdaConfig = lens _cupLambdaConfig (\ s a -> s{_cupLambdaConfig = a});
+
+-- | The SMS configuration.
+cupSmsConfiguration :: Lens' CreateUserPool (Maybe SmsConfigurationType)
+cupSmsConfiguration = lens _cupSmsConfiguration (\ s a -> s{_cupSmsConfiguration = a});
+
+-- | The device configuration.
+cupDeviceConfiguration :: Lens' CreateUserPool (Maybe DeviceConfigurationType)
+cupDeviceConfiguration = lens _cupDeviceConfiguration (\ s a -> s{_cupDeviceConfiguration = a});
 
 -- | The attributes to be auto-verified. Possible values: __email__, __phone_number__.
 cupAutoVerifiedAttributes :: Lens' CreateUserPool [VerifiedAttributeType]
@@ -181,10 +208,14 @@ instance ToJSON CreateUserPool where
                   ("EmailVerificationSubject" .=) <$>
                     _cupEmailVerificationSubject,
                   ("AliasAttributes" .=) <$> _cupAliasAttributes,
+                  ("EmailConfiguration" .=) <$> _cupEmailConfiguration,
                   ("SmsVerificationMessage" .=) <$>
                     _cupSmsVerificationMessage,
                   ("MfaConfiguration" .=) <$> _cupMFAConfiguration,
                   ("LambdaConfig" .=) <$> _cupLambdaConfig,
+                  ("SmsConfiguration" .=) <$> _cupSmsConfiguration,
+                  ("DeviceConfiguration" .=) <$>
+                    _cupDeviceConfiguration,
                   ("AutoVerifiedAttributes" .=) <$>
                     _cupAutoVerifiedAttributes,
                   ("Policies" .=) <$> _cupPolicies,

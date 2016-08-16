@@ -27,8 +27,8 @@ module Network.AWS.CognitoIdentityProvider.ListUsers
     -- * Request Lenses
     , luPaginationToken
     , luAttributesToGet
-    , luUserStatus
     , luLimit
+    , luFilter
     , luUserPoolId
 
     -- * Destructuring the Response
@@ -53,8 +53,8 @@ import           Network.AWS.Response
 data ListUsers = ListUsers'
     { _luPaginationToken :: !(Maybe Text)
     , _luAttributesToGet :: !(Maybe [Text])
-    , _luUserStatus      :: !(Maybe UserStatusType)
     , _luLimit           :: !(Maybe Nat)
+    , _luFilter          :: !(Maybe Text)
     , _luUserPoolId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,9 +66,9 @@ data ListUsers = ListUsers'
 --
 -- * 'luAttributesToGet'
 --
--- * 'luUserStatus'
---
 -- * 'luLimit'
+--
+-- * 'luFilter'
 --
 -- * 'luUserPoolId'
 listUsers
@@ -78,8 +78,8 @@ listUsers pUserPoolId_ =
     ListUsers'
     { _luPaginationToken = Nothing
     , _luAttributesToGet = Nothing
-    , _luUserStatus = Nothing
     , _luLimit = Nothing
+    , _luFilter = Nothing
     , _luUserPoolId = pUserPoolId_
     }
 
@@ -91,19 +91,13 @@ luPaginationToken = lens _luPaginationToken (\ s a -> s{_luPaginationToken = a})
 luAttributesToGet :: Lens' ListUsers [Text]
 luAttributesToGet = lens _luAttributesToGet (\ s a -> s{_luAttributesToGet = a}) . _Default . _Coerce;
 
--- | The user status. Can be one of the following:
---
--- -   UNCONFIRMED - User has been created but not confirmed.
--- -   CONFIRMED - User has been confirmed.
--- -   ARCHIVED - User is no longer active.
--- -   COMPROMISED - User is disabled due to a potential security threat.
--- -   UNKNOWN - User status is not known.
-luUserStatus :: Lens' ListUsers (Maybe UserStatusType)
-luUserStatus = lens _luUserStatus (\ s a -> s{_luUserStatus = a});
-
 -- | The limit of the request to list users.
 luLimit :: Lens' ListUsers (Maybe Natural)
 luLimit = lens _luLimit (\ s a -> s{_luLimit = a}) . mapping _Nat;
+
+-- | The filter for the list users request.
+luFilter :: Lens' ListUsers (Maybe Text)
+luFilter = lens _luFilter (\ s a -> s{_luFilter = a});
 
 -- | The user pool ID for which you want to list users.
 luUserPoolId :: Lens' ListUsers Text
@@ -140,8 +134,8 @@ instance ToJSON ListUsers where
               (catMaybes
                  [("PaginationToken" .=) <$> _luPaginationToken,
                   ("AttributesToGet" .=) <$> _luAttributesToGet,
-                  ("UserStatus" .=) <$> _luUserStatus,
                   ("Limit" .=) <$> _luLimit,
+                  ("Filter" .=) <$> _luFilter,
                   Just ("UserPoolId" .= _luUserPoolId)])
 
 instance ToPath ListUsers where

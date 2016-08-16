@@ -16,18 +16,27 @@ module Network.AWS.CognitoIdentityProvider.Types
       cognitoIdentityProvider
 
     -- * Errors
+    , _PasswordResetRequiredException
     , _InvalidParameterException
     , _InvalidLambdaResponseException
+    , _InvalidEmailRoleAccessPolicyException
+    , _UserNotFoundException
     , _UnexpectedLambdaException
     , _NotAuthorizedException
     , _InternalErrorException
+    , _InvalidUserPoolConfigurationException
+    , _InvalidSmsRoleAccessPolicyException
     , _CodeMismatchException
+    , _InvalidSmsRoleTrustRelationshipException
     , _TooManyRequestsException
     , _ConcurrentModificationException
     , _UserLambdaValidationException
     , _ExpiredCodeException
     , _TooManyFailedAttemptsException
+    , _UserNotConfirmedException
+    , _CodeDeliveryFailureException
     , _ResourceNotFoundException
+    , _MFAMethodNotFoundException
     , _AliasExistsException
     , _LimitExceededException
     , _InvalidPasswordException
@@ -39,8 +48,20 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * AttributeDataType
     , AttributeDataType (..)
 
+    -- * AuthFlowType
+    , AuthFlowType (..)
+
+    -- * ChallengeNameType
+    , ChallengeNameType (..)
+
     -- * DeliveryMediumType
     , DeliveryMediumType (..)
+
+    -- * DeviceRememberedStatusType
+    , DeviceRememberedStatusType (..)
+
+    -- * ExplicitAuthFlowsType
+    , ExplicitAuthFlowsType (..)
 
     -- * StatusType
     , StatusType (..)
@@ -60,6 +81,16 @@ module Network.AWS.CognitoIdentityProvider.Types
     , atValue
     , atName
 
+    -- * AuthenticationResultType
+    , AuthenticationResultType
+    , authenticationResultType
+    , artAccessToken
+    , artRefreshToken
+    , artNewDeviceMetadata
+    , artExpiresIn
+    , artTokenType
+    , artIdToken
+
     -- * CodeDeliveryDetailsType
     , CodeDeliveryDetailsType
     , codeDeliveryDetailsType
@@ -67,12 +98,42 @@ module Network.AWS.CognitoIdentityProvider.Types
     , cddtDeliveryMedium
     , cddtAttributeName
 
+    -- * DeviceConfigurationType
+    , DeviceConfigurationType
+    , deviceConfigurationType
+    , dctChallengeRequiredOnNewDevice
+    , dctDeviceOnlyRememberedOnUserPrompt
+
+    -- * DeviceSecretVerifierConfigType
+    , DeviceSecretVerifierConfigType
+    , deviceSecretVerifierConfigType
+    , dsvctPasswordVerifier
+    , dsvctSalt
+
+    -- * DeviceType
+    , DeviceType
+    , deviceType
+    , dtDeviceLastModifiedDate
+    , dtDeviceCreateDate
+    , dtDeviceAttributes
+    , dtDeviceKey
+    , dtDeviceLastAuthenticatedDate
+
+    -- * EmailConfigurationType
+    , EmailConfigurationType
+    , emailConfigurationType
+    , ectSourceARN
+    , ectReplyToEmailAddress
+
     -- * LambdaConfigType
     , LambdaConfigType
     , lambdaConfigType
     , lctPreAuthentication
+    , lctCreateAuthChallenge
+    , lctVerifyAuthChallengeResponse
     , lctPostAuthentication
     , lctCustomMessage
+    , lctDefineAuthChallenge
     , lctPostConfirmation
     , lctPreSignUp
 
@@ -81,6 +142,12 @@ module Network.AWS.CognitoIdentityProvider.Types
     , mfaOptionType
     , motDeliveryMedium
     , motAttributeName
+
+    -- * NewDeviceMetadataType
+    , NewDeviceMetadataType
+    , newDeviceMetadataType
+    , ndmtDeviceGroupKey
+    , ndmtDeviceKey
 
     -- * NumberAttributeConstraintsType
     , NumberAttributeConstraintsType
@@ -108,6 +175,12 @@ module Network.AWS.CognitoIdentityProvider.Types
     , satDeveloperOnlyAttribute
     , satMutable
 
+    -- * SmsConfigurationType
+    , SmsConfigurationType
+    , smsConfigurationType
+    , sctSNSCallerARN
+    , sctExternalId
+
     -- * StringAttributeConstraintsType
     , StringAttributeConstraintsType
     , stringAttributeConstraintsType
@@ -124,11 +197,15 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * UserPoolClientType
     , UserPoolClientType
     , userPoolClientType
+    , upctRefreshTokenValidity
     , upctClientId
+    , upctExplicitAuthFlows
     , upctClientSecret
     , upctLastModifiedDate
     , upctUserPoolId
+    , upctWriteAttributes
     , upctCreationDate
+    , upctReadAttributes
     , upctClientName
 
     -- * UserPoolDescriptionType
@@ -150,6 +227,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , UserPoolType
     , userPoolType
     , uptStatus
+    , uptEmailConfigurationFailure
     , uptLastModifiedDate
     , uptEstimatedNumberOfUsers
     , uptEmailVerificationMessage
@@ -157,12 +235,16 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uptSchemaAttributes
     , uptEmailVerificationSubject
     , uptAliasAttributes
+    , uptEmailConfiguration
     , uptSmsVerificationMessage
     , uptName
     , uptMFAConfiguration
     , uptId
+    , uptSmsConfigurationFailure
     , uptCreationDate
     , uptLambdaConfig
+    , uptSmsConfiguration
+    , uptDeviceConfiguration
     , uptAutoVerifiedAttributes
     , uptPolicies
 
@@ -217,6 +299,11 @@ cognitoIdentityProvider =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | This exception is thrown when a password reset is required.
+_PasswordResetRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_PasswordResetRequiredException =
+    _ServiceError . hasCode "PasswordResetRequiredException"
+
 -- | This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
@@ -226,6 +313,15 @@ _InvalidParameterException =
 _InvalidLambdaResponseException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaResponseException =
     _ServiceError . hasCode "InvalidLambdaResponseException"
+
+-- | This exception is thrown when Amazon Cognito is not allowed to use your email identity. HTTP status code: 400.
+_InvalidEmailRoleAccessPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidEmailRoleAccessPolicyException =
+    _ServiceError . hasCode "InvalidEmailRoleAccessPolicyException"
+
+-- | This exception is thrown when a user is not found.
+_UserNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserNotFoundException = _ServiceError . hasCode "UserNotFoundException"
 
 -- | This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.
 _UnexpectedLambdaException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -240,9 +336,24 @@ _NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedException"
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 
+-- | This exception is thrown when the user pool configuration is invalid.
+_InvalidUserPoolConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidUserPoolConfigurationException =
+    _ServiceError . hasCode "InvalidUserPoolConfigurationException"
+
+-- | This exception is returned when the role provided for SMS configuration does not have permission to publish using Amazon SNS.
+_InvalidSmsRoleAccessPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSmsRoleAccessPolicyException =
+    _ServiceError . hasCode "InvalidSmsRoleAccessPolicyException"
+
 -- | This exception is thrown if the provided code does not match what the server was expecting.
 _CodeMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeMismatchException = _ServiceError . hasCode "CodeMismatchException"
+
+-- | This exception is thrown when the trust relationship is invalid for the role provided for SMS configuration. This can happen if you do not trust __cognito-idp.amazonaws.com__ or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
+_InvalidSmsRoleTrustRelationshipException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSmsRoleTrustRelationshipException =
+    _ServiceError . hasCode "InvalidSmsRoleTrustRelationshipException"
 
 -- | This exception gets thrown when the user has made too many requests for a given operation.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -267,10 +378,25 @@ _TooManyFailedAttemptsException :: AsError a => Getting (First ServiceError) a S
 _TooManyFailedAttemptsException =
     _ServiceError . hasCode "TooManyFailedAttemptsException"
 
+-- | This exception is thrown when a user is not confirmed successfully.
+_UserNotConfirmedException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserNotConfirmedException =
+    _ServiceError . hasCode "UserNotConfirmedException"
+
+-- | This exception is thrown when a verification code fails to deliver successfully.
+_CodeDeliveryFailureException :: AsError a => Getting (First ServiceError) a ServiceError
+_CodeDeliveryFailureException =
+    _ServiceError . hasCode "CodeDeliveryFailureException"
+
 -- | This exception is thrown when the Amazon Cognito service cannot find the requested resource.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
+
+-- | This exception is thrown when Amazon Cognito cannot find a multi-factor authentication (MFA) method.
+_MFAMethodNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_MFAMethodNotFoundException =
+    _ServiceError . hasCode "MFAMethodNotFoundException"
 
 -- | This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.
 _AliasExistsException :: AsError a => Getting (First ServiceError) a ServiceError

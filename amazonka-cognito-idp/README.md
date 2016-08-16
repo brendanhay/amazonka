@@ -15,7 +15,9 @@
 
 You can create a user pool in Amazon Cognito Identity to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
 
-This API reference provides information about user pools in Amazon Cognito Identity, which is a new capability that is available as a beta.
+This API reference provides information about user pools in Amazon Cognito Identity.
+
+For more information, see <https://aws.amazon.com/cognito/ Amazon Cognito>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cognito-idp)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

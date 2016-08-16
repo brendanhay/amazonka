@@ -28,9 +28,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     , uupEmailVerificationMessage
     , uupSmsAuthenticationMessage
     , uupEmailVerificationSubject
+    , uupEmailConfiguration
     , uupSmsVerificationMessage
     , uupMFAConfiguration
     , uupLambdaConfig
+    , uupSmsConfiguration
+    , uupDeviceConfiguration
     , uupAutoVerifiedAttributes
     , uupPolicies
     , uupUserPoolId
@@ -56,9 +59,12 @@ data UpdateUserPool = UpdateUserPool'
     { _uupEmailVerificationMessage :: !(Maybe Text)
     , _uupSmsAuthenticationMessage :: !(Maybe Text)
     , _uupEmailVerificationSubject :: !(Maybe Text)
+    , _uupEmailConfiguration       :: !(Maybe EmailConfigurationType)
     , _uupSmsVerificationMessage   :: !(Maybe Text)
     , _uupMFAConfiguration         :: !(Maybe UserPoolMFAType)
     , _uupLambdaConfig             :: !(Maybe LambdaConfigType)
+    , _uupSmsConfiguration         :: !(Maybe SmsConfigurationType)
+    , _uupDeviceConfiguration      :: !(Maybe DeviceConfigurationType)
     , _uupAutoVerifiedAttributes   :: !(Maybe [VerifiedAttributeType])
     , _uupPolicies                 :: !(Maybe UserPoolPolicyType)
     , _uupUserPoolId               :: !Text
@@ -74,11 +80,17 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- * 'uupEmailVerificationSubject'
 --
+-- * 'uupEmailConfiguration'
+--
 -- * 'uupSmsVerificationMessage'
 --
 -- * 'uupMFAConfiguration'
 --
 -- * 'uupLambdaConfig'
+--
+-- * 'uupSmsConfiguration'
+--
+-- * 'uupDeviceConfiguration'
 --
 -- * 'uupAutoVerifiedAttributes'
 --
@@ -93,9 +105,12 @@ updateUserPool pUserPoolId_ =
     { _uupEmailVerificationMessage = Nothing
     , _uupSmsAuthenticationMessage = Nothing
     , _uupEmailVerificationSubject = Nothing
+    , _uupEmailConfiguration = Nothing
     , _uupSmsVerificationMessage = Nothing
     , _uupMFAConfiguration = Nothing
     , _uupLambdaConfig = Nothing
+    , _uupSmsConfiguration = Nothing
+    , _uupDeviceConfiguration = Nothing
     , _uupAutoVerifiedAttributes = Nothing
     , _uupPolicies = Nothing
     , _uupUserPoolId = pUserPoolId_
@@ -113,6 +128,10 @@ uupSmsAuthenticationMessage = lens _uupSmsAuthenticationMessage (\ s a -> s{_uup
 uupEmailVerificationSubject :: Lens' UpdateUserPool (Maybe Text)
 uupEmailVerificationSubject = lens _uupEmailVerificationSubject (\ s a -> s{_uupEmailVerificationSubject = a});
 
+-- | Email configuration.
+uupEmailConfiguration :: Lens' UpdateUserPool (Maybe EmailConfigurationType)
+uupEmailConfiguration = lens _uupEmailConfiguration (\ s a -> s{_uupEmailConfiguration = a});
+
 -- | A container with information about the SMS verification message.
 uupSmsVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsVerificationMessage = a});
@@ -128,6 +147,14 @@ uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration
 -- | The AWS Lambda configuration information from the request to update the user pool.
 uupLambdaConfig :: Lens' UpdateUserPool (Maybe LambdaConfigType)
 uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a});
+
+-- | SMS configuration.
+uupSmsConfiguration :: Lens' UpdateUserPool (Maybe SmsConfigurationType)
+uupSmsConfiguration = lens _uupSmsConfiguration (\ s a -> s{_uupSmsConfiguration = a});
+
+-- | Device configuration.
+uupDeviceConfiguration :: Lens' UpdateUserPool (Maybe DeviceConfigurationType)
+uupDeviceConfiguration = lens _uupDeviceConfiguration (\ s a -> s{_uupDeviceConfiguration = a});
 
 -- | The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
 uupAutoVerifiedAttributes :: Lens' UpdateUserPool [VerifiedAttributeType]
@@ -173,10 +200,14 @@ instance ToJSON UpdateUserPool where
                     _uupSmsAuthenticationMessage,
                   ("EmailVerificationSubject" .=) <$>
                     _uupEmailVerificationSubject,
+                  ("EmailConfiguration" .=) <$> _uupEmailConfiguration,
                   ("SmsVerificationMessage" .=) <$>
                     _uupSmsVerificationMessage,
                   ("MfaConfiguration" .=) <$> _uupMFAConfiguration,
                   ("LambdaConfig" .=) <$> _uupLambdaConfig,
+                  ("SmsConfiguration" .=) <$> _uupSmsConfiguration,
+                  ("DeviceConfiguration" .=) <$>
+                    _uupDeviceConfiguration,
                   ("AutoVerifiedAttributes" .=) <$>
                     _uupAutoVerifiedAttributes,
                   ("Policies" .=) <$> _uupPolicies,

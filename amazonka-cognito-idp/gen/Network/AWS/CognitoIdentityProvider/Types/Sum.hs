@@ -86,6 +86,79 @@ instance ToJSON AttributeDataType where
 instance FromJSON AttributeDataType where
     parseJSON = parseJSONText "AttributeDataType"
 
+data AuthFlowType
+    = AdminNoSrpAuth
+    | CustomAuth
+    | RefreshTokenAuth
+    | UserSrpAuth
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AuthFlowType where
+    parser = takeLowerText >>= \case
+        "admin_no_srp_auth" -> pure AdminNoSrpAuth
+        "custom_auth" -> pure CustomAuth
+        "refresh_token_auth" -> pure RefreshTokenAuth
+        "user_srp_auth" -> pure UserSrpAuth
+        e -> fromTextError $ "Failure parsing AuthFlowType from value: '" <> e
+           <> "'. Accepted values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH, REFRESH_TOKEN_AUTH, USER_SRP_AUTH"
+
+instance ToText AuthFlowType where
+    toText = \case
+        AdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
+        CustomAuth -> "CUSTOM_AUTH"
+        RefreshTokenAuth -> "REFRESH_TOKEN_AUTH"
+        UserSrpAuth -> "USER_SRP_AUTH"
+
+instance Hashable     AuthFlowType
+instance NFData       AuthFlowType
+instance ToByteString AuthFlowType
+instance ToQuery      AuthFlowType
+instance ToHeader     AuthFlowType
+
+instance ToJSON AuthFlowType where
+    toJSON = toJSONText
+
+data ChallengeNameType
+    = CNTAdminNoSrpAuth
+    | CNTCustomChallenge
+    | CNTDevicePasswordVerifier
+    | CNTDeviceSrpAuth
+    | CNTPasswordVerifier
+    | CNTSmsMFA
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChallengeNameType where
+    parser = takeLowerText >>= \case
+        "admin_no_srp_auth" -> pure CNTAdminNoSrpAuth
+        "custom_challenge" -> pure CNTCustomChallenge
+        "device_password_verifier" -> pure CNTDevicePasswordVerifier
+        "device_srp_auth" -> pure CNTDeviceSrpAuth
+        "password_verifier" -> pure CNTPasswordVerifier
+        "sms_mfa" -> pure CNTSmsMFA
+        e -> fromTextError $ "Failure parsing ChallengeNameType from value: '" <> e
+           <> "'. Accepted values: ADMIN_NO_SRP_AUTH, CUSTOM_CHALLENGE, DEVICE_PASSWORD_VERIFIER, DEVICE_SRP_AUTH, PASSWORD_VERIFIER, SMS_MFA"
+
+instance ToText ChallengeNameType where
+    toText = \case
+        CNTAdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
+        CNTCustomChallenge -> "CUSTOM_CHALLENGE"
+        CNTDevicePasswordVerifier -> "DEVICE_PASSWORD_VERIFIER"
+        CNTDeviceSrpAuth -> "DEVICE_SRP_AUTH"
+        CNTPasswordVerifier -> "PASSWORD_VERIFIER"
+        CNTSmsMFA -> "SMS_MFA"
+
+instance Hashable     ChallengeNameType
+instance NFData       ChallengeNameType
+instance ToByteString ChallengeNameType
+instance ToQuery      ChallengeNameType
+instance ToHeader     ChallengeNameType
+
+instance ToJSON ChallengeNameType where
+    toJSON = toJSONText
+
+instance FromJSON ChallengeNameType where
+    parseJSON = parseJSONText "ChallengeNameType"
+
 data DeliveryMediumType
     = DMTEmail
     | DMTSms
@@ -114,6 +187,58 @@ instance ToJSON DeliveryMediumType where
 
 instance FromJSON DeliveryMediumType where
     parseJSON = parseJSONText "DeliveryMediumType"
+
+data DeviceRememberedStatusType
+    = NotRemembered
+    | Remembered
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DeviceRememberedStatusType where
+    parser = takeLowerText >>= \case
+        "not_remembered" -> pure NotRemembered
+        "remembered" -> pure Remembered
+        e -> fromTextError $ "Failure parsing DeviceRememberedStatusType from value: '" <> e
+           <> "'. Accepted values: not_remembered, remembered"
+
+instance ToText DeviceRememberedStatusType where
+    toText = \case
+        NotRemembered -> "not_remembered"
+        Remembered -> "remembered"
+
+instance Hashable     DeviceRememberedStatusType
+instance NFData       DeviceRememberedStatusType
+instance ToByteString DeviceRememberedStatusType
+instance ToQuery      DeviceRememberedStatusType
+instance ToHeader     DeviceRememberedStatusType
+
+instance ToJSON DeviceRememberedStatusType where
+    toJSON = toJSONText
+
+data ExplicitAuthFlowsType =
+    EAFTAdminNoSrpAuth
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ExplicitAuthFlowsType where
+    parser = takeLowerText >>= \case
+        "admin_no_srp_auth" -> pure EAFTAdminNoSrpAuth
+        e -> fromTextError $ "Failure parsing ExplicitAuthFlowsType from value: '" <> e
+           <> "'. Accepted values: ADMIN_NO_SRP_AUTH"
+
+instance ToText ExplicitAuthFlowsType where
+    toText = \case
+        EAFTAdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
+
+instance Hashable     ExplicitAuthFlowsType
+instance NFData       ExplicitAuthFlowsType
+instance ToByteString ExplicitAuthFlowsType
+instance ToQuery      ExplicitAuthFlowsType
+instance ToHeader     ExplicitAuthFlowsType
+
+instance ToJSON ExplicitAuthFlowsType where
+    toJSON = toJSONText
+
+instance FromJSON ExplicitAuthFlowsType where
+    parseJSON = parseJSONText "ExplicitAuthFlowsType"
 
 data StatusType
     = Disabled
@@ -177,6 +302,7 @@ data UserStatusType
     = Archived
     | Compromised
     | Confirmed
+    | ResetRequired
     | Unconfirmed
     | Unknown
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -186,16 +312,18 @@ instance FromText UserStatusType where
         "archived" -> pure Archived
         "compromised" -> pure Compromised
         "confirmed" -> pure Confirmed
+        "reset_required" -> pure ResetRequired
         "unconfirmed" -> pure Unconfirmed
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing UserStatusType from value: '" <> e
-           <> "'. Accepted values: ARCHIVED, COMPROMISED, CONFIRMED, UNCONFIRMED, UNKNOWN"
+           <> "'. Accepted values: ARCHIVED, COMPROMISED, CONFIRMED, RESET_REQUIRED, UNCONFIRMED, UNKNOWN"
 
 instance ToText UserStatusType where
     toText = \case
         Archived -> "ARCHIVED"
         Compromised -> "COMPROMISED"
         Confirmed -> "CONFIRMED"
+        ResetRequired -> "RESET_REQUIRED"
         Unconfirmed -> "UNCONFIRMED"
         Unknown -> "UNKNOWN"
 
@@ -204,9 +332,6 @@ instance NFData       UserStatusType
 instance ToByteString UserStatusType
 instance ToQuery      UserStatusType
 instance ToHeader     UserStatusType
-
-instance ToJSON UserStatusType where
-    toJSON = toJSONText
 
 instance FromJSON UserStatusType where
     parseJSON = parseJSONText "UserStatusType"

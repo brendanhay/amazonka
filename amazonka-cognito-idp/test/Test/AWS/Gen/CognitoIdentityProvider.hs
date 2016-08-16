@@ -34,6 +34,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestUpdateUserPool $
 --             updateUserPool
 --
+--         , requestAdminInitiateAuth $
+--             adminInitiateAuth
+--
 --         , requestAdminEnableUser $
 --             adminEnableUser
 --
@@ -52,6 +55,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminDisableUser $
 --             adminDisableUser
 --
+--         , requestConfirmDevice $
+--             confirmDevice
+--
 --         , requestConfirmForgotPassword $
 --             confirmForgotPassword
 --
@@ -67,14 +73,23 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminGetUser $
 --             adminGetUser
 --
+--         , requestAdminUserGlobalSignOut $
+--             adminUserGlobalSignOut
+--
 --         , requestForgotPassword $
 --             forgotPassword
 --
 --         , requestDescribeUserPool $
 --             describeUserPool
 --
+--         , requestInitiateAuth $
+--             initiateAuth
+--
 --         , requestAdminConfirmSignUp $
 --             adminConfirmSignUp
+--
+--         , requestGetDevice $
+--             getDevice
 --
 --         , requestSignUp $
 --             signUp
@@ -82,8 +97,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestChangePassword $
 --             changePassword
 --
+--         , requestRespondToAuthChallenge $
+--             respondToAuthChallenge
+--
 --         , requestCreateUserPool $
 --             createUserPool
+--
+--         , requestAdminGetDevice $
+--             adminGetDevice
 --
 --         , requestConfirmSignUp $
 --             confirmSignUp
@@ -100,6 +121,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminDeleteUser $
 --             adminDeleteUser
 --
+--         , requestAdminForgetDevice $
+--             adminForgetDevice
+--
+--         , requestAdminUpdateDeviceStatus $
+--             adminUpdateDeviceStatus
+--
 --         , requestAddCustomAttributes $
 --             addCustomAttributes
 --
@@ -112,14 +139,29 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestDeleteUserPoolClient $
 --             deleteUserPoolClient
 --
+--         , requestUpdateDeviceStatus $
+--             updateDeviceStatus
+--
+--         , requestForgetDevice $
+--             forgetDevice
+--
 --         , requestDeleteUser $
 --             deleteUser
 --
 --         , requestCreateUserPoolClient $
 --             createUserPoolClient
 --
+--         , requestGlobalSignOut $
+--             globalSignOut
+--
+--         , requestAdminRespondToAuthChallenge $
+--             adminRespondToAuthChallenge
+--
 --         , requestSetUserSettings $
 --             setUserSettings
+--
+--         , requestAdminListDevices $
+--             adminListDevices
 --
 --         , requestDescribeUserPoolClient $
 --             describeUserPoolClient
@@ -130,6 +172,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminSetUserSettings $
 --             adminSetUserSettings
 --
+--         , requestListDevices $
+--             listDevices
+--
 --           ]
 
 --     , testGroup "response"
@@ -138,6 +183,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseUpdateUserPool $
 --             updateUserPoolResponse
+--
+--         , responseAdminInitiateAuth $
+--             adminInitiateAuthResponse
 --
 --         , responseAdminEnableUser $
 --             adminEnableUserResponse
@@ -157,6 +205,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminDisableUser $
 --             adminDisableUserResponse
 --
+--         , responseConfirmDevice $
+--             confirmDeviceResponse
+--
 --         , responseConfirmForgotPassword $
 --             confirmForgotPasswordResponse
 --
@@ -172,14 +223,23 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminGetUser $
 --             adminGetUserResponse
 --
+--         , responseAdminUserGlobalSignOut $
+--             adminUserGlobalSignOutResponse
+--
 --         , responseForgotPassword $
 --             forgotPasswordResponse
 --
 --         , responseDescribeUserPool $
 --             describeUserPoolResponse
 --
+--         , responseInitiateAuth $
+--             initiateAuthResponse
+--
 --         , responseAdminConfirmSignUp $
 --             adminConfirmSignUpResponse
+--
+--         , responseGetDevice $
+--             getDeviceResponse
 --
 --         , responseSignUp $
 --             signUpResponse
@@ -187,8 +247,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseChangePassword $
 --             changePasswordResponse
 --
+--         , responseRespondToAuthChallenge $
+--             respondToAuthChallengeResponse
+--
 --         , responseCreateUserPool $
 --             createUserPoolResponse
+--
+--         , responseAdminGetDevice $
+--             adminGetDeviceResponse
 --
 --         , responseConfirmSignUp $
 --             confirmSignUpResponse
@@ -205,6 +271,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminDeleteUser $
 --             adminDeleteUserResponse
 --
+--         , responseAdminForgetDevice $
+--             adminForgetDeviceResponse
+--
+--         , responseAdminUpdateDeviceStatus $
+--             adminUpdateDeviceStatusResponse
+--
 --         , responseAddCustomAttributes $
 --             addCustomAttributesResponse
 --
@@ -217,14 +289,29 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseDeleteUserPoolClient $
 --             deleteUserPoolClientResponse
 --
+--         , responseUpdateDeviceStatus $
+--             updateDeviceStatusResponse
+--
+--         , responseForgetDevice $
+--             forgetDeviceResponse
+--
 --         , responseDeleteUser $
 --             deleteUserResponse
 --
 --         , responseCreateUserPoolClient $
 --             createUserPoolClientResponse
 --
+--         , responseGlobalSignOut $
+--             globalSignOutResponse
+--
+--         , responseAdminRespondToAuthChallenge $
+--             adminRespondToAuthChallengeResponse
+--
 --         , responseSetUserSettings $
 --             setUserSettingsResponse
+--
+--         , responseAdminListDevices $
+--             adminListDevicesResponse
 --
 --         , responseDescribeUserPoolClient $
 --             describeUserPoolClientResponse
@@ -234,6 +321,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseAdminSetUserSettings $
 --             adminSetUserSettingsResponse
+--
+--         , responseListDevices $
+--             listDevicesResponse
 --
 --           ]
 --     ]
@@ -249,6 +339,11 @@ requestUpdateUserPool :: UpdateUserPool -> TestTree
 requestUpdateUserPool = req
     "UpdateUserPool"
     "fixture/UpdateUserPool.yaml"
+
+requestAdminInitiateAuth :: AdminInitiateAuth -> TestTree
+requestAdminInitiateAuth = req
+    "AdminInitiateAuth"
+    "fixture/AdminInitiateAuth.yaml"
 
 requestAdminEnableUser :: AdminEnableUser -> TestTree
 requestAdminEnableUser = req
@@ -280,6 +375,11 @@ requestAdminDisableUser = req
     "AdminDisableUser"
     "fixture/AdminDisableUser.yaml"
 
+requestConfirmDevice :: ConfirmDevice -> TestTree
+requestConfirmDevice = req
+    "ConfirmDevice"
+    "fixture/ConfirmDevice.yaml"
+
 requestConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
 requestConfirmForgotPassword = req
     "ConfirmForgotPassword"
@@ -305,6 +405,11 @@ requestAdminGetUser = req
     "AdminGetUser"
     "fixture/AdminGetUser.yaml"
 
+requestAdminUserGlobalSignOut :: AdminUserGlobalSignOut -> TestTree
+requestAdminUserGlobalSignOut = req
+    "AdminUserGlobalSignOut"
+    "fixture/AdminUserGlobalSignOut.yaml"
+
 requestForgotPassword :: ForgotPassword -> TestTree
 requestForgotPassword = req
     "ForgotPassword"
@@ -315,10 +420,20 @@ requestDescribeUserPool = req
     "DescribeUserPool"
     "fixture/DescribeUserPool.yaml"
 
+requestInitiateAuth :: InitiateAuth -> TestTree
+requestInitiateAuth = req
+    "InitiateAuth"
+    "fixture/InitiateAuth.yaml"
+
 requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
 requestAdminConfirmSignUp = req
     "AdminConfirmSignUp"
     "fixture/AdminConfirmSignUp.yaml"
+
+requestGetDevice :: GetDevice -> TestTree
+requestGetDevice = req
+    "GetDevice"
+    "fixture/GetDevice.yaml"
 
 requestSignUp :: SignUp -> TestTree
 requestSignUp = req
@@ -330,10 +445,20 @@ requestChangePassword = req
     "ChangePassword"
     "fixture/ChangePassword.yaml"
 
+requestRespondToAuthChallenge :: RespondToAuthChallenge -> TestTree
+requestRespondToAuthChallenge = req
+    "RespondToAuthChallenge"
+    "fixture/RespondToAuthChallenge.yaml"
+
 requestCreateUserPool :: CreateUserPool -> TestTree
 requestCreateUserPool = req
     "CreateUserPool"
     "fixture/CreateUserPool.yaml"
+
+requestAdminGetDevice :: AdminGetDevice -> TestTree
+requestAdminGetDevice = req
+    "AdminGetDevice"
+    "fixture/AdminGetDevice.yaml"
 
 requestConfirmSignUp :: ConfirmSignUp -> TestTree
 requestConfirmSignUp = req
@@ -360,6 +485,16 @@ requestAdminDeleteUser = req
     "AdminDeleteUser"
     "fixture/AdminDeleteUser.yaml"
 
+requestAdminForgetDevice :: AdminForgetDevice -> TestTree
+requestAdminForgetDevice = req
+    "AdminForgetDevice"
+    "fixture/AdminForgetDevice.yaml"
+
+requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
+requestAdminUpdateDeviceStatus = req
+    "AdminUpdateDeviceStatus"
+    "fixture/AdminUpdateDeviceStatus.yaml"
+
 requestAddCustomAttributes :: AddCustomAttributes -> TestTree
 requestAddCustomAttributes = req
     "AddCustomAttributes"
@@ -380,6 +515,16 @@ requestDeleteUserPoolClient = req
     "DeleteUserPoolClient"
     "fixture/DeleteUserPoolClient.yaml"
 
+requestUpdateDeviceStatus :: UpdateDeviceStatus -> TestTree
+requestUpdateDeviceStatus = req
+    "UpdateDeviceStatus"
+    "fixture/UpdateDeviceStatus.yaml"
+
+requestForgetDevice :: ForgetDevice -> TestTree
+requestForgetDevice = req
+    "ForgetDevice"
+    "fixture/ForgetDevice.yaml"
+
 requestDeleteUser :: DeleteUser -> TestTree
 requestDeleteUser = req
     "DeleteUser"
@@ -390,10 +535,25 @@ requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
+requestGlobalSignOut :: GlobalSignOut -> TestTree
+requestGlobalSignOut = req
+    "GlobalSignOut"
+    "fixture/GlobalSignOut.yaml"
+
+requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
+requestAdminRespondToAuthChallenge = req
+    "AdminRespondToAuthChallenge"
+    "fixture/AdminRespondToAuthChallenge.yaml"
+
 requestSetUserSettings :: SetUserSettings -> TestTree
 requestSetUserSettings = req
     "SetUserSettings"
     "fixture/SetUserSettings.yaml"
+
+requestAdminListDevices :: AdminListDevices -> TestTree
+requestAdminListDevices = req
+    "AdminListDevices"
+    "fixture/AdminListDevices.yaml"
 
 requestDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
 requestDescribeUserPoolClient = req
@@ -410,6 +570,11 @@ requestAdminSetUserSettings = req
     "AdminSetUserSettings"
     "fixture/AdminSetUserSettings.yaml"
 
+requestListDevices :: ListDevices -> TestTree
+requestListDevices = req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
+
 -- Responses
 
 responseDeleteUserPool :: DeleteUserPoolResponse -> TestTree
@@ -425,6 +590,13 @@ responseUpdateUserPool = res
     "fixture/UpdateUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy UpdateUserPool)
+
+responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
+responseAdminInitiateAuth = res
+    "AdminInitiateAuthResponse"
+    "fixture/AdminInitiateAuthResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminInitiateAuth)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
 responseAdminEnableUser = res
@@ -468,6 +640,13 @@ responseAdminDisableUser = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDisableUser)
 
+responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
+responseConfirmDevice = res
+    "ConfirmDeviceResponse"
+    "fixture/ConfirmDeviceResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ConfirmDevice)
+
 responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
 responseConfirmForgotPassword = res
     "ConfirmForgotPasswordResponse"
@@ -503,6 +682,13 @@ responseAdminGetUser = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminGetUser)
 
+responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
+responseAdminUserGlobalSignOut = res
+    "AdminUserGlobalSignOutResponse"
+    "fixture/AdminUserGlobalSignOutResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminUserGlobalSignOut)
+
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
 responseForgotPassword = res
     "ForgotPasswordResponse"
@@ -517,12 +703,26 @@ responseDescribeUserPool = res
     cognitoIdentityProvider
     (Proxy :: Proxy DescribeUserPool)
 
+responseInitiateAuth :: InitiateAuthResponse -> TestTree
+responseInitiateAuth = res
+    "InitiateAuthResponse"
+    "fixture/InitiateAuthResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy InitiateAuth)
+
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
 responseAdminConfirmSignUp = res
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminConfirmSignUp)
+
+responseGetDevice :: GetDeviceResponse -> TestTree
+responseGetDevice = res
+    "GetDeviceResponse"
+    "fixture/GetDeviceResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetDevice)
 
 responseSignUp :: SignUpResponse -> TestTree
 responseSignUp = res
@@ -538,12 +738,26 @@ responseChangePassword = res
     cognitoIdentityProvider
     (Proxy :: Proxy ChangePassword)
 
+responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
+responseRespondToAuthChallenge = res
+    "RespondToAuthChallengeResponse"
+    "fixture/RespondToAuthChallengeResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy RespondToAuthChallenge)
+
 responseCreateUserPool :: CreateUserPoolResponse -> TestTree
 responseCreateUserPool = res
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPool)
+
+responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
+responseAdminGetDevice = res
+    "AdminGetDeviceResponse"
+    "fixture/AdminGetDeviceResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminGetDevice)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
 responseConfirmSignUp = res
@@ -580,6 +794,20 @@ responseAdminDeleteUser = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDeleteUser)
 
+responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
+responseAdminForgetDevice = res
+    "AdminForgetDeviceResponse"
+    "fixture/AdminForgetDeviceResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminForgetDevice)
+
+responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
+responseAdminUpdateDeviceStatus = res
+    "AdminUpdateDeviceStatusResponse"
+    "fixture/AdminUpdateDeviceStatusResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminUpdateDeviceStatus)
+
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
 responseAddCustomAttributes = res
     "AddCustomAttributesResponse"
@@ -608,6 +836,20 @@ responseDeleteUserPoolClient = res
     cognitoIdentityProvider
     (Proxy :: Proxy DeleteUserPoolClient)
 
+responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
+responseUpdateDeviceStatus = res
+    "UpdateDeviceStatusResponse"
+    "fixture/UpdateDeviceStatusResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy UpdateDeviceStatus)
+
+responseForgetDevice :: ForgetDeviceResponse -> TestTree
+responseForgetDevice = res
+    "ForgetDeviceResponse"
+    "fixture/ForgetDeviceResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ForgetDevice)
+
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser = res
     "DeleteUserResponse"
@@ -622,12 +864,33 @@ responseCreateUserPoolClient = res
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPoolClient)
 
+responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
+responseGlobalSignOut = res
+    "GlobalSignOutResponse"
+    "fixture/GlobalSignOutResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GlobalSignOut)
+
+responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
+responseAdminRespondToAuthChallenge = res
+    "AdminRespondToAuthChallengeResponse"
+    "fixture/AdminRespondToAuthChallengeResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminRespondToAuthChallenge)
+
 responseSetUserSettings :: SetUserSettingsResponse -> TestTree
 responseSetUserSettings = res
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy SetUserSettings)
+
+responseAdminListDevices :: AdminListDevicesResponse -> TestTree
+responseAdminListDevices = res
+    "AdminListDevicesResponse"
+    "fixture/AdminListDevicesResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminListDevices)
 
 responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
 responseDescribeUserPoolClient = res
@@ -649,3 +912,10 @@ responseAdminSetUserSettings = res
     "fixture/AdminSetUserSettingsResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminSetUserSettings)
+
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices = res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListDevices)

@@ -120,7 +120,7 @@ instance ToQuery AttachNetworkInterface where
           = mconcat
               ["Action" =:
                  ("AttachNetworkInterface" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _aniDryRun,
                "NetworkInterfaceId" =: _aniNetworkInterfaceId,
                "InstanceId" =: _aniInstanceId,

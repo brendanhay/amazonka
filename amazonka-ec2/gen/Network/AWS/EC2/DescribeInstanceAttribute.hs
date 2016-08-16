@@ -35,6 +35,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response Lenses
     , drsInstanceId
     , drsGroups
+    , drsEnaSupport
     , drsSourceDestCheck
     , drsDisableAPITermination
     , drsRAMDiskId
@@ -95,6 +96,8 @@ diaInstanceId :: Lens' DescribeInstanceAttribute Text
 diaInstanceId = lens _diaInstanceId (\ s a -> s{_diaInstanceId = a});
 
 -- | The instance attribute.
+--
+-- Note: The 'enaSupport' attribute is not supported at this time.
 diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diaAttribute = lens _diaAttribute (\ s a -> s{_diaAttribute = a});
 
@@ -109,6 +112,7 @@ instance AWSRequest DescribeInstanceAttribute where
                    (x .@? "instanceId") <*>
                      (x .@? "groupSet" .!@ mempty >>=
                         may (parseXMLList "item"))
+                     <*> (x .@? "enaSupport")
                      <*> (x .@? "sourceDestCheck")
                      <*> (x .@? "disableApiTermination")
                      <*> (x .@? "ramdisk")
@@ -142,7 +146,7 @@ instance ToQuery DescribeInstanceAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeInstanceAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _diaDryRun,
                "InstanceId" =: _diaInstanceId,
                "Attribute" =: _diaAttribute]
@@ -153,6 +157,7 @@ instance ToQuery DescribeInstanceAttribute where
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     { _drsInstanceId                        :: !(Maybe Text)
     , _drsGroups                            :: !(Maybe [GroupIdentifier])
+    , _drsEnaSupport                        :: !(Maybe AttributeBooleanValue)
     , _drsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
     , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
     , _drsRAMDiskId                         :: !(Maybe AttributeValue)
@@ -175,6 +180,8 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 -- * 'drsInstanceId'
 --
 -- * 'drsGroups'
+--
+-- * 'drsEnaSupport'
 --
 -- * 'drsSourceDestCheck'
 --
@@ -208,6 +215,7 @@ describeInstanceAttributeResponse pResponseStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
     , _drsGroups = Nothing
+    , _drsEnaSupport = Nothing
     , _drsSourceDestCheck = Nothing
     , _drsDisableAPITermination = Nothing
     , _drsRAMDiskId = Nothing
@@ -230,6 +238,10 @@ drsInstanceId = lens _drsInstanceId (\ s a -> s{_drsInstanceId = a});
 -- | The security groups associated with the instance.
 drsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
 drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default . _Coerce;
+
+-- | Indicates whether enhanced networking with ENA is enabled.
+drsEnaSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+drsEnaSupport = lens _drsEnaSupport (\ s a -> s{_drsEnaSupport = a});
 
 -- | Indicates whether source\/destination checking is enabled. A value of 'true' means checking is enabled, and 'false' means checking is disabled. This value must be 'false' for a NAT instance to perform NAT.
 drsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
@@ -255,7 +267,7 @@ drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a})
 drsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
 
--- | Undocumented member.
+-- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
@@ -263,7 +275,7 @@ drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = 
 drsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 
--- | The Base64-encoded MIME user data.
+-- | The user data.
 drsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsUserData = lens _drsUserData (\ s a -> s{_drsUserData = a});
 

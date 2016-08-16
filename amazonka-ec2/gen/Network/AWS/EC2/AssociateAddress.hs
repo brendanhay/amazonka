@@ -150,7 +150,7 @@ instance ToQuery AssociateAddress where
         toQuery AssociateAddress'{..}
           = mconcat
               ["Action" =: ("AssociateAddress" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "InstanceId" =: _aasInstanceId,
                "AllocationId" =: _aasAllocationId,
                "NetworkInterfaceId" =: _aasNetworkInterfaceId,

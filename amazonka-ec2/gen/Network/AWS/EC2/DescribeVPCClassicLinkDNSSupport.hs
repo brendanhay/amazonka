@@ -116,7 +116,7 @@ instance ToQuery DescribeVPCClassicLinkDNSSupport
           = mconcat
               ["Action" =:
                  ("DescribeVpcClassicLinkDnsSupport" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "NextToken" =: _dvcldsNextToken,
                toQuery (toQueryList "VpcIds" <$> _dvcldsVPCIds),
                "MaxResults" =: _dvcldsMaxResults]

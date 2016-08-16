@@ -102,7 +102,7 @@ instance ToQuery DeleteSecurityGroup where
         toQuery DeleteSecurityGroup'{..}
           = mconcat
               ["Action" =: ("DeleteSecurityGroup" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "GroupId" =: _dsgGroupId,
                "GroupName" =: _dsgGroupName, "DryRun" =: _dsgDryRun]
 

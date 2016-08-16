@@ -127,7 +127,7 @@ instance ToQuery ImportInstance where
         toQuery ImportInstance'{..}
           = mconcat
               ["Action" =: ("ImportInstance" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "LaunchSpecification" =: _iiLaunchSpecification,
                toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
                "Description" =: _iiDescription,

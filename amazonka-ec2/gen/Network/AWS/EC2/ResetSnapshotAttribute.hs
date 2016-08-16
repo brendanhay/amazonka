@@ -106,7 +106,7 @@ instance ToQuery ResetSnapshotAttribute where
           = mconcat
               ["Action" =:
                  ("ResetSnapshotAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _rsaDryRun,
                "SnapshotId" =: _rsaSnapshotId,
                "Attribute" =: _rsaAttribute]

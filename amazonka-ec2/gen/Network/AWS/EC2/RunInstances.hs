@@ -24,6 +24,8 @@
 --
 -- To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
 --
+-- To tag your instance, ensure that it is 'running' as < CreateTags> requires a resource ID. For more information about tagging, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources>.
+--
 -- If you don\'t specify a security group when launching an instance, Amazon EC2 uses the default security group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- [EC2-VPC only accounts] If you don\'t specify a subnet in the request, we choose a default subnet from your default VPC for you.
@@ -263,7 +265,7 @@ rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
 rEBSOptimized :: Lens' RunInstances (Maybe Bool)
 rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a});
 
--- | Data to configure the instance, or a script to run during instance launch. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows). For API calls, the text must be base64-encoded. For command line tools, the encoding is performed for you, and you can load the text from a file.
+-- | The user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows). If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 rUserData :: Lens' RunInstances (Maybe Text)
 rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
 
@@ -336,7 +338,7 @@ instance ToQuery RunInstances where
         toQuery RunInstances'{..}
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>

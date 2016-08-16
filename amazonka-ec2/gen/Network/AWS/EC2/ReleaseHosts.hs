@@ -98,7 +98,7 @@ instance ToQuery ReleaseHosts where
         toQuery ReleaseHosts'{..}
           = mconcat
               ["Action" =: ("ReleaseHosts" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQueryList "HostId" _rhHostIds]
 
 -- | Contains the output of ReleaseHosts.

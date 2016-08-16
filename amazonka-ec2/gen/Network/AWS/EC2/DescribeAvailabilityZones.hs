@@ -121,7 +121,7 @@ instance ToQuery DescribeAvailabilityZones where
           = mconcat
               ["Action" =:
                  ("DescribeAvailabilityZones" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
                toQuery (toQueryList "Filter" <$> _dazFilters),
                "DryRun" =: _dazDryRun]

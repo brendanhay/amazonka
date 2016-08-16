@@ -91,7 +91,7 @@ instance ToQuery DeleteKeyPair where
         toQuery DeleteKeyPair'{..}
           = mconcat
               ["Action" =: ("DeleteKeyPair" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _dkpDryRun, "KeyName" =: _dkpKeyName]
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.

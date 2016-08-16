@@ -187,7 +187,7 @@ instance ToQuery DescribeInstanceStatus where
           = mconcat
               ["Action" =:
                  ("DescribeInstanceStatus" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "IncludeAllInstances" =: _disIncludeAllInstances,
                toQuery (toQueryList "Filter" <$> _disFilters),
                "NextToken" =: _disNextToken,

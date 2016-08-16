@@ -763,6 +763,32 @@ instance ToHeader     ExportTaskState
 instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
 
+data FleetType
+    = Maintain
+    | Request
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FleetType where
+    parser = takeLowerText >>= \case
+        "maintain" -> pure Maintain
+        "request" -> pure Request
+        e -> fromTextError $ "Failure parsing FleetType from value: '" <> e
+           <> "'. Accepted values: maintain, request"
+
+instance ToText FleetType where
+    toText = \case
+        Maintain -> "maintain"
+        Request -> "request"
+
+instance Hashable     FleetType
+instance NFData       FleetType
+instance ToByteString FleetType
+instance ToQuery      FleetType
+instance ToHeader     FleetType
+
+instance FromXML FleetType where
+    parseXML = parseXMLText "FleetType"
+
 data FlowLogsResourceType
     = FLRTNetworkInterface
     | FLRTSubnet
@@ -973,6 +999,7 @@ data InstanceAttributeName
     = IANBlockDeviceMapping
     | IANDisableAPITermination
     | IANEBSOptimized
+    | IANEnaSupport
     | IANGroupSet
     | IANInstanceInitiatedShutdownBehavior
     | IANInstanceType
@@ -990,6 +1017,7 @@ instance FromText InstanceAttributeName where
         "blockdevicemapping" -> pure IANBlockDeviceMapping
         "disableapitermination" -> pure IANDisableAPITermination
         "ebsoptimized" -> pure IANEBSOptimized
+        "enasupport" -> pure IANEnaSupport
         "groupset" -> pure IANGroupSet
         "instanceinitiatedshutdownbehavior" -> pure IANInstanceInitiatedShutdownBehavior
         "instancetype" -> pure IANInstanceType
@@ -1001,13 +1029,14 @@ instance FromText InstanceAttributeName where
         "sourcedestcheck" -> pure IANSourceDestCheck
         "userdata" -> pure IANUserData
         e -> fromTextError $ "Failure parsing InstanceAttributeName from value: '" <> e
-           <> "'. Accepted values: blockDeviceMapping, disableApiTermination, ebsOptimized, groupSet, instanceInitiatedShutdownBehavior, instanceType, kernel, productCodes, ramdisk, rootDeviceName, sriovNetSupport, sourceDestCheck, userData"
+           <> "'. Accepted values: blockDeviceMapping, disableApiTermination, ebsOptimized, enaSupport, groupSet, instanceInitiatedShutdownBehavior, instanceType, kernel, productCodes, ramdisk, rootDeviceName, sriovNetSupport, sourceDestCheck, userData"
 
 instance ToText InstanceAttributeName where
     toText = \case
         IANBlockDeviceMapping -> "blockDeviceMapping"
         IANDisableAPITermination -> "disableApiTermination"
         IANEBSOptimized -> "ebsOptimized"
+        IANEnaSupport -> "enaSupport"
         IANGroupSet -> "groupSet"
         IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
         IANInstanceType -> "instanceType"
@@ -1145,6 +1174,10 @@ data InstanceType
     | T2_Micro
     | T2_Nano
     | T2_Small
+    | X1_16XLarge
+    | X1_32XLarge
+    | X1_4XLarge
+    | X1_8XLarge
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceType where
@@ -1204,8 +1237,12 @@ instance FromText InstanceType where
         "t2.micro" -> pure T2_Micro
         "t2.nano" -> pure T2_Nano
         "t2.small" -> pure T2_Small
+        "x1.16xlarge" -> pure X1_16XLarge
+        "x1.32xlarge" -> pure X1_32XLarge
+        "x1.4xlarge" -> pure X1_4XLarge
+        "x1.8xlarge" -> pure X1_8XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge, x1.4xlarge, x1.8xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1264,6 +1301,10 @@ instance ToText InstanceType where
         T2_Micro -> "t2.micro"
         T2_Nano -> "t2.nano"
         T2_Small -> "t2.small"
+        X1_16XLarge -> "x1.16xlarge"
+        X1_32XLarge -> "x1.32xlarge"
+        X1_4XLarge -> "x1.4xlarge"
+        X1_8XLarge -> "x1.8xlarge"
 
 instance Hashable     InstanceType
 instance NFData       InstanceType

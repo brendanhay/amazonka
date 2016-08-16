@@ -99,7 +99,7 @@ instance ToQuery MonitorInstances where
         toQuery MonitorInstances'{..}
           = mconcat
               ["Action" =: ("MonitorInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 

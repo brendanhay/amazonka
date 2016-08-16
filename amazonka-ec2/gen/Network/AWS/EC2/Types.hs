@@ -95,6 +95,9 @@ module Network.AWS.EC2.Types
     -- * ExportTaskState
     , ExportTaskState (..)
 
+    -- * FleetType
+    , FleetType (..)
+
     -- * FlowLogsResourceType
     , FlowLogsResourceType (..)
 
@@ -649,6 +652,7 @@ module Network.AWS.EC2.Types
     , Image
     , image
     , iPlatform
+    , iEnaSupport
     , iImageOwnerAlias
     , iRAMDiskId
     , iKernelId
@@ -754,6 +758,7 @@ module Network.AWS.EC2.Types
     , insPlatform
     , insSecurityGroups
     , insClientToken
+    , insEnaSupport
     , insSourceDestCheck
     , insVPCId
     , insKeyName
@@ -998,6 +1003,7 @@ module Network.AWS.EC2.Types
     , ngNatGatewayId
     , ngSubnetId
     , ngDeleteTime
+    , ngProvisionedBandwidth
     , ngNatGatewayAddresses
     , ngCreateTime
 
@@ -1105,12 +1111,14 @@ module Network.AWS.EC2.Types
     , peeringConnectionOptions
     , pcoAllowEgressFromLocalVPCToRemoteClassicLink
     , pcoAllowEgressFromLocalClassicLinkToRemoteVPC
+    , pcoAllowDNSResolutionFromRemoteVPC
 
     -- * PeeringConnectionOptionsRequest
     , PeeringConnectionOptionsRequest
     , peeringConnectionOptionsRequest
-    , pcorAllowEgressFromLocalClassicLinkToRemoteVPC
     , pcorAllowEgressFromLocalVPCToRemoteClassicLink
+    , pcorAllowEgressFromLocalClassicLinkToRemoteVPC
+    , pcorAllowDNSResolutionFromRemoteVPC
 
     -- * Placement
     , Placement
@@ -1183,6 +1191,15 @@ module Network.AWS.EC2.Types
     , PropagatingVGW
     , propagatingVGW
     , pvGatewayId
+
+    -- * ProvisionedBandwidth
+    , ProvisionedBandwidth
+    , provisionedBandwidth
+    , pbStatus
+    , pbRequested
+    , pbProvisioned
+    , pbRequestTime
+    , pbProvisionTime
 
     -- * PurchaseRequest
     , PurchaseRequest
@@ -1505,6 +1522,13 @@ module Network.AWS.EC2.Types
     , sgGroupName
     , sgDescription
 
+    -- * SecurityGroupReference
+    , SecurityGroupReference
+    , securityGroupReference
+    , sgrVPCPeeringConnectionId
+    , sgrGroupId
+    , sgrReferencingVPCId
+
     -- * SlotDateTimeRangeRequest
     , SlotDateTimeRangeRequest
     , slotDateTimeRangeRequest
@@ -1620,6 +1644,8 @@ module Network.AWS.EC2.Types
     , sfrcdExcessCapacityTerminationPolicy
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
+    , sfrcdFulfilledCapacity
+    , sfrcdType
     , sfrcdValidFrom
     , sfrcdAllocationStrategy
     , sfrcdSpotPrice
@@ -1676,6 +1702,26 @@ module Network.AWS.EC2.Types
     , sInstanceType
     , sAvailabilityZone
     , sTimestamp
+
+    -- * StaleIPPermission
+    , StaleIPPermission
+    , staleIPPermission
+    , sipFromPort
+    , sipUserIdGroupPairs
+    , sipPrefixListIds
+    , sipIPProtocol
+    , sipToPort
+    , sipIPRanges
+
+    -- * StaleSecurityGroup
+    , StaleSecurityGroup
+    , staleSecurityGroup
+    , ssgVPCId
+    , ssgGroupName
+    , ssgStaleIPPermissionsEgress
+    , ssgStaleIPPermissions
+    , ssgDescription
+    , ssgGroupId
 
     -- * StateReason
     , StateReason
@@ -1813,6 +1859,7 @@ module Network.AWS.EC2.Types
     , vpcPeeringConnectionOptionsDescription
     , vpcodAllowEgressFromLocalVPCToRemoteClassicLink
     , vpcodAllowEgressFromLocalClassicLinkToRemoteVPC
+    , vpcodAllowDNSResolutionFromRemoteVPC
 
     -- * VPCPeeringConnectionStateReason
     , VPCPeeringConnectionStateReason
@@ -1946,14 +1993,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-10-01' of the Amazon Elastic Compute Cloud SDK configuration.
+-- | API version '2016-04-01' of the Amazon Elastic Compute Cloud SDK configuration.
 ec2 :: Service
 ec2 =
     Service
     { _svcAbbrev = "EC2"
     , _svcSigner = v4
     , _svcPrefix = "ec2"
-    , _svcVersion = "2015-10-01"
+    , _svcVersion = "2016-04-01"
     , _svcEndpoint = defaultEndpoint ec2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess

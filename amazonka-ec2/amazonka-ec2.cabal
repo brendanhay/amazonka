@@ -132,6 +132,7 @@ library
         , Network.AWS.EC2.DescribeFlowLogs
         , Network.AWS.EC2.DescribeHosts
         , Network.AWS.EC2.DescribeIdFormat
+        , Network.AWS.EC2.DescribeIdentityIdFormat
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
         , Network.AWS.EC2.DescribeImportImageTasks
@@ -156,6 +157,7 @@ library
         , Network.AWS.EC2.DescribeRouteTables
         , Network.AWS.EC2.DescribeScheduledInstanceAvailability
         , Network.AWS.EC2.DescribeScheduledInstances
+        , Network.AWS.EC2.DescribeSecurityGroupReferences
         , Network.AWS.EC2.DescribeSecurityGroups
         , Network.AWS.EC2.DescribeSnapshotAttribute
         , Network.AWS.EC2.DescribeSnapshots
@@ -165,6 +167,7 @@ library
         , Network.AWS.EC2.DescribeSpotFleetRequests
         , Network.AWS.EC2.DescribeSpotInstanceRequests
         , Network.AWS.EC2.DescribeSpotPriceHistory
+        , Network.AWS.EC2.DescribeStaleSecurityGroups
         , Network.AWS.EC2.DescribeSubnets
         , Network.AWS.EC2.DescribeTags
         , Network.AWS.EC2.DescribeVPCAttribute
@@ -194,6 +197,7 @@ library
         , Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
         , Network.AWS.EC2.EnableVolumeIO
         , Network.AWS.EC2.GetConsoleOutput
+        , Network.AWS.EC2.GetConsoleScreenshot
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.ImportImage
         , Network.AWS.EC2.ImportInstance
@@ -202,6 +206,7 @@ library
         , Network.AWS.EC2.ImportVolume
         , Network.AWS.EC2.ModifyHosts
         , Network.AWS.EC2.ModifyIdFormat
+        , Network.AWS.EC2.ModifyIdentityIdFormat
         , Network.AWS.EC2.ModifyImageAttribute
         , Network.AWS.EC2.ModifyInstanceAttribute
         , Network.AWS.EC2.ModifyInstancePlacement

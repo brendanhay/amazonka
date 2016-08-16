@@ -140,7 +140,7 @@ instance ToQuery DescribeAddresses where
         toQuery DescribeAddresses'{..}
           = mconcat
               ["Action" =: ("DescribeAddresses" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _daFilters),
                toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
                toQuery

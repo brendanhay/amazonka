@@ -148,7 +148,7 @@ instance ToQuery ReplaceRoute where
         toQuery ReplaceRoute'{..}
           = mconcat
               ["Action" =: ("ReplaceRoute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VpcPeeringConnectionId" =:
                  _rrVPCPeeringConnectionId,
                "InstanceId" =: _rrInstanceId,

@@ -128,7 +128,7 @@ cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a});
 
 -- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
 --
--- Constraints: Positive integer from 1 to 32766
+-- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
 cnaeRuleNumber :: Lens' CreateNetworkACLEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a});
 
@@ -168,7 +168,7 @@ instance ToQuery CreateNetworkACLEntry where
         toQuery CreateNetworkACLEntry'{..}
           = mconcat
               ["Action" =: ("CreateNetworkAclEntry" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "Icmp" =: _cnaeICMPTypeCode,
                "PortRange" =: _cnaePortRange,
                "DryRun" =: _cnaeDryRun,

@@ -131,7 +131,7 @@ instance ToQuery AllocateHosts where
         toQuery AllocateHosts'{..}
           = mconcat
               ["Action" =: ("AllocateHosts" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "ClientToken" =: _ahClientToken,
                "AutoPlacement" =: _ahAutoPlacement,
                "InstanceType" =: _ahInstanceType,

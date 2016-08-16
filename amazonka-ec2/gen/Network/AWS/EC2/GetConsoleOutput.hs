@@ -110,7 +110,7 @@ instance ToQuery GetConsoleOutput where
         toQuery GetConsoleOutput'{..}
           = mconcat
               ["Action" =: ("GetConsoleOutput" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _gcoDryRun,
                "InstanceId" =: _gcoInstanceId]
 
@@ -150,7 +150,7 @@ getConsoleOutputResponse pResponseStatus_ =
 gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsInstanceId = lens _gcorsInstanceId (\ s a -> s{_gcorsInstanceId = a});
 
--- | The console output, Base64 encoded. If using a command line tool, the tools decode the output for you.
+-- | The console output, Base64-encoded. If using a command line tool, the tool decodes the output for you.
 gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 

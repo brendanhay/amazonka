@@ -176,7 +176,7 @@ instance ToQuery DescribeVolumeStatus where
         toQuery DescribeVolumeStatus'{..}
           = mconcat
               ["Action" =: ("DescribeVolumeStatus" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvssFilters),
                toQuery (toQueryList "VolumeId" <$> _dvssVolumeIds),
                "NextToken" =: _dvssNextToken,

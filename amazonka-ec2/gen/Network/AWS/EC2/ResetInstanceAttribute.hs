@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets an attribute of an instance to its default value. To reset the 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset the 'SourceDestCheck', the instance can be either running or stopped.
+-- Resets an attribute of an instance to its default value. To reset the 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset the 'sourceDestCheck', the instance can be either running or stopped.
 --
--- The 'SourceDestCheck' attribute controls whether source\/destination checking is enabled. The default value is 'true', which means checking is enabled. This value must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+-- The 'sourceDestCheck' attribute controls whether source\/destination checking is enabled. The default value is 'true', which means checking is enabled. This value must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
@@ -81,6 +81,8 @@ riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
 
 -- | The attribute to reset.
+--
+-- You can only reset the following attributes: 'kernel' | 'ramdisk' | 'sourceDestCheck'. To change an instance attribute, use < ModifyInstanceAttribute>.
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 
@@ -106,7 +108,7 @@ instance ToQuery ResetInstanceAttribute where
           = mconcat
               ["Action" =:
                  ("ResetInstanceAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _riaDryRun,
                "InstanceId" =: _riaInstanceId,
                "Attribute" =: _riaAttribute]

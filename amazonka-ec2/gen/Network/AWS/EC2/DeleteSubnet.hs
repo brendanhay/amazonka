@@ -91,7 +91,7 @@ instance ToQuery DeleteSubnet where
         toQuery DeleteSubnet'{..}
           = mconcat
               ["Action" =: ("DeleteSubnet" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _ddDryRun, "SubnetId" =: _ddSubnetId]
 
 -- | /See:/ 'deleteSubnetResponse' smart constructor.

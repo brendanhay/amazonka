@@ -91,7 +91,7 @@ instance ToQuery CreateInternetGateway where
         toQuery CreateInternetGateway'{..}
           = mconcat
               ["Action" =: ("CreateInternetGateway" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _cigDryRun]
 
 -- | Contains the output of CreateInternetGateway.

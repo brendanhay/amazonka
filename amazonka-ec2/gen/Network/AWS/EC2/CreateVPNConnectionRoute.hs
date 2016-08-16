@@ -97,7 +97,7 @@ instance ToQuery CreateVPNConnectionRoute where
           = mconcat
               ["Action" =:
                  ("CreateVpnConnectionRoute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VpnConnectionId" =: _cvcrVPNConnectionId,
                "DestinationCidrBlock" =: _cvcrDestinationCIdRBlock]
 

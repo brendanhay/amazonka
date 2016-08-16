@@ -133,7 +133,7 @@ instance ToQuery DescribeSubnets where
         toQuery DescribeSubnets'{..}
           = mconcat
               ["Action" =: ("DescribeSubnets" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "SubnetId" <$> _dsSubnetIds),
                toQuery (toQueryList "Filter" <$> _dsFilters),
                "DryRun" =: _dsDryRun]

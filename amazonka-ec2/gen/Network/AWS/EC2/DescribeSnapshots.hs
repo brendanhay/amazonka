@@ -32,7 +32,7 @@
 --
 -- If you specify one or more snapshot IDs, only snapshots that have the specified IDs are returned. If you specify an invalid snapshot ID, an error is returned. If you specify a snapshot ID for which you do not have access, it is not included in the returned results.
 --
--- If you specify one or more snapshot owners, only snapshots from the specified owners and for which you have access are returned. The results can include the AWS account IDs of the specified owners, 'amazon' for snapshots owned by Amazon, or 'self' for snapshots that you own.
+-- If you specify one or more snapshot owners using the 'OwnerIds' option, only snapshots from the specified owners and for which you have access are returned. The results can include the AWS account IDs of the specified owners, 'amazon' for snapshots owned by Amazon, or 'self' for snapshots that you own.
 --
 -- If you specify a list of restorable users, only snapshots with create snapshot permissions for those users are returned. You can specify AWS account IDs (if you own the snapshots), 'self' for snapshots for which you own or have explicit permissions, or 'all' for public snapshots.
 --
@@ -203,7 +203,7 @@ instance ToQuery DescribeSnapshots where
         toQuery DescribeSnapshots'{..}
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Owner" <$> _dssOwnerIds),
                toQuery (toQueryList "Filter" <$> _dssFilters),
                "NextToken" =: _dssNextToken,

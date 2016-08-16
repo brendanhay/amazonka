@@ -104,7 +104,7 @@ csgDryRun = lens _csgDryRun (\ s a -> s{_csgDryRun = a});
 --
 -- Constraints for EC2-Classic: ASCII characters
 --
--- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:\/()#,\'[]+=&amp;;{}!>*
+-- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:\/()#,\'[]+=&;{}!>*
 csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 
@@ -114,7 +114,7 @@ csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 --
 -- Constraints for EC2-Classic: ASCII characters
 --
--- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:\/()#,\'[]+=&amp;;{}!>*
+-- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:\/()#,\'[]+=&;{}!>*
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
@@ -142,7 +142,7 @@ instance ToQuery CreateSecurityGroup where
         toQuery CreateSecurityGroup'{..}
           = mconcat
               ["Action" =: ("CreateSecurityGroup" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VpcId" =: _csgVPCId, "DryRun" =: _csgDryRun,
                "GroupName" =: _csgGroupName,
                "GroupDescription" =: _csgDescription]

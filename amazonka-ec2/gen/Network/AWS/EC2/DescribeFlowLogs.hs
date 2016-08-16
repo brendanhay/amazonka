@@ -130,7 +130,7 @@ instance ToQuery DescribeFlowLogs where
         toQuery DescribeFlowLogs'{..}
           = mconcat
               ["Action" =: ("DescribeFlowLogs" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "NextToken" =: _dNextToken,
                toQuery (toQueryList "FlowLogId" <$> _dFlowLogIds),
                toQuery (toQueryList "Filter" <$> _dFilter),

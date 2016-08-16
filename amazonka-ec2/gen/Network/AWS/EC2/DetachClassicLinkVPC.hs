@@ -109,7 +109,7 @@ instance ToQuery DetachClassicLinkVPC where
         toQuery DetachClassicLinkVPC'{..}
           = mconcat
               ["Action" =: ("DetachClassicLinkVpc" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _dclvDryRun,
                "InstanceId" =: _dclvInstanceId,
                "VpcId" =: _dclvVPCId]

@@ -106,7 +106,7 @@ instance ToQuery AssociateDHCPOptions where
         toQuery AssociateDHCPOptions'{..}
           = mconcat
               ["Action" =: ("AssociateDhcpOptions" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _adoDryRun,
                "DhcpOptionsId" =: _adoDHCPOptionsId,
                "VpcId" =: _adoVPCId]

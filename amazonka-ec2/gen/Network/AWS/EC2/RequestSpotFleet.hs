@@ -106,7 +106,7 @@ instance ToQuery RequestSpotFleet where
         toQuery RequestSpotFleet'{..}
           = mconcat
               ["Action" =: ("RequestSpotFleet" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _rsfDryRun,
                "SpotFleetRequestConfig" =:
                  _rsfSpotFleetRequestConfig]

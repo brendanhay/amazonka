@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the < RestoreAddressToClassic> request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform. You cannot migrate an Elastic IP address that\'s associated with a reverse DNS record. Contact AWS account and billing support to remove the reverse DNS record.
+-- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the < RestoreAddressToClassic> request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request
@@ -100,7 +100,7 @@ instance ToQuery MoveAddressToVPC where
         toQuery MoveAddressToVPC'{..}
           = mconcat
               ["Action" =: ("MoveAddressToVpc" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 
 -- | Contains the output of MoveAddressToVpc.

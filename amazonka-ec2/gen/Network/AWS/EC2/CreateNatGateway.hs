@@ -112,7 +112,7 @@ instance ToQuery CreateNatGateway where
         toQuery CreateNatGateway'{..}
           = mconcat
               ["Action" =: ("CreateNatGateway" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "ClientToken" =: _cngClientToken,
                "SubnetId" =: _cngSubnetId,
                "AllocationId" =: _cngAllocationId]

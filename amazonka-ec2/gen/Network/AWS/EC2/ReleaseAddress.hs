@@ -105,7 +105,7 @@ instance ToQuery ReleaseAddress where
         toQuery ReleaseAddress'{..}
           = mconcat
               ["Action" =: ("ReleaseAddress" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "AllocationId" =: _raAllocationId,
                "PublicIp" =: _raPublicIP, "DryRun" =: _raDryRun]
 

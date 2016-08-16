@@ -238,7 +238,7 @@ instance Hashable Address
 
 instance NFData Address
 
--- | The value to use when a resource attribute accepts a Boolean value.
+-- | Describes a value for a resource attribute that is a Boolean value.
 --
 -- /See:/ 'attributeBooleanValue' smart constructor.
 newtype AttributeBooleanValue = AttributeBooleanValue'
@@ -257,7 +257,7 @@ attributeBooleanValue =
     { _abvValue = Nothing
     }
 
--- | Valid values are 'true' or 'false'.
+-- | The attribute value. The valid values are 'true' or 'false'.
 abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
 abvValue = lens _abvValue (\ s a -> s{_abvValue = a});
 
@@ -273,7 +273,7 @@ instance ToQuery AttributeBooleanValue where
         toQuery AttributeBooleanValue'{..}
           = mconcat ["Value" =: _abvValue]
 
--- | The value to use for a resource attribute.
+-- | Describes a value for a resource attribute that is a String.
 --
 -- /See:/ 'attributeValue' smart constructor.
 newtype AttributeValue = AttributeValue'
@@ -292,7 +292,7 @@ attributeValue =
     { _avValue = Nothing
     }
 
--- | Valid values are case-sensitive and vary by action.
+-- | The attribute value. Note that the value is case-sensitive.
 avValue :: Lens' AttributeValue (Maybe Text)
 avValue = lens _avValue (\ s a -> s{_avValue = a});
 
@@ -1635,9 +1635,9 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 
--- | The number of I\/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For 'gp2', this represents the baseline performance of the volume and the rate at which the volume accumulates I\/O credits for bursting. For more information on General Purpose SSD baseline performance, I\/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The number of I\/O operations per second (IOPS) that the volume supports. For 'io1', this represents the number of IOPS that are provisioned for the volume. For 'gp2', this represents the baseline performance of the volume and the rate at which the volume accumulates I\/O credits for bursting. For more information about General Purpose SSD baseline performance, I\/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for 'gp2' volumes.
+-- Constraint: Range is 100-20000 IOPS for 'io1' volumes and 100-10000 IOPS for 'gp2' volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or 'standard' volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
@@ -2833,6 +2833,7 @@ instance NFData IdFormat
 -- /See:/ 'image' smart constructor.
 data Image = Image'
     { _iPlatform            :: !(Maybe PlatformValues)
+    , _iEnaSupport          :: !(Maybe Bool)
     , _iImageOwnerAlias     :: !(Maybe Text)
     , _iRAMDiskId           :: !(Maybe Text)
     , _iKernelId            :: !(Maybe Text)
@@ -2862,6 +2863,8 @@ data Image = Image'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iPlatform'
+--
+-- * 'iEnaSupport'
 --
 -- * 'iImageOwnerAlias'
 --
@@ -2921,6 +2924,7 @@ image
 image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImageType_ pRootDeviceType_ pVirtualizationType_ pHypervisor_ =
     Image'
     { _iPlatform = Nothing
+    , _iEnaSupport = Nothing
     , _iImageOwnerAlias = Nothing
     , _iRAMDiskId = Nothing
     , _iKernelId = Nothing
@@ -2949,6 +2953,10 @@ image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImage
 iPlatform :: Lens' Image (Maybe PlatformValues)
 iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 
+-- | Specifies whether enhanced networking with ENA is enabled.
+iEnaSupport :: Lens' Image (Maybe Bool)
+iEnaSupport = lens _iEnaSupport (\ s a -> s{_iEnaSupport = a});
+
 -- | The AWS account alias (for example, 'amazon', 'self') or the AWS account ID of the AMI owner.
 iImageOwnerAlias :: Lens' Image (Maybe Text)
 iImageOwnerAlias = lens _iImageOwnerAlias (\ s a -> s{_iImageOwnerAlias = a});
@@ -2965,7 +2973,7 @@ iKernelId = lens _iKernelId (\ s a -> s{_iKernelId = a});
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\ s a -> s{_iRootDeviceName = a});
 
--- | Specifies whether enhanced networking is enabled.
+-- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 iSRIOVNetSupport :: Lens' Image (Maybe Text)
 iSRIOVNetSupport = lens _iSRIOVNetSupport (\ s a -> s{_iSRIOVNetSupport = a});
 
@@ -3040,8 +3048,9 @@ iHypervisor = lens _iHypervisor (\ s a -> s{_iHypervisor = a});
 instance FromXML Image where
         parseXML x
           = Image' <$>
-              (x .@? "platform") <*> (x .@? "imageOwnerAlias") <*>
-                (x .@? "ramdiskId")
+              (x .@? "platform") <*> (x .@? "enaSupport") <*>
+                (x .@? "imageOwnerAlias")
+                <*> (x .@? "ramdiskId")
                 <*> (x .@? "kernelId")
                 <*> (x .@? "rootDeviceName")
                 <*> (x .@? "sriovNetSupport")
@@ -3357,7 +3366,7 @@ iilsInstanceType = lens _iilsInstanceType (\ s a -> s{_iilsInstanceType = a});
 iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
 iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a}) . _Default . _Coerce;
 
--- | The Base64-encoded MIME user data to be made available to the instance.
+-- | The user data to make available to the instance. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe UserData)
 iilsUserData = lens _iilsUserData (\ s a -> s{_iilsUserData = a});
 
@@ -3681,6 +3690,7 @@ data Instance = Instance'
     , _insPlatform              :: !(Maybe PlatformValues)
     , _insSecurityGroups        :: !(Maybe [GroupIdentifier])
     , _insClientToken           :: !(Maybe Text)
+    , _insEnaSupport            :: !(Maybe Bool)
     , _insSourceDestCheck       :: !(Maybe Bool)
     , _insVPCId                 :: !(Maybe Text)
     , _insKeyName               :: !(Maybe Text)
@@ -3727,6 +3737,8 @@ data Instance = Instance'
 -- * 'insSecurityGroups'
 --
 -- * 'insClientToken'
+--
+-- * 'insEnaSupport'
 --
 -- * 'insSourceDestCheck'
 --
@@ -3813,6 +3825,7 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insPlatform = Nothing
     , _insSecurityGroups = Nothing
     , _insClientToken = Nothing
+    , _insEnaSupport = Nothing
     , _insSourceDestCheck = Nothing
     , _insVPCId = Nothing
     , _insKeyName = Nothing
@@ -3864,6 +3877,10 @@ insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a})
 insClientToken :: Lens' Instance (Maybe Text)
 insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 
+-- | Specifies whether enhanced networking with ENA is enabled.
+insEnaSupport :: Lens' Instance (Maybe Bool)
+insEnaSupport = lens _insEnaSupport (\ s a -> s{_insEnaSupport = a});
+
 -- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source\/destination checking is enabled on the instance. A value of 'true' means checking is enabled, and 'false' means checking is disabled. The value must be 'false' for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a});
@@ -3896,7 +3913,7 @@ insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a});
 
--- | Specifies whether enhanced networking is enabled.
+-- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 insSRIOVNetSupport :: Lens' Instance (Maybe Text)
 insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a});
 
@@ -4003,6 +4020,7 @@ instance FromXML Instance where
                 (x .@? "groupSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "clientToken")
+                <*> (x .@? "enaSupport")
                 <*> (x .@? "sourceDestCheck")
                 <*> (x .@? "vpcId")
                 <*> (x .@? "keyName")
@@ -5449,7 +5467,7 @@ lsInstanceType = lens _lsInstanceType (\ s a -> s{_lsInstanceType = a});
 lsEBSOptimized :: Lens' LaunchSpecification (Maybe Bool)
 lsEBSOptimized = lens _lsEBSOptimized (\ s a -> s{_lsEBSOptimized = a});
 
--- | The Base64-encoded MIME user data to make available to the instances.
+-- | The user data to make available to the instances. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 lsUserData :: Lens' LaunchSpecification (Maybe Text)
 lsUserData = lens _lsUserData (\ s a -> s{_lsUserData = a});
 
@@ -5581,15 +5599,16 @@ instance NFData MovingAddressStatus
 --
 -- /See:/ 'natGateway' smart constructor.
 data NatGateway = NatGateway'
-    { _ngState               :: !(Maybe NatGatewayState)
-    , _ngFailureCode         :: !(Maybe Text)
-    , _ngVPCId               :: !(Maybe Text)
-    , _ngFailureMessage      :: !(Maybe Text)
-    , _ngNatGatewayId        :: !(Maybe Text)
-    , _ngSubnetId            :: !(Maybe Text)
-    , _ngDeleteTime          :: !(Maybe ISO8601)
-    , _ngNatGatewayAddresses :: !(Maybe [NatGatewayAddress])
-    , _ngCreateTime          :: !(Maybe ISO8601)
+    { _ngState                :: !(Maybe NatGatewayState)
+    , _ngFailureCode          :: !(Maybe Text)
+    , _ngVPCId                :: !(Maybe Text)
+    , _ngFailureMessage       :: !(Maybe Text)
+    , _ngNatGatewayId         :: !(Maybe Text)
+    , _ngSubnetId             :: !(Maybe Text)
+    , _ngDeleteTime           :: !(Maybe ISO8601)
+    , _ngProvisionedBandwidth :: !(Maybe ProvisionedBandwidth)
+    , _ngNatGatewayAddresses  :: !(Maybe [NatGatewayAddress])
+    , _ngCreateTime           :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NatGateway' with the minimum fields required to make a request.
@@ -5610,6 +5629,8 @@ data NatGateway = NatGateway'
 --
 -- * 'ngDeleteTime'
 --
+-- * 'ngProvisionedBandwidth'
+--
 -- * 'ngNatGatewayAddresses'
 --
 -- * 'ngCreateTime'
@@ -5624,11 +5645,23 @@ natGateway =
     , _ngNatGatewayId = Nothing
     , _ngSubnetId = Nothing
     , _ngDeleteTime = Nothing
+    , _ngProvisionedBandwidth = Nothing
     , _ngNatGatewayAddresses = Nothing
     , _ngCreateTime = Nothing
     }
 
 -- | The state of the NAT gateway.
+--
+-- -   'pending': The NAT gateway is being created and is not ready to process traffic.
+--
+-- -   'failed': The NAT gateway could not be created. Check the 'failureCode' and 'failureMessage' fields for the reason.
+--
+-- -   'available': The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
+--
+-- -   'deleting': The NAT gateway is in the process of being terminated and may still be processing traffic.
+--
+-- -   'deleted': The NAT gateway has been terminated and is no longer processing traffic.
+--
 ngState :: Lens' NatGateway (Maybe NatGatewayState)
 ngState = lens _ngState (\ s a -> s{_ngState = a});
 
@@ -5669,6 +5702,10 @@ ngSubnetId = lens _ngSubnetId (\ s a -> s{_ngSubnetId = a});
 ngDeleteTime :: Lens' NatGateway (Maybe UTCTime)
 ngDeleteTime = lens _ngDeleteTime (\ s a -> s{_ngDeleteTime = a}) . mapping _Time;
 
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+ngProvisionedBandwidth :: Lens' NatGateway (Maybe ProvisionedBandwidth)
+ngProvisionedBandwidth = lens _ngProvisionedBandwidth (\ s a -> s{_ngProvisionedBandwidth = a});
+
 -- | Information about the IP addresses and network interface associated with the NAT gateway.
 ngNatGatewayAddresses :: Lens' NatGateway [NatGatewayAddress]
 ngNatGatewayAddresses = lens _ngNatGatewayAddresses (\ s a -> s{_ngNatGatewayAddresses = a}) . _Default . _Coerce;
@@ -5686,6 +5723,7 @@ instance FromXML NatGateway where
                 <*> (x .@? "natGatewayId")
                 <*> (x .@? "subnetId")
                 <*> (x .@? "deleteTime")
+                <*> (x .@? "provisionedBandwidth")
                 <*>
                 (x .@? "natGatewayAddressSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -6466,6 +6504,7 @@ instance ToQuery NewDHCPConfiguration where
 data PeeringConnectionOptions = PeeringConnectionOptions'
     { _pcoAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
     , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    , _pcoAllowDNSResolutionFromRemoteVPC            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PeeringConnectionOptions' with the minimum fields required to make a request.
@@ -6475,12 +6514,15 @@ data PeeringConnectionOptions = PeeringConnectionOptions'
 -- * 'pcoAllowEgressFromLocalVPCToRemoteClassicLink'
 --
 -- * 'pcoAllowEgressFromLocalClassicLinkToRemoteVPC'
+--
+-- * 'pcoAllowDNSResolutionFromRemoteVPC'
 peeringConnectionOptions
     :: PeeringConnectionOptions
 peeringConnectionOptions =
     PeeringConnectionOptions'
     { _pcoAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
     , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    , _pcoAllowDNSResolutionFromRemoteVPC = Nothing
     }
 
 -- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
@@ -6491,12 +6533,17 @@ pcoAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcoAllowEgressFromLocalVPC
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcoAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcoAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
+-- | If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+pcoAllowDNSResolutionFromRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
+pcoAllowDNSResolutionFromRemoteVPC = lens _pcoAllowDNSResolutionFromRemoteVPC (\ s a -> s{_pcoAllowDNSResolutionFromRemoteVPC = a});
+
 instance FromXML PeeringConnectionOptions where
         parseXML x
           = PeeringConnectionOptions' <$>
               (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
                 <*>
                 (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+                <*> (x .@? "allowDnsResolutionFromRemoteVpc")
 
 instance Hashable PeeringConnectionOptions
 
@@ -6506,34 +6553,40 @@ instance NFData PeeringConnectionOptions
 --
 -- /See:/ 'peeringConnectionOptionsRequest' smart constructor.
 data PeeringConnectionOptionsRequest = PeeringConnectionOptionsRequest'
-    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: !Bool
-    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink :: !Bool
+    { _pcorAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
+    , _pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    , _pcorAllowDNSResolutionFromRemoteVPC            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PeeringConnectionOptionsRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+--
 -- * 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
 --
--- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+-- * 'pcorAllowDNSResolutionFromRemoteVPC'
 peeringConnectionOptionsRequest
-    :: Bool -- ^ 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
-    -> Bool -- ^ 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
-    -> PeeringConnectionOptionsRequest
-peeringConnectionOptionsRequest pAllowEgressFromLocalClassicLinkToRemoteVPC_ pAllowEgressFromLocalVPCToRemoteClassicLink_ =
+    :: PeeringConnectionOptionsRequest
+peeringConnectionOptionsRequest =
     PeeringConnectionOptionsRequest'
-    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC = pAllowEgressFromLocalClassicLinkToRemoteVPC_
-    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink = pAllowEgressFromLocalVPCToRemoteClassicLink_
+    { _pcorAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
+    , _pcorAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    , _pcorAllowDNSResolutionFromRemoteVPC = Nothing
     }
 
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest (Maybe Bool)
+pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
 -- | If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC via ClassicLink to instances in a peer VPC.
-pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest Bool
+pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest (Maybe Bool)
 pcorAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcorAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcorAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
--- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
-pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest Bool
-pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a});
+-- | If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+pcorAllowDNSResolutionFromRemoteVPC :: Lens' PeeringConnectionOptionsRequest (Maybe Bool)
+pcorAllowDNSResolutionFromRemoteVPC = lens _pcorAllowDNSResolutionFromRemoteVPC (\ s a -> s{_pcorAllowDNSResolutionFromRemoteVPC = a});
 
 instance Hashable PeeringConnectionOptionsRequest
 
@@ -6543,10 +6596,12 @@ instance ToQuery PeeringConnectionOptionsRequest
          where
         toQuery PeeringConnectionOptionsRequest'{..}
           = mconcat
-              ["AllowEgressFromLocalClassicLinkToRemoteVpc" =:
+              ["AllowEgressFromLocalVpcToRemoteClassicLink" =:
+                 _pcorAllowEgressFromLocalVPCToRemoteClassicLink,
+               "AllowEgressFromLocalClassicLinkToRemoteVpc" =:
                  _pcorAllowEgressFromLocalClassicLinkToRemoteVPC,
-               "AllowEgressFromLocalVpcToRemoteClassicLink" =:
-                 _pcorAllowEgressFromLocalVPCToRemoteClassicLink]
+               "AllowDnsResolutionFromRemoteVpc" =:
+                 _pcorAllowDNSResolutionFromRemoteVPC]
 
 -- | Describes the placement for the instance.
 --
@@ -7065,6 +7120,73 @@ instance Hashable PropagatingVGW
 
 instance NFData PropagatingVGW
 
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+--
+-- /See:/ 'provisionedBandwidth' smart constructor.
+data ProvisionedBandwidth = ProvisionedBandwidth'
+    { _pbStatus        :: !(Maybe Text)
+    , _pbRequested     :: !(Maybe Text)
+    , _pbProvisioned   :: !(Maybe Text)
+    , _pbRequestTime   :: !(Maybe ISO8601)
+    , _pbProvisionTime :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisionedBandwidth' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbStatus'
+--
+-- * 'pbRequested'
+--
+-- * 'pbProvisioned'
+--
+-- * 'pbRequestTime'
+--
+-- * 'pbProvisionTime'
+provisionedBandwidth
+    :: ProvisionedBandwidth
+provisionedBandwidth =
+    ProvisionedBandwidth'
+    { _pbStatus = Nothing
+    , _pbRequested = Nothing
+    , _pbProvisioned = Nothing
+    , _pbRequestTime = Nothing
+    , _pbProvisionTime = Nothing
+    }
+
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+pbStatus :: Lens' ProvisionedBandwidth (Maybe Text)
+pbStatus = lens _pbStatus (\ s a -> s{_pbStatus = a});
+
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+pbRequested :: Lens' ProvisionedBandwidth (Maybe Text)
+pbRequested = lens _pbRequested (\ s a -> s{_pbRequested = a});
+
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+pbProvisioned :: Lens' ProvisionedBandwidth (Maybe Text)
+pbProvisioned = lens _pbProvisioned (\ s a -> s{_pbProvisioned = a});
+
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+pbRequestTime :: Lens' ProvisionedBandwidth (Maybe UTCTime)
+pbRequestTime = lens _pbRequestTime (\ s a -> s{_pbRequestTime = a}) . mapping _Time;
+
+-- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits>, contact us through the <https://console.aws.amazon.com/support/home? Support Center>.
+pbProvisionTime :: Lens' ProvisionedBandwidth (Maybe UTCTime)
+pbProvisionTime = lens _pbProvisionTime (\ s a -> s{_pbProvisionTime = a}) . mapping _Time;
+
+instance FromXML ProvisionedBandwidth where
+        parseXML x
+          = ProvisionedBandwidth' <$>
+              (x .@? "status") <*> (x .@? "requested") <*>
+                (x .@? "provisioned")
+                <*> (x .@? "requestTime")
+                <*> (x .@? "provisionTime")
+
+instance Hashable ProvisionedBandwidth
+
+instance NFData ProvisionedBandwidth
+
 -- | Describes a request to purchase Scheduled Instances.
 --
 -- /See:/ 'purchaseRequest' smart constructor.
@@ -7305,7 +7427,7 @@ rslsInstanceType = lens _rslsInstanceType (\ s a -> s{_rslsInstanceType = a});
 rslsEBSOptimized :: Lens' RequestSpotLaunchSpecification (Maybe Bool)
 rslsEBSOptimized = lens _rslsEBSOptimized (\ s a -> s{_rslsEBSOptimized = a});
 
--- | The Base64-encoded MIME user data to make available to the instances.
+-- | The user data to make available to the instances. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 rslsUserData :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsUserData = lens _rslsUserData (\ s a -> s{_rslsUserData = a});
 
@@ -8497,7 +8619,7 @@ s3Storage =
 ssPrefix :: Lens' S3Storage (Maybe Text)
 ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
--- | A base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf. For command line tools, base64 encoding is performed for you.
+-- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -8511,7 +8633,7 @@ ssUploadPolicy = lens _ssUploadPolicy (\ s a -> s{_ssUploadPolicy = a}) . mappin
 ssBucket :: Lens' S3Storage (Maybe Text)
 ssBucket = lens _ssBucket (\ s a -> s{_ssBucket = a});
 
--- | The signature of the Base64 encoded JSON document.
+-- | The signature of the JSON document.
 ssUploadPolicySignature :: Lens' S3Storage (Maybe Text)
 ssUploadPolicySignature = lens _ssUploadPolicySignature (\ s a -> s{_ssUploadPolicySignature = a});
 
@@ -9666,6 +9788,57 @@ instance Hashable SecurityGroup
 
 instance NFData SecurityGroup
 
+-- | Describes a VPC with a security group that references your security group.
+--
+-- /See:/ 'securityGroupReference' smart constructor.
+data SecurityGroupReference = SecurityGroupReference'
+    { _sgrVPCPeeringConnectionId :: !(Maybe Text)
+    , _sgrGroupId                :: !Text
+    , _sgrReferencingVPCId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SecurityGroupReference' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgrVPCPeeringConnectionId'
+--
+-- * 'sgrGroupId'
+--
+-- * 'sgrReferencingVPCId'
+securityGroupReference
+    :: Text -- ^ 'sgrGroupId'
+    -> Text -- ^ 'sgrReferencingVPCId'
+    -> SecurityGroupReference
+securityGroupReference pGroupId_ pReferencingVPCId_ =
+    SecurityGroupReference'
+    { _sgrVPCPeeringConnectionId = Nothing
+    , _sgrGroupId = pGroupId_
+    , _sgrReferencingVPCId = pReferencingVPCId_
+    }
+
+-- | The ID of the VPC peering connection.
+sgrVPCPeeringConnectionId :: Lens' SecurityGroupReference (Maybe Text)
+sgrVPCPeeringConnectionId = lens _sgrVPCPeeringConnectionId (\ s a -> s{_sgrVPCPeeringConnectionId = a});
+
+-- | The ID of your security group.
+sgrGroupId :: Lens' SecurityGroupReference Text
+sgrGroupId = lens _sgrGroupId (\ s a -> s{_sgrGroupId = a});
+
+-- | The ID of the VPC with the referencing security group.
+sgrReferencingVPCId :: Lens' SecurityGroupReference Text
+sgrReferencingVPCId = lens _sgrReferencingVPCId (\ s a -> s{_sgrReferencingVPCId = a});
+
+instance FromXML SecurityGroupReference where
+        parseXML x
+          = SecurityGroupReference' <$>
+              (x .@? "vpcPeeringConnectionId") <*> (x .@ "groupId")
+                <*> (x .@ "referencingVpcId")
+
+instance Hashable SecurityGroupReference
+
+instance NFData SecurityGroupReference
+
 -- | Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.
 --
 -- /See:/ 'slotDateTimeRangeRequest' smart constructor.
@@ -9858,7 +10031,7 @@ sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a});
 sOwnerId :: Lens' Snapshot Text
 sOwnerId = lens _sOwnerId (\ s a -> s{_sOwnerId = a});
 
--- | The ID of the volume that was used to create the snapshot.
+-- | The ID of the volume that was used to create the snapshot. Snapshots created by the < CopySnapshot> action have an arbitrary volume ID that should not be used for any purpose.
 sVolumeId :: Lens' Snapshot Text
 sVolumeId = lens _sVolumeId (\ s a -> s{_sVolumeId = a});
 
@@ -10378,7 +10551,7 @@ sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 sflsEBSOptimized :: Lens' SpotFleetLaunchSpecification (Maybe Bool)
 sflsEBSOptimized = lens _sflsEBSOptimized (\ s a -> s{_sflsEBSOptimized = a});
 
--- | The Base64-encoded MIME user data to make available to the instances.
+-- | The user data to make available to the instances. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 sflsUserData :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
 
@@ -10570,6 +10743,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdExcessCapacityTerminationPolicy  :: !(Maybe ExcessCapacityTerminationPolicy)
     , _sfrcdValidUntil                       :: !(Maybe ISO8601)
     , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
+    , _sfrcdFulfilledCapacity                :: !(Maybe Double)
+    , _sfrcdType                             :: !(Maybe FleetType)
     , _sfrcdValidFrom                        :: !(Maybe ISO8601)
     , _sfrcdAllocationStrategy               :: !(Maybe AllocationStrategy)
     , _sfrcdSpotPrice                        :: !Text
@@ -10589,6 +10764,10 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- * 'sfrcdValidUntil'
 --
 -- * 'sfrcdTerminateInstancesWithExpiration'
+--
+-- * 'sfrcdFulfilledCapacity'
+--
+-- * 'sfrcdType'
 --
 -- * 'sfrcdValidFrom'
 --
@@ -10613,6 +10792,8 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
     , _sfrcdExcessCapacityTerminationPolicy = Nothing
     , _sfrcdValidUntil = Nothing
     , _sfrcdTerminateInstancesWithExpiration = Nothing
+    , _sfrcdFulfilledCapacity = Nothing
+    , _sfrcdType = Nothing
     , _sfrcdValidFrom = Nothing
     , _sfrcdAllocationStrategy = Nothing
     , _sfrcdSpotPrice = pSpotPrice_
@@ -10636,6 +10817,14 @@ sfrcdValidUntil = lens _sfrcdValidUntil (\ s a -> s{_sfrcdValidUntil = a}) . map
 -- | Indicates whether running Spot instances should be terminated when the Spot fleet request expires.
 sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
 sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpiration (\ s a -> s{_sfrcdTerminateInstancesWithExpiration = a});
+
+-- | The number of units fulfilled by this request compared to the set target capacity.
+sfrcdFulfilledCapacity :: Lens' SpotFleetRequestConfigData (Maybe Double)
+sfrcdFulfilledCapacity = lens _sfrcdFulfilledCapacity (\ s a -> s{_sfrcdFulfilledCapacity = a});
+
+-- | The type of request. Indicates whether the fleet will only 'request' the target capacity or also attempt to 'maintain' it. When you 'request' a certain target capacity, the fleet will only place the required bids. It will not attempt to replenish Spot instances if capacity is diminished, nor will it submit bids in alternative Spot pools if capacity is not available. When you want to 'maintain' a certain target capacity, fleet will place the required bids to meet this target capacity. It will also automatically replenish any interrupted instances. Default: 'maintain'.
+sfrcdType :: Lens' SpotFleetRequestConfigData (Maybe FleetType)
+sfrcdType = lens _sfrcdType (\ s a -> s{_sfrcdType = a});
 
 -- | The start date and time of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling the request immediately.
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
@@ -10668,6 +10857,8 @@ instance FromXML SpotFleetRequestConfigData where
                 (x .@? "excessCapacityTerminationPolicy")
                 <*> (x .@? "validUntil")
                 <*> (x .@? "terminateInstancesWithExpiration")
+                <*> (x .@? "fulfilledCapacity")
+                <*> (x .@? "type")
                 <*> (x .@? "validFrom")
                 <*> (x .@? "allocationStrategy")
                 <*> (x .@ "spotPrice")
@@ -10690,7 +10881,8 @@ instance ToQuery SpotFleetRequestConfigData where
                "ValidUntil" =: _sfrcdValidUntil,
                "TerminateInstancesWithExpiration" =:
                  _sfrcdTerminateInstancesWithExpiration,
-               "ValidFrom" =: _sfrcdValidFrom,
+               "FulfilledCapacity" =: _sfrcdFulfilledCapacity,
+               "Type" =: _sfrcdType, "ValidFrom" =: _sfrcdValidFrom,
                "AllocationStrategy" =: _sfrcdAllocationStrategy,
                "SpotPrice" =: _sfrcdSpotPrice,
                "TargetCapacity" =: _sfrcdTargetCapacity,
@@ -11087,6 +11279,168 @@ instance FromXML SpotPrice where
 instance Hashable SpotPrice
 
 instance NFData SpotPrice
+
+-- | Describes a stale rule in a security group.
+--
+-- /See:/ 'staleIPPermission' smart constructor.
+data StaleIPPermission = StaleIPPermission'
+    { _sipFromPort         :: !(Maybe Int)
+    , _sipUserIdGroupPairs :: !(Maybe [UserIdGroupPair])
+    , _sipPrefixListIds    :: !(Maybe [Text])
+    , _sipIPProtocol       :: !(Maybe Text)
+    , _sipToPort           :: !(Maybe Int)
+    , _sipIPRanges         :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StaleIPPermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sipFromPort'
+--
+-- * 'sipUserIdGroupPairs'
+--
+-- * 'sipPrefixListIds'
+--
+-- * 'sipIPProtocol'
+--
+-- * 'sipToPort'
+--
+-- * 'sipIPRanges'
+staleIPPermission
+    :: StaleIPPermission
+staleIPPermission =
+    StaleIPPermission'
+    { _sipFromPort = Nothing
+    , _sipUserIdGroupPairs = Nothing
+    , _sipPrefixListIds = Nothing
+    , _sipIPProtocol = Nothing
+    , _sipToPort = Nothing
+    , _sipIPRanges = Nothing
+    }
+
+-- | The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of '-1' indicates all ICMP types.
+sipFromPort :: Lens' StaleIPPermission (Maybe Int)
+sipFromPort = lens _sipFromPort (\ s a -> s{_sipFromPort = a});
+
+-- | One or more security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+sipUserIdGroupPairs :: Lens' StaleIPPermission [UserIdGroupPair]
+sipUserIdGroupPairs = lens _sipUserIdGroupPairs (\ s a -> s{_sipUserIdGroupPairs = a}) . _Default . _Coerce;
+
+-- | One or more prefix list IDs for an AWS service. Not applicable for stale security group rules.
+sipPrefixListIds :: Lens' StaleIPPermission [Text]
+sipPrefixListIds = lens _sipPrefixListIds (\ s a -> s{_sipPrefixListIds = a}) . _Default . _Coerce;
+
+-- | The IP protocol name (for 'tcp', 'udp', and 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)>.
+sipIPProtocol :: Lens' StaleIPPermission (Maybe Text)
+sipIPProtocol = lens _sipIPProtocol (\ s a -> s{_sipIPProtocol = a});
+
+-- | The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of '-1' indicates all ICMP types.
+sipToPort :: Lens' StaleIPPermission (Maybe Int)
+sipToPort = lens _sipToPort (\ s a -> s{_sipToPort = a});
+
+-- | One or more IP ranges. Not applicable for stale security group rules.
+sipIPRanges :: Lens' StaleIPPermission [Text]
+sipIPRanges = lens _sipIPRanges (\ s a -> s{_sipIPRanges = a}) . _Default . _Coerce;
+
+instance FromXML StaleIPPermission where
+        parseXML x
+          = StaleIPPermission' <$>
+              (x .@? "fromPort") <*>
+                (x .@? "groups" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "prefixListIds" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "ipProtocol")
+                <*> (x .@? "toPort")
+                <*>
+                (x .@? "ipRanges" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable StaleIPPermission
+
+instance NFData StaleIPPermission
+
+-- | Describes a stale security group (a security group that contains stale rules).
+--
+-- /See:/ 'staleSecurityGroup' smart constructor.
+data StaleSecurityGroup = StaleSecurityGroup'
+    { _ssgVPCId                    :: !(Maybe Text)
+    , _ssgGroupName                :: !(Maybe Text)
+    , _ssgStaleIPPermissionsEgress :: !(Maybe [StaleIPPermission])
+    , _ssgStaleIPPermissions       :: !(Maybe [StaleIPPermission])
+    , _ssgDescription              :: !(Maybe Text)
+    , _ssgGroupId                  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StaleSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssgVPCId'
+--
+-- * 'ssgGroupName'
+--
+-- * 'ssgStaleIPPermissionsEgress'
+--
+-- * 'ssgStaleIPPermissions'
+--
+-- * 'ssgDescription'
+--
+-- * 'ssgGroupId'
+staleSecurityGroup
+    :: Text -- ^ 'ssgGroupId'
+    -> StaleSecurityGroup
+staleSecurityGroup pGroupId_ =
+    StaleSecurityGroup'
+    { _ssgVPCId = Nothing
+    , _ssgGroupName = Nothing
+    , _ssgStaleIPPermissionsEgress = Nothing
+    , _ssgStaleIPPermissions = Nothing
+    , _ssgDescription = Nothing
+    , _ssgGroupId = pGroupId_
+    }
+
+-- | The ID of the VPC for the security group.
+ssgVPCId :: Lens' StaleSecurityGroup (Maybe Text)
+ssgVPCId = lens _ssgVPCId (\ s a -> s{_ssgVPCId = a});
+
+-- | The name of the security group.
+ssgGroupName :: Lens' StaleSecurityGroup (Maybe Text)
+ssgGroupName = lens _ssgGroupName (\ s a -> s{_ssgGroupName = a});
+
+-- | Information about the stale outbound rules in the security group.
+ssgStaleIPPermissionsEgress :: Lens' StaleSecurityGroup [StaleIPPermission]
+ssgStaleIPPermissionsEgress = lens _ssgStaleIPPermissionsEgress (\ s a -> s{_ssgStaleIPPermissionsEgress = a}) . _Default . _Coerce;
+
+-- | Information about the stale inbound rules in the security group.
+ssgStaleIPPermissions :: Lens' StaleSecurityGroup [StaleIPPermission]
+ssgStaleIPPermissions = lens _ssgStaleIPPermissions (\ s a -> s{_ssgStaleIPPermissions = a}) . _Default . _Coerce;
+
+-- | The description of the security group.
+ssgDescription :: Lens' StaleSecurityGroup (Maybe Text)
+ssgDescription = lens _ssgDescription (\ s a -> s{_ssgDescription = a});
+
+-- | The ID of the security group.
+ssgGroupId :: Lens' StaleSecurityGroup Text
+ssgGroupId = lens _ssgGroupId (\ s a -> s{_ssgGroupId = a});
+
+instance FromXML StaleSecurityGroup where
+        parseXML x
+          = StaleSecurityGroup' <$>
+              (x .@? "vpcId") <*> (x .@? "groupName") <*>
+                (x .@? "staleIpPermissionsEgress" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "staleIpPermissions" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "description")
+                <*> (x .@ "groupId")
+
+instance Hashable StaleSecurityGroup
+
+instance NFData StaleSecurityGroup
 
 -- | Describes a state change.
 --
@@ -11563,7 +11917,7 @@ instance Hashable UserBucketDetails
 
 instance NFData UserBucketDetails
 
--- | Describes the user data to be made available to an instance.
+-- | Describes the user data for an instance.
 --
 -- /See:/ 'userData' smart constructor.
 newtype UserData = UserData'
@@ -11582,7 +11936,7 @@ userData =
     { _udData = Nothing
     }
 
--- | The Base64-encoded MIME user data for the instance.
+-- | The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 udData :: Lens' UserData (Maybe Text)
 udData = lens _udData (\ s a -> s{_udData = a});
 
@@ -11640,7 +11994,7 @@ uigpVPCPeeringConnectionId = lens _uigpVPCPeeringConnectionId (\ s a -> s{_uigpV
 uigpVPCId :: Lens' UserIdGroupPair (Maybe Text)
 uigpVPCId = lens _uigpVPCId (\ s a -> s{_uigpVPCId = a});
 
--- | The ID of an AWS account.
+-- | The ID of an AWS account. For a referenced security group in another VPC, the account ID of the referenced security group is returned.
 --
 -- [EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
@@ -12065,7 +12419,7 @@ vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpc
 vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
 vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
--- | Information about the peer VPC. CIDR block information is not returned when creating a VPC peering connection, or when describing a VPC peering connection that\'s in the 'initiating-request' or 'pending-acceptance' state.
+-- | Information about the accepter VPC. CIDR block information is not returned when creating a VPC peering connection, or when describing a VPC peering connection that\'s in the 'initiating-request' or 'pending-acceptance' state.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcAccepterVPCInfo = lens _vpcpcAccepterVPCInfo (\ s a -> s{_vpcpcAccepterVPCInfo = a});
 
@@ -12102,6 +12456,7 @@ instance NFData VPCPeeringConnection
 data VPCPeeringConnectionOptionsDescription = VPCPeeringConnectionOptionsDescription'
     { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
     , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    , _vpcodAllowDNSResolutionFromRemoteVPC            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPCPeeringConnectionOptionsDescription' with the minimum fields required to make a request.
@@ -12111,12 +12466,15 @@ data VPCPeeringConnectionOptionsDescription = VPCPeeringConnectionOptionsDescrip
 -- * 'vpcodAllowEgressFromLocalVPCToRemoteClassicLink'
 --
 -- * 'vpcodAllowEgressFromLocalClassicLinkToRemoteVPC'
+--
+-- * 'vpcodAllowDNSResolutionFromRemoteVPC'
 vpcPeeringConnectionOptionsDescription
     :: VPCPeeringConnectionOptionsDescription
 vpcPeeringConnectionOptionsDescription =
     VPCPeeringConnectionOptionsDescription'
     { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
     , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    , _vpcodAllowDNSResolutionFromRemoteVPC = Nothing
     }
 
 -- | Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
@@ -12127,6 +12485,10 @@ vpcodAllowEgressFromLocalVPCToRemoteClassicLink = lens _vpcodAllowEgressFromLoca
 vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
 vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = lens _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
+-- | Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
+vpcodAllowDNSResolutionFromRemoteVPC :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
+vpcodAllowDNSResolutionFromRemoteVPC = lens _vpcodAllowDNSResolutionFromRemoteVPC (\ s a -> s{_vpcodAllowDNSResolutionFromRemoteVPC = a});
+
 instance FromXML
          VPCPeeringConnectionOptionsDescription where
         parseXML x
@@ -12134,6 +12496,7 @@ instance FromXML
               (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
                 <*>
                 (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+                <*> (x .@? "allowDnsResolutionFromRemoteVpc")
 
 instance Hashable
          VPCPeeringConnectionOptionsDescription

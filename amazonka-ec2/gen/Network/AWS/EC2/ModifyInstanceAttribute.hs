@@ -29,6 +29,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     -- * Request Lenses
     , mGroups
     , mAttribute
+    , mEnaSupport
     , mSourceDestCheck
     , mDisableAPITermination
     , mKernel
@@ -61,6 +62,7 @@ import           Network.AWS.Response
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
     { _mGroups                            :: !(Maybe [Text])
     , _mAttribute                         :: !(Maybe InstanceAttributeName)
+    , _mEnaSupport                        :: !(Maybe AttributeBooleanValue)
     , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
     , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
     , _mKernel                            :: !(Maybe AttributeValue)
@@ -83,6 +85,8 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- * 'mGroups'
 --
 -- * 'mAttribute'
+--
+-- * 'mEnaSupport'
 --
 -- * 'mSourceDestCheck'
 --
@@ -116,6 +120,7 @@ modifyInstanceAttribute pInstanceId_ =
     ModifyInstanceAttribute'
     { _mGroups = Nothing
     , _mAttribute = Nothing
+    , _mEnaSupport = Nothing
     , _mSourceDestCheck = Nothing
     , _mDisableAPITermination = Nothing
     , _mKernel = Nothing
@@ -138,6 +143,12 @@ mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce;
 -- | The name of the attribute.
 mAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
+
+-- | Set to 'true' to enable enhanced networking with ENA for the instance.
+--
+-- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
+mEnaSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+mEnaSupport = lens _mEnaSupport (\ s a -> s{_mEnaSupport = a});
 
 -- | Specifies whether source\/destination checking is enabled. A value of 'true' means that checking is enabled, and 'false' means checking is disabled. This value must be 'false' for a NAT instance to perform NAT.
 mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
@@ -163,9 +174,9 @@ mValue = lens _mValue (\ s a -> s{_mValue = a});
 mInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a});
 
--- | Set to 'simple' to enable enhanced networking for the instance.
+-- | Set to 'simple' to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
 --
--- There is no way to disable enhanced networking at this time.
+-- There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.
 --
 -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
 mSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
@@ -175,7 +186,7 @@ mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 mEBSOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
 
--- | Changes the instance\'s user data to the specified base64-encoded value. For command line tools, base64 encoding is performed for you.
+-- | Changes the instance\'s user data to the specified value. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
 
@@ -219,9 +230,10 @@ instance ToQuery ModifyInstanceAttribute where
           = mconcat
               ["Action" =:
                  ("ModifyInstanceAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "GroupId" <$> _mGroups),
                "Attribute" =: _mAttribute,
+               "EnaSupport" =: _mEnaSupport,
                "SourceDestCheck" =: _mSourceDestCheck,
                "DisableApiTermination" =: _mDisableAPITermination,
                "Kernel" =: _mKernel, "Ramdisk" =: _mRAMDisk,

@@ -114,7 +114,7 @@ instance ToQuery DescribeAccountAttributes where
           = mconcat
               ["Action" =:
                  ("DescribeAccountAttributes" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery
                  (toQueryList "AttributeName" <$> _daaAttributeNames),
                "DryRun" =: _daaDryRun]

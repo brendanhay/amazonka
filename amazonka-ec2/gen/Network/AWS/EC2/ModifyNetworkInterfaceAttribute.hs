@@ -134,7 +134,7 @@ instance ToQuery ModifyNetworkInterfaceAttribute
           = mconcat
               ["Action" =:
                  ("ModifyNetworkInterfaceAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery
                  (toQueryList "SecurityGroupId" <$> _mniaGroups),
                "SourceDestCheck" =: _mniaSourceDestCheck,

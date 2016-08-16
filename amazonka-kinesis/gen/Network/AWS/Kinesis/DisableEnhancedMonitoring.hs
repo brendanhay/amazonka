@@ -49,7 +49,7 @@ import           Network.AWS.Response
 -- /See:/ 'disableEnhancedMonitoring' smart constructor.
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
     { _demStreamName        :: !Text
-    , _demShardLevelMetrics :: !(List1 MetricsName)
+    , _demShardLevelMetrics :: ![MetricsName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableEnhancedMonitoring' with the minimum fields required to make a request.
@@ -61,12 +61,11 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 -- * 'demShardLevelMetrics'
 disableEnhancedMonitoring
     :: Text -- ^ 'demStreamName'
-    -> NonEmpty MetricsName -- ^ 'demShardLevelMetrics'
     -> DisableEnhancedMonitoring
-disableEnhancedMonitoring pStreamName_ pShardLevelMetrics_ =
+disableEnhancedMonitoring pStreamName_ =
     DisableEnhancedMonitoring'
     { _demStreamName = pStreamName_
-    , _demShardLevelMetrics = _List1 # pShardLevelMetrics_
+    , _demShardLevelMetrics = mempty
     }
 
 -- | The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
@@ -87,8 +86,8 @@ demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a});
 -- -   'ALL'
 --
 -- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
-demShardLevelMetrics :: Lens' DisableEnhancedMonitoring (NonEmpty MetricsName)
-demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _List1;
+demShardLevelMetrics :: Lens' DisableEnhancedMonitoring [MetricsName]
+demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _Coerce;
 
 instance AWSRequest DisableEnhancedMonitoring where
         type Rs DisableEnhancedMonitoring =

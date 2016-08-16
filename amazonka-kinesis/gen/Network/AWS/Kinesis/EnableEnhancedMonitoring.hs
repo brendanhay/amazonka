@@ -49,7 +49,7 @@ import           Network.AWS.Response
 -- /See:/ 'enableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
     { _eemStreamName        :: !Text
-    , _eemShardLevelMetrics :: !(List1 MetricsName)
+    , _eemShardLevelMetrics :: ![MetricsName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableEnhancedMonitoring' with the minimum fields required to make a request.
@@ -61,12 +61,11 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
 -- * 'eemShardLevelMetrics'
 enableEnhancedMonitoring
     :: Text -- ^ 'eemStreamName'
-    -> NonEmpty MetricsName -- ^ 'eemShardLevelMetrics'
     -> EnableEnhancedMonitoring
-enableEnhancedMonitoring pStreamName_ pShardLevelMetrics_ =
+enableEnhancedMonitoring pStreamName_ =
     EnableEnhancedMonitoring'
     { _eemStreamName = pStreamName_
-    , _eemShardLevelMetrics = _List1 # pShardLevelMetrics_
+    , _eemShardLevelMetrics = mempty
     }
 
 -- | The name of the stream for which to enable enhanced monitoring.
@@ -87,8 +86,8 @@ eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a});
 -- -   'ALL'
 --
 -- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
-eemShardLevelMetrics :: Lens' EnableEnhancedMonitoring (NonEmpty MetricsName)
-eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _List1;
+eemShardLevelMetrics :: Lens' EnableEnhancedMonitoring [MetricsName]
+eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _Coerce;
 
 instance AWSRequest EnableEnhancedMonitoring where
         type Rs EnableEnhancedMonitoring =

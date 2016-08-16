@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables or disables the custom MAIL FROM domain setup for a verified identity (email address or domain).
+-- Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).
 --
 -- To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain\'s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html Amazon SES Developer Guide>.
 --
@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setIdentityMailFromDomain' smart constructor.
+-- | Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setIdentityMailFromDomain' smart constructor.
 data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
     { _simfdMailFromDomain      :: !(Maybe Text)
     , _simfdBehaviorOnMXFailure :: !(Maybe BehaviorOnMXFailure)
@@ -117,7 +119,9 @@ instance ToQuery SetIdentityMailFromDomain where
                "BehaviorOnMXFailure" =: _simfdBehaviorOnMXFailure,
                "Identity" =: _simfdIdentity]
 
--- | /See:/ 'setIdentityMailFromDomainResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setIdentityMailFromDomainResponse' smart constructor.
 newtype SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
     { _simfdrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

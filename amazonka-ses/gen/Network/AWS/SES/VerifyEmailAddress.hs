@@ -43,7 +43,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'verifyEmailAddress' smart constructor.
+-- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'verifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
     { _veaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

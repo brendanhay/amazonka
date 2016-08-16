@@ -21,6 +21,7 @@
 -- Enables or disables Easy DKIM signing of email sent from an identity:
 --
 -- -   If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., 'user\'example.com').
+--
 -- -   If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.
 --
 -- For email addresses (e.g., 'user\'example.com'), you can only enable Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.
@@ -51,7 +52,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setIdentityDkimEnabled' smart constructor.
+-- | Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
     { _sideIdentity    :: !Text
     , _sideDkimEnabled :: !Bool
@@ -111,7 +114,9 @@ instance ToQuery SetIdentityDkimEnabled where
                "Identity" =: _sideIdentity,
                "DkimEnabled" =: _sideDkimEnabled]
 
--- | /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _sidersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

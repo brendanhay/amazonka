@@ -66,6 +66,9 @@ module Network.AWS.SES
     -- ** CreateReceiptRuleSet
     , module Network.AWS.SES.CreateReceiptRuleSet
 
+    -- ** SetIdentityHeadersInNotificationsEnabled
+    , module Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
+
     -- ** GetSendQuota
     , module Network.AWS.SES.GetSendQuota
 
@@ -289,6 +292,9 @@ module Network.AWS.SES
     -- ** IdentityNotificationAttributes
     , IdentityNotificationAttributes
     , identityNotificationAttributes
+    , inaHeadersInDeliveryNotificationsEnabled
+    , inaHeadersInComplaintNotificationsEnabled
+    , inaHeadersInBounceNotificationsEnabled
     , inaBounceTopic
     , inaComplaintTopic
     , inaDeliveryTopic
@@ -444,6 +450,7 @@ import           Network.AWS.SES.SendRawEmail
 import           Network.AWS.SES.SetActiveReceiptRuleSet
 import           Network.AWS.SES.SetIdentityDkimEnabled
 import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+import           Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
 import           Network.AWS.SES.SetIdentityMailFromDomain
 import           Network.AWS.SES.SetIdentityNotificationTopic
 import           Network.AWS.SES.SetReceiptRulePosition

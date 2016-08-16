@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified sending authorization policy for the given identity (email address or domain). This API returns successfully even if a policy with the specified name does not exist.
+-- Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.
 --
 -- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'deleteIdentityPolicy' smart constructor.
+-- | Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'deleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
     { _dipIdentity   :: !Text
     , _dipPolicyName :: !Text
@@ -109,7 +111,9 @@ instance ToQuery DeleteIdentityPolicy where
                "Identity" =: _dipIdentity,
                "PolicyName" =: _dipPolicyName]
 
--- | /See:/ 'deleteIdentityPolicyResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
     { _diprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

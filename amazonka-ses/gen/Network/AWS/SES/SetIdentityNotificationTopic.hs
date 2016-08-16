@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and\/or delivery notifications for emails sent with that identity as the 'Source'.
+-- Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and\/or delivery notifications for emails sent with that identity as the 'Source'.
 --
 -- Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see 'SetIdentityFeedbackForwardingEnabled'.
 --
@@ -49,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setIdentityNotificationTopic' smart constructor.
+-- | Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setIdentityNotificationTopic' smart constructor.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     { _sintSNSTopic         :: !(Maybe Text)
     , _sintIdentity         :: !Text
@@ -120,7 +122,9 @@ instance ToQuery SetIdentityNotificationTopic where
                "Identity" =: _sintIdentity,
                "NotificationType" =: _sintNotificationType]
 
--- | /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

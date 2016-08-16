@@ -44,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'getIdentityVerificationAttributes' smart constructor.
+-- | Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'getIdentityVerificationAttributes' smart constructor.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
     { _givaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -100,7 +102,9 @@ instance ToQuery GetIdentityVerificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _givaIdentities]
 
--- | /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
+-- | The Amazon SES verification status of a list of identities. For domain identities, this response also contains the verification token.
+--
+-- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarsResponseStatus         :: !Int
     , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)

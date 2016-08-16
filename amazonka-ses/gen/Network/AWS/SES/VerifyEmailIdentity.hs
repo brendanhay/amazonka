@@ -43,7 +43,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'verifyEmailIdentity' smart constructor.
+-- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'verifyEmailIdentity' smart constructor.
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
     { _veiEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -91,7 +93,9 @@ instance ToQuery VerifyEmailIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "EmailAddress" =: _veiEmailAddress]
 
--- | /See:/ 'verifyEmailIdentityResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'verifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
     { _veirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

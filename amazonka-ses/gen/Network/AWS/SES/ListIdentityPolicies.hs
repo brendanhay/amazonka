@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of sending authorization policies that are attached to the given identity (email address or domain). This API returns only a list. If you want the actual policy content, you can use 'GetIdentityPolicies'.
+-- Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use 'GetIdentityPolicies'.
 --
 -- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'listIdentityPolicies' smart constructor.
+-- | Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'listIdentityPolicies' smart constructor.
 newtype ListIdentityPolicies = ListIdentityPolicies'
     { _lipIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -101,7 +103,9 @@ instance ToQuery ListIdentityPolicies where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _lipIdentity]
 
--- | /See:/ 'listIdentityPoliciesResponse' smart constructor.
+-- | A list of names of sending authorization policies that apply to an identity.
+--
+-- /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
     { _liprsResponseStatus :: !Int
     , _liprsPolicyNames    :: ![Text]

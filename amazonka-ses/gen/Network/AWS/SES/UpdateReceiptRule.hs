@@ -46,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'updateReceiptRule' smart constructor.
+-- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'updateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
     { _urrRuleSetName :: !Text
     , _urrRule        :: !ReceiptRule
@@ -102,7 +104,9 @@ instance ToQuery UpdateReceiptRule where
                "Version" =: ("2010-12-01" :: ByteString),
                "RuleSetName" =: _urrRuleSetName, "Rule" =: _urrRule]
 
--- | /See:/ 'updateReceiptRuleResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'updateReceiptRuleResponse' smart constructor.
 newtype UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
     { _urrrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

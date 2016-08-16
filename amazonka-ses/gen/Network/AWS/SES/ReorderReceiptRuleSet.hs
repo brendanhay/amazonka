@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'reorderReceiptRuleSet' smart constructor.
+-- | Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'reorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
     { _rrrsRuleSetName :: !Text
     , _rrrsRuleNames   :: ![Text]
@@ -106,7 +108,9 @@ instance ToQuery ReorderReceiptRuleSet where
                "RuleSetName" =: _rrrsRuleSetName,
                "RuleNames" =: toQueryList "member" _rrrsRuleNames]
 
--- | /See:/ 'reorderReceiptRuleSetResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'reorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
     { _rrrsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

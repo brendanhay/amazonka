@@ -53,7 +53,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'sendBounce' smart constructor.
+-- | Represents a request to send a bounce message to the sender of an email you received through Amazon SES.
+--
+-- /See:/ 'sendBounce' smart constructor.
 data SendBounce = SendBounce'
     { _sbMessageDsn               :: !(Maybe MessageDsn)
     , _sbExplanation              :: !(Maybe Text)
@@ -148,7 +150,9 @@ instance ToQuery SendBounce where
                "BouncedRecipientInfoList" =:
                  toQueryList "member" _sbBouncedRecipientInfoList]
 
--- | /See:/ 'sendBounceResponse' smart constructor.
+-- | Represents a unique message ID.
+--
+-- /See:/ 'sendBounceResponse' smart constructor.
 data SendBounceResponse = SendBounceResponse'
     { _sbrsMessageId      :: !(Maybe Text)
     , _sbrsResponseStatus :: !Int

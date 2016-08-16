@@ -44,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'getIdentityMailFromDomainAttributes' smart constructor.
+-- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'getIdentityMailFromDomainAttributes' smart constructor.
 newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttributes'
     { _gimfdaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +104,9 @@ instance ToQuery GetIdentityMailFromDomainAttributes
                "Identities" =:
                  toQueryList "member" _gimfdaIdentities]
 
--- | /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
+-- | Represents the custom MAIL FROM attributes for a list of identities.
+--
+-- /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
     { _gimfdarsResponseStatus           :: !Int
     , _gimfdarsMailFromDomainAttributes :: !(Map Text IdentityMailFromDomainAttributes)

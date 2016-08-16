@@ -23,7 +23,9 @@
 -- This action takes a list of identities as input and returns the following information for each:
 --
 -- -   Whether Easy DKIM signing is enabled or disabled.
+--
 -- -   A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.
+--
 -- -   Whether Amazon SES has successfully verified the DKIM tokens published in the domain\'s DNS. This information is only returned for domain name identities, not for email addresses.
 --
 -- This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
@@ -52,7 +54,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'getIdentityDkimAttributes' smart constructor.
+-- | Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'getIdentityDkimAttributes' smart constructor.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
     { _gidaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -103,7 +107,9 @@ instance ToQuery GetIdentityDkimAttributes where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _gidaIdentities]
 
--- | /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
+-- | Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.
+--
+-- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarsResponseStatus :: !Int
     , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)

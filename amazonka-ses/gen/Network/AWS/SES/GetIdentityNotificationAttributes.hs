@@ -46,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'getIdentityNotificationAttributes' smart constructor.
+-- | Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'getIdentityNotificationAttributes' smart constructor.
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
     { _ginaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +104,9 @@ instance ToQuery GetIdentityNotificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _ginaIdentities]
 
--- | /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
+-- | Represents the notification attributes for a list of identities.
+--
+-- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
     { _ginarsResponseStatus         :: !Int
     , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)

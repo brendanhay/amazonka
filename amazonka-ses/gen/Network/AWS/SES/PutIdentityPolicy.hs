@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates a sending authorization policy for the specified identity (email address or domain).
+-- Adds or updates a sending authorization policy for the specified identity (an email address or a domain).
 --
 -- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
@@ -49,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'putIdentityPolicy' smart constructor.
+-- | Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'putIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
     { _pipIdentity   :: !Text
     , _pipPolicyName :: !Text
@@ -122,7 +124,9 @@ instance ToQuery PutIdentityPolicy where
                "PolicyName" =: _pipPolicyName,
                "Policy" =: _pipPolicy]
 
--- | /See:/ 'putIdentityPolicyResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'putIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
     { _piprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

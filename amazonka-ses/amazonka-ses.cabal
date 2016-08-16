@@ -78,6 +78,7 @@ library
         , Network.AWS.SES.SetActiveReceiptRuleSet
         , Network.AWS.SES.SetIdentityDkimEnabled
         , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+        , Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
         , Network.AWS.SES.SetIdentityMailFromDomain
         , Network.AWS.SES.SetIdentityNotificationTopic
         , Network.AWS.SES.SetReceiptRulePosition

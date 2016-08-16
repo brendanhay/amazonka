@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the IP address filters associated with your account.
+-- Lists the IP address filters associated with your AWS account.
 --
 -- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
@@ -44,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'listReceiptFilters' smart constructor.
+-- | : Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'listReceiptFilters' smart constructor.
 data ListReceiptFilters =
     ListReceiptFilters'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -84,7 +86,9 @@ instance ToQuery ListReceiptFilters where
                  ["Action" =: ("ListReceiptFilters" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'listReceiptFiltersResponse' smart constructor.
+-- | A list of IP address filters that exist under your AWS account.
+--
+-- /See:/ 'listReceiptFiltersResponse' smart constructor.
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
     { _lrfrsFilters        :: !(Maybe [ReceiptFilter])
     , _lrfrsResponseStatus :: !Int

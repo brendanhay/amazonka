@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setActiveReceiptRuleSet' smart constructor.
+-- | Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setActiveReceiptRuleSet' smart constructor.
 newtype SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
     { _sarrsRuleSetName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -96,7 +98,9 @@ instance ToQuery SetActiveReceiptRuleSet where
                "Version" =: ("2010-12-01" :: ByteString),
                "RuleSetName" =: _sarrsRuleSetName]
 
--- | /See:/ 'setActiveReceiptRuleSetResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setActiveReceiptRuleSetResponse' smart constructor.
 newtype SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
     { _sarrsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

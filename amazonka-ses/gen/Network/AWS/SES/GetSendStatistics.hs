@@ -83,7 +83,9 @@ instance ToQuery GetSendStatistics where
                  ["Action" =: ("GetSendStatistics" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'getSendStatisticsResponse' smart constructor.
+-- | Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.
+--
+-- /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrsResponseStatus :: !Int

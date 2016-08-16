@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteConditionalForwarder' smart constructor.
+-- | Deletes a conditional forwarder.
+--
+-- /See:/ 'deleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
     { _delDirectoryId      :: !Text
     , _delRemoteDomainName :: !Text
@@ -110,7 +112,9 @@ instance ToPath DeleteConditionalForwarder where
 instance ToQuery DeleteConditionalForwarder where
         toQuery = const mempty
 
--- | /See:/ 'deleteConditionalForwarderResponse' smart constructor.
+-- | The result of a DeleteConditionalForwarder request.
+--
+-- /See:/ 'deleteConditionalForwarderResponse' smart constructor.
 newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
     { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

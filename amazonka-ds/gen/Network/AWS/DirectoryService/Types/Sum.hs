@@ -130,6 +130,44 @@ instance ToHeader     DirectoryType
 instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
 
+data IPRouteStatusMsg
+    = AddFailed
+    | Added
+    | Adding
+    | RemoveFailed
+    | Removed
+    | Removing
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText IPRouteStatusMsg where
+    parser = takeLowerText >>= \case
+        "addfailed" -> pure AddFailed
+        "added" -> pure Added
+        "adding" -> pure Adding
+        "removefailed" -> pure RemoveFailed
+        "removed" -> pure Removed
+        "removing" -> pure Removing
+        e -> fromTextError $ "Failure parsing IPRouteStatusMsg from value: '" <> e
+           <> "'. Accepted values: AddFailed, Added, Adding, RemoveFailed, Removed, Removing"
+
+instance ToText IPRouteStatusMsg where
+    toText = \case
+        AddFailed -> "AddFailed"
+        Added -> "Added"
+        Adding -> "Adding"
+        RemoveFailed -> "RemoveFailed"
+        Removed -> "Removed"
+        Removing -> "Removing"
+
+instance Hashable     IPRouteStatusMsg
+instance NFData       IPRouteStatusMsg
+instance ToByteString IPRouteStatusMsg
+instance ToQuery      IPRouteStatusMsg
+instance ToHeader     IPRouteStatusMsg
+
+instance FromJSON IPRouteStatusMsg where
+    parseJSON = parseJSONText "IPRouteStatusMsg"
+
 data RadiusAuthenticationProtocol
     = Chap
     | MsCHAPV1

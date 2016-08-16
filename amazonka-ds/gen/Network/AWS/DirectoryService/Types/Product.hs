@@ -220,8 +220,11 @@ dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a})
 -- | The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:
 --
 -- -   Read users and groups
+--
 -- -   Create computer objects
+--
 -- -   Join computers to the domain
+--
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
 
@@ -417,7 +420,7 @@ ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
 ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
 ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 
--- | The access URL for the directory, such as 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'. If no alias has been created for the directory, '&#x3C;alias&#x3E;' is the directory identifier, such as 'd-XXXXXXXXXX'.
+-- | The access URL for the directory, such as 'http:\/\/\<alias>.awsapps.com'. If no alias has been created for the directory, '\<alias>' is the directory identifier, such as 'd-XXXXXXXXXX'.
 ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
 ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
@@ -783,6 +786,127 @@ instance Hashable EventTopic
 
 instance NFData EventTopic
 
+-- | IP address block. This is often the address block of the DNS server used for your on-premises domain.
+--
+-- /See:/ 'ipRoute' smart constructor.
+data IPRoute = IPRoute'
+    { _irCIdRIP      :: !(Maybe Text)
+    , _irDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IPRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irCIdRIP'
+--
+-- * 'irDescription'
+ipRoute
+    :: IPRoute
+ipRoute =
+    IPRoute'
+    { _irCIdRIP = Nothing
+    , _irDescription = Nothing
+    }
+
+-- | IP address block using CIDR format, for example 10.0.0.0\/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with \/32. For example 10.0.0.0\/32.
+irCIdRIP :: Lens' IPRoute (Maybe Text)
+irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
+
+-- | Description of the address block.
+irDescription :: Lens' IPRoute (Maybe Text)
+irDescription = lens _irDescription (\ s a -> s{_irDescription = a});
+
+instance Hashable IPRoute
+
+instance NFData IPRoute
+
+instance ToJSON IPRoute where
+        toJSON IPRoute'{..}
+          = object
+              (catMaybes
+                 [("CidrIp" .=) <$> _irCIdRIP,
+                  ("Description" .=) <$> _irDescription])
+
+-- | Information about one or more IP address blocks.
+--
+-- /See:/ 'ipRouteInfo' smart constructor.
+data IPRouteInfo = IPRouteInfo'
+    { _iriDirectoryId         :: !(Maybe Text)
+    , _iriIPRouteStatusReason :: !(Maybe Text)
+    , _iriAddedDateTime       :: !(Maybe POSIX)
+    , _iriCIdRIP              :: !(Maybe Text)
+    , _iriIPRouteStatusMsg    :: !(Maybe IPRouteStatusMsg)
+    , _iriDescription         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IPRouteInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iriDirectoryId'
+--
+-- * 'iriIPRouteStatusReason'
+--
+-- * 'iriAddedDateTime'
+--
+-- * 'iriCIdRIP'
+--
+-- * 'iriIPRouteStatusMsg'
+--
+-- * 'iriDescription'
+ipRouteInfo
+    :: IPRouteInfo
+ipRouteInfo =
+    IPRouteInfo'
+    { _iriDirectoryId = Nothing
+    , _iriIPRouteStatusReason = Nothing
+    , _iriAddedDateTime = Nothing
+    , _iriCIdRIP = Nothing
+    , _iriIPRouteStatusMsg = Nothing
+    , _iriDescription = Nothing
+    }
+
+-- | Identifier (ID) of the directory associated with the IP addresses.
+iriDirectoryId :: Lens' IPRouteInfo (Maybe Text)
+iriDirectoryId = lens _iriDirectoryId (\ s a -> s{_iriDirectoryId = a});
+
+-- | The reason for the IpRouteStatusMsg.
+iriIPRouteStatusReason :: Lens' IPRouteInfo (Maybe Text)
+iriIPRouteStatusReason = lens _iriIPRouteStatusReason (\ s a -> s{_iriIPRouteStatusReason = a});
+
+-- | The date and time the address block was added to the directory.
+iriAddedDateTime :: Lens' IPRouteInfo (Maybe UTCTime)
+iriAddedDateTime = lens _iriAddedDateTime (\ s a -> s{_iriAddedDateTime = a}) . mapping _Time;
+
+-- | IP address block in the < IpRoute>.
+iriCIdRIP :: Lens' IPRouteInfo (Maybe Text)
+iriCIdRIP = lens _iriCIdRIP (\ s a -> s{_iriCIdRIP = a});
+
+-- | The status of the IP address block.
+iriIPRouteStatusMsg :: Lens' IPRouteInfo (Maybe IPRouteStatusMsg)
+iriIPRouteStatusMsg = lens _iriIPRouteStatusMsg (\ s a -> s{_iriIPRouteStatusMsg = a});
+
+-- | Description of the < IpRouteInfo>.
+iriDescription :: Lens' IPRouteInfo (Maybe Text)
+iriDescription = lens _iriDescription (\ s a -> s{_iriDescription = a});
+
+instance FromJSON IPRouteInfo where
+        parseJSON
+          = withObject "IPRouteInfo"
+              (\ x ->
+                 IPRouteInfo' <$>
+                   (x .:? "DirectoryId") <*>
+                     (x .:? "IpRouteStatusReason")
+                     <*> (x .:? "AddedDateTime")
+                     <*> (x .:? "CidrIp")
+                     <*> (x .:? "IpRouteStatusMsg")
+                     <*> (x .:? "Description"))
+
+instance Hashable IPRouteInfo
+
+instance NFData IPRouteInfo
+
 -- | Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
 --
 -- /See:/ 'radiusSettings' smart constructor.
@@ -850,7 +974,7 @@ rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _De
 rsUseSameUsername :: Lens' RadiusSettings (Maybe Bool)
 rsUseSameUsername = lens _rsUseSameUsername (\ s a -> s{_rsUseSameUsername = a});
 
--- | The shared secret code that was specified when your RADIUS endpoints were created.
+-- | Not currently used.
 rsSharedSecret :: Lens' RadiusSettings (Maybe Text)
 rsSharedSecret = lens _rsSharedSecret (\ s a -> s{_rsSharedSecret = a}) . mapping _Sensitive;
 
@@ -1022,6 +1146,55 @@ instance FromJSON SnapshotLimits where
 instance Hashable SnapshotLimits
 
 instance NFData SnapshotLimits
+
+-- | Metadata assigned to an Amazon Directory Services directory consisting of a key-value pair.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ =
+    Tag'
+    { _tagKey = pKey_
+    , _tagValue = pValue_
+    }
+
+-- | Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+-- | The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _tagKey),
+                  Just ("Value" .= _tagValue)])
 
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.
 --

@@ -67,7 +67,7 @@ deleteTrust pTrustId_ =
     , _dtTrustId = pTrustId_
     }
 
--- | Undocumented member.
+-- | Delete a conditional forwarder as part of a DeleteTrustRequest.
 dtDeleteAssociatedConditionalForwarder :: Lens' DeleteTrust (Maybe Bool)
 dtDeleteAssociatedConditionalForwarder = lens _dtDeleteAssociatedConditionalForwarder (\ s a -> s{_dtDeleteAssociatedConditionalForwarder = a});
 
@@ -112,7 +112,9 @@ instance ToPath DeleteTrust where
 instance ToQuery DeleteTrust where
         toQuery = const mempty
 
--- | /See:/ 'deleteTrustResponse' smart constructor.
+-- | The result of a DeleteTrust request.
+--
+-- /See:/ 'deleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
     { _dttrsTrustId        :: !(Maybe Text)
     , _dttrsResponseStatus :: !Int

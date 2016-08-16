@@ -122,7 +122,9 @@ instance ToPath CreateConditionalForwarder where
 instance ToQuery CreateConditionalForwarder where
         toQuery = const mempty
 
--- | /See:/ 'createConditionalForwarderResponse' smart constructor.
+-- | The result of a CreateConditinalForwarder request.
+--
+-- /See:/ 'createConditionalForwarderResponse' smart constructor.
 newtype CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
     { _ccfrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

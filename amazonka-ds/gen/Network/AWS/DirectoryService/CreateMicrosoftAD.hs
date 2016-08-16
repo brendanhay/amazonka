@@ -143,7 +143,9 @@ instance ToPath CreateMicrosoftAD where
 instance ToQuery CreateMicrosoftAD where
         toQuery = const mempty
 
--- | /See:/ 'createMicrosoftADResponse' smart constructor.
+-- | Result of a CreateMicrosoftAD request.
+--
+-- /See:/ 'createMicrosoftADResponse' smart constructor.
 data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
     { _cmadrsDirectoryId    :: !(Maybe Text)
     , _cmadrsResponseStatus :: !Int

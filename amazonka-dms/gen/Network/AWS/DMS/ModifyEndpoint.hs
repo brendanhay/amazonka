@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified endpoint.
---
 module Network.AWS.DMS.ModifyEndpoint
     (
     -- * Creating a Request
@@ -27,10 +26,12 @@ module Network.AWS.DMS.ModifyEndpoint
     , ModifyEndpoint
     -- * Request Lenses
     , meServerName
+    , meCertificateARN
     , meExtraConnectionAttributes
     , meEndpointType
     , meUsername
     , meEngineName
+    , meSSLMode
     , mePassword
     , meDatabaseName
     , meEndpointIdentifier
@@ -52,13 +53,17 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyEndpoint' smart constructor.
+-- |
+--
+-- /See:/ 'modifyEndpoint' smart constructor.
 data ModifyEndpoint = ModifyEndpoint'
     { _meServerName                :: !(Maybe Text)
+    , _meCertificateARN            :: !(Maybe Text)
     , _meExtraConnectionAttributes :: !(Maybe Text)
     , _meEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
     , _meUsername                  :: !(Maybe Text)
     , _meEngineName                :: !(Maybe Text)
+    , _meSSLMode                   :: !(Maybe DmsSSLModeValue)
     , _mePassword                  :: !(Maybe (Sensitive Text))
     , _meDatabaseName              :: !(Maybe Text)
     , _meEndpointIdentifier        :: !(Maybe Text)
@@ -72,6 +77,8 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- * 'meServerName'
 --
+-- * 'meCertificateARN'
+--
 -- * 'meExtraConnectionAttributes'
 --
 -- * 'meEndpointType'
@@ -79,6 +86,8 @@ data ModifyEndpoint = ModifyEndpoint'
 -- * 'meUsername'
 --
 -- * 'meEngineName'
+--
+-- * 'meSSLMode'
 --
 -- * 'mePassword'
 --
@@ -95,10 +104,12 @@ modifyEndpoint
 modifyEndpoint pEndpointARN_ =
     ModifyEndpoint'
     { _meServerName = Nothing
+    , _meCertificateARN = Nothing
     , _meExtraConnectionAttributes = Nothing
     , _meEndpointType = Nothing
     , _meUsername = Nothing
     , _meEngineName = Nothing
+    , _meSSLMode = Nothing
     , _mePassword = Nothing
     , _meDatabaseName = Nothing
     , _meEndpointIdentifier = Nothing
@@ -109,6 +120,10 @@ modifyEndpoint pEndpointARN_ =
 -- | The name of the server where the endpoint database resides.
 meServerName :: Lens' ModifyEndpoint (Maybe Text)
 meServerName = lens _meServerName (\ s a -> s{_meServerName = a});
+
+-- | The Amazon Resource Name (ARN) of the certificate used for SSL connection.
+meCertificateARN :: Lens' ModifyEndpoint (Maybe Text)
+meCertificateARN = lens _meCertificateARN (\ s a -> s{_meCertificateARN = a});
 
 -- | Additional attributes associated with the connection.
 meExtraConnectionAttributes :: Lens' ModifyEndpoint (Maybe Text)
@@ -122,9 +137,17 @@ meEndpointType = lens _meEndpointType (\ s a -> s{_meEndpointType = a});
 meUsername :: Lens' ModifyEndpoint (Maybe Text)
 meUsername = lens _meUsername (\ s a -> s{_meUsername = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
 meEngineName :: Lens' ModifyEndpoint (Maybe Text)
 meEngineName = lens _meEngineName (\ s a -> s{_meEngineName = a});
+
+-- | The SSL mode to be used.
+--
+-- SSL mode can be one of four values: none, require, verify-ca, verify-full.
+--
+-- The default value is none.
+meSSLMode :: Lens' ModifyEndpoint (Maybe DmsSSLModeValue)
+meSSLMode = lens _meSSLMode (\ s a -> s{_meSSLMode = a});
 
 -- | The password to be used to login to the endpoint database.
 mePassword :: Lens' ModifyEndpoint (Maybe Text)
@@ -173,11 +196,13 @@ instance ToJSON ModifyEndpoint where
           = object
               (catMaybes
                  [("ServerName" .=) <$> _meServerName,
+                  ("CertificateArn" .=) <$> _meCertificateARN,
                   ("ExtraConnectionAttributes" .=) <$>
                     _meExtraConnectionAttributes,
                   ("EndpointType" .=) <$> _meEndpointType,
                   ("Username" .=) <$> _meUsername,
                   ("EngineName" .=) <$> _meEngineName,
+                  ("SslMode" .=) <$> _meSSLMode,
                   ("Password" .=) <$> _mePassword,
                   ("DatabaseName" .=) <$> _meDatabaseName,
                   ("EndpointIdentifier" .=) <$> _meEndpointIdentifier,
@@ -190,7 +215,9 @@ instance ToPath ModifyEndpoint where
 instance ToQuery ModifyEndpoint where
         toQuery = const mempty
 
--- | /See:/ 'modifyEndpointResponse' smart constructor.
+-- |
+--
+-- /See:/ 'modifyEndpointResponse' smart constructor.
 data ModifyEndpointResponse = ModifyEndpointResponse'
     { _mersEndpoint       :: !(Maybe Endpoint)
     , _mersResponseStatus :: !Int

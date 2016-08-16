@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a subnet group.
---
 module Network.AWS.DMS.DeleteReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -42,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteReplicationSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationSubnetGroup' smart constructor.
 newtype DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
     { _drsgReplicationSubnetGroupIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -103,7 +104,9 @@ instance ToPath DeleteReplicationSubnetGroup where
 instance ToQuery DeleteReplicationSubnetGroup where
         toQuery = const mempty
 
--- | /See:/ 'deleteReplicationSubnetGroupResponse' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationSubnetGroupResponse' smart constructor.
 newtype DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupResponse'
     { _drsgrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

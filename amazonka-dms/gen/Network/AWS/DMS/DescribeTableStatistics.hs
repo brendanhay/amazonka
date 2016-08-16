@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
---
 module Network.AWS.DMS.DescribeTableStatistics
     (
     -- * Creating a Request
@@ -47,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTableStatistics' smart constructor.
+-- |
+--
+-- /See:/ 'describeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
     { _dtsMarker             :: !(Maybe Text)
     , _dtsMaxRecords         :: !(Maybe Int)
@@ -130,7 +131,9 @@ instance ToPath DescribeTableStatistics where
 instance ToQuery DescribeTableStatistics where
         toQuery = const mempty
 
--- | /See:/ 'describeTableStatisticsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
     { _dtsrsReplicationTaskARN :: !(Maybe Text)
     , _dtsrsMarker             :: !(Maybe Text)

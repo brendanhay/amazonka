@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Tests the connection between the replication instance and the endpoint.
---
 module Network.AWS.DMS.TestConnection
     (
     -- * Creating a Request
@@ -44,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'testConnection' smart constructor.
+-- |
+--
+-- /See:/ 'testConnection' smart constructor.
 data TestConnection = TestConnection'
     { _tcReplicationInstanceARN :: !Text
     , _tcEndpointARN            :: !Text
@@ -67,7 +68,7 @@ testConnection pReplicationInstanceARN_ pEndpointARN_ =
     , _tcEndpointARN = pEndpointARN_
     }
 
--- | The Amazon Resource Number (ARN) of the replication instance.
+-- | The Amazon Resource Name (ARN) of the replication instance.
 tcReplicationInstanceARN :: Lens' TestConnection Text
 tcReplicationInstanceARN = lens _tcReplicationInstanceARN (\ s a -> s{_tcReplicationInstanceARN = a});
 
@@ -112,7 +113,9 @@ instance ToPath TestConnection where
 instance ToQuery TestConnection where
         toQuery = const mempty
 
--- | /See:/ 'testConnectionResponse' smart constructor.
+-- |
+--
+-- /See:/ 'testConnectionResponse' smart constructor.
 data TestConnectionResponse = TestConnectionResponse'
     { _tcrsConnection     :: !(Maybe Connection)
     , _tcrsResponseStatus :: !Int

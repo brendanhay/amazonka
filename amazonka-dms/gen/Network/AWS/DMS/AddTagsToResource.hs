@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds metadata tags to a DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS.
---
 module Network.AWS.DMS.AddTagsToResource
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'addTagsToResource' smart constructor.
+-- |
+--
+-- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceARN :: !Text
     , _attrTags        :: ![Tag]
@@ -108,7 +109,9 @@ instance ToPath AddTagsToResource where
 instance ToQuery AddTagsToResource where
         toQuery = const mempty
 
--- | /See:/ 'addTagsToResourceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'addTagsToResourceResponse' smart constructor.
 newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
     { _attrrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

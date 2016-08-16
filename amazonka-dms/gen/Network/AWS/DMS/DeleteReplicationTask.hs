@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified replication task.
---
 module Network.AWS.DMS.DeleteReplicationTask
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteReplicationTask' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationTask' smart constructor.
 newtype DeleteReplicationTask = DeleteReplicationTask'
     { _drtReplicationTaskARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +103,9 @@ instance ToPath DeleteReplicationTask where
 instance ToQuery DeleteReplicationTask where
         toQuery = const mempty
 
--- | /See:/ 'deleteReplicationTaskResponse' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationTaskResponse' smart constructor.
 data DeleteReplicationTaskResponse = DeleteReplicationTaskResponse'
     { _drtrsReplicationTask :: !(Maybe ReplicationTask)
     , _drtrsResponseStatus  :: !Int

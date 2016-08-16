@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSchemas' smart constructor.
+-- |
+--
+-- /See:/ 'describeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
     { _dsMarker      :: !(Maybe Text)
     , _dsMaxRecords  :: !(Maybe Int)
@@ -125,7 +127,9 @@ instance ToPath DescribeSchemas where
 instance ToQuery DescribeSchemas where
         toQuery = const mempty
 
--- | /See:/ 'describeSchemasResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
     { _dsrsSchemas        :: !(Maybe [Text])
     , _dsrsMarker         :: !(Maybe Text)

@@ -34,8 +34,8 @@ module Network.AWS.DMS.DeleteEndpoint
     , deleteEndpointResponse
     , DeleteEndpointResponse
     -- * Response Lenses
-    , drsEndpoint
-    , drsResponseStatus
+    , delrsEndpoint
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.DMS.Types
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteEndpoint' smart constructor.
+-- |
+--
+-- /See:/ 'deleteEndpoint' smart constructor.
 newtype DeleteEndpoint = DeleteEndpoint'
     { _deEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -100,34 +102,36 @@ instance ToPath DeleteEndpoint where
 instance ToQuery DeleteEndpoint where
         toQuery = const mempty
 
--- | /See:/ 'deleteEndpointResponse' smart constructor.
+-- |
+--
+-- /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-    { _drsEndpoint       :: !(Maybe Endpoint)
-    , _drsResponseStatus :: !Int
+    { _delrsEndpoint       :: !(Maybe Endpoint)
+    , _delrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsEndpoint'
+-- * 'delrsEndpoint'
 --
--- * 'drsResponseStatus'
+-- * 'delrsResponseStatus'
 deleteEndpointResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteEndpointResponse
 deleteEndpointResponse pResponseStatus_ =
     DeleteEndpointResponse'
-    { _drsEndpoint = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _delrsEndpoint = Nothing
+    , _delrsResponseStatus = pResponseStatus_
     }
 
 -- | The endpoint that was deleted.
-drsEndpoint :: Lens' DeleteEndpointResponse (Maybe Endpoint)
-drsEndpoint = lens _drsEndpoint (\ s a -> s{_drsEndpoint = a});
+delrsEndpoint :: Lens' DeleteEndpointResponse (Maybe Endpoint)
+delrsEndpoint = lens _delrsEndpoint (\ s a -> s{_delrsEndpoint = a});
 
 -- | The response status code.
-drsResponseStatus :: Lens' DeleteEndpointResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+delrsResponseStatus :: Lens' DeleteEndpointResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteEndpointResponse

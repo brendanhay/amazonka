@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteReplicationInstance' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationInstance' smart constructor.
 newtype DeleteReplicationInstance = DeleteReplicationInstance'
     { _driReplicationInstanceARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -106,7 +108,9 @@ instance ToPath DeleteReplicationInstance where
 instance ToQuery DeleteReplicationInstance where
         toQuery = const mempty
 
--- | /See:/ 'deleteReplicationInstanceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'deleteReplicationInstanceResponse' smart constructor.
 data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
     { _drirsReplicationInstance :: !(Maybe ReplicationInstance)
     , _drirsResponseStatus      :: !Int

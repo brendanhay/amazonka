@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the settings for the specified replication subnet group.
---
 module Network.AWS.DMS.ModifyReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -45,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyReplicationSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'modifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
     { _mrsgReplicationSubnetGroupDescription :: !(Maybe Text)
     , _mrsgReplicationSubnetGroupIdentifier  :: !Text
@@ -126,7 +127,9 @@ instance ToPath ModifyReplicationSubnetGroup where
 instance ToQuery ModifyReplicationSubnetGroup where
         toQuery = const mempty
 
--- | /See:/ 'modifyReplicationSubnetGroupResponse' smart constructor.
+-- |
+--
+-- /See:/ 'modifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
     { _mrsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
     , _mrsgrsResponseStatus         :: !Int

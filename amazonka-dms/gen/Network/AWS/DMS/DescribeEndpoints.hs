@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the endpoints for your account in the current region.
---
 module Network.AWS.DMS.DescribeEndpoints
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeEndpoints' smart constructor.
+-- |
+--
+-- /See:/ 'describeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
     { _deFilters    :: !(Maybe [Filter])
     , _deMarker     :: !(Maybe Text)
@@ -127,7 +128,9 @@ instance ToPath DescribeEndpoints where
 instance ToQuery DescribeEndpoints where
         toQuery = const mempty
 
--- | /See:/ 'describeEndpointsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
     { _dersMarker         :: !(Maybe Text)
     , _dersEndpoints      :: !(Maybe [Endpoint])

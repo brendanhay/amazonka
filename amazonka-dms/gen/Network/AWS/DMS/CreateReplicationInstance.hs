@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the replication instance using the specified parameters.
---
 module Network.AWS.DMS.CreateReplicationInstance
     (
     -- * Creating a Request
@@ -33,6 +32,8 @@ module Network.AWS.DMS.CreateReplicationInstance
     , criPreferredMaintenanceWindow
     , criKMSKeyId
     , criAvailabilityZone
+    , criVPCSecurityGroupIds
+    , criMultiAZ
     , criAllocatedStorage
     , criTags
     , criReplicationInstanceIdentifier
@@ -64,6 +65,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
     , _criPreferredMaintenanceWindow       :: !(Maybe Text)
     , _criKMSKeyId                         :: !(Maybe Text)
     , _criAvailabilityZone                 :: !(Maybe Text)
+    , _criVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _criMultiAZ                          :: !(Maybe Bool)
     , _criAllocatedStorage                 :: !(Maybe Int)
     , _criTags                             :: !(Maybe [Tag])
     , _criReplicationInstanceIdentifier    :: !Text
@@ -88,6 +91,10 @@ data CreateReplicationInstance = CreateReplicationInstance'
 --
 -- * 'criAvailabilityZone'
 --
+-- * 'criVPCSecurityGroupIds'
+--
+-- * 'criMultiAZ'
+--
 -- * 'criAllocatedStorage'
 --
 -- * 'criTags'
@@ -108,6 +115,8 @@ createReplicationInstance pReplicationInstanceIdentifier_ pReplicationInstanceCl
     , _criPreferredMaintenanceWindow = Nothing
     , _criKMSKeyId = Nothing
     , _criAvailabilityZone = Nothing
+    , _criVPCSecurityGroupIds = Nothing
+    , _criMultiAZ = Nothing
     , _criAllocatedStorage = Nothing
     , _criTags = Nothing
     , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
@@ -156,6 +165,14 @@ criKMSKeyId = lens _criKMSKeyId (\ s a -> s{_criKMSKeyId = a});
 criAvailabilityZone :: Lens' CreateReplicationInstance (Maybe Text)
 criAvailabilityZone = lens _criAvailabilityZone (\ s a -> s{_criAvailabilityZone = a});
 
+-- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
+criVPCSecurityGroupIds :: Lens' CreateReplicationInstance [Text]
+criVPCSecurityGroupIds = lens _criVPCSecurityGroupIds (\ s a -> s{_criVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+criMultiAZ :: Lens' CreateReplicationInstance (Maybe Bool)
+criMultiAZ = lens _criMultiAZ (\ s a -> s{_criMultiAZ = a});
+
 -- | The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 criAllocatedStorage :: Lens' CreateReplicationInstance (Maybe Int)
 criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage = a});
@@ -169,7 +186,9 @@ criTags = lens _criTags (\ s a -> s{_criTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: 'myrepinstance'
@@ -221,6 +240,9 @@ instance ToJSON CreateReplicationInstance where
                     _criPreferredMaintenanceWindow,
                   ("KmsKeyId" .=) <$> _criKMSKeyId,
                   ("AvailabilityZone" .=) <$> _criAvailabilityZone,
+                  ("VpcSecurityGroupIds" .=) <$>
+                    _criVPCSecurityGroupIds,
+                  ("MultiAZ" .=) <$> _criMultiAZ,
                   ("AllocatedStorage" .=) <$> _criAllocatedStorage,
                   ("Tags" .=) <$> _criTags,
                   Just
@@ -236,7 +258,9 @@ instance ToPath CreateReplicationInstance where
 instance ToQuery CreateReplicationInstance where
         toQuery = const mempty
 
--- | /See:/ 'createReplicationInstanceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'createReplicationInstanceResponse' smart constructor.
 data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
     { _crirsReplicationInstance :: !(Maybe ReplicationInstance)
     , _crirsResponseStatus      :: !Int

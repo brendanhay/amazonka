@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a replication task using the specified parameters.
---
 module Network.AWS.DMS.CreateReplicationTask
     (
     -- * Creating a Request
@@ -51,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createReplicationTask' smart constructor.
+-- |
+--
+-- /See:/ 'createReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
     { _crtReplicationTaskSettings   :: !(Maybe Text)
     , _crtTags                      :: !(Maybe [Tag])
@@ -123,8 +124,11 @@ crtCdcStartTime = lens _crtCdcStartTime (\ s a -> s{_crtCdcStartTime = a}) . map
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
 crtReplicationTaskIdentifier :: Lens' CreateReplicationTask Text
 crtReplicationTaskIdentifier = lens _crtReplicationTaskIdentifier (\ s a -> s{_crtReplicationTaskIdentifier = a});
 
@@ -144,7 +148,9 @@ crtReplicationInstanceARN = lens _crtReplicationInstanceARN (\ s a -> s{_crtRepl
 crtMigrationType :: Lens' CreateReplicationTask MigrationTypeValue
 crtMigrationType = lens _crtMigrationType (\ s a -> s{_crtMigrationType = a});
 
--- | The path of the JSON file that contains the table mappings.
+-- | The path of the JSON file that contains the table mappings. Preceed the path with \"file:\/\/\".
+--
+-- For example, --table-mappings file:\/\/mappingfile.json
 crtTableMappings :: Lens' CreateReplicationTask Text
 crtTableMappings = lens _crtTableMappings (\ s a -> s{_crtTableMappings = a});
 
@@ -197,7 +203,9 @@ instance ToPath CreateReplicationTask where
 instance ToQuery CreateReplicationTask where
         toQuery = const mempty
 
--- | /See:/ 'createReplicationTaskResponse' smart constructor.
+-- |
+--
+-- /See:/ 'createReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
     { _crtrsReplicationTask :: !(Maybe ReplicationTask)
     , _crtrsResponseStatus  :: !Int

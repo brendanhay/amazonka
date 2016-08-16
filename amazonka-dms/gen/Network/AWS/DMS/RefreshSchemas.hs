@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the DescribeRefreshSchemasStatus operation.
---
 module Network.AWS.DMS.RefreshSchemas
     (
     -- * Creating a Request
@@ -44,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'refreshSchemas' smart constructor.
+-- |
+--
+-- /See:/ 'refreshSchemas' smart constructor.
 data RefreshSchemas = RefreshSchemas'
     { _rsEndpointARN            :: !Text
     , _rsReplicationInstanceARN :: !Text
@@ -113,7 +114,9 @@ instance ToPath RefreshSchemas where
 instance ToQuery RefreshSchemas where
         toQuery = const mempty
 
--- | /See:/ 'refreshSchemasResponse' smart constructor.
+-- |
+--
+-- /See:/ 'refreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
     { _rsrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
     , _rsrsResponseStatus       :: !Int

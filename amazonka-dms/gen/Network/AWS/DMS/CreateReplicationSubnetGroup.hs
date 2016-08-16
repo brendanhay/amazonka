@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a replication subnet group given a list of the subnet IDs in a VPC.
---
 module Network.AWS.DMS.CreateReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createReplicationSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'createReplicationSubnetGroup' smart constructor.
 data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
     { _crsgTags                              :: !(Maybe [Tag])
     , _crsgReplicationSubnetGroupIdentifier  :: !Text
@@ -142,7 +143,9 @@ instance ToPath CreateReplicationSubnetGroup where
 instance ToQuery CreateReplicationSubnetGroup where
         toQuery = const mempty
 
--- | /See:/ 'createReplicationSubnetGroupResponse' smart constructor.
+-- |
+--
+-- /See:/ 'createReplicationSubnetGroupResponse' smart constructor.
 data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse'
     { _crsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
     , _crsgrsResponseStatus         :: !Int

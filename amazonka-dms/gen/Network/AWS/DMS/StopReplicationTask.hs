@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'stopReplicationTask' smart constructor.
+-- |
+--
+-- /See:/ 'stopReplicationTask' smart constructor.
 newtype StopReplicationTask = StopReplicationTask'
     { _sReplicationTaskARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +104,9 @@ instance ToPath StopReplicationTask where
 instance ToQuery StopReplicationTask where
         toQuery = const mempty
 
--- | /See:/ 'stopReplicationTaskResponse' smart constructor.
+-- |
+--
+-- /See:/ 'stopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
     { _srsReplicationTask :: !(Maybe ReplicationTask)
     , _srsResponseStatus  :: !Int

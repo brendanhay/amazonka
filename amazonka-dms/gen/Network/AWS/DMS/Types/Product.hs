@@ -72,7 +72,9 @@ instance Hashable AccountQuota
 
 instance NFData AccountQuota
 
--- | /See:/ 'availabilityZone' smart constructor.
+-- |
+--
+-- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +104,115 @@ instance Hashable AvailabilityZone
 
 instance NFData AvailabilityZone
 
--- | /See:/ 'connection' smart constructor.
+-- | The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.
+--
+-- /See:/ 'certificate' smart constructor.
+data Certificate = Certificate'
+    { _cCertificateOwner        :: !(Maybe Text)
+    , _cSigningAlgorithm        :: !(Maybe Text)
+    , _cValidFromDate           :: !(Maybe POSIX)
+    , _cCertificatePem          :: !(Maybe Text)
+    , _cCertificateARN          :: !(Maybe Text)
+    , _cCertificateCreationDate :: !(Maybe POSIX)
+    , _cCertificateIdentifier   :: !(Maybe Text)
+    , _cKeyLength               :: !(Maybe Int)
+    , _cValidToDate             :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Certificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCertificateOwner'
+--
+-- * 'cSigningAlgorithm'
+--
+-- * 'cValidFromDate'
+--
+-- * 'cCertificatePem'
+--
+-- * 'cCertificateARN'
+--
+-- * 'cCertificateCreationDate'
+--
+-- * 'cCertificateIdentifier'
+--
+-- * 'cKeyLength'
+--
+-- * 'cValidToDate'
+certificate
+    :: Certificate
+certificate =
+    Certificate'
+    { _cCertificateOwner = Nothing
+    , _cSigningAlgorithm = Nothing
+    , _cValidFromDate = Nothing
+    , _cCertificatePem = Nothing
+    , _cCertificateARN = Nothing
+    , _cCertificateCreationDate = Nothing
+    , _cCertificateIdentifier = Nothing
+    , _cKeyLength = Nothing
+    , _cValidToDate = Nothing
+    }
+
+-- | The owner of the certificate.
+cCertificateOwner :: Lens' Certificate (Maybe Text)
+cCertificateOwner = lens _cCertificateOwner (\ s a -> s{_cCertificateOwner = a});
+
+-- | The signing algorithm for the certificate.
+cSigningAlgorithm :: Lens' Certificate (Maybe Text)
+cSigningAlgorithm = lens _cSigningAlgorithm (\ s a -> s{_cSigningAlgorithm = a});
+
+-- | The beginning date the certificate is valid.
+cValidFromDate :: Lens' Certificate (Maybe UTCTime)
+cValidFromDate = lens _cValidFromDate (\ s a -> s{_cValidFromDate = a}) . mapping _Time;
+
+-- | The contents of the .pem X.509 certificate file.
+cCertificatePem :: Lens' Certificate (Maybe Text)
+cCertificatePem = lens _cCertificatePem (\ s a -> s{_cCertificatePem = a});
+
+-- | The Amazon Resource Name (ARN) for the certificate.
+cCertificateARN :: Lens' Certificate (Maybe Text)
+cCertificateARN = lens _cCertificateARN (\ s a -> s{_cCertificateARN = a});
+
+-- | the date the certificate was created.
+cCertificateCreationDate :: Lens' Certificate (Maybe UTCTime)
+cCertificateCreationDate = lens _cCertificateCreationDate (\ s a -> s{_cCertificateCreationDate = a}) . mapping _Time;
+
+-- | The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
+cCertificateIdentifier :: Lens' Certificate (Maybe Text)
+cCertificateIdentifier = lens _cCertificateIdentifier (\ s a -> s{_cCertificateIdentifier = a});
+
+-- | The key length of the cryptographic algorithm being used.
+cKeyLength :: Lens' Certificate (Maybe Int)
+cKeyLength = lens _cKeyLength (\ s a -> s{_cKeyLength = a});
+
+-- | the final date the certificate is valid.
+cValidToDate :: Lens' Certificate (Maybe UTCTime)
+cValidToDate = lens _cValidToDate (\ s a -> s{_cValidToDate = a}) . mapping _Time;
+
+instance FromJSON Certificate where
+        parseJSON
+          = withObject "Certificate"
+              (\ x ->
+                 Certificate' <$>
+                   (x .:? "CertificateOwner") <*>
+                     (x .:? "SigningAlgorithm")
+                     <*> (x .:? "ValidFromDate")
+                     <*> (x .:? "CertificatePem")
+                     <*> (x .:? "CertificateArn")
+                     <*> (x .:? "CertificateCreationDate")
+                     <*> (x .:? "CertificateIdentifier")
+                     <*> (x .:? "KeyLength")
+                     <*> (x .:? "ValidToDate"))
+
+instance Hashable Certificate
+
+instance NFData Certificate
+
+-- |
+--
+-- /See:/ 'connection' smart constructor.
 data Connection = Connection'
     { _cStatus                        :: !(Maybe Text)
     , _cReplicationInstanceARN        :: !(Maybe Text)
@@ -178,15 +288,19 @@ instance Hashable Connection
 
 instance NFData Connection
 
--- | /See:/ 'endpoint' smart constructor.
+-- |
+--
+-- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
     { _eStatus                    :: !(Maybe Text)
     , _eServerName                :: !(Maybe Text)
+    , _eCertificateARN            :: !(Maybe Text)
     , _eExtraConnectionAttributes :: !(Maybe Text)
     , _eEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
     , _eUsername                  :: !(Maybe Text)
     , _eEngineName                :: !(Maybe Text)
     , _eKMSKeyId                  :: !(Maybe Text)
+    , _eSSLMode                   :: !(Maybe DmsSSLModeValue)
     , _eDatabaseName              :: !(Maybe Text)
     , _eEndpointIdentifier        :: !(Maybe Text)
     , _eEndpointARN               :: !(Maybe Text)
@@ -201,6 +315,8 @@ data Endpoint = Endpoint'
 --
 -- * 'eServerName'
 --
+-- * 'eCertificateARN'
+--
 -- * 'eExtraConnectionAttributes'
 --
 -- * 'eEndpointType'
@@ -210,6 +326,8 @@ data Endpoint = Endpoint'
 -- * 'eEngineName'
 --
 -- * 'eKMSKeyId'
+--
+-- * 'eSSLMode'
 --
 -- * 'eDatabaseName'
 --
@@ -224,11 +342,13 @@ endpoint =
     Endpoint'
     { _eStatus = Nothing
     , _eServerName = Nothing
+    , _eCertificateARN = Nothing
     , _eExtraConnectionAttributes = Nothing
     , _eEndpointType = Nothing
     , _eUsername = Nothing
     , _eEngineName = Nothing
     , _eKMSKeyId = Nothing
+    , _eSSLMode = Nothing
     , _eDatabaseName = Nothing
     , _eEndpointIdentifier = Nothing
     , _eEndpointARN = Nothing
@@ -242,6 +362,10 @@ eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 -- | The name of the server at the endpoint.
 eServerName :: Lens' Endpoint (Maybe Text)
 eServerName = lens _eServerName (\ s a -> s{_eServerName = a});
+
+-- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
+eCertificateARN :: Lens' Endpoint (Maybe Text)
+eCertificateARN = lens _eCertificateARN (\ s a -> s{_eCertificateARN = a});
 
 -- | Additional connection attributes used to connect to the endpoint.
 eExtraConnectionAttributes :: Lens' Endpoint (Maybe Text)
@@ -262,6 +386,14 @@ eEngineName = lens _eEngineName (\ s a -> s{_eEngineName = a});
 -- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 eKMSKeyId :: Lens' Endpoint (Maybe Text)
 eKMSKeyId = lens _eKMSKeyId (\ s a -> s{_eKMSKeyId = a});
+
+-- | The SSL mode used to connect to the endpoint.
+--
+-- SSL mode can be one of four values: none, require, verify-ca, verify-full.
+--
+-- The default value is none.
+eSSLMode :: Lens' Endpoint (Maybe DmsSSLModeValue)
+eSSLMode = lens _eSSLMode (\ s a -> s{_eSSLMode = a});
 
 -- | The name of the database at the endpoint.
 eDatabaseName :: Lens' Endpoint (Maybe Text)
@@ -285,11 +417,13 @@ instance FromJSON Endpoint where
               (\ x ->
                  Endpoint' <$>
                    (x .:? "Status") <*> (x .:? "ServerName") <*>
-                     (x .:? "ExtraConnectionAttributes")
+                     (x .:? "CertificateArn")
+                     <*> (x .:? "ExtraConnectionAttributes")
                      <*> (x .:? "EndpointType")
                      <*> (x .:? "Username")
                      <*> (x .:? "EngineName")
                      <*> (x .:? "KmsKeyId")
+                     <*> (x .:? "SslMode")
                      <*> (x .:? "DatabaseName")
                      <*> (x .:? "EndpointIdentifier")
                      <*> (x .:? "EndpointArn")
@@ -299,7 +433,9 @@ instance Hashable Endpoint
 
 instance NFData Endpoint
 
--- | /See:/ 'filter'' smart constructor.
+-- |
+--
+-- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
     , _fValues :: ![Text]
@@ -340,7 +476,9 @@ instance ToJSON Filter where
                  [Just ("Name" .= _fName),
                   Just ("Values" .= _fValues)])
 
--- | /See:/ 'orderableReplicationInstance' smart constructor.
+-- |
+--
+-- /See:/ 'orderableReplicationInstance' smart constructor.
 data OrderableReplicationInstance = OrderableReplicationInstance'
     { _oriEngineVersion            :: !(Maybe Text)
     , _oriMinAllocatedStorage      :: !(Maybe Int)
@@ -428,7 +566,9 @@ instance Hashable OrderableReplicationInstance
 
 instance NFData OrderableReplicationInstance
 
--- | /See:/ 'refreshSchemasStatus' smart constructor.
+-- |
+--
+-- /See:/ 'refreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
     { _rssStatus                 :: !(Maybe RefreshSchemasStatusTypeValue)
     , _rssLastRefreshDate        :: !(Maybe POSIX)
@@ -495,24 +635,30 @@ instance Hashable RefreshSchemasStatus
 
 instance NFData RefreshSchemasStatus
 
--- | /See:/ 'replicationInstance' smart constructor.
+-- |
+--
+-- /See:/ 'replicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
-    { _riEngineVersion                       :: !(Maybe Text)
-    , _riPubliclyAccessible                  :: !(Maybe Bool)
-    , _riAutoMinorVersionUpgrade             :: !(Maybe Bool)
-    , _riReplicationSubnetGroup              :: !(Maybe ReplicationSubnetGroup)
-    , _riInstanceCreateTime                  :: !(Maybe POSIX)
-    , _riReplicationInstanceStatus           :: !(Maybe Text)
-    , _riPreferredMaintenanceWindow          :: !(Maybe Text)
-    , _riReplicationInstancePrivateIPAddress :: !(Maybe Text)
-    , _riKMSKeyId                            :: !(Maybe Text)
-    , _riAvailabilityZone                    :: !(Maybe Text)
-    , _riReplicationInstanceARN              :: !(Maybe Text)
-    , _riAllocatedStorage                    :: !(Maybe Int)
-    , _riReplicationInstancePublicIPAddress  :: !(Maybe Text)
-    , _riReplicationInstanceClass            :: !(Maybe Text)
-    , _riReplicationInstanceIdentifier       :: !(Maybe Text)
-    , _riPendingModifiedValues               :: !(Maybe ReplicationPendingModifiedValues)
+    { _riEngineVersion                         :: !(Maybe Text)
+    , _riPubliclyAccessible                    :: !(Maybe Bool)
+    , _riAutoMinorVersionUpgrade               :: !(Maybe Bool)
+    , _riReplicationInstancePublicIPAddresses  :: !(Maybe [Text])
+    , _riReplicationSubnetGroup                :: !(Maybe ReplicationSubnetGroup)
+    , _riInstanceCreateTime                    :: !(Maybe POSIX)
+    , _riReplicationInstanceStatus             :: !(Maybe Text)
+    , _riReplicationInstancePrivateIPAddresses :: !(Maybe [Text])
+    , _riPreferredMaintenanceWindow            :: !(Maybe Text)
+    , _riReplicationInstancePrivateIPAddress   :: !(Maybe Text)
+    , _riKMSKeyId                              :: !(Maybe Text)
+    , _riAvailabilityZone                      :: !(Maybe Text)
+    , _riVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
+    , _riMultiAZ                               :: !(Maybe Bool)
+    , _riReplicationInstanceARN                :: !(Maybe Text)
+    , _riAllocatedStorage                      :: !(Maybe Int)
+    , _riReplicationInstancePublicIPAddress    :: !(Maybe Text)
+    , _riReplicationInstanceClass              :: !(Maybe Text)
+    , _riReplicationInstanceIdentifier         :: !(Maybe Text)
+    , _riPendingModifiedValues                 :: !(Maybe ReplicationPendingModifiedValues)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReplicationInstance' with the minimum fields required to make a request.
@@ -525,11 +671,15 @@ data ReplicationInstance = ReplicationInstance'
 --
 -- * 'riAutoMinorVersionUpgrade'
 --
+-- * 'riReplicationInstancePublicIPAddresses'
+--
 -- * 'riReplicationSubnetGroup'
 --
 -- * 'riInstanceCreateTime'
 --
 -- * 'riReplicationInstanceStatus'
+--
+-- * 'riReplicationInstancePrivateIPAddresses'
 --
 -- * 'riPreferredMaintenanceWindow'
 --
@@ -538,6 +688,10 @@ data ReplicationInstance = ReplicationInstance'
 -- * 'riKMSKeyId'
 --
 -- * 'riAvailabilityZone'
+--
+-- * 'riVPCSecurityGroups'
+--
+-- * 'riMultiAZ'
 --
 -- * 'riReplicationInstanceARN'
 --
@@ -557,13 +711,17 @@ replicationInstance =
     { _riEngineVersion = Nothing
     , _riPubliclyAccessible = Nothing
     , _riAutoMinorVersionUpgrade = Nothing
+    , _riReplicationInstancePublicIPAddresses = Nothing
     , _riReplicationSubnetGroup = Nothing
     , _riInstanceCreateTime = Nothing
     , _riReplicationInstanceStatus = Nothing
+    , _riReplicationInstancePrivateIPAddresses = Nothing
     , _riPreferredMaintenanceWindow = Nothing
     , _riReplicationInstancePrivateIPAddress = Nothing
     , _riKMSKeyId = Nothing
     , _riAvailabilityZone = Nothing
+    , _riVPCSecurityGroups = Nothing
+    , _riMultiAZ = Nothing
     , _riReplicationInstanceARN = Nothing
     , _riAllocatedStorage = Nothing
     , _riReplicationInstancePublicIPAddress = Nothing
@@ -584,6 +742,10 @@ riPubliclyAccessible = lens _riPubliclyAccessible (\ s a -> s{_riPubliclyAccessi
 riAutoMinorVersionUpgrade :: Lens' ReplicationInstance (Maybe Bool)
 riAutoMinorVersionUpgrade = lens _riAutoMinorVersionUpgrade (\ s a -> s{_riAutoMinorVersionUpgrade = a});
 
+-- | The public IP address of the replication instance.
+riReplicationInstancePublicIPAddresses :: Lens' ReplicationInstance [Text]
+riReplicationInstancePublicIPAddresses = lens _riReplicationInstancePublicIPAddresses (\ s a -> s{_riReplicationInstancePublicIPAddresses = a}) . _Default . _Coerce;
+
 -- | The subnet group for the replication instance.
 riReplicationSubnetGroup :: Lens' ReplicationInstance (Maybe ReplicationSubnetGroup)
 riReplicationSubnetGroup = lens _riReplicationSubnetGroup (\ s a -> s{_riReplicationSubnetGroup = a});
@@ -595,6 +757,10 @@ riInstanceCreateTime = lens _riInstanceCreateTime (\ s a -> s{_riInstanceCreateT
 -- | The status of the replication instance.
 riReplicationInstanceStatus :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceStatus = lens _riReplicationInstanceStatus (\ s a -> s{_riReplicationInstanceStatus = a});
+
+-- | The private IP address of the replication instance.
+riReplicationInstancePrivateIPAddresses :: Lens' ReplicationInstance [Text]
+riReplicationInstancePrivateIPAddresses = lens _riReplicationInstancePrivateIPAddresses (\ s a -> s{_riReplicationInstancePrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | The maintenance window times for the replication instance.
 riPreferredMaintenanceWindow :: Lens' ReplicationInstance (Maybe Text)
@@ -611,6 +777,14 @@ riKMSKeyId = lens _riKMSKeyId (\ s a -> s{_riKMSKeyId = a});
 -- | The Availability Zone for the instance.
 riAvailabilityZone :: Lens' ReplicationInstance (Maybe Text)
 riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = a});
+
+-- | The VPC security group for the instance.
+riVPCSecurityGroups :: Lens' ReplicationInstance [VPCSecurityGroupMembership]
+riVPCSecurityGroups = lens _riVPCSecurityGroups (\ s a -> s{_riVPCSecurityGroups = a}) . _Default . _Coerce;
+
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+riMultiAZ :: Lens' ReplicationInstance (Maybe Bool)
+riMultiAZ = lens _riMultiAZ (\ s a -> s{_riMultiAZ = a});
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 riReplicationInstanceARN :: Lens' ReplicationInstance (Maybe Text)
@@ -635,7 +809,9 @@ riReplicationInstanceClass = lens _riReplicationInstanceClass (\ s a -> s{_riRep
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: 'myrepinstance'
@@ -654,13 +830,21 @@ instance FromJSON ReplicationInstance where
                    (x .:? "EngineVersion") <*>
                      (x .:? "PubliclyAccessible")
                      <*> (x .:? "AutoMinorVersionUpgrade")
+                     <*>
+                     (x .:? "ReplicationInstancePublicIpAddresses" .!=
+                        mempty)
                      <*> (x .:? "ReplicationSubnetGroup")
                      <*> (x .:? "InstanceCreateTime")
                      <*> (x .:? "ReplicationInstanceStatus")
+                     <*>
+                     (x .:? "ReplicationInstancePrivateIpAddresses" .!=
+                        mempty)
                      <*> (x .:? "PreferredMaintenanceWindow")
                      <*> (x .:? "ReplicationInstancePrivateIpAddress")
                      <*> (x .:? "KmsKeyId")
                      <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "VpcSecurityGroups" .!= mempty)
+                     <*> (x .:? "MultiAZ")
                      <*> (x .:? "ReplicationInstanceArn")
                      <*> (x .:? "AllocatedStorage")
                      <*> (x .:? "ReplicationInstancePublicIpAddress")
@@ -672,9 +856,12 @@ instance Hashable ReplicationInstance
 
 instance NFData ReplicationInstance
 
--- | /See:/ 'replicationPendingModifiedValues' smart constructor.
+-- |
+--
+-- /See:/ 'replicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
     { _rpmvEngineVersion            :: !(Maybe Text)
+    , _rpmvMultiAZ                  :: !(Maybe Bool)
     , _rpmvAllocatedStorage         :: !(Maybe Int)
     , _rpmvReplicationInstanceClass :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -685,6 +872,8 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
 --
 -- * 'rpmvEngineVersion'
 --
+-- * 'rpmvMultiAZ'
+--
 -- * 'rpmvAllocatedStorage'
 --
 -- * 'rpmvReplicationInstanceClass'
@@ -693,6 +882,7 @@ replicationPendingModifiedValues
 replicationPendingModifiedValues =
     ReplicationPendingModifiedValues'
     { _rpmvEngineVersion = Nothing
+    , _rpmvMultiAZ = Nothing
     , _rpmvAllocatedStorage = Nothing
     , _rpmvReplicationInstanceClass = Nothing
     }
@@ -700,6 +890,10 @@ replicationPendingModifiedValues =
 -- | The engine version number of the replication instance.
 rpmvEngineVersion :: Lens' ReplicationPendingModifiedValues (Maybe Text)
 rpmvEngineVersion = lens _rpmvEngineVersion (\ s a -> s{_rpmvEngineVersion = a});
+
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+rpmvMultiAZ :: Lens' ReplicationPendingModifiedValues (Maybe Bool)
+rpmvMultiAZ = lens _rpmvMultiAZ (\ s a -> s{_rpmvMultiAZ = a});
 
 -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
 rpmvAllocatedStorage :: Lens' ReplicationPendingModifiedValues (Maybe Int)
@@ -717,7 +911,7 @@ instance FromJSON ReplicationPendingModifiedValues
           = withObject "ReplicationPendingModifiedValues"
               (\ x ->
                  ReplicationPendingModifiedValues' <$>
-                   (x .:? "EngineVersion") <*>
+                   (x .:? "EngineVersion") <*> (x .:? "MultiAZ") <*>
                      (x .:? "AllocatedStorage")
                      <*> (x .:? "ReplicationInstanceClass"))
 
@@ -725,7 +919,9 @@ instance Hashable ReplicationPendingModifiedValues
 
 instance NFData ReplicationPendingModifiedValues
 
--- | /See:/ 'replicationSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'replicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
     { _rsgVPCId                             :: !(Maybe Text)
     , _rsgSubnets                           :: !(Maybe [Subnet])
@@ -792,7 +988,9 @@ instance Hashable ReplicationSubnetGroup
 
 instance NFData ReplicationSubnetGroup
 
--- | /See:/ 'replicationTask' smart constructor.
+-- |
+--
+-- /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
     { _rtReplicationTaskSettings     :: !(Maybe Text)
     , _rtStatus                      :: !(Maybe Text)
@@ -874,8 +1072,11 @@ rtTargetEndpointARN = lens _rtTargetEndpointARN (\ s a -> s{_rtTargetEndpointARN
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
 rtReplicationTaskIdentifier :: Lens' ReplicationTask (Maybe Text)
 rtReplicationTaskIdentifier = lens _rtReplicationTaskIdentifier (\ s a -> s{_rtReplicationTaskIdentifier = a});
 
@@ -938,7 +1139,9 @@ instance Hashable ReplicationTask
 
 instance NFData ReplicationTask
 
--- | /See:/ 'replicationTaskStats' smart constructor.
+-- |
+--
+-- /See:/ 'replicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
     { _rtsFullLoadProgressPercent :: !(Maybe Int)
     , _rtsElapsedTimeMillis       :: !(Maybe Integer)
@@ -1015,7 +1218,9 @@ instance Hashable ReplicationTaskStats
 
 instance NFData ReplicationTaskStats
 
--- | /See:/ 'subnet' smart constructor.
+-- |
+--
+-- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
     , _sSubnetIdentifier       :: !(Maybe Text)
@@ -1064,7 +1269,9 @@ instance Hashable Subnet
 
 instance NFData Subnet
 
--- | /See:/ 'supportedEndpointType' smart constructor.
+-- |
+--
+-- /See:/ 'supportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
     { _setEndpointType :: !(Maybe ReplicationEndpointTypeValue)
     , _setEngineName   :: !(Maybe Text)
@@ -1113,7 +1320,9 @@ instance Hashable SupportedEndpointType
 
 instance NFData SupportedEndpointType
 
--- | /See:/ 'tableStatistics' smart constructor.
+-- |
+--
+-- /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
     { _tsFullLoadRows   :: !(Maybe Integer)
     , _tsInserts        :: !(Maybe Integer)
@@ -1216,7 +1425,9 @@ instance Hashable TableStatistics
 
 instance NFData TableStatistics
 
--- | /See:/ 'tag' smart constructor.
+-- |
+--
+-- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
@@ -1259,3 +1470,45 @@ instance ToJSON Tag where
           = object
               (catMaybes
                  [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
+
+-- |
+--
+-- /See:/ 'vpcSecurityGroupMembership' smart constructor.
+data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
+    { _vsgmStatus             :: !(Maybe Text)
+    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsgmStatus'
+--
+-- * 'vsgmVPCSecurityGroupId'
+vpcSecurityGroupMembership
+    :: VPCSecurityGroupMembership
+vpcSecurityGroupMembership =
+    VPCSecurityGroupMembership'
+    { _vsgmStatus = Nothing
+    , _vsgmVPCSecurityGroupId = Nothing
+    }
+
+-- | The status of the VPC security group.
+vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
+vsgmStatus = lens _vsgmStatus (\ s a -> s{_vsgmStatus = a});
+
+-- | The VPC security group Id.
+vsgmVPCSecurityGroupId :: Lens' VPCSecurityGroupMembership (Maybe Text)
+vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\ s a -> s{_vsgmVPCSecurityGroupId = a});
+
+instance FromJSON VPCSecurityGroupMembership where
+        parseJSON
+          = withObject "VPCSecurityGroupMembership"
+              (\ x ->
+                 VPCSecurityGroupMembership' <$>
+                   (x .:? "Status") <*> (x .:? "VpcSecurityGroupId"))
+
+instance Hashable VPCSecurityGroupMembership
+
+instance NFData VPCSecurityGroupMembership

@@ -21,7 +21,6 @@
 -- Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota\'s maximum value.
 --
 -- This command does not take any parameters.
---
 module Network.AWS.DMS.DescribeAccountAttributes
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAccountAttributes' smart constructor.
+-- |
+--
+-- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes =
     DescribeAccountAttributes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -88,7 +89,9 @@ instance ToPath DescribeAccountAttributes where
 instance ToQuery DescribeAccountAttributes where
         toQuery = const mempty
 
--- | /See:/ 'describeAccountAttributesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
     , _daarsResponseStatus :: !Int

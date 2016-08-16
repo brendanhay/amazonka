@@ -128,7 +128,7 @@ createStack pStackName_ =
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
 csDisableRollback = lens _csDisableRollback (\ s a -> s{_csDisableRollback = a});
 
--- | The Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the <http://console.aws.amazon.com/sns SNS console> or your Command Line Interface (CLI).
+-- | The Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the <https://console.aws.amazon.com/sns SNS console> or your Command Line Interface (CLI).
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a}) . _Default . _Coerce;
 
@@ -156,9 +156,13 @@ csTemplateBody = lens _csTemplateBody (\ s a -> s{_csTemplateBody = a});
 csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\ s a -> s{_csTemplateURL = a});
 
--- | A list of capabilities that you must specify before AWS CloudFormation can create certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.
+-- | A list of values that you must specify before AWS CloudFormation can create certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.
 --
--- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary. If your template contains any of the listed resources and you don\'t specify this parameter, this action returns an 'InsufficientCapabilities' error.
+-- The only valid values are 'CAPABILITY_IAM' and 'CAPABILITY_NAMED_IAM'. The following resources require you to specify this parameter: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
+--
+-- If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify 'CAPABILITY_NAMED_IAM'. If you don\'t specify this parameter, this action returns an 'InsufficientCapabilities' error.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Default . _Coerce;
 
@@ -168,7 +172,7 @@ csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Defau
 csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\ s a -> s{_csOnFailure = a});
 
--- | The template resource types that you have permissions to work with for this create stack action, such as 'AWS::EC2::Instance', 'AWS::EC2::*', or 'Custom::MyCustomInstance'. Use the following syntax to describe template resource types: 'AWS::*' (for all AWS resource), 'Custom::*' (for all custom resources), 'Custom::logical_ID' (for a specific custom resource), 'AWS::service_name::*' (for all resources of a particular AWS service), and 'AWS::service_name::resource_logical_ID' (for a specific AWS resource).
+-- | The template resource types that you have permissions to work with for this create stack action, such as 'AWS::EC2::Instance', 'AWS::EC2::*', or 'Custom::MyCustomInstance'. Use the following syntax to describe template resource types: 'AWS::*' (for all AWS resource), 'Custom::*' (for all custom resources), 'Custom::logical_ID ' (for a specific custom resource), 'AWS::service_name::*' (for all resources of a particular AWS service), and 'AWS::service_name::resource_logical_ID ' (for a specific AWS resource).
 --
 -- If the list of resource types doesn\'t include a resource that you\'re creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
 csResourceTypes :: Lens' CreateStack [Text]

@@ -105,14 +105,15 @@ instance NFData Change
 --
 -- /See:/ 'changeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
-    { _cssCreationTime  :: !(Maybe ISO8601)
-    , _cssStatus        :: !(Maybe ChangeSetStatus)
-    , _cssChangeSetName :: !(Maybe Text)
-    , _cssChangeSetId   :: !(Maybe Text)
-    , _cssStatusReason  :: !(Maybe Text)
-    , _cssStackId       :: !(Maybe Text)
-    , _cssDescription   :: !(Maybe Text)
-    , _cssStackName     :: !(Maybe Text)
+    { _cssCreationTime    :: !(Maybe ISO8601)
+    , _cssStatus          :: !(Maybe ChangeSetStatus)
+    , _cssChangeSetName   :: !(Maybe Text)
+    , _cssExecutionStatus :: !(Maybe ExecutionStatus)
+    , _cssChangeSetId     :: !(Maybe Text)
+    , _cssStatusReason    :: !(Maybe Text)
+    , _cssStackId         :: !(Maybe Text)
+    , _cssDescription     :: !(Maybe Text)
+    , _cssStackName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeSetSummary' with the minimum fields required to make a request.
@@ -124,6 +125,8 @@ data ChangeSetSummary = ChangeSetSummary'
 -- * 'cssStatus'
 --
 -- * 'cssChangeSetName'
+--
+-- * 'cssExecutionStatus'
 --
 -- * 'cssChangeSetId'
 --
@@ -141,6 +144,7 @@ changeSetSummary =
     { _cssCreationTime = Nothing
     , _cssStatus = Nothing
     , _cssChangeSetName = Nothing
+    , _cssExecutionStatus = Nothing
     , _cssChangeSetId = Nothing
     , _cssStatusReason = Nothing
     , _cssStackId = Nothing
@@ -159,6 +163,10 @@ cssStatus = lens _cssStatus (\ s a -> s{_cssStatus = a});
 -- | The name of the change set.
 cssChangeSetName :: Lens' ChangeSetSummary (Maybe Text)
 cssChangeSetName = lens _cssChangeSetName (\ s a -> s{_cssChangeSetName = a});
+
+-- | If the change set execution status is 'AVAILABLE', you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an 'UNAVAILABLE' state because AWS CloudFormation is still creating it or in an 'OBSOLETE' state because the stack was already updated.
+cssExecutionStatus :: Lens' ChangeSetSummary (Maybe ExecutionStatus)
+cssExecutionStatus = lens _cssExecutionStatus (\ s a -> s{_cssExecutionStatus = a});
 
 -- | The ID of the change set.
 cssChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
@@ -185,6 +193,7 @@ instance FromXML ChangeSetSummary where
           = ChangeSetSummary' <$>
               (x .@? "CreationTime") <*> (x .@? "Status") <*>
                 (x .@? "ChangeSetName")
+                <*> (x .@? "ExecutionStatus")
                 <*> (x .@? "ChangeSetId")
                 <*> (x .@? "StatusReason")
                 <*> (x .@? "StackId")
@@ -541,10 +550,15 @@ rcdCausingEntity = lens _rcdCausingEntity (\ s a -> s{_rcdCausingEntity = a});
 -- | The group to which the 'CausingEntity' value belongs. There are five entity groups:
 --
 -- -   'ResourceReference' entities are 'Ref' intrinsic functions that refer to resources in the template, such as '{ \"Ref\" : \"MyEC2InstanceResource\" }'.
+--
 -- -   'ParameterReference' entities are 'Ref' intrinsic functions that get template parameter values, such as '{ \"Ref\" : \"MyPasswordParameter\" }'.
+--
 -- -   'ResourceAttribute' entities are 'Fn::GetAtt' intrinsic functions that get resource attribute values, such as '{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }'.
+--
 -- -   'DirectModification' entities are changes that are made directly to the template.
+--
 -- -   'Automatic' entities are 'AWS::CloudFormation::Stack' resource types, which are also known as nested stacks. If you made no changes to the 'AWS::CloudFormation::Stack' resource, AWS CloudFormation sets the 'ChangeSource' to 'Automatic' because the nested stack\'s template might have changed. Changes to a nested stack\'s template aren\'t visible to AWS CloudFormation until you run an update on the parent stack.
+--
 rcdChangeSource :: Lens' ResourceChangeDetail (Maybe ChangeSource)
 rcdChangeSource = lens _rcdChangeSource (\ s a -> s{_rcdChangeSource = a});
 
@@ -697,7 +711,9 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
 -- -   'true': disable rollback
+--
 -- -   'false': enable rollback
+--
 sDisableRollback :: Lens' Stack (Maybe Bool)
 sDisableRollback = lens _sDisableRollback (\ s a -> s{_sDisableRollback = a});
 

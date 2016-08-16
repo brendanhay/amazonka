@@ -38,6 +38,7 @@ module Network.AWS.CloudFormation.DescribeChangeSet
     , drsChanges
     , drsNotificationARNs
     , drsChangeSetName
+    , drsExecutionStatus
     , drsChangeSetId
     , drsNextToken
     , drsParameters
@@ -111,6 +112,7 @@ instance AWSRequest DescribeChangeSet where
                      (x .@? "NotificationARNs" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "ChangeSetName")
+                     <*> (x .@? "ExecutionStatus")
                      <*> (x .@? "ChangeSetId")
                      <*> (x .@? "NextToken")
                      <*>
@@ -156,6 +158,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     , _drsChanges          :: !(Maybe [Change])
     , _drsNotificationARNs :: !(Maybe [Text])
     , _drsChangeSetName    :: !(Maybe Text)
+    , _drsExecutionStatus  :: !(Maybe ExecutionStatus)
     , _drsChangeSetId      :: !(Maybe Text)
     , _drsNextToken        :: !(Maybe Text)
     , _drsParameters       :: !(Maybe [Parameter])
@@ -181,6 +184,8 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- * 'drsNotificationARNs'
 --
 -- * 'drsChangeSetName'
+--
+-- * 'drsExecutionStatus'
 --
 -- * 'drsChangeSetId'
 --
@@ -211,6 +216,7 @@ describeChangeSetResponse pResponseStatus_ =
     , _drsChanges = Nothing
     , _drsNotificationARNs = Nothing
     , _drsChangeSetName = Nothing
+    , _drsExecutionStatus = Nothing
     , _drsChangeSetId = Nothing
     , _drsNextToken = Nothing
     , _drsParameters = Nothing
@@ -242,6 +248,10 @@ drsNotificationARNs = lens _drsNotificationARNs (\ s a -> s{_drsNotificationARNs
 -- | The name of the change set.
 drsChangeSetName :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsChangeSetName = lens _drsChangeSetName (\ s a -> s{_drsChangeSetName = a});
+
+-- | If the change set execution status is 'AVAILABLE', you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an 'UNAVAILABLE' state because AWS CloudFormation is still creating it or in an 'OBSOLETE' state because the stack was already updated.
+drsExecutionStatus :: Lens' DescribeChangeSetResponse (Maybe ExecutionStatus)
+drsExecutionStatus = lens _drsExecutionStatus (\ s a -> s{_drsExecutionStatus = a});
 
 -- | The ARN of the change set.
 drsChangeSetId :: Lens' DescribeChangeSetResponse (Maybe Text)

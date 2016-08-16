@@ -21,7 +21,7 @@ With AWS CloudFormation, you declare all of your resources and dependencies in a
 
 For more information about this product, go to the <http://aws.amazon.com/cloudformation/ CloudFormation Product Page>.
 
-Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product\'s technical documentation at <http://docs.aws.amazon.com/documentation/>.
+Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product\'s technical documentation at <http://docs.aws.amazon.com/>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudformation)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

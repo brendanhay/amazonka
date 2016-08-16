@@ -19,19 +19,22 @@ module Network.AWS.CloudFormation.Types.Sum where
 
 import           Network.AWS.Prelude
 
-data Capability =
-    CapabilityIAM
+data Capability
+    = CapabilityIAM
+    | CapabilityNamedIAM
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
         "capability_iam" -> pure CapabilityIAM
+        "capability_named_iam" -> pure CapabilityNamedIAM
         e -> fromTextError $ "Failure parsing Capability from value: '" <> e
-           <> "'. Accepted values: CAPABILITY_IAM"
+           <> "'. Accepted values: CAPABILITY_IAM, CAPABILITY_NAMED_IAM"
 
 instance ToText Capability where
     toText = \case
         CapabilityIAM -> "CAPABILITY_IAM"
+        CapabilityNamedIAM -> "CAPABILITY_NAMED_IAM"
 
 instance Hashable     Capability
 instance NFData       Capability
@@ -189,6 +192,44 @@ instance ToHeader     EvaluationType
 
 instance FromXML EvaluationType where
     parseXML = parseXMLText "EvaluationType"
+
+data ExecutionStatus
+    = Available
+    | ExecuteComplete
+    | ExecuteFailed
+    | ExecuteInProgress
+    | Obsolete
+    | Unavailable
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ExecutionStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "execute_complete" -> pure ExecuteComplete
+        "execute_failed" -> pure ExecuteFailed
+        "execute_in_progress" -> pure ExecuteInProgress
+        "obsolete" -> pure Obsolete
+        "unavailable" -> pure Unavailable
+        e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
+           <> "'. Accepted values: AVAILABLE, EXECUTE_COMPLETE, EXECUTE_FAILED, EXECUTE_IN_PROGRESS, OBSOLETE, UNAVAILABLE"
+
+instance ToText ExecutionStatus where
+    toText = \case
+        Available -> "AVAILABLE"
+        ExecuteComplete -> "EXECUTE_COMPLETE"
+        ExecuteFailed -> "EXECUTE_FAILED"
+        ExecuteInProgress -> "EXECUTE_IN_PROGRESS"
+        Obsolete -> "OBSOLETE"
+        Unavailable -> "UNAVAILABLE"
+
+instance Hashable     ExecutionStatus
+instance NFData       ExecutionStatus
+instance ToByteString ExecutionStatus
+instance ToQuery      ExecutionStatus
+instance ToHeader     ExecutionStatus
+
+instance FromXML ExecutionStatus where
+    parseXML = parseXMLText "ExecutionStatus"
 
 data OnFailure
     = Delete

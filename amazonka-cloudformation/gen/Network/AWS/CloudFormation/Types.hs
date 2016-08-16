@@ -40,6 +40,9 @@ module Network.AWS.CloudFormation.Types
     -- * EvaluationType
     , EvaluationType (..)
 
+    -- * ExecutionStatus
+    , ExecutionStatus (..)
+
     -- * OnFailure
     , OnFailure (..)
 
@@ -79,6 +82,7 @@ module Network.AWS.CloudFormation.Types
     , cssCreationTime
     , cssStatus
     , cssChangeSetName
+    , cssExecutionStatus
     , cssChangeSetId
     , cssStatusReason
     , cssStackId

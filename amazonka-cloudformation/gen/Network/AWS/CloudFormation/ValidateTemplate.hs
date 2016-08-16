@@ -163,7 +163,9 @@ vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Defau
 vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
--- | The capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the < CreateStack> or < UpdateStack> actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+-- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the < CreateStack> or < UpdateStack> actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
 vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 

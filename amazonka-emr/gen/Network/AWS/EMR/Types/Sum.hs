@@ -314,6 +314,9 @@ instance ToByteString InstanceState
 instance ToQuery      InstanceState
 instance ToHeader     InstanceState
 
+instance ToJSON InstanceState where
+    toJSON = toJSONText
+
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
 

@@ -195,13 +195,21 @@ rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 -- A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>. Currently supported values are:
 --
 -- -   \"mapr-m3\" - launch the cluster using MapR M3 Edition.
+--
 -- -   \"mapr-m5\" - launch the cluster using MapR M5 Edition.
+--
 -- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.
+--
 -- -   \"mapr-m7\" - launch the cluster using MapR M7 Edition.
+--
 -- -   \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform.
+--
 -- -   \"hue\"- launch the cluster with Hue installed.
+--
 -- -   \"spark\" - launch the cluster with Apache Spark installed.
+--
 -- -   \"ganglia\" - launch the cluster with the Ganglia Monitoring System installed.
+--
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default . _Coerce;
 
@@ -214,7 +222,9 @@ rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUs
 -- A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>. Currently supported values are:
 --
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
+--
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
+--
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 

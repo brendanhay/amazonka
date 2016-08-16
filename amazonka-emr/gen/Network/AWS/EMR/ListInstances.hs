@@ -29,6 +29,7 @@ module Network.AWS.EMR.ListInstances
     -- * Request Lenses
     , liInstanceGroupTypes
     , liMarker
+    , liInstanceStates
     , liInstanceGroupId
     , liClusterId
 
@@ -55,6 +56,7 @@ import           Network.AWS.Response
 data ListInstances = ListInstances'
     { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
     , _liMarker             :: !(Maybe Text)
+    , _liInstanceStates     :: !(Maybe [InstanceState])
     , _liInstanceGroupId    :: !(Maybe Text)
     , _liClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -67,6 +69,8 @@ data ListInstances = ListInstances'
 --
 -- * 'liMarker'
 --
+-- * 'liInstanceStates'
+--
 -- * 'liInstanceGroupId'
 --
 -- * 'liClusterId'
@@ -77,6 +81,7 @@ listInstances pClusterId_ =
     ListInstances'
     { _liInstanceGroupTypes = Nothing
     , _liMarker = Nothing
+    , _liInstanceStates = Nothing
     , _liInstanceGroupId = Nothing
     , _liClusterId = pClusterId_
     }
@@ -88,6 +93,10 @@ liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTy
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+
+-- | A list of instance states that will filter the instances returned with this request.
+liInstanceStates :: Lens' ListInstances [InstanceState]
+liInstanceStates = lens _liInstanceStates (\ s a -> s{_liInstanceStates = a}) . _Default . _Coerce;
 
 -- | The identifier of the instance group for which to list the instances.
 liInstanceGroupId :: Lens' ListInstances (Maybe Text)
@@ -133,6 +142,7 @@ instance ToJSON ListInstances where
               (catMaybes
                  [("InstanceGroupTypes" .=) <$> _liInstanceGroupTypes,
                   ("Marker" .=) <$> _liMarker,
+                  ("InstanceStates" .=) <$> _liInstanceStates,
                   ("InstanceGroupId" .=) <$> _liInstanceGroupId,
                   Just ("ClusterId" .= _liClusterId)])
 

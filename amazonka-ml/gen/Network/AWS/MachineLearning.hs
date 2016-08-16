@@ -20,6 +20,9 @@ module Network.AWS.MachineLearning
     -- * Errors
     -- $errors
 
+    -- ** InvalidTagException
+    , _InvalidTagException
+
     -- ** InternalServerException
     , _InternalServerException
 
@@ -28,6 +31,9 @@ module Network.AWS.MachineLearning
 
     -- ** IdempotentParameterMismatchException
     , _IdempotentParameterMismatchException
+
+    -- ** TagLimitExceededException
+    , _TagLimitExceededException
 
     -- ** PredictorNotMountedException
     , _PredictorNotMountedException
@@ -62,6 +68,9 @@ module Network.AWS.MachineLearning
     -- ** DeleteDataSource
     , module Network.AWS.MachineLearning.DeleteDataSource
 
+    -- ** DescribeTags
+    , module Network.AWS.MachineLearning.DescribeTags
+
     -- ** CreateDataSourceFromRedshift
     , module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 
@@ -70,6 +79,9 @@ module Network.AWS.MachineLearning
 
     -- ** CreateMLModel
     , module Network.AWS.MachineLearning.CreateMLModel
+
+    -- ** DeleteTags
+    , module Network.AWS.MachineLearning.DeleteTags
 
     -- ** DeleteBatchPrediction
     , module Network.AWS.MachineLearning.DeleteBatchPrediction
@@ -125,6 +137,9 @@ module Network.AWS.MachineLearning
     -- ** CreateRealtimeEndpoint
     , module Network.AWS.MachineLearning.CreateRealtimeEndpoint
 
+    -- ** AddTags
+    , module Network.AWS.MachineLearning.AddTags
+
     -- ** DescribeMLModels (Paginated)
     , module Network.AWS.MachineLearning.DescribeMLModels
 
@@ -163,16 +178,24 @@ module Network.AWS.MachineLearning
     -- ** SortOrder
     , SortOrder (..)
 
+    -- ** TaggableResourceType
+    , TaggableResourceType (..)
+
     -- ** BatchPrediction
     , BatchPrediction
     , batchPrediction
     , bpStatus
     , bpLastUpdatedAt
     , bpCreatedAt
+    , bpComputeTime
     , bpInputDataLocationS3
     , bpMLModelId
     , bpBatchPredictionDataSourceId
+    , bpTotalRecordCount
+    , bpStartedAt
     , bpBatchPredictionId
+    , bpFinishedAt
+    , bpInvalidRecordCount
     , bpCreatedByIAMUser
     , bpName
     , bpMessage
@@ -185,9 +208,12 @@ module Network.AWS.MachineLearning
     , dsNumberOfFiles
     , dsLastUpdatedAt
     , dsCreatedAt
+    , dsComputeTime
     , dsDataSourceId
     , dsRDSMetadata
     , dsDataSizeInBytes
+    , dsStartedAt
+    , dsFinishedAt
     , dsCreatedByIAMUser
     , dsName
     , dsDataLocationS3
@@ -204,8 +230,11 @@ module Network.AWS.MachineLearning
     , ePerformanceMetrics
     , eLastUpdatedAt
     , eCreatedAt
+    , eComputeTime
     , eInputDataLocationS3
     , eMLModelId
+    , eStartedAt
+    , eFinishedAt
     , eCreatedByIAMUser
     , eName
     , eEvaluationId
@@ -220,10 +249,13 @@ module Network.AWS.MachineLearning
     , mlmTrainingParameters
     , mlmScoreThresholdLastUpdatedAt
     , mlmCreatedAt
+    , mlmComputeTime
     , mlmInputDataLocationS3
     , mlmMLModelId
     , mlmSizeInBytes
+    , mlmStartedAt
     , mlmScoreThreshold
+    , mlmFinishedAt
     , mlmAlgorithm
     , mlmCreatedByIAMUser
     , mlmName
@@ -327,8 +359,15 @@ module Network.AWS.MachineLearning
     , sdsDataSchemaLocationS3
     , sdsDataRearrangement
     , sdsDataLocationS3
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
+import           Network.AWS.MachineLearning.AddTags
 import           Network.AWS.MachineLearning.CreateBatchPrediction
 import           Network.AWS.MachineLearning.CreateDataSourceFromRDS
 import           Network.AWS.MachineLearning.CreateDataSourceFromRedshift
@@ -341,10 +380,12 @@ import           Network.AWS.MachineLearning.DeleteDataSource
 import           Network.AWS.MachineLearning.DeleteEvaluation
 import           Network.AWS.MachineLearning.DeleteMLModel
 import           Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+import           Network.AWS.MachineLearning.DeleteTags
 import           Network.AWS.MachineLearning.DescribeBatchPredictions
 import           Network.AWS.MachineLearning.DescribeDataSources
 import           Network.AWS.MachineLearning.DescribeEvaluations
 import           Network.AWS.MachineLearning.DescribeMLModels
+import           Network.AWS.MachineLearning.DescribeTags
 import           Network.AWS.MachineLearning.GetBatchPrediction
 import           Network.AWS.MachineLearning.GetDataSource
 import           Network.AWS.MachineLearning.GetEvaluation

@@ -34,10 +34,15 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprsStatus
     , gbprsLastUpdatedAt
     , gbprsCreatedAt
+    , gbprsComputeTime
     , gbprsInputDataLocationS3
     , gbprsMLModelId
     , gbprsBatchPredictionDataSourceId
+    , gbprsTotalRecordCount
+    , gbprsStartedAt
     , gbprsBatchPredictionId
+    , gbprsFinishedAt
+    , gbprsInvalidRecordCount
     , gbprsCreatedByIAMUser
     , gbprsName
     , gbprsLogURI
@@ -85,10 +90,15 @@ instance AWSRequest GetBatchPrediction where
                  GetBatchPredictionResponse' <$>
                    (x .?> "Status") <*> (x .?> "LastUpdatedAt") <*>
                      (x .?> "CreatedAt")
+                     <*> (x .?> "ComputeTime")
                      <*> (x .?> "InputDataLocationS3")
                      <*> (x .?> "MLModelId")
                      <*> (x .?> "BatchPredictionDataSourceId")
+                     <*> (x .?> "TotalRecordCount")
+                     <*> (x .?> "StartedAt")
                      <*> (x .?> "BatchPredictionId")
+                     <*> (x .?> "FinishedAt")
+                     <*> (x .?> "InvalidRecordCount")
                      <*> (x .?> "CreatedByIamUser")
                      <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
@@ -123,17 +133,22 @@ instance ToPath GetBatchPrediction where
 instance ToQuery GetBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a < GetBatchPrediction> operation and describes a 'BatchPrediction'.
+-- | Represents the output of a 'GetBatchPrediction' operation and describes a 'BatchPrediction'.
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
     { _gbprsStatus                      :: !(Maybe EntityStatus)
     , _gbprsLastUpdatedAt               :: !(Maybe POSIX)
     , _gbprsCreatedAt                   :: !(Maybe POSIX)
+    , _gbprsComputeTime                 :: !(Maybe Integer)
     , _gbprsInputDataLocationS3         :: !(Maybe Text)
     , _gbprsMLModelId                   :: !(Maybe Text)
     , _gbprsBatchPredictionDataSourceId :: !(Maybe Text)
+    , _gbprsTotalRecordCount            :: !(Maybe Integer)
+    , _gbprsStartedAt                   :: !(Maybe POSIX)
     , _gbprsBatchPredictionId           :: !(Maybe Text)
+    , _gbprsFinishedAt                  :: !(Maybe POSIX)
+    , _gbprsInvalidRecordCount          :: !(Maybe Integer)
     , _gbprsCreatedByIAMUser            :: !(Maybe Text)
     , _gbprsName                        :: !(Maybe Text)
     , _gbprsLogURI                      :: !(Maybe Text)
@@ -152,13 +167,23 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 --
 -- * 'gbprsCreatedAt'
 --
+-- * 'gbprsComputeTime'
+--
 -- * 'gbprsInputDataLocationS3'
 --
 -- * 'gbprsMLModelId'
 --
 -- * 'gbprsBatchPredictionDataSourceId'
 --
+-- * 'gbprsTotalRecordCount'
+--
+-- * 'gbprsStartedAt'
+--
 -- * 'gbprsBatchPredictionId'
+--
+-- * 'gbprsFinishedAt'
+--
+-- * 'gbprsInvalidRecordCount'
 --
 -- * 'gbprsCreatedByIAMUser'
 --
@@ -179,10 +204,15 @@ getBatchPredictionResponse pResponseStatus_ =
     { _gbprsStatus = Nothing
     , _gbprsLastUpdatedAt = Nothing
     , _gbprsCreatedAt = Nothing
+    , _gbprsComputeTime = Nothing
     , _gbprsInputDataLocationS3 = Nothing
     , _gbprsMLModelId = Nothing
     , _gbprsBatchPredictionDataSourceId = Nothing
+    , _gbprsTotalRecordCount = Nothing
+    , _gbprsStartedAt = Nothing
     , _gbprsBatchPredictionId = Nothing
+    , _gbprsFinishedAt = Nothing
+    , _gbprsInvalidRecordCount = Nothing
     , _gbprsCreatedByIAMUser = Nothing
     , _gbprsName = Nothing
     , _gbprsLogURI = Nothing
@@ -209,6 +239,10 @@ gbprsLastUpdatedAt = lens _gbprsLastUpdatedAt (\ s a -> s{_gbprsLastUpdatedAt = 
 gbprsCreatedAt :: Lens' GetBatchPredictionResponse (Maybe UTCTime)
 gbprsCreatedAt = lens _gbprsCreatedAt (\ s a -> s{_gbprsCreatedAt = a}) . mapping _Time;
 
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the 'BatchPrediction', normalized and scaled on computation resources. 'ComputeTime' is only available if the 'BatchPrediction' is in the 'COMPLETED' state.
+gbprsComputeTime :: Lens' GetBatchPredictionResponse (Maybe Integer)
+gbprsComputeTime = lens _gbprsComputeTime (\ s a -> s{_gbprsComputeTime = a});
+
 -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 gbprsInputDataLocationS3 :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsInputDataLocationS3 = lens _gbprsInputDataLocationS3 (\ s a -> s{_gbprsInputDataLocationS3 = a});
@@ -221,9 +255,25 @@ gbprsMLModelId = lens _gbprsMLModelId (\ s a -> s{_gbprsMLModelId = a});
 gbprsBatchPredictionDataSourceId :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsBatchPredictionDataSourceId = lens _gbprsBatchPredictionDataSourceId (\ s a -> s{_gbprsBatchPredictionDataSourceId = a});
 
+-- | The number of total records that Amazon Machine Learning saw while processing the 'BatchPrediction'.
+gbprsTotalRecordCount :: Lens' GetBatchPredictionResponse (Maybe Integer)
+gbprsTotalRecordCount = lens _gbprsTotalRecordCount (\ s a -> s{_gbprsTotalRecordCount = a});
+
+-- | The epoch time when Amazon Machine Learning marked the 'BatchPrediction' as 'INPROGRESS'. 'StartedAt' isn\'t available if the 'BatchPrediction' is in the 'PENDING' state.
+gbprsStartedAt :: Lens' GetBatchPredictionResponse (Maybe UTCTime)
+gbprsStartedAt = lens _gbprsStartedAt (\ s a -> s{_gbprsStartedAt = a}) . mapping _Time;
+
 -- | An ID assigned to the 'BatchPrediction' at creation. This value should be identical to the value of the 'BatchPredictionID' in the request.
 gbprsBatchPredictionId :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsBatchPredictionId = lens _gbprsBatchPredictionId (\ s a -> s{_gbprsBatchPredictionId = a});
+
+-- | The epoch time when Amazon Machine Learning marked the 'BatchPrediction' as 'COMPLETED' or 'FAILED'. 'FinishedAt' is only available when the 'BatchPrediction' is in the 'COMPLETED' or 'FAILED' state.
+gbprsFinishedAt :: Lens' GetBatchPredictionResponse (Maybe UTCTime)
+gbprsFinishedAt = lens _gbprsFinishedAt (\ s a -> s{_gbprsFinishedAt = a}) . mapping _Time;
+
+-- | The number of invalid records that Amazon Machine Learning saw while processing the 'BatchPrediction'.
+gbprsInvalidRecordCount :: Lens' GetBatchPredictionResponse (Maybe Integer)
+gbprsInvalidRecordCount = lens _gbprsInvalidRecordCount (\ s a -> s{_gbprsInvalidRecordCount = a});
 
 -- | The AWS user account that invoked the 'BatchPrediction'. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gbprsCreatedByIAMUser :: Lens' GetBatchPredictionResponse (Maybe Text)
@@ -233,7 +283,7 @@ gbprsCreatedByIAMUser = lens _gbprsCreatedByIAMUser (\ s a -> s{_gbprsCreatedByI
 gbprsName :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsName = lens _gbprsName (\ s a -> s{_gbprsName = a});
 
--- | A link to the file that contains logs of the < CreateBatchPrediction> operation.
+-- | A link to the file that contains logs of the 'CreateBatchPrediction' operation.
 gbprsLogURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsLogURI = lens _gbprsLogURI (\ s a -> s{_gbprsLogURI = a});
 

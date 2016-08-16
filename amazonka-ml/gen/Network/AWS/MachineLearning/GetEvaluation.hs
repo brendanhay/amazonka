@@ -35,8 +35,11 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gersPerformanceMetrics
     , gersLastUpdatedAt
     , gersCreatedAt
+    , gersComputeTime
     , gersInputDataLocationS3
     , gersMLModelId
+    , gersStartedAt
+    , gersFinishedAt
     , gersCreatedByIAMUser
     , gersName
     , gersLogURI
@@ -85,8 +88,11 @@ instance AWSRequest GetEvaluation where
                    (x .?> "Status") <*> (x .?> "PerformanceMetrics") <*>
                      (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
+                     <*> (x .?> "ComputeTime")
                      <*> (x .?> "InputDataLocationS3")
                      <*> (x .?> "MLModelId")
+                     <*> (x .?> "StartedAt")
+                     <*> (x .?> "FinishedAt")
                      <*> (x .?> "CreatedByIamUser")
                      <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
@@ -120,7 +126,7 @@ instance ToPath GetEvaluation where
 instance ToQuery GetEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a < GetEvaluation> operation and describes an 'Evaluation'.
+-- | Represents the output of a 'GetEvaluation' operation and describes an 'Evaluation'.
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
@@ -128,8 +134,11 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
     , _gersLastUpdatedAt          :: !(Maybe POSIX)
     , _gersCreatedAt              :: !(Maybe POSIX)
+    , _gersComputeTime            :: !(Maybe Integer)
     , _gersInputDataLocationS3    :: !(Maybe Text)
     , _gersMLModelId              :: !(Maybe Text)
+    , _gersStartedAt              :: !(Maybe POSIX)
+    , _gersFinishedAt             :: !(Maybe POSIX)
     , _gersCreatedByIAMUser       :: !(Maybe Text)
     , _gersName                   :: !(Maybe Text)
     , _gersLogURI                 :: !(Maybe Text)
@@ -151,9 +160,15 @@ data GetEvaluationResponse = GetEvaluationResponse'
 --
 -- * 'gersCreatedAt'
 --
+-- * 'gersComputeTime'
+--
 -- * 'gersInputDataLocationS3'
 --
 -- * 'gersMLModelId'
+--
+-- * 'gersStartedAt'
+--
+-- * 'gersFinishedAt'
 --
 -- * 'gersCreatedByIAMUser'
 --
@@ -177,8 +192,11 @@ getEvaluationResponse pResponseStatus_ =
     , _gersPerformanceMetrics = Nothing
     , _gersLastUpdatedAt = Nothing
     , _gersCreatedAt = Nothing
+    , _gersComputeTime = Nothing
     , _gersInputDataLocationS3 = Nothing
     , _gersMLModelId = Nothing
+    , _gersStartedAt = Nothing
+    , _gersFinishedAt = Nothing
     , _gersCreatedByIAMUser = Nothing
     , _gersName = Nothing
     , _gersLogURI = Nothing
@@ -210,13 +228,17 @@ gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a});
 gersPerformanceMetrics :: Lens' GetEvaluationResponse (Maybe PerformanceMetrics)
 gersPerformanceMetrics = lens _gersPerformanceMetrics (\ s a -> s{_gersPerformanceMetrics = a});
 
--- | The time of the most recent edit to the 'BatchPrediction'. The time is expressed in epoch time.
+-- | The time of the most recent edit to the 'Evaluation'. The time is expressed in epoch time.
 gersLastUpdatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
 gersLastUpdatedAt = lens _gersLastUpdatedAt (\ s a -> s{_gersLastUpdatedAt = a}) . mapping _Time;
 
 -- | The time that the 'Evaluation' was created. The time is expressed in epoch time.
 gersCreatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
 gersCreatedAt = lens _gersCreatedAt (\ s a -> s{_gersCreatedAt = a}) . mapping _Time;
+
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the 'Evaluation', normalized and scaled on computation resources. 'ComputeTime' is only available if the 'Evaluation' is in the 'COMPLETED' state.
+gersComputeTime :: Lens' GetEvaluationResponse (Maybe Integer)
+gersComputeTime = lens _gersComputeTime (\ s a -> s{_gersComputeTime = a});
 
 -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 gersInputDataLocationS3 :: Lens' GetEvaluationResponse (Maybe Text)
@@ -226,6 +248,14 @@ gersInputDataLocationS3 = lens _gersInputDataLocationS3 (\ s a -> s{_gersInputDa
 gersMLModelId :: Lens' GetEvaluationResponse (Maybe Text)
 gersMLModelId = lens _gersMLModelId (\ s a -> s{_gersMLModelId = a});
 
+-- | The epoch time when Amazon Machine Learning marked the 'Evaluation' as 'INPROGRESS'. 'StartedAt' isn\'t available if the 'Evaluation' is in the 'PENDING' state.
+gersStartedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
+gersStartedAt = lens _gersStartedAt (\ s a -> s{_gersStartedAt = a}) . mapping _Time;
+
+-- | The epoch time when Amazon Machine Learning marked the 'Evaluation' as 'COMPLETED' or 'FAILED'. 'FinishedAt' is only available when the 'Evaluation' is in the 'COMPLETED' or 'FAILED' state.
+gersFinishedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
+gersFinishedAt = lens _gersFinishedAt (\ s a -> s{_gersFinishedAt = a}) . mapping _Time;
+
 -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gersCreatedByIAMUser :: Lens' GetEvaluationResponse (Maybe Text)
 gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMUser = a});
@@ -234,7 +264,7 @@ gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMU
 gersName :: Lens' GetEvaluationResponse (Maybe Text)
 gersName = lens _gersName (\ s a -> s{_gersName = a});
 
--- | A link to the file that contains logs of the < CreateEvaluation> operation.
+-- | A link to the file that contains logs of the 'CreateEvaluation' operation.
 gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
 gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a});
 

@@ -41,6 +41,7 @@ library
 
     exposed-modules:
           Network.AWS.MachineLearning
+        , Network.AWS.MachineLearning.AddTags
         , Network.AWS.MachineLearning.CreateBatchPrediction
         , Network.AWS.MachineLearning.CreateDataSourceFromRDS
         , Network.AWS.MachineLearning.CreateDataSourceFromRedshift
@@ -53,10 +54,12 @@ library
         , Network.AWS.MachineLearning.DeleteEvaluation
         , Network.AWS.MachineLearning.DeleteMLModel
         , Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+        , Network.AWS.MachineLearning.DeleteTags
         , Network.AWS.MachineLearning.DescribeBatchPredictions
         , Network.AWS.MachineLearning.DescribeDataSources
         , Network.AWS.MachineLearning.DescribeEvaluations
         , Network.AWS.MachineLearning.DescribeMLModels
+        , Network.AWS.MachineLearning.DescribeTags
         , Network.AWS.MachineLearning.GetBatchPrediction
         , Network.AWS.MachineLearning.GetDataSource
         , Network.AWS.MachineLearning.GetEvaluation

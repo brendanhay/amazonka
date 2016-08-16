@@ -43,9 +43,9 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     , describeBatchPredictionsResponse
     , DescribeBatchPredictionsResponse
     -- * Response Lenses
-    , drsResults
-    , drsNextToken
-    , drsResponseStatus
+    , dbpsrsResults
+    , dbpsrsNextToken
+    , dbpsrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -155,7 +155,7 @@ dbpNextToken = lens _dbpNextToken (\ s a -> s{_dbpNextToken = a});
 dbpSortOrder :: Lens' DescribeBatchPredictions (Maybe SortOrder)
 dbpSortOrder = lens _dbpSortOrder (\ s a -> s{_dbpSortOrder = a});
 
--- | The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100.
+-- | The number of pages of information to include in the result. The range of acceptable values is '1' through '100'. The default value is '100'.
 dbpLimit :: Lens' DescribeBatchPredictions (Maybe Natural)
 dbpLimit = lens _dbpLimit (\ s a -> s{_dbpLimit = a}) . mapping _Nat;
 
@@ -181,10 +181,10 @@ dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 
 instance AWSPager DescribeBatchPredictions where
         page rq rs
-          | stop (rs ^. drsNextToken) = Nothing
-          | stop (rs ^. drsResults) = Nothing
+          | stop (rs ^. dbpsrsNextToken) = Nothing
+          | stop (rs ^. dbpsrsResults) = Nothing
           | otherwise =
-            Just $ rq & dbpNextToken .~ rs ^. drsNextToken
+            Just $ rq & dbpNextToken .~ rs ^. dbpsrsNextToken
 
 instance AWSRequest DescribeBatchPredictions where
         type Rs DescribeBatchPredictions =
@@ -230,44 +230,44 @@ instance ToPath DescribeBatchPredictions where
 instance ToQuery DescribeBatchPredictions where
         toQuery = const mempty
 
--- | Represents the output of a < DescribeBatchPredictions> operation. The content is essentially a list of 'BatchPrediction's.
+-- | Represents the output of a 'DescribeBatchPredictions' operation. The content is essentially a list of 'BatchPrediction's.
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _drsResults        :: !(Maybe [BatchPrediction])
-    , _drsNextToken      :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
+    { _dbpsrsResults        :: !(Maybe [BatchPrediction])
+    , _dbpsrsNextToken      :: !(Maybe Text)
+    , _dbpsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResults'
+-- * 'dbpsrsResults'
 --
--- * 'drsNextToken'
+-- * 'dbpsrsNextToken'
 --
--- * 'drsResponseStatus'
+-- * 'dbpsrsResponseStatus'
 describeBatchPredictionsResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'dbpsrsResponseStatus'
     -> DescribeBatchPredictionsResponse
 describeBatchPredictionsResponse pResponseStatus_ =
     DescribeBatchPredictionsResponse'
-    { _drsResults = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _dbpsrsResults = Nothing
+    , _dbpsrsNextToken = Nothing
+    , _dbpsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of < BatchPrediction> objects that meet the search criteria.
-drsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
-drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default . _Coerce;
+-- | A list of 'BatchPrediction' objects that meet the search criteria.
+dbpsrsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+dbpsrsResults = lens _dbpsrsResults (\ s a -> s{_dbpsrsResults = a}) . _Default . _Coerce;
 
 -- | The ID of the next page in the paginated results that indicates at least one more page follows.
-drsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+dbpsrsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
+dbpsrsNextToken = lens _dbpsrsNextToken (\ s a -> s{_dbpsrsNextToken = a});
 
 -- | The response status code.
-drsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+dbpsrsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
+dbpsrsResponseStatus = lens _dbpsrsResponseStatus (\ s a -> s{_dbpsrsResponseStatus = a});
 
 instance NFData DescribeBatchPredictionsResponse

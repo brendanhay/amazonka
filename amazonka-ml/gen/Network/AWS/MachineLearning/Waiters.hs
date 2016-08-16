@@ -55,12 +55,12 @@ batchPredictionAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf drsResults) .
+                             (folding (concatOf dbpsrsResults) .
                               bpStatus . _Just . to toTextCI)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf drsResults) .
+                             (folding (concatOf dbpsrsResults) .
                               bpStatus . _Just . to toTextCI)]
     }
 

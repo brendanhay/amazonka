@@ -20,7 +20,7 @@
 --
 -- Updates the 'DataSourceName' of a 'DataSource'.
 --
--- You can use the < GetDataSource> operation to view the contents of the updated data element.
+-- You can use the 'GetDataSource' operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateDataSource
     (
     -- * Creating a Request
@@ -111,9 +111,9 @@ instance ToPath UpdateDataSource where
 instance ToQuery UpdateDataSource where
         toQuery = const mempty
 
--- | Represents the output of an < UpdateDataSource> operation.
+-- | Represents the output of an 'UpdateDataSource' operation.
 --
--- You can see the updated content by using the < GetBatchPrediction> operation.
+-- You can see the updated content by using the 'GetBatchPrediction' operation.
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'

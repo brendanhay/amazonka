@@ -19,10 +19,10 @@ module Network.AWS.MachineLearning.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The function used to train a 'MLModel'. Training choices supported by Amazon ML include the following:
+-- | The function used to train an 'MLModel'. Training choices supported by Amazon ML include the following:
 --
--- -   SGD - Stochastic Gradient Descent.
--- -   RandomForest - Random forest of decision trees.
+-- -   'SGD' - Stochastic Gradient Descent.
+-- -   'RandomForest' - Random forest of decision trees.
 data Algorithm =
     SGD
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -148,7 +148,7 @@ instance ToHeader     DataSourceFilterVariable
 instance ToJSON DataSourceFilterVariable where
     toJSON = toJSONText
 
--- | Contains the key values of 'DetailsMap': PredictiveModelType - Indicates the type of the 'MLModel'. Algorithm - Indicates the algorithm was used for the 'MLModel'.
+-- | Contains the key values of 'DetailsMap': 'PredictiveModelType' - Indicates the type of the 'MLModel'. 'Algorithm' - Indicates the algorithm that was used for the 'MLModel'.
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
@@ -175,13 +175,13 @@ instance ToHeader     DetailsAttributes
 instance FromJSON DetailsAttributes where
     parseJSON = parseJSONText "DetailsAttributes"
 
--- | Entity status with the following possible values:
+-- | Object status with the following possible values:
 --
--- -   PENDING
--- -   INPROGRESS
--- -   FAILED
--- -   COMPLETED
--- -   DELETED
+-- -   'PENDING'
+-- -   'INPROGRESS'
+-- -   'FAILED'
+-- -   'COMPLETED'
+-- -   'DELETED'
 data EntityStatus
     = ESCompleted
     | ESDeleted
@@ -413,3 +413,38 @@ instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
+
+data TaggableResourceType
+    = BatchPrediction
+    | DataSource
+    | Evaluation
+    | MLModel
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaggableResourceType where
+    parser = takeLowerText >>= \case
+        "batchprediction" -> pure BatchPrediction
+        "datasource" -> pure DataSource
+        "evaluation" -> pure Evaluation
+        "mlmodel" -> pure MLModel
+        e -> fromTextError $ "Failure parsing TaggableResourceType from value: '" <> e
+           <> "'. Accepted values: BatchPrediction, DataSource, Evaluation, MLModel"
+
+instance ToText TaggableResourceType where
+    toText = \case
+        BatchPrediction -> "BatchPrediction"
+        DataSource -> "DataSource"
+        Evaluation -> "Evaluation"
+        MLModel -> "MLModel"
+
+instance Hashable     TaggableResourceType
+instance NFData       TaggableResourceType
+instance ToByteString TaggableResourceType
+instance ToQuery      TaggableResourceType
+instance ToHeader     TaggableResourceType
+
+instance ToJSON TaggableResourceType where
+    toJSON = toJSONText
+
+instance FromJSON TaggableResourceType where
+    parseJSON = parseJSONText "TaggableResourceType"

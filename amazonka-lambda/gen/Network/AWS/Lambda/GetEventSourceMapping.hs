@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getEventSourceMapping' smart constructor.
+-- |
+--
+-- /See:/ 'getEventSourceMapping' smart constructor.
 newtype GetEventSourceMapping = GetEventSourceMapping'
     { _gesmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

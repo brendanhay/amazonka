@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateFunctionConfiguration' smart constructor.
+-- |
+--
+-- /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     { _ufcMemorySize   :: !(Maybe Nat)
     , _ufcRuntime      :: !(Maybe Runtime)
@@ -114,7 +116,9 @@ updateFunctionConfiguration pFunctionName_ =
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The runtime environment for the Lambda function.
+--
+-- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
 ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
 ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a});
 

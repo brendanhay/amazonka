@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'publishVersion' smart constructor.
+-- |
+--
+-- /See:/ 'publishVersion' smart constructor.
 data PublishVersion = PublishVersion'
     { _pvCodeSha256   :: !(Maybe Text)
     , _pvDescription  :: !(Maybe Text)

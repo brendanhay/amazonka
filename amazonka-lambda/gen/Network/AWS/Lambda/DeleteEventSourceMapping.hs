@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteEventSourceMapping' smart constructor.
+-- |
+--
+-- /See:/ 'deleteEventSourceMapping' smart constructor.
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
     { _desmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

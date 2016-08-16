@@ -66,6 +66,9 @@ module Network.AWS.Lambda
     -- ** CodeStorageExceededException
     , _CodeStorageExceededException
 
+    -- ** InvalidZipFileException
+    , _InvalidZipFileException
+
     -- ** ResourceConflictException
     , _ResourceConflictException
 

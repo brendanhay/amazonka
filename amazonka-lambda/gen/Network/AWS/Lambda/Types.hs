@@ -30,6 +30,7 @@ module Network.AWS.Lambda.Types
     , _SubnetIPAddressLimitReachedException
     , _ServiceException
     , _CodeStorageExceededException
+    , _InvalidZipFileException
     , _ResourceConflictException
     , _EC2UnexpectedException
     , _ResourceNotFoundException
@@ -151,7 +152,7 @@ lambda =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | AWS Lambda was throttled by Amazon EC2 during Lambda function initiatization using the execution role provided for the Lambda function.
+-- | AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided for the Lambda function.
 _EC2ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EC2ThrottledException =
     _ServiceError . hasStatus 502 . hasCode "EC2ThrottledException"
@@ -161,7 +162,7 @@ _PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a Se
 _PolicyLengthExceededException =
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
--- | Prism for EC2AccessDeniedException' errors.
+-- |
 _EC2AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _EC2AccessDeniedException =
     _ServiceError . hasStatus 502 . hasCode "EC2AccessDeniedException"
@@ -196,7 +197,7 @@ _RequestTooLargeException :: AsError a => Getting (First ServiceError) a Service
 _RequestTooLargeException =
     _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
 
--- | Prism for TooManyRequestsException' errors.
+-- |
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
@@ -220,6 +221,11 @@ _ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
 _CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeStorageExceededException =
     _ServiceError . hasStatus 400 . hasCode "CodeStorageExceededException"
+
+-- | AWS Lambda could not unzip the function zip file.
+_InvalidZipFileException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidZipFileException =
+    _ServiceError . hasStatus 502 . hasCode "InvalidZipFileException"
 
 -- | The resource already exists.
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError

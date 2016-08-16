@@ -58,7 +58,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getFunctionConfiguration' smart constructor.
+-- |
+--
+-- /See:/ 'getFunctionConfiguration' smart constructor.
 data GetFunctionConfiguration = GetFunctionConfiguration'
     { _gfcQualifier    :: !(Maybe Text)
     , _gfcFunctionName :: !Text

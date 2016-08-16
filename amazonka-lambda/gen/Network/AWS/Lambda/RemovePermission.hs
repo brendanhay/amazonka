@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'removePermission' smart constructor.
+-- |
+--
+-- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
     { _rpQualifier    :: !(Maybe Text)
     , _rpFunctionName :: !Text

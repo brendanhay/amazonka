@@ -57,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateEventSourceMapping' smart constructor.
+-- |
+--
+-- /See:/ 'updateEventSourceMapping' smart constructor.
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
     { _uesmEnabled      :: !(Maybe Bool)
     , _uesmBatchSize    :: !(Maybe Nat)

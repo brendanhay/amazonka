@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getFunction' smart constructor.
+-- |
+--
+-- /See:/ 'getFunction' smart constructor.
 data GetFunction = GetFunction'
     { _gfQualifier    :: !(Maybe Text)
     , _gfFunctionName :: !Text
@@ -106,7 +108,7 @@ instance ToQuery GetFunction where
         toQuery GetFunction'{..}
           = mconcat ["Qualifier" =: _gfQualifier]
 
--- | This response contains the object for the Lambda function location (see < API_FunctionCodeLocation>.
+-- | This response contains the object for the Lambda function location (see .
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'

@@ -29,6 +29,9 @@ module Network.AWS.CertificateManager.Types
     -- * CertificateStatus
     , CertificateStatus (..)
 
+    -- * FailureReason
+    , FailureReason (..)
+
     -- * KeyAlgorithm
     , KeyAlgorithm (..)
 
@@ -40,6 +43,7 @@ module Network.AWS.CertificateManager.Types
     , certificateDetail
     , cdSubject
     , cdStatus
+    , cdFailureReason
     , cdSubjectAlternativeNames
     , cdInUseBy
     , cdCreatedAt

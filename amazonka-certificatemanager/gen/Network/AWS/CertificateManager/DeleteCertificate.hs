@@ -41,9 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'deleteCertificate' smart constructor.
+-- | /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
     { _dcCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

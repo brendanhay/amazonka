@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned by the calling account. You can filter the list based on the 'CertificateStatuses' parameter, and you can display up to 'MaxItems' certificates at one time. If you have more than 'MaxItems' certificates, use the 'NextToken' marker from the response object in your next call to the 'ListCertificates' action to retrieve the next set of certificate ARNs.
+-- Retrieves a list of ACM Certificates and the domain name for each. You can optionally filter the list to return only the certificates that match the specified status.
+--
+-- This operation returns paginated results.
 module Network.AWS.CertificateManager.ListCertificates
     (
     -- * Creating a Request
@@ -41,13 +43,12 @@ module Network.AWS.CertificateManager.ListCertificates
 import           Network.AWS.CertificateManager.Types
 import           Network.AWS.CertificateManager.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'listCertificates' smart constructor.
+-- | /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
     { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
     , _lcNextToken           :: !(Maybe Text)
@@ -72,32 +73,24 @@ listCertificates =
     , _lcMaxItems = Nothing
     }
 
--- | Identifies the statuses of the ACM Certificates for which you want to retrieve the ARNs. This can be one or more of the following values:
---
--- -   'PENDING_VALIDATION'
---
--- -   'ISSUED'
---
--- -   'INACTIVE'
---
--- -   'EXPIRED'
---
--- -   'VALIDATION_TIMED_OUT'
---
--- -   'REVOKED'
---
--- -   'FAILED'
---
+-- | The status or statuses on which to filter the list of ACM Certificates.
 lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
 lcCertificateStatuses = lens _lcCertificateStatuses (\ s a -> s{_lcCertificateStatuses = a}) . _Default . _Coerce;
 
--- | String that contains an opaque marker of the next ACM Certificate ARN to be displayed. Use this parameter when paginating results, and only in a subsequent request after you\'ve received a response where the results have been truncated. Set it to an empty string the first time you call this action, and set it to the value of the 'NextToken' element you receive in the response object for subsequent calls.
+-- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of 'NextToken' from the response you just received.
 lcNextToken :: Lens' ListCertificates (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
--- | Specify this parameter when paginating results to indicate the maximum number of ACM Certificates that you want to display for each response. If there are additional certificates beyond the maximum you specify, use the 'NextToken' value in your next call to the 'ListCertificates' action.
+-- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the 'NextToken' element is sent in the response. Use this 'NextToken' value in a subsequent request to retrieve additional items.
 lcMaxItems :: Lens' ListCertificates (Maybe Natural)
 lcMaxItems = lens _lcMaxItems (\ s a -> s{_lcMaxItems = a}) . mapping _Nat;
+
+instance AWSPager ListCertificates where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsCertificateSummaryList) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListCertificates where
         type Rs ListCertificates = ListCertificatesResponse
@@ -139,9 +132,7 @@ instance ToPath ListCertificates where
 instance ToQuery ListCertificates where
         toQuery = const mempty
 
--- |
---
--- /See:/ 'listCertificatesResponse' smart constructor.
+-- | /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
     { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
     , _lcrsNextToken              :: !(Maybe Text)
@@ -167,11 +158,11 @@ listCertificatesResponse pResponseStatus_ =
     , _lcrsResponseStatus = pResponseStatus_
     }
 
--- | A list of the certificate ARNs.
+-- | A list of ACM Certificates.
 lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
 lcrsCertificateSummaryList = lens _lcrsCertificateSummaryList (\ s a -> s{_lcrsCertificateSummaryList = a}) . _Default . _Coerce;
 
--- | If the list has been truncated, this value is present and should be used for the 'NextToken' input parameter on your next call to 'ListCertificates'.
+-- | When the list is truncated, this value is present and contains the value to use for the 'NextToken' parameter in a subsequent pagination request.
 lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 

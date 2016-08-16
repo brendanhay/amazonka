@@ -41,9 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'resendValidationEmail' smart constructor.
+-- | /See:/ 'resendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
     { _rveCertificateARN   :: !Text
     , _rveDomain           :: !Text

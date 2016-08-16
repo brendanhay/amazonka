@@ -63,6 +63,41 @@ instance ToJSON CertificateStatus where
 instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
 
+data FailureReason
+    = AdditionalVerificationRequired
+    | DomainNotAllowed
+    | InvalidPublicDomain
+    | NoAvailableContacts
+    | Other
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FailureReason where
+    parser = takeLowerText >>= \case
+        "additional_verification_required" -> pure AdditionalVerificationRequired
+        "domain_not_allowed" -> pure DomainNotAllowed
+        "invalid_public_domain" -> pure InvalidPublicDomain
+        "no_available_contacts" -> pure NoAvailableContacts
+        "other" -> pure Other
+        e -> fromTextError $ "Failure parsing FailureReason from value: '" <> e
+           <> "'. Accepted values: ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, NO_AVAILABLE_CONTACTS, OTHER"
+
+instance ToText FailureReason where
+    toText = \case
+        AdditionalVerificationRequired -> "ADDITIONAL_VERIFICATION_REQUIRED"
+        DomainNotAllowed -> "DOMAIN_NOT_ALLOWED"
+        InvalidPublicDomain -> "INVALID_PUBLIC_DOMAIN"
+        NoAvailableContacts -> "NO_AVAILABLE_CONTACTS"
+        Other -> "OTHER"
+
+instance Hashable     FailureReason
+instance NFData       FailureReason
+instance ToByteString FailureReason
+instance ToQuery      FailureReason
+instance ToHeader     FailureReason
+
+instance FromJSON FailureReason where
+    parseJSON = parseJSONText "FailureReason"
+
 data KeyAlgorithm
     = EcPRIME256V1
     | Rsa2048

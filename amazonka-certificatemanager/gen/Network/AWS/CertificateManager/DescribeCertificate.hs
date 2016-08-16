@@ -42,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'describeCertificate' smart constructor.
+-- | /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
     { _dCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -106,9 +104,7 @@ instance ToPath DescribeCertificate where
 instance ToQuery DescribeCertificate where
         toQuery = const mempty
 
--- |
---
--- /See:/ 'describeCertificateResponse' smart constructor.
+-- | /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
     { _dcrsCertificate    :: !(Maybe CertificateDetail)
     , _dcrsResponseStatus :: !Int

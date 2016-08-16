@@ -42,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'listTagsForCertificate' smart constructor.
+-- | /See:/ 'listTagsForCertificate' smart constructor.
 newtype ListTagsForCertificate = ListTagsForCertificate'
     { _ltfcCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -106,9 +104,7 @@ instance ToPath ListTagsForCertificate where
 instance ToQuery ListTagsForCertificate where
         toQuery = const mempty
 
--- |
---
--- /See:/ 'listTagsForCertificateResponse' smart constructor.
+-- | /See:/ 'listTagsForCertificateResponse' smart constructor.
 data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
     { _ltfcrsTags           :: !(Maybe (List1 Tag))
     , _ltfcrsResponseStatus :: !Int

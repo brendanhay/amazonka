@@ -45,9 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'getCertificate' smart constructor.
+-- | /See:/ 'getCertificate' smart constructor.
 newtype GetCertificate = GetCertificate'
     { _gcCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -108,9 +106,7 @@ instance ToPath GetCertificate where
 instance ToQuery GetCertificate where
         toQuery = const mempty
 
--- |
---
--- /See:/ 'getCertificateResponse' smart constructor.
+-- | /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
     { _gcrsCertificate      :: !(Maybe Text)
     , _gcrsCertificateChain :: !(Maybe Text)

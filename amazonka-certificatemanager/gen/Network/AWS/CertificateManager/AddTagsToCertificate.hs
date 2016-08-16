@@ -44,9 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'addTagsToCertificate' smart constructor.
+-- | /See:/ 'addTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
     { _attcCertificateARN :: !Text
     , _attcTags           :: !(List1 Tag)

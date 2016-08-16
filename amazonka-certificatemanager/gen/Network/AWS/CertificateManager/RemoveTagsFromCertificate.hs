@@ -42,9 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'removeTagsFromCertificate' smart constructor.
+-- | /See:/ 'removeTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
     { _rtfcCertificateARN :: !Text
     , _rtfcTags           :: !(List1 Tag)

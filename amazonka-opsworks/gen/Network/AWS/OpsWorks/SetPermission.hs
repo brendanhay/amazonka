@@ -87,9 +87,13 @@ spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
 -- | The user\'s permission level, which must be set to one of the following strings. You cannot set your own permissions level.
 --
 -- -   'deny'
+--
 -- -   'show'
+--
 -- -   'deploy'
+--
 -- -   'manage'
+--
 -- -   'iam_only'
 --
 -- For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.

@@ -13,7 +13,7 @@
 --
 -- AWS OpsWorks
 --
--- Welcome to the /AWS OpsWorks API Reference/. This guide provides descriptions, syntax, and usage examples about AWS OpsWorks actions and data types, including common parameters and error codes.
+-- Welcome to the /AWS OpsWorks API Reference/. This guide provides descriptions, syntax, and usage examples for AWS OpsWorks actions and data types, including common parameters and error codes.
 --
 -- AWS OpsWorks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
 --
@@ -22,20 +22,26 @@
 -- The most common way to use the AWS OpsWorks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:
 --
 -- -   <http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
+--
 -- -   <http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
+--
 -- -   <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm AWS SDK for .NET>
+--
 -- -   <http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html AWS SDK for PHP 2>
--- -   <http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html AWS SDK for Ruby>
+--
+-- -   <http://docs.aws.amazon.com/sdkforruby/api/ AWS SDK for Ruby>
+--
 -- -   <http://aws.amazon.com/documentation/sdkforjavascript/ AWS SDK for Node.js>
+--
 -- -   <http://docs.pythonboto.org/en/latest/ref/opsworks.html AWS SDK for Python(Boto)>
 --
 -- __Endpoints__
 --
--- AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com (HTTPS), so you must connect to that endpoint. You can then use the API to direct AWS OpsWorks to create stacks in any AWS Region.
+-- AWS OpsWorks supports two endpoints, opsworks.us-east-1.amazonaws.com and opsworks.ap-south-1.amazonaws.com (both HTTPS). You must connect to one of those two endpoints. You can then use the API to direct AWS OpsWorks to create stacks in any AWS region. Stacks created in all regions except ap-south-1 are connected to the us-east-1 regional endpoint; stacks created in ap-south-1 are associated with the ap-south-1 regional endpoint, and can only be accessed or managed within that endpoint.
 --
 -- __Chef Versions__
 --
--- When you call < CreateStack>, < CloneStack>, or < UpdateStack> we recommend you use the 'ConfigurationManager' parameter to specify the Chef version. The recommended value for Linux stacks is currently 12 (the default is 11.4). Windows stacks use Chef 12.2. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
+-- When you call < CreateStack>, < CloneStack>, or < UpdateStack> we recommend you use the 'ConfigurationManager' parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
 --
 -- You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.
 module Network.AWS.OpsWorks

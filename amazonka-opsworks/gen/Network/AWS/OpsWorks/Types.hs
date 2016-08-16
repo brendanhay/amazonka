@@ -544,7 +544,7 @@ opsWorks =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Indicates that a request was invalid.
+-- | Indicates that a request was not valid.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 

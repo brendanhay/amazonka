@@ -183,6 +183,7 @@ cDefaultRootDeviceType = lens _cDefaultRootDeviceType (\ s a -> s{_cDefaultRootD
 -- | The ID of the VPC that the cloned stack is to be launched into. It must be in the specified region. All instances are launched into this VPC, and you cannot change the ID later.
 --
 -- -   If your account supports EC2 Classic, the default value is no VPC.
+--
 -- -   If your account does not support EC2 Classic, the default value is the default VPC for the specified region.
 --
 -- If the VPC ID corresponds to a default VPC and you have specified either the 'DefaultAvailabilityZone' or the 'DefaultSubnetId' parameter only, AWS OpsWorks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.
@@ -190,6 +191,7 @@ cDefaultRootDeviceType = lens _cDefaultRootDeviceType (\ s a -> s{_cDefaultRootD
 -- If you specify a nondefault VPC ID, note the following:
 --
 -- -   It must belong to a VPC in your account that is in the specified region.
+--
 -- -   You must specify a value for 'DefaultSubnetId'.
 --
 -- For more information on how to use AWS OpsWorks with a VPC, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>. For more information on default VPC and EC2 Classic, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
@@ -203,6 +205,7 @@ cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
 -- -   Auto-update - Set this parameter to 'LATEST'. AWS OpsWorks automatically installs new agent versions on the stack\'s instances as soon as they are available.
+--
 -- -   Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks then automatically installs that version on the stack\'s instances.
 --
 -- The default setting is 'LATEST'. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call < DescribeAgentVersions>.
@@ -245,8 +248,16 @@ cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The stack\'s operating system, which must be set to one of the following.
 --
--- -   A supported Linux operating system: An Amazon Linux version, such as 'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
--- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A supported Linux operating system: An Amazon Linux version, such as 'Amazon Linux 2016.03', 'Amazon Linux 2015.09', or 'Amazon Linux 2015.03'.
+--
+-- -   A supported Ubuntu operating system, such as 'Ubuntu 16.04 LTS', 'Ubuntu 14.04 LTS', or 'Ubuntu 12.04 LTS'.
+--
+-- -   'CentOS 7'
+--
+-- -   'Red Hat Enterprise Linux 7'
+--
+-- -   'Microsoft Windows Server 2012 R2 Base', 'Microsoft Windows Server 2012 R2 with SQL Server Express', 'Microsoft Windows Server 2012 R2 with SQL Server Standard', or 'Microsoft Windows Server 2012 R2 with SQL Server Web'.
+--
 -- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use when you create instances. For more information on how to use custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
 -- The default option is the parent stack\'s operating system. For more information on the supported operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
@@ -260,6 +271,7 @@ cDefaultOS = lens _cDefaultOS (\ s a -> s{_cDefaultOS = a});
 -- AWS OpsWorks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With 'UseOpsworksSecurityGroups' you can instead provide your own custom security groups. 'UseOpsworksSecurityGroups' has the following settings:
 --
 -- -   True - AWS OpsWorks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it but you cannot delete the built-in security group.
+--
 -- -   False - AWS OpsWorks does not associate built-in security groups with layers. You must create appropriate Amazon Elastic Compute Cloud (Amazon EC2) security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
 --
 -- For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
@@ -278,22 +290,32 @@ cDefaultSubnetId = lens _cDefaultSubnetId (\ s a -> s{_cDefaultSubnetId = a});
 cRegion :: Lens' CloneStack (Maybe Text)
 cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 
--- | The configuration manager. When you clone a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 11.4.
+-- | The configuration manager. When you clone a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
 cConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
 cConfigurationManager = lens _cConfigurationManager (\ s a -> s{_cConfigurationManager = a});
 
 -- | The stack\'s host name theme, with spaces are replaced by underscores. The theme is used to generate host names for the stack\'s instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to the layer\'s short name. The other themes are:
 --
 -- -   'Baked_Goods'
+--
 -- -   'Clouds'
+--
 -- -   'Europe_Cities'
+--
 -- -   'Fruits'
+--
 -- -   'Greek_Deities'
+--
 -- -   'Legendary_creatures_from_Japan'
+--
 -- -   'Planets_and_Moons'
+--
 -- -   'Roman_Deities'
+--
 -- -   'Scottish_Islands'
+--
 -- -   'US_Cities'
+--
 -- -   'Wild_Cats'
 --
 -- To obtain a generated host name, call 'GetHostNameSuggestion', which returns a host name based on the current theme.

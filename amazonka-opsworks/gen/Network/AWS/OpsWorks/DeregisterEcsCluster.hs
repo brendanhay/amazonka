@@ -20,7 +20,7 @@
 --
 -- Deregisters a specified Amazon ECS cluster from a stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete Resource Management>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html >.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html>.
 module Network.AWS.OpsWorks.DeregisterEcsCluster
     (
     -- * Creating a Request

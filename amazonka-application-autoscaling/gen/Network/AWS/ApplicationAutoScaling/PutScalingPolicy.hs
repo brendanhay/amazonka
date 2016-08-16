@@ -92,11 +92,11 @@ putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension
     , _pspScalableDimension = pScalableDimension_
     }
 
--- | The policy type. This parameter is required if you are creating a new policy.
+-- | The policy type. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 
--- | The configuration for the step scaling policy. This parameter is required if you are creating a new policy. For more information, see <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepScalingPolicyConfiguration.html StepScalingPolicyConfiguration> and <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepAdjustment.html StepAdjustment> in the /Application Auto Scaling API Reference/.
+-- | The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required. For more information, see < StepScalingPolicyConfiguration> and < StepAdjustment>.
 pspStepScalingPolicyConfiguration :: Lens' PutScalingPolicy (Maybe StepScalingPolicyConfiguration)
 pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s a -> s{_pspStepScalingPolicyConfiguration = a});
 

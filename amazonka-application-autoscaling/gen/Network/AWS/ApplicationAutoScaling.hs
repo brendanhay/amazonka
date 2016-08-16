@@ -23,6 +23,24 @@
 --
 -- -   View history of your scaling events
 --
+-- Application Auto Scaling is available in the following regions:
+--
+-- -   'us-east-1'
+--
+-- -   'us-west-1'
+--
+-- -   'us-west-2'
+--
+-- -   'ap-southeast-1'
+--
+-- -   'ap-southeast-2'
+--
+-- -   'ap-northeast-1'
+--
+-- -   'eu-central-1'
+--
+-- -   'eu-west-1'
+--
 module Network.AWS.ApplicationAutoScaling
     (
     -- * Service Configuration

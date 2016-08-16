@@ -171,6 +171,6 @@ _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 _ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectNotFoundException = _ServiceError . hasCode "ObjectNotFoundException"
 
--- | Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded. Application Auto Scaling has a limit of 40 scalable targets per account for Amazon ECS services, 50 scaling policies per scalable target, and 20 step adjustments per step scaling policy.
+-- | Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_as-app Application Auto Scaling Limits>.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

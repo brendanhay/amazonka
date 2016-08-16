@@ -25,6 +25,56 @@ For example, you can use Application Auto Scaling to accomplish the following ta
 
 -   View history of your scaling events
 
+Application Auto Scaling is available in the following regions:
+
+-   
+    @
+    us-east-1
+    @
+    
+
+-   
+    @
+    us-west-1
+    @
+    
+
+-   
+    @
+    us-west-2
+    @
+    
+
+-   
+    @
+    ap-southeast-1
+    @
+    
+
+-   
+    @
+    ap-southeast-2
+    @
+    
+
+-   
+    @
+    ap-northeast-1
+    @
+    
+
+-   
+    @
+    eu-central-1
+    @
+    
+
+-   
+    @
+    eu-west-1
+    @
+    
+
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-application-autoscaling)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 

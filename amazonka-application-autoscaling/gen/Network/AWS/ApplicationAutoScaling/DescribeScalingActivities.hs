@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides descriptive information for scaling activities with a specified service namespace.
+-- Provides descriptive information for scaling activities with a specified service namespace for the previous six weeks.
 --
 -- You can filter the results in a service namespace with the 'ResourceId' and 'ScalableDimension' parameters.
 --

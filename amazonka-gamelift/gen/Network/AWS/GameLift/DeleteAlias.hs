@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an alias. This action removes all record of the alias; game clients attempting to access a game server using the deleted alias receive an error. To delete an alias, specify the alias ID to be deleted.
+-- Deletes an alias. This action removes all record of the alias; game clients attempting to access a server process using the deleted alias receive an error. To delete an alias, specify the alias ID to be deleted.
 module Network.AWS.GameLift.DeleteAlias
     (
     -- * Creating a Request

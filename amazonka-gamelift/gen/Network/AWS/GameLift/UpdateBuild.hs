@@ -72,7 +72,7 @@ updateBuild pBuildId_ =
     , _ubBuildId = pBuildId_
     }
 
--- | Descriptive label associated with this build. Build names do not need to be unique.
+-- | Descriptive label associated with a build. Build names do not need to be unique.
 ubName :: Lens' UpdateBuild (Maybe Text)
 ubName = lens _ubName (\ s a -> s{_ubName = a});
 
@@ -80,7 +80,7 @@ ubName = lens _ubName (\ s a -> s{_ubName = a});
 ubVersion :: Lens' UpdateBuild (Maybe Text)
 ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a});
 
--- | Unique identifier for the build you want to update.
+-- | Unique identifier of the build you want to update.
 ubBuildId :: Lens' UpdateBuild Text
 ubBuildId = lens _ubBuildId (\ s a -> s{_ubBuildId = a});
 

@@ -77,18 +77,18 @@ updateFleetAttributes pFleetId_ =
     , _ufaFleetId = pFleetId_
     }
 
--- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist will not be affected. You can set protection for individual instances using < UpdateGameSession>.
+-- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using < UpdateGameSession>.
 --
--- -   NoProtection: The game session can be terminated during a scale-down event.
--- -   FullProtection: If the game session is in an ACTIVE status, it cannot be terminated during a scale-down event.
+-- -   __NoProtection__ – The game session can be terminated during a scale-down event.
+-- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
 ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s a -> s{_ufaNewGameSessionProtectionPolicy = a});
 
--- | Descriptive label associated with this fleet. Fleet names do not need to be unique.
+-- | Descriptive label associated with a fleet. Fleet names do not need to be unique.
 ufaName :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
 
--- | Human-readable description of the fleet.
+-- | Human-readable description of a fleet.
 ufaDescription :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaDescription = lens _ufaDescription (\ s a -> s{_ufaDescription = a});
 

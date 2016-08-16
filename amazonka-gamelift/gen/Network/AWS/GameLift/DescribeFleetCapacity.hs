@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current status of fleet capacity for one or more fleets. This information includes the number of instances that have been requested for the fleet and the number currently active. You can request capacity for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetCapacity> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
+-- Retrieves the current status of fleet capacity for one or more fleets. This information includes the number of instances that have been requested for the fleet and the number currently active. You can request capacity for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetCapacity> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
 -- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetCapacity
@@ -78,11 +78,11 @@ describeFleetCapacity =
 dfcNextToken :: Lens' DescribeFleetCapacity (Maybe Text)
 dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcLimit :: Lens' DescribeFleetCapacity (Maybe Natural)
 dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve capacity information for.
+-- | Unique identifier for the fleet(s) you want to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
 dfcFleetIds :: Lens' DescribeFleetCapacity (Maybe (NonEmpty Text))
 dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1;
 

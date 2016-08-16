@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves entries from the fleet event log. You can specify a time range to limit the result set. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of event log entries matching the request are returned.
+-- Retrieves entries from the specified fleet\'s event log. You can specify a time range to limit the result set. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of event log entries matching the request are returned.
 module Network.AWS.GameLift.DescribeFleetEvents
     (
     -- * Creating a Request
@@ -83,7 +83,7 @@ describeFleetEvents pFleetId_ =
     , _dfeFleetId = pFleetId_
     }
 
--- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is an integer representing the number of seconds since the Unix epoch (Unix time).
+-- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
 dfeStartTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Time;
 
@@ -91,11 +91,11 @@ dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Tim
 dfeNextToken :: Lens' DescribeFleetEvents (Maybe Text)
 dfeNextToken = lens _dfeNextToken (\ s a -> s{_dfeNextToken = a});
 
--- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is an integer representing the number of seconds since the Unix epoch (Unix time).
+-- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
 dfeEndTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeEndTime = lens _dfeEndTime (\ s a -> s{_dfeEndTime = a}) . mapping _Time;
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 dfeLimit :: Lens' DescribeFleetEvents (Maybe Natural)
 dfeLimit = lens _dfeLimit (\ s a -> s{_dfeLimit = a}) . mapping _Nat;
 

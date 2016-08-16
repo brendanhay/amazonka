@@ -153,6 +153,7 @@ module Network.AWS.GameLift.Types
     , fuMaximumPlayerSessionCount
     , fuCurrentPlayerSessionCount
     , fuFleetId
+    , fuActiveServerProcessCount
 
     -- * GameProperty
     , GameProperty
@@ -174,6 +175,7 @@ module Network.AWS.GameLift.Types
     , gsName
     , gsCurrentPlayerSessionCount
     , gsFleetId
+    , gsPort
 
     -- * GameSessionDetail
     , GameSessionDetail
@@ -200,6 +202,7 @@ module Network.AWS.GameLift.Types
     , psPlayerSessionId
     , psFleetId
     , psPlayerId
+    , psPort
 
     -- * RoutingStrategy
     , RoutingStrategy
@@ -207,6 +210,11 @@ module Network.AWS.GameLift.Types
     , rsType
     , rsMessage
     , rsFleetId
+
+    -- * RuntimeConfiguration
+    , RuntimeConfiguration
+    , runtimeConfiguration
+    , rcServerProcesses
 
     -- * S3Location
     , S3Location
@@ -227,6 +235,13 @@ module Network.AWS.GameLift.Types
     , spThreshold
     , spScalingAdjustment
     , spFleetId
+
+    -- * ServerProcess
+    , ServerProcess
+    , serverProcess
+    , spParameters
+    , spLaunchPath
+    , spConcurrentExecutions
     ) where
 
 import           Network.AWS.GameLift.Types.Product
@@ -269,25 +284,25 @@ gameLift =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the fleet. Please resolve the conflict before retrying.
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the fleet. Resolve the conflict before retrying.
 _InvalidFleetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFleetStatusException =
     _ServiceError . hasCode "InvalidFleetStatusException"
 
--- | One or more parameters specified as part of the request are invalid. Please correct the invalid parameters before retrying.
+-- | One or more parameters specified as part of the request are invalid. Correct the invalid parameters before retrying.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
--- | The requested operation would cause a conflict with the current state of a service resource associated with the request. Please resolve the conflict before retrying this request.
+-- | The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException = _ServiceError . hasCode "ConflictException"
 
--- | The service is unable to resolve the routing for a particular alias because it has a terminal < RoutingStrategy> associated with it. The message returned in this exception is the message defined in the TerminalRoutingStrategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+-- | The service is unable to resolve the routing for a particular alias because it has a terminal < RoutingStrategy> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
 _TerminalRoutingStrategyException :: AsError a => Getting (First ServiceError) a ServiceError
 _TerminalRoutingStrategyException =
     _ServiceError . hasCode "TerminalRoutingStrategyException"
 
--- | A service resource associated with the request could not be found. Such requests should not be retried by clients.
+-- | A service resource associated with the request could not be found. Clients should not retry such requests
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasCode "NotFoundException"
 
@@ -295,16 +310,16 @@ _NotFoundException = _ServiceError . hasCode "NotFoundException"
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
 _GameSessionFullException = _ServiceError . hasCode "GameSessionFullException"
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the game instance. Such requests should not be retried by clients without resolving the conflict.
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the game instance. Clients should not retry such requests without resolving the conflict.
 _InvalidGameSessionStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGameSessionStatusException =
     _ServiceError . hasCode "InvalidGameSessionStatusException"
 
--- | The service encountered an unrecoverable internal failure while processing the request. Such requests can be retried by clients, either immediately or after a back-off period.
+-- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests, either immediately or after a back-off period.
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
--- | The client failed authentication. Such requests should not be retried without valid authentication credentials.
+-- | The client failed authentication. Clients should not retry such requests
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException = _ServiceError . hasCode "UnauthorizedException"
 
@@ -313,6 +328,6 @@ _FleetCapacityExceededException :: AsError a => Getting (First ServiceError) a S
 _FleetCapacityExceededException =
     _ServiceError . hasCode "FleetCapacityExceededException"
 
--- | The requested operation would cause the resource to exceed the allowed service limit. Please resolve the issue before retrying.
+-- | The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

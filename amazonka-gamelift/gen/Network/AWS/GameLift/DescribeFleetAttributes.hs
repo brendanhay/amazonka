@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetAttributes> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
+-- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetAttributes> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
 -- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetAttributes
@@ -78,11 +78,11 @@ describeFleetAttributes =
 dfaNextToken :: Lens' DescribeFleetAttributes (Maybe Text)
 dfaNextToken = lens _dfaNextToken (\ s a -> s{_dfaNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaLimit :: Lens' DescribeFleetAttributes (Maybe Natural)
 dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat;
 
--- | Unique identifiers for the fleet(s) that you want to retrieve attributes for. Leave this parameter empty to retrieve attributes for all fleets.
+-- | Unique identifiers for the fleet(s) that you want to retrieve attributes for. To request attributes for all fleets, leave this parameter empty.
 dfaFleetIds :: Lens' DescribeFleetAttributes (Maybe (NonEmpty Text))
 dfaFleetIds = lens _dfaFleetIds (\ s a -> s{_dfaFleetIds = a}) . mapping _List1;
 

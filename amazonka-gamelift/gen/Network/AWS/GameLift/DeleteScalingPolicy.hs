@@ -65,7 +65,7 @@ deleteScalingPolicy pName_ pFleetId_ =
     , _dspFleetId = pFleetId_
     }
 
--- | Descriptive label associated with this scaling policy. Policy names do not need to be unique.
+-- | Descriptive label associated with a scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
 dspName = lens _dspName (\ s a -> s{_dspName = a});
 

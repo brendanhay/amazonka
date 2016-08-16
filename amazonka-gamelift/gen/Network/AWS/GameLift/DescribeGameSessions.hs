@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for one or more game sessions. This action can be used in several ways: (1) provide a /GameSessionId/ to request properties for a specific game session; (2) provide a /FleetId/ or an /AliasId/ to request properties for all game sessions running on a fleet.
+-- Retrieves properties for one or more game sessions. This action can be used in several ways: (1) provide a 'GameSessionId' to request properties for a specific game session; (2) provide a 'FleetId' or an 'AliasId' to request properties for all game sessions running on a fleet.
 --
 -- To get game session record(s), specify just one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < GameSession> object is returned for each session matching the request.
 module Network.AWS.GameLift.DescribeGameSessions
@@ -101,11 +101,11 @@ dgsAliasId = lens _dgsAliasId (\ s a -> s{_dgsAliasId = a});
 dgsNextToken :: Lens' DescribeGameSessions (Maybe Text)
 dgsNextToken = lens _dgsNextToken (\ s a -> s{_dgsNextToken = a});
 
--- | Game session status to filter results on. Possible game session states include ACTIVE, TERMINATED, ACTIVATING and TERMINATING (the last two are transitory).
+-- | Game session status to filter results on. Possible game session statuses include 'ACTIVE', 'TERMINATED', 'ACTIVATING', and 'TERMINATING' (the last two are transitory).
 dgsStatusFilter :: Lens' DescribeGameSessions (Maybe Text)
 dgsStatusFilter = lens _dgsStatusFilter (\ s a -> s{_dgsStatusFilter = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 dgsLimit :: Lens' DescribeGameSessions (Maybe Natural)
 dgsLimit = lens _dgsLimit (\ s a -> s{_dgsLimit = a}) . mapping _Nat;
 

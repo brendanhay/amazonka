@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for one or more player sessions. This action can be used in several ways: (1) provide a /PlayerSessionId/ parameter to request properties for a specific player session; (2) provide a /GameSessionId/ parameter to request properties for all player sessions in the specified game session; (3) provide a /PlayerId/ parameter to request properties for all player sessions of a specified player.
+-- Retrieves properties for one or more player sessions. This action can be used in several ways: (1) provide a 'PlayerSessionId' parameter to request properties for a specific player session; (2) provide a 'GameSessionId' parameter to request properties for all player sessions in the specified game session; (3) provide a 'PlayerId' parameter to request properties for all player sessions of a specified player.
 --
 -- To get game session record(s), specify only one of the following: a player session ID, a game session ID, or a player ID. You can filter this request by player session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < PlayerSession> object is returned for each session matching the request.
 module Network.AWS.GameLift.DescribePlayerSessions
@@ -97,7 +97,7 @@ dpsGameSessionId = lens _dpsGameSessionId (\ s a -> s{_dpsGameSessionId = a});
 dpsNextToken :: Lens' DescribePlayerSessions (Maybe Text)
 dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
 dpsLimit :: Lens' DescribePlayerSessions (Maybe Natural)
 dpsLimit = lens _dpsLimit (\ s a -> s{_dpsLimit = a}) . mapping _Nat;
 
@@ -109,12 +109,14 @@ dpsPlayerSessionId = lens _dpsPlayerSessionId (\ s a -> s{_dpsPlayerSessionId = 
 dpsPlayerId :: Lens' DescribePlayerSessions (Maybe Text)
 dpsPlayerId = lens _dpsPlayerId (\ s a -> s{_dpsPlayerId = a});
 
--- | Player session status to filter results on. Possible player session states include:
+-- | Player session status to filter results on.
 --
--- -   RESERVED: The player session request has been received, but the player has not yet connected to the game server and\/or been validated.
--- -   ACTIVE: The player has been validated by the game server and is currently connected.
--- -   COMPLETED: The player connection has been dropped.
--- -   TIMEDOUT: A player session request was received, but the player did not connect and\/or was not validated within the time-out limit (60 seconds).
+-- Possible player session statuses include the following:
+--
+-- -   __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and\/or been validated.
+-- -   __ACTIVE__ – The player has been validated by the server process and is currently connected.
+-- -   __COMPLETED__ – The player connection has been dropped.
+-- -   __TIMEDOUT__ – A player session request was received, but the player did not connect and\/or was not validated within the time-out limit (60 seconds).
 dpsPlayerSessionStatusFilter :: Lens' DescribePlayerSessions (Maybe Text)
 dpsPlayerSessionStatusFilter = lens _dpsPlayerSessionStatusFilter (\ s a -> s{_dpsPlayerSessionStatusFilter = a});
 

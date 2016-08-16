@@ -82,7 +82,7 @@ lfBuildId = lens _lfBuildId (\ s a -> s{_lfBuildId = a});
 lfNextToken :: Lens' ListFleets (Maybe Text)
 lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 lfLimit :: Lens' ListFleets (Maybe Natural)
 lfLimit = lens _lfLimit (\ s a -> s{_lfLimit = a}) . mapping _Nat;
 

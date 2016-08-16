@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in /InboundPermissionAuthorizations/, and permissions you want to remove in /InboundPermissionRevocations/. Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+-- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in 'InboundPermissionAuthorizations', and permissions you want to remove in 'InboundPermissionRevocations'. Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
 module Network.AWS.GameLift.UpdateFleetPortSettings
     (
     -- * Creating a Request

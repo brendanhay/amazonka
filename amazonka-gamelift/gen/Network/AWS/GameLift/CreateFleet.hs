@@ -18,20 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new fleet to host game servers. A fleet consists of a set of Amazon Elastic Compute Cloud (Amazon EC2) instances of a certain type, which defines the CPU, memory, storage, and networking capacity of each host in the fleet. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for more information. Each instance in the fleet hosts a game server created from the specified game build. Once a fleet is in an ACTIVE state, it can begin hosting game sessions.
+-- Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can run multiple server processes to host game sessions. You configure a fleet to create instances with certain hardware specifications (see <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for more information), and deploy a specified game build to each instance. A newly created fleet passes through several statuses; once it reaches the 'ACTIVE' status, it can begin hosting game sessions.
 --
--- To create a new fleet, provide a name and the EC2 instance type for the new fleet, and specify the build and server launch path. Builds must be in a READY state before they can be used to build fleets. When configuring the new fleet, you can optionally (1) provide a set of launch parameters to be passed to a game server when activated; (2) limit incoming traffic to a specified range of IP addresses and port numbers; (3) set game session protection for all instances in the fleet, and (4) configure Amazon GameLift to store game session logs by specifying the path to the logs stored in your game server files. If the call is successful, Amazon GameLift performs the following tasks:
+-- To create a new fleet, provide a fleet name, an EC2 instance type, and a build ID of the game build to deploy. You can also configure the new fleet with the following settings: (1) a runtime configuration describing what server processes to run on each instance in the fleet (required to create fleet), (2) access permissions for inbound traffic, (3) fleet-wide game session protection, and (4) the location of default log files for GameLift to upload and store.
 --
--- -   Creates a fleet record and sets the state to NEW.
--- -   Sets the fleet\'s capacity to 1 \"desired\" and 1 \"active\" EC2 instance count.
--- -   Creates an EC2 instance and begins the process of initializing the fleet and activating a game server on the instance.
+-- If the 'CreateFleet' call is successful, Amazon GameLift performs the following tasks:
+--
+-- -   Creates a fleet record and sets the status to 'NEW' (followed by other statuses as the fleet is activated).
+-- -   Sets the fleet\'s capacity to 1 \"desired\", which causes GameLift to start one new EC2 instance.
+-- -   Starts launching server processes on the instance. If the fleet is configured to run multiple server processes per instance, GameLift staggers each launch by a few seconds.
 -- -   Begins writing events to the fleet event log, which can be accessed in the GameLift console.
+-- -   Sets the fleet\'s status to 'ACTIVE' once one server process in the fleet is ready to host a game session.
 --
--- Once a fleet is created, use the following actions to change certain fleet properties (server launch parameters and log paths cannot be changed):
+-- After a fleet is created, use the following actions to change fleet properties and configuration:
 --
 -- -   < UpdateFleetAttributes> -- Update fleet metadata, including name and description.
 -- -   < UpdateFleetCapacity> -- Increase or decrease the number of instances you want the fleet to maintain.
--- -   < UpdateFleetPortSettings> -- Change the IP addresses and ports that allow access to incoming traffic.
+-- -   < UpdateFleetPortSettings> -- Change the IP address and port ranges that allow access to incoming traffic.
+-- -   < UpdateRuntimeConfiguration> -- Change how server processes are launched in the fleet, including launch path, launch parameters, and the number of concurrent processes.
 module Network.AWS.GameLift.CreateFleet
     (
     -- * Creating a Request
@@ -41,11 +45,12 @@ module Network.AWS.GameLift.CreateFleet
     , cfServerLaunchParameters
     , cfLogPaths
     , cfEC2InboundPermissions
+    , cfRuntimeConfiguration
     , cfNewGameSessionProtectionPolicy
+    , cfServerLaunchPath
     , cfDescription
     , cfName
     , cfBuildId
-    , cfServerLaunchPath
     , cfEC2InstanceType
 
     -- * Destructuring the Response
@@ -70,11 +75,12 @@ data CreateFleet = CreateFleet'
     { _cfServerLaunchParameters         :: !(Maybe Text)
     , _cfLogPaths                       :: !(Maybe [Text])
     , _cfEC2InboundPermissions          :: !(Maybe [IPPermission])
+    , _cfRuntimeConfiguration           :: !(Maybe RuntimeConfiguration)
     , _cfNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
+    , _cfServerLaunchPath               :: !(Maybe Text)
     , _cfDescription                    :: !(Maybe Text)
     , _cfName                           :: !Text
     , _cfBuildId                        :: !Text
-    , _cfServerLaunchPath               :: !Text
     , _cfEC2InstanceType                :: !EC2InstanceType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -88,7 +94,11 @@ data CreateFleet = CreateFleet'
 --
 -- * 'cfEC2InboundPermissions'
 --
+-- * 'cfRuntimeConfiguration'
+--
 -- * 'cfNewGameSessionProtectionPolicy'
+--
+-- * 'cfServerLaunchPath'
 --
 -- * 'cfDescription'
 --
@@ -96,64 +106,66 @@ data CreateFleet = CreateFleet'
 --
 -- * 'cfBuildId'
 --
--- * 'cfServerLaunchPath'
---
 -- * 'cfEC2InstanceType'
 createFleet
     :: Text -- ^ 'cfName'
     -> Text -- ^ 'cfBuildId'
-    -> Text -- ^ 'cfServerLaunchPath'
     -> EC2InstanceType -- ^ 'cfEC2InstanceType'
     -> CreateFleet
-createFleet pName_ pBuildId_ pServerLaunchPath_ pEC2InstanceType_ =
+createFleet pName_ pBuildId_ pEC2InstanceType_ =
     CreateFleet'
     { _cfServerLaunchParameters = Nothing
     , _cfLogPaths = Nothing
     , _cfEC2InboundPermissions = Nothing
+    , _cfRuntimeConfiguration = Nothing
     , _cfNewGameSessionProtectionPolicy = Nothing
+    , _cfServerLaunchPath = Nothing
     , _cfDescription = Nothing
     , _cfName = pName_
     , _cfBuildId = pBuildId_
-    , _cfServerLaunchPath = pServerLaunchPath_
     , _cfEC2InstanceType = pEC2InstanceType_
     }
 
--- | Parameters required to launch your game server. These parameters should be expressed as a string of command-line parameters. Example: \"+sv_port 33435 +start_lobby\".
+-- | This parameter is no longer used. Instead, specify server launch parameters in the 'RuntimeConfiguration' parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
 cfServerLaunchParameters :: Lens' CreateFleet (Maybe Text)
 cfServerLaunchParameters = lens _cfServerLaunchParameters (\ s a -> s{_cfServerLaunchParameters = a});
 
--- | Path to game-session log files generated by your game server. Once a game session has been terminated, Amazon GameLift captures and stores the logs on Amazon S3. Use the GameLift console to access the stored logs.
+-- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide>. If no default log path for a fleet is specified, GameLift will automatically upload logs stored on each instance at 'C:\\game\\logs'. Use the GameLift console to access stored logs.
 cfLogPaths :: Lens' CreateFleet [Text]
 cfLogPaths = lens _cfLogPaths (\ s a -> s{_cfLogPaths = a}) . _Default . _Coerce;
 
--- | Access limits for incoming traffic. Setting these values limits game server access to incoming traffic using specified IP ranges and port numbers. Some ports in a range may be restricted. You can provide one or more sets of permissions for the fleet.
+-- | Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. If no inbound permissions are set, including both IP address range and port range, the server processes in the fleet cannot accept connections. You can specify one or more sets of permissions for a fleet.
 cfEC2InboundPermissions :: Lens' CreateFleet [IPPermission]
 cfEC2InboundPermissions = lens _cfEC2InboundPermissions (\ s a -> s{_cfEC2InboundPermissions = a}) . _Default . _Coerce;
 
--- | Game session protection policy to apply to all instances created in this fleet. If this parameter is not set, new instances in this fleet will default to no protection. Protection can be set for individual instances using < UpdateGameSession>.
+-- | Instructions for launching server processes on each instance in the fleet. The runtime configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A 'CreateFleet' request must include a runtime configuration with at least one server process configuration; otherwise the request will fail with an invalid request exception. (This parameter replaces the parameters 'ServerLaunchPath' and 'ServerLaunchParameters'; requests that contain values for these parameters instead of a runtime configuration will continue to work.)
+cfRuntimeConfiguration :: Lens' CreateFleet (Maybe RuntimeConfiguration)
+cfRuntimeConfiguration = lens _cfRuntimeConfiguration (\ s a -> s{_cfRuntimeConfiguration = a});
+
+-- | Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet\'s protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using < UpdateGameSession>.
 --
--- -   NoProtection: The game session can be terminated during a scale-down event.
--- -   FullProtection: If the game session is in an ACTIVE status, it cannot be terminated during a scale-down event.
+-- -   __NoProtection__ – The game session can be terminated during a scale-down event.
+-- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
 cfNewGameSessionProtectionPolicy :: Lens' CreateFleet (Maybe ProtectionPolicy)
 cfNewGameSessionProtectionPolicy = lens _cfNewGameSessionProtectionPolicy (\ s a -> s{_cfNewGameSessionProtectionPolicy = a});
 
--- | Human-readable description of the fleet.
+-- | This parameter is no longer used. Instead, specify a server launch path using the 'RuntimeConfiguration' parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+cfServerLaunchPath :: Lens' CreateFleet (Maybe Text)
+cfServerLaunchPath = lens _cfServerLaunchPath (\ s a -> s{_cfServerLaunchPath = a});
+
+-- | Human-readable description of a fleet.
 cfDescription :: Lens' CreateFleet (Maybe Text)
 cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 
--- | Descriptive label associated with this fleet. Fleet names do not need to be unique.
+-- | Descriptive label associated with a fleet. Fleet names do not need to be unique.
 cfName :: Lens' CreateFleet Text
 cfName = lens _cfName (\ s a -> s{_cfName = a});
 
--- | Unique identifier for the build you want the new fleet to use.
+-- | Unique identifier of the build to be deployed on the new fleet. The build must have been successfully uploaded to GameLift and be in a 'READY' status. This fleet setting cannot be changed once the fleet is created.
 cfBuildId :: Lens' CreateFleet Text
 cfBuildId = lens _cfBuildId (\ s a -> s{_cfBuildId = a});
 
--- | Path to the launch executable for the game server. A game server is built into a 'C:\\game' drive. This value must be expressed as 'C:\\game\\[launchpath]'. Example: If, when built, your game server files are in a folder called \"MyGame\", your log path should be 'C:\\game\\MyGame\\server.exe'.
-cfServerLaunchPath :: Lens' CreateFleet Text
-cfServerLaunchPath = lens _cfServerLaunchPath (\ s a -> s{_cfServerLaunchPath = a});
-
--- | Type of EC2 instances used in the fleet. EC2 instance types define the CPU, memory, storage, and networking capacity of the fleetaposs hosts. Amazon GameLift supports the EC2 instance types listed below. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions of each.
+-- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 cfEC2InstanceType :: Lens' CreateFleet EC2InstanceType
 cfEC2InstanceType = lens _cfEC2InstanceType (\ s a -> s{_cfEC2InstanceType = a});
 
@@ -188,12 +200,14 @@ instance ToJSON CreateFleet where
                   ("LogPaths" .=) <$> _cfLogPaths,
                   ("EC2InboundPermissions" .=) <$>
                     _cfEC2InboundPermissions,
+                  ("RuntimeConfiguration" .=) <$>
+                    _cfRuntimeConfiguration,
                   ("NewGameSessionProtectionPolicy" .=) <$>
                     _cfNewGameSessionProtectionPolicy,
+                  ("ServerLaunchPath" .=) <$> _cfServerLaunchPath,
                   ("Description" .=) <$> _cfDescription,
                   Just ("Name" .= _cfName),
                   Just ("BuildId" .= _cfBuildId),
-                  Just ("ServerLaunchPath" .= _cfServerLaunchPath),
                   Just ("EC2InstanceType" .= _cfEC2InstanceType)])
 
 instance ToPath CreateFleet where

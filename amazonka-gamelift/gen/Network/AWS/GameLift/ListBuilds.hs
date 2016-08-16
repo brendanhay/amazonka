@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves build records for all builds associated with an AWS account. You can filter the result set by build status. Use the pagination parameters to retrieve results in a set of sequential pages.
+-- Retrieves build records for all builds associated with the AWS account in use. You can limit results to builds that are in a specific status by using the 'Status' parameter. Use the pagination parameters to retrieve results in a set of sequential pages.
 --
 -- Build records are not listed in any particular order.
 module Network.AWS.GameLift.ListBuilds
@@ -74,11 +74,13 @@ listBuilds =
     , _lbLimit = Nothing
     }
 
--- | Build state to filter results on. Use this parameter to retrieve builds in a certain state. To retrieve all builds, leave this parameter empty. Possible build states include:
+-- | Build status to filter results by. To retrieve all builds, leave this parameter empty.
 --
--- -   INITIALIZED: A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this state. When a build is successfully created, the build state is set to this value.
--- -   READY: The game build has been successfully uploaded. You can now create new fleets for this build.
--- -   FAILED: The game build upload failed. You cannot create new fleets for this build.
+-- Possible build statuses include the following:
+--
+-- -   __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.
+-- -   __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.
+-- -   __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 lbStatus :: Lens' ListBuilds (Maybe BuildStatus)
 lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a});
 
@@ -86,7 +88,7 @@ lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a});
 lbNextToken :: Lens' ListBuilds (Maybe Text)
 lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 lbLimit :: Lens' ListBuilds (Maybe Natural)
 lbLimit = lens _lbLimit (\ s a -> s{_lbLimit = a}) . mapping _Nat;
 

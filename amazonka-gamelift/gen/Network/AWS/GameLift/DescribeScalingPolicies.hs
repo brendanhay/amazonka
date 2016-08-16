@@ -84,19 +84,19 @@ describeScalingPolicies pFleetId_ =
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | Game session status to filter results on. A scaling policy is only in force when in an Active state.
+-- | Scaling policy status to filter results on. A scaling policy is only in force when in an 'ACTIVE' status.
 --
--- -   ACTIVE: The scaling policy is currently in force.
--- -   UPDATEREQUESTED: A request to update the scaling policy has been received.
--- -   UPDATING: A change is being made to the scaling policy.
--- -   DELETEREQUESTED: A request to delete the scaling policy has been received.
--- -   DELETING: The scaling policy is being deleted.
--- -   DELETED: The scaling policy has been deleted.
--- -   ERROR: An error occurred in creating the policy. It should be removed and recreated.
+-- -   __ACTIVE__ – The scaling policy is currently in force.
+-- -   __UPDATEREQUESTED__ – A request to update the scaling policy has been received.
+-- -   __UPDATING__ – A change is being made to the scaling policy.
+-- -   __DELETEREQUESTED__ – A request to delete the scaling policy has been received.
+-- -   __DELETING__ – The scaling policy is being deleted.
+-- -   __DELETED__ – The scaling policy has been deleted.
+-- -   __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 dStatusFilter :: Lens' DescribeScalingPolicies (Maybe ScalingStatusType)
 dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 dLimit :: Lens' DescribeScalingPolicies (Maybe Natural)
 dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 

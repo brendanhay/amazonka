@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the names of the inline policies embedded in the specified user.
+-- Lists the names of the inline policies embedded in the specified IAM user.
 --
--- A user can also have managed policies attached to it. To list the managed policies that are attached to a user, use < ListAttachedUserPolicies>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM user can also have managed policies attached to it. To list the managed policies that are attached to a user, use < ListAttachedUserPolicies>. For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If there are no inline policies embedded with the specified user, the action returns an empty list.
 --
@@ -90,6 +90,8 @@ lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\ s a -> s{_lupMaxItems = a}) . mapping _Nat;
 
 -- | The name of the user to list policies for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\ s a -> s{_lupUserName = a});
 

@@ -64,10 +64,14 @@ addUserToGroup pGroupName_ pUserName_ =
     }
 
 -- | The name of the group to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 autgGroupName :: Lens' AddUserToGroup Text
 autgGroupName = lens _autgGroupName (\ s a -> s{_autgGroupName = a});
 
 -- | The name of the user to add.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
 

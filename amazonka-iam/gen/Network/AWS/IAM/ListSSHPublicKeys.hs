@@ -23,6 +23,8 @@
 -- The SSH public keys returned by this action are used only for authenticating the IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
 --
 -- Although each user is limited to a small number of keys, you can still paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListSSHPublicKeys
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.IAM.ListSSHPublicKeys
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,6 +79,8 @@ listSSHPublicKeys =
     }
 
 -- | The name of the IAM user to list SSH public keys for. If none is specified, the UserName field is determined implicitly based on the AWS access key used to sign the request.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lspkUserName :: Lens' ListSSHPublicKeys (Maybe Text)
 lspkUserName = lens _lspkUserName (\ s a -> s{_lspkUserName = a});
 
@@ -88,6 +93,13 @@ lspkMarker = lens _lspkMarker (\ s a -> s{_lspkMarker = a});
 -- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lspkMaxItems :: Lens' ListSSHPublicKeys (Maybe Natural)
 lspkMaxItems = lens _lspkMaxItems (\ s a -> s{_lspkMaxItems = a}) . mapping _Nat;
+
+instance AWSPager ListSSHPublicKeys where
+        page rq rs
+          | stop (rs ^. lspkrsIsTruncated) = Nothing
+          | isNothing (rs ^. lspkrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lspkMarker .~ rs ^. lspkrsMarker
 
 instance AWSRequest ListSSHPublicKeys where
         type Rs ListSSHPublicKeys = ListSSHPublicKeysResponse
@@ -152,7 +164,7 @@ listSSHPublicKeysResponse pResponseStatus_ =
     , _lspkrsResponseStatus = pResponseStatus_
     }
 
--- | A list of SSH public keys.
+-- | A list of the SSH public keys assigned to IAM user.
 lspkrsSSHPublicKeys :: Lens' ListSSHPublicKeysResponse [SSHPublicKeyMetadata]
 lspkrsSSHPublicKeys = lens _lspkrsSSHPublicKeys (\ s a -> s{_lspkrsSSHPublicKeys = a}) . _Default . _Coerce;
 

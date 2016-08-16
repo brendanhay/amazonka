@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about the versions of the specified managed policy, including the version that is set as the policy\'s default version.
+-- Lists information about the versions of the specified managed policy, including the version that is currently set as the policy\'s default version.
 --
--- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicyVersions
@@ -87,7 +87,9 @@ lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
 lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 lpvPolicyARN :: Lens' ListPolicyVersions Text
 lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
 

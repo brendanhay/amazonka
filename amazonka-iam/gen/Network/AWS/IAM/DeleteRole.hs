@@ -60,6 +60,8 @@ deleteRole pRoleName_ =
     }
 
 -- | The name of the role to delete.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
 

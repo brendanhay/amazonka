@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the SAML provider metadocument that was uploaded when the provider was created or updated.
+-- Returns the SAML provider metadocument that was uploaded when the IAM SAML provider resource object was created or updated.
 --
 -- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 module Network.AWS.IAM.GetSAMLProvider
@@ -64,7 +64,9 @@ getSAMLProvider pSAMLProviderARN_ =
     { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider to get information about.
+-- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 

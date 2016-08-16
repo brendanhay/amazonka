@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified inline policy document that is embedded with the specified role.
+-- Retrieves the specified inline policy document that is embedded with the specified IAM role.
 --
--- A role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
+-- Policies returned by this API are URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the 'decode' method of the 'java.net.URLDecoder' utility class in the Java SDK. Other languages and SDKs provide similar functionality.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
 --
--- For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
+-- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--
+-- For more information about roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 module Network.AWS.IAM.GetRolePolicy
     (
     -- * Creating a Request
@@ -75,10 +77,14 @@ getRolePolicy pRoleName_ pPolicyName_ =
     }
 
 -- | The name of the role associated with the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
 
 -- | The name of the policy document to get.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 grpPolicyName :: Lens' GetRolePolicy Text
 grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the groups the specified user belongs to.
+-- Lists the IAM groups that the specified IAM user belongs to.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -88,6 +88,8 @@ lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat;
 
 -- | The name of the user to list groups for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
 

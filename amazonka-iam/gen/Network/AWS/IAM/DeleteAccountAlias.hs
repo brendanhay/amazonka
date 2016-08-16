@@ -58,6 +58,8 @@ deleteAccountAlias pAccountAlias_ =
     }
 
 -- | The name of the account alias to delete.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
 

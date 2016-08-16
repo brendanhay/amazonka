@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the signing certificates associated with the specified user. If there are none, the action returns an empty list.
+-- Returns information about the signing certificates associated with the specified IAM user. If there are none, the action returns an empty list.
 --
 -- Although each user is limited to a small number of signing certificates, you can still paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
--- If the 'UserName' field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+-- If the 'UserName' field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request for this API. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
@@ -78,7 +78,9 @@ listSigningCertificates =
     , _lMaxItems = Nothing
     }
 
--- | The name of the user.
+-- | The name of the IAM user whose signing certificates you want to examine.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lUserName :: Lens' ListSigningCertificates (Maybe Text)
 lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 

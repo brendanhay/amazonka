@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified role, including the role\'s path, GUID, ARN, and the policy granting permission to assume the role. For more information about ARNs, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Retrieves information about the specified role, including the role\'s path, GUID, ARN, and the role\'s trust policy that grants permission to assume the role. For more information about roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+--
+-- Policies returned by this API are URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the 'decode' method of the 'java.net.URLDecoder' utility class in the Java SDK. Other languages and SDKs provide similar functionality.
 module Network.AWS.IAM.GetRole
     (
     -- * Creating a Request
@@ -60,7 +62,9 @@ getRole pRoleName_ =
     { _grRoleName = pRoleName_
     }
 
--- | The name of the role to get information about.
+-- | The name of the IAM role to get information about.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 
@@ -119,7 +123,7 @@ getRoleResponse pResponseStatus_ pRole_ =
 grrsResponseStatus :: Lens' GetRoleResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
--- | Information about the role.
+-- | A structure containing details about the IAM role.
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
 

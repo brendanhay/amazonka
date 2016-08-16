@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use < EnableMFADevice> to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
+-- Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use < EnableMFADevice> to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /IAM User Guide/.
 --
--- For information about limits on the number of MFA devices you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities> in the /Using IAM/ guide.
+-- For information about limits on the number of MFA devices you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities> in the /IAM User Guide/.
 --
 -- The seed information contained in the QR code and the Base32 string should be treated like any other secret access information, such as your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
 module Network.AWS.IAM.CreateVirtualMFADevice
@@ -69,13 +69,17 @@ createVirtualMFADevice pVirtualMFADeviceName_ =
     , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
     }
 
--- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
 
@@ -137,7 +141,7 @@ createVirtualMFADeviceResponse pResponseStatus_ pVirtualMFADevice_ =
 cvmdrsResponseStatus :: Lens' CreateVirtualMFADeviceResponse Int
 cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseStatus = a});
 
--- | A newly created virtual MFA device.
+-- | A structure containing details about the new virtual MFA device.
 cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a});
 

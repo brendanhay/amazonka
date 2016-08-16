@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the status of the specified signing certificate from active to disabled, or vice versa. This action can be used to disable a user\'s signing certificate as part of a certificate rotation work flow.
+-- Changes the status of the specified user signing certificate from active to disabled, or vice versa. This action can be used to disable an IAM user\'s signing certificate as part of a certificate rotation work flow.
 --
 -- If the 'UserName' field is not specified, the UserName is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.UpdateSigningCertificate
@@ -70,11 +70,15 @@ updateSigningCertificate pCertificateId_ pStatus_ =
     , _uscStatus = pStatus_
     }
 
--- | The name of the user the signing certificate belongs to.
+-- | The name of the IAM user the signing certificate belongs to.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 
 -- | The ID of the signing certificate you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 

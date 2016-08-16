@@ -62,6 +62,8 @@ getAccessKeyLastUsed pAccessKeyId_ =
     }
 
 -- | The identifier of an access key.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
@@ -122,6 +124,7 @@ getAccessKeyLastUsedResponse pResponseStatus_ =
     }
 
 -- | The name of the AWS IAM user that owns this access key.
+--
 gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
 gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 

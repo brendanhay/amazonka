@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified instance profile, including the instance profile\'s path, GUID, ARN, and role. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>. For more information about ARNs, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
+-- Retrieves information about the specified instance profile, including the instance profile\'s path, GUID, ARN, and role. For more information about instance profiles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> in the /IAM User Guide/.
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Creating a Request
@@ -61,6 +61,8 @@ getInstanceProfile pInstanceProfileName_ =
     }
 
 -- | The name of the instance profile to get information about.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
@@ -120,7 +122,7 @@ getInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
 giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
 giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
 
--- | Information about the instance profile.
+-- | A structure containing details about the instance profile.
 giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprsInstanceProfile = lens _giprsInstanceProfile (\ s a -> s{_giprsInstanceProfile = a});
 

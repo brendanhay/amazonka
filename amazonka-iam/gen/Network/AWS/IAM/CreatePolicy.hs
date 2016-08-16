@@ -22,7 +22,7 @@
 --
 -- This operation creates a policy version with a version identifier of 'v1' and sets v1 as the policy\'s default version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 --
--- For more information about managed policies in general, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about managed policies in general, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.CreatePolicy
     (
     -- * Creating a Request
@@ -85,6 +85,8 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 -- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cpPath :: Lens' CreatePolicy (Maybe Text)
 cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 
@@ -96,11 +98,15 @@ cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 cpDescription :: Lens' CreatePolicy (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 
--- | The name of the policy document.
+-- | The friendly name of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 cpPolicyName :: Lens' CreatePolicy Text
 cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
--- | The policy document.
+-- | The JSON policy document that you want to use as the content for the new policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
@@ -156,7 +162,7 @@ createPolicyResponse pResponseStatus_ =
     , _cprsResponseStatus = pResponseStatus_
     }
 
--- | Information about the policy.
+-- | A structure containing details about the new policy.
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 

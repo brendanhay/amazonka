@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the virtual MFA devices under the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be 'Assigned', 'Unassigned', or 'Any'.
+-- Lists the virtual MFA devices defined in the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be 'Assigned', 'Unassigned', or 'Any'.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -76,7 +76,7 @@ listVirtualMFADevices =
     , _lvmdMaxItems = Nothing
     }
 
--- | The status (unassigned or assigned) of the devices to list. If you do not specify an 'AssignmentStatus', the action defaults to 'Any' which lists both assigned and unassigned virtual MFA devices.
+-- | The status ('Unassigned' or 'Assigned') of the devices to list. If you do not specify an 'AssignmentStatus', the action defaults to 'Any' which lists both assigned and unassigned virtual MFA devices.
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of users that are in the specified group. You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- Returns a list of IAM users that are in the specified IAM group. You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
@@ -87,6 +87,8 @@ ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
 -- | The name of the group.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ggGroupName :: Lens' GetGroup Text
 ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
@@ -177,7 +179,7 @@ ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 ggrsResponseStatus :: Lens' GetGroupResponse Int
 ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
--- | Information about the group.
+-- | A structure that contains details about the group.
 ggrsGroup :: Lens' GetGroupResponse Group
 ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
 

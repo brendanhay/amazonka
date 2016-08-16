@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the access key IDs associated with the specified user. If there are none, the action returns an empty list.
+-- Returns information about the access key IDs associated with the specified IAM user. If there are none, the action returns an empty list.
 --
 -- Although each user is limited to a small number of keys, you can still paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -81,6 +81,8 @@ listAccessKeys =
     }
 
 -- | The name of the user.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 
@@ -176,7 +178,7 @@ lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a});
 lakrsResponseStatus :: Lens' ListAccessKeysResponse Int
 lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus = a});
 
--- | A list of access key metadata.
+-- | A list of objects containing metadata about the access keys.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;
 

@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an IAM entity to describe an identity provider (IdP) that supports SAML 2.0.
+-- Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.
 --
--- The SAML provider that you create with this operation can be used as a principal in a role\'s trust policy to establish a trust relationship between AWS and a SAML identity provider. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
+-- The SAML provider resource that you create with this operation can be used as a principal in an IAM role\'s trust policy to enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
 --
--- When you create the SAML provider, you upload an a SAML metadata document that you get from your IdP and that includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
+-- When you create the SAML provider resource, you upload an a SAML metadata document that you get from your IdP and that includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
 --
 -- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
@@ -81,6 +81,8 @@ csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
 csamlpSAMLMetadataDocument = lens _csamlpSAMLMetadataDocument (\ s a -> s{_csamlpSAMLMetadataDocument = a});
 
 -- | The name of the provider to create.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 csamlpName :: Lens' CreateSAMLProvider Text
 csamlpName = lens _csamlpName (\ s a -> s{_csamlpName = a});
 
@@ -137,7 +139,7 @@ createSAMLProviderResponse pResponseStatus_ =
     , _csamlprsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider.
+-- | The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
 csamlprsSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAMLProviderARN = a});
 

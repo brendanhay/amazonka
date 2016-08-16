@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new user for your AWS account.
+-- Creates a new IAM user for your AWS account.
 --
--- For information about limitations on the number of users you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- For information about limitations on the number of IAM users you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request
@@ -67,13 +67,17 @@ createUser pUserName_ =
     , _cuUserName = pUserName_
     }
 
--- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 
 -- | The name of the user to create.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
@@ -127,7 +131,7 @@ createUserResponse pResponseStatus_ =
     , _cursResponseStatus = pResponseStatus_
     }
 
--- | Information about the user.
+-- | A structure with details about the new IAM user.
 cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 

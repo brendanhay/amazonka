@@ -67,13 +67,17 @@ createInstanceProfile pInstanceProfileName_ =
     , _cipInstanceProfileName = pInstanceProfileName_
     }
 
--- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
 
 -- | The name of the instance profile to create.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
@@ -134,7 +138,7 @@ createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
 ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
 ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a});
 
--- | Information about the instance profile.
+-- | A structure containing details about the new instance profile.
 ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a});
 

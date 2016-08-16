@@ -30,8 +30,11 @@
 -- For more information, see the following:
 --
 -- -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials>. This topic provides general information about the types of credentials used for accessing AWS.
+--
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>. This topic presents a list of suggestions for using the IAM service to help secure your AWS resources.
+--
 -- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>. This set of topics walk you through the process of signing a request using an access key ID and secret access key.
+--
 module Network.AWS.IAM
     (
     -- * Service Configuration
@@ -136,7 +139,7 @@ module Network.AWS.IAM
     -- ** CreateAccessKey
     , module Network.AWS.IAM.CreateAccessKey
 
-    -- ** ListSSHPublicKeys
+    -- ** ListSSHPublicKeys (Paginated)
     , module Network.AWS.IAM.ListSSHPublicKeys
 
     -- ** ListOpenIdConnectProviders
@@ -187,7 +190,7 @@ module Network.AWS.IAM
     -- ** UploadSSHPublicKey
     , module Network.AWS.IAM.UploadSSHPublicKey
 
-    -- ** SimulateCustomPolicy
+    -- ** SimulateCustomPolicy (Paginated)
     , module Network.AWS.IAM.SimulateCustomPolicy
 
     -- ** DeleteRole
@@ -247,7 +250,7 @@ module Network.AWS.IAM
     -- ** CreateSAMLProvider
     , module Network.AWS.IAM.CreateSAMLProvider
 
-    -- ** GetAccountAuthorizationDetails
+    -- ** GetAccountAuthorizationDetails (Paginated)
     , module Network.AWS.IAM.GetAccountAuthorizationDetails
 
     -- ** DeleteAccountAlias
@@ -304,7 +307,7 @@ module Network.AWS.IAM
     -- ** AddUserToGroup
     , module Network.AWS.IAM.AddUserToGroup
 
-    -- ** SimulatePrincipalPolicy
+    -- ** SimulatePrincipalPolicy (Paginated)
     , module Network.AWS.IAM.SimulatePrincipalPolicy
 
     -- ** GetPolicyVersion

@@ -31,6 +31,8 @@
 -- Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. You can use the 'Condition' element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use < GetContextKeysForPrincipalPolicy>.
 --
 -- If the output is long, you can use the 'MaxItems' and 'Marker' parameters to paginate the results.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.SimulatePrincipalPolicy
     (
     -- * Creating a Request
@@ -61,6 +63,7 @@ module Network.AWS.IAM.SimulatePrincipalPolicy
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -124,18 +127,24 @@ simulatePrincipalPolicy pPolicySourceARN_ =
     }
 
 -- | An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 sppPolicyInputList :: Lens' SimulatePrincipalPolicy [Text]
 sppPolicyInputList = lens _sppPolicyInputList (\ s a -> s{_sppPolicyInputList = a}) . _Default . _Coerce;
 
 -- | A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 sppResourcePolicy :: Lens' SimulatePrincipalPolicy (Maybe Text)
 sppResourcePolicy = lens _sppResourcePolicy (\ s a -> s{_sppResourcePolicy = a});
 
--- | The ARN of the user that you want to specify as the simulated caller of the APIs. If you do not specify a 'CallerArn', it defaults to the ARN of the user that you specify in 'PolicySourceArn', if you specified a user. If you include both a 'PolicySourceArn' (for example, 'arn:aws:iam::123456789012:user\/David') and a 'CallerArn' (for example, 'arn:aws:iam::123456789012:user\/Bob'), the result is that you simulate calling the APIs as Bob, as if Bob had David\'s policies.
+-- | The ARN of the IAM user that you want to specify as the simulated caller of the APIs. If you do not specify a 'CallerArn', it defaults to the ARN of the user that you specify in 'PolicySourceArn', if you specified a user. If you include both a 'PolicySourceArn' (for example, 'arn:aws:iam::123456789012:user\/David') and a 'CallerArn' (for example, 'arn:aws:iam::123456789012:user\/Bob'), the result is that you simulate calling the APIs as Bob, as if Bob had David\'s policies.
 --
 -- You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
 --
 -- 'CallerArn' is required if you include a 'ResourcePolicy' and the 'PolicySourceArn' is not the ARN for an IAM user. This is required so that the resource-based policy\'s 'Principal' element has a value to use in evaluating the policy.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 sppCallerARN :: Lens' SimulatePrincipalPolicy (Maybe Text)
 sppCallerARN = lens _sppCallerARN (\ s a -> s{_sppCallerARN = a});
 
@@ -173,6 +182,8 @@ sppResourceHandlingOption = lens _sppResourceHandlingOption (\ s a -> s{_sppReso
 -- | A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value defaults to '*' (all resources). Each API in the 'ActionNames' parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response.
 --
 -- The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the 'ResourcePolicy' parameter.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 sppResourceARNs :: Lens' SimulatePrincipalPolicy [Text]
 sppResourceARNs = lens _sppResourceARNs (\ s a -> s{_sppResourceARNs = a}) . _Default . _Coerce;
 
@@ -186,7 +197,7 @@ sppMarker = lens _sppMarker (\ s a -> s{_sppMarker = a});
 sppMaxItems :: Lens' SimulatePrincipalPolicy (Maybe Natural)
 sppMaxItems = lens _sppMaxItems (\ s a -> s{_sppMaxItems = a}) . mapping _Nat;
 
--- | A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated by a 'Condition' element in one of the simulated policies, the corresponding value is supplied.
+-- | A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
 sppContextEntries :: Lens' SimulatePrincipalPolicy [ContextEntry]
 sppContextEntries = lens _sppContextEntries (\ s a -> s{_sppContextEntries = a}) . _Default . _Coerce;
 
@@ -195,12 +206,20 @@ sppResourceOwner :: Lens' SimulatePrincipalPolicy (Maybe Text)
 sppResourceOwner = lens _sppResourceOwner (\ s a -> s{_sppResourceOwner = a});
 
 -- | The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 sppPolicySourceARN :: Lens' SimulatePrincipalPolicy Text
 sppPolicySourceARN = lens _sppPolicySourceARN (\ s a -> s{_sppPolicySourceARN = a});
 
 -- | A list of names of API actions to evaluate in the simulation. Each action is evaluated for each resource. Each action must include the service identifier, such as 'iam:CreateUser'.
 sppActionNames :: Lens' SimulatePrincipalPolicy [Text]
 sppActionNames = lens _sppActionNames (\ s a -> s{_sppActionNames = a}) . _Coerce;
+
+instance AWSPager SimulatePrincipalPolicy where
+        page rq rs
+          | stop (rs ^. spIsTruncated) = Nothing
+          | isNothing (rs ^. spMarker) = Nothing
+          | otherwise = Just $ rq & sppMarker .~ rs ^. spMarker
 
 instance AWSRequest SimulatePrincipalPolicy where
         type Rs SimulatePrincipalPolicy =

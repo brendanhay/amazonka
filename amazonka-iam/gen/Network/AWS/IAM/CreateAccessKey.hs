@@ -65,7 +65,9 @@ createAccessKey =
     { _cakUserName = Nothing
     }
 
--- | The user name that the new key will belong to.
+-- | The name of the IAM user that the new key will belong to.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
@@ -124,7 +126,7 @@ createAccessKeyResponse pResponseStatus_ pAccessKey_ =
 cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
 cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus = a});
 
--- | Information about the access key.
+-- | A structure with details about the access key.
 cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a});
 

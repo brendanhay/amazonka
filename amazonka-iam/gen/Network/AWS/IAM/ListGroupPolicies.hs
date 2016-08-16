@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the names of the inline policies that are embedded in the specified group.
+-- Lists the names of the inline policies that are embedded in the specified IAM group.
 --
--- A group can also have managed policies attached to it. To list the managed policies that are attached to a group, use < ListAttachedGroupPolicies>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM group can also have managed policies attached to it. To list the managed policies that are attached to a group, use < ListAttachedGroupPolicies>. For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If there are no inline policies embedded with the specified group, the action returns an empty list.
 --
@@ -90,6 +90,8 @@ lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
 -- | The name of the group to list policies for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lgpGroupName :: Lens' ListGroupPolicies Text
 lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 

@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified inline policy document that is embedded in the specified group.
+-- Retrieves the specified inline policy document that is embedded in the specified IAM group.
 --
--- A group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
+-- Policies returned by this API are URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the 'decode' method of the 'java.net.URLDecoder' utility class in the Java SDK. Other languages and SDKs provide similar functionality.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
+--
+-- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.GetGroupPolicy
     (
     -- * Creating a Request
@@ -73,10 +75,14 @@ getGroupPolicy pGroupName_ pPolicyName_ =
     }
 
 -- | The name of the group the policy is associated with.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ggpGroupName :: Lens' GetGroupPolicy Text
 ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
 
 -- | The name of the policy document to get.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
 

@@ -60,6 +60,8 @@ deleteVirtualMFADevice pSerialNumber_ =
     }
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =\/:,.\'-
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 

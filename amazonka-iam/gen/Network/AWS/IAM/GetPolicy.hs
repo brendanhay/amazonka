@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified managed policy, including the policy\'s default version and the total number of users, groups, and roles that the policy is attached to. For a list of the specific users, groups, and roles that the policy is attached to, use the < ListEntitiesForPolicy> API. This API returns metadata about the policy. To retrieve the policy document for a specific version of the policy, use < GetPolicyVersion>.
+-- Retrieves information about the specified managed policy, including the policy\'s default version and the total number of IAM users, groups, and roles to which the policy is attached. To retrieve the list of the specific users, groups, and roles that the policy is attached to, use the < ListEntitiesForPolicy> API. This API returns metadata about the policy. To retrieve the actual policy document for a specific version of the policy, use < GetPolicyVersion>.
 --
--- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with a user, group, or role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy> API.
+-- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with an IAM user, group, or role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy> API.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.GetPolicy
     (
     -- * Creating a Request
@@ -64,7 +64,9 @@ getPolicy pPolicyARN_ =
     { _gpPolicyARN = pPolicyARN_
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 gpPolicyARN :: Lens' GetPolicy Text
 gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
@@ -118,7 +120,7 @@ getPolicyResponse pResponseStatus_ =
     , _gprsResponseStatus = pResponseStatus_
     }
 
--- | Information about the policy.
+-- | A structure containing details about the policy.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about all IAM users, groups, roles, and policies in your account, including their relationships to one another. Use this API to obtain a snapshot of the configuration of IAM permissions (users, groups, roles, and policies) in your account.
+-- Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another. Use this API to obtain a snapshot of the configuration of IAM permissions (users, groups, roles, and policies) in your account.
 --
 -- You can optionally filter the results using the 'Filter' parameter. You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,9 +89,19 @@ gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
 gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
 
--- | A list of entity types (user, group, role, local managed policy, or AWS managed policy) for filtering the results.
+-- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value 'LocalManagedPolicy' to include customer managed policies.
+--
+-- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
 gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default . _Coerce;
+
+instance AWSPager GetAccountAuthorizationDetails
+         where
+        page rq rs
+          | stop (rs ^. gaadrsIsTruncated) = Nothing
+          | isNothing (rs ^. gaadrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & gaadMarker .~ rs ^. gaadrsMarker
 
 instance AWSRequest GetAccountAuthorizationDetails
          where

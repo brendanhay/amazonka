@@ -130,6 +130,8 @@ arwwiProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiProviderId = lens _arwwiProviderId (\ s a -> s{_arwwiProviderId = a});
 
 -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.
+--
+-- This is separate from the duration of a console session that you might request using the returned credentials. The request to the federation endpoint for a console sign-in token takes a 'SessionDuration' parameter that specifies the maximum length of the console session, separately from the 'DurationSeconds' parameter on this API. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console> in the /IAM User Guide/.
 arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Natural)
 arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeconds = a}) . mapping _Nat;
 
@@ -149,7 +151,7 @@ arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
 
 -- | An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the 'AssumedRoleUser' response element.
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\'-
 arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionName = a});
 

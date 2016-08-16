@@ -118,7 +118,7 @@ gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 
 -- | The name of the federated user. The name is used as an identifier for the temporary security credentials (such as 'Bob'). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\'-
 gftName :: Lens' GetFederationToken Text
 gftName = lens _gftName (\ s a -> s{_gftName = a});
 

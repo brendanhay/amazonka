@@ -20,6 +20,9 @@ module Network.AWS.MarketplaceAnalytics.Types
 
     -- * DataSetType
     , DataSetType (..)
+
+    -- * SupportDataSetType
+    , SupportDataSetType (..)
     ) where
 
 import           Network.AWS.Lens

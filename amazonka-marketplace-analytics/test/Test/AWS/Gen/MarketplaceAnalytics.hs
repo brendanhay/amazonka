@@ -28,13 +28,19 @@ import Test.AWS.MarketplaceAnalytics.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGenerateDataSet $
+--         [ requestStartSupportDataExport $
+--             startSupportDataExport
+--
+--         , requestGenerateDataSet $
 --             generateDataSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGenerateDataSet $
+--         [ responseStartSupportDataExport $
+--             startSupportDataExportResponse
+--
+--         , responseGenerateDataSet $
 --             generateDataSetResponse
 --
 --           ]
@@ -42,12 +48,24 @@ import Test.AWS.MarketplaceAnalytics.Internal
 
 -- Requests
 
+requestStartSupportDataExport :: StartSupportDataExport -> TestTree
+requestStartSupportDataExport = req
+    "StartSupportDataExport"
+    "fixture/StartSupportDataExport.yaml"
+
 requestGenerateDataSet :: GenerateDataSet -> TestTree
 requestGenerateDataSet = req
     "GenerateDataSet"
     "fixture/GenerateDataSet.yaml"
 
 -- Responses
+
+responseStartSupportDataExport :: StartSupportDataExportResponse -> TestTree
+responseStartSupportDataExport = res
+    "StartSupportDataExportResponse"
+    "fixture/StartSupportDataExportResponse.proto"
+    marketplaceAnalytics
+    (Proxy :: Proxy StartSupportDataExport)
 
 responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
 responseGenerateDataSet = res

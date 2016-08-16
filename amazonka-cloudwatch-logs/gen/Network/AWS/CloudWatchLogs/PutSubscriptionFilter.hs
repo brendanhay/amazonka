@@ -21,8 +21,11 @@
 -- Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through 'PutLogEvents' requests and have them delivered to a specific destination. Currently, the supported destinations are:
 --
 -- -   An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.
+--
 -- -   A logical destination (used via an ARN of 'Destination') belonging to a different account, for cross-account delivery.
+--
 -- -   An Amazon Kinesis Firehose stream belonging to the same account as the subscription filter, for same-account delivery.
+--
 -- -   An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.
 --
 -- Currently there can only be one subscription filter associated with a log group.
@@ -106,9 +109,13 @@ psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
 -- | The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:
 --
 -- -   An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.
+--
 -- -   A logical destination (used via an ARN of 'Destination') belonging to a different account, for cross-account delivery.
+--
 -- -   An Amazon Kinesis Firehose stream belonging to the same account as the subscription filter, for same-account delivery.
+--
 -- -   An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.
+--
 psfDestinationARN :: Lens' PutSubscriptionFilter Text
 psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
 

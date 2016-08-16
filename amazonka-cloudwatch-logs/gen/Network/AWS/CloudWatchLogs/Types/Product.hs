@@ -687,7 +687,8 @@ instance NFData MetricFilterMatchRecord
 
 -- | /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
-    { _mtMetricName      :: !Text
+    { _mtDefaultValue    :: !(Maybe Double)
+    , _mtMetricName      :: !Text
     , _mtMetricNamespace :: !Text
     , _mtMetricValue     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -695,6 +696,8 @@ data MetricTransformation = MetricTransformation'
 -- | Creates a value of 'MetricTransformation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtDefaultValue'
 --
 -- * 'mtMetricName'
 --
@@ -708,20 +711,25 @@ metricTransformation
     -> MetricTransformation
 metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     MetricTransformation'
-    { _mtMetricName = pMetricName_
+    { _mtDefaultValue = Nothing
+    , _mtMetricName = pMetricName_
     , _mtMetricNamespace = pMetricNamespace_
     , _mtMetricValue = pMetricValue_
     }
 
--- | Undocumented member.
+-- | (Optional) A default value to emit when a filter pattern does not match a log event. Can be null.
+mtDefaultValue :: Lens' MetricTransformation (Maybe Double)
+mtDefaultValue = lens _mtDefaultValue (\ s a -> s{_mtDefaultValue = a});
+
+-- | Name of the metric.
 mtMetricName :: Lens' MetricTransformation Text
 mtMetricName = lens _mtMetricName (\ s a -> s{_mtMetricName = a});
 
--- | Undocumented member.
+-- | Namespace to which the metric belongs.
 mtMetricNamespace :: Lens' MetricTransformation Text
 mtMetricNamespace = lens _mtMetricNamespace (\ s a -> s{_mtMetricNamespace = a});
 
--- | Undocumented member.
+-- | A string representing a value to publish to this metric when a filter pattern matches a log event.
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\ s a -> s{_mtMetricValue = a});
 
@@ -730,8 +738,9 @@ instance FromJSON MetricTransformation where
           = withObject "MetricTransformation"
               (\ x ->
                  MetricTransformation' <$>
-                   (x .: "metricName") <*> (x .: "metricNamespace") <*>
-                     (x .: "metricValue"))
+                   (x .:? "defaultValue") <*> (x .: "metricName") <*>
+                     (x .: "metricNamespace")
+                     <*> (x .: "metricValue"))
 
 instance Hashable MetricTransformation
 
@@ -741,7 +750,8 @@ instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
           = object
               (catMaybes
-                 [Just ("metricName" .= _mtMetricName),
+                 [("defaultValue" .=) <$> _mtDefaultValue,
+                  Just ("metricName" .= _mtMetricName),
                   Just ("metricNamespace" .= _mtMetricNamespace),
                   Just ("metricValue" .= _mtMetricValue)])
 

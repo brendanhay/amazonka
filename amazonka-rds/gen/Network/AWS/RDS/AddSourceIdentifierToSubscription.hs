@@ -77,9 +77,13 @@ asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscripti
 -- Constraints:
 --
 -- -   If the source type is a DB instance, then a 'DBInstanceIdentifier' must be supplied.
+--
 -- -   If the source type is a DB security group, a 'DBSecurityGroupName' must be supplied.
+--
 -- -   If the source type is a DB parameter group, a 'DBParameterGroupName' must be supplied.
+--
 -- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.
+--
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 

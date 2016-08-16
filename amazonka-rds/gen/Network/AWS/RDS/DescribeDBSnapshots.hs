@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about DB snapshots. This API supports pagination.
+-- Returns information about DB snapshots. This API action supports pagination.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSnapshots
@@ -100,9 +100,9 @@ describeDBSnapshots =
     , _ddsIncludePublic = Nothing
     }
 
--- | True to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore; otherwise false. The default is false.
+-- | Set this value to 'true' to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to 'false'. The default is 'false'.
 --
--- An AWS account is given permission to restore a manual DB snapshot from another AWS account by the < ModifyDBSnapshotAttribute> API.
+-- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the < ModifyDBSnapshotAttribute> API action.
 ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 
@@ -115,32 +115,42 @@ ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
--- -   If this is the identifier of an automated snapshot, the 'SnapshotType' parameter must also be specified.
+--
+-- -   If this identifier is for an automated snapshot, the 'SnapshotType' parameter must also be specified.
+--
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
--- | The type of snapshots that will be returned. You can specify one of the following values:
+-- | The type of snapshots to be returned. You can specify one of the following values:
 --
 -- -   'automated' - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.
+--
 -- -   'manual' - Return all DB snapshots that have been taken by my AWS account.
+--
 -- -   'shared' - Return all manual DB snapshots that have been shared to my AWS account.
+--
 -- -   'public' - Return all DB snapshots that have been marked as public.
 --
--- If you do not specify a 'SnapshotType', then both automated and manual snapshots are returned. You can include shared snapshots with these results by setting the 'IncludeShared' parameter to 'true'. You can include public snapshots with these results by setting the 'IncludePublic' parameter to 'true'.
+-- If you don\'t specify a 'SnapshotType' value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the 'IncludeShared' parameter to 'true'. You can include public snapshots with these results by setting the 'IncludePublic' parameter to 'true'.
 --
--- The 'IncludeShared' and 'IncludePublic' parameters do not apply for 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic' parameter does not apply when 'SnapshotType' is set to 'shared'. the 'IncludeShared' parameter does not apply when 'SnapshotType' is set to 'public'.
+-- The 'IncludeShared' and 'IncludePublic' parameters don\'t apply for 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic' parameter doesn\'t apply when 'SnapshotType' is set to 'shared'. The 'IncludeShared' parameter doesn\'t apply when 'SnapshotType' is set to 'public'.
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
--- | A DB instance identifier to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with 'DBSnapshotIdentifier'. This parameter is not case-sensitive.
+-- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with 'DBSnapshotIdentifier'. This parameter is not case-sensitive.
 --
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 
@@ -156,9 +166,9 @@ ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 
--- | True to include manual DB snapshots that are public and can be copied or restored by any AWS account; otherwise false. The default is false.
+-- | Set this value to 'true' to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to 'false'. The default is 'false'.
 --
--- An manual DB snapshot is shared as public by the < ModifyDBSnapshotAttribute> API.
+-- You can share a manual DB snapshot as public by using the < ModifyDBSnapshotAttribute> API.
 ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a});
 

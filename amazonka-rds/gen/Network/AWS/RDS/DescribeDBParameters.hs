@@ -113,8 +113,11 @@ ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
 ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
 

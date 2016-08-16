@@ -110,7 +110,9 @@ cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must specify a valid system snapshot in the \"available\" state.
+--
 -- -   If the source snapshot is in the same region as the copy, specify a valid DB snapshot identifier.
+--
 -- -   If the source snapshot is in a different region than the copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html Copying a DB Snapshot>.
 --
 -- Example: 'rds:mydb-2012-04-02-00-01'
@@ -124,8 +126,11 @@ cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{
 -- Constraints:
 --
 -- -   Cannot be null, empty, or blank
+--
 -- -   Must contain from 1 to 255 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'my-db-snapshot'

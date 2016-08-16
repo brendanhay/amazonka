@@ -64,8 +64,11 @@ deleteDBParameterGroup pDBParameterGroupName_ =
 -- Constraints:
 --
 -- -   Must be the name of an existing DB parameter group
+--
 -- -   You cannot delete a default DB parameter group
+--
 -- -   Cannot be associated with any DB instances
+--
 ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a});
 

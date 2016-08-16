@@ -82,7 +82,9 @@ cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: 'my-cluster1-snapshot1'
@@ -94,7 +96,9 @@ cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: 'my-cluster1'

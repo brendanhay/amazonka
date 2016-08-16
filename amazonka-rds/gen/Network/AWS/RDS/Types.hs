@@ -37,6 +37,7 @@ module Network.AWS.RDS.Types
     , _OptionGroupNotFoundFault
     , _DBClusterNotFoundFault
     , _DBLogFileNotFoundFault
+    , _InvalidS3BucketFault
     , _DBClusterAlreadyExistsFault
     , _StorageTypeNotSupportedFault
     , _DBSecurityGroupQuotaExceededFault
@@ -130,6 +131,8 @@ module Network.AWS.RDS.Types
     , dcStorageEncrypted
     , dcDBClusterIdentifier
     , dcDBClusterMembers
+    , dcReadReplicaIdentifiers
+    , dcReplicationSourceIdentifier
     , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
@@ -198,6 +201,18 @@ module Network.AWS.RDS.Types
     , dcsClusterCreateTime
     , dcsPercentProgress
     , dcsPort
+
+    -- * DBClusterSnapshotAttribute
+    , DBClusterSnapshotAttribute
+    , dbClusterSnapshotAttribute
+    , dcsaAttributeValues
+    , dcsaAttributeName
+
+    -- * DBClusterSnapshotAttributesResult
+    , DBClusterSnapshotAttributesResult
+    , dbClusterSnapshotAttributesResult
+    , dcsarDBClusterSnapshotIdentifier
+    , dcsarDBClusterSnapshotAttributes
 
     -- * DBEngineVersion
     , DBEngineVersion
@@ -437,6 +452,7 @@ module Network.AWS.RDS.Types
     , oOptionSettings
     , oVPCSecurityGroupMemberships
     , oDBSecurityGroupMemberships
+    , oOptionVersion
     , oPort
 
     -- * OptionConfiguration
@@ -445,6 +461,7 @@ module Network.AWS.RDS.Types
     , ocOptionSettings
     , ocVPCSecurityGroupMemberships
     , ocDBSecurityGroupMemberships
+    , ocOptionVersion
     , ocPort
     , ocOptionName
 
@@ -471,6 +488,7 @@ module Network.AWS.RDS.Types
     , ogoMinimumRequiredMinorEngineVersion
     , ogoPermanent
     , ogoPersistent
+    , ogoOptionGroupOptionVersions
     , ogoEngineName
     , ogoMajorEngineVersion
     , ogoName
@@ -502,6 +520,12 @@ module Network.AWS.RDS.Types
     , osDataType
     , osAllowedValues
     , osDescription
+
+    -- * OptionVersion
+    , OptionVersion
+    , optionVersion
+    , ovVersion
+    , ovIsDefault
 
     -- * OrderableDBInstanceOption
     , OrderableDBInstanceOption
@@ -548,8 +572,10 @@ module Network.AWS.RDS.Types
     , pendingModifiedValues
     , pmvEngineVersion
     , pmvMasterUserPassword
+    , pmvDBSubnetGroupName
     , pmvIOPS
     , pmvDBInstanceClass
+    , pmvLicenseModel
     , pmvCACertificateIdentifier
     , pmvDBInstanceIdentifier
     , pmvBackupRetentionPeriod
@@ -752,7 +778,7 @@ _SubscriptionNotFoundFault =
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
--- | You have exceeded the maximum number of account ids that you can share a manual DB snapshot with.
+-- | You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.
 _SharedSnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SharedSnapshotQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "SharedSnapshotQuotaExceeded"
@@ -776,6 +802,11 @@ _DBClusterNotFoundFault =
 _DBLogFileNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBLogFileNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DBLogFileNotFoundFault"
+
+-- | The specified Amazon S3 bucket name could not be found or Amazon RDS is not authorized to access the specified Amazon S3 bucket. Verify the __SourceS3BucketName__ and __S3IngestionRoleArn__ values and try again.
+_InvalidS3BucketFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidS3BucketFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketFault"
 
 -- | User already has a DB cluster with the given identifier.
 _DBClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -867,7 +898,7 @@ _InstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a Servi
 _InstanceQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded"
 
--- | Prism for DomainNotFoundFault' errors.
+-- | /Domain/ does not refer to an existing Active Directory Domain.
 _DomainNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "DomainNotFoundFault"
@@ -962,7 +993,7 @@ _InvalidOptionGroupStateFault :: AsError a => Getting (First ServiceError) a Ser
 _InvalidOptionGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidOptionGroupStateFault"
 
--- | The supplied value is not a valid DB cluster state.
+-- | The DB cluster is not in a valid state.
 _InvalidDBClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBClusterStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidDBClusterStateFault"

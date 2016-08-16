@@ -172,6 +172,7 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
 -- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__ true
+--
 -- -   __VPC:__ false
 --
 -- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
@@ -290,7 +291,7 @@ rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a})
 
 -- | The database name for the restored DB instance.
 --
--- This parameter doesn\'t apply to the MySQL or MariaDB engines.
+-- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB engines.
 rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
@@ -299,7 +300,9 @@ rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server)
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'my-snapshot-id'
@@ -311,7 +314,9 @@ rdifdsDBInstanceIdentifier = lens _rdifdsDBInstanceIdentifier (\ s a -> s{_rdifd
 -- Constraints:
 --
 -- -   Must contain from 1 to 255 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- If you are restoring from a shared manual DB snapshot, the 'DBSnapshotIdentifier' must be the ARN of the shared DB snapshot.

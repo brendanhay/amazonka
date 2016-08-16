@@ -89,8 +89,11 @@ ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default . _Coe
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddbiDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBInstanceIdentifier = a});
 

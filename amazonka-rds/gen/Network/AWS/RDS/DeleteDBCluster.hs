@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBCluster action deletes a previously provisioned DB cluster. A successful response from the web service indicates the request was received correctly. When you delete a DB cluster, all automated backups for that DB cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the DB cluster to be deleted are not deleted.
+-- The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DeleteDBCluster
@@ -81,8 +81,11 @@ deleteDBCluster pDBClusterIdentifier_ =
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a});
 
@@ -99,8 +102,11 @@ ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSn
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddbcDBClusterIdentifier :: Lens' DeleteDBCluster Text
 ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
 

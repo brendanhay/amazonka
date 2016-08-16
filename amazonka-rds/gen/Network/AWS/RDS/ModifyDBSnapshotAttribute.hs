@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds an attribute and values to, or removes an attribute and values from a manual DB snapshot.
+-- Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
 --
--- To share a manual DB snapshot with other AWS accounts, specify 'restore' as the 'AttributeName' and use the 'ValuesToAdd' parameter to add a list of the AWS account ids that are authorized to restore the manual DB snapshot. Uses the value 'all' to make the manual DB snapshot public and can by copied or restored by all AWS accounts. Do not add the 'all' value for any manual DB snapshots that contain private information that you do not want to be available to all AWS accounts.
+-- To share a manual DB snapshot with other AWS accounts, specify 'restore' as the 'AttributeName' and use the 'ValuesToAdd' parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot. Uses the value 'all' to make the manual DB snapshot public, which means it can be copied or restored by all AWS accounts. Do not add the 'all' value for any manual DB snapshots that contain private information that you don\'t want available to all AWS accounts.
 --
--- To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a manual DB snapshot public or private, use the < DescribeDBSnapshotAttributes> API.
+-- To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a manual DB snapshot public or private, use the < DescribeDBSnapshotAttributes> API action.
 --
 -- If the manual DB snapshot is encrypted, it cannot be shared.
 module Network.AWS.RDS.ModifyDBSnapshotAttribute
@@ -33,8 +33,8 @@ module Network.AWS.RDS.ModifyDBSnapshotAttribute
     -- * Request Lenses
     , mdsaValuesToAdd
     , mdsaValuesToRemove
-    , mdsaAttributeName
     , mdsaDBSnapshotIdentifier
+    , mdsaAttributeName
 
     -- * Destructuring the Response
     , modifyDBSnapshotAttributeResponse
@@ -51,12 +51,14 @@ import           Network.AWS.RDS.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyDBSnapshotAttribute' smart constructor.
+-- |
+--
+-- /See:/ 'modifyDBSnapshotAttribute' smart constructor.
 data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     { _mdsaValuesToAdd          :: !(Maybe [Text])
     , _mdsaValuesToRemove       :: !(Maybe [Text])
-    , _mdsaAttributeName        :: !(Maybe Text)
     , _mdsaDBSnapshotIdentifier :: !Text
+    , _mdsaAttributeName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyDBSnapshotAttribute' with the minimum fields required to make a request.
@@ -67,41 +69,42 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
 --
 -- * 'mdsaValuesToRemove'
 --
--- * 'mdsaAttributeName'
---
 -- * 'mdsaDBSnapshotIdentifier'
+--
+-- * 'mdsaAttributeName'
 modifyDBSnapshotAttribute
     :: Text -- ^ 'mdsaDBSnapshotIdentifier'
+    -> Text -- ^ 'mdsaAttributeName'
     -> ModifyDBSnapshotAttribute
-modifyDBSnapshotAttribute pDBSnapshotIdentifier_ =
+modifyDBSnapshotAttribute pDBSnapshotIdentifier_ pAttributeName_ =
     ModifyDBSnapshotAttribute'
     { _mdsaValuesToAdd = Nothing
     , _mdsaValuesToRemove = Nothing
-    , _mdsaAttributeName = Nothing
     , _mdsaDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    , _mdsaAttributeName = pAttributeName_
     }
 
 -- | A list of DB snapshot attributes to add to the attribute specified by 'AttributeName'.
 --
--- To authorize other AWS Accounts to copy or restore a manual snapshot, this is one or more AWS account identifiers, or 'all' to make the manual DB snapshot restorable by any AWS account. Do not add the 'all' value for any manual DB snapshots that contain private information that you do not want to be available to all AWS accounts.
+-- To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or 'all' to make the manual DB snapshot restorable by any AWS account. Do not add the 'all' value for any manual DB snapshots that contain private information that you don\'t want available to all AWS accounts.
 mdsaValuesToAdd :: Lens' ModifyDBSnapshotAttribute [Text]
 mdsaValuesToAdd = lens _mdsaValuesToAdd (\ s a -> s{_mdsaValuesToAdd = a}) . _Default . _Coerce;
 
 -- | A list of DB snapshot attributes to remove from the attribute specified by 'AttributeName'.
 --
--- To remove authorization for other AWS Accounts to copy or restore a manual snapshot, this is one or more AWS account identifiers, or 'all' to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify 'all', AWS accounts that have their account identifier explicitly added to the 'restore' attribute can still copy or restore the manual DB snapshot.
+-- To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or 'all' to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify 'all', an AWS account whose account ID is explicitly added to the 'restore' attribute can still copy or restore the manual DB snapshot.
 mdsaValuesToRemove :: Lens' ModifyDBSnapshotAttribute [Text]
 mdsaValuesToRemove = lens _mdsaValuesToRemove (\ s a -> s{_mdsaValuesToRemove = a}) . _Default . _Coerce;
-
--- | The name of the DB snapshot attribute to modify.
---
--- To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, this value is 'restore'.
-mdsaAttributeName :: Lens' ModifyDBSnapshotAttribute (Maybe Text)
-mdsaAttributeName = lens _mdsaAttributeName (\ s a -> s{_mdsaAttributeName = a});
 
 -- | The identifier for the DB snapshot to modify the attributes for.
 mdsaDBSnapshotIdentifier :: Lens' ModifyDBSnapshotAttribute Text
 mdsaDBSnapshotIdentifier = lens _mdsaDBSnapshotIdentifier (\ s a -> s{_mdsaDBSnapshotIdentifier = a});
+
+-- | The name of the DB snapshot attribute to modify.
+--
+-- To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, set this value to 'restore'.
+mdsaAttributeName :: Lens' ModifyDBSnapshotAttribute Text
+mdsaAttributeName = lens _mdsaAttributeName (\ s a -> s{_mdsaAttributeName = a});
 
 instance AWSRequest ModifyDBSnapshotAttribute where
         type Rs ModifyDBSnapshotAttribute =
@@ -137,8 +140,8 @@ instance ToQuery ModifyDBSnapshotAttribute where
                  toQuery
                    (toQueryList "AttributeValue" <$>
                       _mdsaValuesToRemove),
-               "AttributeName" =: _mdsaAttributeName,
-               "DBSnapshotIdentifier" =: _mdsaDBSnapshotIdentifier]
+               "DBSnapshotIdentifier" =: _mdsaDBSnapshotIdentifier,
+               "AttributeName" =: _mdsaAttributeName]
 
 -- | /See:/ 'modifyDBSnapshotAttributeResponse' smart constructor.
 data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'

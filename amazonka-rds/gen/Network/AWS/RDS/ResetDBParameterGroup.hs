@@ -102,8 +102,11 @@ rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Defau
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 

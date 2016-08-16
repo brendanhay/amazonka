@@ -89,8 +89,11 @@ apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 -- Valid values:
 --
 -- -   'immediate' - Apply the maintenance action immediately.
+--
 -- -   'next-maintenance' - Apply the maintenance action during the next maintenance window for the resource.
+--
 -- -   'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.
+--
 apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
 apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 

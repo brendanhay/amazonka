@@ -88,8 +88,11 @@ cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must specify a valid DB parameter group.
+--
 -- -   If the source DB parameter group is in the same region as the copy, specify a valid DB parameter group identifier, for example 'my-db-param-group', or a valid ARN.
+--
 -- -   If the source DB parameter group is in a different region than the copy, specify a valid DB parameter group ARN, for example 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'.
+--
 cdpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifier (\ s a -> s{_cdpgSourceDBParameterGroupIdentifier = a});
 
@@ -98,8 +101,11 @@ cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifie
 -- Constraints:
 --
 -- -   Cannot be null, empty, or blank
+--
 -- -   Must contain from 1 to 255 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'my-db-parameter-group'

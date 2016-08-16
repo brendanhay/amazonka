@@ -137,9 +137,13 @@ mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{
 -- Constraints:
 --
 -- -   Must be in the format 'hh24:mi-hh24:mi'.
+--
 -- -   Times should be in Universal Coordinated Time (UTC).
+--
 -- -   Must not conflict with the preferred maintenance window.
+--
 -- -   Must be at least 30 minutes.
+--
 mdcPreferredBackupWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPreferredBackupWindow = a});
 
@@ -150,6 +154,7 @@ mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPrefer
 -- Constraints:
 --
 -- -   Must be a value from 1 to 35
+--
 mdcBackupRetentionPeriod :: Lens' ModifyDBCluster (Maybe Int)
 mdcBackupRetentionPeriod = lens _mdcBackupRetentionPeriod (\ s a -> s{_mdcBackupRetentionPeriod = a});
 
@@ -180,7 +185,9 @@ mdcOptionGroupName = lens _mdcOptionGroupName (\ s a -> s{_mdcOptionGroupName = 
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'my-cluster2'
@@ -200,9 +207,13 @@ mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
 -- Constraints:
 --
 -- -   Must be the identifier for an existing DB cluster.
+--
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
 -- -   First character must be a letter.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
 mdcDBClusterIdentifier :: Lens' ModifyDBCluster Text
 mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
 

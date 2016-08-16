@@ -100,8 +100,11 @@ ddcpgMaxRecords = lens _ddcpgMaxRecords (\ s a -> s{_ddcpgMaxRecords = a});
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddcpgDBClusterParameterGroupName :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
 ddcpgDBClusterParameterGroupName = lens _ddcpgDBClusterParameterGroupName (\ s a -> s{_ddcpgDBClusterParameterGroupName = a});
 

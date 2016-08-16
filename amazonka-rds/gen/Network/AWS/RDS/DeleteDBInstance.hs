@@ -18,11 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBInstance action deletes a previously provisioned DB instance. A successful response from the web service indicates the request was received correctly. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted are not deleted.
+-- The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted by 'DeleteDBInstance' are not deleted.
 --
--- If a final DB snapshot is requested the status of the RDS instance will be \"deleting\" until the DB snapshot is created. The API action 'DescribeDBInstance' is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted.
+-- If you request a final DB snapshot the status of the Amazon RDS DB instance is 'deleting' until the DB snapshot is created. The API action 'DescribeDBInstance' is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted.
 --
--- Note that when a DB instance is in a failure state and has a status of \'failed\', \'incompatible-restore\', or \'incompatible-network\', it can only be deleted when the SkipFinalSnapshot parameter is set to \"true\".
+-- Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', you can only delete it when the 'SkipFinalSnapshot' parameter is set to 'true'.
+--
+-- If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete the DB instance if the following are true:
+--
+-- -   The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
+--
+-- -   The DB instance is the only instance in the DB cluster.
+--
+-- To delete a DB instance in this case, first call the < PromoteReadReplicaDBCluster> API action to promote the DB cluster so it\'s no longer a Read Replica. After the promotion completes, then call the 'DeleteDBInstance' API action to delete the final instance in the DB cluster.
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Creating a Request
@@ -83,9 +91,13 @@ deleteDBInstance pDBInstanceIdentifier_ =
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 -- -   Cannot be specified when deleting a Read Replica.
+--
 ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
 
@@ -106,8 +118,11 @@ ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnaps
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
 

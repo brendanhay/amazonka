@@ -81,9 +81,13 @@ promoteReadReplica pDBInstanceIdentifier_ =
 -- Constraints:
 --
 -- -   Must be in the format 'hh24:mi-hh24:mi'.
+--
 -- -   Times should be in Universal Coordinated Time (UTC).
+--
 -- -   Must not conflict with the preferred maintenance window.
+--
 -- -   Must be at least 30 minutes.
+--
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPreferredBackupWindow = a});
 
@@ -94,6 +98,7 @@ prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPrefer
 -- Constraints:
 --
 -- -   Must be a value from 0 to 8
+--
 prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
 prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackupRetentionPeriod = a});
 
@@ -102,8 +107,11 @@ prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackup
 -- Constraints:
 --
 -- -   Must be the identifier for an existing Read Replica DB instance
+--
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'mydbinstance'

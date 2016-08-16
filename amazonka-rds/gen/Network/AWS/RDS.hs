@@ -106,6 +106,9 @@ module Network.AWS.RDS
     -- ** DBLogFileNotFoundFault
     , _DBLogFileNotFoundFault
 
+    -- ** InvalidS3BucketFault
+    , _InvalidS3BucketFault
+
     -- ** DBClusterAlreadyExistsFault
     , _DBClusterAlreadyExistsFault
 
@@ -298,6 +301,9 @@ module Network.AWS.RDS
     -- ** ResetDBClusterParameterGroup
     , module Network.AWS.RDS.ResetDBClusterParameterGroup
 
+    -- ** RestoreDBClusterFromS3
+    , module Network.AWS.RDS.RestoreDBClusterFromS3
+
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.RDS.DescribeEvents
 
@@ -339,6 +345,9 @@ module Network.AWS.RDS
 
     -- ** DescribeDBSnapshotAttributes
     , module Network.AWS.RDS.DescribeDBSnapshotAttributes
+
+    -- ** PromoteReadReplicaDBCluster
+    , module Network.AWS.RDS.PromoteReadReplicaDBCluster
 
     -- ** RemoveTagsFromResource
     , module Network.AWS.RDS.RemoveTagsFromResource
@@ -415,8 +424,14 @@ module Network.AWS.RDS
     -- ** CreateDBParameterGroup
     , module Network.AWS.RDS.CreateDBParameterGroup
 
+    -- ** ModifyDBClusterSnapshotAttribute
+    , module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
+
     -- ** ModifyDBCluster
     , module Network.AWS.RDS.ModifyDBCluster
+
+    -- ** CopyDBClusterParameterGroup
+    , module Network.AWS.RDS.CopyDBClusterParameterGroup
 
     -- ** DescribeEventCategories
     , module Network.AWS.RDS.DescribeEventCategories
@@ -426,6 +441,9 @@ module Network.AWS.RDS
 
     -- ** RestoreDBInstanceToPointInTime
     , module Network.AWS.RDS.RestoreDBInstanceToPointInTime
+
+    -- ** DescribeDBClusterSnapshotAttributes
+    , module Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
 
     -- ** DescribePendingMaintenanceActions
     , module Network.AWS.RDS.DescribePendingMaintenanceActions
@@ -551,6 +569,8 @@ module Network.AWS.RDS
     , dcStorageEncrypted
     , dcDBClusterIdentifier
     , dcDBClusterMembers
+    , dcReadReplicaIdentifiers
+    , dcReplicationSourceIdentifier
     , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
@@ -619,6 +639,18 @@ module Network.AWS.RDS
     , dcsClusterCreateTime
     , dcsPercentProgress
     , dcsPort
+
+    -- ** DBClusterSnapshotAttribute
+    , DBClusterSnapshotAttribute
+    , dbClusterSnapshotAttribute
+    , dcsaAttributeValues
+    , dcsaAttributeName
+
+    -- ** DBClusterSnapshotAttributesResult
+    , DBClusterSnapshotAttributesResult
+    , dbClusterSnapshotAttributesResult
+    , dcsarDBClusterSnapshotIdentifier
+    , dcsarDBClusterSnapshotAttributes
 
     -- ** DBEngineVersion
     , DBEngineVersion
@@ -858,6 +890,7 @@ module Network.AWS.RDS
     , oOptionSettings
     , oVPCSecurityGroupMemberships
     , oDBSecurityGroupMemberships
+    , oOptionVersion
     , oPort
 
     -- ** OptionConfiguration
@@ -866,6 +899,7 @@ module Network.AWS.RDS
     , ocOptionSettings
     , ocVPCSecurityGroupMemberships
     , ocDBSecurityGroupMemberships
+    , ocOptionVersion
     , ocPort
     , ocOptionName
 
@@ -892,6 +926,7 @@ module Network.AWS.RDS
     , ogoMinimumRequiredMinorEngineVersion
     , ogoPermanent
     , ogoPersistent
+    , ogoOptionGroupOptionVersions
     , ogoEngineName
     , ogoMajorEngineVersion
     , ogoName
@@ -923,6 +958,12 @@ module Network.AWS.RDS
     , osDataType
     , osAllowedValues
     , osDescription
+
+    -- ** OptionVersion
+    , OptionVersion
+    , optionVersion
+    , ovVersion
+    , ovIsDefault
 
     -- ** OrderableDBInstanceOption
     , OrderableDBInstanceOption
@@ -969,8 +1010,10 @@ module Network.AWS.RDS
     , pendingModifiedValues
     , pmvEngineVersion
     , pmvMasterUserPassword
+    , pmvDBSubnetGroupName
     , pmvIOPS
     , pmvDBInstanceClass
+    , pmvLicenseModel
     , pmvCACertificateIdentifier
     , pmvDBInstanceIdentifier
     , pmvBackupRetentionPeriod
@@ -1056,6 +1099,7 @@ import           Network.AWS.RDS.AddSourceIdentifierToSubscription
 import           Network.AWS.RDS.AddTagsToResource
 import           Network.AWS.RDS.ApplyPendingMaintenanceAction
 import           Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+import           Network.AWS.RDS.CopyDBClusterParameterGroup
 import           Network.AWS.RDS.CopyDBClusterSnapshot
 import           Network.AWS.RDS.CopyDBParameterGroup
 import           Network.AWS.RDS.CopyDBSnapshot
@@ -1086,6 +1130,7 @@ import           Network.AWS.RDS.DescribeCertificates
 import           Network.AWS.RDS.DescribeDBClusterParameterGroups
 import           Network.AWS.RDS.DescribeDBClusterParameters
 import           Network.AWS.RDS.DescribeDBClusters
+import           Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
 import           Network.AWS.RDS.DescribeDBClusterSnapshots
 import           Network.AWS.RDS.DescribeDBEngineVersions
 import           Network.AWS.RDS.DescribeDBInstances
@@ -1112,6 +1157,7 @@ import           Network.AWS.RDS.FailoverDBCluster
 import           Network.AWS.RDS.ListTagsForResource
 import           Network.AWS.RDS.ModifyDBCluster
 import           Network.AWS.RDS.ModifyDBClusterParameterGroup
+import           Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
 import           Network.AWS.RDS.ModifyDBInstance
 import           Network.AWS.RDS.ModifyDBParameterGroup
 import           Network.AWS.RDS.ModifyDBSnapshotAttribute
@@ -1119,12 +1165,14 @@ import           Network.AWS.RDS.ModifyDBSubnetGroup
 import           Network.AWS.RDS.ModifyEventSubscription
 import           Network.AWS.RDS.ModifyOptionGroup
 import           Network.AWS.RDS.PromoteReadReplica
+import           Network.AWS.RDS.PromoteReadReplicaDBCluster
 import           Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 import           Network.AWS.RDS.RebootDBInstance
 import           Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 import           Network.AWS.RDS.RemoveTagsFromResource
 import           Network.AWS.RDS.ResetDBClusterParameterGroup
 import           Network.AWS.RDS.ResetDBParameterGroup
+import           Network.AWS.RDS.RestoreDBClusterFromS3
 import           Network.AWS.RDS.RestoreDBClusterFromSnapshot
 import           Network.AWS.RDS.RestoreDBClusterToPointInTime
 import           Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot

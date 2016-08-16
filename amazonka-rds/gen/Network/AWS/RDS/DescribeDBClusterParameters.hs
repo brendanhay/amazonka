@@ -110,8 +110,11 @@ ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
 ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a});
 

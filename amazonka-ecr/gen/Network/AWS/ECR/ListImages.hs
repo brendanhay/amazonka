@@ -120,8 +120,8 @@ instance AWSRequest ListImages where
           = receiveJSON
               (\ s h x ->
                  ListImagesResponse' <$>
-                   (x .?> "imageIds") <*> (x .?> "nextToken") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "imageIds" .!@ mempty) <*> (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable ListImages
 
@@ -155,7 +155,7 @@ instance ToQuery ListImages where
 
 -- | /See:/ 'listImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-    { _lirsImageIds       :: !(Maybe (List1 ImageIdentifier))
+    { _lirsImageIds       :: !(Maybe [ImageIdentifier])
     , _lirsNextToken      :: !(Maybe Text)
     , _lirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -180,8 +180,8 @@ listImagesResponse pResponseStatus_ =
     }
 
 -- | The list of image IDs for the requested repository.
-lirsImageIds :: Lens' ListImagesResponse (Maybe (NonEmpty ImageIdentifier))
-lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . mapping _List1;
+lirsImageIds :: Lens' ListImagesResponse [ImageIdentifier]
+lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . _Default . _Coerce;
 
 -- | The 'nextToken' value to include in a future 'ListImages' request. When the results of a 'ListImages' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
 lirsNextToken :: Lens' ListImagesResponse (Maybe Text)

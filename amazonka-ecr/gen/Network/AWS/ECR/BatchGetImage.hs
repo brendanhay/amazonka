@@ -49,7 +49,7 @@ import           Network.AWS.Response
 data BatchGetImage = BatchGetImage'
     { _bgiRegistryId     :: !(Maybe Text)
     , _bgiRepositoryName :: !Text
-    , _bgiImageIds       :: !(List1 ImageIdentifier)
+    , _bgiImageIds       :: ![ImageIdentifier]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetImage' with the minimum fields required to make a request.
@@ -63,13 +63,12 @@ data BatchGetImage = BatchGetImage'
 -- * 'bgiImageIds'
 batchGetImage
     :: Text -- ^ 'bgiRepositoryName'
-    -> NonEmpty ImageIdentifier -- ^ 'bgiImageIds'
     -> BatchGetImage
-batchGetImage pRepositoryName_ pImageIds_ =
+batchGetImage pRepositoryName_ =
     BatchGetImage'
     { _bgiRegistryId = Nothing
     , _bgiRepositoryName = pRepositoryName_
-    , _bgiImageIds = _List1 # pImageIds_
+    , _bgiImageIds = mempty
     }
 
 -- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
@@ -81,8 +80,8 @@ bgiRepositoryName :: Lens' BatchGetImage Text
 bgiRepositoryName = lens _bgiRepositoryName (\ s a -> s{_bgiRepositoryName = a});
 
 -- | A list of image ID references that correspond to images to describe. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
-bgiImageIds :: Lens' BatchGetImage (NonEmpty ImageIdentifier)
-bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _List1;
+bgiImageIds :: Lens' BatchGetImage [ImageIdentifier]
+bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _Coerce;
 
 instance AWSRequest BatchGetImage where
         type Rs BatchGetImage = BatchGetImageResponse

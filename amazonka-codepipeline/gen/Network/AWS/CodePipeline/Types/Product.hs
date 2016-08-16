@@ -350,13 +350,15 @@ instance ToJSON ActionDeclaration where
                   Just ("name" .= _adName),
                   Just ("actionTypeId" .= _adActionTypeId)])
 
--- | Represents information about how an action runs.
+-- | Represents information about the run of an action.
 --
 -- /See:/ 'actionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-    { _aeSummary              :: !(Maybe Text)
+    { _aeLastUpdatedBy        :: !(Maybe Text)
+    , _aeSummary              :: !(Maybe Text)
     , _aeStatus               :: !(Maybe ActionExecutionStatus)
     , _aeLastStatusChange     :: !(Maybe POSIX)
+    , _aeToken                :: !(Maybe Text)
     , _aeExternalExecutionURL :: !(Maybe Text)
     , _aeExternalExecutionId  :: !(Maybe Text)
     , _aeErrorDetails         :: !(Maybe ErrorDetails)
@@ -367,11 +369,15 @@ data ActionExecution = ActionExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aeLastUpdatedBy'
+--
 -- * 'aeSummary'
 --
 -- * 'aeStatus'
 --
 -- * 'aeLastStatusChange'
+--
+-- * 'aeToken'
 --
 -- * 'aeExternalExecutionURL'
 --
@@ -384,14 +390,20 @@ actionExecution
     :: ActionExecution
 actionExecution =
     ActionExecution'
-    { _aeSummary = Nothing
+    { _aeLastUpdatedBy = Nothing
+    , _aeSummary = Nothing
     , _aeStatus = Nothing
     , _aeLastStatusChange = Nothing
+    , _aeToken = Nothing
     , _aeExternalExecutionURL = Nothing
     , _aeExternalExecutionId = Nothing
     , _aeErrorDetails = Nothing
     , _aePercentComplete = Nothing
     }
+
+-- | The ARN of the user who last changed the pipeline.
+aeLastUpdatedBy :: Lens' ActionExecution (Maybe Text)
+aeLastUpdatedBy = lens _aeLastUpdatedBy (\ s a -> s{_aeLastUpdatedBy = a});
 
 -- | A summary of the run of the action.
 aeSummary :: Lens' ActionExecution (Maybe Text)
@@ -404,6 +416,10 @@ aeStatus = lens _aeStatus (\ s a -> s{_aeStatus = a});
 -- | The last status change of the action.
 aeLastStatusChange :: Lens' ActionExecution (Maybe UTCTime)
 aeLastStatusChange = lens _aeLastStatusChange (\ s a -> s{_aeLastStatusChange = a}) . mapping _Time;
+
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid.
+aeToken :: Lens' ActionExecution (Maybe Text)
+aeToken = lens _aeToken (\ s a -> s{_aeToken = a});
 
 -- | The URL of a resource external to AWS that will be used when running the action, for example an external repository URL.
 aeExternalExecutionURL :: Lens' ActionExecution (Maybe Text)
@@ -426,8 +442,10 @@ instance FromJSON ActionExecution where
           = withObject "ActionExecution"
               (\ x ->
                  ActionExecution' <$>
-                   (x .:? "summary") <*> (x .:? "status") <*>
-                     (x .:? "lastStatusChange")
+                   (x .:? "lastUpdatedBy") <*> (x .:? "summary") <*>
+                     (x .:? "status")
+                     <*> (x .:? "lastStatusChange")
+                     <*> (x .:? "token")
                      <*> (x .:? "externalExecutionUrl")
                      <*> (x .:? "externalExecutionId")
                      <*> (x .:? "errorDetails")
@@ -786,6 +804,50 @@ instance ToJSON ActionTypeSettings where
                   ("revisionUrlTemplate" .=) <$>
                     _atsRevisionURLTemplate,
                   ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate])
+
+-- | Represents information about the result of an approval request.
+--
+-- /See:/ 'approvalResult' smart constructor.
+data ApprovalResult = ApprovalResult'
+    { _arSummary :: !Text
+    , _arStatus  :: !ApprovalStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApprovalResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arSummary'
+--
+-- * 'arStatus'
+approvalResult
+    :: Text -- ^ 'arSummary'
+    -> ApprovalStatus -- ^ 'arStatus'
+    -> ApprovalResult
+approvalResult pSummary_ pStatus_ =
+    ApprovalResult'
+    { _arSummary = pSummary_
+    , _arStatus = pStatus_
+    }
+
+-- | The summary of the current status of the approval request.
+arSummary :: Lens' ApprovalResult Text
+arSummary = lens _arSummary (\ s a -> s{_arSummary = a});
+
+-- | The response submitted by a reviewer assigned to an approval action request.
+arStatus :: Lens' ApprovalResult ApprovalStatus
+arStatus = lens _arStatus (\ s a -> s{_arStatus = a});
+
+instance Hashable ApprovalResult
+
+instance NFData ApprovalResult
+
+instance ToJSON ApprovalResult where
+        toJSON ApprovalResult'{..}
+          = object
+              (catMaybes
+                 [Just ("summary" .= _arSummary),
+                  Just ("status" .= _arStatus)])
 
 -- | Represents information about an artifact that will be worked upon by actions in the pipeline.
 --
@@ -1900,6 +1962,50 @@ instance ToJSON StageDeclaration where
                   Just ("name" .= _sdName),
                   Just ("actions" .= _sdActions)])
 
+-- | Represents information about the run of a stage.
+--
+-- /See:/ 'stageExecution' smart constructor.
+data StageExecution = StageExecution'
+    { _sePipelineExecutionId :: !Text
+    , _seStatus              :: !StageExecutionStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StageExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sePipelineExecutionId'
+--
+-- * 'seStatus'
+stageExecution
+    :: Text -- ^ 'sePipelineExecutionId'
+    -> StageExecutionStatus -- ^ 'seStatus'
+    -> StageExecution
+stageExecution pPipelineExecutionId_ pStatus_ =
+    StageExecution'
+    { _sePipelineExecutionId = pPipelineExecutionId_
+    , _seStatus = pStatus_
+    }
+
+-- | The ID of the pipeline execution associated with the stage.
+sePipelineExecutionId :: Lens' StageExecution Text
+sePipelineExecutionId = lens _sePipelineExecutionId (\ s a -> s{_sePipelineExecutionId = a});
+
+-- | The status of the stage, or for a completed stage, the last status of the stage.
+seStatus :: Lens' StageExecution StageExecutionStatus
+seStatus = lens _seStatus (\ s a -> s{_seStatus = a});
+
+instance FromJSON StageExecution where
+        parseJSON
+          = withObject "StageExecution"
+              (\ x ->
+                 StageExecution' <$>
+                   (x .: "pipelineExecutionId") <*> (x .: "status"))
+
+instance Hashable StageExecution
+
+instance NFData StageExecution
+
 -- | Represents information about the state of the stage.
 --
 -- /See:/ 'stageState' smart constructor.
@@ -1907,6 +2013,7 @@ data StageState = StageState'
     { _ssInboundTransitionState :: !(Maybe TransitionState)
     , _ssActionStates           :: !(Maybe [ActionState])
     , _ssStageName              :: !(Maybe Text)
+    , _ssLatestExecution        :: !(Maybe StageExecution)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StageState' with the minimum fields required to make a request.
@@ -1918,6 +2025,8 @@ data StageState = StageState'
 -- * 'ssActionStates'
 --
 -- * 'ssStageName'
+--
+-- * 'ssLatestExecution'
 stageState
     :: StageState
 stageState =
@@ -1925,6 +2034,7 @@ stageState =
     { _ssInboundTransitionState = Nothing
     , _ssActionStates = Nothing
     , _ssStageName = Nothing
+    , _ssLatestExecution = Nothing
     }
 
 -- | The state of the inbound transition, which is either enabled or disabled.
@@ -1939,6 +2049,10 @@ ssActionStates = lens _ssActionStates (\ s a -> s{_ssActionStates = a}) . _Defau
 ssStageName :: Lens' StageState (Maybe Text)
 ssStageName = lens _ssStageName (\ s a -> s{_ssStageName = a});
 
+-- | Information about the latest execution in the stage, including its ID and status.
+ssLatestExecution :: Lens' StageState (Maybe StageExecution)
+ssLatestExecution = lens _ssLatestExecution (\ s a -> s{_ssLatestExecution = a});
+
 instance FromJSON StageState where
         parseJSON
           = withObject "StageState"
@@ -1946,7 +2060,8 @@ instance FromJSON StageState where
                  StageState' <$>
                    (x .:? "inboundTransitionState") <*>
                      (x .:? "actionStates" .!= mempty)
-                     <*> (x .:? "stageName"))
+                     <*> (x .:? "stageName")
+                     <*> (x .:? "latestExecution"))
 
 instance Hashable StageState
 

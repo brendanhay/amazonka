@@ -26,6 +26,7 @@ module Network.AWS.IoT.RegisterCACertificate
     , RegisterCACertificate
     -- * Request Lenses
     , rcacSetAsActive
+    , rcacAllowAutoRegistration
     , rcacCaCertificate
     , rcacVerificationCertificate
 
@@ -50,6 +51,7 @@ import           Network.AWS.Response
 -- /See:/ 'registerCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
     { _rcacSetAsActive             :: !(Maybe Bool)
+    , _rcacAllowAutoRegistration   :: !(Maybe Bool)
     , _rcacCaCertificate           :: !Text
     , _rcacVerificationCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -59,6 +61,8 @@ data RegisterCACertificate = RegisterCACertificate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rcacSetAsActive'
+--
+-- * 'rcacAllowAutoRegistration'
 --
 -- * 'rcacCaCertificate'
 --
@@ -70,6 +74,7 @@ registerCACertificate
 registerCACertificate pCaCertificate_ pVerificationCertificate_ =
     RegisterCACertificate'
     { _rcacSetAsActive = Nothing
+    , _rcacAllowAutoRegistration = Nothing
     , _rcacCaCertificate = pCaCertificate_
     , _rcacVerificationCertificate = pVerificationCertificate_
     }
@@ -77,6 +82,10 @@ registerCACertificate pCaCertificate_ pVerificationCertificate_ =
 -- | A boolean value that specifies if the CA certificate is set to active.
 rcacSetAsActive :: Lens' RegisterCACertificate (Maybe Bool)
 rcacSetAsActive = lens _rcacSetAsActive (\ s a -> s{_rcacSetAsActive = a});
+
+-- | Allows this CA certificate to be used for auto registration of device certificates.
+rcacAllowAutoRegistration :: Lens' RegisterCACertificate (Maybe Bool)
+rcacAllowAutoRegistration = lens _rcacAllowAutoRegistration (\ s a -> s{_rcacAllowAutoRegistration = a});
 
 -- | The CA certificate.
 rcacCaCertificate :: Lens' RegisterCACertificate Text
@@ -118,7 +127,10 @@ instance ToPath RegisterCACertificate where
 
 instance ToQuery RegisterCACertificate where
         toQuery RegisterCACertificate'{..}
-          = mconcat ["setAsActive" =: _rcacSetAsActive]
+          = mconcat
+              ["setAsActive" =: _rcacSetAsActive,
+               "allowAutoRegistration" =:
+                 _rcacAllowAutoRegistration]
 
 -- | The output from the RegisterCACertificateResponse operation.
 --

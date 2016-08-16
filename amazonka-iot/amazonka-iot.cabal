@@ -54,6 +54,7 @@ library
         , Network.AWS.IoT.CreatePolicy
         , Network.AWS.IoT.CreatePolicyVersion
         , Network.AWS.IoT.CreateThing
+        , Network.AWS.IoT.CreateThingType
         , Network.AWS.IoT.CreateTopicRule
         , Network.AWS.IoT.DeleteCACertificate
         , Network.AWS.IoT.DeleteCertificate
@@ -61,11 +62,14 @@ library
         , Network.AWS.IoT.DeletePolicyVersion
         , Network.AWS.IoT.DeleteRegistrationCode
         , Network.AWS.IoT.DeleteThing
+        , Network.AWS.IoT.DeleteThingType
         , Network.AWS.IoT.DeleteTopicRule
+        , Network.AWS.IoT.DeprecateThingType
         , Network.AWS.IoT.DescribeCACertificate
         , Network.AWS.IoT.DescribeCertificate
         , Network.AWS.IoT.DescribeEndpoint
         , Network.AWS.IoT.DescribeThing
+        , Network.AWS.IoT.DescribeThingType
         , Network.AWS.IoT.DetachPrincipalPolicy
         , Network.AWS.IoT.DetachThingPrincipal
         , Network.AWS.IoT.DisableTopicRule
@@ -78,11 +82,14 @@ library
         , Network.AWS.IoT.ListCACertificates
         , Network.AWS.IoT.ListCertificates
         , Network.AWS.IoT.ListCertificatesByCA
+        , Network.AWS.IoT.ListOutgoingCertificates
         , Network.AWS.IoT.ListPolicies
+        , Network.AWS.IoT.ListPolicyPrincipals
         , Network.AWS.IoT.ListPolicyVersions
         , Network.AWS.IoT.ListPrincipalPolicies
         , Network.AWS.IoT.ListPrincipalThings
         , Network.AWS.IoT.ListThingPrincipals
+        , Network.AWS.IoT.ListThingTypes
         , Network.AWS.IoT.ListThings
         , Network.AWS.IoT.ListTopicRules
         , Network.AWS.IoT.RegisterCACertificate

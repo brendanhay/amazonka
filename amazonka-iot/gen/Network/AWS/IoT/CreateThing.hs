@@ -18,13 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a thing in the Thing Registry.
+-- Creates a thing record in the thing registry.
 module Network.AWS.IoT.CreateThing
     (
     -- * Creating a Request
       createThing
     , CreateThing
     -- * Request Lenses
+    , ctThingTypeName
     , ctAttributePayload
     , ctThingName
 
@@ -48,13 +49,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createThing' smart constructor.
 data CreateThing = CreateThing'
-    { _ctAttributePayload :: !(Maybe AttributePayload)
+    { _ctThingTypeName    :: !(Maybe Text)
+    , _ctAttributePayload :: !(Maybe AttributePayload)
     , _ctThingName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateThing' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctThingTypeName'
 --
 -- * 'ctAttributePayload'
 --
@@ -64,15 +68,22 @@ createThing
     -> CreateThing
 createThing pThingName_ =
     CreateThing'
-    { _ctAttributePayload = Nothing
+    { _ctThingTypeName = Nothing
+    , _ctAttributePayload = Nothing
     , _ctThingName = pThingName_
     }
 
--- | The attribute payload, which consists of up to 3 name\/value pairs in a JSON document (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | The name of the thing type associated with the new thing.
+ctThingTypeName :: Lens' CreateThing (Maybe Text)
+ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a});
+
+-- | The attribute payload, which consists of up to three name\/value pairs in a JSON document. For example:
+--
+-- '{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})'
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 
--- | The name of the thing.
+-- | The name of the thing to create.
 ctThingName :: Lens' CreateThing Text
 ctThingName = lens _ctThingName (\ s a -> s{_ctThingName = a});
 
@@ -97,7 +108,8 @@ instance ToJSON CreateThing where
         toJSON CreateThing'{..}
           = object
               (catMaybes
-                 [("attributePayload" .=) <$> _ctAttributePayload])
+                 [("thingTypeName" .=) <$> _ctThingTypeName,
+                  ("attributePayload" .=) <$> _ctAttributePayload])
 
 instance ToPath CreateThing where
         toPath CreateThing'{..}
@@ -134,11 +146,11 @@ createThingResponse pResponseStatus_ =
     , _ctrsResponseStatus = pResponseStatus_
     }
 
--- | The thing ARN.
+-- | The ARN of the new thing.
 ctrsThingARN :: Lens' CreateThingResponse (Maybe Text)
 ctrsThingARN = lens _ctrsThingARN (\ s a -> s{_ctrsThingARN = a});
 
--- | The name of the thing.
+-- | The name of the new thing.
 ctrsThingName :: Lens' CreateThingResponse (Maybe Text)
 ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
 

@@ -116,7 +116,7 @@ listThingPrincipalsResponse pResponseStatus_ =
     , _ltprsResponseStatus = pResponseStatus_
     }
 
--- | The principals.
+-- | The principals associated with the thing.
 ltprsPrincipals :: Lens' ListThingPrincipalsResponse [Text]
 ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _Default . _Coerce;
 

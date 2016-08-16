@@ -32,15 +32,22 @@ module Network.AWS.IoT.Types
     , _VersionsLimitExceededException
     , _ServiceUnavailableException
     , _InternalException
+    , _VersionConflictException
     , _UnauthorizedException
     , _ResourceNotFoundException
     , _LimitExceededException
+
+    -- * AutoRegistrationStatus
+    , AutoRegistrationStatus (..)
 
     -- * CACertificateStatus
     , CACertificateStatus (..)
 
     -- * CertificateStatus
     , CertificateStatus (..)
+
+    -- * DynamoKeyType
+    , DynamoKeyType (..)
 
     -- * LogLevel
     , LogLevel (..)
@@ -67,6 +74,7 @@ module Network.AWS.IoT.Types
     , AttributePayload
     , attributePayload
     , apAttributes
+    , apMerge
 
     -- * CACertificate
     , CACertificate
@@ -84,6 +92,7 @@ module Network.AWS.IoT.Types
     , cacdCertificatePem
     , cacdCertificateARN
     , cacdCertificateId
+    , cacdAutoRegistrationStatus
     , cacdCreationDate
 
     -- * Certificate
@@ -129,13 +138,16 @@ module Network.AWS.IoT.Types
     -- * DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
+    , ddaHashKeyType
+    , ddaOperation
+    , ddaRangeKeyType
     , ddaPayloadField
+    , ddaRangeKeyField
+    , ddaRangeKeyValue
     , ddaTableName
     , ddaRoleARN
     , ddaHashKeyField
     , ddaHashKeyValue
-    , ddaRangeKeyField
-    , ddaRangeKeyValue
 
     -- * ElasticsearchAction
     , ElasticsearchAction
@@ -149,6 +161,7 @@ module Network.AWS.IoT.Types
     -- * FirehoseAction
     , FirehoseAction
     , firehoseAction
+    , faSeparator
     , faRoleARN
     , faDeliveryStreamName
 
@@ -175,6 +188,16 @@ module Network.AWS.IoT.Types
     , loggingOptionsPayload
     , lopLogLevel
     , lopRoleARN
+
+    -- * OutgoingCertificate
+    , OutgoingCertificate
+    , outgoingCertificate
+    , ocTransferDate
+    , ocCertificateARN
+    , ocCertificateId
+    , ocTransferredTo
+    , ocCreationDate
+    , ocTransferMessage
 
     -- * Policy
     , Policy
@@ -219,8 +242,30 @@ module Network.AWS.IoT.Types
     -- * ThingAttribute
     , ThingAttribute
     , thingAttribute
+    , taThingTypeName
     , taAttributes
+    , taVersion
     , taThingName
+
+    -- * ThingTypeDefinition
+    , ThingTypeDefinition
+    , thingTypeDefinition
+    , ttdThingTypeProperties
+    , ttdThingTypeName
+    , ttdThingTypeMetadata
+
+    -- * ThingTypeMetadata
+    , ThingTypeMetadata
+    , thingTypeMetadata
+    , ttmDeprecationDate
+    , ttmCreationDate
+    , ttmDeprecated
+
+    -- * ThingTypeProperties
+    , ThingTypeProperties
+    , thingTypeProperties
+    , ttpSearchableAttributes
+    , ttpThingTypeDescription
 
     -- * TopicRule
     , TopicRule
@@ -381,6 +426,11 @@ _ServiceUnavailableException =
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
     _ServiceError . hasStatus 500 . hasCode "InternalException"
+
+-- | An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.
+_VersionConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+_VersionConflictException =
+    _ServiceError . hasStatus 409 . hasCode "VersionConflictException"
 
 -- | You are not authorized to perform this operation.
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError

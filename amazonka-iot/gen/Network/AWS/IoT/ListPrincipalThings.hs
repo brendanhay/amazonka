@@ -73,11 +73,11 @@ listPrincipalThings pPrincipal_ =
     , _lptPrincipal = pPrincipal_
     }
 
--- | A token used to retrieve the next value.
+-- | The token for the next set of results, or __null__ if there are no additional results.
 lptNextToken :: Lens' ListPrincipalThings (Maybe Text)
 lptNextToken = lens _lptNextToken (\ s a -> s{_lptNextToken = a});
 
--- | The maximum number of principals to return.
+-- | The maximum number of results to return in this operation.
 lptMaxResults :: Lens' ListPrincipalThings (Maybe Natural)
 lptMaxResults = lens _lptMaxResults (\ s a -> s{_lptMaxResults = a}) . mapping _Nat;
 
@@ -141,7 +141,7 @@ listPrincipalThingsResponse pResponseStatus_ =
     , _lptrsResponseStatus = pResponseStatus_
     }
 
--- | A token used to retrieve the next value.
+-- | The token for the next set of results, or __null__ if there are no additional results.
 lptrsNextToken :: Lens' ListPrincipalThingsResponse (Maybe Text)
 lptrsNextToken = lens _lptrsNextToken (\ s a -> s{_lptrsNextToken = a});
 

@@ -72,6 +72,9 @@ module Network.AWS.IoT
     -- ** InternalException
     , _InternalException
 
+    -- ** VersionConflictException
+    , _VersionConflictException
+
     -- ** UnauthorizedException
     , _UnauthorizedException
 
@@ -105,6 +108,9 @@ module Network.AWS.IoT
     -- ** GetLoggingOptions
     , module Network.AWS.IoT.GetLoggingOptions
 
+    -- ** ListThingTypes
+    , module Network.AWS.IoT.ListThingTypes
+
     -- ** CreateCertificateFromCsr
     , module Network.AWS.IoT.CreateCertificateFromCsr
 
@@ -113,6 +119,9 @@ module Network.AWS.IoT
 
     -- ** UpdateThing
     , module Network.AWS.IoT.UpdateThing
+
+    -- ** CreateThingType
+    , module Network.AWS.IoT.CreateThingType
 
     -- ** CancelCertificateTransfer
     , module Network.AWS.IoT.CancelCertificateTransfer
@@ -171,11 +180,17 @@ module Network.AWS.IoT
     -- ** UpdateCertificate
     , module Network.AWS.IoT.UpdateCertificate
 
+    -- ** ListOutgoingCertificates
+    , module Network.AWS.IoT.ListOutgoingCertificates
+
     -- ** DescribeCACertificate
     , module Network.AWS.IoT.DescribeCACertificate
 
     -- ** GetRegistrationCode
     , module Network.AWS.IoT.GetRegistrationCode
+
+    -- ** DeleteThingType
+    , module Network.AWS.IoT.DeleteThingType
 
     -- ** ListCertificatesByCA
     , module Network.AWS.IoT.ListCertificatesByCA
@@ -197,6 +212,9 @@ module Network.AWS.IoT
 
     -- ** DescribeCertificate
     , module Network.AWS.IoT.DescribeCertificate
+
+    -- ** ListPolicyPrincipals
+    , module Network.AWS.IoT.ListPolicyPrincipals
 
     -- ** ReplaceTopicRule
     , module Network.AWS.IoT.ReplaceTopicRule
@@ -228,6 +246,9 @@ module Network.AWS.IoT
     -- ** SetLoggingOptions
     , module Network.AWS.IoT.SetLoggingOptions
 
+    -- ** DescribeThingType
+    , module Network.AWS.IoT.DescribeThingType
+
     -- ** AttachPrincipalPolicy
     , module Network.AWS.IoT.AttachPrincipalPolicy
 
@@ -237,13 +258,22 @@ module Network.AWS.IoT
     -- ** DetachThingPrincipal
     , module Network.AWS.IoT.DetachThingPrincipal
 
+    -- ** DeprecateThingType
+    , module Network.AWS.IoT.DeprecateThingType
+
     -- * Types
+
+    -- ** AutoRegistrationStatus
+    , AutoRegistrationStatus (..)
 
     -- ** CACertificateStatus
     , CACertificateStatus (..)
 
     -- ** CertificateStatus
     , CertificateStatus (..)
+
+    -- ** DynamoKeyType
+    , DynamoKeyType (..)
 
     -- ** LogLevel
     , LogLevel (..)
@@ -270,6 +300,7 @@ module Network.AWS.IoT
     , AttributePayload
     , attributePayload
     , apAttributes
+    , apMerge
 
     -- ** CACertificate
     , CACertificate
@@ -287,6 +318,7 @@ module Network.AWS.IoT
     , cacdCertificatePem
     , cacdCertificateARN
     , cacdCertificateId
+    , cacdAutoRegistrationStatus
     , cacdCreationDate
 
     -- ** Certificate
@@ -332,13 +364,16 @@ module Network.AWS.IoT
     -- ** DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
+    , ddaHashKeyType
+    , ddaOperation
+    , ddaRangeKeyType
     , ddaPayloadField
+    , ddaRangeKeyField
+    , ddaRangeKeyValue
     , ddaTableName
     , ddaRoleARN
     , ddaHashKeyField
     , ddaHashKeyValue
-    , ddaRangeKeyField
-    , ddaRangeKeyValue
 
     -- ** ElasticsearchAction
     , ElasticsearchAction
@@ -352,6 +387,7 @@ module Network.AWS.IoT
     -- ** FirehoseAction
     , FirehoseAction
     , firehoseAction
+    , faSeparator
     , faRoleARN
     , faDeliveryStreamName
 
@@ -378,6 +414,16 @@ module Network.AWS.IoT
     , loggingOptionsPayload
     , lopLogLevel
     , lopRoleARN
+
+    -- ** OutgoingCertificate
+    , OutgoingCertificate
+    , outgoingCertificate
+    , ocTransferDate
+    , ocCertificateARN
+    , ocCertificateId
+    , ocTransferredTo
+    , ocCreationDate
+    , ocTransferMessage
 
     -- ** Policy
     , Policy
@@ -422,8 +468,30 @@ module Network.AWS.IoT
     -- ** ThingAttribute
     , ThingAttribute
     , thingAttribute
+    , taThingTypeName
     , taAttributes
+    , taVersion
     , taThingName
+
+    -- ** ThingTypeDefinition
+    , ThingTypeDefinition
+    , thingTypeDefinition
+    , ttdThingTypeProperties
+    , ttdThingTypeName
+    , ttdThingTypeMetadata
+
+    -- ** ThingTypeMetadata
+    , ThingTypeMetadata
+    , thingTypeMetadata
+    , ttmDeprecationDate
+    , ttmCreationDate
+    , ttmDeprecated
+
+    -- ** ThingTypeProperties
+    , ThingTypeProperties
+    , thingTypeProperties
+    , ttpSearchableAttributes
+    , ttpThingTypeDescription
 
     -- ** TopicRule
     , TopicRule
@@ -473,6 +541,7 @@ import           Network.AWS.IoT.CreateKeysAndCertificate
 import           Network.AWS.IoT.CreatePolicy
 import           Network.AWS.IoT.CreatePolicyVersion
 import           Network.AWS.IoT.CreateThing
+import           Network.AWS.IoT.CreateThingType
 import           Network.AWS.IoT.CreateTopicRule
 import           Network.AWS.IoT.DeleteCACertificate
 import           Network.AWS.IoT.DeleteCertificate
@@ -480,11 +549,14 @@ import           Network.AWS.IoT.DeletePolicy
 import           Network.AWS.IoT.DeletePolicyVersion
 import           Network.AWS.IoT.DeleteRegistrationCode
 import           Network.AWS.IoT.DeleteThing
+import           Network.AWS.IoT.DeleteThingType
 import           Network.AWS.IoT.DeleteTopicRule
+import           Network.AWS.IoT.DeprecateThingType
 import           Network.AWS.IoT.DescribeCACertificate
 import           Network.AWS.IoT.DescribeCertificate
 import           Network.AWS.IoT.DescribeEndpoint
 import           Network.AWS.IoT.DescribeThing
+import           Network.AWS.IoT.DescribeThingType
 import           Network.AWS.IoT.DetachPrincipalPolicy
 import           Network.AWS.IoT.DetachThingPrincipal
 import           Network.AWS.IoT.DisableTopicRule
@@ -497,12 +569,15 @@ import           Network.AWS.IoT.GetTopicRule
 import           Network.AWS.IoT.ListCACertificates
 import           Network.AWS.IoT.ListCertificates
 import           Network.AWS.IoT.ListCertificatesByCA
+import           Network.AWS.IoT.ListOutgoingCertificates
 import           Network.AWS.IoT.ListPolicies
+import           Network.AWS.IoT.ListPolicyPrincipals
 import           Network.AWS.IoT.ListPolicyVersions
 import           Network.AWS.IoT.ListPrincipalPolicies
 import           Network.AWS.IoT.ListPrincipalThings
 import           Network.AWS.IoT.ListThingPrincipals
 import           Network.AWS.IoT.ListThings
+import           Network.AWS.IoT.ListThingTypes
 import           Network.AWS.IoT.ListTopicRules
 import           Network.AWS.IoT.RegisterCACertificate
 import           Network.AWS.IoT.RegisterCertificate

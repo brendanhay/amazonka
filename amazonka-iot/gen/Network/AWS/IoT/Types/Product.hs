@@ -159,11 +159,12 @@ instance ToJSON Action where
                   ("republish" .=) <$> _aRepublish,
                   ("sqs" .=) <$> _aSqs])
 
--- | The attribute payload, a JSON string containing up to three key-value pairs (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | The attribute payload.
 --
 -- /See:/ 'attributePayload' smart constructor.
-newtype AttributePayload = AttributePayload'
-    { _apAttributes :: Maybe (Map Text Text)
+data AttributePayload = AttributePayload'
+    { _apAttributes :: !(Maybe (Map Text Text))
+    , _apMerge      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttributePayload' with the minimum fields required to make a request.
@@ -171,16 +172,29 @@ newtype AttributePayload = AttributePayload'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apAttributes'
+--
+-- * 'apMerge'
 attributePayload
     :: AttributePayload
 attributePayload =
     AttributePayload'
     { _apAttributes = Nothing
+    , _apMerge = Nothing
     }
 
--- | A JSON string containing up to three key-value pair in JSON format (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
+-- | A JSON string containing up to three key-value pair in JSON format. For example:
+--
+-- '{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})'
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
+
+-- | Specifies whether the list of attributes provided in the 'AttributePayload' is merged with the attributes stored in the registry, instead of overwriting them.
+--
+-- To remove an attribute, call 'UpdateThing' with an empty attribute value.
+--
+-- The 'merge' attribute is only valid when calling 'UpdateThing'.
+apMerge :: Lens' AttributePayload (Maybe Bool)
+apMerge = lens _apMerge (\ s a -> s{_apMerge = a});
 
 instance Hashable AttributePayload
 
@@ -189,7 +203,9 @@ instance NFData AttributePayload
 instance ToJSON AttributePayload where
         toJSON AttributePayload'{..}
           = object
-              (catMaybes [("attributes" .=) <$> _apAttributes])
+              (catMaybes
+                 [("attributes" .=) <$> _apAttributes,
+                  ("merge" .=) <$> _apMerge])
 
 -- | A CA certificate.
 --
@@ -223,6 +239,8 @@ cACertificate =
     }
 
 -- | The status of the CA certificate.
+--
+-- The status value REGISTER_INACTIVE is deprecated and should not be used.
 cacStatus :: Lens' CACertificate (Maybe CACertificateStatus)
 cacStatus = lens _cacStatus (\ s a -> s{_cacStatus = a});
 
@@ -255,12 +273,13 @@ instance NFData CACertificate
 --
 -- /See:/ 'cACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
-    { _cacdStatus         :: !(Maybe CACertificateStatus)
-    , _cacdOwnedBy        :: !(Maybe Text)
-    , _cacdCertificatePem :: !(Maybe Text)
-    , _cacdCertificateARN :: !(Maybe Text)
-    , _cacdCertificateId  :: !(Maybe Text)
-    , _cacdCreationDate   :: !(Maybe POSIX)
+    { _cacdStatus                 :: !(Maybe CACertificateStatus)
+    , _cacdOwnedBy                :: !(Maybe Text)
+    , _cacdCertificatePem         :: !(Maybe Text)
+    , _cacdCertificateARN         :: !(Maybe Text)
+    , _cacdCertificateId          :: !(Maybe Text)
+    , _cacdAutoRegistrationStatus :: !(Maybe AutoRegistrationStatus)
+    , _cacdCreationDate           :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CACertificateDescription' with the minimum fields required to make a request.
@@ -277,6 +296,8 @@ data CACertificateDescription = CACertificateDescription'
 --
 -- * 'cacdCertificateId'
 --
+-- * 'cacdAutoRegistrationStatus'
+--
 -- * 'cacdCreationDate'
 cACertificateDescription
     :: CACertificateDescription
@@ -287,6 +308,7 @@ cACertificateDescription =
     , _cacdCertificatePem = Nothing
     , _cacdCertificateARN = Nothing
     , _cacdCertificateId = Nothing
+    , _cacdAutoRegistrationStatus = Nothing
     , _cacdCreationDate = Nothing
     }
 
@@ -310,6 +332,10 @@ cacdCertificateARN = lens _cacdCertificateARN (\ s a -> s{_cacdCertificateARN = 
 cacdCertificateId :: Lens' CACertificateDescription (Maybe Text)
 cacdCertificateId = lens _cacdCertificateId (\ s a -> s{_cacdCertificateId = a});
 
+-- | Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\"
+cacdAutoRegistrationStatus :: Lens' CACertificateDescription (Maybe AutoRegistrationStatus)
+cacdAutoRegistrationStatus = lens _cacdAutoRegistrationStatus (\ s a -> s{_cacdAutoRegistrationStatus = a});
+
 -- | The date the CA certificate was created.
 cacdCreationDate :: Lens' CACertificateDescription (Maybe UTCTime)
 cacdCreationDate = lens _cacdCreationDate (\ s a -> s{_cacdCreationDate = a}) . mapping _Time;
@@ -323,6 +349,7 @@ instance FromJSON CACertificateDescription where
                      (x .:? "certificatePem")
                      <*> (x .:? "certificateArn")
                      <*> (x .:? "certificateId")
+                     <*> (x .:? "autoRegistrationStatus")
                      <*> (x .:? "creationDate"))
 
 instance Hashable CACertificateDescription
@@ -361,6 +388,8 @@ certificate =
     }
 
 -- | The status of the certificate.
+--
+-- The status value REGISTER_INACTIVE is deprecated and should not be used.
 cStatus :: Lens' Certificate (Maybe CertificateStatus)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
@@ -686,20 +715,33 @@ instance ToJSON CloudwatchMetricAction where
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
-    { _ddaPayloadField  :: !(Maybe Text)
+    { _ddaHashKeyType   :: !(Maybe DynamoKeyType)
+    , _ddaOperation     :: !(Maybe Text)
+    , _ddaRangeKeyType  :: !(Maybe DynamoKeyType)
+    , _ddaPayloadField  :: !(Maybe Text)
+    , _ddaRangeKeyField :: !(Maybe Text)
+    , _ddaRangeKeyValue :: !(Maybe Text)
     , _ddaTableName     :: !Text
     , _ddaRoleARN       :: !Text
     , _ddaHashKeyField  :: !Text
     , _ddaHashKeyValue  :: !Text
-    , _ddaRangeKeyField :: !Text
-    , _ddaRangeKeyValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DynamoDBAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ddaHashKeyType'
+--
+-- * 'ddaOperation'
+--
+-- * 'ddaRangeKeyType'
+--
 -- * 'ddaPayloadField'
+--
+-- * 'ddaRangeKeyField'
+--
+-- * 'ddaRangeKeyValue'
 --
 -- * 'ddaTableName'
 --
@@ -708,32 +750,49 @@ data DynamoDBAction = DynamoDBAction'
 -- * 'ddaHashKeyField'
 --
 -- * 'ddaHashKeyValue'
---
--- * 'ddaRangeKeyField'
---
--- * 'ddaRangeKeyValue'
 dynamoDBAction
     :: Text -- ^ 'ddaTableName'
     -> Text -- ^ 'ddaRoleARN'
     -> Text -- ^ 'ddaHashKeyField'
     -> Text -- ^ 'ddaHashKeyValue'
-    -> Text -- ^ 'ddaRangeKeyField'
-    -> Text -- ^ 'ddaRangeKeyValue'
     -> DynamoDBAction
-dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ pRangeKeyField_ pRangeKeyValue_ =
+dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ =
     DynamoDBAction'
-    { _ddaPayloadField = Nothing
+    { _ddaHashKeyType = Nothing
+    , _ddaOperation = Nothing
+    , _ddaRangeKeyType = Nothing
+    , _ddaPayloadField = Nothing
+    , _ddaRangeKeyField = Nothing
+    , _ddaRangeKeyValue = Nothing
     , _ddaTableName = pTableName_
     , _ddaRoleARN = pRoleARN_
     , _ddaHashKeyField = pHashKeyField_
     , _ddaHashKeyValue = pHashKeyValue_
-    , _ddaRangeKeyField = pRangeKeyField_
-    , _ddaRangeKeyValue = pRangeKeyValue_
     }
+
+-- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
+ddaHashKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
+ddaHashKeyType = lens _ddaHashKeyType (\ s a -> s{_ddaHashKeyType = a});
+
+-- | The type of operation to be performed. This follows the substitution template, so it can be '>{operation}', but the substitution must result in one of the following: 'INSERT', 'UPDATE', or 'DELETE'.
+ddaOperation :: Lens' DynamoDBAction (Maybe Text)
+ddaOperation = lens _ddaOperation (\ s a -> s{_ddaOperation = a});
+
+-- | The range key type. Valid values are \"STRING\" or \"NUMBER\"
+ddaRangeKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
+ddaRangeKeyType = lens _ddaRangeKeyType (\ s a -> s{_ddaRangeKeyType = a});
 
 -- | The action payload. This name can be customized.
 ddaPayloadField :: Lens' DynamoDBAction (Maybe Text)
 ddaPayloadField = lens _ddaPayloadField (\ s a -> s{_ddaPayloadField = a});
+
+-- | The range key name.
+ddaRangeKeyField :: Lens' DynamoDBAction (Maybe Text)
+ddaRangeKeyField = lens _ddaRangeKeyField (\ s a -> s{_ddaRangeKeyField = a});
+
+-- | The range key value.
+ddaRangeKeyValue :: Lens' DynamoDBAction (Maybe Text)
+ddaRangeKeyValue = lens _ddaRangeKeyValue (\ s a -> s{_ddaRangeKeyValue = a});
 
 -- | The name of the DynamoDB table.
 ddaTableName :: Lens' DynamoDBAction Text
@@ -751,25 +810,20 @@ ddaHashKeyField = lens _ddaHashKeyField (\ s a -> s{_ddaHashKeyField = a});
 ddaHashKeyValue :: Lens' DynamoDBAction Text
 ddaHashKeyValue = lens _ddaHashKeyValue (\ s a -> s{_ddaHashKeyValue = a});
 
--- | The range key name.
-ddaRangeKeyField :: Lens' DynamoDBAction Text
-ddaRangeKeyField = lens _ddaRangeKeyField (\ s a -> s{_ddaRangeKeyField = a});
-
--- | The range key value.
-ddaRangeKeyValue :: Lens' DynamoDBAction Text
-ddaRangeKeyValue = lens _ddaRangeKeyValue (\ s a -> s{_ddaRangeKeyValue = a});
-
 instance FromJSON DynamoDBAction where
         parseJSON
           = withObject "DynamoDBAction"
               (\ x ->
                  DynamoDBAction' <$>
-                   (x .:? "payloadField") <*> (x .: "tableName") <*>
-                     (x .: "roleArn")
+                   (x .:? "hashKeyType") <*> (x .:? "operation") <*>
+                     (x .:? "rangeKeyType")
+                     <*> (x .:? "payloadField")
+                     <*> (x .:? "rangeKeyField")
+                     <*> (x .:? "rangeKeyValue")
+                     <*> (x .: "tableName")
+                     <*> (x .: "roleArn")
                      <*> (x .: "hashKeyField")
-                     <*> (x .: "hashKeyValue")
-                     <*> (x .: "rangeKeyField")
-                     <*> (x .: "rangeKeyValue"))
+                     <*> (x .: "hashKeyValue"))
 
 instance Hashable DynamoDBAction
 
@@ -779,13 +833,16 @@ instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
           = object
               (catMaybes
-                 [("payloadField" .=) <$> _ddaPayloadField,
+                 [("hashKeyType" .=) <$> _ddaHashKeyType,
+                  ("operation" .=) <$> _ddaOperation,
+                  ("rangeKeyType" .=) <$> _ddaRangeKeyType,
+                  ("payloadField" .=) <$> _ddaPayloadField,
+                  ("rangeKeyField" .=) <$> _ddaRangeKeyField,
+                  ("rangeKeyValue" .=) <$> _ddaRangeKeyValue,
                   Just ("tableName" .= _ddaTableName),
                   Just ("roleArn" .= _ddaRoleARN),
                   Just ("hashKeyField" .= _ddaHashKeyField),
-                  Just ("hashKeyValue" .= _ddaHashKeyValue),
-                  Just ("rangeKeyField" .= _ddaRangeKeyField),
-                  Just ("rangeKeyValue" .= _ddaRangeKeyValue)])
+                  Just ("hashKeyValue" .= _ddaHashKeyValue)])
 
 -- | Describes an action that writes data to an Amazon Elasticsearch Service; domain.
 --
@@ -874,13 +931,16 @@ instance ToJSON ElasticsearchAction where
 --
 -- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-    { _faRoleARN            :: !Text
+    { _faSeparator          :: !(Maybe Text)
+    , _faRoleARN            :: !Text
     , _faDeliveryStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FirehoseAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'faSeparator'
 --
 -- * 'faRoleARN'
 --
@@ -891,9 +951,14 @@ firehoseAction
     -> FirehoseAction
 firehoseAction pRoleARN_ pDeliveryStreamName_ =
     FirehoseAction'
-    { _faRoleARN = pRoleARN_
+    { _faSeparator = Nothing
+    , _faRoleARN = pRoleARN_
     , _faDeliveryStreamName = pDeliveryStreamName_
     }
+
+-- | A character separator that will be used to separate records written to the firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab), \'\\r\\n\' (Windows newline), \',\' (comma).
+faSeparator :: Lens' FirehoseAction (Maybe Text)
+faSeparator = lens _faSeparator (\ s a -> s{_faSeparator = a});
 
 -- | The IAM role that grants access to the Amazon Kinesis Firehost stream.
 faRoleARN :: Lens' FirehoseAction Text
@@ -908,7 +973,8 @@ instance FromJSON FirehoseAction where
           = withObject "FirehoseAction"
               (\ x ->
                  FirehoseAction' <$>
-                   (x .: "roleArn") <*> (x .: "deliveryStreamName"))
+                   (x .:? "separator") <*> (x .: "roleArn") <*>
+                     (x .: "deliveryStreamName"))
 
 instance Hashable FirehoseAction
 
@@ -918,7 +984,8 @@ instance ToJSON FirehoseAction where
         toJSON FirehoseAction'{..}
           = object
               (catMaybes
-                 [Just ("roleArn" .= _faRoleARN),
+                 [("separator" .=) <$> _faSeparator,
+                  Just ("roleArn" .= _faRoleARN),
                   Just
                     ("deliveryStreamName" .= _faDeliveryStreamName)])
 
@@ -1105,6 +1172,84 @@ instance ToJSON LoggingOptionsPayload where
               (catMaybes
                  [("logLevel" .=) <$> _lopLogLevel,
                   Just ("roleArn" .= _lopRoleARN)])
+
+-- | A certificate that has been transfered but not yet accepted.
+--
+-- /See:/ 'outgoingCertificate' smart constructor.
+data OutgoingCertificate = OutgoingCertificate'
+    { _ocTransferDate    :: !(Maybe POSIX)
+    , _ocCertificateARN  :: !(Maybe Text)
+    , _ocCertificateId   :: !(Maybe Text)
+    , _ocTransferredTo   :: !(Maybe Text)
+    , _ocCreationDate    :: !(Maybe POSIX)
+    , _ocTransferMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OutgoingCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ocTransferDate'
+--
+-- * 'ocCertificateARN'
+--
+-- * 'ocCertificateId'
+--
+-- * 'ocTransferredTo'
+--
+-- * 'ocCreationDate'
+--
+-- * 'ocTransferMessage'
+outgoingCertificate
+    :: OutgoingCertificate
+outgoingCertificate =
+    OutgoingCertificate'
+    { _ocTransferDate = Nothing
+    , _ocCertificateARN = Nothing
+    , _ocCertificateId = Nothing
+    , _ocTransferredTo = Nothing
+    , _ocCreationDate = Nothing
+    , _ocTransferMessage = Nothing
+    }
+
+-- | The date the transfer was initiated.
+ocTransferDate :: Lens' OutgoingCertificate (Maybe UTCTime)
+ocTransferDate = lens _ocTransferDate (\ s a -> s{_ocTransferDate = a}) . mapping _Time;
+
+-- | The certificate ARN.
+ocCertificateARN :: Lens' OutgoingCertificate (Maybe Text)
+ocCertificateARN = lens _ocCertificateARN (\ s a -> s{_ocCertificateARN = a});
+
+-- | The certificate ID.
+ocCertificateId :: Lens' OutgoingCertificate (Maybe Text)
+ocCertificateId = lens _ocCertificateId (\ s a -> s{_ocCertificateId = a});
+
+-- | The AWS account to which the transfer was made.
+ocTransferredTo :: Lens' OutgoingCertificate (Maybe Text)
+ocTransferredTo = lens _ocTransferredTo (\ s a -> s{_ocTransferredTo = a});
+
+-- | The certificate creation date.
+ocCreationDate :: Lens' OutgoingCertificate (Maybe UTCTime)
+ocCreationDate = lens _ocCreationDate (\ s a -> s{_ocCreationDate = a}) . mapping _Time;
+
+-- | The transfer message.
+ocTransferMessage :: Lens' OutgoingCertificate (Maybe Text)
+ocTransferMessage = lens _ocTransferMessage (\ s a -> s{_ocTransferMessage = a});
+
+instance FromJSON OutgoingCertificate where
+        parseJSON
+          = withObject "OutgoingCertificate"
+              (\ x ->
+                 OutgoingCertificate' <$>
+                   (x .:? "transferDate") <*> (x .:? "certificateArn")
+                     <*> (x .:? "certificateId")
+                     <*> (x .:? "transferredTo")
+                     <*> (x .:? "creationDate")
+                     <*> (x .:? "transferMessage"))
+
+instance Hashable OutgoingCertificate
+
+instance NFData OutgoingCertificate
 
 -- | Describes an AWS IoT policy.
 --
@@ -1434,32 +1579,48 @@ instance ToJSON SqsAction where
                   Just ("roleArn" .= _saRoleARN),
                   Just ("queueUrl" .= _saQueueURL)])
 
--- | Describes a thing attribute.
+-- | The properties of the thing, including thing name, thing type name, and a list of thing attributes.
 --
 -- /See:/ 'thingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-    { _taAttributes :: !(Maybe (Map Text Text))
-    , _taThingName  :: !(Maybe Text)
+    { _taThingTypeName :: !(Maybe Text)
+    , _taAttributes    :: !(Maybe (Map Text Text))
+    , _taVersion       :: !(Maybe Integer)
+    , _taThingName     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThingAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'taThingTypeName'
+--
 -- * 'taAttributes'
+--
+-- * 'taVersion'
 --
 -- * 'taThingName'
 thingAttribute
     :: ThingAttribute
 thingAttribute =
     ThingAttribute'
-    { _taAttributes = Nothing
+    { _taThingTypeName = Nothing
+    , _taAttributes = Nothing
+    , _taVersion = Nothing
     , _taThingName = Nothing
     }
 
--- | The attributes.
+-- | The name of the thing type, if the thing has been associated with a type.
+taThingTypeName :: Lens' ThingAttribute (Maybe Text)
+taThingTypeName = lens _taThingTypeName (\ s a -> s{_taThingTypeName = a});
+
+-- | A list of thing attributes which are name-value pairs.
 taAttributes :: Lens' ThingAttribute (HashMap Text Text)
 taAttributes = lens _taAttributes (\ s a -> s{_taAttributes = a}) . _Default . _Map;
+
+-- | The version of the thing record in the registry.
+taVersion :: Lens' ThingAttribute (Maybe Integer)
+taVersion = lens _taVersion (\ s a -> s{_taVersion = a});
 
 -- | The name of the thing.
 taThingName :: Lens' ThingAttribute (Maybe Text)
@@ -1470,12 +1631,169 @@ instance FromJSON ThingAttribute where
           = withObject "ThingAttribute"
               (\ x ->
                  ThingAttribute' <$>
-                   (x .:? "attributes" .!= mempty) <*>
-                     (x .:? "thingName"))
+                   (x .:? "thingTypeName") <*>
+                     (x .:? "attributes" .!= mempty)
+                     <*> (x .:? "version")
+                     <*> (x .:? "thingName"))
 
 instance Hashable ThingAttribute
 
 instance NFData ThingAttribute
+
+-- | The definition of the thing type, including thing type name and description.
+--
+-- /See:/ 'thingTypeDefinition' smart constructor.
+data ThingTypeDefinition = ThingTypeDefinition'
+    { _ttdThingTypeProperties :: !(Maybe ThingTypeProperties)
+    , _ttdThingTypeName       :: !(Maybe Text)
+    , _ttdThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ThingTypeDefinition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttdThingTypeProperties'
+--
+-- * 'ttdThingTypeName'
+--
+-- * 'ttdThingTypeMetadata'
+thingTypeDefinition
+    :: ThingTypeDefinition
+thingTypeDefinition =
+    ThingTypeDefinition'
+    { _ttdThingTypeProperties = Nothing
+    , _ttdThingTypeName = Nothing
+    , _ttdThingTypeMetadata = Nothing
+    }
+
+-- | The ThingTypeProperties for the thing type.
+ttdThingTypeProperties :: Lens' ThingTypeDefinition (Maybe ThingTypeProperties)
+ttdThingTypeProperties = lens _ttdThingTypeProperties (\ s a -> s{_ttdThingTypeProperties = a});
+
+-- | The name of the thing type.
+ttdThingTypeName :: Lens' ThingTypeDefinition (Maybe Text)
+ttdThingTypeName = lens _ttdThingTypeName (\ s a -> s{_ttdThingTypeName = a});
+
+-- | Undocumented member.
+ttdThingTypeMetadata :: Lens' ThingTypeDefinition (Maybe ThingTypeMetadata)
+ttdThingTypeMetadata = lens _ttdThingTypeMetadata (\ s a -> s{_ttdThingTypeMetadata = a});
+
+instance FromJSON ThingTypeDefinition where
+        parseJSON
+          = withObject "ThingTypeDefinition"
+              (\ x ->
+                 ThingTypeDefinition' <$>
+                   (x .:? "thingTypeProperties") <*>
+                     (x .:? "thingTypeName")
+                     <*> (x .:? "thingTypeMetadata"))
+
+instance Hashable ThingTypeDefinition
+
+instance NFData ThingTypeDefinition
+
+-- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.
+--
+-- /See:/ 'thingTypeMetadata' smart constructor.
+data ThingTypeMetadata = ThingTypeMetadata'
+    { _ttmDeprecationDate :: !(Maybe POSIX)
+    , _ttmCreationDate    :: !(Maybe POSIX)
+    , _ttmDeprecated      :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ThingTypeMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttmDeprecationDate'
+--
+-- * 'ttmCreationDate'
+--
+-- * 'ttmDeprecated'
+thingTypeMetadata
+    :: ThingTypeMetadata
+thingTypeMetadata =
+    ThingTypeMetadata'
+    { _ttmDeprecationDate = Nothing
+    , _ttmCreationDate = Nothing
+    , _ttmDeprecated = Nothing
+    }
+
+-- | The date and time when the thing type was deprecated.
+ttmDeprecationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
+ttmDeprecationDate = lens _ttmDeprecationDate (\ s a -> s{_ttmDeprecationDate = a}) . mapping _Time;
+
+-- | The date and time when the thing type was created.
+ttmCreationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
+ttmCreationDate = lens _ttmCreationDate (\ s a -> s{_ttmCreationDate = a}) . mapping _Time;
+
+-- | Whether the thing type is deprecated. If __true__, no new things could be associated with this type.
+ttmDeprecated :: Lens' ThingTypeMetadata (Maybe Bool)
+ttmDeprecated = lens _ttmDeprecated (\ s a -> s{_ttmDeprecated = a});
+
+instance FromJSON ThingTypeMetadata where
+        parseJSON
+          = withObject "ThingTypeMetadata"
+              (\ x ->
+                 ThingTypeMetadata' <$>
+                   (x .:? "deprecationDate") <*> (x .:? "creationDate")
+                     <*> (x .:? "deprecated"))
+
+instance Hashable ThingTypeMetadata
+
+instance NFData ThingTypeMetadata
+
+-- | The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.
+--
+-- /See:/ 'thingTypeProperties' smart constructor.
+data ThingTypeProperties = ThingTypeProperties'
+    { _ttpSearchableAttributes :: !(Maybe [Text])
+    , _ttpThingTypeDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ThingTypeProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttpSearchableAttributes'
+--
+-- * 'ttpThingTypeDescription'
+thingTypeProperties
+    :: ThingTypeProperties
+thingTypeProperties =
+    ThingTypeProperties'
+    { _ttpSearchableAttributes = Nothing
+    , _ttpThingTypeDescription = Nothing
+    }
+
+-- | A list of searchable thing attribute names.
+ttpSearchableAttributes :: Lens' ThingTypeProperties [Text]
+ttpSearchableAttributes = lens _ttpSearchableAttributes (\ s a -> s{_ttpSearchableAttributes = a}) . _Default . _Coerce;
+
+-- | The description of the thing type.
+ttpThingTypeDescription :: Lens' ThingTypeProperties (Maybe Text)
+ttpThingTypeDescription = lens _ttpThingTypeDescription (\ s a -> s{_ttpThingTypeDescription = a});
+
+instance FromJSON ThingTypeProperties where
+        parseJSON
+          = withObject "ThingTypeProperties"
+              (\ x ->
+                 ThingTypeProperties' <$>
+                   (x .:? "searchableAttributes" .!= mempty) <*>
+                     (x .:? "thingTypeDescription"))
+
+instance Hashable ThingTypeProperties
+
+instance NFData ThingTypeProperties
+
+instance ToJSON ThingTypeProperties where
+        toJSON ThingTypeProperties'{..}
+          = object
+              (catMaybes
+                 [("searchableAttributes" .=) <$>
+                    _ttpSearchableAttributes,
+                  ("thingTypeDescription" .=) <$>
+                    _ttpThingTypeDescription])
 
 -- | Describes a rule.
 --

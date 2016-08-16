@@ -19,6 +19,35 @@ module Network.AWS.IoT.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data AutoRegistrationStatus
+    = Disable
+    | Enable
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AutoRegistrationStatus where
+    parser = takeLowerText >>= \case
+        "disable" -> pure Disable
+        "enable" -> pure Enable
+        e -> fromTextError $ "Failure parsing AutoRegistrationStatus from value: '" <> e
+           <> "'. Accepted values: DISABLE, ENABLE"
+
+instance ToText AutoRegistrationStatus where
+    toText = \case
+        Disable -> "DISABLE"
+        Enable -> "ENABLE"
+
+instance Hashable     AutoRegistrationStatus
+instance NFData       AutoRegistrationStatus
+instance ToByteString AutoRegistrationStatus
+instance ToQuery      AutoRegistrationStatus
+instance ToHeader     AutoRegistrationStatus
+
+instance ToJSON AutoRegistrationStatus where
+    toJSON = toJSONText
+
+instance FromJSON AutoRegistrationStatus where
+    parseJSON = parseJSONText "AutoRegistrationStatus"
+
 data CACertificateStatus
     = CACSActive
     | CACSInactive
@@ -51,6 +80,7 @@ instance FromJSON CACertificateStatus where
 data CertificateStatus
     = Active
     | Inactive
+    | PendingActivation
     | PendingTransfer
     | RegisterInactive
     | Revoked
@@ -60,16 +90,18 @@ instance FromText CertificateStatus where
     parser = takeLowerText >>= \case
         "active" -> pure Active
         "inactive" -> pure Inactive
+        "pending_activation" -> pure PendingActivation
         "pending_transfer" -> pure PendingTransfer
         "register_inactive" -> pure RegisterInactive
         "revoked" -> pure Revoked
         e -> fromTextError $ "Failure parsing CertificateStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, INACTIVE, PENDING_TRANSFER, REGISTER_INACTIVE, REVOKED"
+           <> "'. Accepted values: ACTIVE, INACTIVE, PENDING_ACTIVATION, PENDING_TRANSFER, REGISTER_INACTIVE, REVOKED"
 
 instance ToText CertificateStatus where
     toText = \case
         Active -> "ACTIVE"
         Inactive -> "INACTIVE"
+        PendingActivation -> "PENDING_ACTIVATION"
         PendingTransfer -> "PENDING_TRANSFER"
         RegisterInactive -> "REGISTER_INACTIVE"
         Revoked -> "REVOKED"
@@ -85,6 +117,35 @@ instance ToJSON CertificateStatus where
 
 instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
+
+data DynamoKeyType
+    = Number
+    | String
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DynamoKeyType where
+    parser = takeLowerText >>= \case
+        "number" -> pure Number
+        "string" -> pure String
+        e -> fromTextError $ "Failure parsing DynamoKeyType from value: '" <> e
+           <> "'. Accepted values: NUMBER, STRING"
+
+instance ToText DynamoKeyType where
+    toText = \case
+        Number -> "NUMBER"
+        String -> "STRING"
+
+instance Hashable     DynamoKeyType
+instance NFData       DynamoKeyType
+instance ToByteString DynamoKeyType
+instance ToQuery      DynamoKeyType
+instance ToHeader     DynamoKeyType
+
+instance ToJSON DynamoKeyType where
+    toJSON = toJSONText
+
+instance FromJSON DynamoKeyType where
+    parseJSON = parseJSONText "DynamoKeyType"
 
 data LogLevel
     = Debug

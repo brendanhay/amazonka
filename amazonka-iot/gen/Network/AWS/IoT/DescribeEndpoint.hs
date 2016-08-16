@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique endpoint specific to the AWS account making the call. You specify the following URI when updating state information for your thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
+-- Returns a unique endpoint specific to the AWS account making the call.
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request

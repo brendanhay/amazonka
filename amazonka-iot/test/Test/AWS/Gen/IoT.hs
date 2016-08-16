@@ -46,6 +46,9 @@ import Test.AWS.IoT.Internal
 --         , requestGetLoggingOptions $
 --             getLoggingOptions
 --
+--         , requestListThingTypes $
+--             listThingTypes
+--
 --         , requestCreateCertificateFromCsr $
 --             createCertificateFromCsr
 --
@@ -54,6 +57,9 @@ import Test.AWS.IoT.Internal
 --
 --         , requestUpdateThing $
 --             updateThing
+--
+--         , requestCreateThingType $
+--             createThingType
 --
 --         , requestCancelCertificateTransfer $
 --             cancelCertificateTransfer
@@ -112,11 +118,17 @@ import Test.AWS.IoT.Internal
 --         , requestUpdateCertificate $
 --             updateCertificate
 --
+--         , requestListOutgoingCertificates $
+--             listOutgoingCertificates
+--
 --         , requestDescribeCACertificate $
 --             describeCACertificate
 --
 --         , requestGetRegistrationCode $
 --             getRegistrationCode
+--
+--         , requestDeleteThingType $
+--             deleteThingType
 --
 --         , requestListCertificatesByCA $
 --             listCertificatesByCA
@@ -138,6 +150,9 @@ import Test.AWS.IoT.Internal
 --
 --         , requestDescribeCertificate $
 --             describeCertificate
+--
+--         , requestListPolicyPrincipals $
+--             listPolicyPrincipals
 --
 --         , requestReplaceTopicRule $
 --             replaceTopicRule
@@ -169,6 +184,9 @@ import Test.AWS.IoT.Internal
 --         , requestSetLoggingOptions $
 --             setLoggingOptions
 --
+--         , requestDescribeThingType $
+--             describeThingType
+--
 --         , requestAttachPrincipalPolicy $
 --             attachPrincipalPolicy
 --
@@ -177,6 +195,9 @@ import Test.AWS.IoT.Internal
 --
 --         , requestDetachThingPrincipal $
 --             detachThingPrincipal
+--
+--         , requestDeprecateThingType $
+--             deprecateThingType
 --
 --           ]
 
@@ -199,6 +220,9 @@ import Test.AWS.IoT.Internal
 --         , responseGetLoggingOptions $
 --             getLoggingOptionsResponse
 --
+--         , responseListThingTypes $
+--             listThingTypesResponse
+--
 --         , responseCreateCertificateFromCsr $
 --             createCertificateFromCsrResponse
 --
@@ -207,6 +231,9 @@ import Test.AWS.IoT.Internal
 --
 --         , responseUpdateThing $
 --             updateThingResponse
+--
+--         , responseCreateThingType $
+--             createThingTypeResponse
 --
 --         , responseCancelCertificateTransfer $
 --             cancelCertificateTransferResponse
@@ -265,11 +292,17 @@ import Test.AWS.IoT.Internal
 --         , responseUpdateCertificate $
 --             updateCertificateResponse
 --
+--         , responseListOutgoingCertificates $
+--             listOutgoingCertificatesResponse
+--
 --         , responseDescribeCACertificate $
 --             describeCACertificateResponse
 --
 --         , responseGetRegistrationCode $
 --             getRegistrationCodeResponse
+--
+--         , responseDeleteThingType $
+--             deleteThingTypeResponse
 --
 --         , responseListCertificatesByCA $
 --             listCertificatesByCAResponse
@@ -291,6 +324,9 @@ import Test.AWS.IoT.Internal
 --
 --         , responseDescribeCertificate $
 --             describeCertificateResponse
+--
+--         , responseListPolicyPrincipals $
+--             listPolicyPrincipalsResponse
 --
 --         , responseReplaceTopicRule $
 --             replaceTopicRuleResponse
@@ -322,6 +358,9 @@ import Test.AWS.IoT.Internal
 --         , responseSetLoggingOptions $
 --             setLoggingOptionsResponse
 --
+--         , responseDescribeThingType $
+--             describeThingTypeResponse
+--
 --         , responseAttachPrincipalPolicy $
 --             attachPrincipalPolicyResponse
 --
@@ -330,6 +369,9 @@ import Test.AWS.IoT.Internal
 --
 --         , responseDetachThingPrincipal $
 --             detachThingPrincipalResponse
+--
+--         , responseDeprecateThingType $
+--             deprecateThingTypeResponse
 --
 --           ]
 --     ]
@@ -366,6 +408,11 @@ requestGetLoggingOptions = req
     "GetLoggingOptions"
     "fixture/GetLoggingOptions.yaml"
 
+requestListThingTypes :: ListThingTypes -> TestTree
+requestListThingTypes = req
+    "ListThingTypes"
+    "fixture/ListThingTypes.yaml"
+
 requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
 requestCreateCertificateFromCsr = req
     "CreateCertificateFromCsr"
@@ -380,6 +427,11 @@ requestUpdateThing :: UpdateThing -> TestTree
 requestUpdateThing = req
     "UpdateThing"
     "fixture/UpdateThing.yaml"
+
+requestCreateThingType :: CreateThingType -> TestTree
+requestCreateThingType = req
+    "CreateThingType"
+    "fixture/CreateThingType.yaml"
 
 requestCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
 requestCancelCertificateTransfer = req
@@ -476,6 +528,11 @@ requestUpdateCertificate = req
     "UpdateCertificate"
     "fixture/UpdateCertificate.yaml"
 
+requestListOutgoingCertificates :: ListOutgoingCertificates -> TestTree
+requestListOutgoingCertificates = req
+    "ListOutgoingCertificates"
+    "fixture/ListOutgoingCertificates.yaml"
+
 requestDescribeCACertificate :: DescribeCACertificate -> TestTree
 requestDescribeCACertificate = req
     "DescribeCACertificate"
@@ -485,6 +542,11 @@ requestGetRegistrationCode :: GetRegistrationCode -> TestTree
 requestGetRegistrationCode = req
     "GetRegistrationCode"
     "fixture/GetRegistrationCode.yaml"
+
+requestDeleteThingType :: DeleteThingType -> TestTree
+requestDeleteThingType = req
+    "DeleteThingType"
+    "fixture/DeleteThingType.yaml"
 
 requestListCertificatesByCA :: ListCertificatesByCA -> TestTree
 requestListCertificatesByCA = req
@@ -520,6 +582,11 @@ requestDescribeCertificate :: DescribeCertificate -> TestTree
 requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
+
+requestListPolicyPrincipals :: ListPolicyPrincipals -> TestTree
+requestListPolicyPrincipals = req
+    "ListPolicyPrincipals"
+    "fixture/ListPolicyPrincipals.yaml"
 
 requestReplaceTopicRule :: ReplaceTopicRule -> TestTree
 requestReplaceTopicRule = req
@@ -571,6 +638,11 @@ requestSetLoggingOptions = req
     "SetLoggingOptions"
     "fixture/SetLoggingOptions.yaml"
 
+requestDescribeThingType :: DescribeThingType -> TestTree
+requestDescribeThingType = req
+    "DescribeThingType"
+    "fixture/DescribeThingType.yaml"
+
 requestAttachPrincipalPolicy :: AttachPrincipalPolicy -> TestTree
 requestAttachPrincipalPolicy = req
     "AttachPrincipalPolicy"
@@ -585,6 +657,11 @@ requestDetachThingPrincipal :: DetachThingPrincipal -> TestTree
 requestDetachThingPrincipal = req
     "DetachThingPrincipal"
     "fixture/DetachThingPrincipal.yaml"
+
+requestDeprecateThingType :: DeprecateThingType -> TestTree
+requestDeprecateThingType = req
+    "DeprecateThingType"
+    "fixture/DeprecateThingType.yaml"
 
 -- Responses
 
@@ -630,6 +707,13 @@ responseGetLoggingOptions = res
     ioT
     (Proxy :: Proxy GetLoggingOptions)
 
+responseListThingTypes :: ListThingTypesResponse -> TestTree
+responseListThingTypes = res
+    "ListThingTypesResponse"
+    "fixture/ListThingTypesResponse.proto"
+    ioT
+    (Proxy :: Proxy ListThingTypes)
+
 responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
 responseCreateCertificateFromCsr = res
     "CreateCertificateFromCsrResponse"
@@ -650,6 +734,13 @@ responseUpdateThing = res
     "fixture/UpdateThingResponse.proto"
     ioT
     (Proxy :: Proxy UpdateThing)
+
+responseCreateThingType :: CreateThingTypeResponse -> TestTree
+responseCreateThingType = res
+    "CreateThingTypeResponse"
+    "fixture/CreateThingTypeResponse.proto"
+    ioT
+    (Proxy :: Proxy CreateThingType)
 
 responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
 responseCancelCertificateTransfer = res
@@ -784,6 +875,13 @@ responseUpdateCertificate = res
     ioT
     (Proxy :: Proxy UpdateCertificate)
 
+responseListOutgoingCertificates :: ListOutgoingCertificatesResponse -> TestTree
+responseListOutgoingCertificates = res
+    "ListOutgoingCertificatesResponse"
+    "fixture/ListOutgoingCertificatesResponse.proto"
+    ioT
+    (Proxy :: Proxy ListOutgoingCertificates)
+
 responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
 responseDescribeCACertificate = res
     "DescribeCACertificateResponse"
@@ -797,6 +895,13 @@ responseGetRegistrationCode = res
     "fixture/GetRegistrationCodeResponse.proto"
     ioT
     (Proxy :: Proxy GetRegistrationCode)
+
+responseDeleteThingType :: DeleteThingTypeResponse -> TestTree
+responseDeleteThingType = res
+    "DeleteThingTypeResponse"
+    "fixture/DeleteThingTypeResponse.proto"
+    ioT
+    (Proxy :: Proxy DeleteThingType)
 
 responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
 responseListCertificatesByCA = res
@@ -846,6 +951,13 @@ responseDescribeCertificate = res
     "fixture/DescribeCertificateResponse.proto"
     ioT
     (Proxy :: Proxy DescribeCertificate)
+
+responseListPolicyPrincipals :: ListPolicyPrincipalsResponse -> TestTree
+responseListPolicyPrincipals = res
+    "ListPolicyPrincipalsResponse"
+    "fixture/ListPolicyPrincipalsResponse.proto"
+    ioT
+    (Proxy :: Proxy ListPolicyPrincipals)
 
 responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
 responseReplaceTopicRule = res
@@ -917,6 +1029,13 @@ responseSetLoggingOptions = res
     ioT
     (Proxy :: Proxy SetLoggingOptions)
 
+responseDescribeThingType :: DescribeThingTypeResponse -> TestTree
+responseDescribeThingType = res
+    "DescribeThingTypeResponse"
+    "fixture/DescribeThingTypeResponse.proto"
+    ioT
+    (Proxy :: Proxy DescribeThingType)
+
 responseAttachPrincipalPolicy :: AttachPrincipalPolicyResponse -> TestTree
 responseAttachPrincipalPolicy = res
     "AttachPrincipalPolicyResponse"
@@ -937,3 +1056,10 @@ responseDetachThingPrincipal = res
     "fixture/DetachThingPrincipalResponse.proto"
     ioT
     (Proxy :: Proxy DetachThingPrincipal)
+
+responseDeprecateThingType :: DeprecateThingTypeResponse -> TestTree
+responseDeprecateThingType = res
+    "DeprecateThingTypeResponse"
+    "fixture/DeprecateThingTypeResponse.proto"
+    ioT
+    (Proxy :: Proxy DeprecateThingType)

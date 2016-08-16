@@ -76,6 +76,8 @@ ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a});
 -- | The new status.
 --
 -- __Note:__ Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use.
+--
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 ucNewStatus :: Lens' UpdateCertificate CertificateStatus
 ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a});
 

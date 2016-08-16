@@ -86,7 +86,7 @@ ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
 ctpvId :: Lens' CreateTrafficPolicyVersion Text
 ctpvId = lens _ctpvId (\ s a -> s{_ctpvId = a});
 
--- | The definition of a new traffic policy version, in JSON format. You must specify the full definition of the new traffic policy. You cannot specify just the differences between the new version and a previous version.
+-- | The definition of a new traffic policy version, in JSON format. You must specify the full definition of the new traffic policy. You cannot specify just the differences between the new version and a previous version. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
 ctpvDocument :: Lens' CreateTrafficPolicyVersion Text
 ctpvDocument = lens _ctpvDocument (\ s a -> s{_ctpvDocument = a});
 

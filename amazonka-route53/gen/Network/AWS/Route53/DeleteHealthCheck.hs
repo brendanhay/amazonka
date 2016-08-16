@@ -20,7 +20,7 @@
 --
 -- This action deletes a health check. To delete a health check, send a 'DELETE' request to the '\/Route 53 API version\/healthcheck\/health check ID' resource.
 --
--- You can delete a health check only if there are no resource record sets associated with this health check. If resource record sets are associated with this health check, you must disassociate them before you can delete your health check. If you try to delete a health check that is associated with resource record sets, Amazon Route 53 will deny your request with a 'HealthCheckInUse' error. For information about disassociating the records from your health check, see < ChangeResourceRecordSets>.
+-- You can delete a health check only if there are no resource record sets associated with this health check. If resource record sets are associated with this health check, you must disassociate them before you can delete your health check. If you try to delete a health check that is associated with resource record sets, Amazon Route 53 will deny your request with a 'HealthCheckInUse' error. For information about disassociating the records from your health check, see 'ChangeResourceRecordSets'.
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request

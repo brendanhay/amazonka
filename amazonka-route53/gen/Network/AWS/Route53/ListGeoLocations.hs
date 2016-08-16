@@ -85,7 +85,7 @@ listGeoLocations =
 
 -- | The first subdivision code in the lexicographic ordering of geo locations that you want the 'ListGeoLocations' request to list.
 --
--- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode = lens _lglStartSubdivisionCode (\ s a -> s{_lglStartSubdivisionCode = a});
 
@@ -103,7 +103,7 @@ lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode
 --
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
--- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
@@ -188,15 +188,15 @@ listGeoLocationsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lglrsMaxItems = pMaxItems_
     }
 
--- | If the results were truncated, the continent code of the next geo location in the list. This element is present only if < ListGeoLocationsResponse>IsTruncated> is true and the next geo location to list is a continent location.
+-- | If the results were truncated, the continent code of the next geo location in the list. This element is present only if 'IsTruncated' is true and the next geo location to list is a continent location.
 lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextContinentCode = lens _lglrsNextContinentCode (\ s a -> s{_lglrsNextContinentCode = a});
 
--- | If the results were truncated, the country code of the next geo location in the list. This element is present only if < ListGeoLocationsResponse>IsTruncated> is true and the next geo location to list is not a continent location.
+-- | If the results were truncated, the country code of the next geo location in the list. This element is present only if 'IsTruncated' is true and the next geo location to list is not a continent location.
 lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextCountryCode = lens _lglrsNextCountryCode (\ s a -> s{_lglrsNextCountryCode = a});
 
--- | If the results were truncated, the subdivision code of the next geo location in the list. This element is present only if < ListGeoLocationsResponse>IsTruncated> is true and the next geo location has a subdivision.
+-- | If the results were truncated, the subdivision code of the next geo location in the list. This element is present only if 'IsTruncated' is true and the next geo location has a subdivision.
 lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\ s a -> s{_lglrsNextSubdivisionCode = a});
 
@@ -208,7 +208,7 @@ lglrsResponseStatus = lens _lglrsResponseStatus (\ s a -> s{_lglrsResponseStatus
 lglrsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
 lglrsGeoLocationDetailsList = lens _lglrsGeoLocationDetailsList (\ s a -> s{_lglrsGeoLocationDetailsList = a}) . _Coerce;
 
--- | A flag that indicates whether there are more geo locations to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the values included in the < ListGeoLocationsResponse>NextContinentCode>, < ListGeoLocationsResponse>NextCountryCode> and < ListGeoLocationsResponse>NextSubdivisionCode> elements.
+-- | A flag that indicates whether there are more geo locations to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the values included in the 'NextContinentCode', 'NextCountryCode', and 'NextSubdivisionCode' elements.
 --
 -- Valid Values: 'true' | 'false'
 lglrsIsTruncated :: Lens' ListGeoLocationsResponse Bool

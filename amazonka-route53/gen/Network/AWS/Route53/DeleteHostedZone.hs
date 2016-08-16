@@ -20,9 +20,7 @@
 --
 -- This action deletes a hosted zone. To delete a hosted zone, send a 'DELETE' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource.
 --
--- For more information about deleting a hosted zone, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html Deleting a Hosted Zone> in the /Amazon Route 53 Developer Guide/.
---
--- You can delete a hosted zone only if there are no resource record sets other than the default SOA record and NS resource record sets. If your hosted zone contains other resource record sets, you must delete them before you can delete your hosted zone. If you try to delete a hosted zone that contains other resource record sets, Amazon Route 53 will deny your request with a 'HostedZoneNotEmpty' error. For information about deleting records from your hosted zone, see < ChangeResourceRecordSets>.
+-- You can delete a hosted zone only if there are no resource record sets other than the default SOA record and NS resource record sets. If your hosted zone contains other resource record sets, you must delete them before you can delete your hosted zone. If you try to delete a hosted zone that contains other resource record sets, Amazon Route 53 will deny your request with a 'HostedZoneNotEmpty' error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets'.
 module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Creating a Request

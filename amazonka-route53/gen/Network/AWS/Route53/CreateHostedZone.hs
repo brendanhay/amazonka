@@ -215,7 +215,7 @@ chzrsResponseStatus = lens _chzrsResponseStatus (\ s a -> s{_chzrsResponseStatus
 chzrsHostedZone :: Lens' CreateHostedZoneResponse HostedZone
 chzrsHostedZone = lens _chzrsHostedZone (\ s a -> s{_chzrsHostedZone = a});
 
--- | A complex type that contains information about the request to create a hosted zone. This includes an ID that you use when you call the < GetChange> action to get the current status of the change request.
+-- | A complex type that contains information about the request to create a hosted zone. This includes an ID that you use when you call the 'GetChange' action to get the current status of the change request.
 chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrsChangeInfo = lens _chzrsChangeInfo (\ s a -> s{_chzrsChangeInfo = a});
 

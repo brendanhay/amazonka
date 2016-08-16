@@ -22,7 +22,7 @@
 --
 -- To get information about the traffic policy instance, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource.
 --
--- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the < State> response element.
+-- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request

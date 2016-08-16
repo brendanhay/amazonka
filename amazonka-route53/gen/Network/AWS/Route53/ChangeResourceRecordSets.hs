@@ -154,7 +154,7 @@ crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseSta
 
 -- | A complex type that contains information about changes made to your hosted zone.
 --
--- This element contains an ID that you use when performing a < GetChange> action to get detailed information about the change.
+-- This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});
 

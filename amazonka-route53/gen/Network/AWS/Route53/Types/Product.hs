@@ -75,8 +75,6 @@ instance ToXML AlarmIdentifier where
 -- -   You can create alias resource record sets only for Amazon Route 53 resource record sets in the same private hosted zone. Creating alias resource record sets for CloudFront distributions, ELB load balancers, and Amazon S3 buckets is not supported.
 -- -   You can\'t create alias resource record sets for failover, geolocation, or latency resource record sets in a private hosted zone.
 --
--- For more information and an example, see <http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html Example: Creating Alias Resource Record Sets> in the /Amazon Route 53 API Reference/.
---
 -- /See:/ 'aliasTarget' smart constructor.
 data AliasTarget = AliasTarget'
     { _atHostedZoneId         :: !Text
@@ -111,8 +109,6 @@ aliasTarget pHostedZoneId_ pDNSName_ pEvaluateTargetHealth_ =
 -- -   An ELB load balancer: Specify the value of the hosted zone ID for the load balancer. You can get the hosted zone ID by using the AWS Management Console, the ELB API, or the AWS CLI. Use the same method to get values for 'HostedZoneId' and 'DNSName'. If you get one value from the console and the other value from the API or the CLI, creating the resource record set will fail.
 -- -   __An Amazon S3 bucket that is configured as a static website:__ Specify the hosted zone ID for the Amazon S3 website endpoint in which you created the bucket. For more information about valid values, see the table <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Amazon Simple Storage Service (S3) Website Endpoints> in the /Amazon Web Services General Reference/.
 -- -   __Another Amazon Route 53 resource record set in your hosted zone:__ Specify the hosted zone ID of your hosted zone. (An alias resource record set cannot reference a resource record set in a different hosted zone.)
---
--- For more information and an example, see <http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html Example: Creating Alias Resource Record Sets> in the /Amazon Route 53 API Reference/.
 atHostedZoneId :: Lens' AliasTarget Text
 atHostedZoneId = lens _atHostedZoneId (\ s a -> s{_atHostedZoneId = a});
 
@@ -123,8 +119,6 @@ atHostedZoneId = lens _atHostedZoneId (\ s a -> s{_atHostedZoneId = a});
 -- -   __An Elastic Beanstalk environment:__ Specify the CNAME attribute for the environment. (The environment must have a regionalized domain name.)
 -- -   __An Amazon S3 bucket that is configured as a static website:__ Specify the domain name of the Amazon S3 website endpoint in which you created the bucket; for example, 's3-website-us-east-1.amazonaws.com'. For more information about valid values, see the table <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Amazon Simple Storage Service (S3) Website Endpoints> in the /Amazon Web Services General Reference/. For more information about using Amazon S3 buckets for websites, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting a Static Website on Amazon S3> in the /Amazon Simple Storage Service Developer Guide/.
 -- -   __Another Amazon Route 53 resource record set:__ Specify the value of the 'Name' element for a resource record set in the current hosted zone.
---
--- For more information and an example, see <http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html Example: Creating Alias Resource Record Sets> in the /Amazon Route 53 API Reference/.
 atDNSName :: Lens' AliasTarget Text
 atDNSName = lens _atDNSName (\ s a -> s{_atDNSName = a});
 
@@ -140,7 +134,7 @@ atDNSName = lens _atDNSName (\ s a -> s{_atDNSName = a});
 -- Note the following:
 --
 -- -   You cannot set 'EvaluateTargetHealth' to true when the alias target is a CloudFront distribution.
--- -   If the AWS resource that you specify in 'AliasTarget' is a resource record set or a group of resource record sets (for example, a group of weighted resource record sets), but it is not another alias resource record set, we recommend that you associate a health check with all of the resource record sets in the alias target. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting What Happens When You Omit Health Checks?> in the /Amazon Route 53 Developer Guide/.
+-- -   If the AWS resource that you specify in 'AliasTarget' is a resource record set or a group of resource record sets (for example, a group of weighted resource record sets), but it is not another alias resource record set, we recommend that you associate a health check with all of the resource record sets in the alias target.
 -- -   If you specify an ELB load balancer in 'AliasTarget', Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. If no Amazon EC2 instances are healthy or if the load balancer itself is unhealthy, and if 'EvaluateTargetHealth' is 'true' for the corresponding alias resource record set, Amazon Route 53 routes queries to other resources.
 -- -   When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they\'re not Amazon Route 53 health checks, but they perform a similar function. Do not create Amazon Route 53 health checks for the Amazon EC2 instances that you register with an ELB load balancer. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html How Health Checks Work in More Complex Amazon Route 53 Configurations> in the /Amazon Route 53 Developer Guide/.
 --
@@ -258,7 +252,7 @@ instance ToXML ChangeBatch where
 
 -- | A complex type that describes change information about changes made to your hosted zone.
 --
--- This element contains an ID that you use when performing a < GetChange> action to get detailed information about the change.
+-- This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 --
 -- /See:/ 'changeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
@@ -294,7 +288,7 @@ changeInfo pId_ pStatus_ pSubmittedAt_ =
 
 -- | A complex type that describes change information about changes made to your hosted zone.
 --
--- This element contains an ID that you use when performing a < GetChange> action to get detailed information about the change.
+-- This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
 ciComment = lens _ciComment (\ s a -> s{_ciComment = a});
 
@@ -550,7 +544,7 @@ geoLocation =
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.
 --
--- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a});
 
@@ -564,7 +558,7 @@ glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
 --
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
--- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\ s a -> s{_glContinentCode = a});
 
@@ -1080,7 +1074,9 @@ hostedZoneConfig =
     , _hzcComment = Nothing
     }
 
--- | Undocumented member.
+-- | 'GetHostedZone' and 'ListHostedZone' responses: A Boolean value that indicates whether a hosted zone is private.
+--
+-- 'CreateHostedZone' requests: When you\'re creating a private hosted zone (when you specify values for VPCId and VPCRegion), you can optionally specify true for PrivateZone.
 hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
 hzcPrivateZone = lens _hzcPrivateZone (\ s a -> s{_hzcPrivateZone = a});
 
@@ -1207,6 +1203,7 @@ resourceRecordSet pName_ pType_ =
 
 -- | The cache time to live for the current resource record set. Note the following:
 --
+-- -   If you\'re creating a non-alias resource record set, 'TTL' is required.
 -- -   If you\'re creating an alias resource record set, omit 'TTL'. Amazon Route 53 uses the value of 'TTL' for the alias target.
 -- -   If you\'re associating this resource record set with a health check (if you\'re adding a 'HealthCheckId' element), we recommend that you specify a 'TTL' of 60 seconds or less so clients respond quickly to changes in health status.
 -- -   All of the resource record sets in a group of weighted, latency, geolocation, or failover resource record sets must have the same value for 'TTL'.

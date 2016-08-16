@@ -54,8 +54,6 @@ import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your hosted zones in lexicographic order, send a 'GET' request to the '\/Route 53 API version\/hostedzonesbyname' resource. The response to this request includes a 'HostedZones' element with zero or more 'HostedZone' child elements lexicographically ordered by DNS name. By default, the list of hosted zones is displayed on a single page. You can control the length of the page that is displayed by using the 'MaxItems' parameter. You can use the 'DNSName' and 'HostedZoneId' parameters to control the hosted zone that the list begins with.
 --
--- For more information about listing hosted zones, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html Listing the Hosted Zones for an AWS Account> in the /Amazon Route 53 Developer Guide/.
---
 -- /See:/ 'listHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
     { _lhzbnHostedZoneId :: !(Maybe Text)
@@ -184,7 +182,7 @@ listHostedZonesByNameResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
 lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a});
 
--- | If < ListHostedZonesByNameResponse>IsTruncated> is 'true', there are more hosted zones associated with the current AWS account. To get the next page of results, make another request to 'ListHostedZonesByName'. Specify the value of < ListHostedZonesByNameResponse>NextDNSName> in the < ListHostedZonesByNameRequest>DNSName> element and < ListHostedZonesByNameResponse>NextHostedZoneId> in the < ListHostedZonesByNameRequest>HostedZoneId> element.
+-- | If the value of 'IsTruncated' in the 'ListHostedZonesByNameResponse' is 'true', there are more hosted zones associated with the current AWS account. To get the next page of results, make another request to 'ListHostedZonesByName'. Specify the value of 'NextDNSName' in the 'DNSName' parameter. Specify 'NextHostedZoneId' in the 'HostedZoneId' parameter.
 lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a});
 
@@ -192,7 +190,7 @@ lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNext
 lhzbnrsDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
 
--- | If < ListHostedZonesByNameResponse>IsTruncated> is 'true', there are more hosted zones associated with the current AWS account. To get the next page of results, make another request to 'ListHostedZonesByName'. Specify the value of < ListHostedZonesByNameResponse>NextDNSName> in the < ListHostedZonesByNameRequest>DNSName> element and < ListHostedZonesByNameResponse>NextHostedZoneId> in the < ListHostedZonesByNameRequest>HostedZoneId> element.
+-- | If the value of 'IsTruncated' in the 'ListHostedZonesByNameResponse' is 'true', there are more hosted zones associated with the current AWS account. To get the next page of results, make another request to 'ListHostedZonesByName'. Specify the value of 'NextDNSName' in the 'DNSName' parameter. Specify 'NextHostedZoneId' in the 'HostedZoneId' parameter.
 lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
 
@@ -210,7 +208,7 @@ lhzbnrsHostedZones = lens _lhzbnrsHostedZones (\ s a -> s{_lhzbnrsHostedZones = 
 lhzbnrsIsTruncated :: Lens' ListHostedZonesByNameResponse Bool
 lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = a});
 
--- | The maximum number of hosted zones to be included in the response body. If the number of hosted zones associated with this AWS account exceeds 'MaxItems', the value of < ListHostedZonesByNameResponse>IsTruncated> in the response is 'true'. Call 'ListHostedZonesByName' again and specify the value of < ListHostedZonesByNameResponse>NextDNSName> and < ListHostedZonesByNameResponse>NextHostedZoneId> elements respectively to get the next page of results.
+-- | The maximum number of hosted zones to be included in the response body. If the number of hosted zones associated with this AWS account exceeds 'MaxItems', the value of 'IsTruncated' in the 'ListHostedZonesByNameResponse' is 'true'. Call 'ListHostedZonesByName' again and specify the value of 'NextDNSName' and 'NextHostedZoneId' elements from the previous response to get the next page of results.
 lhzbnrsMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a});
 

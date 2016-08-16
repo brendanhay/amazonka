@@ -164,7 +164,7 @@ listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     , _lhcrsMaxItems = pMaxItems_
     }
 
--- | Indicates where to continue listing health checks. If < ListHealthChecksResponse>IsTruncated> is 'true', make another request to 'ListHealthChecks' and include the value of the 'NextMarker' element in the 'Marker' element to get the next page of results.
+-- | Indicates where to continue listing health checks. If 'IsTruncated' is 'true', make another request to 'ListHealthChecks' and include the value of the 'NextMarker' element in the 'Marker' element to get the next page of results.
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
@@ -186,7 +186,7 @@ lhcrsMarker = lens _lhcrsMarker (\ s a -> s{_lhcrsMarker = a});
 lhcrsIsTruncated :: Lens' ListHealthChecksResponse Bool
 lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 
--- | The maximum number of health checks to be included in the response body. If the number of health checks associated with this AWS account exceeds 'MaxItems', the value of < ListHealthChecksResponse>IsTruncated> in the response is 'true'. Call 'ListHealthChecks' again and specify the value of < ListHealthChecksResponse>NextMarker> in the < ListHostedZonesRequest>Marker> element to get the next page of results.
+-- | The maximum number of health checks to be included in the response body. If the number of health checks associated with this AWS account exceeds 'MaxItems', the value of 'IsTruncated' in the response is 'true'. Call 'ListHealthChecks' again and specify the value of 'NextMarker' from the last response in the 'Marker' element of the next request to get the next page of results.
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});
 

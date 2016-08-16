@@ -84,7 +84,7 @@ ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 ctpName :: Lens' CreateTrafficPolicy Text
 ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
 
--- | The definition of this traffic policy in JSON format.
+-- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
 ctpDocument :: Lens' CreateTrafficPolicy Text
 ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
 

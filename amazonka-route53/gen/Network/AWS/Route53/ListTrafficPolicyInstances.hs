@@ -20,7 +20,7 @@
 --
 -- Gets information about the traffic policy instances that you created by using the current AWS account.
 --
--- After you submit an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the < State> response element.
+-- After you submit an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
 --
 -- To get information about the traffic policy instances that are associated with the current AWS account, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource.
 --

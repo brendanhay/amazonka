@@ -156,7 +156,7 @@ listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxI
     , _lrdsrsMaxItems = pMaxItems_
     }
 
--- | Indicates where to continue listing reusable delegation sets. If < ListReusableDelegationSetsResponse>IsTruncated> is 'true', make another request to 'ListReusableDelegationSets' and include the value of the 'NextMarker' element in the 'Marker' element to get the next page of results.
+-- | Indicates where to continue listing reusable delegation sets. If 'IsTruncated' is 'true', make another request to 'ListReusableDelegationSets' and include the value of the 'NextMarker' element in the 'Marker' element of the previous response to get the next page of results.
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
@@ -178,7 +178,7 @@ lrdsrsMarker = lens _lrdsrsMarker (\ s a -> s{_lrdsrsMarker = a});
 lrdsrsIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
 lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a});
 
--- | The maximum number of reusable delegation sets to be included in the response body. If the number of reusable delegation sets associated with this AWS account exceeds 'MaxItems', the value of < ListReusablDelegationSetsResponse>IsTruncated> in the response is 'true'. Call 'ListReusableDelegationSets' again and specify the value of < ListReusableDelegationSetsResponse>NextMarker> in the < ListReusableDelegationSetsRequest>Marker> element to get the next page of results.
+-- | The maximum number of reusable delegation sets to be included in the response body. If the number of reusable delegation sets associated with this AWS account exceeds 'MaxItems', the value of 'IsTruncated' in the response is 'true'. To get the next page of results, call 'ListReusableDelegationSets' again and specify the value of 'NextMarker' from the previous response in the 'Marker' element of the request.
 lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});
 

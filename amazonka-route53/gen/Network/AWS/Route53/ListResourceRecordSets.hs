@@ -18,22 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imagine all the resource record sets in a zone listed out in front of you. Imagine them sorted lexicographically first by DNS name (with the labels reversed, like \"com.amazon.www\" for example), and secondarily, lexicographically by record type. This operation retrieves at most MaxItems resource record sets from this list, in order, starting at a position specified by the Name and Type arguments:
+-- List the resource record sets in a specified hosted zone. Send a GET request to the '2013-04-01\/hostedzone\/hosted zone ID\/rrset' resource.
 --
--- -   If both Name and Type are omitted, this means start the results at the first RRSET in the HostedZone.
--- -   If Name is specified but Type is omitted, this means start the results at the first RRSET in the list whose name is greater than or equal to Name.
--- -   If both Name and Type are specified, this means start the results at the first RRSET in the list whose name is greater than or equal to Name and whose type is greater than or equal to Type.
--- -   It is an error to specify the Type but not the Name.
+-- 'ListResourceRecordSets' returns up to 100 resource record sets at a time in ASCII order, beginning at a position specified by the name and type elements. The action sorts results first by DNS name with the labels reversed, for example:
 --
--- Use ListResourceRecordSets to retrieve a single known record set by specifying the record set\'s name and type, and setting MaxItems = 1
+-- 'com.example.www.'
 --
--- To retrieve all the records in a HostedZone, first pause any processes making calls to ChangeResourceRecordSets. Initially call ListResourceRecordSets without a Name and Type to get the first page of record sets. For subsequent calls, set Name and Type to the NextName and NextType values returned by the previous response.
+-- Note the trailing dot, which can change the sort order in some circumstances. When multiple records have the same DNS name, the action sorts results by the record type.
 --
--- In the presence of concurrent ChangeResourceRecordSets calls, there is no consistency of results across calls to ListResourceRecordSets. The only way to get a consistent multi-page snapshot of all RRSETs in a zone is to stop making changes while pagination is in progress.
+-- You can use the name and type elements to adjust the beginning position of the list of resource record sets returned:
 --
--- However, the results from ListResourceRecordSets are consistent within a page. If MakeChange calls are taking place concurrently, the result of each one will either be completely visible in your results or not at all. You will not see partial changes, or changes that do not ultimately succeed. (This follows from the fact that MakeChange is atomic)
+-- -   __If you do not specify 'Name' or 'Type'__: The results begin with the first resource record set that the hosted zone contains.
+-- -   __If you specify 'Name' but not 'Type'__: The results begin with the first resource record set in the list whose name is greater than or equal to Name.
+-- -   __If you specify 'Type' but not 'Name'__: Amazon Route 53 returns the 'InvalidInput' error.
+-- -   __If you specify both 'Name' and 'Type'__: The results begin with the first resource record set in the list whose name is greater than or equal to 'Name', and whose type is greater than or equal to 'Type'.
 --
--- The results from ListResourceRecordSets are strongly consistent with ChangeResourceRecordSets. To be precise, if a single process makes a call to ChangeResourceRecordSets and receives a successful response, the effects of that change will be visible in a subsequent call to ListResourceRecordSets by that process.
+-- This action returns the most current version of the records. This includes records that are 'PENDING', and that are not yet available on all Amazon Route 53 DNS servers.
+--
+-- To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a 'ChangeResourceRecordSets' request while you are paging through the results of a 'ListResourceRecordSets' request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
@@ -119,11 +121,11 @@ lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName
 --
 -- Values for Alias Resource Record Sets: 'A' | 'AAAA'
 --
--- Constraint: Specifying 'type' without specifying 'name' returns an < InvalidInput> error.
+-- Constraint: Specifying 'type' without specifying 'name' returns an 'InvalidInput' error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
--- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, specify the value of 'ListResourceRecordSetsResponse>NextRecordIdentifier' from the previous response to get the next resource record set that has the current DNS name and type.
+-- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, specify the value of 'NextRecordIdentifier' from the previous response to get the next resource record set that has the current DNS name and type.
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
 
@@ -234,11 +236,11 @@ listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lrrsrsMaxItems = pMaxItems_
     }
 
--- | If the results were truncated, the type of the next record in the list. This element is present only if < ListResourceRecordSetsResponse>IsTruncated> is true.
+-- | If the results were truncated, the type of the next record in the list. This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrsNextRecordType = lens _lrrsrsNextRecordType (\ s a -> s{_lrrsrsNextRecordType = a});
 
--- | If the results were truncated, the name of the next record in the list. This element is present only if < ListResourceRecordSetsResponse>IsTruncated> is true.
+-- | If the results were truncated, the name of the next record in the list. This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordName = a});
 
@@ -254,7 +256,7 @@ lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseSta
 lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
 lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsResourceRecordSets = a}) . _Coerce;
 
--- | A flag that indicates whether there are more resource record sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the < ListResourceRecordSetsResponse>NextRecordName> element.
+-- | A flag that indicates whether there are more resource record sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the 'NextRecordName' element.
 --
 -- Valid Values: 'true' | 'false'
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool

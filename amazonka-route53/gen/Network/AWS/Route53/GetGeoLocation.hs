@@ -73,7 +73,7 @@ getGeoLocation =
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.
 --
--- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
@@ -87,7 +87,7 @@ gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 --
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
--- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an < InvalidInput> error.
+-- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 

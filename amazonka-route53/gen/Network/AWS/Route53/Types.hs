@@ -390,7 +390,7 @@ _PriorRequestNotComplete :: AsError a => Getting (First ServiceError) a ServiceE
 _PriorRequestNotComplete =
     _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete"
 
--- | This error contains a list of one or more error messages. Each error message indicates one error in the change batch. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#example_Errors Example InvalidChangeBatch Errors>.
+-- | This error contains a list of one or more error messages. Each error message indicates one error in the change batch.
 _InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
 

@@ -30,6 +30,7 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     , cedElasticsearchClusterConfig
     , cedSnapshotOptions
     , cedAdvancedOptions
+    , cedElasticsearchVersion
     , cedDomainName
 
     -- * Destructuring the Response
@@ -54,6 +55,7 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
     , _cedElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
     , _cedSnapshotOptions            :: !(Maybe SnapshotOptions)
     , _cedAdvancedOptions            :: !(Maybe (Map Text Text))
+    , _cedElasticsearchVersion       :: !(Maybe Text)
     , _cedDomainName                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,6 +73,8 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 --
 -- * 'cedAdvancedOptions'
 --
+-- * 'cedElasticsearchVersion'
+--
 -- * 'cedDomainName'
 createElasticsearchDomain
     :: Text -- ^ 'cedDomainName'
@@ -82,6 +86,7 @@ createElasticsearchDomain pDomainName_ =
     , _cedElasticsearchClusterConfig = Nothing
     , _cedSnapshotOptions = Nothing
     , _cedAdvancedOptions = Nothing
+    , _cedElasticsearchVersion = Nothing
     , _cedDomainName = pDomainName_
     }
 
@@ -104,6 +109,10 @@ cedSnapshotOptions = lens _cedSnapshotOptions (\ s a -> s{_cedSnapshotOptions = 
 -- | Option to allow references to indices in an HTTP request body. Must be 'false' when configuring access to individual sub-resources. By default, the value is 'true'. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 cedAdvancedOptions :: Lens' CreateElasticsearchDomain (HashMap Text Text)
 cedAdvancedOptions = lens _cedAdvancedOptions (\ s a -> s{_cedAdvancedOptions = a}) . _Default . _Map;
+
+-- | String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/.
+cedElasticsearchVersion :: Lens' CreateElasticsearchDomain (Maybe Text)
+cedElasticsearchVersion = lens _cedElasticsearchVersion (\ s a -> s{_cedElasticsearchVersion = a});
 
 -- | The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
 cedDomainName :: Lens' CreateElasticsearchDomain Text
@@ -136,6 +145,8 @@ instance ToJSON CreateElasticsearchDomain where
                     _cedElasticsearchClusterConfig,
                   ("SnapshotOptions" .=) <$> _cedSnapshotOptions,
                   ("AdvancedOptions" .=) <$> _cedAdvancedOptions,
+                  ("ElasticsearchVersion" .=) <$>
+                    _cedElasticsearchVersion,
                   Just ("DomainName" .= _cedDomainName)])
 
 instance ToPath CreateElasticsearchDomain where

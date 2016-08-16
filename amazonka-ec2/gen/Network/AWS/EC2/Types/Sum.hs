@@ -764,21 +764,21 @@ instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
 
 data FleetType
-    = Maintain
-    | Request
+    = FTMaintain
+    | FTRequest
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FleetType where
     parser = takeLowerText >>= \case
-        "maintain" -> pure Maintain
-        "request" -> pure Request
+        "maintain" -> pure FTMaintain
+        "request" -> pure FTRequest
         e -> fromTextError $ "Failure parsing FleetType from value: '" <> e
            <> "'. Accepted values: maintain, request"
 
 instance ToText FleetType where
     toText = \case
-        Maintain -> "maintain"
-        Request -> "request"
+        FTMaintain -> "maintain"
+        FTRequest -> "request"
 
 instance Hashable     FleetType
 instance NFData       FleetType

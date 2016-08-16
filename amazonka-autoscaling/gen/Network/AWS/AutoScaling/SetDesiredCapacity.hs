@@ -20,7 +20,7 @@
 --
 -- Sets the size of the specified Auto Scaling group.
 --
--- For more information about desired capacity, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling Developer Guide/.
+-- For more information about desired capacity, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setDesiredCapacity' smart constructor.
+-- | Contains the parameters for SetDesiredCapacity.
+--
+-- /See:/ 'setDesiredCapacity' smart constructor.
 data SetDesiredCapacity = SetDesiredCapacity'
     { _sdcHonorCooldown        :: !(Maybe Bool)
     , _sdcAutoScalingGroupName :: !Text

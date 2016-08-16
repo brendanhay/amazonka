@@ -62,6 +62,7 @@ module Network.AWS.AutoScaling.Types
     , asgHealthCheckGracePeriod
     , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
+    , asgTargetGroupARNs
     , asgEnabledMetrics
     , asgLaunchConfigurationName
     , asgInstances
@@ -176,6 +177,12 @@ module Network.AWS.AutoScaling.Types
     , loadBalancerState
     , lbsState
     , lbsLoadBalancerName
+
+    -- * LoadBalancerTargetGroupState
+    , LoadBalancerTargetGroupState
+    , loadBalancerTargetGroupState
+    , lbtgsState
+    , lbtgsLoadBalancerTargetGroupARN
 
     -- * MetricCollectionType
     , MetricCollectionType
@@ -316,7 +323,7 @@ _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
--- | The Auto Scaling group or launch configuration can\'t be deleted because it is in use.
+-- | The operation can\'t be performed because the resource is in use.
 _ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
@@ -324,7 +331,7 @@ _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
--- | The Auto Scaling group can\'t be deleted because there are scaling activities in progress.
+-- | The operation can\'t be performed because there are scaling activities in progress.
 _ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ScalingActivityInProgressFault =
     _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"

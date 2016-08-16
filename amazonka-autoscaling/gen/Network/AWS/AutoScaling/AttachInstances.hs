@@ -22,7 +22,9 @@
 --
 -- When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.
+-- If there is a Classic load balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachInstances' smart constructor.
+-- | Contains the parameters for AttachInstances.
+--
+-- /See:/ 'attachInstances' smart constructor.
 data AttachInstances = AttachInstances'
     { _aiInstanceIds          :: !(Maybe [Text])
     , _aiAutoScalingGroupName :: !Text

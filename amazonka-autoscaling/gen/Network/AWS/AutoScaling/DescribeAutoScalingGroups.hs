@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling groups. If a list of names is not provided, the call describes all Auto Scaling groups.
+-- Describes one or more Auto Scaling groups.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAutoScalingGroups' smart constructor.
+-- | Contains the parameters for DescribeAutoScalingGroups.
+--
+-- /See:/ 'describeAutoScalingGroups' smart constructor.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames :: !(Maybe [Text])
     , _dasgNextToken             :: !(Maybe Text)
@@ -73,7 +75,7 @@ describeAutoScalingGroups =
     , _dasgMaxRecords = Nothing
     }
 
--- | The group names.
+-- | The group names. If you omit this parameter, all Auto Scaling groups are described.
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default . _Coerce;
 
@@ -127,7 +129,9 @@ instance ToQuery DescribeAutoScalingGroups where
                "NextToken" =: _dasgNextToken,
                "MaxRecords" =: _dasgMaxRecords]
 
--- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
+-- | Contains the output for DescribeAutoScalingGroups.
+--
+-- /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken         :: !(Maybe Text)
     , _dasgrsResponseStatus    :: !Int

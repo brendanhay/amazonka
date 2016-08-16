@@ -82,7 +82,9 @@ instance ToQuery DescribeScalingProcessTypes where
                     ("DescribeScalingProcessTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | /See:/ 'describeScalingProcessTypesResponse' smart constructor.
+-- | Contains the output of DescribeScalingProcessTypes.
+--
+-- /See:/ 'describeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses      :: !(Maybe [ProcessType])
     , _dsptrsResponseStatus :: !Int

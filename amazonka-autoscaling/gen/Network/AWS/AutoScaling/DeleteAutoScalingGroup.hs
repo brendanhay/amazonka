@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteAutoScalingGroup' smart constructor.
+-- | Contains the parameters for DeleteAutoScalingGroup.
+--
+-- /See:/ 'deleteAutoScalingGroup' smart constructor.
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
     { _dasgForceDelete          :: !(Maybe Bool)
     , _dasgAutoScalingGroupName :: !Text

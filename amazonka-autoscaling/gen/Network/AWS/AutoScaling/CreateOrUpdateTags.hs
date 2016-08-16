@@ -22,7 +22,7 @@
 --
 -- When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createOrUpdateTags' smart constructor.
+-- | Contains the parameters for CreateOrUpdateTags.
+--
+-- /See:/ 'createOrUpdateTags' smart constructor.
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
     { _coutTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

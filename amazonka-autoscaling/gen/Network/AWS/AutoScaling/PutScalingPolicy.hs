@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putScalingPolicy' smart constructor.
+-- | Contains the parameters for PutScalingPolicy.
+--
+-- /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
     { _pspMinAdjustmentStep       :: !(Maybe Int)
     , _pspEstimatedInstanceWarmup :: !(Maybe Int)
@@ -144,7 +146,7 @@ pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustm
 --
 -- This parameter is not supported unless the policy type is 'SimpleScaling'.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a});
 
@@ -168,7 +170,7 @@ pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
 -- | The adjustment type. Valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/.
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType = lens _pspAdjustmentType (\ s a -> s{_pspAdjustmentType = a});
 
@@ -212,7 +214,9 @@ instance ToQuery PutScalingPolicy where
                "PolicyName" =: _pspPolicyName,
                "AdjustmentType" =: _pspAdjustmentType]
 
--- | /See:/ 'putScalingPolicyResponse' smart constructor.
+-- | Contains the output of PutScalingPolicy.
+--
+-- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprsPolicyARN      :: !(Maybe Text)
     , _psprsResponseStatus :: !Int

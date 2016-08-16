@@ -20,7 +20,7 @@
 --
 -- Updates the instance protection settings of the specified instances.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setInstanceProtection' smart constructor.
+-- | Contains the parameters for SetInstanceProtection.
+--
+-- /See:/ 'setInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
     { _sipInstanceIds          :: ![Text]
     , _sipAutoScalingGroupName :: !Text
@@ -114,7 +116,9 @@ instance ToQuery SetInstanceProtection where
                "AutoScalingGroupName" =: _sipAutoScalingGroupName,
                "ProtectedFromScaleIn" =: _sipProtectedFromScaleIn]
 
--- | /See:/ 'setInstanceProtectionResponse' smart constructor.
+-- | Contains the output of SetInstanceProtection.
+--
+-- /See:/ 'setInstanceProtectionResponse' smart constructor.
 newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
     { _siprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

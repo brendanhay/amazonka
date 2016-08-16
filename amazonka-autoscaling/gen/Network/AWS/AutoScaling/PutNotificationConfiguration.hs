@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to this topic can have messages for events delivered to an endpoint such as a web server or email address.
+-- Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.
 --
--- For more information see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html Getting Notifications When Your Auto Scaling Group Changes> in the /Auto Scaling Developer Guide/.
+-- This configuration overwrites any existing configuration.
 --
--- This configuration overwrites an existing configuration.
+-- For more information see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html Getting SNS Notifications When Your Auto Scaling Group Scales> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putNotificationConfiguration' smart constructor.
+-- | Contains the parameters for PutNotificationConfiguration.
+--
+-- /See:/ 'putNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
     { _pncAutoScalingGroupName :: !Text
     , _pncTopicARN             :: !Text

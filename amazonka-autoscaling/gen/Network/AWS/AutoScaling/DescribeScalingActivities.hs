@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more scaling activities for the specified Auto Scaling group. If you omit the 'ActivityIds', the call returns all activities from the past six weeks. Activities are sorted by the start time. Activities still in progress appear first on the list.
+-- Describes one or more scaling activities for the specified Auto Scaling group.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScalingActivities
@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeScalingActivities' smart constructor.
+-- | Contains the parameters for DescribeScalingActivities.
+--
+-- /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
     { _desNextToken            :: !(Maybe Text)
     , _desAutoScalingGroupName :: !(Maybe Text)
@@ -90,7 +92,7 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
--- | The activity IDs of the desired scaling activities. If this list is omitted, all activities are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.
+-- | The activity IDs of the desired scaling activities. If you omit this parameter, all activities for the past six weeks are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.
 desActivityIds :: Lens' DescribeScalingActivities [Text]
 desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default . _Coerce;
 
@@ -135,7 +137,9 @@ instance ToQuery DescribeScalingActivities where
                "ActivityIds" =:
                  toQuery (toQueryList "member" <$> _desActivityIds)]
 
--- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
+-- | Contains the output of DescribeScalingActivities.
+--
+-- /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dsasrsNextToken      :: !(Maybe Text)
     , _dsasrsResponseStatus :: !Int
@@ -169,7 +173,7 @@ dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 dsasrsResponseStatus :: Lens' DescribeScalingActivitiesResponse Int
 dsasrsResponseStatus = lens _dsasrsResponseStatus (\ s a -> s{_dsasrsResponseStatus = a});
 
--- | The scaling activities.
+-- | The scaling activities. Activities are sorted by start time. Activities still in progress are described first.
 dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a}) . _Coerce;
 

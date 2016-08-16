@@ -20,7 +20,7 @@
 --
 -- Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Creating a Request
@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
+-- | Contains the parameters for PutScheduledUpdateGroupAction.
+--
+-- /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     { _psugaStartTime            :: !(Maybe ISO8601)
     , _psugaTime                 :: !(Maybe ISO8601)

@@ -20,7 +20,7 @@
 --
 -- Moves the specified instances out of 'Standby' mode.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'exitStandby' smart constructor.
+-- | Contains the parameters for ExitStandby.
+--
+-- /See:/ 'exitStandby' smart constructor.
 data ExitStandby = ExitStandby'
     { _eInstanceIds          :: !(Maybe [Text])
     , _eAutoScalingGroupName :: !Text
@@ -105,7 +107,9 @@ instance ToQuery ExitStandby where
                  toQuery (toQueryList "member" <$> _eInstanceIds),
                "AutoScalingGroupName" =: _eAutoScalingGroupName]
 
--- | /See:/ 'exitStandbyResponse' smart constructor.
+-- | Contains the parameters for ExitStandby.
+--
+-- /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
     { _esrsActivities     :: !(Maybe [Activity])
     , _esrsResponseStatus :: !Int

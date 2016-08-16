@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the load balancers for the specified Auto Scaling group.
+--
+-- Note that this operation describes only Classic load balancers. If you have Application load balancers, use < DescribeLoadBalancerTargetGroups> instead.
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLoadBalancers' smart constructor.
+-- | Contains the parameters for DescribeLoadBalancers.
+--
+-- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbNextToken            :: !(Maybe Text)
     , _dlbMaxRecords           :: !(Maybe Int)
@@ -115,7 +119,9 @@ instance ToQuery DescribeLoadBalancers where
                "MaxRecords" =: _dlbMaxRecords,
                "AutoScalingGroupName" =: _dlbAutoScalingGroupName]
 
--- | /See:/ 'describeLoadBalancersResponse' smart constructor.
+-- | Contains the output of DescribeLoadBalancers.
+--
+-- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers  :: !(Maybe [LoadBalancerState])
     , _dlbrsNextToken      :: !(Maybe Text)

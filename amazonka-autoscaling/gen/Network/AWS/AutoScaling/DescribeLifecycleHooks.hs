@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLifecycleHooks' smart constructor.
+-- | Contains the parameters for DescribeLifecycleHooks.
+--
+-- /See:/ 'describeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
     { _dlhLifecycleHookNames   :: !(Maybe [Text])
     , _dlhAutoScalingGroupName :: !Text
@@ -65,7 +67,7 @@ describeLifecycleHooks pAutoScalingGroupName_ =
     , _dlhAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | The names of one or more lifecycle hooks.
+-- | The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
 dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default . _Coerce;
 
@@ -106,7 +108,9 @@ instance ToQuery DescribeLifecycleHooks where
                    (toQueryList "member" <$> _dlhLifecycleHookNames),
                "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
 
--- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
+-- | Contains the output of DescribeLifecycleHooks.
+--
+-- /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
     , _dlhrsResponseStatus :: !Int

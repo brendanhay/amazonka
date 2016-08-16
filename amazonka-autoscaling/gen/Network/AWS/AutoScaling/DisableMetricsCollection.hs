@@ -40,7 +40,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disableMetricsCollection' smart constructor.
+-- | Contains the parameters for DisableMetricsCollection.
+--
+-- /See:/ 'disableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
     { _dmcMetrics              :: !(Maybe [Text])
     , _dmcAutoScalingGroupName :: !Text

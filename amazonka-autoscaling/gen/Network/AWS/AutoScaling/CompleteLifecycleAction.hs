@@ -23,12 +23,16 @@
 -- This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:
 --
 -- 1.  (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
+--
 -- 2.  (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
+--
 -- 3.  Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.
+--
 -- 4.  If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.
+--
 -- 5.  __If you finish before the timeout period ends, complete the lifecycle action.__
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
     -- * Creating a Request
@@ -55,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'completeLifecycleAction' smart constructor.
+-- | Contains the parameters for CompleteLifecycleAction.
+--
+-- /See:/ 'completeLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
     { _claInstanceId            :: !(Maybe Text)
     , _claLifecycleActionToken  :: !(Maybe Text)
@@ -143,7 +149,9 @@ instance ToQuery CompleteLifecycleAction where
                "AutoScalingGroupName" =: _claAutoScalingGroupName,
                "LifecycleActionResult" =: _claLifecycleActionResult]
 
--- | /See:/ 'completeLifecycleActionResponse' smart constructor.
+-- | Contains the output of CompleteLifecycleAction.
+--
+-- /See:/ 'completeLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
     { _clarsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

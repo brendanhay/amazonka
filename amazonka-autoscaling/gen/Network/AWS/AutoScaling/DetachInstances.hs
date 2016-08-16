@@ -24,7 +24,9 @@
 --
 -- If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.
+-- If there is a Classic load balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Creating a Request
@@ -50,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachInstances' smart constructor.
+-- | Contains the parameters for DetachInstances.
+--
+-- /See:/ 'detachInstances' smart constructor.
 data DetachInstances = DetachInstances'
     { _diInstanceIds                    :: !(Maybe [Text])
     , _diAutoScalingGroupName           :: !Text
@@ -121,7 +125,9 @@ instance ToQuery DetachInstances where
                "ShouldDecrementDesiredCapacity" =:
                  _diShouldDecrementDesiredCapacity]
 
--- | /See:/ 'detachInstancesResponse' smart constructor.
+-- | Contains the output of DetachInstances.
+--
+-- /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirsActivities     :: !(Maybe [Activity])
     , _dirsResponseStatus :: !Int

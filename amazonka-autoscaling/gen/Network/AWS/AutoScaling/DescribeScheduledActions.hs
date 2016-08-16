@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeScheduledActions' smart constructor.
+-- | Contains the parameters for DescribeScheduledActions.
+--
+-- /See:/ 'describeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
     { _dsasStartTime            :: !(Maybe ISO8601)
     , _dsasNextToken            :: !(Maybe Text)
@@ -108,7 +110,7 @@ dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 
--- | Describes one or more scheduled actions. If you omit this list, the call describes all scheduled actions. If you specify an unknown scheduled action it is ignored with no error.
+-- | Describes one or more scheduled actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.
 --
 -- You can describe up to a maximum of 50 instances with a single call. If there are more items to return, the call returns a token. To get the next set of items, repeat the call with the returned token.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
@@ -160,7 +162,9 @@ instance ToQuery DescribeScheduledActions where
                  toQuery
                    (toQueryList "member" <$> _dsasScheduledActionNames)]
 
--- | /See:/ 'describeScheduledActionsResponse' smart constructor.
+-- | Contains the output of DescribeScheduledActions.
+--
+-- /See:/ 'describeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarsNextToken                   :: !(Maybe Text)

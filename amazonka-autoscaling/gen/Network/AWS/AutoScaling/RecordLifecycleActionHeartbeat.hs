@@ -23,12 +23,16 @@
 -- This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:
 --
 -- 1.  (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
+--
 -- 2.  (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
+--
 -- 3.  Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.
+--
 -- 4.  __If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.__
+--
 -- 5.  If you finish before the timeout period ends, complete the lifecycle action.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
     -- * Creating a Request
@@ -54,7 +58,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
+-- | Contains the parameters for RecordLifecycleActionHeartbeat.
+--
+-- /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
     { _rlahInstanceId           :: !(Maybe Text)
     , _rlahLifecycleActionToken :: !(Maybe Text)
@@ -135,7 +141,9 @@ instance ToQuery RecordLifecycleActionHeartbeat where
                "LifecycleHookName" =: _rlahLifecycleHookName,
                "AutoScalingGroupName" =: _rlahAutoScalingGroupName]
 
--- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
+-- | Contains the output of RecordLifecycleActionHeartBeat.
+--
+-- /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
     { _rlahrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

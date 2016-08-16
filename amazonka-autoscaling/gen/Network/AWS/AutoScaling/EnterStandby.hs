@@ -20,7 +20,7 @@
 --
 -- Moves the specified instances into 'Standby' mode.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enterStandby' smart constructor.
+-- | Contains the parameters for EnteStandby.
+--
+-- /See:/ 'enterStandby' smart constructor.
 data EnterStandby = EnterStandby'
     { _esInstanceIds                    :: !(Maybe [Text])
     , _esAutoScalingGroupName           :: !Text
@@ -117,7 +119,9 @@ instance ToQuery EnterStandby where
                "ShouldDecrementDesiredCapacity" =:
                  _esShouldDecrementDesiredCapacity]
 
--- | /See:/ 'enterStandbyResponse' smart constructor.
+-- | Contains the output of EnterStandby.
+--
+-- /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
     { _ersActivities     :: !(Maybe [Activity])
     , _ersResponseStatus :: !Int

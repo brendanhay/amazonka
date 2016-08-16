@@ -87,7 +87,9 @@ instance ToQuery DescribeAccountLimits where
                  ["Action" =: ("DescribeAccountLimits" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | /See:/ 'describeAccountLimitsResponse' smart constructor.
+-- | Contains the parameters for DescribeAccountLimits.
+--
+-- /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrsNumberOfLaunchConfigurations    :: !(Maybe Int)
     , _dalrsNumberOfAutoScalingGroups       :: !(Maybe Int)

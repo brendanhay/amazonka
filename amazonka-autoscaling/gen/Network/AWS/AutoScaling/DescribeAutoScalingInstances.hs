@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling instances. If a list is not provided, the call describes all instances.
+-- Describes one or more Auto Scaling instances.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAutoScalingInstances' smart constructor.
+-- | Contains the parameters for DescribeAutoScalingInstances.
+--
+-- /See:/ 'describeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
     { _dasiNextToken   :: !(Maybe Text)
     , _dasiInstanceIds :: !(Maybe [Text])
@@ -128,7 +130,9 @@ instance ToQuery DescribeAutoScalingInstances where
                  toQuery (toQueryList "member" <$> _dasiInstanceIds),
                "MaxRecords" =: _dasiMaxRecords]
 
--- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
+-- | Contains the output of DescribeAutoScalingInstances.
+--
+-- /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken            :: !(Maybe Text)
     , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])

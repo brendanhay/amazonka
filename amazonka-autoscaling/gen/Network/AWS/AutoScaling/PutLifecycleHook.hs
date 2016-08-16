@@ -25,14 +25,18 @@
 -- This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:
 --
 -- 1.  (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Auto Scaling launches or terminates instances.
+--
 -- 2.  (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
+--
 -- 3.  __Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.__
+--
 -- 4.  If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.
+--
 -- 5.  If you finish before the timeout period ends, complete the lifecycle action.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 --
--- If you exceed your maximum limit of lifecycle hooks, which by default is 50 per region, the call fails. For information about updating this limit, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits> in the /Amazon Web Services General Reference/.
+-- If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits> in the /Amazon Web Services General Reference/.
 module Network.AWS.AutoScaling.PutLifecycleHook
     (
     -- * Creating a Request
@@ -62,7 +66,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putLifecycleHook' smart constructor.
+-- | Contains the parameters for PutLifecycleHook.
+--
+-- /See:/ 'putLifecycleHook' smart constructor.
 data PutLifecycleHook = PutLifecycleHook'
     { _plhDefaultResult         :: !(Maybe Text)
     , _plhHeartbeatTimeout      :: !(Maybe Int)
@@ -126,11 +132,17 @@ plhNotificationMetadata = lens _plhNotificationMetadata (\ s a -> s{_plhNotifica
 -- The notification messages sent to the target include the following information:
 --
 -- -   __AutoScalingGroupName__. The name of the Auto Scaling group.
+--
 -- -   __AccountId__. The AWS account ID.
+--
 -- -   __LifecycleTransition__. The lifecycle hook type.
+--
 -- -   __LifecycleActionToken__. The lifecycle action token.
+--
 -- -   __EC2InstanceId__. The EC2 instance ID.
+--
 -- -   __LifecycleHookName__. The name of the lifecycle hook.
+--
 -- -   __NotificationMetadata__. User-defined information.
 --
 -- This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key\/value pair format when sending notifications to an Amazon SNS topic.
@@ -191,7 +203,9 @@ instance ToQuery PutLifecycleHook where
                "LifecycleHookName" =: _plhLifecycleHookName,
                "AutoScalingGroupName" =: _plhAutoScalingGroupName]
 
--- | /See:/ 'putLifecycleHookResponse' smart constructor.
+-- | Contains the output of PutLifecycleHook.
+--
+-- /See:/ 'putLifecycleHookResponse' smart constructor.
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
     { _plhrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

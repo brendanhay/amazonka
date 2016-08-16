@@ -22,7 +22,7 @@
 --
 -- If you exceed your maximum limit of launch configurations, which by default is 100 per region, the call fails. For information about viewing and updating this limit, see < DescribeAccountLimits>.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Creating a Request
@@ -60,7 +60,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createLaunchConfiguration' smart constructor.
+-- | Contains the parameters for CreateLaunchConfiguration.
+--
+-- /See:/ 'createLaunchConfiguration' smart constructor.
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
     { _clcInstanceId                   :: !(Maybe Text)
     , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
@@ -152,11 +154,11 @@ createLaunchConfiguration pLaunchConfigurationName_ =
 --
 -- To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/.
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 
--- | Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling Developer Guide/.
+-- | Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/.
 --
 -- If you specify this parameter, be sure to specify at least one subnet when you create your group.
 --
@@ -172,13 +174,13 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a}) . _Default . _Coerce;
 
--- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.
+-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling User Guide/.
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
 
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled by default.
 --
--- When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, by specifying 'False', CloudWatch generates metrics every 5 minutes. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitoring Your Auto Scaling Instances and Groups> in the /Auto Scaling Developer Guide/.
+-- When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, by specifying 'False', CloudWatch generates metrics every 5 minutes. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitoring Your Auto Scaling Instances and Groups> in the /Auto Scaling User Guide/.
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMonitoring = a});
 
@@ -216,7 +218,7 @@ clcClassicLinkVPCId = lens _clcClassicLinkVPCId (\ s a -> s{_clcClassicLinkVPCId
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.
 --
--- EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling Developer Guide/.
+-- EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling User Guide/.
 clcIAMInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcIAMInstanceProfile = lens _clcIAMInstanceProfile (\ s a -> s{_clcIAMInstanceProfile = a});
 
@@ -230,7 +232,7 @@ clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 --
 -- If you specify this parameter, be sure to specify at least one subnet when you create your group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/.
 --
 -- Valid values: 'default' | 'dedicated'
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)

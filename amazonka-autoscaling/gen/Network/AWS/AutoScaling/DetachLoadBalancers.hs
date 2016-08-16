@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more load balancers from the specified Auto Scaling group.
+-- Detaches one or more Classic load balancers from the specified Auto Scaling group.
+--
+-- Note that this operation detaches only Classic load balancers. If you have Application load balancers, use < DetachLoadBalancerTargetGroups> instead.
 --
 -- When you detach a load balancer, it enters the 'Removing' state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using < DescribeLoadBalancers>. Note that the instances remain running.
 module Network.AWS.AutoScaling.DetachLoadBalancers
@@ -44,10 +46,12 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachLoadBalancers' smart constructor.
+-- | Contains the parameters for DetachLoadBalancers.
+--
+-- /See:/ 'detachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
-    { _dAutoScalingGroupName :: !(Maybe Text)
-    , _dLoadBalancerNames    :: !(Maybe [Text])
+    { _dAutoScalingGroupName :: !Text
+    , _dLoadBalancerNames    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DetachLoadBalancers' with the minimum fields required to make a request.
@@ -58,20 +62,21 @@ data DetachLoadBalancers = DetachLoadBalancers'
 --
 -- * 'dLoadBalancerNames'
 detachLoadBalancers
-    :: DetachLoadBalancers
-detachLoadBalancers =
+    :: Text -- ^ 'dAutoScalingGroupName'
+    -> DetachLoadBalancers
+detachLoadBalancers pAutoScalingGroupName_ =
     DetachLoadBalancers'
-    { _dAutoScalingGroupName = Nothing
-    , _dLoadBalancerNames = Nothing
+    { _dAutoScalingGroupName = pAutoScalingGroupName_
+    , _dLoadBalancerNames = mempty
     }
 
--- | The name of the group.
-dAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
+-- | The name of the Auto Scaling group.
+dAutoScalingGroupName :: Lens' DetachLoadBalancers Text
 dAutoScalingGroupName = lens _dAutoScalingGroupName (\ s a -> s{_dAutoScalingGroupName = a});
 
 -- | One or more load balancer names.
 dLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
-dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Default . _Coerce;
+dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Coerce;
 
 instance AWSRequest DetachLoadBalancers where
         type Rs DetachLoadBalancers =
@@ -99,10 +104,11 @@ instance ToQuery DetachLoadBalancers where
                "Version" =: ("2011-01-01" :: ByteString),
                "AutoScalingGroupName" =: _dAutoScalingGroupName,
                "LoadBalancerNames" =:
-                 toQuery
-                   (toQueryList "member" <$> _dLoadBalancerNames)]
+                 toQueryList "member" _dLoadBalancerNames]
 
--- | /See:/ 'detachLoadBalancersResponse' smart constructor.
+-- | Contains the output for DetachLoadBalancers.
+--
+-- /See:/ 'detachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
     { _dlbsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

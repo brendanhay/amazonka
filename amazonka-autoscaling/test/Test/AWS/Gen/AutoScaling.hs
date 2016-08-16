@@ -46,6 +46,9 @@ import Test.AWS.AutoScaling.Internal
 --         , requestPutScalingPolicy $
 --             putScalingPolicy
 --
+--         , requestAttachLoadBalancerTargetGroups $
+--             attachLoadBalancerTargetGroups
+--
 --         , requestDeleteLaunchConfiguration $
 --             deleteLaunchConfiguration
 --
@@ -84,6 +87,9 @@ import Test.AWS.AutoScaling.Internal
 --
 --         , requestDeleteTags $
 --             deleteTags
+--
+--         , requestDetachLoadBalancerTargetGroups $
+--             detachLoadBalancerTargetGroups
 --
 --         , requestDescribeLifecycleHooks $
 --             describeLifecycleHooks
@@ -145,6 +151,9 @@ import Test.AWS.AutoScaling.Internal
 --         , requestTerminateInstanceInAutoScalingGroup $
 --             terminateInstanceInAutoScalingGroup
 --
+--         , requestDescribeLoadBalancerTargetGroups $
+--             describeLoadBalancerTargetGroups
+--
 --         , requestPutScheduledUpdateGroupAction $
 --             putScheduledUpdateGroupAction
 --
@@ -196,6 +205,9 @@ import Test.AWS.AutoScaling.Internal
 --         , responsePutScalingPolicy $
 --             putScalingPolicyResponse
 --
+--         , responseAttachLoadBalancerTargetGroups $
+--             attachLoadBalancerTargetGroupsResponse
+--
 --         , responseDeleteLaunchConfiguration $
 --             deleteLaunchConfigurationResponse
 --
@@ -234,6 +246,9 @@ import Test.AWS.AutoScaling.Internal
 --
 --         , responseDeleteTags $
 --             deleteTagsResponse
+--
+--         , responseDetachLoadBalancerTargetGroups $
+--             detachLoadBalancerTargetGroupsResponse
 --
 --         , responseDescribeLifecycleHooks $
 --             describeLifecycleHooksResponse
@@ -294,6 +309,9 @@ import Test.AWS.AutoScaling.Internal
 --
 --         , responseTerminateInstanceInAutoScalingGroup $
 --             terminateInstanceInAutoScalingGroupResponse
+--
+--         , responseDescribeLoadBalancerTargetGroups $
+--             describeLoadBalancerTargetGroupsResponse
 --
 --         , responsePutScheduledUpdateGroupAction $
 --             putScheduledUpdateGroupActionResponse
@@ -360,6 +378,11 @@ requestPutScalingPolicy = req
     "PutScalingPolicy"
     "fixture/PutScalingPolicy.yaml"
 
+requestAttachLoadBalancerTargetGroups :: AttachLoadBalancerTargetGroups -> TestTree
+requestAttachLoadBalancerTargetGroups = req
+    "AttachLoadBalancerTargetGroups"
+    "fixture/AttachLoadBalancerTargetGroups.yaml"
+
 requestDeleteLaunchConfiguration :: DeleteLaunchConfiguration -> TestTree
 requestDeleteLaunchConfiguration = req
     "DeleteLaunchConfiguration"
@@ -424,6 +447,11 @@ requestDeleteTags :: DeleteTags -> TestTree
 requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
+
+requestDetachLoadBalancerTargetGroups :: DetachLoadBalancerTargetGroups -> TestTree
+requestDetachLoadBalancerTargetGroups = req
+    "DetachLoadBalancerTargetGroups"
+    "fixture/DetachLoadBalancerTargetGroups.yaml"
 
 requestDescribeLifecycleHooks :: DescribeLifecycleHooks -> TestTree
 requestDescribeLifecycleHooks = req
@@ -525,6 +553,11 @@ requestTerminateInstanceInAutoScalingGroup = req
     "TerminateInstanceInAutoScalingGroup"
     "fixture/TerminateInstanceInAutoScalingGroup.yaml"
 
+requestDescribeLoadBalancerTargetGroups :: DescribeLoadBalancerTargetGroups -> TestTree
+requestDescribeLoadBalancerTargetGroups = req
+    "DescribeLoadBalancerTargetGroups"
+    "fixture/DescribeLoadBalancerTargetGroups.yaml"
+
 requestPutScheduledUpdateGroupAction :: PutScheduledUpdateGroupAction -> TestTree
 requestPutScheduledUpdateGroupAction = req
     "PutScheduledUpdateGroupAction"
@@ -619,6 +652,13 @@ responsePutScalingPolicy = res
     autoScaling
     (Proxy :: Proxy PutScalingPolicy)
 
+responseAttachLoadBalancerTargetGroups :: AttachLoadBalancerTargetGroupsResponse -> TestTree
+responseAttachLoadBalancerTargetGroups = res
+    "AttachLoadBalancerTargetGroupsResponse"
+    "fixture/AttachLoadBalancerTargetGroupsResponse.proto"
+    autoScaling
+    (Proxy :: Proxy AttachLoadBalancerTargetGroups)
+
 responseDeleteLaunchConfiguration :: DeleteLaunchConfigurationResponse -> TestTree
 responseDeleteLaunchConfiguration = res
     "DeleteLaunchConfigurationResponse"
@@ -709,6 +749,13 @@ responseDeleteTags = res
     "fixture/DeleteTagsResponse.proto"
     autoScaling
     (Proxy :: Proxy DeleteTags)
+
+responseDetachLoadBalancerTargetGroups :: DetachLoadBalancerTargetGroupsResponse -> TestTree
+responseDetachLoadBalancerTargetGroups = res
+    "DetachLoadBalancerTargetGroupsResponse"
+    "fixture/DetachLoadBalancerTargetGroupsResponse.proto"
+    autoScaling
+    (Proxy :: Proxy DetachLoadBalancerTargetGroups)
 
 responseDescribeLifecycleHooks :: DescribeLifecycleHooksResponse -> TestTree
 responseDescribeLifecycleHooks = res
@@ -849,6 +896,13 @@ responseTerminateInstanceInAutoScalingGroup = res
     "fixture/TerminateInstanceInAutoScalingGroupResponse.proto"
     autoScaling
     (Proxy :: Proxy TerminateInstanceInAutoScalingGroup)
+
+responseDescribeLoadBalancerTargetGroups :: DescribeLoadBalancerTargetGroupsResponse -> TestTree
+responseDescribeLoadBalancerTargetGroups = res
+    "DescribeLoadBalancerTargetGroupsResponse"
+    "fixture/DescribeLoadBalancerTargetGroupsResponse.proto"
+    autoScaling
+    (Proxy :: Proxy DescribeLoadBalancerTargetGroups)
 
 responsePutScheduledUpdateGroupAction :: PutScheduledUpdateGroupActionResponse -> TestTree
 responsePutScheduledUpdateGroupAction = res

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more launch configurations. If you omit the list of names, then the call describes all launch configurations.
+-- Describes one or more launch configurations.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLaunchConfigurations' smart constructor.
+-- | Contains the parameters for DescribeLaunchConfigurations.
+--
+-- /See:/ 'describeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames :: !(Maybe [Text])
     , _dlcNextToken                :: !(Maybe Text)
@@ -73,7 +75,7 @@ describeLaunchConfigurations =
     , _dlcMaxRecords = Nothing
     }
 
--- | The launch configuration names.
+-- | The launch configuration names. If you omit this parameter, all launch configurations are described.
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
 dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default . _Coerce;
 
@@ -129,7 +131,9 @@ instance ToQuery DescribeLaunchConfigurations where
                "NextToken" =: _dlcNextToken,
                "MaxRecords" =: _dlcMaxRecords]
 
--- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
+-- | Contains the output of DescribeLaunchConfigurations.
+--
+-- /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken            :: !(Maybe Text)
     , _dlcrsResponseStatus       :: !Int

@@ -39,7 +39,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteTags' smart constructor.
+-- | Contains the parameters for DeleteTags.
+--
+-- /See:/ 'deleteTags' smart constructor.
 newtype DeleteTags = DeleteTags'
     { _dtTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

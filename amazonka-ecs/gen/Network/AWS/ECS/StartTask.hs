@@ -93,7 +93,7 @@ sOverrides = lens _sOverrides (\ s a -> s{_sOverrides = a});
 sCluster :: Lens' StartTask (Maybe Text)
 sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 
--- | An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the 'startedBy' parameter. You can then identify which tasks belong to that job by filtering the results of a < ListTasks> call with the 'startedBy' value.
+-- | An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the 'startedBy' parameter. You can then identify which tasks belong to that job by filtering the results of a < ListTasks> call with the 'startedBy' value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 --
 -- If a task is started by an Amazon ECS service, then the 'startedBy' parameter contains the deployment ID of the service that starts it.
 sStartedBy :: Lens' StartTask (Maybe Text)

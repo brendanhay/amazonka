@@ -78,6 +78,8 @@ lsCluster :: Lens' ListServices (Maybe Text)
 lsCluster = lens _lsCluster (\ s a -> s{_lsCluster = a});
 
 -- | The 'nextToken' value returned from a previous paginated 'ListServices' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
 lsNextToken :: Lens' ListServices (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 

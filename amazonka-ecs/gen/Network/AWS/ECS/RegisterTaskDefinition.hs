@@ -19,12 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a new task definition from the supplied 'family' and 'containerDefinitions'. Optionally, you can add data volumes to your containers with the 'volumes' parameter. For more information about task definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.
+--
+-- You may also specify an IAM role for your task with the 'taskRoleArn' parameter. When you specify an IAM role for a task, its containers can then use the latest versions of the AWS CLI or SDKs to make API requests to the AWS services that are specified in the IAM policy associated with the role. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks> in the /Amazon EC2 Container Service Developer Guide/.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
     -- * Creating a Request
       registerTaskDefinition
     , RegisterTaskDefinition
     -- * Request Lenses
+    , rtdTaskRoleARN
     , rtdVolumes
     , rtdFamily
     , rtdContainerDefinitions
@@ -46,7 +49,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'registerTaskDefinition' smart constructor.
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdVolumes              :: !(Maybe [Volume])
+    { _rtdTaskRoleARN          :: !(Maybe Text)
+    , _rtdVolumes              :: !(Maybe [Volume])
     , _rtdFamily               :: !Text
     , _rtdContainerDefinitions :: ![ContainerDefinition]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -54,6 +58,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- | Creates a value of 'RegisterTaskDefinition' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtdTaskRoleARN'
 --
 -- * 'rtdVolumes'
 --
@@ -65,10 +71,15 @@ registerTaskDefinition
     -> RegisterTaskDefinition
 registerTaskDefinition pFamily_ =
     RegisterTaskDefinition'
-    { _rtdVolumes = Nothing
+    { _rtdTaskRoleARN = Nothing
+    , _rtdVolumes = Nothing
     , _rtdFamily = pFamily_
     , _rtdContainerDefinitions = mempty
     }
+
+-- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+rtdTaskRoleARN :: Lens' RegisterTaskDefinition (Maybe Text)
+rtdTaskRoleARN = lens _rtdTaskRoleARN (\ s a -> s{_rtdTaskRoleARN = a});
 
 -- | A list of volume definitions in JSON format that containers in your task may use.
 rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
@@ -110,7 +121,8 @@ instance ToJSON RegisterTaskDefinition where
         toJSON RegisterTaskDefinition'{..}
           = object
               (catMaybes
-                 [("volumes" .=) <$> _rtdVolumes,
+                 [("taskRoleArn" .=) <$> _rtdTaskRoleARN,
+                  ("volumes" .=) <$> _rtdVolumes,
                   Just ("family" .= _rtdFamily),
                   Just
                     ("containerDefinitions" .=

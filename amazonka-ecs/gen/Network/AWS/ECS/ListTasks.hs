@@ -20,6 +20,8 @@
 --
 -- Returns a list of tasks for a specified cluster. You can filter the results by family name, by a particular container instance, or by the desired status of the task with the 'family', 'containerInstance', and 'desiredStatus' parameters.
 --
+-- Recently-stopped tasks might appear in the returned results. Currently, stopped tasks appear in the returned results for at least one hour.
+--
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTasks
     (
@@ -98,7 +100,9 @@ listTasks =
     , _ltMaxResults = Nothing
     }
 
--- | The task status with which to filter the 'ListTasks' results. Specifying a 'desiredStatus' of 'STOPPED' limits the results to tasks that are in the 'STOPPED' status, which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is 'RUNNING'.
+-- | The task desired status with which to filter the 'ListTasks' results. Specifying a 'desiredStatus' of 'STOPPED' limits the results to tasks that ECS has set the desired status to 'STOPPED', which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is 'RUNNING', which shows tasks that ECS has set the desired status to 'RUNNING'.
+--
+-- Although you can filter results based on a desired status of 'PENDING', this will not return any results because ECS never sets the desired status of a task to that value (only a task\'s 'lastStatus' may have a value of 'PENDING').
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
 ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
@@ -111,6 +115,8 @@ ltFamily :: Lens' ListTasks (Maybe Text)
 ltFamily = lens _ltFamily (\ s a -> s{_ltFamily = a});
 
 -- | The 'nextToken' value returned from a previous paginated 'ListTasks' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
 ltNextToken :: Lens' ListTasks (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 

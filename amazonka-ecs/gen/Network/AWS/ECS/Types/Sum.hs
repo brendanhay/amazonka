@@ -87,7 +87,8 @@ instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
 data LogDriver
-    = Fluentd
+    = AWSlogs
+    | Fluentd
     | Gelf
     | JSONFile
     | Journald
@@ -96,16 +97,18 @@ data LogDriver
 
 instance FromText LogDriver where
     parser = takeLowerText >>= \case
+        "awslogs" -> pure AWSlogs
         "fluentd" -> pure Fluentd
         "gelf" -> pure Gelf
         "json-file" -> pure JSONFile
         "journald" -> pure Journald
         "syslog" -> pure Syslog
         e -> fromTextError $ "Failure parsing LogDriver from value: '" <> e
-           <> "'. Accepted values: fluentd, gelf, json-file, journald, syslog"
+           <> "'. Accepted values: awslogs, fluentd, gelf, json-file, journald, syslog"
 
 instance ToText LogDriver where
     toText = \case
+        AWSlogs -> "awslogs"
         Fluentd -> "fluentd"
         Gelf -> "gelf"
         JSONFile -> "json-file"
@@ -150,22 +153,51 @@ instance ToHeader     SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
-data TaskDefinitionStatus
+data TaskDefinitionFamilyStatus
     = Active
+    | All
     | Inactive
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaskDefinitionFamilyStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "all" -> pure All
+        "inactive" -> pure Inactive
+        e -> fromTextError $ "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
+           <> "'. Accepted values: ACTIVE, ALL, INACTIVE"
+
+instance ToText TaskDefinitionFamilyStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        All -> "ALL"
+        Inactive -> "INACTIVE"
+
+instance Hashable     TaskDefinitionFamilyStatus
+instance NFData       TaskDefinitionFamilyStatus
+instance ToByteString TaskDefinitionFamilyStatus
+instance ToQuery      TaskDefinitionFamilyStatus
+instance ToHeader     TaskDefinitionFamilyStatus
+
+instance ToJSON TaskDefinitionFamilyStatus where
+    toJSON = toJSONText
+
+data TaskDefinitionStatus
+    = TDSActive
+    | TDSInactive
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "inactive" -> pure Inactive
+        "active" -> pure TDSActive
+        "inactive" -> pure TDSInactive
         e -> fromTextError $ "Failure parsing TaskDefinitionStatus from value: '" <> e
            <> "'. Accepted values: ACTIVE, INACTIVE"
 
 instance ToText TaskDefinitionStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Inactive -> "INACTIVE"
+        TDSActive -> "ACTIVE"
+        TDSInactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionStatus
 instance NFData       TaskDefinitionStatus

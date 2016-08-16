@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of task definition families that are registered to your account (which may include task definition families that no longer have any 'ACTIVE' task definitions). You can filter the results with the 'familyPrefix' parameter.
+-- Returns a list of task definition families that are registered to your account (which may include task definition families that no longer have any 'ACTIVE' task definition revisions).
+--
+-- You can filter out task definition families that do not contain any 'ACTIVE' task definition revisions by setting the 'status' parameter to 'ACTIVE'. You can also filter the results with the 'familyPrefix' parameter.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitionFamilies
@@ -27,6 +29,7 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
       listTaskDefinitionFamilies
     , ListTaskDefinitionFamilies
     -- * Request Lenses
+    , ltdfStatus
     , ltdfFamilyPrefix
     , ltdfNextToken
     , ltdfMaxResults
@@ -50,7 +53,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-    { _ltdfFamilyPrefix :: !(Maybe Text)
+    { _ltdfStatus       :: !(Maybe TaskDefinitionFamilyStatus)
+    , _ltdfFamilyPrefix :: !(Maybe Text)
     , _ltdfNextToken    :: !(Maybe Text)
     , _ltdfMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -58,6 +62,8 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
 -- | Creates a value of 'ListTaskDefinitionFamilies' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltdfStatus'
 --
 -- * 'ltdfFamilyPrefix'
 --
@@ -68,16 +74,23 @@ listTaskDefinitionFamilies
     :: ListTaskDefinitionFamilies
 listTaskDefinitionFamilies =
     ListTaskDefinitionFamilies'
-    { _ltdfFamilyPrefix = Nothing
+    { _ltdfStatus = Nothing
+    , _ltdfFamilyPrefix = Nothing
     , _ltdfNextToken = Nothing
     , _ltdfMaxResults = Nothing
     }
+
+-- | The task definition family status with which to filter the 'ListTaskDefinitionFamilies' results. By default, both 'ACTIVE' and 'INACTIVE' task definition families are listed. If this parameter is set to 'ACTIVE', only task definition families that have an 'ACTIVE' task definition revision are returned. If this parameter is set to 'INACTIVE', only task definition families that do not have any 'ACTIVE' task definition revisions are returned. If you paginate the resulting output, be sure to keep the 'status' value constant in each subsequent request.
+ltdfStatus :: Lens' ListTaskDefinitionFamilies (Maybe TaskDefinitionFamilyStatus)
+ltdfStatus = lens _ltdfStatus (\ s a -> s{_ltdfStatus = a});
 
 -- | The 'familyPrefix' is a string that is used to filter the results of 'ListTaskDefinitionFamilies'. If you specify a 'familyPrefix', only task definition family names that begin with the 'familyPrefix' string are returned.
 ltdfFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
 ltdfFamilyPrefix = lens _ltdfFamilyPrefix (\ s a -> s{_ltdfFamilyPrefix = a});
 
 -- | The 'nextToken' value returned from a previous paginated 'ListTaskDefinitionFamilies' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
 ltdfNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
 ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
 
@@ -121,7 +134,8 @@ instance ToJSON ListTaskDefinitionFamilies where
         toJSON ListTaskDefinitionFamilies'{..}
           = object
               (catMaybes
-                 [("familyPrefix" .=) <$> _ltdfFamilyPrefix,
+                 [("status" .=) <$> _ltdfStatus,
+                  ("familyPrefix" .=) <$> _ltdfFamilyPrefix,
                   ("nextToken" .=) <$> _ltdfNextToken,
                   ("maxResults" .=) <$> _ltdfMaxResults])
 

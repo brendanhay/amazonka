@@ -116,7 +116,7 @@ cluster =
 cStatus :: Lens' Cluster (Maybe Text)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
--- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the cluster, the AWS account ID of the cluster owner, the 'cluster' namespace, and then the cluster name. For example, arn:aws:ecs:/region/:/012345678910/:cluster\//test/.
+-- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the cluster, the AWS account ID of the cluster owner, the 'cluster' namespace, and then the cluster name. For example, 'arn:aws:ecs:region:012345678910:cluster\/test '..
 cClusterARN :: Lens' Cluster (Maybe Text)
 cClusterARN = lens _cClusterARN (\ s a -> s{_cClusterARN = a});
 
@@ -359,11 +359,14 @@ containerDefinition =
     , _cdCpu = Nothing
     }
 
--- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with 'repository-url\/image:tag'. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to 'Image' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the 'IMAGE' parameter of <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with ' repository-url\/image:tag '. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to 'Image' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the 'IMAGE' parameter of <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- -   Images in official repositories on Docker Hub use a single name (for example, 'ubuntu' or 'mongo').
+--
 -- -   Images in other repositories on Docker Hub are qualified with an organization name (for example, 'amazon\/amazon-ecs-agent').
+--
 -- -   Images in other online repositories are qualified further by a domain name (for example, 'quay.io\/assemblyline\/ubuntu').
+--
 cdImage :: Lens' ContainerDefinition (Maybe Text)
 cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 
@@ -377,7 +380,7 @@ cdHostname = lens _cdHostname (\ s a -> s{_cdHostname = a});
 
 -- | A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This parameter maps to 'SecurityOpt' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--security-opt' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
--- The Amazon ECS container agent running on a container instance must register with the 'ECS_SELINUX_CAPABLE=true' or 'ECS_APPARMOR_CAPABLE=true' environment variables before containers placed on that instance can use these security options. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration> in the /Amazon EC2 Container Service Developer Guide/.
+-- The Amazon ECS container agent running on a container instance must register with the 'ECS_SELINUX_CAPABLE=true' or 'ECS_APPARMOR_CAPABLE=true' environment variables before containers placed on that instance can use these security options. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration> in the /Amazon EC2 Container Service Developer Guide/.
 cdDockerSecurityOptions :: Lens' ContainerDefinition [Text]
 cdDockerSecurityOptions = lens _cdDockerSecurityOptions (\ s a -> s{_cdDockerSecurityOptions = a}) . _Default . _Coerce;
 
@@ -439,9 +442,13 @@ cdUser = lens _cdUser (\ s a -> s{_cdUser = a});
 cdDnsSearchDomains :: Lens' ContainerDefinition [Text]
 cdDnsSearchDomains = lens _cdDnsSearchDomains (\ s a -> s{_cdDnsSearchDomains = a}) . _Default . _Coerce;
 
--- | The log configuration specification for the container. This parameter maps to 'LogConfig' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--log-driver' option to <https://docs.docker.com/reference/commandline/run/ docker run>. Valid log drivers are displayed in the < LogConfiguration> data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
+-- | The log configuration specification for the container. This parameter maps to 'LogConfig' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--log-driver' option to <https://docs.docker.com/reference/commandline/run/ docker run>. By default, containers use the same logging driver that the Docker daemon uses; however the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers> in the Docker documentation.
 --
--- The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the 'ECS_AVAILABLE_LOGGING_DRIVERS' environment variable before containers placed on that instance can use these log configuration options. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration> in the /Amazon EC2 Container Service Developer Guide/.
+-- Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the < LogConfiguration> data type). Currently unsupported log drivers may be available in future releases of the Amazon ECS container agent.
+--
+-- This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
+--
+-- The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the 'ECS_AVAILABLE_LOGGING_DRIVERS' environment variable before containers placed on that instance can use these log configuration options. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration> in the /Amazon EC2 Container Service Developer Guide/.
 cdLogConfiguration :: Lens' ContainerDefinition (Maybe LogConfiguration)
 cdLogConfiguration = lens _cdLogConfiguration (\ s a -> s{_cdLogConfiguration = a});
 
@@ -467,9 +474,9 @@ cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default . _Coerce;
 cdReadonlyRootFilesystem :: Lens' ContainerDefinition (Maybe Bool)
 cdReadonlyRootFilesystem = lens _cdReadonlyRootFilesystem (\ s a -> s{_cdReadonlyRootFilesystem = a});
 
--- | If the 'essential' parameter of a container is marked as 'true', the failure of that container stops the task. If the 'essential' parameter of a container is marked as 'false', then its failure does not affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
+-- | If the 'essential' parameter of a container is marked as 'true', and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the 'essential' parameter of a container is marked as 'false', then its failure does not affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 --
--- All tasks must have at least one essential container.
+-- All tasks must have at least one essential container. If you have an application that is composed of multiple containers, you should group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html Application Architecture> in the /Amazon EC2 Container Service Developer Guide/.
 cdEssential :: Lens' ContainerDefinition (Maybe Bool)
 cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 
@@ -482,7 +489,9 @@ cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 -- The Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see <https://docs.docker.com/reference/run/#cpu-share-constraint CPU share constraint> in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2; however, the CPU parameter is not required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
 --
 -- -   __Agent versions less than or equal to 1.1.0:__ Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to 2 CPU shares.
+--
 -- -   __Agent versions greater than or equal to 1.2.0:__ Null, zero, and CPU values of 1 are passed to Docker as 2.
+--
 cdCpu :: Lens' ContainerDefinition (Maybe Int)
 cdCpu = lens _cdCpu (\ s a -> s{_cdCpu = a});
 
@@ -626,7 +635,7 @@ ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResour
 ciEc2InstanceId :: Lens' ContainerInstance (Maybe Text)
 ciEc2InstanceId = lens _ciEc2InstanceId (\ s a -> s{_ciEc2InstanceId = a});
 
--- | The Amazon Resource Name (ARN) of the container instance. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_ID/.
+-- | The Amazon Resource Name (ARN) of the container instance. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, 'arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID '.
 ciContainerInstanceARN :: Lens' ContainerInstance (Maybe Text)
 ciContainerInstanceARN = lens _ciContainerInstanceARN (\ s a -> s{_ciContainerInstanceARN = a});
 
@@ -741,6 +750,7 @@ data ContainerService = ContainerService'
     { _csRunningCount            :: !(Maybe Int)
     , _csStatus                  :: !(Maybe Text)
     , _csClusterARN              :: !(Maybe Text)
+    , _csCreatedAt               :: !(Maybe POSIX)
     , _csDesiredCount            :: !(Maybe Int)
     , _csLoadBalancers           :: !(Maybe [LoadBalancer])
     , _csPendingCount            :: !(Maybe Int)
@@ -762,6 +772,8 @@ data ContainerService = ContainerService'
 -- * 'csStatus'
 --
 -- * 'csClusterARN'
+--
+-- * 'csCreatedAt'
 --
 -- * 'csDesiredCount'
 --
@@ -789,6 +801,7 @@ containerService =
     { _csRunningCount = Nothing
     , _csStatus = Nothing
     , _csClusterARN = Nothing
+    , _csCreatedAt = Nothing
     , _csDesiredCount = Nothing
     , _csLoadBalancers = Nothing
     , _csPendingCount = Nothing
@@ -809,15 +822,19 @@ csRunningCount = lens _csRunningCount (\ s a -> s{_csRunningCount = a});
 csStatus :: Lens' ContainerService (Maybe Text)
 csStatus = lens _csStatus (\ s a -> s{_csStatus = a});
 
--- | The Amazon Resource Name (ARN) of the of the cluster that hosts the service.
+-- | The Amazon Resource Name (ARN) of the cluster that hosts the service.
 csClusterARN :: Lens' ContainerService (Maybe Text)
 csClusterARN = lens _csClusterARN (\ s a -> s{_csClusterARN = a});
+
+-- | The Unix timestamp for when the service was created.
+csCreatedAt :: Lens' ContainerService (Maybe UTCTime)
+csCreatedAt = lens _csCreatedAt (\ s a -> s{_csCreatedAt = a}) . mapping _Time;
 
 -- | The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with < CreateService>, and it can be modified with < UpdateService>.
 csDesiredCount :: Lens' ContainerService (Maybe Int)
 csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 
--- | A list of load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+-- | A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 csLoadBalancers :: Lens' ContainerService [LoadBalancer]
 csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _Default . _Coerce;
 
@@ -837,7 +854,7 @@ csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default 
 csServiceName :: Lens' ContainerService (Maybe Text)
 csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
--- | The Amazon Resource Name (ARN) that identifies the service. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the service, the AWS account ID of the service owner, the 'service' namespace, and then the service name. For example, arn:aws:ecs:/region/:/012345678910/:service\//my-service/.
+-- | The Amazon Resource Name (ARN) that identifies the service. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the service, the AWS account ID of the service owner, the 'service' namespace, and then the service name. For example, 'arn:aws:ecs:region:012345678910:service\/my-service '.
 csServiceARN :: Lens' ContainerService (Maybe Text)
 csServiceARN = lens _csServiceARN (\ s a -> s{_csServiceARN = a});
 
@@ -845,7 +862,7 @@ csServiceARN = lens _csServiceARN (\ s a -> s{_csServiceARN = a});
 csTaskDefinition :: Lens' ContainerService (Maybe Text)
 csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with a load balancer.
+-- | The Amazon Resource Name (ARN) of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
 csRoleARN :: Lens' ContainerService (Maybe Text)
 csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
 
@@ -860,6 +877,7 @@ instance FromJSON ContainerService where
                  ContainerService' <$>
                    (x .:? "runningCount") <*> (x .:? "status") <*>
                      (x .:? "clusterArn")
+                     <*> (x .:? "createdAt")
                      <*> (x .:? "desiredCount")
                      <*> (x .:? "loadBalancers" .!= mempty)
                      <*> (x .:? "pendingCount")
@@ -930,7 +948,7 @@ dRunningCount = lens _dRunningCount (\ s a -> s{_dRunningCount = a});
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | The Unix time in seconds and milliseconds when the service was created.
+-- | The Unix timestamp for when the service was created.
 dCreatedAt :: Lens' Deployment (Maybe UTCTime)
 dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a}) . mapping _Time;
 
@@ -946,7 +964,7 @@ dPendingCount = lens _dPendingCount (\ s a -> s{_dPendingCount = a});
 dId :: Lens' Deployment (Maybe Text)
 dId = lens _dId (\ s a -> s{_dId = a});
 
--- | The Unix time in seconds and milliseconds when the service was last updated.
+-- | The Unix timestamp for when the service was last updated.
 dUpdatedAt :: Lens' Deployment (Maybe UTCTime)
 dUpdatedAt = lens _dUpdatedAt (\ s a -> s{_dUpdatedAt = a}) . mapping _Time;
 
@@ -1206,6 +1224,7 @@ instance ToJSON KeyValuePair where
 data LoadBalancer = LoadBalancer'
     { _lbLoadBalancerName :: !(Maybe Text)
     , _lbContainerName    :: !(Maybe Text)
+    , _lbTargetGroupARN   :: !(Maybe Text)
     , _lbContainerPort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1217,6 +1236,8 @@ data LoadBalancer = LoadBalancer'
 --
 -- * 'lbContainerName'
 --
+-- * 'lbTargetGroupARN'
+--
 -- * 'lbContainerPort'
 loadBalancer
     :: LoadBalancer
@@ -1224,6 +1245,7 @@ loadBalancer =
     LoadBalancer'
     { _lbLoadBalancerName = Nothing
     , _lbContainerName = Nothing
+    , _lbTargetGroupARN = Nothing
     , _lbContainerPort = Nothing
     }
 
@@ -1234,6 +1256,10 @@ lbLoadBalancerName = lens _lbLoadBalancerName (\ s a -> s{_lbLoadBalancerName = 
 -- | The name of the container (as it appears in a container definition) to associate with the load balancer.
 lbContainerName :: Lens' LoadBalancer (Maybe Text)
 lbContainerName = lens _lbContainerName (\ s a -> s{_lbContainerName = a});
+
+-- | The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group associated with a service.
+lbTargetGroupARN :: Lens' LoadBalancer (Maybe Text)
+lbTargetGroupARN = lens _lbTargetGroupARN (\ s a -> s{_lbTargetGroupARN = a});
 
 -- | The port on the container to associate with the load balancer. This port must correspond to a 'containerPort' in the service\'s task definition. Your container instances must allow ingress traffic on the 'hostPort' of the port mapping.
 lbContainerPort :: Lens' LoadBalancer (Maybe Int)
@@ -1246,6 +1272,7 @@ instance FromJSON LoadBalancer where
                  LoadBalancer' <$>
                    (x .:? "loadBalancerName") <*>
                      (x .:? "containerName")
+                     <*> (x .:? "targetGroupArn")
                      <*> (x .:? "containerPort"))
 
 instance Hashable LoadBalancer
@@ -1258,6 +1285,7 @@ instance ToJSON LoadBalancer where
               (catMaybes
                  [("loadBalancerName" .=) <$> _lbLoadBalancerName,
                   ("containerName" .=) <$> _lbContainerName,
+                  ("targetGroupArn" .=) <$> _lbTargetGroupARN,
                   ("containerPort" .=) <$> _lbContainerPort])
 
 -- | Log configuration options to send to a custom log driver for the container.
@@ -1288,7 +1316,11 @@ logConfiguration pLogDriver_ =
 lcOptions :: Lens' LogConfiguration (HashMap Text Text)
 lcOptions = lens _lcOptions (\ s a -> s{_lcOptions = a}) . _Default . _Map;
 
--- | The log driver to use for the container. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
+-- | The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+--
+-- If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is <https://github.com/aws/amazon-ecs-agent available on GitHub> and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently provide support for running modified copies of this software.
+--
+-- This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
 lcLogDriver :: Lens' LogConfiguration LogDriver
 lcLogDriver = lens _lcLogDriver (\ s a -> s{_lcLogDriver = a});
 
@@ -1473,11 +1505,11 @@ pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 --
 -- The default ephemeral port range is 49153 to 65535, and this range is used for Docker versions prior to 1.6.0. For Docker version 1.6.0 and later, the Docker daemon tries to read the ephemeral port range from '\/proc\/sys\/net\/ipv4\/ip_local_port_range'; if this kernel parameter is unavailable, the default ephemeral port range is used. You should not attempt to specify a host port in the ephemeral port range, because these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
 --
--- The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent port 51678. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the 'remainingResources' of < DescribeContainerInstances> output, and a container instance may have up to 50 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward this limit).
+-- The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent port 51678. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the 'remainingResources' of < DescribeContainerInstances> output, and a container instance may have up to 100 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward the 100 reserved ports limit).
 pmHostPort :: Lens' PortMapping (Maybe Int)
 pmHostPort = lens _pmHostPort (\ s a -> s{_pmHostPort = a});
 
--- | The port number on the container that is bound to the user-specified or automatically assigned host port. If you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range (for more information, see 'hostPort').
+-- | The port number on the container that is bound to the user-specified or automatically assigned host port. If you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range (for more information, see 'hostPort'). Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
 pmContainerPort :: Lens' PortMapping (Maybe Int)
 pmContainerPort = lens _pmContainerPort (\ s a -> s{_pmContainerPort = a});
 
@@ -1617,7 +1649,7 @@ serviceEvent =
     , _seMessage = Nothing
     }
 
--- | The Unix time in seconds and milliseconds when the event was triggered.
+-- | The Unix timestamp for when the event was triggered.
 seCreatedAt :: Lens' ServiceEvent (Maybe UTCTime)
 seCreatedAt = lens _seCreatedAt (\ s a -> s{_seCreatedAt = a}) . mapping _Time;
 
@@ -1708,7 +1740,7 @@ task =
     , _tTaskDefinitionARN = Nothing
     }
 
--- | The Unix time in seconds and milliseconds when the task was stopped (the task transitioned from the 'RUNNING' state to the 'STOPPED' state).
+-- | The Unix timestamp for when the task was stopped (the task transitioned from the 'RUNNING' state to the 'STOPPED' state).
 tStoppedAt :: Lens' Task (Maybe UTCTime)
 tStoppedAt = lens _tStoppedAt (\ s a -> s{_tStoppedAt = a}) . mapping _Time;
 
@@ -1720,11 +1752,11 @@ tDesiredStatus = lens _tDesiredStatus (\ s a -> s{_tDesiredStatus = a});
 tOverrides :: Lens' Task (Maybe TaskOverride)
 tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
 
--- | The Amazon Resource Name (ARN) of the of the cluster that hosts the task.
+-- | The Amazon Resource Name (ARN) of the cluster that hosts the task.
 tClusterARN :: Lens' Task (Maybe Text)
 tClusterARN = lens _tClusterARN (\ s a -> s{_tClusterARN = a});
 
--- | The Unix time in seconds and milliseconds when the task was created (the task entered the 'PENDING' state).
+-- | The Unix timestamp for when the task was created (the task entered the 'PENDING' state).
 tCreatedAt :: Lens' Task (Maybe UTCTime)
 tCreatedAt = lens _tCreatedAt (\ s a -> s{_tCreatedAt = a}) . mapping _Time;
 
@@ -1744,7 +1776,7 @@ tLastStatus = lens _tLastStatus (\ s a -> s{_tLastStatus = a});
 tContainers :: Lens' Task [Container]
 tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default . _Coerce;
 
--- | The Unix time in seconds and milliseconds when the task was started (the task transitioned from the 'PENDING' state to the 'RUNNING' state).
+-- | The Unix timestamp for when the task was started (the task transitioned from the 'PENDING' state to the 'RUNNING' state).
 tStartedAt :: Lens' Task (Maybe UTCTime)
 tStartedAt = lens _tStartedAt (\ s a -> s{_tStartedAt = a}) . mapping _Time;
 
@@ -1756,7 +1788,7 @@ tStartedBy = lens _tStartedBy (\ s a -> s{_tStartedBy = a});
 tStoppedReason :: Lens' Task (Maybe Text)
 tStoppedReason = lens _tStoppedReason (\ s a -> s{_tStoppedReason = a});
 
--- | The Amazon Resource Name (ARN) of the of the task definition that creates the task.
+-- | The Amazon Resource Name (ARN) of the task definition that creates the task.
 tTaskDefinitionARN :: Lens' Task (Maybe Text)
 tTaskDefinitionARN = lens _tTaskDefinitionARN (\ s a -> s{_tTaskDefinitionARN = a});
 
@@ -1789,6 +1821,7 @@ data TaskDefinition = TaskDefinition'
     { _tdStatus               :: !(Maybe TaskDefinitionStatus)
     , _tdFamily               :: !(Maybe Text)
     , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
+    , _tdTaskRoleARN          :: !(Maybe Text)
     , _tdTaskDefinitionARN    :: !(Maybe Text)
     , _tdRevision             :: !(Maybe Int)
     , _tdVolumes              :: !(Maybe [Volume])
@@ -1805,6 +1838,8 @@ data TaskDefinition = TaskDefinition'
 --
 -- * 'tdContainerDefinitions'
 --
+-- * 'tdTaskRoleARN'
+--
 -- * 'tdTaskDefinitionARN'
 --
 -- * 'tdRevision'
@@ -1819,6 +1854,7 @@ taskDefinition =
     { _tdStatus = Nothing
     , _tdFamily = Nothing
     , _tdContainerDefinitions = Nothing
+    , _tdTaskRoleARN = Nothing
     , _tdTaskDefinitionARN = Nothing
     , _tdRevision = Nothing
     , _tdVolumes = Nothing
@@ -1837,7 +1873,11 @@ tdFamily = lens _tdFamily (\ s a -> s{_tdFamily = a});
 tdContainerDefinitions :: Lens' TaskDefinition [ContainerDefinition]
 tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a}) . _Default . _Coerce;
 
--- | The full Amazon Resource Name (ARN) of the of the task definition.
+-- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+tdTaskRoleARN :: Lens' TaskDefinition (Maybe Text)
+tdTaskRoleARN = lens _tdTaskRoleARN (\ s a -> s{_tdTaskRoleARN = a});
+
+-- | The full Amazon Resource Name (ARN) of the task definition.
 tdTaskDefinitionARN :: Lens' TaskDefinition (Maybe Text)
 tdTaskDefinitionARN = lens _tdTaskDefinitionARN (\ s a -> s{_tdTaskDefinitionARN = a});
 
@@ -1860,6 +1900,7 @@ instance FromJSON TaskDefinition where
                  TaskDefinition' <$>
                    (x .:? "status") <*> (x .:? "family") <*>
                      (x .:? "containerDefinitions" .!= mempty)
+                     <*> (x .:? "taskRoleArn")
                      <*> (x .:? "taskDefinitionArn")
                      <*> (x .:? "revision")
                      <*> (x .:? "volumes" .!= mempty)
@@ -1872,8 +1913,9 @@ instance NFData TaskDefinition
 -- | The overrides associated with a task.
 --
 -- /See:/ 'taskOverride' smart constructor.
-newtype TaskOverride = TaskOverride'
-    { _toContainerOverrides :: Maybe [ContainerOverride]
+data TaskOverride = TaskOverride'
+    { _toContainerOverrides :: !(Maybe [ContainerOverride])
+    , _toTaskRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TaskOverride' with the minimum fields required to make a request.
@@ -1881,23 +1923,31 @@ newtype TaskOverride = TaskOverride'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'toContainerOverrides'
+--
+-- * 'toTaskRoleARN'
 taskOverride
     :: TaskOverride
 taskOverride =
     TaskOverride'
     { _toContainerOverrides = Nothing
+    , _toTaskRoleARN = Nothing
     }
 
 -- | One or more container overrides sent to a task.
 toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
 toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a}) . _Default . _Coerce;
 
+-- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+toTaskRoleARN :: Lens' TaskOverride (Maybe Text)
+toTaskRoleARN = lens _toTaskRoleARN (\ s a -> s{_toTaskRoleARN = a});
+
 instance FromJSON TaskOverride where
         parseJSON
           = withObject "TaskOverride"
               (\ x ->
                  TaskOverride' <$>
-                   (x .:? "containerOverrides" .!= mempty))
+                   (x .:? "containerOverrides" .!= mempty) <*>
+                     (x .:? "taskRoleArn"))
 
 instance Hashable TaskOverride
 
@@ -1907,8 +1957,8 @@ instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
           = object
               (catMaybes
-                 [("containerOverrides" .=) <$>
-                    _toContainerOverrides])
+                 [("containerOverrides" .=) <$> _toContainerOverrides,
+                  ("taskRoleArn" .=) <$> _toTaskRoleARN])
 
 -- | The 'ulimit' settings to pass to the container.
 --

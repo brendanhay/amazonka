@@ -111,6 +111,11 @@ module Network.AWS.DeviceFarm.Types
     , cFailed
     , cErrored
 
+    -- * CreateRemoteAccessSessionConfiguration
+    , CreateRemoteAccessSessionConfiguration
+    , createRemoteAccessSessionConfiguration
+    , crascBillingMethod
+
     -- * Device
     , Device
     , device
@@ -118,8 +123,10 @@ module Network.AWS.DeviceFarm.Types
     , devImage
     , devManufacturer
     , devPlatform
+    , devRemoteAccessEnabled
     , devArn
     , devFormFactor
+    , devFleetType
     , devResolution
     , devMemory
     , devRadio
@@ -128,6 +135,7 @@ module Network.AWS.DeviceFarm.Types
     , devModel
     , devCpu
     , devHeapSize
+    , devFleetName
 
     -- * DeviceMinutes
     , DeviceMinutes
@@ -248,6 +256,22 @@ module Network.AWS.DeviceFarm.Types
     , recurringCharge
     , rcFrequency
     , rcCost
+
+    -- * RemoteAccessSession
+    , RemoteAccessSession
+    , remoteAccessSession
+    , rasBillingMethod
+    , rasStatus
+    , rasArn
+    , rasCreated
+    , rasDevice
+    , rasStopped
+    , rasResult
+    , rasName
+    , rasDeviceMinutes
+    , rasEndpoint
+    , rasMessage
+    , rasStarted
 
     -- * Resolution
     , Resolution

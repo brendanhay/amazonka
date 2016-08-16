@@ -332,24 +332,63 @@ instance Hashable Counters
 
 instance NFData Counters
 
+-- | Creates the configuration settings for a remote access session, including the device model and type.
+--
+-- /See:/ 'createRemoteAccessSessionConfiguration' smart constructor.
+newtype CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
+    { _crascBillingMethod :: Maybe BillingMethod
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateRemoteAccessSessionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crascBillingMethod'
+createRemoteAccessSessionConfiguration
+    :: CreateRemoteAccessSessionConfiguration
+createRemoteAccessSessionConfiguration =
+    CreateRemoteAccessSessionConfiguration'
+    { _crascBillingMethod = Nothing
+    }
+
+-- | Returns the billing method for purposes of configuring a remote access session.
+crascBillingMethod :: Lens' CreateRemoteAccessSessionConfiguration (Maybe BillingMethod)
+crascBillingMethod = lens _crascBillingMethod (\ s a -> s{_crascBillingMethod = a});
+
+instance Hashable
+         CreateRemoteAccessSessionConfiguration
+
+instance NFData
+         CreateRemoteAccessSessionConfiguration
+
+instance ToJSON
+         CreateRemoteAccessSessionConfiguration where
+        toJSON CreateRemoteAccessSessionConfiguration'{..}
+          = object
+              (catMaybes
+                 [("billingMethod" .=) <$> _crascBillingMethod])
+
 -- | Represents a device type that an app is tested against.
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-    { _devCarrier      :: !(Maybe Text)
-    , _devImage        :: !(Maybe Text)
-    , _devManufacturer :: !(Maybe Text)
-    , _devPlatform     :: !(Maybe DevicePlatform)
-    , _devArn          :: !(Maybe Text)
-    , _devFormFactor   :: !(Maybe DeviceFormFactor)
-    , _devResolution   :: !(Maybe Resolution)
-    , _devMemory       :: !(Maybe Integer)
-    , _devRadio        :: !(Maybe Text)
-    , _devOs           :: !(Maybe Text)
-    , _devName         :: !(Maybe Text)
-    , _devModel        :: !(Maybe Text)
-    , _devCpu          :: !(Maybe CPU)
-    , _devHeapSize     :: !(Maybe Integer)
+    { _devCarrier             :: !(Maybe Text)
+    , _devImage               :: !(Maybe Text)
+    , _devManufacturer        :: !(Maybe Text)
+    , _devPlatform            :: !(Maybe DevicePlatform)
+    , _devRemoteAccessEnabled :: !(Maybe Bool)
+    , _devArn                 :: !(Maybe Text)
+    , _devFormFactor          :: !(Maybe DeviceFormFactor)
+    , _devFleetType           :: !(Maybe Text)
+    , _devResolution          :: !(Maybe Resolution)
+    , _devMemory              :: !(Maybe Integer)
+    , _devRadio               :: !(Maybe Text)
+    , _devOs                  :: !(Maybe Text)
+    , _devName                :: !(Maybe Text)
+    , _devModel               :: !(Maybe Text)
+    , _devCpu                 :: !(Maybe CPU)
+    , _devHeapSize            :: !(Maybe Integer)
+    , _devFleetName           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
@@ -364,9 +403,13 @@ data Device = Device'
 --
 -- * 'devPlatform'
 --
+-- * 'devRemoteAccessEnabled'
+--
 -- * 'devArn'
 --
 -- * 'devFormFactor'
+--
+-- * 'devFleetType'
 --
 -- * 'devResolution'
 --
@@ -383,6 +426,8 @@ data Device = Device'
 -- * 'devCpu'
 --
 -- * 'devHeapSize'
+--
+-- * 'devFleetName'
 device
     :: Device
 device =
@@ -391,8 +436,10 @@ device =
     , _devImage = Nothing
     , _devManufacturer = Nothing
     , _devPlatform = Nothing
+    , _devRemoteAccessEnabled = Nothing
     , _devArn = Nothing
     , _devFormFactor = Nothing
+    , _devFleetType = Nothing
     , _devResolution = Nothing
     , _devMemory = Nothing
     , _devRadio = Nothing
@@ -401,6 +448,7 @@ device =
     , _devModel = Nothing
     , _devCpu = Nothing
     , _devHeapSize = Nothing
+    , _devFleetName = Nothing
     }
 
 -- | The device\'s carrier.
@@ -426,6 +474,10 @@ devManufacturer = lens _devManufacturer (\ s a -> s{_devManufacturer = a});
 devPlatform :: Lens' Device (Maybe DevicePlatform)
 devPlatform = lens _devPlatform (\ s a -> s{_devPlatform = a});
 
+-- | Specifies whether remote access has been enabled for the specified device.
+devRemoteAccessEnabled :: Lens' Device (Maybe Bool)
+devRemoteAccessEnabled = lens _devRemoteAccessEnabled (\ s a -> s{_devRemoteAccessEnabled = a});
+
 -- | The device\'s ARN.
 devArn :: Lens' Device (Maybe Text)
 devArn = lens _devArn (\ s a -> s{_devArn = a});
@@ -440,6 +492,10 @@ devArn = lens _devArn (\ s a -> s{_devArn = a});
 --
 devFormFactor :: Lens' Device (Maybe DeviceFormFactor)
 devFormFactor = lens _devFormFactor (\ s a -> s{_devFormFactor = a});
+
+-- | The type of fleet to which this device belongs. Possible values for fleet type are PRIVATE and PUBLIC.
+devFleetType :: Lens' Device (Maybe Text)
+devFleetType = lens _devFleetType (\ s a -> s{_devFleetType = a});
 
 -- | Undocumented member.
 devResolution :: Lens' Device (Maybe Resolution)
@@ -473,6 +529,10 @@ devCpu = lens _devCpu (\ s a -> s{_devCpu = a});
 devHeapSize :: Lens' Device (Maybe Integer)
 devHeapSize = lens _devHeapSize (\ s a -> s{_devHeapSize = a});
 
+-- | The name of the fleet to which this device belongs.
+devFleetName :: Lens' Device (Maybe Text)
+devFleetName = lens _devFleetName (\ s a -> s{_devFleetName = a});
+
 instance FromJSON Device where
         parseJSON
           = withObject "Device"
@@ -481,8 +541,10 @@ instance FromJSON Device where
                    (x .:? "carrier") <*> (x .:? "image") <*>
                      (x .:? "manufacturer")
                      <*> (x .:? "platform")
+                     <*> (x .:? "remoteAccessEnabled")
                      <*> (x .:? "arn")
                      <*> (x .:? "formFactor")
+                     <*> (x .:? "fleetType")
                      <*> (x .:? "resolution")
                      <*> (x .:? "memory")
                      <*> (x .:? "radio")
@@ -490,7 +552,8 @@ instance FromJSON Device where
                      <*> (x .:? "name")
                      <*> (x .:? "model")
                      <*> (x .:? "cpu")
-                     <*> (x .:? "heapSize"))
+                     <*> (x .:? "heapSize")
+                     <*> (x .:? "fleetName"))
 
 instance Hashable Device
 
@@ -1501,6 +1564,172 @@ instance FromJSON RecurringCharge where
 instance Hashable RecurringCharge
 
 instance NFData RecurringCharge
+
+-- | Represents information about the remote access session.
+--
+-- /See:/ 'remoteAccessSession' smart constructor.
+data RemoteAccessSession = RemoteAccessSession'
+    { _rasBillingMethod :: !(Maybe BillingMethod)
+    , _rasStatus        :: !(Maybe ExecutionStatus)
+    , _rasArn           :: !(Maybe Text)
+    , _rasCreated       :: !(Maybe POSIX)
+    , _rasDevice        :: !(Maybe Device)
+    , _rasStopped       :: !(Maybe POSIX)
+    , _rasResult        :: !(Maybe ExecutionResult)
+    , _rasName          :: !(Maybe Text)
+    , _rasDeviceMinutes :: !(Maybe DeviceMinutes)
+    , _rasEndpoint      :: !(Maybe Text)
+    , _rasMessage       :: !(Maybe Text)
+    , _rasStarted       :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RemoteAccessSession' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rasBillingMethod'
+--
+-- * 'rasStatus'
+--
+-- * 'rasArn'
+--
+-- * 'rasCreated'
+--
+-- * 'rasDevice'
+--
+-- * 'rasStopped'
+--
+-- * 'rasResult'
+--
+-- * 'rasName'
+--
+-- * 'rasDeviceMinutes'
+--
+-- * 'rasEndpoint'
+--
+-- * 'rasMessage'
+--
+-- * 'rasStarted'
+remoteAccessSession
+    :: RemoteAccessSession
+remoteAccessSession =
+    RemoteAccessSession'
+    { _rasBillingMethod = Nothing
+    , _rasStatus = Nothing
+    , _rasArn = Nothing
+    , _rasCreated = Nothing
+    , _rasDevice = Nothing
+    , _rasStopped = Nothing
+    , _rasResult = Nothing
+    , _rasName = Nothing
+    , _rasDeviceMinutes = Nothing
+    , _rasEndpoint = Nothing
+    , _rasMessage = Nothing
+    , _rasStarted = Nothing
+    }
+
+-- | The billing method of the remote access session. Possible values include 'METERED' or 'UNMETERED'. For more information about metered devices, see <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology>.\"
+rasBillingMethod :: Lens' RemoteAccessSession (Maybe BillingMethod)
+rasBillingMethod = lens _rasBillingMethod (\ s a -> s{_rasBillingMethod = a});
+
+-- | The status of the remote access session. Can be any of the following:
+--
+-- -   PENDING: A pending status.
+--
+-- -   PENDING_CONCURRENCY: A pending concurrency status.
+--
+-- -   PENDING_DEVICE: A pending device status.
+--
+-- -   PROCESSING: A processing status.
+--
+-- -   SCHEDULING: A scheduling status.
+--
+-- -   PREPARING: A preparing status.
+--
+-- -   RUNNING: A running status.
+--
+-- -   COMPLETED: A completed status.
+--
+-- -   STOPPING: A stopping status.
+--
+rasStatus :: Lens' RemoteAccessSession (Maybe ExecutionStatus)
+rasStatus = lens _rasStatus (\ s a -> s{_rasStatus = a});
+
+-- | The Amazon Resource Name (ARN) of the remote access session.
+rasArn :: Lens' RemoteAccessSession (Maybe Text)
+rasArn = lens _rasArn (\ s a -> s{_rasArn = a});
+
+-- | The date and time the remote access session was created.
+rasCreated :: Lens' RemoteAccessSession (Maybe UTCTime)
+rasCreated = lens _rasCreated (\ s a -> s{_rasCreated = a}) . mapping _Time;
+
+-- | Undocumented member.
+rasDevice :: Lens' RemoteAccessSession (Maybe Device)
+rasDevice = lens _rasDevice (\ s a -> s{_rasDevice = a});
+
+-- | The date and time the remote access session was stopped.
+rasStopped :: Lens' RemoteAccessSession (Maybe UTCTime)
+rasStopped = lens _rasStopped (\ s a -> s{_rasStopped = a}) . mapping _Time;
+
+-- | The result of the remote access session. Can be any of the following:
+--
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
+--
+-- -   FAILED: A failed condition.
+--
+-- -   SKIPPED: A skipped condition.
+--
+-- -   ERRORED: An error condition.
+--
+-- -   STOPPED: A stopped condition.
+--
+rasResult :: Lens' RemoteAccessSession (Maybe ExecutionResult)
+rasResult = lens _rasResult (\ s a -> s{_rasResult = a});
+
+-- | The name of the remote access session.
+rasName :: Lens' RemoteAccessSession (Maybe Text)
+rasName = lens _rasName (\ s a -> s{_rasName = a});
+
+-- | Undocumented member.
+rasDeviceMinutes :: Lens' RemoteAccessSession (Maybe DeviceMinutes)
+rasDeviceMinutes = lens _rasDeviceMinutes (\ s a -> s{_rasDeviceMinutes = a});
+
+-- | The endpoint for the remote access sesssion.
+rasEndpoint :: Lens' RemoteAccessSession (Maybe Text)
+rasEndpoint = lens _rasEndpoint (\ s a -> s{_rasEndpoint = a});
+
+-- | A message about the remote access session.
+rasMessage :: Lens' RemoteAccessSession (Maybe Text)
+rasMessage = lens _rasMessage (\ s a -> s{_rasMessage = a});
+
+-- | The date and time the remote access session was started.
+rasStarted :: Lens' RemoteAccessSession (Maybe UTCTime)
+rasStarted = lens _rasStarted (\ s a -> s{_rasStarted = a}) . mapping _Time;
+
+instance FromJSON RemoteAccessSession where
+        parseJSON
+          = withObject "RemoteAccessSession"
+              (\ x ->
+                 RemoteAccessSession' <$>
+                   (x .:? "billingMethod") <*> (x .:? "status") <*>
+                     (x .:? "arn")
+                     <*> (x .:? "created")
+                     <*> (x .:? "device")
+                     <*> (x .:? "stopped")
+                     <*> (x .:? "result")
+                     <*> (x .:? "name")
+                     <*> (x .:? "deviceMinutes")
+                     <*> (x .:? "endpoint")
+                     <*> (x .:? "message")
+                     <*> (x .:? "started"))
+
+instance Hashable RemoteAccessSession
+
+instance NFData RemoteAccessSession
 
 -- | Represents the screen resolution of a device in height and width, expressed in pixels.
 --

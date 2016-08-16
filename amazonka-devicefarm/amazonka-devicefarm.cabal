@@ -43,9 +43,11 @@ library
           Network.AWS.DeviceFarm
         , Network.AWS.DeviceFarm.CreateDevicePool
         , Network.AWS.DeviceFarm.CreateProject
+        , Network.AWS.DeviceFarm.CreateRemoteAccessSession
         , Network.AWS.DeviceFarm.CreateUpload
         , Network.AWS.DeviceFarm.DeleteDevicePool
         , Network.AWS.DeviceFarm.DeleteProject
+        , Network.AWS.DeviceFarm.DeleteRemoteAccessSession
         , Network.AWS.DeviceFarm.DeleteRun
         , Network.AWS.DeviceFarm.DeleteUpload
         , Network.AWS.DeviceFarm.GetAccountSettings
@@ -55,10 +57,12 @@ library
         , Network.AWS.DeviceFarm.GetJob
         , Network.AWS.DeviceFarm.GetOfferingStatus
         , Network.AWS.DeviceFarm.GetProject
+        , Network.AWS.DeviceFarm.GetRemoteAccessSession
         , Network.AWS.DeviceFarm.GetRun
         , Network.AWS.DeviceFarm.GetSuite
         , Network.AWS.DeviceFarm.GetTest
         , Network.AWS.DeviceFarm.GetUpload
+        , Network.AWS.DeviceFarm.InstallToRemoteAccessSession
         , Network.AWS.DeviceFarm.ListArtifacts
         , Network.AWS.DeviceFarm.ListDevicePools
         , Network.AWS.DeviceFarm.ListDevices
@@ -66,6 +70,7 @@ library
         , Network.AWS.DeviceFarm.ListOfferingTransactions
         , Network.AWS.DeviceFarm.ListOfferings
         , Network.AWS.DeviceFarm.ListProjects
+        , Network.AWS.DeviceFarm.ListRemoteAccessSessions
         , Network.AWS.DeviceFarm.ListRuns
         , Network.AWS.DeviceFarm.ListSamples
         , Network.AWS.DeviceFarm.ListSuites
@@ -75,6 +80,7 @@ library
         , Network.AWS.DeviceFarm.PurchaseOffering
         , Network.AWS.DeviceFarm.RenewOffering
         , Network.AWS.DeviceFarm.ScheduleRun
+        , Network.AWS.DeviceFarm.StopRemoteAccessSession
         , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
         , Network.AWS.DeviceFarm.UpdateDevicePool

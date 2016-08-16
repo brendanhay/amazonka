@@ -71,6 +71,7 @@ data ArtifactType
     | ServiceLog
     | Unknown
     | Video
+    | VideoLog
     | WebkitLog
     | XctestLog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -99,10 +100,11 @@ instance FromText ArtifactType where
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
         "video" -> pure Video
+        "video_log" -> pure VideoLog
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, VIDEO, WEBKIT_LOG, XCTEST_LOG"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, VIDEO, VIDEO_LOG, WEBKIT_LOG, XCTEST_LOG"
 
 instance ToText ArtifactType where
     toText = \case
@@ -128,6 +130,7 @@ instance ToText ArtifactType where
         ServiceLog -> "SERVICE_LOG"
         Unknown -> "UNKNOWN"
         Video -> "VIDEO"
+        VideoLog -> "VIDEO_LOG"
         WebkitLog -> "WEBKIT_LOG"
         XctestLog -> "XCTEST_LOG"
 
@@ -197,6 +200,7 @@ data DeviceAttribute
     | FormFactor
     | Manufacturer
     | Platform
+    | RemoteAccessEnabled
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeviceAttribute where
@@ -205,8 +209,9 @@ instance FromText DeviceAttribute where
         "form_factor" -> pure FormFactor
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
+        "remote_access_enabled" -> pure RemoteAccessEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: ARN, FORM_FACTOR, MANUFACTURER, PLATFORM"
+           <> "'. Accepted values: ARN, FORM_FACTOR, MANUFACTURER, PLATFORM, REMOTE_ACCESS_ENABLED"
 
 instance ToText DeviceAttribute where
     toText = \case
@@ -214,6 +219,7 @@ instance ToText DeviceAttribute where
         FormFactor -> "FORM_FACTOR"
         Manufacturer -> "MANUFACTURER"
         Platform -> "PLATFORM"
+        RemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
 
 instance Hashable     DeviceAttribute
 instance NFData       DeviceAttribute

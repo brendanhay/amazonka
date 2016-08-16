@@ -40,6 +40,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestGetDevicePoolCompatibility $
 --             getDevicePoolCompatibility
 --
+--         , requestInstallToRemoteAccessSession $
+--             installToRemoteAccessSession
+--
 --         , requestListTests $
 --             listTests
 --
@@ -48,6 +51,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , requestCreateUpload $
 --             createUpload
+--
+--         , requestDeleteRemoteAccessSession $
+--             deleteRemoteAccessSession
 --
 --         , requestDeleteUpload $
 --             deleteUpload
@@ -91,6 +97,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestListJobs $
 --             listJobs
 --
+--         , requestStopRemoteAccessSession $
+--             stopRemoteAccessSession
+--
 --         , requestGetJob $
 --             getJob
 --
@@ -106,8 +115,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , requestListSuites $
 --             listSuites
 --
+--         , requestListRemoteAccessSessions $
+--             listRemoteAccessSessions
+--
 --         , requestGetAccountSettings $
 --             getAccountSettings
+--
+--         , requestCreateRemoteAccessSession $
+--             createRemoteAccessSession
 --
 --         , requestGetOfferingStatus $
 --             getOfferingStatus
@@ -117,6 +132,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , requestGetSuite $
 --             getSuite
+--
+--         , requestGetRemoteAccessSession $
+--             getRemoteAccessSession
 --
 --         , requestPurchaseOffering $
 --             purchaseOffering
@@ -154,6 +172,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , responseGetDevicePoolCompatibility $
 --             getDevicePoolCompatibilityResponse
 --
+--         , responseInstallToRemoteAccessSession $
+--             installToRemoteAccessSessionResponse
+--
 --         , responseListTests $
 --             listTestsResponse
 --
@@ -162,6 +183,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , responseCreateUpload $
 --             createUploadResponse
+--
+--         , responseDeleteRemoteAccessSession $
+--             deleteRemoteAccessSessionResponse
 --
 --         , responseDeleteUpload $
 --             deleteUploadResponse
@@ -205,6 +229,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , responseListJobs $
 --             listJobsResponse
 --
+--         , responseStopRemoteAccessSession $
+--             stopRemoteAccessSessionResponse
+--
 --         , responseGetJob $
 --             getJobResponse
 --
@@ -220,8 +247,14 @@ import Test.AWS.DeviceFarm.Internal
 --         , responseListSuites $
 --             listSuitesResponse
 --
+--         , responseListRemoteAccessSessions $
+--             listRemoteAccessSessionsResponse
+--
 --         , responseGetAccountSettings $
 --             getAccountSettingsResponse
+--
+--         , responseCreateRemoteAccessSession $
+--             createRemoteAccessSessionResponse
 --
 --         , responseGetOfferingStatus $
 --             getOfferingStatusResponse
@@ -231,6 +264,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , responseGetSuite $
 --             getSuiteResponse
+--
+--         , responseGetRemoteAccessSession $
+--             getRemoteAccessSessionResponse
 --
 --         , responsePurchaseOffering $
 --             purchaseOfferingResponse
@@ -278,6 +314,11 @@ requestGetDevicePoolCompatibility = req
     "GetDevicePoolCompatibility"
     "fixture/GetDevicePoolCompatibility.yaml"
 
+requestInstallToRemoteAccessSession :: InstallToRemoteAccessSession -> TestTree
+requestInstallToRemoteAccessSession = req
+    "InstallToRemoteAccessSession"
+    "fixture/InstallToRemoteAccessSession.yaml"
+
 requestListTests :: ListTests -> TestTree
 requestListTests = req
     "ListTests"
@@ -292,6 +333,11 @@ requestCreateUpload :: CreateUpload -> TestTree
 requestCreateUpload = req
     "CreateUpload"
     "fixture/CreateUpload.yaml"
+
+requestDeleteRemoteAccessSession :: DeleteRemoteAccessSession -> TestTree
+requestDeleteRemoteAccessSession = req
+    "DeleteRemoteAccessSession"
+    "fixture/DeleteRemoteAccessSession.yaml"
 
 requestDeleteUpload :: DeleteUpload -> TestTree
 requestDeleteUpload = req
@@ -363,6 +409,11 @@ requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
+requestStopRemoteAccessSession :: StopRemoteAccessSession -> TestTree
+requestStopRemoteAccessSession = req
+    "StopRemoteAccessSession"
+    "fixture/StopRemoteAccessSession.yaml"
+
 requestGetJob :: GetJob -> TestTree
 requestGetJob = req
     "GetJob"
@@ -388,10 +439,20 @@ requestListSuites = req
     "ListSuites"
     "fixture/ListSuites.yaml"
 
+requestListRemoteAccessSessions :: ListRemoteAccessSessions -> TestTree
+requestListRemoteAccessSessions = req
+    "ListRemoteAccessSessions"
+    "fixture/ListRemoteAccessSessions.yaml"
+
 requestGetAccountSettings :: GetAccountSettings -> TestTree
 requestGetAccountSettings = req
     "GetAccountSettings"
     "fixture/GetAccountSettings.yaml"
+
+requestCreateRemoteAccessSession :: CreateRemoteAccessSession -> TestTree
+requestCreateRemoteAccessSession = req
+    "CreateRemoteAccessSession"
+    "fixture/CreateRemoteAccessSession.yaml"
 
 requestGetOfferingStatus :: GetOfferingStatus -> TestTree
 requestGetOfferingStatus = req
@@ -407,6 +468,11 @@ requestGetSuite :: GetSuite -> TestTree
 requestGetSuite = req
     "GetSuite"
     "fixture/GetSuite.yaml"
+
+requestGetRemoteAccessSession :: GetRemoteAccessSession -> TestTree
+requestGetRemoteAccessSession = req
+    "GetRemoteAccessSession"
+    "fixture/GetRemoteAccessSession.yaml"
 
 requestPurchaseOffering :: PurchaseOffering -> TestTree
 requestPurchaseOffering = req
@@ -473,6 +539,13 @@ responseGetDevicePoolCompatibility = res
     deviceFarm
     (Proxy :: Proxy GetDevicePoolCompatibility)
 
+responseInstallToRemoteAccessSession :: InstallToRemoteAccessSessionResponse -> TestTree
+responseInstallToRemoteAccessSession = res
+    "InstallToRemoteAccessSessionResponse"
+    "fixture/InstallToRemoteAccessSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy InstallToRemoteAccessSession)
+
 responseListTests :: ListTestsResponse -> TestTree
 responseListTests = res
     "ListTestsResponse"
@@ -493,6 +566,13 @@ responseCreateUpload = res
     "fixture/CreateUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateUpload)
+
+responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
+responseDeleteRemoteAccessSession = res
+    "DeleteRemoteAccessSessionResponse"
+    "fixture/DeleteRemoteAccessSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteRemoteAccessSession)
 
 responseDeleteUpload :: DeleteUploadResponse -> TestTree
 responseDeleteUpload = res
@@ -592,6 +672,13 @@ responseListJobs = res
     deviceFarm
     (Proxy :: Proxy ListJobs)
 
+responseStopRemoteAccessSession :: StopRemoteAccessSessionResponse -> TestTree
+responseStopRemoteAccessSession = res
+    "StopRemoteAccessSessionResponse"
+    "fixture/StopRemoteAccessSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy StopRemoteAccessSession)
+
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob = res
     "GetJobResponse"
@@ -627,12 +714,26 @@ responseListSuites = res
     deviceFarm
     (Proxy :: Proxy ListSuites)
 
+responseListRemoteAccessSessions :: ListRemoteAccessSessionsResponse -> TestTree
+responseListRemoteAccessSessions = res
+    "ListRemoteAccessSessionsResponse"
+    "fixture/ListRemoteAccessSessionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListRemoteAccessSessions)
+
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
 responseGetAccountSettings = res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetAccountSettings)
+
+responseCreateRemoteAccessSession :: CreateRemoteAccessSessionResponse -> TestTree
+responseCreateRemoteAccessSession = res
+    "CreateRemoteAccessSessionResponse"
+    "fixture/CreateRemoteAccessSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateRemoteAccessSession)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
 responseGetOfferingStatus = res
@@ -654,6 +755,13 @@ responseGetSuite = res
     "fixture/GetSuiteResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetSuite)
+
+responseGetRemoteAccessSession :: GetRemoteAccessSessionResponse -> TestTree
+responseGetRemoteAccessSession = res
+    "GetRemoteAccessSessionResponse"
+    "fixture/GetRemoteAccessSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetRemoteAccessSession)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering = res

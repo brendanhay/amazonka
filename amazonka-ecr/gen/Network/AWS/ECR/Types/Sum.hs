@@ -105,3 +105,29 @@ instance ToHeader     LayerFailureCode
 
 instance FromJSON LayerFailureCode where
     parseJSON = parseJSONText "LayerFailureCode"
+
+data TagStatus
+    = Tagged
+    | Untagged
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TagStatus where
+    parser = takeLowerText >>= \case
+        "tagged" -> pure Tagged
+        "untagged" -> pure Untagged
+        e -> fromTextError $ "Failure parsing TagStatus from value: '" <> e
+           <> "'. Accepted values: TAGGED, UNTAGGED"
+
+instance ToText TagStatus where
+    toText = \case
+        Tagged -> "TAGGED"
+        Untagged -> "UNTAGGED"
+
+instance Hashable     TagStatus
+instance NFData       TagStatus
+instance ToByteString TagStatus
+instance ToQuery      TagStatus
+instance ToHeader     TagStatus
+
+instance ToJSON TagStatus where
+    toJSON = toJSONText

@@ -113,7 +113,7 @@ module Network.AWS.ECR
     -- ** PutImage
     , module Network.AWS.ECR.PutImage
 
-    -- ** ListImages
+    -- ** ListImages (Paginated)
     , module Network.AWS.ECR.ListImages
 
     -- ** GetAuthorizationToken
@@ -132,6 +132,9 @@ module Network.AWS.ECR
 
     -- ** LayerFailureCode
     , LayerFailureCode (..)
+
+    -- ** TagStatus
+    , TagStatus (..)
 
     -- ** AuthorizationData
     , AuthorizationData
@@ -174,6 +177,11 @@ module Network.AWS.ECR
     , lfFailureReason
     , lfFailureCode
     , lfLayerDigest
+
+    -- ** ListImagesFilter
+    , ListImagesFilter
+    , listImagesFilter
+    , lifTagStatus
 
     -- ** Repository
     , Repository

@@ -72,7 +72,7 @@ instance Hashable AuthorizationData
 
 instance NFData AuthorizationData
 
--- | Object representing an image.
+-- | An object representing an Amazon ECR image.
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
@@ -132,7 +132,9 @@ instance Hashable Image
 
 instance NFData Image
 
--- | /See:/ 'imageFailure' smart constructor.
+-- | An object representing an Amazon ECR image failure.
+--
+-- /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
     { _ifFailureReason :: !(Maybe Text)
     , _ifFailureCode   :: !(Maybe ImageFailureCode)
@@ -181,7 +183,9 @@ instance Hashable ImageFailure
 
 instance NFData ImageFailure
 
--- | /See:/ 'imageIdentifier' smart constructor.
+-- | An object with identifying information for an Amazon ECR image.
+--
+-- /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
     { _iiImageDigest :: !(Maybe Text)
     , _iiImageTag    :: !(Maybe Text)
@@ -228,7 +232,9 @@ instance ToJSON ImageIdentifier where
                  [("imageDigest" .=) <$> _iiImageDigest,
                   ("imageTag" .=) <$> _iiImageTag])
 
--- | /See:/ 'layer' smart constructor.
+-- | An object representing an Amazon ECR image layer.
+--
+-- /See:/ 'layer' smart constructor.
 data Layer = Layer'
     { _lLayerDigest       :: !(Maybe Text)
     , _lLayerSize         :: !(Maybe Integer)
@@ -277,7 +283,9 @@ instance Hashable Layer
 
 instance NFData Layer
 
--- | /See:/ 'layerFailure' smart constructor.
+-- | An object representing an Amazon ECR image layer failure.
+--
+-- /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
     { _lfFailureReason :: !(Maybe Text)
     , _lfFailureCode   :: !(Maybe LayerFailureCode)
@@ -326,7 +334,37 @@ instance Hashable LayerFailure
 
 instance NFData LayerFailure
 
--- | Object representing a repository.
+-- | /See:/ 'listImagesFilter' smart constructor.
+newtype ListImagesFilter = ListImagesFilter'
+    { _lifTagStatus :: Maybe TagStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListImagesFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lifTagStatus'
+listImagesFilter
+    :: ListImagesFilter
+listImagesFilter =
+    ListImagesFilter'
+    { _lifTagStatus = Nothing
+    }
+
+-- | Undocumented member.
+lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
+lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a});
+
+instance Hashable ListImagesFilter
+
+instance NFData ListImagesFilter
+
+instance ToJSON ListImagesFilter where
+        toJSON ListImagesFilter'{..}
+          = object
+              (catMaybes [("tagStatus" .=) <$> _lifTagStatus])
+
+-- | An object representing a repository.
 --
 -- /See:/ 'repository' smart constructor.
 data Repository = Repository'

@@ -53,8 +53,11 @@ adAttributeName = lens _adAttributeName (\ s a -> s{_adAttributeName = a});
 -- | The data type for the attribute, where:
 --
 -- -   'S' - the attribute is of type String
+--
 -- -   'N' - the attribute is of type Number
+--
 -- -   'B' - the attribute is of type Binary
+--
 adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\ s a -> s{_adAttributeType = a});
 
@@ -1827,8 +1830,6 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 -- -   /AttributeName/ - The name of the attribute.
 --
 -- -   /KeyType/ - The role of the attribute:
---
---     .
 --
 --     -   'HASH' - partition key
 --

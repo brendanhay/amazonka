@@ -20,7 +20,8 @@
 --
 -- Creates a new, empty file system. The operation requires a creation token in the request that Amazon EFS uses to ensure idempotent creation (calling the operation with same creation token has no effect). If a file system does not currently exist that is owned by the caller\'s AWS account with the specified creation token, this operation does the following:
 --
--- -   Creates a new, empty file system. The file system will have an Amazon EFS assigned ID, and an initial lifecycle state \"creating\".
+-- -   Creates a new, empty file system. The file system will have an Amazon EFS assigned ID, and an initial lifecycle state 'creating'.
+--
 -- -   Returns with the description of the created file system.
 --
 -- Otherwise, this operation returns a 'FileSystemAlreadyExists' error with the ID of the existing file system.
@@ -29,17 +30,20 @@
 --
 -- The idempotent operation allows you to retry a 'CreateFileSystem' call without risk of creating an extra file system. This can happen when an initial call fails in a way that leaves it uncertain whether or not a file system was actually created. An example might be that a transport level timeout occurred or your connection was reset. As long as you use the same creation token, if the initial call had succeeded in creating a file system, the client can learn of its existence from the 'FileSystemAlreadyExists' error.
 --
--- The 'CreateFileSystem' call returns while the file system\'s lifecycle state is still \"creating\". You can check the file system creation status by calling the < DescribeFileSystems> API, which among other things returns the file system state.
+-- The 'CreateFileSystem' call returns while the file system\'s lifecycle state is still 'creating'. You can check the file system creation status by calling the < DescribeFileSystems> operation, which among other things returns the file system state.
 --
--- After the file system is fully created, Amazon EFS sets its lifecycle state to \"available\", at which point you can create one or more mount targets for the file system (< CreateMountTarget>) in your VPC. You mount your Amazon EFS file system on an EC2 instances in your VPC via the mount target. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>
+-- This operation also takes an optional 'PerformanceMode' parameter that you choose for your file system. We recommend 'generalPurpose' performance mode for most file systems. File systems using the 'maxIO' performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can\'t be changed after the file system has been created. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html Amazon EFS: Performance Modes>.
 --
--- This operation requires permission for the 'elasticfilesystem:CreateFileSystem' action.
+-- After the file system is fully created, Amazon EFS sets its lifecycle state to 'available', at which point you can create one or more mount targets for the file system in your VPC. For more information, see < CreateMountTarget>. You mount your Amazon EFS file system on an EC2 instances in your VPC via the mount target. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>.
+--
+-- This operation requires permissions for the 'elasticfilesystem:CreateFileSystem' action.
 module Network.AWS.EFS.CreateFileSystem
     (
     -- * Creating a Request
       createFileSystem
     , CreateFileSystem
     -- * Request Lenses
+    , cfsPerformanceMode
     , cfsCreationToken
 
     -- * Destructuring the Response
@@ -54,6 +58,7 @@ module Network.AWS.EFS.CreateFileSystem
     , fsdLifeCycleState
     , fsdNumberOfMountTargets
     , fsdSizeInBytes
+    , fsdPerformanceMode
     ) where
 
 import           Network.AWS.EFS.Types
@@ -64,13 +69,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
-newtype CreateFileSystem = CreateFileSystem'
-    { _cfsCreationToken :: Text
+data CreateFileSystem = CreateFileSystem'
+    { _cfsPerformanceMode :: !(Maybe PerformanceMode)
+    , _cfsCreationToken   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFileSystem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfsPerformanceMode'
 --
 -- * 'cfsCreationToken'
 createFileSystem
@@ -78,8 +86,13 @@ createFileSystem
     -> CreateFileSystem
 createFileSystem pCreationToken_ =
     CreateFileSystem'
-    { _cfsCreationToken = pCreationToken_
+    { _cfsPerformanceMode = Nothing
+    , _cfsCreationToken = pCreationToken_
     }
+
+-- | The 'PerformanceMode' of the file system. We recommend 'generalPurpose' performance mode for most file systems. File systems using the 'maxIO' performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can\'t be changed after the file system has been created.
+cfsPerformanceMode :: Lens' CreateFileSystem (Maybe PerformanceMode)
+cfsPerformanceMode = lens _cfsPerformanceMode (\ s a -> s{_cfsPerformanceMode = a});
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
 cfsCreationToken :: Lens' CreateFileSystem Text
@@ -101,7 +114,8 @@ instance ToJSON CreateFileSystem where
         toJSON CreateFileSystem'{..}
           = object
               (catMaybes
-                 [Just ("CreationToken" .= _cfsCreationToken)])
+                 [("PerformanceMode" .=) <$> _cfsPerformanceMode,
+                  Just ("CreationToken" .= _cfsCreationToken)])
 
 instance ToPath CreateFileSystem where
         toPath = const "/2015-02-01/file-systems"

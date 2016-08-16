@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the \"Name\" tag to your file system, Amazon EFS returns it in the response to the < DescribeFileSystems> API.
+-- Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the 'Name' tag to your file system, Amazon EFS returns it in the response to the < DescribeFileSystems> operation.
 --
 -- This operation requires permission for the 'elasticfilesystem:CreateTags' action.
 module Network.AWS.EFS.CreateTags
@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createTags' smart constructor.
+-- |
+--
+-- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
     { _ctFileSystemId :: !Text
     , _ctTags         :: ![Tag]
@@ -64,11 +66,11 @@ createTags pFileSystemId_ =
     , _ctTags = mempty
     }
 
--- | String. The ID of the file system whose tags you want to modify. This operation modifies only the tags and not the file system.
+-- | ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 ctFileSystemId :: Lens' CreateTags Text
 ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 
--- | An array of 'Tag' objects to add. Each 'Tag' object is a key-value pair.
+-- | Array of 'Tag' objects to add. Each 'Tag' object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 

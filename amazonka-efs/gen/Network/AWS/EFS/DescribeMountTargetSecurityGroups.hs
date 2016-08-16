@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the life cycle state of the mount target is not \"deleted\".
+-- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not 'deleted'.
 --
 -- This operation requires permissions for the following actions:
 --
 -- -   'elasticfilesystem:DescribeMountTargetSecurityGroups' action on the mount target\'s file system.
+--
 -- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount target\'s network interface.
+--
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeMountTargetSecurityGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeMountTargetSecurityGroups' smart constructor.
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -65,7 +69,7 @@ describeMountTargetSecurityGroups pMountTargetId_ =
     { _dmtsgMountTargetId = pMountTargetId_
     }
 
--- | The ID of the mount target whose security groups you want to retrieve.
+-- | ID of the mount target whose security groups you want to retrieve.
 dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
 dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
 
@@ -126,7 +130,7 @@ describeMountTargetSecurityGroupsResponse pResponseStatus_ =
 dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
 dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a});
 
--- | An array of security groups.
+-- | Array of security groups.
 dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
 dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a}) . _Coerce;
 

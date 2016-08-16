@@ -118,6 +118,9 @@ module Network.AWS.EFS
     -- ** LifeCycleState
     , LifeCycleState (..)
 
+    -- ** PerformanceMode
+    , PerformanceMode (..)
+
     -- ** FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
@@ -129,6 +132,7 @@ module Network.AWS.EFS
     , fsdLifeCycleState
     , fsdNumberOfMountTargets
     , fsdSizeInBytes
+    , fsdPerformanceMode
 
     -- ** FileSystemSize
     , FileSystemSize

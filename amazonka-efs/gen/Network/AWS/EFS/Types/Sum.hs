@@ -50,3 +50,32 @@ instance ToHeader     LifeCycleState
 
 instance FromJSON LifeCycleState where
     parseJSON = parseJSONText "LifeCycleState"
+
+data PerformanceMode
+    = GeneralPurpose
+    | MaxIO
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PerformanceMode where
+    parser = takeLowerText >>= \case
+        "generalpurpose" -> pure GeneralPurpose
+        "maxio" -> pure MaxIO
+        e -> fromTextError $ "Failure parsing PerformanceMode from value: '" <> e
+           <> "'. Accepted values: generalPurpose, maxIO"
+
+instance ToText PerformanceMode where
+    toText = \case
+        GeneralPurpose -> "generalPurpose"
+        MaxIO -> "maxIO"
+
+instance Hashable     PerformanceMode
+instance NFData       PerformanceMode
+instance ToByteString PerformanceMode
+instance ToQuery      PerformanceMode
+instance ToHeader     PerformanceMode
+
+instance ToJSON PerformanceMode where
+    toJSON = toJSONText
+
+instance FromJSON PerformanceMode where
+    parseJSON = parseJSONText "PerformanceMode"

@@ -20,12 +20,14 @@
 --
 -- Modifies the set of security groups in effect for a mount target.
 --
--- When you create a mount target, Amazon EFS also creates a new network interface (see < CreateMountTarget>). This operation replaces the security groups in effect for the network interface associated with a mount target, with the 'SecurityGroups' provided in the request. This operation requires that the network interface of the mount target has been created and the life cycle state of the mount target is not \"deleted\".
+-- When you create a mount target, Amazon EFS also creates a new network interface. For more information, see < CreateMountTarget>. This operation replaces the security groups in effect for the network interface associated with a mount target, with the 'SecurityGroups' provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not 'deleted'.
 --
 -- The operation requires permissions for the following actions:
 --
 -- -   'elasticfilesystem:ModifyMountTargetSecurityGroups' action on the mount target\'s file system.
+--
 -- -   'ec2:ModifyNetworkInterfaceAttribute' action on the mount target\'s network interface.
+--
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
+-- |
+--
+-- /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups :: !(Maybe [Text])
     , _mmtsgMountTargetId  :: !Text
@@ -69,11 +73,11 @@ modifyMountTargetSecurityGroups pMountTargetId_ =
     , _mmtsgMountTargetId = pMountTargetId_
     }
 
--- | An array of up to five VPC security group IDs.
+-- | Array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
 mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default . _Coerce;
 
--- | The ID of the mount target whose security groups you want to modify.
+-- | ID of the mount target whose security groups you want to modify.
 mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
 mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a});
 

@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the set of policies associated with the specified port on which the back-end server is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the back-end ports; this policy type is composed of multiple public key policies.
+-- Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.
 --
 -- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable the policies, use the 'PolicyNames' parameter to list the policies that you want to enable.
 --
--- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies> to verify that the policy is associated with the back-end server.
+-- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies> to verify that the policy is associated with the EC2 instance.
+--
+-- For more information about enabling back-end instance authentication, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt Configure Back-end Instance Authentication> in the /Classic Load Balancers Guide/. For more information about Proxy Protocol, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html Configure Proxy Protocol Support> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
+-- | Contains the parameters for SetLoadBalancerPoliciesForBackendServer.
+--
+-- /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName :: !Text
     , _slbpfbsInstancePort     :: !Int
@@ -78,11 +82,11 @@ setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
 slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoadBalancerName = a});
 
--- | The port number associated with the back-end server.
+-- | The port number associated with the EC2 instance.
 slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
 slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a});
 
--- | The names of the policies. If the list is empty, then all current polices are removed from the back-end server.
+-- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
 
@@ -125,7 +129,9 @@ instance ToQuery
                "PolicyNames" =:
                  toQueryList "member" _slbpfbsPolicyNames]
 
--- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
+-- | Contains the output of SetLoadBalancerPoliciesForBackendServer.
+--
+-- /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

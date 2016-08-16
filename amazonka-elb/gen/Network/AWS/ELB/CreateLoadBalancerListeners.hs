@@ -20,7 +20,7 @@
 --
 -- Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request
@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createLoadBalancerListeners' smart constructor.
+-- | Contains the parameters for CreateLoadBalancerListeners.
+--
+-- /See:/ 'createLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
     { _clblLoadBalancerName :: !Text
     , _clblListeners        :: ![Listener]
@@ -104,7 +106,9 @@ instance ToQuery CreateLoadBalancerListeners where
                "LoadBalancerName" =: _clblLoadBalancerName,
                "Listeners" =: toQueryList "member" _clblListeners]
 
--- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
+-- | Contains the parameters for CreateLoadBalancerListener.
+--
+-- /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
     { _clblrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -67,7 +67,7 @@ alS3BucketPrefix = lens _alS3BucketPrefix (\ s a -> s{_alS3BucketPrefix = a});
 alS3BucketName :: Lens' AccessLog (Maybe Text)
 alS3BucketName = lens _alS3BucketName (\ s a -> s{_alS3BucketName = a});
 
--- | Specifies whether access log is enabled for the load balancer.
+-- | Specifies whether access logs are enabled for the load balancer.
 alEnabled :: Lens' AccessLog Bool
 alEnabled = lens _alEnabled (\ s a -> s{_alEnabled = a});
 
@@ -174,7 +174,7 @@ instance Hashable AppCookieStickinessPolicy
 
 instance NFData AppCookieStickinessPolicy
 
--- | Information about the configuration of a back-end server.
+-- | Information about the configuration of an EC2 instance.
 --
 -- /See:/ 'backendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
@@ -197,11 +197,11 @@ backendServerDescription =
     , _bsdInstancePort = Nothing
     }
 
--- | The names of the policies enabled for the back-end server.
+-- | The names of the policies enabled for the EC2 instance.
 bsdPolicyNames :: Lens' BackendServerDescription [Text]
 bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a}) . _Default . _Coerce;
 
--- | The port on which the back-end server is listening.
+-- | The port on which the EC2 instance is listening.
 bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
 bsdInstancePort = lens _bsdInstancePort (\ s a -> s{_bsdInstancePort = a}) . mapping _Nat;
 
@@ -424,7 +424,7 @@ instance ToQuery HealthCheck where
                "UnhealthyThreshold" =: _hcUnhealthyThreshold,
                "HealthyThreshold" =: _hcHealthyThreshold]
 
--- | The ID of a back-end instance.
+-- | The ID of an EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
 newtype Instance = Instance'
@@ -443,7 +443,7 @@ instance' =
     { _iInstanceId = Nothing
     }
 
--- | The ID of the instance.
+-- | The instance ID.
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
@@ -458,7 +458,7 @@ instance ToQuery Instance where
         toQuery Instance'{..}
           = mconcat ["InstanceId" =: _iInstanceId]
 
--- | Information about the state of a back-end instance.
+-- | Information about the state of an EC2 instance.
 --
 -- /See:/ 'instanceState' smart constructor.
 data InstanceState = InstanceState'
@@ -568,7 +568,7 @@ lBCookieStickinessPolicy =
     , _lbcspCookieExpirationPeriod = Nothing
     }
 
--- | The name for the policy being created. The name must be unique within the set of policies for this load balancer.
+-- | The name of the policy. This name must be unique within the set of policies for this load balancer.
 lbcspPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
 lbcspPolicyName = lens _lbcspPolicyName (\ s a -> s{_lbcspPolicyName = a});
 
@@ -588,7 +588,7 @@ instance NFData LBCookieStickinessPolicy
 
 -- | Information about a listener.
 --
--- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing> in the /Elastic Load Balancing Developer Guide/.
+-- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 --
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
@@ -626,7 +626,7 @@ listener pProtocol_ pLoadBalancerPort_ pInstancePort_ =
     , _lInstancePort = _Nat # pInstancePort_
     }
 
--- | The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP, or SSL.
+-- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 --
 -- If the front-end protocol is HTTP, HTTPS, TCP, or SSL, 'InstanceProtocol' must be at the same protocol.
 --
@@ -751,15 +751,15 @@ loadBalancerAttributes =
     , _lbaConnectionDraining = Nothing
     }
 
--- | If enabled, the load balancer routes the request traffic evenly across all back-end instances regardless of the Availability Zones.
+-- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/.
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing = lens _lbaCrossZoneLoadBalancing (\ s a -> s{_lbaCrossZoneLoadBalancing = a});
 
 -- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/.
 lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 
@@ -769,13 +769,13 @@ lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAddition
 
 -- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 --
--- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout> in the /Elastic Load Balancing Developer Guide/.
+-- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/.
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings = lens _lbaConnectionSettings (\ s a -> s{_lbaConnectionSettings = a});
 
--- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy back-end instance.
+-- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/.
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining = lens _lbaConnectionDraining (\ s a -> s{_lbaConnectionDraining = a});
 
@@ -885,13 +885,13 @@ loadBalancerDescription =
     , _lbdPolicies = Nothing
     }
 
--- | The security group that you can use as part of your inbound rules for your load balancer\'s back-end application instances. To only allow traffic from load balancers, add a security group rule to your back end instance that specifies this source security group as the inbound source.
+-- | The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
 lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbdSourceSecurityGroup = lens _lbdSourceSecurityGroup (\ s a -> s{_lbdSourceSecurityGroup = a});
 
--- | The Amazon Route 53 hosted zone associated with the load balancer.
+-- | The DNS name of the load balancer.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/.
 lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCanonicalHostedZoneName = a});
 
@@ -923,11 +923,11 @@ lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a}) . _Default . _Coerce
 lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
 lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a}) . _Default . _Coerce;
 
--- | Information about the back-end servers.
+-- | Information about your EC2 instances.
 lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
 lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a}) . _Default . _Coerce;
 
--- | The ID of the Amazon Route 53 hosted zone name associated with the load balancer.
+-- | The ID of the Amazon Route 53 hosted zone for the load balancer.
 lbdCanonicalHostedZoneNameId :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneNameId = lens _lbdCanonicalHostedZoneNameId (\ s a -> s{_lbdCanonicalHostedZoneNameId = a});
 
@@ -947,7 +947,7 @@ lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
 lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
 lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a}) . _Default . _Coerce;
 
--- | The external DNS name of the load balancer.
+-- | The DNS name of the load balancer.
 lbdDNSName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDNSName = lens _lbdDNSName (\ s a -> s{_lbdDNSName = a});
 
@@ -1171,9 +1171,13 @@ patdAttributeType = lens _patdAttributeType (\ s a -> s{_patdAttributeType = a})
 -- Valid values:
 --
 -- -   ONE(1) : Single value required
--- -   ZERO_OR_ONE(0..1) : Up to one value can be supplied
+--
+-- -   ZERO_OR_ONE(0..1) : Up to one value is allowed
+--
 -- -   ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+--
 -- -   ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
+--
 patdCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdCardinality = lens _patdCardinality (\ s a -> s{_patdCardinality = a});
 

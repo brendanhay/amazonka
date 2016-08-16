@@ -20,7 +20,7 @@
 --
 -- Sets the certificate that terminates the specified listener\'s SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
 --
--- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSL Certificate for a Load Balancer> in the /Elastic Load Balancing Developer Guide/.
+-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
+-- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.
+--
+-- /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
     { _slblscLoadBalancerName :: !Text
     , _slblscLoadBalancerPort :: !Int
@@ -122,7 +124,9 @@ instance ToQuery
                "LoadBalancerPort" =: _slblscLoadBalancerPort,
                "SSLCertificateId" =: _slblscSSLCertificateId]
 
--- | /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
+-- | Contains the output of SetLoadBalancerListenerSSLCertificate.
+--
+-- /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

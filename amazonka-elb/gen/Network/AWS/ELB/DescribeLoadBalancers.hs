@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLoadBalancers' smart constructor.
+-- | Contains the parameters for DescribeLoadBalancers.
+--
+-- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbMarker            :: !(Maybe Text)
     , _dlbPageSize          :: !(Maybe Nat)
@@ -126,7 +128,9 @@ instance ToQuery DescribeLoadBalancers where
                  toQuery
                    (toQueryList "member" <$> _dlbLoadBalancerNames)]
 
--- | /See:/ 'describeLoadBalancersResponse' smart constructor.
+-- | Contains the parameters for DescribeLoadBalancers.
+--
+-- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
     , _dlbrsNextMarker               :: !(Maybe Text)

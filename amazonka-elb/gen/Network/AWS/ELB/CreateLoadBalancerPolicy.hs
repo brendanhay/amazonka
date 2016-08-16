@@ -20,7 +20,7 @@
 --
 -- Creates a policy with the specified attributes for the specified load balancer.
 --
--- Policies are settings that are saved for your load balancer and that can be applied to the front-end listener or the back-end application server, depending on the policy type.
+-- Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createLoadBalancerPolicy' smart constructor.
+-- | Contains the parameters for CreateLoadBalancerPolicy.
+--
+-- /See:/ 'createLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
     { _clbpPolicyAttributes :: !(Maybe [PolicyAttribute])
     , _clbpLoadBalancerName :: !Text
@@ -78,7 +80,7 @@ createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
     , _clbpPolicyTypeName = pPolicyTypeName_
     }
 
--- | The attributes for the policy.
+-- | The policy attributes.
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
 clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default . _Coerce;
 
@@ -127,7 +129,9 @@ instance ToQuery CreateLoadBalancerPolicy where
                "PolicyName" =: _clbpPolicyName,
                "PolicyTypeName" =: _clbpPolicyTypeName]
 
--- | /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
+-- | Contains the output of CreateLoadBalancerPolicy.
+--
+-- /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
     { _clbprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

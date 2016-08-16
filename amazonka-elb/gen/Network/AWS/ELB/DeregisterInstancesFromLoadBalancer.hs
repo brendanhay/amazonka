@@ -22,7 +22,7 @@
 --
 -- You can use < DescribeLoadBalancers> to verify that the instance is deregistered from the load balancer.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Creating a Request
@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
+-- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
+--
+-- /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName :: !Text
     , _diflbInstances        :: ![Instance]
@@ -114,7 +116,9 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
                "LoadBalancerName" =: _diflbLoadBalancerName,
                "Instances" =: toQueryList "member" _diflbInstances]
 
--- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
+-- | Contains the output of DeregisterInstancesFromLoadBalancer.
+--
+-- /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances      :: !(Maybe [Instance])
     , _diflbrsResponseStatus :: !Int

@@ -22,12 +22,16 @@
 --
 -- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you can modify the load balancer attribute 'ConnectionSettings' by specifying an idle connection timeout value for your load balancer.
 --
--- For more information, see the following in the /Elastic Load Balancing Developer Guide/:
+-- For more information, see the following in the /Classic Load Balancers Guide/:
 --
--- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing Cross-Zone Load Balancing>
--- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
--- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs>
--- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle Connection Timeout>
+-- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
+--
+-- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
+--
+-- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
+--
+-- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
+--
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -53,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
+-- | Contains the parameters for ModifyLoadBalancerAttributes.
+--
+-- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName       :: !Text
     , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
@@ -118,7 +124,9 @@ instance ToQuery ModifyLoadBalancerAttributes where
                "LoadBalancerAttributes" =:
                  _mlbaLoadBalancerAttributes]
 
--- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
+-- | Contains the output of ModifyLoadBalancerAttributes.
+--
+-- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerName       :: !(Maybe Text)
     , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)

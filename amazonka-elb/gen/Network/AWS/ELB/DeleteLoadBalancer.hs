@@ -20,7 +20,7 @@
 --
 -- Deletes the specified load balancer.
 --
--- If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to back-end instances.
+-- If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.
 --
 -- If the load balancer does not exist or has already been deleted, the call to 'DeleteLoadBalancer' still succeeds.
 module Network.AWS.ELB.DeleteLoadBalancer
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteLoadBalancer' smart constructor.
+-- | Contains the parameters for DeleteLoadBalancer.
+--
+-- /See:/ 'deleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
     { _dlbLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery DeleteLoadBalancer where
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _dlbLoadBalancerName]
 
--- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
+-- | Contains the output of DeleteLoadBalancer.
+--
+-- /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
     { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

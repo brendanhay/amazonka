@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteLoadBalancerListeners' smart constructor.
+-- | Contains the parameters for DeleteLoadBalancerListeners.
+--
+-- /See:/ 'deleteLoadBalancerListeners' smart constructor.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName  :: !Text
     , _dlblLoadBalancerPorts :: ![Int]
@@ -103,7 +105,9 @@ instance ToQuery DeleteLoadBalancerListeners where
                "LoadBalancerPorts" =:
                  toQueryList "member" _dlblLoadBalancerPorts]
 
--- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
+-- | Contains the output of DeleteLoadBalancerListeners.
+--
+-- /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
     { _dlblrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

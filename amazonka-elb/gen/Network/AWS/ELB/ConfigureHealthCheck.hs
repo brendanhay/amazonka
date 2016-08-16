@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specifies the health check settings to use when evaluating the health state of your back-end instances.
+-- Specifies the health check settings to use when evaluating the health state of your EC2 instances.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html Configure Health Checks> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'configureHealthCheck' smart constructor.
+-- | Contains the parameters for ConfigureHealthCheck.
+--
+-- /See:/ 'configureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
     { _chcLoadBalancerName :: !Text
     , _chcHealthCheck      :: !HealthCheck
@@ -72,7 +74,7 @@ configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
 chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
 
--- | The configuration information for the new health check.
+-- | The configuration information.
 chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
 chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
 
@@ -104,7 +106,9 @@ instance ToQuery ConfigureHealthCheck where
                "LoadBalancerName" =: _chcLoadBalancerName,
                "HealthCheck" =: _chcHealthCheck]
 
--- | /See:/ 'configureHealthCheckResponse' smart constructor.
+-- | Contains the output of ConfigureHealthCheck.
+--
+-- /See:/ 'configureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrsHealthCheck    :: !(Maybe HealthCheck)
     , _chcrsResponseStatus :: !Int

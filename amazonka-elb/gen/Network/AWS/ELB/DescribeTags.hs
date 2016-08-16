@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTags' smart constructor.
+-- | Contains the parameters for DescribeTags.
+--
+-- /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
     { _dtLoadBalancerNames :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery DescribeTags where
                "LoadBalancerNames" =:
                  toQueryList "member" _dtLoadBalancerNames]
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | Contains the output for DescribeTags.
+--
+-- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
     , _dtrsResponseStatus  :: !Int

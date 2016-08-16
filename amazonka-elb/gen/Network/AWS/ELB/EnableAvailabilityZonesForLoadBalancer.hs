@@ -22,7 +22,7 @@
 --
 -- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
+-- | Contains the parameters for EnableAvailabilityZonesForLoadBalancer.
+--
+-- /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
     { _eazflbLoadBalancerName  :: !Text
     , _eazflbAvailabilityZones :: ![Text]
@@ -117,7 +119,9 @@ instance ToQuery
                "AvailabilityZones" =:
                  toQueryList "member" _eazflbAvailabilityZones]
 
--- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
+-- | Contains the output of EnableAvailabilityZonesForLoadBalancer.
+--
+-- /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones :: !(Maybe [Text])
     , _eazflbrsResponseStatus    :: !Int

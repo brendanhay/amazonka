@@ -26,9 +26,9 @@
 --
 -- After the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in one of the Availability Zones registered for the load balancer is moved to the 'OutOfService' state. If an Availability Zone is added to the load balancer later, any instances registered with the load balancer move to the 'InService' state.
 --
--- If you stop an instance registered with a load balancer and then start it, the IP addresses associated with the instance changes. Elastic Load Balancing cannot recognize the new IP address, which prevents it from routing traffic to the instances. We recommend that you use the following sequence: stop the instance, deregister the instance, start the instance, and then register the instance. To deregister instances from a load balancer, use < DeregisterInstancesFromLoadBalancer>.
+-- To deregister instances from a load balancer, use < DeregisterInstancesFromLoadBalancer>.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Creating a Request
@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
+-- | Contains the parameters for RegisterInstancesWithLoadBalancer.
+--
+-- /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName :: !Text
     , _riwlbInstances        :: ![Instance]
@@ -119,7 +121,9 @@ instance ToQuery RegisterInstancesWithLoadBalancer
                "LoadBalancerName" =: _riwlbLoadBalancerName,
                "Instances" =: toQueryList "member" _riwlbInstances]
 
--- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
+-- | Contains the output of RegisterInstancesWithLoadBalancer.
+--
+-- /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances      :: !(Maybe [Instance])
     , _riwlbrsResponseStatus :: !Int

@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a load balancer.
+-- Creates a Classic load balancer.
 --
--- If the call completes successfully, a new load balancer is created with a unique Domain Name Service (DNS) name. The load balancer receives incoming traffic and routes it to the registered instances. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html How Elastic Load Balancing Works> in the /Elastic Load Balancing Developer Guide/.
+-- You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using < CreateLoadBalancerListeners>, < ApplySecurityGroupsToLoadBalancer>, < AttachLoadBalancerToSubnets>, and < AddTags>.
 --
--- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits> in the /Elastic Load Balancing Developer Guide/.
+-- To describe your current load balancers, see < DescribeLoadBalancers>. When you are finished with a load balancer, you can delete it using < DeleteLoadBalancer>.
+--
+-- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html Limits for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Creating a Request
@@ -52,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createLoadBalancer' smart constructor.
+-- | Contains the parameters for CreateLoadBalancer.
+--
+-- /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
     { _clbSecurityGroups    :: !(Maybe [Text])
     , _clbSubnets           :: !(Maybe [Text])
@@ -102,7 +106,7 @@ clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a})
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce;
 
--- | One or more Availability Zones from the same region as the load balancer. Traffic is equally distributed across all specified Availability Zones.
+-- | One or more Availability Zones from the same region as the load balancer.
 --
 -- You must specify at least one Availability Zone.
 --
@@ -112,15 +116,15 @@ clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZo
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
--- By default, Elastic Load Balancing creates an Internet-facing load balancer with a publicly resolvable DNS name, which resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.
+-- By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme> in the /Elastic Load Balancing User Guide/.
 --
--- Specify 'internal' to create an internal load balancer with a DNS name that resolves to private IP addresses.
+-- Specify 'internal' to create a load balancer with a DNS name that resolves to private IP addresses.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 
 -- | A list of tags to assign to the load balancer.
 --
--- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.
+-- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
 clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
 
@@ -132,7 +136,7 @@ clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName
 
 -- | The listeners.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a}) . _Coerce;
 
@@ -175,7 +179,9 @@ instance ToQuery CreateLoadBalancer where
                "LoadBalancerName" =: _clbLoadBalancerName,
                "Listeners" =: toQueryList "member" _clbListeners]
 
--- | /See:/ 'createLoadBalancerResponse' smart constructor.
+-- | Contains the output for CreateLoadBalancer.
+--
+-- /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrsDNSName        :: !(Maybe Text)
     , _clbrsResponseStatus :: !Int

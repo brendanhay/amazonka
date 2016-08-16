@@ -2298,8 +2298,7 @@ prdKey = lens _prdKey (\ s a -> s{_prdKey = a});
 prdInitializationVector :: Lens' PlayReadyDrm (Maybe Text)
 prdInitializationVector = lens _prdInitializationVector (\ s a -> s{_prdInitializationVector = a});
 
--- | The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this:
--- https:\/\/www.example.com\/exampleKey\/
+-- | The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this: 'https:\/\/www.example.com\/exampleKey\/'
 prdLicenseAcquisitionURL :: Lens' PlayReadyDrm (Maybe Text)
 prdLicenseAcquisitionURL = lens _prdLicenseAcquisitionURL (\ s a -> s{_prdLicenseAcquisitionURL = a});
 

@@ -31,11 +31,17 @@ module Network.AWS.WorkSpaces
     -- ** ResourceLimitExceededException
     , _ResourceLimitExceededException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DescribeTags
+    , module Network.AWS.WorkSpaces.DescribeTags
 
     -- ** DescribeWorkspaceDirectories
     , module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
@@ -45,6 +51,12 @@ module Network.AWS.WorkSpaces
 
     -- ** RebuildWorkspaces
     , module Network.AWS.WorkSpaces.RebuildWorkspaces
+
+    -- ** CreateTags
+    , module Network.AWS.WorkSpaces.CreateTags
+
+    -- ** DeleteTags
+    , module Network.AWS.WorkSpaces.DeleteTags
 
     -- ** RebootWorkspaces
     , module Network.AWS.WorkSpaces.RebootWorkspaces
@@ -110,6 +122,12 @@ module Network.AWS.WorkSpaces
     , rebuildRequest
     , rrWorkspaceId
 
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
     -- ** TerminateRequest
     , TerminateRequest
     , terminateRequest
@@ -169,12 +187,16 @@ module Network.AWS.WorkSpaces
     , wrRootVolumeEncryptionEnabled
     , wrVolumeEncryptionKey
     , wrUserVolumeEncryptionEnabled
+    , wrTags
     , wrDirectoryId
     , wrUserName
     , wrBundleId
     ) where
 
+import           Network.AWS.WorkSpaces.CreateTags
 import           Network.AWS.WorkSpaces.CreateWorkspaces
+import           Network.AWS.WorkSpaces.DeleteTags
+import           Network.AWS.WorkSpaces.DescribeTags
 import           Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 import           Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 import           Network.AWS.WorkSpaces.DescribeWorkspaces

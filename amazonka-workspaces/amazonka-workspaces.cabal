@@ -43,7 +43,10 @@ library
 
     exposed-modules:
           Network.AWS.WorkSpaces
+        , Network.AWS.WorkSpaces.CreateTags
         , Network.AWS.WorkSpaces.CreateWorkspaces
+        , Network.AWS.WorkSpaces.DeleteTags
+        , Network.AWS.WorkSpaces.DescribeTags
         , Network.AWS.WorkSpaces.DescribeWorkspaceBundles
         , Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
         , Network.AWS.WorkSpaces.DescribeWorkspaces

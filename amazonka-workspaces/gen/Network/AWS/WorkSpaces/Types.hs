@@ -19,6 +19,7 @@ module Network.AWS.WorkSpaces.Types
     , _ResourceUnavailableException
     , _InvalidParameterValuesException
     , _ResourceLimitExceededException
+    , _ResourceNotFoundException
 
     -- * Compute
     , Compute (..)
@@ -69,6 +70,12 @@ module Network.AWS.WorkSpaces.Types
     , RebuildRequest
     , rebuildRequest
     , rrWorkspaceId
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
 
     -- * TerminateRequest
     , TerminateRequest
@@ -129,6 +136,7 @@ module Network.AWS.WorkSpaces.Types
     , wrRootVolumeEncryptionEnabled
     , wrVolumeEncryptionKey
     , wrUserVolumeEncryptionEnabled
+    , wrTags
     , wrDirectoryId
     , wrUserName
     , wrBundleId
@@ -188,3 +196,8 @@ _InvalidParameterValuesException =
 _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceLimitExceededException =
     _ServiceError . hasCode "ResourceLimitExceededException"
+
+-- | The resource could not be found.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"

@@ -28,7 +28,10 @@ import Test.AWS.WorkSpaces.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeWorkspaceDirectories $
+--         [ requestDescribeTags $
+--             describeTags
+--
+--         , requestDescribeWorkspaceDirectories $
 --             describeWorkspaceDirectories
 --
 --         , requestDescribeWorkspaceBundles $
@@ -36,6 +39,12 @@ import Test.AWS.WorkSpaces.Internal
 --
 --         , requestRebuildWorkspaces $
 --             rebuildWorkspaces
+--
+--         , requestCreateTags $
+--             createTags
+--
+--         , requestDeleteTags $
+--             deleteTags
 --
 --         , requestRebootWorkspaces $
 --             rebootWorkspaces
@@ -52,7 +61,10 @@ import Test.AWS.WorkSpaces.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeWorkspaceDirectories $
+--         [ responseDescribeTags $
+--             describeTagsResponse
+--
+--         , responseDescribeWorkspaceDirectories $
 --             describeWorkspaceDirectoriesResponse
 --
 --         , responseDescribeWorkspaceBundles $
@@ -60,6 +72,12 @@ import Test.AWS.WorkSpaces.Internal
 --
 --         , responseRebuildWorkspaces $
 --             rebuildWorkspacesResponse
+--
+--         , responseCreateTags $
+--             createTagsResponse
+--
+--         , responseDeleteTags $
+--             deleteTagsResponse
 --
 --         , responseRebootWorkspaces $
 --             rebootWorkspacesResponse
@@ -78,6 +96,11 @@ import Test.AWS.WorkSpaces.Internal
 
 -- Requests
 
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
+
 requestDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
 requestDescribeWorkspaceDirectories = req
     "DescribeWorkspaceDirectories"
@@ -92,6 +115,16 @@ requestRebuildWorkspaces :: RebuildWorkspaces -> TestTree
 requestRebuildWorkspaces = req
     "RebuildWorkspaces"
     "fixture/RebuildWorkspaces.yaml"
+
+requestCreateTags :: CreateTags -> TestTree
+requestCreateTags = req
+    "CreateTags"
+    "fixture/CreateTags.yaml"
+
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
 
 requestRebootWorkspaces :: RebootWorkspaces -> TestTree
 requestRebootWorkspaces = req
@@ -115,6 +148,13 @@ requestDescribeWorkspaces = req
 
 -- Responses
 
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags = res
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeTags)
+
 responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
 responseDescribeWorkspaceDirectories = res
     "DescribeWorkspaceDirectoriesResponse"
@@ -135,6 +175,20 @@ responseRebuildWorkspaces = res
     "fixture/RebuildWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy RebuildWorkspaces)
+
+responseCreateTags :: CreateTagsResponse -> TestTree
+responseCreateTags = res
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
+    workSpaces
+    (Proxy :: Proxy CreateTags)
+
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags = res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DeleteTags)
 
 responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
 responseRebootWorkspaces = res

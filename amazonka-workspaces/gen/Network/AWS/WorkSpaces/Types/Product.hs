@@ -292,6 +292,54 @@ instance ToJSON RebuildRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
 
+-- | Describes the tag of the WorkSpace.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | The value of the tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | The key of the tag.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue,
+                  Just ("Key" .= _tagKey)])
+
 -- | Contains information used with the < TerminateWorkspaces> operation to terminate a WorkSpace.
 --
 -- /See:/ 'terminateRequest' smart constructor.
@@ -715,6 +763,7 @@ data WorkspaceRequest = WorkspaceRequest'
     { _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
     , _wrVolumeEncryptionKey         :: !(Maybe Text)
     , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wrTags                        :: !(Maybe [Tag])
     , _wrDirectoryId                 :: !Text
     , _wrUserName                    :: !Text
     , _wrBundleId                    :: !Text
@@ -729,6 +778,8 @@ data WorkspaceRequest = WorkspaceRequest'
 -- * 'wrVolumeEncryptionKey'
 --
 -- * 'wrUserVolumeEncryptionEnabled'
+--
+-- * 'wrTags'
 --
 -- * 'wrDirectoryId'
 --
@@ -745,6 +796,7 @@ workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     { _wrRootVolumeEncryptionEnabled = Nothing
     , _wrVolumeEncryptionKey = Nothing
     , _wrUserVolumeEncryptionEnabled = Nothing
+    , _wrTags = Nothing
     , _wrDirectoryId = pDirectoryId_
     , _wrUserName = pUserName_
     , _wrBundleId = pBundleId_
@@ -761,6 +813,10 @@ wrVolumeEncryptionKey = lens _wrVolumeEncryptionKey (\ s a -> s{_wrVolumeEncrypt
 -- | Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 wrUserVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
 wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\ s a -> s{_wrUserVolumeEncryptionEnabled = a});
+
+-- | The tags of the WorkSpace request.
+wrTags :: Lens' WorkspaceRequest [Tag]
+wrTags = lens _wrTags (\ s a -> s{_wrTags = a}) . _Default . _Coerce;
 
 -- | The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the < DescribeWorkspaceDirectories> operation to obtain a list of the directories that are available.
 wrDirectoryId :: Lens' WorkspaceRequest Text
@@ -782,6 +838,7 @@ instance FromJSON WorkspaceRequest where
                    (x .:? "RootVolumeEncryptionEnabled") <*>
                      (x .:? "VolumeEncryptionKey")
                      <*> (x .:? "UserVolumeEncryptionEnabled")
+                     <*> (x .:? "Tags" .!= mempty)
                      <*> (x .: "DirectoryId")
                      <*> (x .: "UserName")
                      <*> (x .: "BundleId"))
@@ -800,6 +857,7 @@ instance ToJSON WorkspaceRequest where
                     _wrVolumeEncryptionKey,
                   ("UserVolumeEncryptionEnabled" .=) <$>
                     _wrUserVolumeEncryptionEnabled,
+                  ("Tags" .=) <$> _wrTags,
                   Just ("DirectoryId" .= _wrDirectoryId),
                   Just ("UserName" .= _wrUserName),
                   Just ("BundleId" .= _wrBundleId)])

@@ -26,8 +26,8 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , ResetCacheParameterGroup
     -- * Request Lenses
     , rcpgResetAllParameters
-    , rcpgCacheParameterGroupName
     , rcpgParameterNameValues
+    , rcpgCacheParameterGroupName
 
     -- * Destructuring the Response
     , cacheParameterGroupNameMessage
@@ -48,8 +48,8 @@ import           Network.AWS.Response
 -- /See:/ 'resetCacheParameterGroup' smart constructor.
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
     { _rcpgResetAllParameters      :: !(Maybe Bool)
+    , _rcpgParameterNameValues     :: !(Maybe [ParameterNameValue])
     , _rcpgCacheParameterGroupName :: !Text
-    , _rcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ResetCacheParameterGroup' with the minimum fields required to make a request.
@@ -58,32 +58,32 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
 --
 -- * 'rcpgResetAllParameters'
 --
--- * 'rcpgCacheParameterGroupName'
---
 -- * 'rcpgParameterNameValues'
+--
+-- * 'rcpgCacheParameterGroupName'
 resetCacheParameterGroup
     :: Text -- ^ 'rcpgCacheParameterGroupName'
     -> ResetCacheParameterGroup
 resetCacheParameterGroup pCacheParameterGroupName_ =
     ResetCacheParameterGroup'
     { _rcpgResetAllParameters = Nothing
+    , _rcpgParameterNameValues = Nothing
     , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
-    , _rcpgParameterNameValues = mempty
     }
 
--- | If /true/, all parameters in the cache parameter group will be reset to default values. If /false/, no such action occurs.
+-- | If /true/, all parameters in the cache parameter group will be reset to their default values. If /false/, only the parameters listed by /ParameterNameValues/ are reset to their default values.
 --
 -- Valid values: 'true' | 'false'
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
 
+-- | An array of parameter names to reset to their default values. If /ResetAllParameters/ is /false/, you must specify the name of at least one parameter to reset.
+rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
+rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Default . _Coerce;
+
 -- | The name of the cache parameter group to reset.
 rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
 rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcpgCacheParameterGroupName = a});
-
--- | An array of parameter names to be reset. If you are not resetting the entire cache parameter group, you must specify at least one parameter name.
-rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ResetCacheParameterGroup where
         type Rs ResetCacheParameterGroup =
@@ -110,8 +110,9 @@ instance ToQuery ResetCacheParameterGroup where
                  ("ResetCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "ResetAllParameters" =: _rcpgResetAllParameters,
-               "CacheParameterGroupName" =:
-                 _rcpgCacheParameterGroupName,
                "ParameterNameValues" =:
-                 toQueryList "ParameterNameValue"
-                   _rcpgParameterNameValues]
+                 toQuery
+                   (toQueryList "ParameterNameValue" <$>
+                      _rcpgParameterNameValues),
+               "CacheParameterGroupName" =:
+                 _rcpgCacheParameterGroupName]

@@ -74,6 +74,32 @@ instance ToHeader     AutomaticFailoverStatus
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
+data ChangeType
+    = Immediate
+    | RequiresReboot
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeType where
+    parser = takeLowerText >>= \case
+        "immediate" -> pure Immediate
+        "requires-reboot" -> pure RequiresReboot
+        e -> fromTextError $ "Failure parsing ChangeType from value: '" <> e
+           <> "'. Accepted values: immediate, requires-reboot"
+
+instance ToText ChangeType where
+    toText = \case
+        Immediate -> "immediate"
+        RequiresReboot -> "requires-reboot"
+
+instance Hashable     ChangeType
+instance NFData       ChangeType
+instance ToByteString ChangeType
+instance ToQuery      ChangeType
+instance ToHeader     ChangeType
+
+instance FromXML ChangeType where
+    parseXML = parseXMLText "ChangeType"
+
 data PendingAutomaticFailoverStatus
     = Disabled
     | Enabled

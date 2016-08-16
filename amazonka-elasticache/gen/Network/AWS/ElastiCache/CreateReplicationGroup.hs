@@ -22,7 +22,7 @@
 --
 -- When you create a replication group, you must specify an existing cache cluster that is in the primary role. When the replication group has been successfully created, you can add one or more read replica replicas to it, up to a total of five read replicas.
 --
--- __Note:__ This action is valid only for Redis.
+-- This action is valid only for Redis.
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Creating a Request
@@ -181,13 +181,15 @@ createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
 -- ElastiCache Multi-AZ replication groups is not supported on:
 --
 -- -   Redis versions earlier than 2.8.6.
+--
 -- -   T1 and T2 cache node types.
+--
 crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutomaticFailoverEnabled = lens _crgAutomaticFailoverEnabled (\ s a -> s{_crgAutomaticFailoverEnabled = a});
 
 -- | The version number of the cache engine to be used for the cache clusters in this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ action.
 --
--- __Important:__ You can upgrade to a newer engine version (see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cache cluster or replication group and create it anew with the earlier engine version.
+-- __Important:__ You can upgrade to a newer engine version (see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>) in the /ElastiCache User Guide/, but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cache cluster or replication group and create it anew with the earlier engine version.
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 
@@ -196,17 +198,25 @@ crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
@@ -221,7 +231,7 @@ crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds
 
 -- | A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file will be used to populate the node group. The Amazon S3 object name in the ARN cannot contain any commas.
 --
--- __Note:__ This parameter is only valid if the 'Engine' parameter is 'redis'.
+-- This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket\/snapshot1.rdb'
 crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
@@ -241,7 +251,7 @@ crgCacheParameterGroupName = lens _crgCacheParameterGroupName (\ s a -> s{_crgCa
 --
 -- If you do not specify this parameter, then ElastiCache will automatically choose an appropriate time range.
 --
--- __Note:__ This parameter is only valid if the 'Engine' parameter is 'redis'.
+-- This parameter is only valid if the 'Engine' parameter is 'redis'.
 crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow = lens _crgSnapshotWindow (\ s a -> s{_crgSnapshotWindow = a});
 
@@ -260,11 +270,17 @@ crgEngine = lens _crgEngine (\ s a -> s{_crgEngine = a});
 -- | Specifies the weekly time range during which maintenance on the cache cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for 'ddd' are:
 --
 -- -   'sun'
+--
 -- -   'mon'
+--
 -- -   'tue'
+--
 -- -   'wed'
+--
 -- -   'thu'
+--
 -- -   'fri'
+--
 -- -   'sat'
 --
 -- Example: 'sun:05:00-sun:09:00'
@@ -277,7 +293,7 @@ crgCacheSubnetGroupName = lens _crgCacheSubnetGroupName (\ s a -> s{_crgCacheSub
 
 -- | The number of days for which ElastiCache will retain automatic snapshots before deleting them. For example, if you set 'SnapshotRetentionLimit' to 5, then a snapshot that was taken today will be retained for 5 days before being deleted.
 --
--- __Note:__ This parameter is only valid if the 'Engine' parameter is 'redis'.
+-- This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache cluster).
 crgSnapshotRetentionLimit :: Lens' CreateReplicationGroup (Maybe Int)
@@ -299,13 +315,15 @@ crgNumCacheClusters = lens _crgNumCacheClusters (\ s a -> s{_crgNumCacheClusters
 --
 -- Default: system chosen availability zones.
 --
--- Example: One Redis cache cluster in each of three availability zones. PreferredAvailabilityZones.member.1=us-west-2a PreferredAvailabilityZones.member.2=us-west-2c PreferredAvailabilityZones.member.3=us-west-2c
+-- Example: One Redis cache cluster in each of three availability zones.
+--
+-- 'PreferredAvailabilityZones.member.1=us-west-2a PreferredAvailabilityZones.member.2=us-west-2c PreferredAvailabilityZones.member.3=us-west-2c'
 crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
 crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a}) . _Default . _Coerce;
 
 -- | The name of a snapshot from which to restore data into the new node group. The snapshot status changes to 'restoring' while the new node group is being created.
 --
--- __Note:__ This parameter is only valid if the 'Engine' parameter is 'redis'.
+-- This parameter is only valid if the 'Engine' parameter is 'redis'.
 crgSnapshotName :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotName = lens _crgSnapshotName (\ s a -> s{_crgSnapshotName = a});
 
@@ -332,8 +350,11 @@ crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCa
 -- Constraints:
 --
 -- -   A name must contain from 1 to 20 alphanumeric characters or hyphens.
+--
 -- -   The first character must be a letter.
+--
 -- -   A name cannot end with a hyphen or contain two consecutive hyphens.
+--
 crgReplicationGroupId :: Lens' CreateReplicationGroup Text
 crgReplicationGroupId = lens _crgReplicationGroupId (\ s a -> s{_crgReplicationGroupId = a});
 

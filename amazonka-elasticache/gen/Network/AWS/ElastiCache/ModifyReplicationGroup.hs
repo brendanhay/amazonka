@@ -149,7 +149,9 @@ modifyReplicationGroup pReplicationGroupId_ =
 -- ElastiCache Multi-AZ replication groups are not supported on:
 --
 -- -   Redis versions earlier than 2.8.6.
+--
 -- -   T1 and T2 cache node types.
+--
 mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutomaticFailoverEnabled = lens _mrgAutomaticFailoverEnabled (\ s a -> s{_mrgAutomaticFailoverEnabled = a});
 
@@ -200,11 +202,17 @@ mrgPrimaryClusterId = lens _mrgPrimaryClusterId (\ s a -> s{_mrgPrimaryClusterId
 -- | Specifies the weekly time range during which maintenance on the cache cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for 'ddd' are:
 --
 -- -   'sun'
+--
 -- -   'mon'
+--
 -- -   'tue'
+--
 -- -   'wed'
+--
 -- -   'thu'
+--
 -- -   'fri'
+--
 -- -   'sat'
 --
 -- Example: 'sun:05:00-sun:09:00'
@@ -213,8 +221,7 @@ mrgPreferredMaintenanceWindow = lens _mrgPreferredMaintenanceWindow (\ s a -> s{
 
 -- | The number of days for which ElastiCache will retain automatic node group snapshots before deleting them. For example, if you set /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will be retained for 5 days before being deleted.
 --
--- __Important__
--- If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
 mrgSnapshotRetentionLimit = lens _mrgSnapshotRetentionLimit (\ s a -> s{_mrgSnapshotRetentionLimit = a});
 

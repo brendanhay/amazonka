@@ -100,17 +100,25 @@ describeReservedCacheNodesOfferings =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.

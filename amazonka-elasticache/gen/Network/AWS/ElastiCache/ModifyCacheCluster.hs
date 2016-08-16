@@ -178,12 +178,11 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 --
 -- Scenarios:
 --
--- -   __Scenario 1:__ You have 3 active nodes and wish to add 2 nodes.
---     Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones for the two new nodes.
--- -   __Scenario 2:__ You have 3 active nodes and 2 nodes pending creation (from the scenario 1 call) and want to add 1 more node.
---     Specify 'NumCacheNodes=6' ((3 + 2) + 1)
--- -   __Scenario 3:__ You want to cancel all pending actions.
---     Specify 'NumCacheNodes=3' to cancel all pending actions.
+-- -   __Scenario 1:__ You have 3 active nodes and wish to add 2 nodes. Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones for the two new nodes.
+--
+-- -   __Scenario 2:__ You have 3 active nodes and 2 nodes pending creation (from the scenario 1 call) and want to add 1 more node. Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability Zone for the new node.
+--
+-- -   __Scenario 3:__ You want to cancel all pending actions. Specify 'NumCacheNodes=3' to cancel all pending actions.
 --
 -- The Availability Zone placement of nodes pending creation cannot be modified. If you wish to cancel any nodes pending creation, add 0 nodes by setting 'NumCacheNodes' to the number of current nodes.
 --
@@ -192,36 +191,59 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 -- __Impact of new add\/remove requests upon pending requests__
 --
 -- -   Scenario-1
---     -   Pending Action: Delete
---     -   New Request: Delete
---     -   Result: The new delete, pending or immediate, replaces the pending delete.
--- -   Scenario-2
---     -   Pending Action: Delete
---     -   New Request: Create
---     -   Result: The new create, pending or immediate, replaces the pending delete.
--- -   Scenario-3
---     -   Pending Action: Create
---     -   New Request: Delete
---     -   Result: The new delete, pending or immediate, replaces the pending create.
--- -   Scenario-4
---     -   Pending Action: Create
---     -   New Request: Create
---     -   Result: The new create is added to the pending create. __Important:__
---         If the new create request is __Apply Immediately - Yes__, all creates are performed immediately.
---         If the new create request is __Apply Immediately - No__, all creates are pending.
 --
--- Example: 'NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c'
+--     -   Pending Action: Delete
+--
+--     -   New Request: Delete
+--
+--     -   Result: The new delete, pending or immediate, replaces the pending delete.
+--
+-- -   Scenario-2
+--
+--     -   Pending Action: Delete
+--
+--     -   New Request: Create
+--
+--     -   Result: The new create, pending or immediate, replaces the pending delete.
+--
+-- -   Scenario-3
+--
+--     -   Pending Action: Create
+--
+--     -   New Request: Delete
+--
+--     -   Result: The new delete, pending or immediate, replaces the pending create.
+--
+-- -   Scenario-4
+--
+--     -   Pending Action: Create
+--
+--     -   New Request: Create
+--
+--     -   Result: The new create is added to the pending create.
+--
+--         __Important:__ If the new create request is __Apply Immediately - Yes__, all creates are performed immediately. If the new create request is __Apply Immediately - No__, all creates are pending.
+--
+-- Example:
+--
+-- 'NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c'
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | Specifies the weekly time range during which maintenance on the cache cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for 'ddd' are:
 --
 -- -   'sun'
+--
 -- -   'mon'
+--
 -- -   'tue'
+--
 -- -   'wed'
+--
 -- -   'thu'
+--
 -- -   'fri'
+--
 -- -   'sat'
 --
 -- Example: 'sun:05:00-sun:09:00'
@@ -236,7 +258,6 @@ mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNod
 
 -- | The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will be retained for 5 days before being deleted.
 --
--- __Important__
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
 mccSnapshotRetentionLimit = lens _mccSnapshotRetentionLimit (\ s a -> s{_mccSnapshotRetentionLimit = a});
@@ -283,8 +304,8 @@ mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotifica
 --
 -- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 --
--- __Note:__
 -- Adding or removing Memcached cache nodes can be applied immediately or as a pending action. See 'ApplyImmediately'.
+--
 -- A pending action to modify the number of cache nodes in a cluster during its maintenance window, whether by adding or removing nodes in accordance with the scale out architecture, is not queued. The customer\'s latest request to add or remove nodes to the cluster overrides any previous pending actions to modify the number of cache nodes in the cluster. For example, a request to remove 2 nodes would override a previous pending action to remove 3 nodes. Similarly, a request to add 2 nodes would override a previous pending action to remove 3 nodes and vice versa. As Memcached cache nodes may now be provisioned in different Availability Zones with flexible cache node placement, a request to add nodes does not automatically override a previous pending action to add nodes. The customer can modify the previous pending action to add more nodes or explicitly cancel the pending request and retry the new request. To cancel pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set /NumCacheNodes/ equal to the number of cache nodes currently in the cache cluster.
 mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
 mccNumCacheNodes = lens _mccNumCacheNodes (\ s a -> s{_mccNumCacheNodes = a});

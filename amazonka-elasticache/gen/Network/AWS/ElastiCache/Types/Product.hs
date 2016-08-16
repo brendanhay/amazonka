@@ -163,17 +163,25 @@ ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
@@ -229,11 +237,17 @@ ccClientDownloadLandingPage = lens _ccClientDownloadLandingPage (\ s a -> s{_ccC
 -- | Specifies the weekly time range during which maintenance on the cache cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for 'ddd' are:
 --
 -- -   'sun'
+--
 -- -   'mon'
+--
 -- -   'tue'
+--
 -- -   'wed'
+--
 -- -   'thu'
+--
 -- -   'fri'
+--
 -- -   'sat'
 --
 -- Example: 'sun:05:00-sun:09:00'
@@ -258,7 +272,6 @@ ccCacheClusterStatus = lens _ccCacheClusterStatus (\ s a -> s{_ccCacheClusterSta
 
 -- | The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will be retained for 5 days before being deleted.
 --
--- __Important__
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Int)
 ccSnapshotRetentionLimit = lens _ccSnapshotRetentionLimit (\ s a -> s{_ccSnapshotRetentionLimit = a});
@@ -385,20 +398,28 @@ instance NFData CacheEngineVersion
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
--- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
+-- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
 --
 -- /See:/ 'cacheNode' smart constructor.
 data CacheNode = CacheNode'
@@ -496,6 +517,7 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
     , _cntspAllowedValues               :: !(Maybe Text)
     , _cntspParameterName               :: !(Maybe Text)
     , _cntspDescription                 :: !(Maybe Text)
+    , _cntspChangeType                  :: !(Maybe ChangeType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CacheNodeTypeSpecificParameter' with the minimum fields required to make a request.
@@ -517,6 +539,8 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
 -- * 'cntspParameterName'
 --
 -- * 'cntspDescription'
+--
+-- * 'cntspChangeType'
 cacheNodeTypeSpecificParameter
     :: CacheNodeTypeSpecificParameter
 cacheNodeTypeSpecificParameter =
@@ -529,6 +553,7 @@ cacheNodeTypeSpecificParameter =
     , _cntspAllowedValues = Nothing
     , _cntspParameterName = Nothing
     , _cntspDescription = Nothing
+    , _cntspChangeType = Nothing
     }
 
 -- | A list of cache node types and their corresponding values for this parameter.
@@ -563,6 +588,10 @@ cntspParameterName = lens _cntspParameterName (\ s a -> s{_cntspParameterName = 
 cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDescription = lens _cntspDescription (\ s a -> s{_cntspDescription = a});
 
+-- | ChangeType indicates whether a change to the parameter will be applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.html Rebooting a Cluster>.
+cntspChangeType :: Lens' CacheNodeTypeSpecificParameter (Maybe ChangeType)
+cntspChangeType = lens _cntspChangeType (\ s a -> s{_cntspChangeType = a});
+
 instance FromXML CacheNodeTypeSpecificParameter where
         parseXML x
           = CacheNodeTypeSpecificParameter' <$>
@@ -575,6 +604,7 @@ instance FromXML CacheNodeTypeSpecificParameter where
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
+                <*> (x .@? "ChangeType")
 
 instance Hashable CacheNodeTypeSpecificParameter
 
@@ -673,7 +703,9 @@ instance NFData CacheParameterGroup
 -- | Represents the output of one of the following actions:
 --
 -- -   /ModifyCacheParameterGroup/
+--
 -- -   /ResetCacheParameterGroup/
+--
 --
 -- /See:/ 'cacheParameterGroupNameMessage' smart constructor.
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
@@ -759,8 +791,11 @@ instance NFData CacheParameterGroupStatus
 -- | Represents the output of one of the following actions:
 --
 -- -   /AuthorizeCacheSecurityGroupIngress/
+--
 -- -   /CreateCacheSecurityGroup/
+--
 -- -   /RevokeCacheSecurityGroupIngress/
+--
 --
 -- /See:/ 'cacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
@@ -864,7 +899,9 @@ instance NFData CacheSecurityGroupMembership
 -- | Represents the output of one of the following actions:
 --
 -- -   /CreateCacheSubnetGroup/
+--
 -- -   /ModifyCacheSubnetGroup/
+--
 --
 -- /See:/ 'cacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
@@ -1371,6 +1408,7 @@ data Parameter = Parameter'
     , _pAllowedValues        :: !(Maybe Text)
     , _pParameterName        :: !(Maybe Text)
     , _pDescription          :: !(Maybe Text)
+    , _pChangeType           :: !(Maybe ChangeType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
@@ -1392,6 +1430,8 @@ data Parameter = Parameter'
 -- * 'pParameterName'
 --
 -- * 'pDescription'
+--
+-- * 'pChangeType'
 parameter
     :: Parameter
 parameter =
@@ -1404,6 +1444,7 @@ parameter =
     , _pAllowedValues = Nothing
     , _pParameterName = Nothing
     , _pDescription = Nothing
+    , _pChangeType = Nothing
     }
 
 -- | The value of the parameter.
@@ -1438,6 +1479,10 @@ pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a});
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
+-- | ChangeType indicates whether a change to the parameter will be applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window\'s reboot. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.html Rebooting a Cluster>.
+pChangeType :: Lens' Parameter (Maybe ChangeType)
+pChangeType = lens _pChangeType (\ s a -> s{_pChangeType = a});
+
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
@@ -1449,6 +1494,7 @@ instance FromXML Parameter where
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
+                <*> (x .@? "ChangeType")
 
 instance Hashable Parameter
 
@@ -1678,7 +1724,9 @@ rgPendingModifiedValues = lens _rgPendingModifiedValues (\ s a -> s{_rgPendingMo
 -- ElastiCache Multi-AZ replication groups are not supported on:
 --
 -- -   Redis versions earlier than 2.8.6.
+--
 -- -   T1 and T2 cache node types.
+--
 rgAutomaticFailover :: Lens' ReplicationGroup (Maybe AutomaticFailoverStatus)
 rgAutomaticFailover = lens _rgAutomaticFailover (\ s a -> s{_rgAutomaticFailover = a});
 
@@ -1733,7 +1781,9 @@ rgpmvPrimaryClusterId = lens _rgpmvPrimaryClusterId (\ s a -> s{_rgpmvPrimaryClu
 -- ElastiCache Multi-AZ replication groups are not supported on:
 --
 -- -   Redis versions earlier than 2.8.6.
+--
 -- -   T1 and T2 cache node types.
+--
 rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe PendingAutomaticFailoverStatus)
 rgpmvAutomaticFailoverStatus = lens _rgpmvAutomaticFailoverStatus (\ s a -> s{_rgpmvAutomaticFailoverStatus = a});
 
@@ -1817,17 +1867,25 @@ reservedCacheNode =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
@@ -1951,17 +2009,25 @@ reservedCacheNodesOffering =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
@@ -2158,17 +2224,25 @@ sEngineVersion = lens _sEngineVersion (\ s a -> s{_sEngineVersion = a});
 -- Valid node types are as follows:
 --
 -- -   General purpose:
+--
 --     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--
 --     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--
 -- -   Compute optimized: 'cache.c1.xlarge'
--- -   Memory optimized
+--
+-- -   Memory optimized:
+--
 --     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--
 --     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
 -- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+--
 -- -   Redis backup\/restore is not supported for t2 instances.
+--
 -- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
 -- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
@@ -2210,11 +2284,17 @@ sEngine = lens _sEngine (\ s a -> s{_sEngine = a});
 -- | Specifies the weekly time range during which maintenance on the cache cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for 'ddd' are:
 --
 -- -   'sun'
+--
 -- -   'mon'
+--
 -- -   'tue'
+--
 -- -   'wed'
+--
 -- -   'thu'
+--
 -- -   'fri'
+--
 -- -   'sat'
 --
 -- Example: 'sun:05:00-sun:09:00'
@@ -2241,8 +2321,7 @@ sPreferredAvailabilityZone = lens _sPreferredAvailabilityZone (\ s a -> s{_sPref
 --
 -- For manual snapshots, this field reflects the /SnapshotRetentionLimit/ for the source cache cluster when the snapshot was created. This field is otherwise ignored: Manual snapshots do not expire, and can only be deleted using the /DeleteSnapshot/ action.
 --
--- __Important__
--- If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
 sSnapshotRetentionLimit = lens _sSnapshotRetentionLimit (\ s a -> s{_sSnapshotRetentionLimit = a});
 

@@ -28,7 +28,10 @@ import Test.AWS.SNS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteEndpoint $
+--         [ requestListPhoneNumbersOptedOut $
+--             listPhoneNumbersOptedOut
+--
+--         , requestDeleteEndpoint $
 --             deleteEndpoint
 --
 --         , requestRemovePermission $
@@ -36,6 +39,9 @@ import Test.AWS.SNS.Internal
 --
 --         , requestDeleteTopic $
 --             deleteTopic
+--
+--         , requestSetSMSAttributes $
+--             setSMSAttributes
 --
 --         , requestListTopics $
 --             listTopics
@@ -52,6 +58,9 @@ import Test.AWS.SNS.Internal
 --         , requestGetTopicAttributes $
 --             getTopicAttributes
 --
+--         , requestOptInPhoneNumber $
+--             optInPhoneNumber
+--
 --         , requestCreatePlatformApplication $
 --             createPlatformApplication
 --
@@ -66,6 +75,9 @@ import Test.AWS.SNS.Internal
 --
 --         , requestDeletePlatformApplication $
 --             deletePlatformApplication
+--
+--         , requestGetSMSAttributes $
+--             getSMSAttributes
 --
 --         , requestListPlatformApplications $
 --             listPlatformApplications
@@ -84,6 +96,9 @@ import Test.AWS.SNS.Internal
 --
 --         , requestCreateTopic $
 --             createTopic
+--
+--         , requestCheckIfPhoneNumberIsOptedOut $
+--             checkIfPhoneNumberIsOptedOut
 --
 --         , requestSubscribe $
 --             subscribe
@@ -106,7 +121,10 @@ import Test.AWS.SNS.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteEndpoint $
+--         [ responseListPhoneNumbersOptedOut $
+--             listPhoneNumbersOptedOutResponse
+--
+--         , responseDeleteEndpoint $
 --             deleteEndpointResponse
 --
 --         , responseRemovePermission $
@@ -114,6 +132,9 @@ import Test.AWS.SNS.Internal
 --
 --         , responseDeleteTopic $
 --             deleteTopicResponse
+--
+--         , responseSetSMSAttributes $
+--             setSMSAttributesResponse
 --
 --         , responseListTopics $
 --             listTopicsResponse
@@ -130,6 +151,9 @@ import Test.AWS.SNS.Internal
 --         , responseGetTopicAttributes $
 --             getTopicAttributesResponse
 --
+--         , responseOptInPhoneNumber $
+--             optInPhoneNumberResponse
+--
 --         , responseCreatePlatformApplication $
 --             createPlatformApplicationResponse
 --
@@ -144,6 +168,9 @@ import Test.AWS.SNS.Internal
 --
 --         , responseDeletePlatformApplication $
 --             deletePlatformApplicationResponse
+--
+--         , responseGetSMSAttributes $
+--             getSMSAttributesResponse
 --
 --         , responseListPlatformApplications $
 --             listPlatformApplicationsResponse
@@ -162,6 +189,9 @@ import Test.AWS.SNS.Internal
 --
 --         , responseCreateTopic $
 --             createTopicResponse
+--
+--         , responseCheckIfPhoneNumberIsOptedOut $
+--             checkIfPhoneNumberIsOptedOutResponse
 --
 --         , responseSubscribe $
 --             subscribeResponse
@@ -186,6 +216,11 @@ import Test.AWS.SNS.Internal
 
 -- Requests
 
+requestListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOut -> TestTree
+requestListPhoneNumbersOptedOut = req
+    "ListPhoneNumbersOptedOut"
+    "fixture/ListPhoneNumbersOptedOut.yaml"
+
 requestDeleteEndpoint :: DeleteEndpoint -> TestTree
 requestDeleteEndpoint = req
     "DeleteEndpoint"
@@ -200,6 +235,11 @@ requestDeleteTopic :: DeleteTopic -> TestTree
 requestDeleteTopic = req
     "DeleteTopic"
     "fixture/DeleteTopic.yaml"
+
+requestSetSMSAttributes :: SetSMSAttributes -> TestTree
+requestSetSMSAttributes = req
+    "SetSMSAttributes"
+    "fixture/SetSMSAttributes.yaml"
 
 requestListTopics :: ListTopics -> TestTree
 requestListTopics = req
@@ -226,6 +266,11 @@ requestGetTopicAttributes = req
     "GetTopicAttributes"
     "fixture/GetTopicAttributes.yaml"
 
+requestOptInPhoneNumber :: OptInPhoneNumber -> TestTree
+requestOptInPhoneNumber = req
+    "OptInPhoneNumber"
+    "fixture/OptInPhoneNumber.yaml"
+
 requestCreatePlatformApplication :: CreatePlatformApplication -> TestTree
 requestCreatePlatformApplication = req
     "CreatePlatformApplication"
@@ -250,6 +295,11 @@ requestDeletePlatformApplication :: DeletePlatformApplication -> TestTree
 requestDeletePlatformApplication = req
     "DeletePlatformApplication"
     "fixture/DeletePlatformApplication.yaml"
+
+requestGetSMSAttributes :: GetSMSAttributes -> TestTree
+requestGetSMSAttributes = req
+    "GetSMSAttributes"
+    "fixture/GetSMSAttributes.yaml"
 
 requestListPlatformApplications :: ListPlatformApplications -> TestTree
 requestListPlatformApplications = req
@@ -280,6 +330,11 @@ requestCreateTopic :: CreateTopic -> TestTree
 requestCreateTopic = req
     "CreateTopic"
     "fixture/CreateTopic.yaml"
+
+requestCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOut -> TestTree
+requestCheckIfPhoneNumberIsOptedOut = req
+    "CheckIfPhoneNumberIsOptedOut"
+    "fixture/CheckIfPhoneNumberIsOptedOut.yaml"
 
 requestSubscribe :: Subscribe -> TestTree
 requestSubscribe = req
@@ -313,6 +368,13 @@ requestPublish = req
 
 -- Responses
 
+responseListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOutResponse -> TestTree
+responseListPhoneNumbersOptedOut = res
+    "ListPhoneNumbersOptedOutResponse"
+    "fixture/ListPhoneNumbersOptedOutResponse.proto"
+    sns
+    (Proxy :: Proxy ListPhoneNumbersOptedOut)
+
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
 responseDeleteEndpoint = res
     "DeleteEndpointResponse"
@@ -333,6 +395,13 @@ responseDeleteTopic = res
     "fixture/DeleteTopicResponse.proto"
     sns
     (Proxy :: Proxy DeleteTopic)
+
+responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
+responseSetSMSAttributes = res
+    "SetSMSAttributesResponse"
+    "fixture/SetSMSAttributesResponse.proto"
+    sns
+    (Proxy :: Proxy SetSMSAttributes)
 
 responseListTopics :: ListTopicsResponse -> TestTree
 responseListTopics = res
@@ -369,6 +438,13 @@ responseGetTopicAttributes = res
     sns
     (Proxy :: Proxy GetTopicAttributes)
 
+responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
+responseOptInPhoneNumber = res
+    "OptInPhoneNumberResponse"
+    "fixture/OptInPhoneNumberResponse.proto"
+    sns
+    (Proxy :: Proxy OptInPhoneNumber)
+
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
 responseCreatePlatformApplication = res
     "CreatePlatformApplicationResponse"
@@ -403,6 +479,13 @@ responseDeletePlatformApplication = res
     "fixture/DeletePlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy DeletePlatformApplication)
+
+responseGetSMSAttributes :: GetSMSAttributesResponse -> TestTree
+responseGetSMSAttributes = res
+    "GetSMSAttributesResponse"
+    "fixture/GetSMSAttributesResponse.proto"
+    sns
+    (Proxy :: Proxy GetSMSAttributes)
 
 responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
 responseListPlatformApplications = res
@@ -445,6 +528,13 @@ responseCreateTopic = res
     "fixture/CreateTopicResponse.proto"
     sns
     (Proxy :: Proxy CreateTopic)
+
+responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
+responseCheckIfPhoneNumberIsOptedOut = res
+    "CheckIfPhoneNumberIsOptedOutResponse"
+    "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
+    sns
+    (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
 
 responseSubscribe :: SubscribeResponse -> TestTree
 responseSubscribe = res

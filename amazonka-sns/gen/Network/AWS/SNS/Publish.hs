@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a message to all of a topic\'s subscribed endpoints. When a 'messageId' is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic\'s subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.
+-- Sends a message to all of a topic\'s subscribed endpoints. When a 'messageId' is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic\'s subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.
 --
--- To use the 'Publish' action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing to a mobile endpoint.
+-- To use the 'Publish' action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing to a mobile endpoint.
+--
+-- For more information about formatting messages, see <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html Send Custom Platform-Specific Payloads in Messages to Mobile Devices>.
 module Network.AWS.SNS.Publish
     (
     -- * Creating a Request
@@ -31,6 +33,7 @@ module Network.AWS.SNS.Publish
     , pTargetARN
     , pMessageAttributes
     , pTopicARN
+    , pPhoneNumber
     , pMessageStructure
     , pMessage
 
@@ -57,6 +60,7 @@ data Publish = Publish'
     , _pTargetARN         :: !(Maybe Text)
     , _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
     , _pTopicARN          :: !(Maybe Text)
+    , _pPhoneNumber       :: !(Maybe Text)
     , _pMessageStructure  :: !(Maybe Text)
     , _pMessage           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -73,6 +77,8 @@ data Publish = Publish'
 --
 -- * 'pTopicARN'
 --
+-- * 'pPhoneNumber'
+--
 -- * 'pMessageStructure'
 --
 -- * 'pMessage'
@@ -85,6 +91,7 @@ publish pMessage_ =
     , _pTargetARN = Nothing
     , _pMessageAttributes = Nothing
     , _pTopicARN = Nothing
+    , _pPhoneNumber = Nothing
     , _pMessageStructure = Nothing
     , _pMessage = pMessage_
     }
@@ -96,6 +103,8 @@ pSubject :: Lens' Publish (Maybe Text)
 pSubject = lens _pSubject (\ s a -> s{_pSubject = a});
 
 -- | Either TopicArn or EndpointArn, but not both.
+--
+-- If you don\'t specify a value for the 'TargetArn' parameter, you must specify a value for the 'PhoneNumber' or 'TopicArn' parameters.
 pTargetARN :: Lens' Publish (Maybe Text)
 pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
 
@@ -104,12 +113,21 @@ pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
 pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map;
 
 -- | The topic you want to publish to.
+--
+-- If you don\'t specify a value for the 'TopicArn' parameter, you must specify a value for the 'PhoneNumber' or 'TargetArn' parameters.
 pTopicARN :: Lens' Publish (Maybe Text)
 pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a});
+
+-- | The phone number to which you want to deliver an SMS message. Use E.164 format.
+--
+-- If you don\'t specify a value for the 'PhoneNumber' parameter, you must specify a value for the 'TargetArn' or 'TopicArn' parameters.
+pPhoneNumber :: Lens' Publish (Maybe Text)
+pPhoneNumber = lens _pPhoneNumber (\ s a -> s{_pPhoneNumber = a});
 
 -- | Set 'MessageStructure' to 'json' if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:
 --
 -- -   be a syntactically valid JSON object; and
+--
 -- -   contain at least a top-level JSON key of \"default\" with a value that is a string.
 --
 -- You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., \"http\").
@@ -131,14 +149,23 @@ pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a})
 -- JSON-specific constraints:
 --
 -- -   Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.
+--
 -- -   The values will be parsed (unescaped) before they are used in outgoing messages.
+--
 -- -   Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).
+--
 -- -   Values have a minimum length of 0 (the empty string, \"\", is allowed).
+--
 -- -   Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).
+--
 -- -   Non-string values will cause the key to be ignored.
+--
 -- -   Keys that do not correspond to supported transport protocols are ignored.
+--
 -- -   Duplicate keys are not allowed.
+--
 -- -   Failure to parse or validate any key or value in the message will cause the 'Publish' call to return an error (no partial delivery).
+--
 pMessage :: Lens' Publish Text
 pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
 
@@ -172,6 +199,7 @@ instance ToQuery Publish where
                    (toQueryMap "entry" "Name" "Value" <$>
                       _pMessageAttributes),
                "TopicArn" =: _pTopicARN,
+               "PhoneNumber" =: _pPhoneNumber,
                "MessageStructure" =: _pMessageStructure,
                "Message" =: _pMessage]
 

@@ -26,14 +26,16 @@
 --
 -- By default, you can create up to 20 delivery streams per region.
 --
--- A delivery stream can only be configured with a single destination, Amazon S3 or Amazon Redshift. For correct < CreateDeliveryStream> request syntax, specify only one destination configuration parameter: either __ElasticsearchDestinationConfiguration__, __RedshiftDestinationConfiguration__ or __S3DestinationConfiguration__
+-- A delivery stream can only be configured with a single destination, Amazon S3, Amazon Elasticsearch Service, or Amazon Redshift. For correct < CreateDeliveryStream> request syntax, specify only one destination configuration parameter: either __S3DestinationConfiguration__, __ElasticsearchDestinationConfiguration__, or __RedshiftDestinationConfiguration__.
 --
 -- As part of __S3DestinationConfiguration__, optional values __BufferingHints__, __EncryptionConfiguration__, and __CompressionFormat__ can be provided. By default, if no __BufferingHints__ value is provided, Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. Note that __BufferingHints__ is a hint, so there are some cases where the service cannot adhere to these conditions strictly; for example, record boundaries are such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.
 --
 -- A few notes about __RedshiftDestinationConfiguration__:
 --
 -- -   An Amazon Redshift destination requires an S3 bucket as intermediate location, as Firehose first delivers data to S3 and then uses 'COPY' syntax to load data into an Amazon Redshift table. This is specified in the __RedshiftDestinationConfiguration.S3Configuration__ parameter element.
+--
 -- -   The compression formats 'SNAPPY' or 'ZIP' cannot be specified in __RedshiftDestinationConfiguration.S3Configuration__ because the Amazon Redshift 'COPY' operation that reads from the S3 bucket doesn\'t support these compression formats.
+--
 -- -   We strongly recommend that the username and password provided is used exclusively for Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift 'INSERT' permissions.
 --
 -- Firehose assumes the IAM role that is configured as part of destinations. The IAM role should allow the Firehose principal to assume the role, and the role should have permissions that allows the service to deliver the data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Amazon S3 Bucket Access> in the /Amazon Kinesis Firehose Developer Guide/.

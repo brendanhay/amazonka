@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
       updateIdentityPool
     , UpdateIdentityPool
     -- * Request Lenses
+    , uipSamlProviderARNs
     , uipSupportedLoginProviders
     , uipDeveloperProviderName
     , uipOpenIdConnectProviderARNs
@@ -39,6 +40,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , identityPool
     , IdentityPool
     -- * Response Lenses
+    , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
@@ -59,7 +61,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateIdentityPool' smart constructor.
 data UpdateIdentityPool = UpdateIdentityPool'
-    { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    { _uipSamlProviderARNs               :: !(Maybe [Text])
+    , _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _uipDeveloperProviderName          :: !(Maybe Text)
     , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
     , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
@@ -71,6 +74,8 @@ data UpdateIdentityPool = UpdateIdentityPool'
 -- | Creates a value of 'UpdateIdentityPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uipSamlProviderARNs'
 --
 -- * 'uipSupportedLoginProviders'
 --
@@ -92,7 +97,8 @@ updateIdentityPool
     -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     UpdateIdentityPool'
-    { _uipSupportedLoginProviders = Nothing
+    { _uipSamlProviderARNs = Nothing
+    , _uipSupportedLoginProviders = Nothing
     , _uipDeveloperProviderName = Nothing
     , _uipOpenIdConnectProviderARNs = Nothing
     , _uipCognitoIdentityProviders = Nothing
@@ -100,6 +106,10 @@ updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIden
     , _uipIdentityPoolName = pIdentityPoolName_
     , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
+
+-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
+uipSamlProviderARNs :: Lens' UpdateIdentityPool [Text]
+uipSamlProviderARNs = lens _uipSamlProviderARNs (\ s a -> s{_uipSamlProviderARNs = a}) . _Default . _Coerce;
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
@@ -113,7 +123,7 @@ uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDevelo
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
--- | A list representing a Cognito User Identity Pool and its client ID.
+-- | A list representing an Amazon Cognito Identity User Pool and its client ID.
 uipCognitoIdentityProviders :: Lens' UpdateIdentityPool [CognitoIdentityProvider]
 uipCognitoIdentityProviders = lens _uipCognitoIdentityProviders (\ s a -> s{_uipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
@@ -152,7 +162,8 @@ instance ToJSON UpdateIdentityPool where
         toJSON UpdateIdentityPool'{..}
           = object
               (catMaybes
-                 [("SupportedLoginProviders" .=) <$>
+                 [("SamlProviderARNs" .=) <$> _uipSamlProviderARNs,
+                  ("SupportedLoginProviders" .=) <$>
                     _uipSupportedLoginProviders,
                   ("DeveloperProviderName" .=) <$>
                     _uipDeveloperProviderName,

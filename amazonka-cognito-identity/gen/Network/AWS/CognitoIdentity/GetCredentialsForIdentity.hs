@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
       getCredentialsForIdentity
     , GetCredentialsForIdentity
     -- * Request Lenses
+    , gcfiCustomRoleARN
     , gcfiLogins
     , gcfiIdentityId
 
@@ -50,13 +51,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCredentialsForIdentity' smart constructor.
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfiLogins     :: !(Maybe (Map Text Text))
-    , _gcfiIdentityId :: !Text
+    { _gcfiCustomRoleARN :: !(Maybe Text)
+    , _gcfiLogins        :: !(Maybe (Map Text Text))
+    , _gcfiIdentityId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCredentialsForIdentity' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcfiCustomRoleARN'
 --
 -- * 'gcfiLogins'
 --
@@ -66,9 +70,14 @@ getCredentialsForIdentity
     -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId_ =
     GetCredentialsForIdentity'
-    { _gcfiLogins = Nothing
+    { _gcfiCustomRoleARN = Nothing
+    , _gcfiLogins = Nothing
     , _gcfiIdentityId = pIdentityId_
     }
+
+-- | The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
+gcfiCustomRoleARN :: Lens' GetCredentialsForIdentity (Maybe Text)
+gcfiCustomRoleARN = lens _gcfiCustomRoleARN (\ s a -> s{_gcfiCustomRoleARN = a});
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
@@ -107,7 +116,8 @@ instance ToJSON GetCredentialsForIdentity where
         toJSON GetCredentialsForIdentity'{..}
           = object
               (catMaybes
-                 [("Logins" .=) <$> _gcfiLogins,
+                 [("CustomRoleArn" .=) <$> _gcfiCustomRoleARN,
+                  ("Logins" .=) <$> _gcfiLogins,
                   Just ("IdentityId" .= _gcfiIdentityId)])
 
 instance ToPath GetCredentialsForIdentity where

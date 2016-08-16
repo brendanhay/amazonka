@@ -21,7 +21,7 @@ import           Network.AWS.CognitoIdentity.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A provider representing a Cognito User Identity Pool and its client ID.
+-- | A provider representing an Amazon Cognito Identity User Pool and its client ID.
 --
 -- /See:/ 'cognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
@@ -44,11 +44,11 @@ cognitoIdentityProvider =
     , _cipProviderName = Nothing
     }
 
--- | The client ID for the Cognito User Identity Pool.
+-- | The client ID for the Amazon Cognito Identity User Pool.
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
 cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
 
--- | The provider name for a Cognito User Identity Pool. For example, 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
+-- | The provider name for an Amazon Cognito Identity User Pool. For example, 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
 cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
 cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
 
@@ -194,7 +194,8 @@ instance NFData IdentityDescription
 --
 -- /See:/ 'identityPool' smart constructor.
 data IdentityPool = IdentityPool'
-    { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    { _ipSamlProviderARNs               :: !(Maybe [Text])
+    , _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _ipDeveloperProviderName          :: !(Maybe Text)
     , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
     , _ipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
@@ -206,6 +207,8 @@ data IdentityPool = IdentityPool'
 -- | Creates a value of 'IdentityPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipSamlProviderARNs'
 --
 -- * 'ipSupportedLoginProviders'
 --
@@ -227,7 +230,8 @@ identityPool
     -> IdentityPool
 identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     IdentityPool'
-    { _ipSupportedLoginProviders = Nothing
+    { _ipSamlProviderARNs = Nothing
+    , _ipSupportedLoginProviders = Nothing
     , _ipDeveloperProviderName = Nothing
     , _ipOpenIdConnectProviderARNs = Nothing
     , _ipCognitoIdentityProviders = Nothing
@@ -235,6 +239,10 @@ identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities
     , _ipIdentityPoolName = pIdentityPoolName_
     , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
+
+-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
+ipSamlProviderARNs :: Lens' IdentityPool [Text]
+ipSamlProviderARNs = lens _ipSamlProviderARNs (\ s a -> s{_ipSamlProviderARNs = a}) . _Default . _Coerce;
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
@@ -248,7 +256,7 @@ ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloper
 ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
 ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
--- | A list representing a Cognito User Identity Pool and its client ID.
+-- | A list representing an Amazon Cognito Identity User Pool and its client ID.
 ipCognitoIdentityProviders :: Lens' IdentityPool [CognitoIdentityProvider]
 ipCognitoIdentityProviders = lens _ipCognitoIdentityProviders (\ s a -> s{_ipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
@@ -269,8 +277,9 @@ instance FromJSON IdentityPool where
           = withObject "IdentityPool"
               (\ x ->
                  IdentityPool' <$>
-                   (x .:? "SupportedLoginProviders" .!= mempty) <*>
-                     (x .:? "DeveloperProviderName")
+                   (x .:? "SamlProviderARNs" .!= mempty) <*>
+                     (x .:? "SupportedLoginProviders" .!= mempty)
+                     <*> (x .:? "DeveloperProviderName")
                      <*> (x .:? "OpenIdConnectProviderARNs" .!= mempty)
                      <*> (x .:? "CognitoIdentityProviders" .!= mempty)
                      <*> (x .: "IdentityPoolId")
@@ -285,7 +294,8 @@ instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
           = object
               (catMaybes
-                 [("SupportedLoginProviders" .=) <$>
+                 [("SamlProviderARNs" .=) <$> _ipSamlProviderARNs,
+                  ("SupportedLoginProviders" .=) <$>
                     _ipSupportedLoginProviders,
                   ("DeveloperProviderName" .=) <$>
                     _ipDeveloperProviderName,

@@ -87,7 +87,7 @@ instance NFData CreateDistribution
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-08-01/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -95,7 +95,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2016-01-28/distribution"
+        toPath = const "/2016-08-01/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

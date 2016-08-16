@@ -106,7 +106,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2016-01-28/distribution"
+        toPath = const "/2016-08-01/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}

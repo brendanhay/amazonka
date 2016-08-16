@@ -95,7 +95,7 @@ instance ToHeaders GetInvalidation where
 instance ToPath GetInvalidation where
         toPath GetInvalidation'{..}
           = mconcat
-              ["/2016-01-28/distribution/", toBS _giDistributionId,
+              ["/2016-08-01/distribution/", toBS _giDistributionId,
                "/invalidation/", toBS _giId]
 
 instance ToQuery GetInvalidation where

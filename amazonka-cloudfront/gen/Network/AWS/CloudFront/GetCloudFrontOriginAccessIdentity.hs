@@ -91,7 +91,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
          where
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-01-28/origin-access-identity/cloudfront/",
+              ["/2016-08-01/origin-access-identity/cloudfront/",
                toBS _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity

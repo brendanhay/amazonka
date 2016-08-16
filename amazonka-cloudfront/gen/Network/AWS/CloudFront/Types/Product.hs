@@ -1129,6 +1129,7 @@ instance ToXML DefaultCacheBehavior where
 -- /See:/ 'distribution' smart constructor.
 data Distribution = Distribution'
     { _dId                            :: !Text
+    , _dARN                           :: !Text
     , _dStatus                        :: !Text
     , _dLastModifiedTime              :: !ISO8601
     , _dInProgressInvalidationBatches :: !Int
@@ -1143,6 +1144,8 @@ data Distribution = Distribution'
 --
 -- * 'dId'
 --
+-- * 'dARN'
+--
 -- * 'dStatus'
 --
 -- * 'dLastModifiedTime'
@@ -1156,6 +1159,7 @@ data Distribution = Distribution'
 -- * 'dDistributionConfig'
 distribution
     :: Text -- ^ 'dId'
+    -> Text -- ^ 'dARN'
     -> Text -- ^ 'dStatus'
     -> UTCTime -- ^ 'dLastModifiedTime'
     -> Int -- ^ 'dInProgressInvalidationBatches'
@@ -1163,9 +1167,10 @@ distribution
     -> ActiveTrustedSigners -- ^ 'dActiveTrustedSigners'
     -> DistributionConfig -- ^ 'dDistributionConfig'
     -> Distribution
-distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
+distribution pId_ pARN_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
     Distribution'
     { _dId = pId_
+    , _dARN = pARN_
     , _dStatus = pStatus_
     , _dLastModifiedTime = _Time # pLastModifiedTime_
     , _dInProgressInvalidationBatches = pInProgressInvalidationBatches_
@@ -1177,6 +1182,10 @@ distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pD
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 dId :: Lens' Distribution Text
 dId = lens _dId (\ s a -> s{_dId = a});
+
+-- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+dARN :: Lens' Distribution Text
+dARN = lens _dARN (\ s a -> s{_dARN = a});
 
 -- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
 dStatus :: Lens' Distribution Text
@@ -1205,7 +1214,7 @@ dDistributionConfig = lens _dDistributionConfig (\ s a -> s{_dDistributionConfig
 instance FromXML Distribution where
         parseXML x
           = Distribution' <$>
-              (x .@ "Id") <*> (x .@ "Status") <*>
+              (x .@ "Id") <*> (x .@ "ARN") <*> (x .@ "Status") <*>
                 (x .@ "LastModifiedTime")
                 <*> (x .@ "InProgressInvalidationBatches")
                 <*> (x .@ "DomainName")
@@ -1386,6 +1395,49 @@ instance ToXML DistributionConfig where
                "DefaultCacheBehavior" @= _dcDefaultCacheBehavior,
                "Comment" @= _dcComment, "Enabled" @= _dcEnabled]
 
+-- | A distribution Configuration and a list of tags to be associated with the distribution.
+--
+-- /See:/ 'distributionConfigWithTags' smart constructor.
+data DistributionConfigWithTags = DistributionConfigWithTags'
+    { _dcwtDistributionConfig :: !DistributionConfig
+    , _dcwtTags               :: !Tags
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DistributionConfigWithTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcwtDistributionConfig'
+--
+-- * 'dcwtTags'
+distributionConfigWithTags
+    :: DistributionConfig -- ^ 'dcwtDistributionConfig'
+    -> Tags -- ^ 'dcwtTags'
+    -> DistributionConfigWithTags
+distributionConfigWithTags pDistributionConfig_ pTags_ =
+    DistributionConfigWithTags'
+    { _dcwtDistributionConfig = pDistributionConfig_
+    , _dcwtTags = pTags_
+    }
+
+-- | A distribution Configuration.
+dcwtDistributionConfig :: Lens' DistributionConfigWithTags DistributionConfig
+dcwtDistributionConfig = lens _dcwtDistributionConfig (\ s a -> s{_dcwtDistributionConfig = a});
+
+-- | A complex type that contains zero or more Tag elements.
+dcwtTags :: Lens' DistributionConfigWithTags Tags
+dcwtTags = lens _dcwtTags (\ s a -> s{_dcwtTags = a});
+
+instance Hashable DistributionConfigWithTags
+
+instance NFData DistributionConfigWithTags
+
+instance ToXML DistributionConfigWithTags where
+        toXML DistributionConfigWithTags'{..}
+          = mconcat
+              ["DistributionConfig" @= _dcwtDistributionConfig,
+               "Tags" @= _dcwtTags]
+
 -- | A distribution list.
 --
 -- /See:/ 'distributionList' smart constructor.
@@ -1473,6 +1525,7 @@ instance NFData DistributionList
 -- /See:/ 'distributionSummary' smart constructor.
 data DistributionSummary = DistributionSummary'
     { _dsId                   :: !Text
+    , _dsARN                  :: !Text
     , _dsStatus               :: !Text
     , _dsLastModifiedTime     :: !ISO8601
     , _dsDomainName           :: !Text
@@ -1494,6 +1547,8 @@ data DistributionSummary = DistributionSummary'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsId'
+--
+-- * 'dsARN'
 --
 -- * 'dsStatus'
 --
@@ -1524,6 +1579,7 @@ data DistributionSummary = DistributionSummary'
 -- * 'dsWebACLId'
 distributionSummary
     :: Text -- ^ 'dsId'
+    -> Text -- ^ 'dsARN'
     -> Text -- ^ 'dsStatus'
     -> UTCTime -- ^ 'dsLastModifiedTime'
     -> Text -- ^ 'dsDomainName'
@@ -1539,9 +1595,10 @@ distributionSummary
     -> Restrictions -- ^ 'dsRestrictions'
     -> Text -- ^ 'dsWebACLId'
     -> DistributionSummary
-distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ =
+distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ =
     DistributionSummary'
     { _dsId = pId_
+    , _dsARN = pARN_
     , _dsStatus = pStatus_
     , _dsLastModifiedTime = _Time # pLastModifiedTime_
     , _dsDomainName = pDomainName_
@@ -1561,6 +1618,10 @@ distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOri
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 dsId :: Lens' DistributionSummary Text
 dsId = lens _dsId (\ s a -> s{_dsId = a});
+
+-- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+dsARN :: Lens' DistributionSummary Text
+dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
 -- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
 dsStatus :: Lens' DistributionSummary Text
@@ -1621,7 +1682,7 @@ dsWebACLId = lens _dsWebACLId (\ s a -> s{_dsWebACLId = a});
 instance FromXML DistributionSummary where
         parseXML x
           = DistributionSummary' <$>
-              (x .@ "Id") <*> (x .@ "Status") <*>
+              (x .@ "Id") <*> (x .@ "ARN") <*> (x .@ "Status") <*>
                 (x .@ "LastModifiedTime")
                 <*> (x .@ "DomainName")
                 <*> (x .@ "Aliases")
@@ -2614,6 +2675,7 @@ instance NFData Signer
 data StreamingDistribution = StreamingDistribution'
     { _sdLastModifiedTime            :: !(Maybe ISO8601)
     , _sdId                          :: !Text
+    , _sdARN                         :: !Text
     , _sdStatus                      :: !Text
     , _sdDomainName                  :: !Text
     , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
@@ -2628,6 +2690,8 @@ data StreamingDistribution = StreamingDistribution'
 --
 -- * 'sdId'
 --
+-- * 'sdARN'
+--
 -- * 'sdStatus'
 --
 -- * 'sdDomainName'
@@ -2637,15 +2701,17 @@ data StreamingDistribution = StreamingDistribution'
 -- * 'sdStreamingDistributionConfig'
 streamingDistribution
     :: Text -- ^ 'sdId'
+    -> Text -- ^ 'sdARN'
     -> Text -- ^ 'sdStatus'
     -> Text -- ^ 'sdDomainName'
     -> ActiveTrustedSigners -- ^ 'sdActiveTrustedSigners'
     -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
     -> StreamingDistribution
-streamingDistribution pId_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
+streamingDistribution pId_ pARN_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
     StreamingDistribution'
     { _sdLastModifiedTime = Nothing
     , _sdId = pId_
+    , _sdARN = pARN_
     , _sdStatus = pStatus_
     , _sdDomainName = pDomainName_
     , _sdActiveTrustedSigners = pActiveTrustedSigners_
@@ -2659,6 +2725,10 @@ sdLastModifiedTime = lens _sdLastModifiedTime (\ s a -> s{_sdLastModifiedTime = 
 -- | The identifier for the streaming distribution. For example: EGTXBD79H29TRA8.
 sdId :: Lens' StreamingDistribution Text
 sdId = lens _sdId (\ s a -> s{_sdId = a});
+
+-- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+sdARN :: Lens' StreamingDistribution Text
+sdARN = lens _sdARN (\ s a -> s{_sdARN = a});
 
 -- | The current status of the streaming distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
 sdStatus :: Lens' StreamingDistribution Text
@@ -2680,7 +2750,8 @@ instance FromXML StreamingDistribution where
         parseXML x
           = StreamingDistribution' <$>
               (x .@? "LastModifiedTime") <*> (x .@ "Id") <*>
-                (x .@ "Status")
+                (x .@ "ARN")
+                <*> (x .@ "Status")
                 <*> (x .@ "DomainName")
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "StreamingDistributionConfig")
@@ -2799,6 +2870,51 @@ instance ToXML StreamingDistributionConfig where
                "TrustedSigners" @= _sdcTrustedSigners,
                "Enabled" @= _sdcEnabled]
 
+-- | A streaming distribution Configuration and a list of tags to be associated with the streaming distribution.
+--
+-- /See:/ 'streamingDistributionConfigWithTags' smart constructor.
+data StreamingDistributionConfigWithTags = StreamingDistributionConfigWithTags'
+    { _sdcwtStreamingDistributionConfig :: !StreamingDistributionConfig
+    , _sdcwtTags                        :: !Tags
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamingDistributionConfigWithTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdcwtStreamingDistributionConfig'
+--
+-- * 'sdcwtTags'
+streamingDistributionConfigWithTags
+    :: StreamingDistributionConfig -- ^ 'sdcwtStreamingDistributionConfig'
+    -> Tags -- ^ 'sdcwtTags'
+    -> StreamingDistributionConfigWithTags
+streamingDistributionConfigWithTags pStreamingDistributionConfig_ pTags_ =
+    StreamingDistributionConfigWithTags'
+    { _sdcwtStreamingDistributionConfig = pStreamingDistributionConfig_
+    , _sdcwtTags = pTags_
+    }
+
+-- | A streaming distribution Configuration.
+sdcwtStreamingDistributionConfig :: Lens' StreamingDistributionConfigWithTags StreamingDistributionConfig
+sdcwtStreamingDistributionConfig = lens _sdcwtStreamingDistributionConfig (\ s a -> s{_sdcwtStreamingDistributionConfig = a});
+
+-- | A complex type that contains zero or more Tag elements.
+sdcwtTags :: Lens' StreamingDistributionConfigWithTags Tags
+sdcwtTags = lens _sdcwtTags (\ s a -> s{_sdcwtTags = a});
+
+instance Hashable StreamingDistributionConfigWithTags
+
+instance NFData StreamingDistributionConfigWithTags
+
+instance ToXML StreamingDistributionConfigWithTags
+         where
+        toXML StreamingDistributionConfigWithTags'{..}
+          = mconcat
+              ["StreamingDistributionConfig" @=
+                 _sdcwtStreamingDistributionConfig,
+               "Tags" @= _sdcwtTags]
+
 -- | A streaming distribution list.
 --
 -- /See:/ 'streamingDistributionList' smart constructor.
@@ -2886,6 +3002,7 @@ instance NFData StreamingDistributionList
 -- /See:/ 'streamingDistributionSummary' smart constructor.
 data StreamingDistributionSummary = StreamingDistributionSummary'
     { _sdsId               :: !Text
+    , _sdsARN              :: !Text
     , _sdsStatus           :: !Text
     , _sdsLastModifiedTime :: !ISO8601
     , _sdsDomainName       :: !Text
@@ -2902,6 +3019,8 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdsId'
+--
+-- * 'sdsARN'
 --
 -- * 'sdsStatus'
 --
@@ -2922,6 +3041,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- * 'sdsEnabled'
 streamingDistributionSummary
     :: Text -- ^ 'sdsId'
+    -> Text -- ^ 'sdsARN'
     -> Text -- ^ 'sdsStatus'
     -> UTCTime -- ^ 'sdsLastModifiedTime'
     -> Text -- ^ 'sdsDomainName'
@@ -2932,9 +3052,10 @@ streamingDistributionSummary
     -> PriceClass -- ^ 'sdsPriceClass'
     -> Bool -- ^ 'sdsEnabled'
     -> StreamingDistributionSummary
-streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
+streamingDistributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
     StreamingDistributionSummary'
     { _sdsId = pId_
+    , _sdsARN = pARN_
     , _sdsStatus = pStatus_
     , _sdsLastModifiedTime = _Time # pLastModifiedTime_
     , _sdsDomainName = pDomainName_
@@ -2949,6 +3070,10 @@ streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Or
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
 sdsId :: Lens' StreamingDistributionSummary Text
 sdsId = lens _sdsId (\ s a -> s{_sdsId = a});
+
+-- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+sdsARN :: Lens' StreamingDistributionSummary Text
+sdsARN = lens _sdsARN (\ s a -> s{_sdsARN = a});
 
 -- | Indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
 sdsStatus :: Lens' StreamingDistributionSummary Text
@@ -2989,7 +3114,7 @@ sdsEnabled = lens _sdsEnabled (\ s a -> s{_sdsEnabled = a});
 instance FromXML StreamingDistributionSummary where
         parseXML x
           = StreamingDistributionSummary' <$>
-              (x .@ "Id") <*> (x .@ "Status") <*>
+              (x .@ "Id") <*> (x .@ "ARN") <*> (x .@ "Status") <*>
                 (x .@ "LastModifiedTime")
                 <*> (x .@ "DomainName")
                 <*> (x .@ "S3Origin")
@@ -3060,6 +3185,120 @@ instance ToXML StreamingLoggingConfig where
           = mconcat
               ["Enabled" @= _slcEnabled, "Bucket" @= _slcBucket,
                "Prefix" @= _slcPrefix]
+
+-- | A complex type that contains Tag key and Tag value.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | A string that contains an optional Tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : \/ = + \'.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | A string that contains Tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : \/ = + \'.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromXML Tag where
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@ "Key")
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToXML Tag where
+        toXML Tag'{..}
+          = mconcat ["Value" @= _tagValue, "Key" @= _tagKey]
+
+-- | A complex type that contains zero or more Tag elements.
+--
+-- /See:/ 'tagKeys' smart constructor.
+newtype TagKeys = TagKeys'
+    { _tkItems :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagKeys' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tkItems'
+tagKeys
+    :: TagKeys
+tagKeys =
+    TagKeys'
+    { _tkItems = Nothing
+    }
+
+-- | A complex type that contains Tag key elements
+tkItems :: Lens' TagKeys [Text]
+tkItems = lens _tkItems (\ s a -> s{_tkItems = a}) . _Default . _Coerce;
+
+instance Hashable TagKeys
+
+instance NFData TagKeys
+
+instance ToXML TagKeys where
+        toXML TagKeys'{..}
+          = mconcat
+              ["Items" @= toXML (toXMLList "Key" <$> _tkItems)]
+
+-- | A complex type that contains zero or more Tag elements.
+--
+-- /See:/ 'tags' smart constructor.
+newtype Tags = Tags'
+    { _tItems :: Maybe [Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tItems'
+tags
+    :: Tags
+tags =
+    Tags'
+    { _tItems = Nothing
+    }
+
+-- | A complex type that contains Tag elements
+tItems :: Lens' Tags [Tag]
+tItems = lens _tItems (\ s a -> s{_tItems = a}) . _Default . _Coerce;
+
+instance FromXML Tags where
+        parseXML x
+          = Tags' <$>
+              (x .@? "Items" .!@ mempty >>=
+                 may (parseXMLList "Tag"))
+
+instance Hashable Tags
+
+instance NFData Tags
+
+instance ToXML Tags where
+        toXML Tags'{..}
+          = mconcat
+              ["Items" @= toXML (toXMLList "Tag" <$> _tItems)]
 
 -- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --

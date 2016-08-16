@@ -23,6 +23,9 @@ module Network.AWS.CloudFront
     -- ** TooManyOriginCustomHeaders
     , _TooManyOriginCustomHeaders
 
+    -- ** InvalidTagging
+    , _InvalidTagging
+
     -- ** InvalidErrorCode
     , _InvalidErrorCode
 
@@ -94,6 +97,9 @@ module Network.AWS.CloudFront
 
     -- ** TooManyHeadersInForwardedValues
     , _TooManyHeadersInForwardedValues
+
+    -- ** NoSuchResource
+    , _NoSuchResource
 
     -- ** TooManyStreamingDistributionCNAMEs
     , _TooManyStreamingDistributionCNAMEs
@@ -191,11 +197,20 @@ module Network.AWS.CloudFront
     -- ** UpdateStreamingDistribution
     , module Network.AWS.CloudFront.UpdateStreamingDistribution
 
+    -- ** ListTagsForResource
+    , module Network.AWS.CloudFront.ListTagsForResource
+
+    -- ** CreateDistributionWithTags
+    , module Network.AWS.CloudFront.CreateDistributionWithTags
+
     -- ** CreateDistribution
     , module Network.AWS.CloudFront.CreateDistribution
 
     -- ** GetDistributionConfig
     , module Network.AWS.CloudFront.GetDistributionConfig
+
+    -- ** CreateStreamingDistributionWithTags
+    , module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 
     -- ** GetDistribution
     , module Network.AWS.CloudFront.GetDistribution
@@ -236,6 +251,9 @@ module Network.AWS.CloudFront
     -- ** GetCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 
+    -- ** TagResource
+    , module Network.AWS.CloudFront.TagResource
+
     -- ** GetStreamingDistribution
     , module Network.AWS.CloudFront.GetStreamingDistribution
 
@@ -244,6 +262,9 @@ module Network.AWS.CloudFront
 
     -- ** DeleteDistribution
     , module Network.AWS.CloudFront.DeleteDistribution
+
+    -- ** UntagResource
+    , module Network.AWS.CloudFront.UntagResource
 
     -- ** ListDistributionsByWebACLId
     , module Network.AWS.CloudFront.ListDistributionsByWebACLId
@@ -418,6 +439,7 @@ module Network.AWS.CloudFront
     , Distribution
     , distribution
     , dId
+    , dARN
     , dStatus
     , dLastModifiedTime
     , dInProgressInvalidationBatches
@@ -443,6 +465,12 @@ module Network.AWS.CloudFront
     , dcComment
     , dcEnabled
 
+    -- ** DistributionConfigWithTags
+    , DistributionConfigWithTags
+    , distributionConfigWithTags
+    , dcwtDistributionConfig
+    , dcwtTags
+
     -- ** DistributionList
     , DistributionList
     , distributionList
@@ -457,6 +485,7 @@ module Network.AWS.CloudFront
     , DistributionSummary
     , distributionSummary
     , dsId
+    , dsARN
     , dsStatus
     , dsLastModifiedTime
     , dsDomainName
@@ -598,6 +627,7 @@ module Network.AWS.CloudFront
     , streamingDistribution
     , sdLastModifiedTime
     , sdId
+    , sdARN
     , sdStatus
     , sdDomainName
     , sdActiveTrustedSigners
@@ -615,6 +645,12 @@ module Network.AWS.CloudFront
     , sdcTrustedSigners
     , sdcEnabled
 
+    -- ** StreamingDistributionConfigWithTags
+    , StreamingDistributionConfigWithTags
+    , streamingDistributionConfigWithTags
+    , sdcwtStreamingDistributionConfig
+    , sdcwtTags
+
     -- ** StreamingDistributionList
     , StreamingDistributionList
     , streamingDistributionList
@@ -629,6 +665,7 @@ module Network.AWS.CloudFront
     , StreamingDistributionSummary
     , streamingDistributionSummary
     , sdsId
+    , sdsARN
     , sdsStatus
     , sdsLastModifiedTime
     , sdsDomainName
@@ -645,6 +682,22 @@ module Network.AWS.CloudFront
     , slcEnabled
     , slcBucket
     , slcPrefix
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** TagKeys
+    , TagKeys
+    , tagKeys
+    , tkItems
+
+    -- ** Tags
+    , Tags
+    , tags
+    , tItems
 
     -- ** TrustedSigners
     , TrustedSigners
@@ -667,8 +720,10 @@ module Network.AWS.CloudFront
 
 import           Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 import           Network.AWS.CloudFront.CreateDistribution
+import           Network.AWS.CloudFront.CreateDistributionWithTags
 import           Network.AWS.CloudFront.CreateInvalidation
 import           Network.AWS.CloudFront.CreateStreamingDistribution
+import           Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 import           Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 import           Network.AWS.CloudFront.DeleteDistribution
 import           Network.AWS.CloudFront.DeleteStreamingDistribution
@@ -684,7 +739,10 @@ import           Network.AWS.CloudFront.ListDistributions
 import           Network.AWS.CloudFront.ListDistributionsByWebACLId
 import           Network.AWS.CloudFront.ListInvalidations
 import           Network.AWS.CloudFront.ListStreamingDistributions
+import           Network.AWS.CloudFront.ListTagsForResource
+import           Network.AWS.CloudFront.TagResource
 import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.UntagResource
 import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import           Network.AWS.CloudFront.UpdateDistribution
 import           Network.AWS.CloudFront.UpdateStreamingDistribution

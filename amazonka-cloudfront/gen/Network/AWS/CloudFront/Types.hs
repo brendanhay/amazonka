@@ -17,6 +17,7 @@ module Network.AWS.CloudFront.Types
 
     -- * Errors
     , _TooManyOriginCustomHeaders
+    , _InvalidTagging
     , _InvalidErrorCode
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
@@ -41,6 +42,7 @@ module Network.AWS.CloudFront.Types
     , _InvalidTTLOrder
     , _StreamingDistributionNotDisabled
     , _TooManyHeadersInForwardedValues
+    , _NoSuchResource
     , _TooManyStreamingDistributionCNAMEs
     , _InvalidRequiredProtocol
     , _TooManyDistributions
@@ -232,6 +234,7 @@ module Network.AWS.CloudFront.Types
     , Distribution
     , distribution
     , dId
+    , dARN
     , dStatus
     , dLastModifiedTime
     , dInProgressInvalidationBatches
@@ -257,6 +260,12 @@ module Network.AWS.CloudFront.Types
     , dcComment
     , dcEnabled
 
+    -- * DistributionConfigWithTags
+    , DistributionConfigWithTags
+    , distributionConfigWithTags
+    , dcwtDistributionConfig
+    , dcwtTags
+
     -- * DistributionList
     , DistributionList
     , distributionList
@@ -271,6 +280,7 @@ module Network.AWS.CloudFront.Types
     , DistributionSummary
     , distributionSummary
     , dsId
+    , dsARN
     , dsStatus
     , dsLastModifiedTime
     , dsDomainName
@@ -412,6 +422,7 @@ module Network.AWS.CloudFront.Types
     , streamingDistribution
     , sdLastModifiedTime
     , sdId
+    , sdARN
     , sdStatus
     , sdDomainName
     , sdActiveTrustedSigners
@@ -429,6 +440,12 @@ module Network.AWS.CloudFront.Types
     , sdcTrustedSigners
     , sdcEnabled
 
+    -- * StreamingDistributionConfigWithTags
+    , StreamingDistributionConfigWithTags
+    , streamingDistributionConfigWithTags
+    , sdcwtStreamingDistributionConfig
+    , sdcwtTags
+
     -- * StreamingDistributionList
     , StreamingDistributionList
     , streamingDistributionList
@@ -443,6 +460,7 @@ module Network.AWS.CloudFront.Types
     , StreamingDistributionSummary
     , streamingDistributionSummary
     , sdsId
+    , sdsARN
     , sdsStatus
     , sdsLastModifiedTime
     , sdsDomainName
@@ -459,6 +477,22 @@ module Network.AWS.CloudFront.Types
     , slcEnabled
     , slcBucket
     , slcPrefix
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- * TagKeys
+    , TagKeys
+    , tagKeys
+    , tkItems
+
+    -- * Tags
+    , Tags
+    , tags
+    , tItems
 
     -- * TrustedSigners
     , TrustedSigners
@@ -485,14 +519,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2016-01-28' of the Amazon CloudFront SDK configuration.
+-- | API version '2016-08-01' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-01-28"
+    , _svcVersion = "2016-08-01"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -523,6 +557,10 @@ cloudFront =
 _TooManyOriginCustomHeaders :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyOriginCustomHeaders =
     _ServiceError . hasStatus 400 . hasCode "TooManyOriginCustomHeaders"
+
+-- | The specified tagging for a CloudFront resource is invalid. For more information, see the error text.
+_InvalidTagging :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTagging = _ServiceError . hasStatus 400 . hasCode "InvalidTagging"
 
 -- | Prism for InvalidErrorCode' errors.
 _InvalidErrorCode :: AsError a => Getting (First ServiceError) a ServiceError
@@ -639,6 +677,10 @@ _StreamingDistributionNotDisabled =
 _TooManyHeadersInForwardedValues :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHeadersInForwardedValues =
     _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues"
+
+-- | The specified CloudFront resource does not exist.
+_NoSuchResource :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchResource = _ServiceError . hasStatus 404 . hasCode "NoSuchResource"
 
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError

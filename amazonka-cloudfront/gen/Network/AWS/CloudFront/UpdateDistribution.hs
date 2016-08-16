@@ -104,7 +104,7 @@ instance NFData UpdateDistribution
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-08-01/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -115,7 +115,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2016-01-28/distribution/", toBS _udId, "/config"]
+              ["/2016-08-01/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty

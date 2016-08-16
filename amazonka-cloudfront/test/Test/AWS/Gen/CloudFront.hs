@@ -34,11 +34,20 @@ import Test.AWS.CloudFront.Internal
 --         , requestUpdateStreamingDistribution $
 --             updateStreamingDistribution
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
+--         , requestCreateDistributionWithTags $
+--             createDistributionWithTags
+--
 --         , requestCreateDistribution $
 --             createDistribution
 --
 --         , requestGetDistributionConfig $
 --             getDistributionConfig
+--
+--         , requestCreateStreamingDistributionWithTags $
+--             createStreamingDistributionWithTags
 --
 --         , requestGetDistribution $
 --             getDistribution
@@ -79,6 +88,9 @@ import Test.AWS.CloudFront.Internal
 --         , requestGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentity
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestGetStreamingDistribution $
 --             getStreamingDistribution
 --
@@ -87,6 +99,9 @@ import Test.AWS.CloudFront.Internal
 --
 --         , requestDeleteDistribution $
 --             deleteDistribution
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestListDistributionsByWebACLId $
 --             listDistributionsByWebACLId
@@ -103,11 +118,20 @@ import Test.AWS.CloudFront.Internal
 --         , responseUpdateStreamingDistribution $
 --             updateStreamingDistributionResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
+--         , responseCreateDistributionWithTags $
+--             createDistributionWithTagsResponse
+--
 --         , responseCreateDistribution $
 --             createDistributionResponse
 --
 --         , responseGetDistributionConfig $
 --             getDistributionConfigResponse
+--
+--         , responseCreateStreamingDistributionWithTags $
+--             createStreamingDistributionWithTagsResponse
 --
 --         , responseGetDistribution $
 --             getDistributionResponse
@@ -148,6 +172,9 @@ import Test.AWS.CloudFront.Internal
 --         , responseGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentityResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseGetStreamingDistribution $
 --             getStreamingDistributionResponse
 --
@@ -156,6 +183,9 @@ import Test.AWS.CloudFront.Internal
 --
 --         , responseDeleteDistribution $
 --             deleteDistributionResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseListDistributionsByWebACLId $
 --             listDistributionsByWebACLIdResponse
@@ -178,6 +208,16 @@ requestUpdateStreamingDistribution = req
     "UpdateStreamingDistribution"
     "fixture/UpdateStreamingDistribution.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestCreateDistributionWithTags :: CreateDistributionWithTags -> TestTree
+requestCreateDistributionWithTags = req
+    "CreateDistributionWithTags"
+    "fixture/CreateDistributionWithTags.yaml"
+
 requestCreateDistribution :: CreateDistribution -> TestTree
 requestCreateDistribution = req
     "CreateDistribution"
@@ -187,6 +227,11 @@ requestGetDistributionConfig :: GetDistributionConfig -> TestTree
 requestGetDistributionConfig = req
     "GetDistributionConfig"
     "fixture/GetDistributionConfig.yaml"
+
+requestCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTags -> TestTree
+requestCreateStreamingDistributionWithTags = req
+    "CreateStreamingDistributionWithTags"
+    "fixture/CreateStreamingDistributionWithTags.yaml"
 
 requestGetDistribution :: GetDistribution -> TestTree
 requestGetDistribution = req
@@ -253,6 +298,11 @@ requestGetCloudFrontOriginAccessIdentity = req
     "GetCloudFrontOriginAccessIdentity"
     "fixture/GetCloudFrontOriginAccessIdentity.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestGetStreamingDistribution :: GetStreamingDistribution -> TestTree
 requestGetStreamingDistribution = req
     "GetStreamingDistribution"
@@ -267,6 +317,11 @@ requestDeleteDistribution :: DeleteDistribution -> TestTree
 requestDeleteDistribution = req
     "DeleteDistribution"
     "fixture/DeleteDistribution.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
 requestListDistributionsByWebACLId = req
@@ -294,6 +349,20 @@ responseUpdateStreamingDistribution = res
     cloudFront
     (Proxy :: Proxy UpdateStreamingDistribution)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    cloudFront
+    (Proxy :: Proxy ListTagsForResource)
+
+responseCreateDistributionWithTags :: CreateDistributionWithTagsResponse -> TestTree
+responseCreateDistributionWithTags = res
+    "CreateDistributionWithTagsResponse"
+    "fixture/CreateDistributionWithTagsResponse.proto"
+    cloudFront
+    (Proxy :: Proxy CreateDistributionWithTags)
+
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
 responseCreateDistribution = res
     "CreateDistributionResponse"
@@ -307,6 +376,13 @@ responseGetDistributionConfig = res
     "fixture/GetDistributionConfigResponse.proto"
     cloudFront
     (Proxy :: Proxy GetDistributionConfig)
+
+responseCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTagsResponse -> TestTree
+responseCreateStreamingDistributionWithTags = res
+    "CreateStreamingDistributionWithTagsResponse"
+    "fixture/CreateStreamingDistributionWithTagsResponse.proto"
+    cloudFront
+    (Proxy :: Proxy CreateStreamingDistributionWithTags)
 
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution = res
@@ -399,6 +475,13 @@ responseGetCloudFrontOriginAccessIdentity = res
     cloudFront
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    cloudFront
+    (Proxy :: Proxy TagResource)
+
 responseGetStreamingDistribution :: GetStreamingDistributionResponse -> TestTree
 responseGetStreamingDistribution = res
     "GetStreamingDistributionResponse"
@@ -419,6 +502,13 @@ responseDeleteDistribution = res
     "fixture/DeleteDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy DeleteDistribution)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    cloudFront
+    (Proxy :: Proxy UntagResource)
 
 responseListDistributionsByWebACLId :: ListDistributionsByWebACLIdResponse -> TestTree
 responseListDistributionsByWebACLId = res

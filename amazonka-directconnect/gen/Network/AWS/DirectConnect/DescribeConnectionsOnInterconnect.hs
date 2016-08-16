@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Return a list of connections that have been provisioned on the given interconnect.
+--
+-- This is intended for use by AWS Direct Connect partners only.
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request

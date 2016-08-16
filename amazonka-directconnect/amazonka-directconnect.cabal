@@ -54,8 +54,10 @@ library
         , Network.AWS.DirectConnect.DeleteConnection
         , Network.AWS.DirectConnect.DeleteInterconnect
         , Network.AWS.DirectConnect.DeleteVirtualInterface
+        , Network.AWS.DirectConnect.DescribeConnectionLoa
         , Network.AWS.DirectConnect.DescribeConnections
         , Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+        , Network.AWS.DirectConnect.DescribeInterconnectLoa
         , Network.AWS.DirectConnect.DescribeInterconnects
         , Network.AWS.DirectConnect.DescribeLocations
         , Network.AWS.DirectConnect.DescribeVirtualGateways

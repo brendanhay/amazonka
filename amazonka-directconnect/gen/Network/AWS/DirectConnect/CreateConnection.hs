@@ -38,6 +38,7 @@ module Network.AWS.DirectConnect.CreateConnection
     , cVlan
     , cLocation
     , cConnectionId
+    , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth

@@ -22,13 +22,21 @@ import           Network.AWS.Prelude
 -- | State of the connection.
 --
 -- -   __Ordering__: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+--
 -- -   __Requested__: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+--
 -- -   __Pending__: The connection has been approved, and is being initialized.
+--
 -- -   __Available__: The network link is up, and the connection is ready for use.
+--
 -- -   __Down__: The network link is down.
+--
 -- -   __Deleting__: The connection is in the process of being deleted.
+--
 -- -   __Deleted__: The connection has been deleted.
+--
 -- -   __Rejected__: A hosted connection in the \'Ordering\' state will enter the \'Rejected\' state if it is deleted by the end customer.
+--
 data ConnectionState
     = CSAvailable
     | CSDeleted
@@ -76,11 +84,17 @@ instance FromJSON ConnectionState where
 -- | State of the interconnect.
 --
 -- -   __Requested__: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
--- -   __Pending__: The interconnect has been approved, and is being initialized.
+--
+-- -   __Pending__>: The interconnect has been approved, and is being initialized.
+--
 -- -   __Available__: The network link is up, and the interconnect is ready for use.
+--
 -- -   __Down__: The network link is down.
+--
 -- -   __Deleting__: The interconnect is in the process of being deleted.
+--
 -- -   __Deleted__: The interconnect has been deleted.
+--
 data InterconnectState
     = ISAvailable
     | ISDeleted
@@ -119,21 +133,59 @@ instance ToHeader     InterconnectState
 instance FromJSON InterconnectState where
     parseJSON = parseJSONText "InterconnectState"
 
+-- | A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is \"application\/pdf\".
+--
+-- Default: application\/pdf
+data LoaContentType =
+    ApplicationPdf
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText LoaContentType where
+    parser = takeLowerText >>= \case
+        "application/pdf" -> pure ApplicationPdf
+        e -> fromTextError $ "Failure parsing LoaContentType from value: '" <> e
+           <> "'. Accepted values: application/pdf"
+
+instance ToText LoaContentType where
+    toText = \case
+        ApplicationPdf -> "application/pdf"
+
+instance Hashable     LoaContentType
+instance NFData       LoaContentType
+instance ToByteString LoaContentType
+instance ToQuery      LoaContentType
+instance ToHeader     LoaContentType
+
+instance ToJSON LoaContentType where
+    toJSON = toJSONText
+
+instance FromJSON LoaContentType where
+    parseJSON = parseJSONText "LoaContentType"
+
 -- | State of the virtual interface.
 --
 -- -   __Confirming__: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+--
 -- -   __Verifying__: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+--
 -- -   __Pending__: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+--
 -- -   __Available__: A virtual interface that is able to forward traffic.
+--
 -- -   __Down__: A virtual interface that is BGP down.
+--
 -- -   __Deleting__: A virtual interface is in this state immediately after calling /DeleteVirtualInterface/ until it can no longer forward traffic.
+--
 -- -   __Deleted__: A virtual interface that cannot forward traffic.
+--
 -- -   __Rejected__: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the \'Confirming\' state is deleted by the virtual interface owner, the virtual interface will enter the \'Rejected\' state.
+--
 data VirtualInterfaceState
     = Available
     | Confirming
     | Deleted
     | Deleting
+    | Down
     | Pending
     | Rejected
     | Verifying
@@ -145,11 +197,12 @@ instance FromText VirtualInterfaceState where
         "confirming" -> pure Confirming
         "deleted" -> pure Deleted
         "deleting" -> pure Deleting
+        "down" -> pure Down
         "pending" -> pure Pending
         "rejected" -> pure Rejected
         "verifying" -> pure Verifying
         e -> fromTextError $ "Failure parsing VirtualInterfaceState from value: '" <> e
-           <> "'. Accepted values: available, confirming, deleted, deleting, pending, rejected, verifying"
+           <> "'. Accepted values: available, confirming, deleted, deleting, down, pending, rejected, verifying"
 
 instance ToText VirtualInterfaceState where
     toText = \case
@@ -157,6 +210,7 @@ instance ToText VirtualInterfaceState where
         Confirming -> "confirming"
         Deleted -> "deleted"
         Deleting -> "deleting"
+        Down -> "down"
         Pending -> "pending"
         Rejected -> "rejected"
         Verifying -> "verifying"

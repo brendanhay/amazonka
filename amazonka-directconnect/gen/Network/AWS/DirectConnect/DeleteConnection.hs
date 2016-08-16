@@ -36,6 +36,7 @@ module Network.AWS.DirectConnect.DeleteConnection
     , cVlan
     , cLocation
     , cConnectionId
+    , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth

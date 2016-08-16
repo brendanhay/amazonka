@@ -73,6 +73,9 @@ import Test.AWS.DirectConnect.Internal
 --         , requestDeleteVirtualInterface $
 --             deleteVirtualInterface
 --
+--         , requestDescribeInterconnectLoa $
+--             describeInterconnectLoa
+--
 --         , requestCreatePrivateVirtualInterface $
 --             createPrivateVirtualInterface
 --
@@ -84,6 +87,9 @@ import Test.AWS.DirectConnect.Internal
 --
 --         , requestCreateInterconnect $
 --             createInterconnect
+--
+--         , requestDescribeConnectionLoa $
+--             describeConnectionLoa
 --
 --           ]
 
@@ -133,6 +139,9 @@ import Test.AWS.DirectConnect.Internal
 --         , responseDeleteVirtualInterface $
 --             deleteVirtualInterfaceResponse
 --
+--         , responseDescribeInterconnectLoa $
+--             describeInterconnectLoaResponse
+--
 --         , responseCreatePrivateVirtualInterface $
 --             virtualInterface
 --
@@ -144,6 +153,9 @@ import Test.AWS.DirectConnect.Internal
 --
 --         , responseCreateInterconnect $
 --             interconnect
+--
+--         , responseDescribeConnectionLoa $
+--             describeConnectionLoaResponse
 --
 --           ]
 --     ]
@@ -225,6 +237,11 @@ requestDeleteVirtualInterface = req
     "DeleteVirtualInterface"
     "fixture/DeleteVirtualInterface.yaml"
 
+requestDescribeInterconnectLoa :: DescribeInterconnectLoa -> TestTree
+requestDescribeInterconnectLoa = req
+    "DescribeInterconnectLoa"
+    "fixture/DescribeInterconnectLoa.yaml"
+
 requestCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
 requestCreatePrivateVirtualInterface = req
     "CreatePrivateVirtualInterface"
@@ -244,6 +261,11 @@ requestCreateInterconnect :: CreateInterconnect -> TestTree
 requestCreateInterconnect = req
     "CreateInterconnect"
     "fixture/CreateInterconnect.yaml"
+
+requestDescribeConnectionLoa :: DescribeConnectionLoa -> TestTree
+requestDescribeConnectionLoa = req
+    "DescribeConnectionLoa"
+    "fixture/DescribeConnectionLoa.yaml"
 
 -- Responses
 
@@ -352,6 +374,13 @@ responseDeleteVirtualInterface = res
     directConnect
     (Proxy :: Proxy DeleteVirtualInterface)
 
+responseDescribeInterconnectLoa :: DescribeInterconnectLoaResponse -> TestTree
+responseDescribeInterconnectLoa = res
+    "DescribeInterconnectLoaResponse"
+    "fixture/DescribeInterconnectLoaResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeInterconnectLoa)
+
 responseCreatePrivateVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePrivateVirtualInterface = res
     "CreatePrivateVirtualInterfaceResponse"
@@ -379,3 +408,10 @@ responseCreateInterconnect = res
     "fixture/CreateInterconnectResponse.proto"
     directConnect
     (Proxy :: Proxy CreateInterconnect)
+
+responseDescribeConnectionLoa :: DescribeConnectionLoaResponse -> TestTree
+responseDescribeConnectionLoa = res
+    "DescribeConnectionLoaResponse"
+    "fixture/DescribeConnectionLoaResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeConnectionLoa)

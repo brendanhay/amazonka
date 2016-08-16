@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to the < ListMetrics> action.
+-- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to < ListMetrics>.
 --
 -- Each 'PutMetricData' request is limited to 8 KB in size for HTTP GET requests and is limited to 40 KB in size for HTTP POST requests.
 --
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putMetricData' smart constructor.
+-- | Describes the inputs for PutMetricData.
+--
+-- /See:/ 'putMetricData' smart constructor.
 data PutMetricData = PutMetricData'
     { _pmdNamespace  :: !Text
     , _pmdMetricData :: ![MetricDatum]

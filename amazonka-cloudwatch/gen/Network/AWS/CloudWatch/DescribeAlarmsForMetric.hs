@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAlarmsForMetric' smart constructor.
+-- | Describes the inputs for DescribeAlarmsForMetric.
+--
+-- /See:/ 'describeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
     { _dafmPeriod     :: !(Maybe Nat)
     , _dafmDimensions :: !(Maybe [Dimension])
@@ -145,7 +147,7 @@ instance ToQuery DescribeAlarmsForMetric where
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | The output for the < DescribeAlarmsForMetric> action.
+-- | The output for < DescribeAlarmsForMetric>.
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'

@@ -39,7 +39,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteAlarms' smart constructor.
+-- | Describes the inputs for DeleteAlarms.
+--
+-- /See:/ 'deleteAlarms' smart constructor.
 newtype DeleteAlarms = DeleteAlarms'
     { _dAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

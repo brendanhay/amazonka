@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Temporarily sets the state of an alarm. When the updated 'StateValue' differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm\'s state to __ALARM__ will send an Amazon SNS message. This is not a permanent change. The next periodic alarm check (in about a minute) will set the alarm to its actual state. Because the alarm state change happens very quickly, it is typically only visibile in the alarm\'s __History__ tab in the Amazon CloudWatch console or through 'DescribeAlarmHistory'.
+-- Temporarily sets the state of an alarm for testing purposes. When the updated 'StateValue' differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm\'s state to __ALARM__ sends an Amazon SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens very quickly, it is typically only visible in the alarm\'s __History__ tab in the Amazon CloudWatch console or through 'DescribeAlarmHistory'.
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Creating a Request
@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setAlarmState' smart constructor.
+-- | Describes the inputs for SetAlarmState.
+--
+-- /See:/ 'setAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
     { _sasStateReasonData :: !(Maybe Text)
     , _sasAlarmName       :: !Text

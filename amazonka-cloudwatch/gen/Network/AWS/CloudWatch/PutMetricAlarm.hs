@@ -18,20 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm.
+-- Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon SNS resources with the alarm.
 --
--- When this operation creates an alarm, the alarm state is immediately set to 'INSUFFICIENT_DATA'. The alarm is evaluated and its 'StateValue' is set appropriately. Any actions associated with the 'StateValue' is then executed.
+-- When this operation creates an alarm, the alarm state is immediately set to 'INSUFFICIENT_DATA'. The alarm is evaluated and its 'StateValue' is set appropriately. Any actions associated with the 'StateValue' are then executed.
 --
--- When updating an existing alarm, its 'StateValue' is left unchanged.
+-- When updating an existing alarm, its 'StateValue' is left unchanged, but it completely overwrites the alarm\'s previous configuration.
 --
 -- If you are using an AWS Identity and Access Management (IAM) account to create or modify an alarm, you must have the following Amazon EC2 permissions:
 --
 -- -   'ec2:DescribeInstanceStatus' and 'ec2:DescribeInstances' for all alarms on Amazon EC2 instance status metrics.
+--
 -- -   'ec2:StopInstances' for alarms with stop actions.
+--
 -- -   'ec2:TerminateInstances' for alarms with terminate actions.
+--
 -- -   'ec2:DescribeInstanceRecoveryAttribute', and 'ec2:RecoverInstances' for alarms with recover actions.
 --
--- If you have read\/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm but the stop or terminate actions won\'t be performed on the Amazon EC2 instance. However, if you are later granted permission to use the associated Amazon EC2 APIs, the alarm actions you created earlier will be performed. For more information about IAM permissions, see <http://docs.aws.amazon.com//IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies> in /Using IAM/.
+-- If you have read\/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm but the stop or terminate actions won\'t be performed on the Amazon EC2 instance. However, if you are later granted permission to use the associated Amazon EC2 APIs, the alarm actions you created earlier will be performed. For more information about IAM permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies> in /Using IAM/.
 --
 -- If you are using an IAM role (e.g., an Amazon EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
 --
@@ -70,7 +73,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putMetricAlarm' smart constructor.
+-- | Describes the inputs for PutMetricAlarm.
+--
+-- /See:/ 'putMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
     { _pmaAlarmDescription        :: !(Maybe Text)
     , _pmaOKActions               :: !(Maybe [Text])

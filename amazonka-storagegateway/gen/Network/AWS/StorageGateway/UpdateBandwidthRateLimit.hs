@@ -51,7 +51,9 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < UpdateBandwidthRateLimitInput>AverageDownloadRateLimitInBitsPerSec>
+--
 -- -   < UpdateBandwidthRateLimitInput>AverageUploadRateLimitInBitsPerSec>
+--
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'

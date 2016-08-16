@@ -72,7 +72,7 @@ uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = 
 
 -- | The type of medium changer you want to select.
 --
--- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
+-- Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
 uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 

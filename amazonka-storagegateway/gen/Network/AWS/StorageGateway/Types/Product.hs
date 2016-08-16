@@ -149,7 +149,7 @@ chapInfo =
 
 -- | The Amazon Resource Name (ARN) of the volume.
 --
--- /Valid Values/: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\ s a -> s{_ciTargetARN = a});
 
@@ -325,11 +325,14 @@ instance Hashable Disk
 
 instance NFData Disk
 
--- | /See:/ 'gatewayInfo' smart constructor.
+-- | Describes a gateway object.
+--
+-- /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
     , _giGatewayOperationalState :: !(Maybe Text)
     , _giGatewayName             :: !(Maybe Text)
+    , _giGatewayId               :: !(Maybe Text)
     , _giGatewayType             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -343,6 +346,8 @@ data GatewayInfo = GatewayInfo'
 --
 -- * 'giGatewayName'
 --
+-- * 'giGatewayId'
+--
 -- * 'giGatewayType'
 gatewayInfo
     :: GatewayInfo
@@ -351,22 +356,29 @@ gatewayInfo =
     { _giGatewayARN = Nothing
     , _giGatewayOperationalState = Nothing
     , _giGatewayName = Nothing
+    , _giGatewayId = Nothing
     , _giGatewayType = Nothing
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the gateway. Use the < ListGateways> operation to return a list of gateways for your account and region.
 giGatewayARN :: Lens' GatewayInfo (Maybe Text)
 giGatewayARN = lens _giGatewayARN (\ s a -> s{_giGatewayARN = a});
 
--- | Undocumented member.
+-- | The state of the gateway.
+--
+-- Valid Values: DISABLED or ACTIVE
 giGatewayOperationalState :: Lens' GatewayInfo (Maybe Text)
 giGatewayOperationalState = lens _giGatewayOperationalState (\ s a -> s{_giGatewayOperationalState = a});
 
--- | Undocumented member.
+-- | The name of the gateway.
 giGatewayName :: Lens' GatewayInfo (Maybe Text)
 giGatewayName = lens _giGatewayName (\ s a -> s{_giGatewayName = a});
 
--- | Undocumented member.
+-- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+giGatewayId :: Lens' GatewayInfo (Maybe Text)
+giGatewayId = lens _giGatewayId (\ s a -> s{_giGatewayId = a});
+
+-- | The type of the gateway.
 giGatewayType :: Lens' GatewayInfo (Maybe Text)
 giGatewayType = lens _giGatewayType (\ s a -> s{_giGatewayType = a});
 
@@ -378,6 +390,7 @@ instance FromJSON GatewayInfo where
                    (x .:? "GatewayARN") <*>
                      (x .:? "GatewayOperationalState")
                      <*> (x .:? "GatewayName")
+                     <*> (x .:? "GatewayId")
                      <*> (x .:? "GatewayType"))
 
 instance Hashable GatewayInfo
@@ -759,6 +772,75 @@ instance Hashable TapeArchive
 
 instance NFData TapeArchive
 
+-- | Describes a virtual tape.
+--
+-- /See:/ 'tapeInfo' smart constructor.
+data TapeInfo = TapeInfo'
+    { _tiTapeBarcode     :: !(Maybe Text)
+    , _tiTapeStatus      :: !(Maybe Text)
+    , _tiTapeARN         :: !(Maybe Text)
+    , _tiGatewayARN      :: !(Maybe Text)
+    , _tiTapeSizeInBytes :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TapeInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tiTapeBarcode'
+--
+-- * 'tiTapeStatus'
+--
+-- * 'tiTapeARN'
+--
+-- * 'tiGatewayARN'
+--
+-- * 'tiTapeSizeInBytes'
+tapeInfo
+    :: TapeInfo
+tapeInfo =
+    TapeInfo'
+    { _tiTapeBarcode = Nothing
+    , _tiTapeStatus = Nothing
+    , _tiTapeARN = Nothing
+    , _tiGatewayARN = Nothing
+    , _tiTapeSizeInBytes = Nothing
+    }
+
+-- | The barcode that identifies a specific virtual tape.
+tiTapeBarcode :: Lens' TapeInfo (Maybe Text)
+tiTapeBarcode = lens _tiTapeBarcode (\ s a -> s{_tiTapeBarcode = a});
+
+-- | The status of the tape.
+tiTapeStatus :: Lens' TapeInfo (Maybe Text)
+tiTapeStatus = lens _tiTapeStatus (\ s a -> s{_tiTapeStatus = a});
+
+-- | The Amazon Resource Name (ARN) of a virtual tape.
+tiTapeARN :: Lens' TapeInfo (Maybe Text)
+tiTapeARN = lens _tiTapeARN (\ s a -> s{_tiTapeARN = a});
+
+-- | The Amazon Resource Name (ARN) of the gateway. Use the < ListGateways> operation to return a list of gateways for your account and region.
+tiGatewayARN :: Lens' TapeInfo (Maybe Text)
+tiGatewayARN = lens _tiGatewayARN (\ s a -> s{_tiGatewayARN = a});
+
+-- | The size, in bytes, of a virtual tape.
+tiTapeSizeInBytes :: Lens' TapeInfo (Maybe Integer)
+tiTapeSizeInBytes = lens _tiTapeSizeInBytes (\ s a -> s{_tiTapeSizeInBytes = a});
+
+instance FromJSON TapeInfo where
+        parseJSON
+          = withObject "TapeInfo"
+              (\ x ->
+                 TapeInfo' <$>
+                   (x .:? "TapeBarcode") <*> (x .:? "TapeStatus") <*>
+                     (x .:? "TapeARN")
+                     <*> (x .:? "GatewayARN")
+                     <*> (x .:? "TapeSizeInBytes"))
+
+instance Hashable TapeInfo
+
+instance NFData TapeInfo
+
 -- | Describes a recovery point.
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
@@ -892,30 +974,74 @@ instance Hashable VTLDevice
 
 instance NFData VTLDevice
 
--- | /See:/ 'volumeInfo' smart constructor.
+-- | Describes a storage volume object.
+--
+-- /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
-    { _viVolumeARN  :: !(Maybe Text)
-    , _viVolumeType :: !(Maybe Text)
+    { _viGatewayARN        :: !(Maybe Text)
+    , _viVolumeARN         :: !(Maybe Text)
+    , _viVolumeSizeInBytes :: !(Maybe Integer)
+    , _viVolumeId          :: !(Maybe Text)
+    , _viGatewayId         :: !(Maybe Text)
+    , _viVolumeType        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VolumeInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'viGatewayARN'
+--
 -- * 'viVolumeARN'
+--
+-- * 'viVolumeSizeInBytes'
+--
+-- * 'viVolumeId'
+--
+-- * 'viGatewayId'
 --
 -- * 'viVolumeType'
 volumeInfo
     :: VolumeInfo
 volumeInfo =
     VolumeInfo'
-    { _viVolumeARN = Nothing
+    { _viGatewayARN = Nothing
+    , _viVolumeARN = Nothing
+    , _viVolumeSizeInBytes = Nothing
+    , _viVolumeId = Nothing
+    , _viGatewayId = Nothing
     , _viVolumeType = Nothing
     }
 
 -- | Undocumented member.
+viGatewayARN :: Lens' VolumeInfo (Maybe Text)
+viGatewayARN = lens _viGatewayARN (\ s a -> s{_viGatewayARN = a});
+
+-- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:
+--
+-- 'arn:aws:storagegateway:us-east-1:111122223333:gateway\/sgw-12A3456B\/volume\/vol-1122AABB'
+--
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viVolumeARN :: Lens' VolumeInfo (Maybe Text)
 viVolumeARN = lens _viVolumeARN (\ s a -> s{_viVolumeARN = a});
+
+-- | The size, in bytes, of the volume.
+--
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+viVolumeSizeInBytes :: Lens' VolumeInfo (Maybe Integer)
+viVolumeSizeInBytes = lens _viVolumeSizeInBytes (\ s a -> s{_viVolumeSizeInBytes = a});
+
+-- | The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations.
+--
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+viVolumeId :: Lens' VolumeInfo (Maybe Text)
+viVolumeId = lens _viVolumeId (\ s a -> s{_viVolumeId = a});
+
+-- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+--
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+viGatewayId :: Lens' VolumeInfo (Maybe Text)
+viGatewayId = lens _viGatewayId (\ s a -> s{_viGatewayId = a});
 
 -- | Undocumented member.
 viVolumeType :: Lens' VolumeInfo (Maybe Text)
@@ -926,7 +1052,11 @@ instance FromJSON VolumeInfo where
           = withObject "VolumeInfo"
               (\ x ->
                  VolumeInfo' <$>
-                   (x .:? "VolumeARN") <*> (x .:? "VolumeType"))
+                   (x .:? "GatewayARN") <*> (x .:? "VolumeARN") <*>
+                     (x .:? "VolumeSizeInBytes")
+                     <*> (x .:? "VolumeId")
+                     <*> (x .:? "GatewayId")
+                     <*> (x .:? "VolumeType"))
 
 instance Hashable VolumeInfo
 

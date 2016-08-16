@@ -51,6 +51,7 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- -   < AddWorkingStorageInput>DiskIds>
 --
+--
 -- /See:/ 'addWorkingStorage' smart constructor.
 data AddWorkingStorage = AddWorkingStorage'
     { _awsGatewayARN :: !Text

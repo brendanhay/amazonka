@@ -159,6 +159,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-elastictranscoder
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-elb-v2
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-emr
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-gamelift

@@ -11,17 +11,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon DynamoDB Streams
+-- Amazon DynamoDB
 --
--- This is the Amazon DynamoDB Streams API Reference. This guide describes the low-level API actions for accessing streams and processing stream records. For information about application development with DynamoDB Streams, see the <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html Amazon DynamoDB Developer Guide>.
+-- Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
 --
--- Note that this document is intended for use with the following DynamoDB documentation:
---
--- -   <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ Amazon DynamoDB Developer Guide>
---
--- -   <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/ Amazon DynamoDB API Reference>
---
--- The following are short descriptions of each low-level DynamoDB Streams API action, organized by function.
+-- The following are short descriptions of each low-level DynamoDB Streams action:
 --
 -- -   /DescribeStream/ - Returns detailed information about a particular stream.
 --
@@ -157,6 +151,7 @@ module Network.AWS.DynamoDBStreams
     , streamRecord
     , srSizeBytes
     , srSequenceNumber
+    , srApproximateCreationDateTime
     , srStreamViewType
     , srKeys
     , srOldImage

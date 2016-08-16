@@ -63,7 +63,9 @@ getKeyRotationStatus pKeyId_ =
 -- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
 --
 -- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+--
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 

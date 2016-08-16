@@ -95,7 +95,7 @@ reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourc
 
 -- | A list of grant tokens.
 --
--- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 
@@ -112,9 +112,13 @@ reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . 
 -- | A unique identifier for the customer master key used to re-encrypt the data. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
 --
 -- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+--
 -- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+--
 -- -   Alias Name Example - alias\/MyAliasName
+--
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 

@@ -67,16 +67,20 @@ describeKey pKeyId_ =
 
 -- | A list of grant tokens.
 --
--- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 dGrantTokens :: Lens' DescribeKey [Text]
 dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
 --
 -- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+--
 -- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+--
 -- -   Alias Name Example - alias\/MyAliasName
+--
 dKeyId :: Lens' DescribeKey Text
 dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 

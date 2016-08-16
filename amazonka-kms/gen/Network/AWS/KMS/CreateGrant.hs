@@ -102,7 +102,7 @@ cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal
 
 -- | A list of grant tokens.
 --
--- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
 
@@ -122,14 +122,24 @@ cgName = lens _cgName (\ s a -> s{_cgName = a});
 
 -- | A list of operations that the grant permits. The list can contain any combination of one or more of the following values:
 --
--- -   Decrypt
--- -   Encrypt
--- -   GenerateDataKey
--- -   GenerateDataKeyWithoutPlaintext
--- -   ReEncryptFrom
--- -   ReEncryptTo
--- -   CreateGrant
--- -   RetireGrant
+-- -   < Decrypt>
+--
+-- -   < Encrypt>
+--
+-- -   < GenerateDataKey>
+--
+-- -   < GenerateDataKeyWithoutPlaintext>
+--
+-- -   <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptFrom>
+--
+-- -   <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptTo>
+--
+-- -   < CreateGrant>
+--
+-- -   < RetireGrant>
+--
+-- -   < DescribeKey>
+--
 cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default . _Coerce;
 
@@ -138,7 +148,9 @@ cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default . _
 -- To specify this value, use the globally unique key ID or the Amazon Resource Name (ARN) of the key. Examples:
 --
 -- -   Globally unique key ID: 12345678-1234-1234-1234-123456789012
+--
 -- -   Key ARN: arn:aws:kms:us-west-2:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 cgKeyId :: Lens' CreateGrant Text
 cgKeyId = lens _cgKeyId (\ s a -> s{_cgKeyId = a});
 
@@ -223,7 +235,7 @@ cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 
 -- | The grant token.
 --
--- For more information about using grant tokens, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 

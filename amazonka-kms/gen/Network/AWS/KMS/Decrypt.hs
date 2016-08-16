@@ -21,7 +21,9 @@
 -- Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by using any of the following functions:
 --
 -- -   < GenerateDataKey>
+--
 -- -   < GenerateDataKeyWithoutPlaintext>
+--
 -- -   < Encrypt>
 --
 -- Note that if a caller has been granted access permissions to all keys (through, for example, IAM user policies that grant 'Decrypt' permission on all resources), then ciphertext encrypted by using keys in other accounts where the key grants access to the caller can be decrypted. To remedy this, we recommend that you do not grant 'Decrypt' access in an IAM user policy. Instead grant 'Decrypt' access only in key policies. If you must grant 'Decrypt' access in an IAM user policy, you should scope the resource to specific keys or to specific trusted accounts.
@@ -83,7 +85,7 @@ decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionCont
 
 -- | A list of grant tokens.
 --
--- For more information, go to <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
 decGrantTokens :: Lens' Decrypt [Text]
 decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default . _Coerce;
 

@@ -23,7 +23,7 @@
 --
 -- __Signing Requests__
 --
--- Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you /do not/ use your AWS account access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user, or you can use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.
+-- Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you /do not/ use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user, or you can use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.
 --
 -- All AWS KMS operations require <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
@@ -36,17 +36,23 @@
 -- For more information about credentials and request signing, see the following:
 --
 -- -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials> - This topic provides general information about the types of credentials used for accessing AWS.
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service> - This guide describes how to create and use temporary security credentials.
--- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.
+--
+-- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials> - This section of the /IAM User Guide/ describes how to create and use temporary security credentials.
+--
+-- -   <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.
 --
 -- __Commonly Used APIs__
 --
 -- Of the APIs discussed in this guide, the following will prove the most useful for most applications. You will likely perform actions other than these, such as creating keys and assigning policies, by using the console.
 --
 -- -   < Encrypt>
+--
 -- -   < Decrypt>
+--
 -- -   < GenerateDataKey>
+--
 -- -   < GenerateDataKeyWithoutPlaintext>
+--
 module Network.AWS.KMS
     (
     -- * Service Configuration
@@ -76,8 +82,14 @@ module Network.AWS.KMS
     -- ** KeyUnavailableException
     , _KeyUnavailableException
 
+    -- ** IncorrectKeyMaterialException
+    , _IncorrectKeyMaterialException
+
     -- ** KMSInternalException
     , _KMSInternalException
+
+    -- ** InvalidImportTokenException
+    , _InvalidImportTokenException
 
     -- ** NotFoundException
     , _NotFoundException
@@ -96,6 +108,9 @@ module Network.AWS.KMS
 
     -- ** DependencyTimeoutException
     , _DependencyTimeoutException
+
+    -- ** ExpiredImportTokenException
+    , _ExpiredImportTokenException
 
     -- ** InvalidCiphertextException
     , _InvalidCiphertextException
@@ -123,6 +138,9 @@ module Network.AWS.KMS
 
     -- ** GenerateDataKeyWithoutPlaintext
     , module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+
+    -- ** GetParametersForImport
+    , module Network.AWS.KMS.GetParametersForImport
 
     -- ** EnableKeyRotation
     , module Network.AWS.KMS.EnableKeyRotation
@@ -199,10 +217,22 @@ module Network.AWS.KMS
     -- ** GetKeyPolicy
     , module Network.AWS.KMS.GetKeyPolicy
 
+    -- ** ImportKeyMaterial
+    , module Network.AWS.KMS.ImportKeyMaterial
+
+    -- ** DeleteImportedKeyMaterial
+    , module Network.AWS.KMS.DeleteImportedKeyMaterial
+
     -- * Types
+
+    -- ** AlgorithmSpec
+    , AlgorithmSpec (..)
 
     -- ** DataKeySpec
     , DataKeySpec (..)
+
+    -- ** ExpirationModelType
+    , ExpirationModelType (..)
 
     -- ** GrantOperation
     , GrantOperation (..)
@@ -212,6 +242,12 @@ module Network.AWS.KMS
 
     -- ** KeyUsageType
     , KeyUsageType (..)
+
+    -- ** OriginType
+    , OriginType (..)
+
+    -- ** WrappingKeySpec
+    , WrappingKeySpec (..)
 
     -- ** AliasListEntry
     , AliasListEntry
@@ -248,7 +284,10 @@ module Network.AWS.KMS
     -- ** KeyMetadata
     , KeyMetadata
     , keyMetadata
+    , kmOrigin
+    , kmExpirationModel
     , kmEnabled
+    , kmValidTo
     , kmARN
     , kmKeyState
     , kmAWSAccountId
@@ -272,6 +311,7 @@ import           Network.AWS.KMS.CreateGrant
 import           Network.AWS.KMS.CreateKey
 import           Network.AWS.KMS.Decrypt
 import           Network.AWS.KMS.DeleteAlias
+import           Network.AWS.KMS.DeleteImportedKeyMaterial
 import           Network.AWS.KMS.DescribeKey
 import           Network.AWS.KMS.DisableKey
 import           Network.AWS.KMS.DisableKeyRotation
@@ -283,6 +323,8 @@ import           Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 import           Network.AWS.KMS.GenerateRandom
 import           Network.AWS.KMS.GetKeyPolicy
 import           Network.AWS.KMS.GetKeyRotationStatus
+import           Network.AWS.KMS.GetParametersForImport
+import           Network.AWS.KMS.ImportKeyMaterial
 import           Network.AWS.KMS.ListAliases
 import           Network.AWS.KMS.ListGrants
 import           Network.AWS.KMS.ListKeyPolicies

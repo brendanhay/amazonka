@@ -85,7 +85,7 @@ lrgLimit = lens _lrgLimit (\ s a -> s{_lrgLimit = a}) . mapping _Nat;
 
 -- | The retiring principal for which to list grants.
 --
--- To specify the retiring principal, use the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/.
+-- To specify the retiring principal, use the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/.
 lrgRetiringPrincipal :: Lens' ListRetirableGrants Text
 lrgRetiringPrincipal = lens _lrgRetiringPrincipal (\ s a -> s{_lrgRetiringPrincipal = a});
 

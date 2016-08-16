@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=e5bf40eb013cc315fd1082dea1ffa9d46e6eeea59dcf260dcbec18ef8a229e67
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=62cc6620dcf0a8bdf5cf05e1656dfe9dcc17f4d0bd166b83c8a0dc8d7954e3f2
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  1a58190ece713714bc47cc72c5cc20ded47dfe2824e1c73cf3fe68f5824f8dd4
+  X-Amz-Content-SHA256:  ee57386c8e0aab5d1c9fbdd3eea25513e132552eb912cbb2b60c7a8fcfc760d9
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=CopySnapshot&Description=My_snapshot&SourceRegion=us-west-1&SourceSnapshotId=snap-1a2b3c4d&Version=2015-10-01
+  Action=CopySnapshot&Description=My_snapshot&SourceRegion=us-west-1&SourceSnapshotId=snap-1a2b3c4d&Version=2016-04-01

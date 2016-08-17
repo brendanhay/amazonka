@@ -14,18 +14,18 @@
 --
 module Network.AWS.S3.Encryption.Encrypt where
 
-import           Control.Lens                           hiding (coerce)
-import           Control.Monad
-import           Control.Monad.Trans.AWS
-import           Data.Coerce
-import           Data.Proxy
-import           Network.AWS.Prelude
-import           Network.AWS.S3
-import           Network.AWS.S3.Encryption.Envelope
-import           Network.AWS.S3.Encryption.Instructions
-import           Network.AWS.S3.Encryption.Types
+import Control.Lens  (set, (<>~), (%~), (^.), Setter', to, (&), view, lens)
+import Control.Monad (join)
+import Control.Monad.Trans.AWS
 
--- FIXME: Material
+import Data.Coerce (coerce)
+import Data.Proxy  (Proxy (..))
+
+import Network.AWS.Prelude
+import Network.AWS.S3
+import Network.AWS.S3.Encryption.Envelope
+import Network.AWS.S3.Encryption.Instructions
+import Network.AWS.S3.Encryption.Types
 
 -- | Note about how it doesn't attach metadata by default.
 -- You can re-set the location and then discard the PutInstructions request.

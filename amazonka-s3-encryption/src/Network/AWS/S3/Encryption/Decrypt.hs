@@ -13,14 +13,16 @@
 --
 module Network.AWS.S3.Encryption.Decrypt where
 
-import           Control.Lens                           hiding (coerce)
-import           Control.Monad.Trans.AWS
-import           Data.Coerce
-import           Data.Proxy
-import           Network.AWS.S3
-import           Network.AWS.S3.Encryption.Envelope
-import           Network.AWS.S3.Encryption.Instructions
-import           Network.AWS.S3.Encryption.Types
+import Control.Lens ((&), (%~), (^.), view)
+import Control.Monad.Trans.AWS
+
+import Data.Coerce (coerce)
+import Data.Proxy  (Proxy (..))
+
+import Network.AWS.S3
+import Network.AWS.S3.Encryption.Envelope
+import Network.AWS.S3.Encryption.Instructions
+import Network.AWS.S3.Encryption.Types
 
 decrypted :: GetObject
           -> (Decrypt GetObject, GetInstructions)

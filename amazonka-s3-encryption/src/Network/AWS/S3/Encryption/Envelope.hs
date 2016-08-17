@@ -13,27 +13,32 @@
 --
 module Network.AWS.S3.Encryption.Envelope where
 
-import           Conduit
-import           Control.Lens
-import           Control.Monad
-import           Crypto.Cipher.AES
-import           Crypto.Cipher.Types
-import           Crypto.Data.Padding
-import           Crypto.Error
-import qualified Crypto.PubKey.RSA.PKCS15        as RSA
-import           Crypto.PubKey.RSA.Types
-import           Crypto.Random
-import           Data.Aeson
-import           Data.Bifunctor
-import           Data.ByteArray
-import           Data.CaseInsensitive            (CI)
-import qualified Data.CaseInsensitive            as CI
-import qualified Data.HashMap.Strict             as Map
-import           Network.AWS                     hiding (PKCS7)
-import           Network.AWS.KMS                 as KMS
-import           Network.AWS.Prelude
-import           Network.AWS.S3.Encryption.Body
-import           Network.AWS.S3.Encryption.Types
+import Conduit             (MonadIO (..), MonadResource, awaitForever, yield)
+import Control.Lens        ((&), (+~), (.~), (?~), (^.))
+import Control.Monad       ((>=>))
+import Control.Monad.Catch (MonadThrow (..))
+
+import Crypto.Cipher.AES       (AES256)
+import Crypto.Cipher.Types     (BlockCipher (..), Cipher (..), IV, makeIV)
+import Crypto.Data.Padding     (Format (PKCS7), pad, unpad)
+import Crypto.Error
+import Crypto.PubKey.RSA.Types
+import Crypto.Random           (MonadRandom (..))
+
+import Data.Aeson
+import Data.Bifunctor       (bimap, first)
+import Data.ByteArray       (ByteArray, convert)
+import Data.CaseInsensitive (CI)
+
+import Network.AWS                     hiding (PKCS7)
+import Network.AWS.KMS                 as KMS
+import Network.AWS.Prelude
+import Network.AWS.S3.Encryption.Body
+import Network.AWS.S3.Encryption.Types
+
+import qualified Crypto.PubKey.RSA.PKCS15 as RSA
+import qualified Data.CaseInsensitive     as CI
+import qualified Data.HashMap.Strict      as Map
 
 data V1Envelope = V1Envelope
     { _v1Key         :: !ByteString

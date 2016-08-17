@@ -14,13 +14,15 @@
 --
 module Network.AWS.S3.Encryption.Instructions where
 
-import           Control.Arrow
-import           Control.Lens                       hiding (coerce)
+import           Control.Arrow ((&&&))
+import           Control.Lens  (Lens', (%~), lens, (&), view)
 import           Control.Monad.Trans.AWS
-import           Data.Aeson.Types                   (parseEither)
-import           Data.Coerce
-import           Data.Proxy
-import           Network.AWS.Prelude
+
+import           Data.Aeson
+import           Data.Aeson.Types (parseEither)
+import           Data.Coerce      (coerce)
+import           Data.Proxy       (Proxy (..))
+
 import           Network.AWS.Response
 import           Network.AWS.S3
 import           Network.AWS.S3.Encryption.Envelope
@@ -87,8 +89,11 @@ class AWSRequest a => RemoveInstructions a where
     -- | Determine the bucket and key an instructions file is adjacent to.
     remove' :: a -> (BucketName, ObjectKey)
 
-instance RemoveInstructions AbortMultipartUpload where remove' = view amuBucket &&& view amuKey
-instance RemoveInstructions DeleteObject         where remove' = view doBucket  &&& view doKey
+instance RemoveInstructions AbortMultipartUpload where
+    remove' = view amuBucket &&& view amuKey
+
+instance RemoveInstructions DeleteObject where
+    remove' = view doBucket &&& view doKey
 
 data DeleteInstructions = DeleteInstructions
     { _diExt    :: Ext

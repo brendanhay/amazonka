@@ -1,7 +1,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE TemplateHaskell            #-}
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Types
@@ -13,20 +12,25 @@
 --
 module Network.AWS.S3.Encryption.Types where
 
-import           Control.Exception
-import           Control.Exception.Lens
-import           Control.Lens
-import           Crypto.Cipher.AES
-import           Crypto.Error
-import           Crypto.PubKey.RSA.Types as RSA
-import           Data.Aeson
+import Control.Exception
+import Control.Exception.Lens
+import Control.Lens           (Lens', Prism', lens, makeClassyPrisms, prism)
+
+import Crypto.Cipher.AES       (AES256)
+import Crypto.Error
+import Crypto.PubKey.RSA.Types (KeyPair)
+
+import Data.Aeson
+import Data.CaseInsensitive (CI)
+import Data.String          (IsString (..))
+
+import Network.AWS
+import Network.AWS.Prelude
+import Network.AWS.S3      (ObjectKey (..))
+
+import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.ByteString.Lazy    as LBS
-import           Data.CaseInsensitive    (CI)
-import           Data.String
 import qualified Data.Text               as Text
-import           Network.AWS
-import           Network.AWS.Prelude
-import           Network.AWS.S3          (ObjectKey (..))
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
@@ -52,7 +56,60 @@ data EncryptionError
 
 instance Exception EncryptionError
 
-makeClassyPrisms ''EncryptionError
+class AsEncryptionError a where
+    _EncryptionError      :: Prism' a EncryptionError
+    _CipherFailure        :: Prism' a CryptoError
+    _PubKeyFailure        :: Prism' a RSA.Error
+    _IVInvalid            :: Prism' a ByteString
+    _EnvelopeMissing      :: Prism' a (CI Text)
+    _EnvelopeInvalid      :: Prism' a (CI Text, String)
+    _PlaintextUnavailable :: Prism' a ()
+
+    _CipherFailure        = (.) _EncryptionError _CipherFailure
+    _PubKeyFailure        = (.) _EncryptionError _PubKeyFailure
+    _IVInvalid            = (.) _EncryptionError _IVInvalid
+    _EnvelopeMissing      = (.) _EncryptionError _EnvelopeMissing
+    _EnvelopeInvalid      = (.) _EncryptionError _EnvelopeInvalid
+    _PlaintextUnavailable = (.) _EncryptionError _PlaintextUnavailable
+
+instance AsEncryptionError EncryptionError where
+    _EncryptionError = id
+
+    _CipherFailure = prism
+        CipherFailure
+        (\case
+            CipherFailure e -> Right e
+            x               -> Left x)
+
+    _PubKeyFailure = prism
+        PubKeyFailure
+        (\case
+            PubKeyFailure e -> Right e
+            x               -> Left x)
+
+    _IVInvalid = prism
+        IVInvalid
+        (\case
+            IVInvalid e -> Right e
+            x           -> Left x)
+
+    _EnvelopeMissing = prism
+        EnvelopeMissing
+        (\case
+            EnvelopeMissing e -> Right e
+            x                 -> Left x)
+
+    _EnvelopeInvalid = prism
+        (\(a, e) -> EnvelopeInvalid a e)
+        (\case
+            EnvelopeInvalid a e -> Right (a, e)
+            x                   -> Left x)
+
+    _PlaintextUnavailable = prism
+        (\() -> PlaintextUnavailable)
+        (\case
+            PlaintextUnavailable -> Right ()
+            x                    -> Left x)
 
 instance AsEncryptionError SomeException where
     _EncryptionError = exception

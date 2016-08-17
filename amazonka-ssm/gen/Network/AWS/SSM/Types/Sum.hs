@@ -285,21 +285,21 @@ instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
 
 data DocumentHashType
-    = SHA1
-    | SHA256
+    = HashSHA1
+    | HashSHA256
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DocumentHashType where
     parser = takeLowerText >>= \case
-        "sha1" -> pure SHA1
-        "sha256" -> pure SHA256
+        "sha1" -> pure HashSHA1
+        "sha256" -> pure HashSHA256
         e -> fromTextError $ "Failure parsing DocumentHashType from value: '" <> e
            <> "'. Accepted values: sha1, sha256"
 
 instance ToText DocumentHashType where
     toText = \case
-        SHA1 -> "Sha1"
-        SHA256 -> "Sha256"
+        HashSHA1 -> "Sha1"
+        HashSHA256 -> "Sha256"
 
 instance Hashable     DocumentHashType
 instance NFData       DocumentHashType

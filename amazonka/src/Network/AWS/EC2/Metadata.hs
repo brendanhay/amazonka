@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleContexts   #-}
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
@@ -28,12 +29,16 @@ module Network.AWS.EC2.Metadata
     , metadata
     , userdata
 
+    -- ** Identity Documents
+    , IdentityDocument (..)
+    , identity
+
     -- ** Path Constructors
-    , Dynamic   (..)
-    , Metadata  (..)
-    , Mapping   (..)
-    , Info      (..)
-    , Interface (..)
+    , Dynamic          (..)
+    , Metadata         (..)
+    , Mapping          (..)
+    , Info             (..)
+    , Interface        (..)
     ) where
 
 import           Control.Monad
@@ -43,6 +48,7 @@ import qualified Data.ByteString.Char8  as BS8
 import qualified Data.ByteString.Lazy   as LBS
 import           Data.Monoid
 import qualified Data.Text              as Text
+import           Network.AWS.Data.JSON
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
 
@@ -305,11 +311,71 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
     x <- try $ get m (latest <> "user-data")
     case x of
-        Right b -> return (Just b)
         Left (HttpExceptionRequest _ (StatusCodeException rs _))
             | fromEnum (responseStatus rs) == 404
                 -> return Nothing
-        Left e  -> throwM e
+        Left  e -> throwM e
+        Right b -> return (Just b)
+
+-- | TODO: what an IdentityDocument is, and what values are available.
+--
+-- Note about either return type.
+identity :: (MonadIO m, MonadThrow m)
+         => Manager
+         -> m (Either String IdentityDocument)
+identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
+
+-- | TODO: note about deserialisation of 'Text' values vs what's available in core.
+data IdentityDocument = IdentityDocument
+    { _devpayProductCodes :: Maybe Text
+    , _billingProducts    :: Maybe Text
+    , _version            :: Text
+    , _privateIP          :: Text
+    , _availabilityZone   :: Text
+    , _region             :: !Region
+    , _instanceID         :: Text
+    , _instanceType       :: Text
+    , _accountID          :: Text
+    , _imageID            :: Text
+    , _kernelID           :: Text
+    , _ramdiskID          :: Maybe Text
+    , _architecture       :: Text
+    } deriving (Eq, Show)
+
+instance FromJSON IdentityDocument where
+    parseJSON = withObject "dynamic/instance-identity/document" $ \o ->
+        IdentityDocument
+            <$> o .:? "devpayProductCodes"
+            <*> o .:? "availabilityZone"
+            <*> o .:  "privateIp"
+            <*> o .:  "version"
+            <*> o .:  "region"
+            <*> o .:  "instanceId"
+            <*> o .:  "billingProducts"
+            <*> o .:  "instanceType"
+            <*> o .:  "accountId"
+            <*> o .:  "imageId"
+            <*> o .:  "kernelId"
+            <*> o .:? "ramdiskId"
+            <*> o .:  "architecture"
+
+instance ToJSON IdentityDocument where
+    toJSON IdentityDocument{..} =
+        object
+            [ "devpayProductCodes" .= _devpayProductCodes
+            , "availabilityZone"   .= _availabilityZone
+            , "privateIp"          .= _privateIP
+            , "version"            .= _version
+            , "region"             .= _region
+            , "instanceId"         .= _instanceID
+            , "billingProducts"    .= _billingProducts
+            , "instanceType"       .= _instanceType
+            , "accountId"          .= _accountID
+            , "imageId"            .= _imageID
+            , "kernelId"           .= _kernelID
+            , "ramdiskId"          .= _ramdiskID
+            , "architecture"       .= _architecture
+            ]
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
 get m url = liftIO (strip `liftM` request m url)

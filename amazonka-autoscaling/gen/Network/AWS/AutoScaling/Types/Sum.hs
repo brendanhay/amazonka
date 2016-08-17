@@ -51,7 +51,7 @@ instance FromText LifecycleState where
         "terminating:proceed" -> pure TerminatingProceed
         "terminating:wait" -> pure TerminatingWait
         e -> fromTextError $ "Failure parsing LifecycleState from value: '" <> e
-           <> "'. Accepted values: Detached, Detaching, EnteringStandby, InService, Pending, Pending:Proceed, Pending:Wait, Quarantined, Standby, Terminated, Terminating, Terminating:Proceed, Terminating:Wait"
+           <> "'. Accepted values: detached, detaching, enteringstandby, inservice, pending, pending:proceed, pending:wait, quarantined, standby, terminated, terminating, terminating:proceed, terminating:wait"
 
 instance ToText LifecycleState where
     toText = \case
@@ -108,7 +108,7 @@ instance FromText ScalingActivityStatusCode where
         "waitingforspotinstanceid" -> pure WaitingForSpotInstanceId
         "waitingforspotinstancerequestid" -> pure WaitingForSpotInstanceRequestId
         e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
-           <> "'. Accepted values: Cancelled, Failed, InProgress, MidLifecycleAction, PendingSpotBidPlacement, PreInService, Successful, WaitingForELBConnectionDraining, WaitingForInstanceId, WaitingForInstanceWarmup, WaitingForSpotInstanceId, WaitingForSpotInstanceRequestId"
+           <> "'. Accepted values: cancelled, failed, inprogress, midlifecycleaction, pendingspotbidplacement, preinservice, successful, waitingforelbconnectiondraining, waitingforinstanceid, waitingforinstancewarmup, waitingforspotinstanceid, waitingforspotinstancerequestid"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case

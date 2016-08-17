@@ -29,7 +29,7 @@ instance FromText ChangeAction where
         "delete" -> pure Delete
         "insert" -> pure Insert
         e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
-           <> "'. Accepted values: DELETE, INSERT"
+           <> "'. Accepted values: delete, insert"
 
 instance ToText ChangeAction where
     toText = \case
@@ -57,7 +57,7 @@ instance FromText ChangeTokenStatus where
         "pending" -> pure Pending
         "provisioned" -> pure Provisioned
         e -> fromTextError $ "Failure parsing ChangeTokenStatus from value: '" <> e
-           <> "'. Accepted values: INSYNC, PENDING, PROVISIONED"
+           <> "'. Accepted values: insync, pending, provisioned"
 
 instance ToText ChangeTokenStatus where
     toText = \case
@@ -92,7 +92,7 @@ instance FromText ComparisonOperator where
         "lt" -> pure LT'
         "ne" -> pure NE
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: EQ, GE, GT, LE, LT, NE"
+           <> "'. Accepted values: eq, ge, gt, le, lt, ne"
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -123,7 +123,7 @@ instance FromText IPSetDescriptorType where
     parser = takeLowerText >>= \case
         "ipv4" -> pure IPV4
         e -> fromTextError $ "Failure parsing IPSetDescriptorType from value: '" <> e
-           <> "'. Accepted values: IPV4"
+           <> "'. Accepted values: ipv4"
 
 instance ToText IPSetDescriptorType where
     toText = \case
@@ -157,7 +157,7 @@ instance FromText MatchFieldType where
         "query_string" -> pure QueryString
         "uri" -> pure URI
         e -> fromTextError $ "Failure parsing MatchFieldType from value: '" <> e
-           <> "'. Accepted values: BODY, HEADER, METHOD, QUERY_STRING, URI"
+           <> "'. Accepted values: body, header, method, query_string, uri"
 
 instance ToText MatchFieldType where
     toText = \case
@@ -195,7 +195,7 @@ instance FromText PositionalConstraint where
         "exactly" -> pure Exactly
         "starts_with" -> pure StartsWith
         e -> fromTextError $ "Failure parsing PositionalConstraint from value: '" <> e
-           <> "'. Accepted values: CONTAINS, CONTAINS_WORD, ENDS_WITH, EXACTLY, STARTS_WITH"
+           <> "'. Accepted values: contains, contains_word, ends_with, exactly, starts_with"
 
 instance ToText PositionalConstraint where
     toText = \case
@@ -233,7 +233,7 @@ instance FromText PredicateType where
         "sqlinjectionmatch" -> pure SqlInjectionMatch
         "xssmatch" -> pure XSSMatch
         e -> fromTextError $ "Failure parsing PredicateType from value: '" <> e
-           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch, XssMatch"
+           <> "'. Accepted values: bytematch, ipmatch, sizeconstraint, sqlinjectionmatch, xssmatch"
 
 instance ToText PredicateType where
     toText = \case
@@ -273,7 +273,7 @@ instance FromText TextTransformation where
         "none" -> pure None
         "url_decode" -> pure URLDecode
         e -> fromTextError $ "Failure parsing TextTransformation from value: '" <> e
-           <> "'. Accepted values: CMD_LINE, COMPRESS_WHITE_SPACE, HTML_ENTITY_DECODE, LOWERCASE, NONE, URL_DECODE"
+           <> "'. Accepted values: cmd_line, compress_white_space, html_entity_decode, lowercase, none, url_decode"
 
 instance ToText TextTransformation where
     toText = \case
@@ -308,7 +308,7 @@ instance FromText WafActionType where
         "block" -> pure Block
         "count" -> pure Count
         e -> fromTextError $ "Failure parsing WafActionType from value: '" <> e
-           <> "'. Accepted values: ALLOW, BLOCK, COUNT"
+           <> "'. Accepted values: allow, block, count"
 
 instance ToText WafActionType where
     toText = \case

@@ -32,7 +32,7 @@ instance FromText ChangeAction where
         "delete" -> pure Delete
         "upsert" -> pure Upsert
         e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
-           <> "'. Accepted values: CREATE, DELETE, UPSERT"
+           <> "'. Accepted values: create, delete, upsert"
 
 instance ToText ChangeAction where
     toText = \case
@@ -59,7 +59,7 @@ instance FromText ChangeStatus where
         "insync" -> pure Insync
         "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing ChangeStatus from value: '" <> e
-           <> "'. Accepted values: INSYNC, PENDING"
+           <> "'. Accepted values: insync, pending"
 
 instance ToText ChangeStatus where
     toText = \case
@@ -142,7 +142,7 @@ instance FromText ComparisonOperator where
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -170,7 +170,7 @@ instance FromText Failover where
         "primary" -> pure Primary
         "secondary" -> pure Secondary
         e -> fromTextError $ "Failure parsing Failover from value: '" <> e
-           <> "'. Accepted values: PRIMARY, SECONDARY"
+           <> "'. Accepted values: primary, secondary"
 
 instance ToText Failover where
     toText = \case
@@ -257,7 +257,7 @@ instance FromText HealthCheckType where
         "http_str_match" -> pure HTTPStrMatch
         "tcp" -> pure TCP
         e -> fromTextError $ "Failure parsing HealthCheckType from value: '" <> e
-           <> "'. Accepted values: CALCULATED, CLOUDWATCH_METRIC, HTTP, HTTPS, HTTPS_STR_MATCH, HTTP_STR_MATCH, TCP"
+           <> "'. Accepted values: calculated, cloudwatch_metric, http, https, https_str_match, http_str_match, tcp"
 
 instance ToText HealthCheckType where
     toText = \case
@@ -293,7 +293,7 @@ instance FromText InsufficientDataHealthStatus where
         "lastknownstatus" -> pure LastKnownStatus
         "unhealthy" -> pure Unhealthy
         e -> fromTextError $ "Failure parsing InsufficientDataHealthStatus from value: '" <> e
-           <> "'. Accepted values: Healthy, LastKnownStatus, Unhealthy"
+           <> "'. Accepted values: healthy, lastknownstatus, unhealthy"
 
 instance ToText InsufficientDataHealthStatus where
     toText = \case
@@ -339,7 +339,7 @@ instance FromText RecordType where
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: A, AAAA, CNAME, MX, NS, PTR, SOA, SPF, SRV, TXT"
+           <> "'. Accepted values: a, aaaa, cname, mx, ns, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
@@ -382,7 +382,7 @@ instance FromText Statistic where
         "samplecount" -> pure SampleCount
         "sum" -> pure Sum
         e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
-           <> "'. Accepted values: Average, Maximum, Minimum, SampleCount, Sum"
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
 
 instance ToText Statistic where
     toText = \case

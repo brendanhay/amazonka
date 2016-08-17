@@ -49,7 +49,7 @@ instance FromText JobState where
         "withaws" -> pure WithAWS
         "withcustomer" -> pure WithCustomer
         e -> fromTextError $ "Failure parsing JobState from value: '" <> e
-           <> "'. Accepted values: Cancelled, Complete, InProgress, InTransitToAWS, InTransitToCustomer, Listing, New, Pending, PreparingAppliance, PreparingShipment, WithAWS, WithCustomer"
+           <> "'. Accepted values: cancelled, complete, inprogress, intransittoaws, intransittocustomer, listing, new, pending, preparingappliance, preparingshipment, withaws, withcustomer"
 
 instance ToText JobState where
     toText = \case
@@ -88,7 +88,7 @@ instance FromText JobType where
         "export" -> pure Export
         "import" -> pure Import
         e -> fromTextError $ "Failure parsing JobType from value: '" <> e
-           <> "'. Accepted values: EXPORT, IMPORT"
+           <> "'. Accepted values: export, import"
 
 instance ToText JobType where
     toText = \case
@@ -121,7 +121,7 @@ instance FromText ShippingOption where
         "second_day" -> pure SecondDay
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing ShippingOption from value: '" <> e
-           <> "'. Accepted values: EXPRESS, NEXT_DAY, SECOND_DAY, STANDARD"
+           <> "'. Accepted values: express, next_day, second_day, standard"
 
 instance ToText ShippingOption where
     toText = \case
@@ -154,7 +154,7 @@ instance FromText SnowballCapacity where
         "t50" -> pure T50
         "t80" -> pure T80
         e -> fromTextError $ "Failure parsing SnowballCapacity from value: '" <> e
-           <> "'. Accepted values: NoPreference, T50, T80"
+           <> "'. Accepted values: nopreference, t50, t80"
 
 instance ToText SnowballCapacity where
     toText = \case

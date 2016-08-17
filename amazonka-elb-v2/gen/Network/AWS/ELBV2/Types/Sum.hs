@@ -130,7 +130,7 @@ instance FromText ProtocolEnum where
         "http" -> pure HTTP
         "https" -> pure HTTPS
         e -> fromTextError $ "Failure parsing ProtocolEnum from value: '" <> e
-           <> "'. Accepted values: HTTP, HTTPS"
+           <> "'. Accepted values: http, https"
 
 instance ToText ProtocolEnum where
     toText = \case
@@ -172,7 +172,7 @@ instance FromText TargetHealthReasonEnum where
         "target.responsecodemismatch" -> pure Target_ResponseCodeMismatch
         "target.timeout" -> pure Target_Timeout
         e -> fromTextError $ "Failure parsing TargetHealthReasonEnum from value: '" <> e
-           <> "'. Accepted values: Elb.InitialHealthChecking, Elb.InternalError, Elb.RegistrationInProgress, Target.DeregistrationInProgress, Target.FailedHealthChecks, Target.InvalidState, Target.NotInUse, Target.NotRegistered, Target.ResponseCodeMismatch, Target.Timeout"
+           <> "'. Accepted values: elb.initialhealthchecking, elb.internalerror, elb.registrationinprogress, target.deregistrationinprogress, target.failedhealthchecks, target.invalidstate, target.notinuse, target.notregistered, target.responsecodemismatch, target.timeout"
 
 instance ToText TargetHealthReasonEnum where
     toText = \case

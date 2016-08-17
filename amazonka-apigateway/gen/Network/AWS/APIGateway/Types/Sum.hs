@@ -30,7 +30,7 @@ instance FromText AuthorizerType where
         "cognito_user_pools" -> pure CognitoUserPools
         "token" -> pure Token
         e -> fromTextError $ "Failure parsing AuthorizerType from value: '" <> e
-           <> "'. Accepted values: COGNITO_USER_POOLS, TOKEN"
+           <> "'. Accepted values: cognito_user_pools, token"
 
 instance ToText AuthorizerType where
     toText = \case
@@ -114,7 +114,7 @@ instance FromText CacheClusterStatus where
         "flush_in_progress" -> pure FlushInProgress
         "not_available" -> pure NotAvailable
         e -> fromTextError $ "Failure parsing CacheClusterStatus from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, CREATE_IN_PROGRESS, DELETE_IN_PROGRESS, FLUSH_IN_PROGRESS, NOT_AVAILABLE"
+           <> "'. Accepted values: available, create_in_progress, delete_in_progress, flush_in_progress, not_available"
 
 instance ToText CacheClusterStatus where
     toText = \case
@@ -146,7 +146,7 @@ instance FromText IntegrationType where
         "http" -> pure HTTP
         "mock" -> pure Mock
         e -> fromTextError $ "Failure parsing IntegrationType from value: '" <> e
-           <> "'. Accepted values: AWS, HTTP, MOCK"
+           <> "'. Accepted values: aws, http, mock"
 
 instance ToText IntegrationType where
     toText = \case
@@ -242,7 +242,7 @@ instance FromText UnauthorizedCacheControlHeaderStrategy where
         "succeed_with_response_header" -> pure SucceedWithResponseHeader
         "succeed_without_response_header" -> pure SucceedWithoutResponseHeader
         e -> fromTextError $ "Failure parsing UnauthorizedCacheControlHeaderStrategy from value: '" <> e
-           <> "'. Accepted values: FAIL_WITH_403, SUCCEED_WITH_RESPONSE_HEADER, SUCCEED_WITHOUT_RESPONSE_HEADER"
+           <> "'. Accepted values: fail_with_403, succeed_with_response_header, succeed_without_response_header"
 
 instance ToText UnauthorizedCacheControlHeaderStrategy where
     toText = \case

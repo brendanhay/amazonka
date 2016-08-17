@@ -31,7 +31,7 @@ instance FromText ArtifactCategory where
         "log" -> pure ACLog
         "screenshot" -> pure ACScreenshot
         e -> fromTextError $ "Failure parsing ArtifactCategory from value: '" <> e
-           <> "'. Accepted values: FILE, LOG, SCREENSHOT"
+           <> "'. Accepted values: file, log, screenshot"
 
 instance ToText ArtifactCategory where
     toText = \case
@@ -104,7 +104,7 @@ instance FromText ArtifactType where
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, VIDEO, VIDEO_LOG, WEBKIT_LOG, XCTEST_LOG"
+           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
 
 instance ToText ArtifactType where
     toText = \case
@@ -153,7 +153,7 @@ instance FromText BillingMethod where
         "metered" -> pure Metered
         "unmetered" -> pure Unmetered
         e -> fromTextError $ "Failure parsing BillingMethod from value: '" <> e
-           <> "'. Accepted values: METERED, UNMETERED"
+           <> "'. Accepted values: metered, unmetered"
 
 instance ToText BillingMethod where
     toText = \case
@@ -180,7 +180,7 @@ instance FromText CurrencyCode where
     parser = takeLowerText >>= \case
         "usd" -> pure Usd
         e -> fromTextError $ "Failure parsing CurrencyCode from value: '" <> e
-           <> "'. Accepted values: USD"
+           <> "'. Accepted values: usd"
 
 instance ToText CurrencyCode where
     toText = \case
@@ -211,7 +211,7 @@ instance FromText DeviceAttribute where
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: ARN, FORM_FACTOR, MANUFACTURER, PLATFORM, REMOTE_ACCESS_ENABLED"
+           <> "'. Accepted values: arn, form_factor, manufacturer, platform, remote_access_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
@@ -243,7 +243,7 @@ instance FromText DeviceFormFactor where
         "phone" -> pure Phone
         "tablet" -> pure Tablet
         e -> fromTextError $ "Failure parsing DeviceFormFactor from value: '" <> e
-           <> "'. Accepted values: PHONE, TABLET"
+           <> "'. Accepted values: phone, tablet"
 
 instance ToText DeviceFormFactor where
     toText = \case
@@ -269,7 +269,7 @@ instance FromText DevicePlatform where
         "android" -> pure Android
         "ios" -> pure Ios
         e -> fromTextError $ "Failure parsing DevicePlatform from value: '" <> e
-           <> "'. Accepted values: ANDROID, IOS"
+           <> "'. Accepted values: android, ios"
 
 instance ToText DevicePlatform where
     toText = \case
@@ -295,7 +295,7 @@ instance FromText DevicePoolType where
         "curated" -> pure Curated
         "private" -> pure Private
         e -> fromTextError $ "Failure parsing DevicePoolType from value: '" <> e
-           <> "'. Accepted values: CURATED, PRIVATE"
+           <> "'. Accepted values: curated, private"
 
 instance ToText DevicePoolType where
     toText = \case
@@ -334,7 +334,7 @@ instance FromText ExecutionResult where
         "stopped" -> pure ERStopped
         "warned" -> pure ERWarned
         e -> fromTextError $ "Failure parsing ExecutionResult from value: '" <> e
-           <> "'. Accepted values: ERRORED, FAILED, PASSED, PENDING, SKIPPED, STOPPED, WARNED"
+           <> "'. Accepted values: errored, failed, passed, pending, skipped, stopped, warned"
 
 instance ToText ExecutionResult where
     toText = \case
@@ -379,7 +379,7 @@ instance FromText ExecutionStatus where
         "scheduling" -> pure Scheduling
         "stopping" -> pure Stopping
         e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETED, PENDING, PENDING_CONCURRENCY, PENDING_DEVICE, PREPARING, PROCESSING, RUNNING, SCHEDULING, STOPPING"
+           <> "'. Accepted values: completed, pending, pending_concurrency, pending_device, preparing, processing, running, scheduling, stopping"
 
 instance ToText ExecutionStatus where
     toText = \case
@@ -414,7 +414,7 @@ instance FromText OfferingTransactionType where
         "renew" -> pure Renew
         "system" -> pure System
         e -> fromTextError $ "Failure parsing OfferingTransactionType from value: '" <> e
-           <> "'. Accepted values: PURCHASE, RENEW, SYSTEM"
+           <> "'. Accepted values: purchase, renew, system"
 
 instance ToText OfferingTransactionType where
     toText = \case
@@ -439,7 +439,7 @@ instance FromText OfferingType where
     parser = takeLowerText >>= \case
         "recurring" -> pure Recurring
         e -> fromTextError $ "Failure parsing OfferingType from value: '" <> e
-           <> "'. Accepted values: RECURRING"
+           <> "'. Accepted values: recurring"
 
 instance ToText OfferingType where
     toText = \case
@@ -462,7 +462,7 @@ instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
         "monthly" -> pure Monthly
         e -> fromTextError $ "Failure parsing RecurringChargeFrequency from value: '" <> e
-           <> "'. Accepted values: MONTHLY"
+           <> "'. Accepted values: monthly"
 
 instance ToText RecurringChargeFrequency where
     toText = \case
@@ -493,7 +493,7 @@ instance FromText RuleOperator where
         "less_than" -> pure LessThan
         "not_in" -> pure NotIn
         e -> fromTextError $ "Failure parsing RuleOperator from value: '" <> e
-           <> "'. Accepted values: EQUALS, GREATER_THAN, IN, LESS_THAN, NOT_IN"
+           <> "'. Accepted values: equals, greater_than, in, less_than, not_in"
 
 instance ToText RuleOperator where
     toText = \case
@@ -555,7 +555,7 @@ instance FromText SampleType where
         "threads" -> pure Threads
         "tx_rate" -> pure TxRate
         e -> fromTextError $ "Failure parsing SampleType from value: '" <> e
-           <> "'. Accepted values: CPU, MEMORY, NATIVE_AVG_DRAWTIME, NATIVE_FPS, NATIVE_FRAMES, NATIVE_MAX_DRAWTIME, NATIVE_MIN_DRAWTIME, OPENGL_AVG_DRAWTIME, OPENGL_FPS, OPENGL_FRAMES, OPENGL_MAX_DRAWTIME, OPENGL_MIN_DRAWTIME, RX, RX_RATE, TX, THREADS, TX_RATE"
+           <> "'. Accepted values: cpu, memory, native_avg_drawtime, native_fps, native_frames, native_max_drawtime, native_min_drawtime, opengl_avg_drawtime, opengl_fps, opengl_frames, opengl_max_drawtime, opengl_min_drawtime, rx, rx_rate, tx, threads, tx_rate"
 
 instance ToText SampleType where
     toText = \case
@@ -620,7 +620,7 @@ instance FromText TestType where
         "xctest" -> pure Xctest
         "xctest_ui" -> pure XctestUi
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST, XCTEST_UI"
+           <> "'. Accepted values: appium_java_junit, appium_java_testng, appium_python, appium_web_java_junit, appium_web_java_testng, appium_web_python, builtin_explorer, builtin_fuzz, calabash, instrumentation, uiautomation, uiautomator, xctest, xctest_ui"
 
 instance ToText TestType where
     toText = \case
@@ -665,7 +665,7 @@ instance FromText UploadStatus where
         "processing" -> pure USProcessing
         "succeeded" -> pure USSucceeded
         e -> fromTextError $ "Failure parsing UploadStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, INITIALIZED, PROCESSING, SUCCEEDED"
+           <> "'. Accepted values: failed, initialized, processing, succeeded"
 
 instance ToText UploadStatus where
     toText = \case
@@ -721,7 +721,7 @@ instance FromText UploadType where
         "xctest_test_package" -> pure XctestTestPackage
         "xctest_ui_test_package" -> pure XctestUiTestPackage
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, APPIUM_PYTHON_TEST_PACKAGE, APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE, APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE, APPIUM_WEB_PYTHON_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, WEB_APP, XCTEST_TEST_PACKAGE, XCTEST_UI_TEST_PACKAGE"
+           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_testng_test_package, appium_python_test_package, appium_web_java_junit_test_package, appium_web_java_testng_test_package, appium_web_python_test_package, calabash_test_package, external_data, instrumentation_test_package, ios_app, uiautomation_test_package, uiautomator_test_package, web_app, xctest_test_package, xctest_ui_test_package"
 
 instance ToText UploadType where
     toText = \case

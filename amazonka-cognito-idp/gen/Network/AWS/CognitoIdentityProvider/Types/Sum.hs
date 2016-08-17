@@ -65,7 +65,7 @@ instance FromText AttributeDataType where
         "number" -> pure Number
         "string" -> pure String
         e -> fromTextError $ "Failure parsing AttributeDataType from value: '" <> e
-           <> "'. Accepted values: Boolean, DateTime, Number, String"
+           <> "'. Accepted values: boolean, datetime, number, string"
 
 instance ToText AttributeDataType where
     toText = \case
@@ -100,7 +100,7 @@ instance FromText AuthFlowType where
         "refresh_token_auth" -> pure RefreshTokenAuth
         "user_srp_auth" -> pure UserSrpAuth
         e -> fromTextError $ "Failure parsing AuthFlowType from value: '" <> e
-           <> "'. Accepted values: ADMIN_NO_SRP_AUTH, CUSTOM_AUTH, REFRESH_TOKEN_AUTH, USER_SRP_AUTH"
+           <> "'. Accepted values: admin_no_srp_auth, custom_auth, refresh_token_auth, user_srp_auth"
 
 instance ToText AuthFlowType where
     toText = \case
@@ -136,7 +136,7 @@ instance FromText ChallengeNameType where
         "password_verifier" -> pure CNTPasswordVerifier
         "sms_mfa" -> pure CNTSmsMFA
         e -> fromTextError $ "Failure parsing ChallengeNameType from value: '" <> e
-           <> "'. Accepted values: ADMIN_NO_SRP_AUTH, CUSTOM_CHALLENGE, DEVICE_PASSWORD_VERIFIER, DEVICE_SRP_AUTH, PASSWORD_VERIFIER, SMS_MFA"
+           <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, password_verifier, sms_mfa"
 
 instance ToText ChallengeNameType where
     toText = \case
@@ -169,7 +169,7 @@ instance FromText DeliveryMediumType where
         "email" -> pure DMTEmail
         "sms" -> pure DMTSms
         e -> fromTextError $ "Failure parsing DeliveryMediumType from value: '" <> e
-           <> "'. Accepted values: EMAIL, SMS"
+           <> "'. Accepted values: email, sms"
 
 instance ToText DeliveryMediumType where
     toText = \case
@@ -222,7 +222,7 @@ instance FromText ExplicitAuthFlowsType where
     parser = takeLowerText >>= \case
         "admin_no_srp_auth" -> pure EAFTAdminNoSrpAuth
         e -> fromTextError $ "Failure parsing ExplicitAuthFlowsType from value: '" <> e
-           <> "'. Accepted values: ADMIN_NO_SRP_AUTH"
+           <> "'. Accepted values: admin_no_srp_auth"
 
 instance ToText ExplicitAuthFlowsType where
     toText = \case
@@ -250,7 +250,7 @@ instance FromText StatusType where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing StatusType from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText StatusType where
     toText = \case
@@ -278,7 +278,7 @@ instance FromText UserPoolMFAType where
         "off" -> pure Off
         "optional" -> pure Optional
         e -> fromTextError $ "Failure parsing UserPoolMFAType from value: '" <> e
-           <> "'. Accepted values: ON, OFF, OPTIONAL"
+           <> "'. Accepted values: on, off, optional"
 
 instance ToText UserPoolMFAType where
     toText = \case
@@ -316,7 +316,7 @@ instance FromText UserStatusType where
         "unconfirmed" -> pure Unconfirmed
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing UserStatusType from value: '" <> e
-           <> "'. Accepted values: ARCHIVED, COMPROMISED, CONFIRMED, RESET_REQUIRED, UNCONFIRMED, UNKNOWN"
+           <> "'. Accepted values: archived, compromised, confirmed, reset_required, unconfirmed, unknown"
 
 instance ToText UserStatusType where
     toText = \case

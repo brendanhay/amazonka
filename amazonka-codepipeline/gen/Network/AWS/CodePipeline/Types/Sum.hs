@@ -37,7 +37,7 @@ instance FromText ActionCategory where
         "source" -> pure Source
         "test" -> pure Test
         e -> fromTextError $ "Failure parsing ActionCategory from value: '" <> e
-           <> "'. Accepted values: Approval, Build, Deploy, Invoke, Source, Test"
+           <> "'. Accepted values: approval, build, deploy, invoke, source, test"
 
 instance ToText ActionCategory where
     toText = \case
@@ -72,7 +72,7 @@ instance FromText ActionConfigurationPropertyType where
         "number" -> pure Number
         "string" -> pure String
         e -> fromTextError $ "Failure parsing ActionConfigurationPropertyType from value: '" <> e
-           <> "'. Accepted values: Boolean, Number, String"
+           <> "'. Accepted values: boolean, number, string"
 
 instance ToText ActionConfigurationPropertyType where
     toText = \case
@@ -104,7 +104,7 @@ instance FromText ActionExecutionStatus where
         "inprogress" -> pure InProgress
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing ActionExecutionStatus from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Succeeded"
+           <> "'. Accepted values: failed, inprogress, succeeded"
 
 instance ToText ActionExecutionStatus where
     toText = \case
@@ -133,7 +133,7 @@ instance FromText ActionOwner where
         "custom" -> pure Custom
         "thirdparty" -> pure ThirdParty
         e -> fromTextError $ "Failure parsing ActionOwner from value: '" <> e
-           <> "'. Accepted values: AWS, Custom, ThirdParty"
+           <> "'. Accepted values: aws, custom, thirdparty"
 
 instance ToText ActionOwner where
     toText = \case
@@ -163,7 +163,7 @@ instance FromText ApprovalStatus where
         "approved" -> pure Approved
         "rejected" -> pure Rejected
         e -> fromTextError $ "Failure parsing ApprovalStatus from value: '" <> e
-           <> "'. Accepted values: Approved, Rejected"
+           <> "'. Accepted values: approved, rejected"
 
 instance ToText ApprovalStatus where
     toText = \case
@@ -187,7 +187,7 @@ instance FromText ArtifactLocationType where
     parser = takeLowerText >>= \case
         "s3" -> pure ALTS3
         e -> fromTextError $ "Failure parsing ArtifactLocationType from value: '" <> e
-           <> "'. Accepted values: S3"
+           <> "'. Accepted values: s3"
 
 instance ToText ArtifactLocationType where
     toText = \case
@@ -210,7 +210,7 @@ instance FromText ArtifactStoreType where
     parser = takeLowerText >>= \case
         "s3" -> pure S3
         e -> fromTextError $ "Failure parsing ArtifactStoreType from value: '" <> e
-           <> "'. Accepted values: S3"
+           <> "'. Accepted values: s3"
 
 instance ToText ArtifactStoreType where
     toText = \case
@@ -236,7 +236,7 @@ instance FromText BlockerType where
     parser = takeLowerText >>= \case
         "schedule" -> pure Schedule
         e -> fromTextError $ "Failure parsing BlockerType from value: '" <> e
-           <> "'. Accepted values: Schedule"
+           <> "'. Accepted values: schedule"
 
 instance ToText BlockerType where
     toText = \case
@@ -262,7 +262,7 @@ instance FromText EncryptionKeyType where
     parser = takeLowerText >>= \case
         "kms" -> pure KMS
         e -> fromTextError $ "Failure parsing EncryptionKeyType from value: '" <> e
-           <> "'. Accepted values: KMS"
+           <> "'. Accepted values: kms"
 
 instance ToText EncryptionKeyType where
     toText = \case
@@ -298,7 +298,7 @@ instance FromText FailureType where
         "revisionunavailable" -> pure RevisionUnavailable
         "systemunavailable" -> pure SystemUnavailable
         e -> fromTextError $ "Failure parsing FailureType from value: '" <> e
-           <> "'. Accepted values: ConfigurationError, JobFailed, PermissionError, RevisionOutOfSync, RevisionUnavailable, SystemUnavailable"
+           <> "'. Accepted values: configurationerror, jobfailed, permissionerror, revisionoutofsync, revisionunavailable, systemunavailable"
 
 instance ToText FailureType where
     toText = \case
@@ -338,7 +338,7 @@ instance FromText JobStatus where
         "succeeded" -> pure JSSucceeded
         "timedout" -> pure JSTimedOut
         e -> fromTextError $ "Failure parsing JobStatus from value: '" <> e
-           <> "'. Accepted values: Created, Dispatched, Failed, InProgress, Queued, Succeeded, TimedOut"
+           <> "'. Accepted values: created, dispatched, failed, inprogress, queued, succeeded, timedout"
 
 instance ToText JobStatus where
     toText = \case
@@ -371,7 +371,7 @@ instance FromText StageExecutionStatus where
         "inprogress" -> pure SESInProgress
         "succeeded" -> pure SESSucceeded
         e -> fromTextError $ "Failure parsing StageExecutionStatus from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Succeeded"
+           <> "'. Accepted values: failed, inprogress, succeeded"
 
 instance ToText StageExecutionStatus where
     toText = \case
@@ -396,7 +396,7 @@ instance FromText StageRetryMode where
     parser = takeLowerText >>= \case
         "failed_actions" -> pure FailedActions
         e -> fromTextError $ "Failure parsing StageRetryMode from value: '" <> e
-           <> "'. Accepted values: FAILED_ACTIONS"
+           <> "'. Accepted values: failed_actions"
 
 instance ToText StageRetryMode where
     toText = \case
@@ -421,7 +421,7 @@ instance FromText StageTransitionType where
         "inbound" -> pure Inbound
         "outbound" -> pure Outbound
         e -> fromTextError $ "Failure parsing StageTransitionType from value: '" <> e
-           <> "'. Accepted values: Inbound, Outbound"
+           <> "'. Accepted values: inbound, outbound"
 
 instance ToText StageTransitionType where
     toText = \case

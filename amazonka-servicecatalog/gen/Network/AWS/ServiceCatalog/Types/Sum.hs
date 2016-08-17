@@ -31,7 +31,7 @@ instance FromText ProductViewFilterBy where
         "owner" -> pure Owner
         "producttype" -> pure ProductType
         e -> fromTextError $ "Failure parsing ProductViewFilterBy from value: '" <> e
-           <> "'. Accepted values: FullTextSearch, Owner, ProductType"
+           <> "'. Accepted values: fulltextsearch, owner, producttype"
 
 instance ToText ProductViewFilterBy where
     toText = \case
@@ -60,7 +60,7 @@ instance FromText ProductViewSortBy where
         "title" -> pure Title
         "versioncount" -> pure VersionCount
         e -> fromTextError $ "Failure parsing ProductViewSortBy from value: '" <> e
-           <> "'. Accepted values: CreationDate, Title, VersionCount"
+           <> "'. Accepted values: creationdate, title, versioncount"
 
 instance ToText ProductViewSortBy where
     toText = \case
@@ -89,7 +89,7 @@ instance FromText RecordStatus where
         "in_progress" -> pure InProgress
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing RecordStatus from value: '" <> e
-           <> "'. Accepted values: ERROR, IN_PROGRESS, SUCCEEDED"
+           <> "'. Accepted values: error, in_progress, succeeded"
 
 instance ToText RecordStatus where
     toText = \case
@@ -116,7 +116,7 @@ instance FromText SortOrder where
         "ascending" -> pure Ascending
         "descending" -> pure Descending
         e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
-           <> "'. Accepted values: ASCENDING, DESCENDING"
+           <> "'. Accepted values: ascending, descending"
 
 instance ToText SortOrder where
     toText = \case

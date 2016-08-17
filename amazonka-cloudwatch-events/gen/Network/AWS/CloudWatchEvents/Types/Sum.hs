@@ -29,7 +29,7 @@ instance FromText RuleState where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing RuleState from value: '" <> e
-           <> "'. Accepted values: DISABLED, ENABLED"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText RuleState where
     toText = \case

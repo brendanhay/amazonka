@@ -29,7 +29,7 @@ instance FromText AutoRegistrationStatus where
         "disable" -> pure Disable
         "enable" -> pure Enable
         e -> fromTextError $ "Failure parsing AutoRegistrationStatus from value: '" <> e
-           <> "'. Accepted values: DISABLE, ENABLE"
+           <> "'. Accepted values: disable, enable"
 
 instance ToText AutoRegistrationStatus where
     toText = \case
@@ -58,7 +58,7 @@ instance FromText CACertificateStatus where
         "active" -> pure CACSActive
         "inactive" -> pure CACSInactive
         e -> fromTextError $ "Failure parsing CACertificateStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, INACTIVE"
+           <> "'. Accepted values: active, inactive"
 
 instance ToText CACertificateStatus where
     toText = \case
@@ -95,7 +95,7 @@ instance FromText CertificateStatus where
         "register_inactive" -> pure RegisterInactive
         "revoked" -> pure Revoked
         e -> fromTextError $ "Failure parsing CertificateStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, INACTIVE, PENDING_ACTIVATION, PENDING_TRANSFER, REGISTER_INACTIVE, REVOKED"
+           <> "'. Accepted values: active, inactive, pending_activation, pending_transfer, register_inactive, revoked"
 
 instance ToText CertificateStatus where
     toText = \case
@@ -128,7 +128,7 @@ instance FromText DynamoKeyType where
         "number" -> pure Number
         "string" -> pure String
         e -> fromTextError $ "Failure parsing DynamoKeyType from value: '" <> e
-           <> "'. Accepted values: NUMBER, STRING"
+           <> "'. Accepted values: number, string"
 
 instance ToText DynamoKeyType where
     toText = \case
@@ -163,7 +163,7 @@ instance FromText LogLevel where
         "info" -> pure Info
         "warn" -> pure Warn
         e -> fromTextError $ "Failure parsing LogLevel from value: '" <> e
-           <> "'. Accepted values: DEBUG, DISABLED, ERROR, INFO, WARN"
+           <> "'. Accepted values: debug, disabled, error, info, warn"
 
 instance ToText LogLevel where
     toText = \case
@@ -195,7 +195,7 @@ instance FromText MessageFormat where
         "json" -> pure JSON
         "raw" -> pure Raw
         e -> fromTextError $ "Failure parsing MessageFormat from value: '" <> e
-           <> "'. Accepted values: JSON, RAW"
+           <> "'. Accepted values: json, raw"
 
 instance ToText MessageFormat where
     toText = \case

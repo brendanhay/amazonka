@@ -35,7 +35,7 @@ instance FromText ImageFailureCode where
         "invalidimagetag" -> pure InvalidImageTag
         "missingdigestandtag" -> pure MissingDigestAndTag
         e -> fromTextError $ "Failure parsing ImageFailureCode from value: '" <> e
-           <> "'. Accepted values: ImageNotFound, ImageTagDoesNotMatchDigest, InvalidImageDigest, InvalidImageTag, MissingDigestAndTag"
+           <> "'. Accepted values: imagenotfound, imagetagdoesnotmatchdigest, invalidimagedigest, invalidimagetag, missingdigestandtag"
 
 instance ToText ImageFailureCode where
     toText = \case
@@ -64,7 +64,7 @@ instance FromText LayerAvailability where
         "available" -> pure Available
         "unavailable" -> pure Unavailable
         e -> fromTextError $ "Failure parsing LayerAvailability from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, UNAVAILABLE"
+           <> "'. Accepted values: available, unavailable"
 
 instance ToText LayerAvailability where
     toText = \case
@@ -90,7 +90,7 @@ instance FromText LayerFailureCode where
         "invalidlayerdigest" -> pure InvalidLayerDigest
         "missinglayerdigest" -> pure MissingLayerDigest
         e -> fromTextError $ "Failure parsing LayerFailureCode from value: '" <> e
-           <> "'. Accepted values: InvalidLayerDigest, MissingLayerDigest"
+           <> "'. Accepted values: invalidlayerdigest, missinglayerdigest"
 
 instance ToText LayerFailureCode where
     toText = \case
@@ -116,7 +116,7 @@ instance FromText TagStatus where
         "tagged" -> pure Tagged
         "untagged" -> pure Untagged
         e -> fromTextError $ "Failure parsing TagStatus from value: '" <> e
-           <> "'. Accepted values: TAGGED, UNTAGGED"
+           <> "'. Accepted values: tagged, untagged"
 
 instance ToText TagStatus where
     toText = \case

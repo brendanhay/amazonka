@@ -37,7 +37,7 @@ instance FromText ApplicationStatus where
         "stopping" -> pure Stopping
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing ApplicationStatus from value: '" <> e
-           <> "'. Accepted values: DELETING, READY, RUNNING, STARTING, STOPPING, UPDATING"
+           <> "'. Accepted values: deleting, ready, running, starting, stopping, updating"
 
 instance ToText ApplicationStatus where
     toText = \case
@@ -69,7 +69,7 @@ instance FromText InputStartingPosition where
         "now" -> pure Now
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing InputStartingPosition from value: '" <> e
-           <> "'. Accepted values: LAST_STOPPED_POINT, NOW, TRIM_HORIZON"
+           <> "'. Accepted values: last_stopped_point, now, trim_horizon"
 
 instance ToText InputStartingPosition where
     toText = \case
@@ -99,7 +99,7 @@ instance FromText RecordFormatType where
         "csv" -> pure CSV
         "json" -> pure JSON
         e -> fromTextError $ "Failure parsing RecordFormatType from value: '" <> e
-           <> "'. Accepted values: CSV, JSON"
+           <> "'. Accepted values: csv, json"
 
 instance ToText RecordFormatType where
     toText = \case

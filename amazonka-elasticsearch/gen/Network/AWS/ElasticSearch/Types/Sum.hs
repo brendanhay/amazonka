@@ -115,7 +115,7 @@ instance FromText OptionState where
         "processing" -> pure Processing
         "requiresindexdocuments" -> pure RequiresIndexDocuments
         e -> fromTextError $ "Failure parsing OptionState from value: '" <> e
-           <> "'. Accepted values: Active, Processing, RequiresIndexDocuments"
+           <> "'. Accepted values: active, processing, requiresindexdocuments"
 
 instance ToText OptionState where
     toText = \case

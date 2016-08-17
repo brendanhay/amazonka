@@ -31,7 +31,7 @@ instance FromText AlgorithmSpec where
         "rsaes_oaep_sha_256" -> pure RsaesOaepSha256
         "rsaes_pkcs1_v1_5" -> pure RsaesPKCS1V15
         e -> fromTextError $ "Failure parsing AlgorithmSpec from value: '" <> e
-           <> "'. Accepted values: RSAES_OAEP_SHA_1, RSAES_OAEP_SHA_256, RSAES_PKCS1_V1_5"
+           <> "'. Accepted values: rsaes_oaep_sha_1, rsaes_oaep_sha_256, rsaes_pkcs1_v1_5"
 
 instance ToText AlgorithmSpec where
     toText = \case
@@ -58,7 +58,7 @@ instance FromText DataKeySpec where
         "aes_128" -> pure AES128
         "aes_256" -> pure AES256
         e -> fromTextError $ "Failure parsing DataKeySpec from value: '" <> e
-           <> "'. Accepted values: AES_128, AES_256"
+           <> "'. Accepted values: aes_128, aes_256"
 
 instance ToText DataKeySpec where
     toText = \case
@@ -84,7 +84,7 @@ instance FromText ExpirationModelType where
         "key_material_does_not_expire" -> pure KeyMaterialDoesNotExpire
         "key_material_expires" -> pure KeyMaterialExpires
         e -> fromTextError $ "Failure parsing ExpirationModelType from value: '" <> e
-           <> "'. Accepted values: KEY_MATERIAL_DOES_NOT_EXPIRE, KEY_MATERIAL_EXPIRES"
+           <> "'. Accepted values: key_material_does_not_expire, key_material_expires"
 
 instance ToText ExpirationModelType where
     toText = \case
@@ -127,7 +127,7 @@ instance FromText GrantOperation where
         "reencryptto" -> pure ReEncryptTo
         "retiregrant" -> pure RetireGrant
         e -> fromTextError $ "Failure parsing GrantOperation from value: '" <> e
-           <> "'. Accepted values: CreateGrant, Decrypt, DescribeKey, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, RetireGrant"
+           <> "'. Accepted values: creategrant, decrypt, describekey, encrypt, generatedatakey, generatedatakeywithoutplaintext, reencryptfrom, reencryptto, retiregrant"
 
 instance ToText GrantOperation where
     toText = \case
@@ -167,7 +167,7 @@ instance FromText KeyState where
         "pendingdeletion" -> pure PendingDeletion
         "pendingimport" -> pure PendingImport
         e -> fromTextError $ "Failure parsing KeyState from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled, PendingDeletion, PendingImport"
+           <> "'. Accepted values: disabled, enabled, pendingdeletion, pendingimport"
 
 instance ToText KeyState where
     toText = \case
@@ -193,7 +193,7 @@ instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
         "encrypt_decrypt" -> pure EncryptDecrypt
         e -> fromTextError $ "Failure parsing KeyUsageType from value: '" <> e
-           <> "'. Accepted values: ENCRYPT_DECRYPT"
+           <> "'. Accepted values: encrypt_decrypt"
 
 instance ToText KeyUsageType where
     toText = \case
@@ -221,7 +221,7 @@ instance FromText OriginType where
         "aws_kms" -> pure AWSKMS
         "external" -> pure External
         e -> fromTextError $ "Failure parsing OriginType from value: '" <> e
-           <> "'. Accepted values: AWS_KMS, EXTERNAL"
+           <> "'. Accepted values: aws_kms, external"
 
 instance ToText OriginType where
     toText = \case
@@ -248,7 +248,7 @@ instance FromText WrappingKeySpec where
     parser = takeLowerText >>= \case
         "rsa_2048" -> pure Rsa2048
         e -> fromTextError $ "Failure parsing WrappingKeySpec from value: '" <> e
-           <> "'. Accepted values: RSA_2048"
+           <> "'. Accepted values: rsa_2048"
 
 instance ToText WrappingKeySpec where
     toText = \case

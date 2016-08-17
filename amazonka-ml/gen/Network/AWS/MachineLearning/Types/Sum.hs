@@ -77,7 +77,7 @@ instance FromText BatchPredictionFilterVariable where
         "name" -> pure BatchName
         "status" -> pure BatchStatus
         e -> fromTextError $ "Failure parsing BatchPredictionFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataSourceId, DataURI, IAMUser, LastUpdatedAt, MLModelId, Name, Status"
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText BatchPredictionFilterVariable where
     toText = \case
@@ -128,7 +128,7 @@ instance FromText DataSourceFilterVariable where
         "name" -> pure DataName
         "status" -> pure DataStatus
         e -> fromTextError $ "Failure parsing DataSourceFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataLocationS3, IAMUser, LastUpdatedAt, Name, Status"
+           <> "'. Accepted values: createdat, datalocations3, iamuser, lastupdatedat, name, status"
 
 instance ToText DataSourceFilterVariable where
     toText = \case
@@ -159,7 +159,7 @@ instance FromText DetailsAttributes where
         "algorithm" -> pure Algorithm
         "predictivemodeltype" -> pure PredictiveModelType
         e -> fromTextError $ "Failure parsing DetailsAttributes from value: '" <> e
-           <> "'. Accepted values: Algorithm, PredictiveModelType"
+           <> "'. Accepted values: algorithm, predictivemodeltype"
 
 instance ToText DetailsAttributes where
     toText = \case
@@ -198,7 +198,7 @@ instance FromText EntityStatus where
         "inprogress" -> pure ESInprogress
         "pending" -> pure ESPending
         e -> fromTextError $ "Failure parsing EntityStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETED, DELETED, FAILED, INPROGRESS, PENDING"
+           <> "'. Accepted values: completed, deleted, failed, inprogress, pending"
 
 instance ToText EntityStatus where
     toText = \case
@@ -248,7 +248,7 @@ instance FromText EvaluationFilterVariable where
         "name" -> pure EvalName
         "status" -> pure EvalStatus
         e -> fromTextError $ "Failure parsing EvaluationFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataSourceId, DataURI, IAMUser, LastUpdatedAt, MLModelId, Name, Status"
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText EvaluationFilterVariable where
     toText = \case
@@ -296,7 +296,7 @@ instance FromText MLModelFilterVariable where
         "trainingdatasourceid" -> pure MLMFVTrainingDataSourceId
         "trainingdatauri" -> pure MLMFVTrainingDataURI
         e -> fromTextError $ "Failure parsing MLModelFilterVariable from value: '" <> e
-           <> "'. Accepted values: Algorithm, CreatedAt, IAMUser, LastUpdatedAt, MLModelType, Name, RealtimeEndpointStatus, Status, TrainingDataSourceId, TrainingDataURI"
+           <> "'. Accepted values: algorithm, createdat, iamuser, lastupdatedat, mlmodeltype, name, realtimeendpointstatus, status, trainingdatasourceid, trainingdatauri"
 
 instance ToText MLModelFilterVariable where
     toText = \case
@@ -332,7 +332,7 @@ instance FromText MLModelType where
         "multiclass" -> pure Multiclass
         "regression" -> pure Regression
         e -> fromTextError $ "Failure parsing MLModelType from value: '" <> e
-           <> "'. Accepted values: BINARY, MULTICLASS, REGRESSION"
+           <> "'. Accepted values: binary, multiclass, regression"
 
 instance ToText MLModelType where
     toText = \case
@@ -366,7 +366,7 @@ instance FromText RealtimeEndpointStatus where
         "ready" -> pure Ready
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing RealtimeEndpointStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, NONE, READY, UPDATING"
+           <> "'. Accepted values: failed, none, ready, updating"
 
 instance ToText RealtimeEndpointStatus where
     toText = \case
@@ -428,7 +428,7 @@ instance FromText TaggableResourceType where
         "evaluation" -> pure Evaluation
         "mlmodel" -> pure MLModel
         e -> fromTextError $ "Failure parsing TaggableResourceType from value: '" <> e
-           <> "'. Accepted values: BatchPrediction, DataSource, Evaluation, MLModel"
+           <> "'. Accepted values: batchprediction, datasource, evaluation, mlmodel"
 
 instance ToText TaggableResourceType where
     toText = \case

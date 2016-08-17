@@ -29,7 +29,7 @@ instance FromText CognitoErrorCode where
         "accessdenied" -> pure AccessDenied
         "internalservererror" -> pure InternalServerError
         e -> fromTextError $ "Failure parsing CognitoErrorCode from value: '" <> e
-           <> "'. Accepted values: AccessDenied, InternalServerError"
+           <> "'. Accepted values: accessdenied, internalservererror"
 
 instance ToText CognitoErrorCode where
     toText = \case

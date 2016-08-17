@@ -29,7 +29,7 @@ instance FromText AssociationFilterKey where
         "instanceid" -> pure AFKInstanceId
         "name" -> pure AFKName
         e -> fromTextError $ "Failure parsing AssociationFilterKey from value: '" <> e
-           <> "'. Accepted values: InstanceId, Name"
+           <> "'. Accepted values: instanceid, name"
 
 instance ToText AssociationFilterKey where
     toText = \case
@@ -57,7 +57,7 @@ instance FromText AssociationStatusName where
         "pending" -> pure ASNPending
         "success" -> pure ASNSuccess
         e -> fromTextError $ "Failure parsing AssociationStatusName from value: '" <> e
-           <> "'. Accepted values: Failed, Pending, Success"
+           <> "'. Accepted values: failed, pending, success"
 
 instance ToText AssociationStatusName where
     toText = \case
@@ -89,7 +89,7 @@ instance FromText CommandFilterKey where
         "invokedbefore" -> pure CommandInvokedBefore
         "status" -> pure CommandStatus
         e -> fromTextError $ "Failure parsing CommandFilterKey from value: '" <> e
-           <> "'. Accepted values: InvokedAfter, InvokedBefore, Status"
+           <> "'. Accepted values: invokedafter, invokedbefore, status"
 
 instance ToText CommandFilterKey where
     toText = \case
@@ -126,7 +126,7 @@ instance FromText CommandInvocationStatus where
         "success" -> pure CISSuccess
         "timedout" -> pure CISTimedOut
         e -> fromTextError $ "Failure parsing CommandInvocationStatus from value: '" <> e
-           <> "'. Accepted values: Cancelled, Cancelling, Failed, InProgress, Pending, Success, TimedOut"
+           <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout"
 
 instance ToText CommandInvocationStatus where
     toText = \case
@@ -165,7 +165,7 @@ instance FromText CommandPluginStatus where
         "success" -> pure CPSSuccess
         "timedout" -> pure CPSTimedOut
         e -> fromTextError $ "Failure parsing CommandPluginStatus from value: '" <> e
-           <> "'. Accepted values: Cancelled, Failed, InProgress, Pending, Success, TimedOut"
+           <> "'. Accepted values: cancelled, failed, inprogress, pending, success, timedout"
 
 instance ToText CommandPluginStatus where
     toText = \case
@@ -205,7 +205,7 @@ instance FromText CommandStatus where
         "success" -> pure Success
         "timedout" -> pure TimedOut
         e -> fromTextError $ "Failure parsing CommandStatus from value: '" <> e
-           <> "'. Accepted values: Cancelled, Cancelling, Failed, InProgress, Pending, Success, TimedOut"
+           <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout"
 
 instance ToText CommandStatus where
     toText = \case
@@ -238,7 +238,7 @@ instance FromText DescribeActivationsFilterKeys where
         "defaultinstancename" -> pure DefaultInstanceName
         "iamrole" -> pure IAMRole
         e -> fromTextError $ "Failure parsing DescribeActivationsFilterKeys from value: '" <> e
-           <> "'. Accepted values: ActivationIds, DefaultInstanceName, IamRole"
+           <> "'. Accepted values: activationids, defaultinstancename, iamrole"
 
 instance ToText DescribeActivationsFilterKeys where
     toText = \case
@@ -267,7 +267,7 @@ instance FromText DocumentFilterKey where
         "owner" -> pure Owner
         "platformtypes" -> pure PlatformTypes
         e -> fromTextError $ "Failure parsing DocumentFilterKey from value: '" <> e
-           <> "'. Accepted values: Name, Owner, PlatformTypes"
+           <> "'. Accepted values: name, owner, platformtypes"
 
 instance ToText DocumentFilterKey where
     toText = \case
@@ -294,7 +294,7 @@ instance FromText DocumentHashType where
         "sha1" -> pure SHA1
         "sha256" -> pure SHA256
         e -> fromTextError $ "Failure parsing DocumentHashType from value: '" <> e
-           <> "'. Accepted values: Sha1, Sha256"
+           <> "'. Accepted values: sha1, sha256"
 
 instance ToText DocumentHashType where
     toText = \case
@@ -323,7 +323,7 @@ instance FromText DocumentParameterType where
         "string" -> pure String
         "stringlist" -> pure StringList
         e -> fromTextError $ "Failure parsing DocumentParameterType from value: '" <> e
-           <> "'. Accepted values: String, StringList"
+           <> "'. Accepted values: string, stringlist"
 
 instance ToText DocumentParameterType where
     toText = \case
@@ -347,7 +347,7 @@ instance FromText DocumentPermissionType where
     parser = takeLowerText >>= \case
         "share" -> pure Share
         e -> fromTextError $ "Failure parsing DocumentPermissionType from value: '" <> e
-           <> "'. Accepted values: Share"
+           <> "'. Accepted values: share"
 
 instance ToText DocumentPermissionType where
     toText = \case
@@ -374,7 +374,7 @@ instance FromText DocumentStatus where
         "creating" -> pure Creating
         "deleting" -> pure Deleting
         e -> fromTextError $ "Failure parsing DocumentStatus from value: '" <> e
-           <> "'. Accepted values: Active, Creating, Deleting"
+           <> "'. Accepted values: active, creating, deleting"
 
 instance ToText DocumentStatus where
     toText = \case
@@ -403,7 +403,7 @@ instance FromText Fault where
         "server" -> pure Server
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing Fault from value: '" <> e
-           <> "'. Accepted values: Client, Server, Unknown"
+           <> "'. Accepted values: client, server, unknown"
 
 instance ToText Fault where
     toText = \case
@@ -440,7 +440,7 @@ instance FromText InstanceInformationFilterKey where
         "platformtypes" -> pure IIFKPlatformTypes
         "resourcetype" -> pure IIFKResourceType
         e -> fromTextError $ "Failure parsing InstanceInformationFilterKey from value: '" <> e
-           <> "'. Accepted values: ActivationIds, AgentVersion, IamRole, InstanceIds, PingStatus, PlatformTypes, ResourceType"
+           <> "'. Accepted values: activationids, agentversion, iamrole, instanceids, pingstatus, platformtypes, resourcetype"
 
 instance ToText InstanceInformationFilterKey where
     toText = \case
@@ -479,7 +479,7 @@ instance FromText NotificationEvent where
         "success" -> pure NESuccess
         "timedout" -> pure NETimedOut
         e -> fromTextError $ "Failure parsing NotificationEvent from value: '" <> e
-           <> "'. Accepted values: All, Cancelled, Failed, InProgress, Success, TimedOut"
+           <> "'. Accepted values: all, cancelled, failed, inprogress, success, timedout"
 
 instance ToText NotificationEvent where
     toText = \case
@@ -512,7 +512,7 @@ instance FromText NotificationType where
         "command" -> pure Command
         "invocation" -> pure Invocation
         e -> fromTextError $ "Failure parsing NotificationType from value: '" <> e
-           <> "'. Accepted values: Command, Invocation"
+           <> "'. Accepted values: command, invocation"
 
 instance ToText NotificationType where
     toText = \case
@@ -543,7 +543,7 @@ instance FromText PingStatus where
         "inactive" -> pure Inactive
         "online" -> pure Online
         e -> fromTextError $ "Failure parsing PingStatus from value: '" <> e
-           <> "'. Accepted values: ConnectionLost, Inactive, Online"
+           <> "'. Accepted values: connectionlost, inactive, online"
 
 instance ToText PingStatus where
     toText = \case
@@ -570,7 +570,7 @@ instance FromText PlatformType where
         "linux" -> pure Linux
         "windows" -> pure Windows
         e -> fromTextError $ "Failure parsing PlatformType from value: '" <> e
-           <> "'. Accepted values: Linux, Windows"
+           <> "'. Accepted values: linux, windows"
 
 instance ToText PlatformType where
     toText = \case
@@ -598,7 +598,7 @@ instance FromText ResourceType where
         "ec2instance" -> pure EC2Instance
         "managedinstance" -> pure ManagedInstance
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: Document, EC2Instance, ManagedInstance"
+           <> "'. Accepted values: document, ec2instance, managedinstance"
 
 instance ToText ResourceType where
     toText = \case
@@ -623,7 +623,7 @@ instance FromText ResourceTypeForTagging where
     parser = takeLowerText >>= \case
         "managedinstance" -> pure RTFTManagedInstance
         e -> fromTextError $ "Failure parsing ResourceTypeForTagging from value: '" <> e
-           <> "'. Accepted values: ManagedInstance"
+           <> "'. Accepted values: managedinstance"
 
 instance ToText ResourceTypeForTagging where
     toText = \case

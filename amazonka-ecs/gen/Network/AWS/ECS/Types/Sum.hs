@@ -37,7 +37,7 @@ instance FromText AgentUpdateStatus where
         "updated" -> pure AUSUpdated
         "updating" -> pure AUSUpdating
         e -> fromTextError $ "Failure parsing AgentUpdateStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, PENDING, STAGED, STAGING, UPDATED, UPDATING"
+           <> "'. Accepted values: failed, pending, staged, staging, updated, updating"
 
 instance ToText AgentUpdateStatus where
     toText = \case
@@ -69,7 +69,7 @@ instance FromText DesiredStatus where
         "running" -> pure Running
         "stopped" -> pure Stopped
         e -> fromTextError $ "Failure parsing DesiredStatus from value: '" <> e
-           <> "'. Accepted values: PENDING, RUNNING, STOPPED"
+           <> "'. Accepted values: pending, running, stopped"
 
 instance ToText DesiredStatus where
     toText = \case
@@ -137,7 +137,7 @@ instance FromText SortOrder where
         "asc" -> pure Asc
         "desc" -> pure Desc
         e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
-           <> "'. Accepted values: ASC, DESC"
+           <> "'. Accepted values: asc, desc"
 
 instance ToText SortOrder where
     toText = \case
@@ -165,7 +165,7 @@ instance FromText TaskDefinitionFamilyStatus where
         "all" -> pure All
         "inactive" -> pure Inactive
         e -> fromTextError $ "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, ALL, INACTIVE"
+           <> "'. Accepted values: active, all, inactive"
 
 instance ToText TaskDefinitionFamilyStatus where
     toText = \case
@@ -192,7 +192,7 @@ instance FromText TaskDefinitionStatus where
         "active" -> pure TDSActive
         "inactive" -> pure TDSInactive
         e -> fromTextError $ "Failure parsing TaskDefinitionStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, INACTIVE"
+           <> "'. Accepted values: active, inactive"
 
 instance ToText TaskDefinitionStatus where
     toText = \case

@@ -29,7 +29,7 @@ instance FromText DirectorySize where
         "large" -> pure Large
         "small" -> pure Small
         e -> fromTextError $ "Failure parsing DirectorySize from value: '" <> e
-           <> "'. Accepted values: Large, Small"
+           <> "'. Accepted values: large, small"
 
 instance ToText DirectorySize where
     toText = \case
@@ -76,7 +76,7 @@ instance FromText DirectoryStage where
         "restorefailed" -> pure DSRestoreFailed
         "restoring" -> pure DSRestoring
         e -> fromTextError $ "Failure parsing DirectoryStage from value: '" <> e
-           <> "'. Accepted values: Active, Created, Creating, Deleted, Deleting, Failed, Impaired, Inoperable, Requested, RestoreFailed, Restoring"
+           <> "'. Accepted values: active, created, creating, deleted, deleting, failed, impaired, inoperable, requested, restorefailed, restoring"
 
 instance ToText DirectoryStage where
     toText = \case
@@ -113,7 +113,7 @@ instance FromText DirectoryType where
         "microsoftad" -> pure MicrosoftAD
         "simplead" -> pure SimpleAD
         e -> fromTextError $ "Failure parsing DirectoryType from value: '" <> e
-           <> "'. Accepted values: ADConnector, MicrosoftAD, SimpleAD"
+           <> "'. Accepted values: adconnector, microsoftad, simplead"
 
 instance ToText DirectoryType where
     toText = \case
@@ -148,7 +148,7 @@ instance FromText IPRouteStatusMsg where
         "removed" -> pure Removed
         "removing" -> pure Removing
         e -> fromTextError $ "Failure parsing IPRouteStatusMsg from value: '" <> e
-           <> "'. Accepted values: AddFailed, Added, Adding, RemoveFailed, Removed, Removing"
+           <> "'. Accepted values: addfailed, added, adding, removefailed, removed, removing"
 
 instance ToText IPRouteStatusMsg where
     toText = \case
@@ -182,7 +182,7 @@ instance FromText RadiusAuthenticationProtocol where
         "ms-chapv2" -> pure MsCHAPV2
         "pap" -> pure Pap
         e -> fromTextError $ "Failure parsing RadiusAuthenticationProtocol from value: '" <> e
-           <> "'. Accepted values: CHAP, MS-CHAPv1, MS-CHAPv2, PAP"
+           <> "'. Accepted values: chap, ms-chapv1, ms-chapv2, pap"
 
 instance ToText RadiusAuthenticationProtocol where
     toText = \case
@@ -215,7 +215,7 @@ instance FromText RadiusStatus where
         "creating" -> pure Creating
         "failed" -> pure Failed
         e -> fromTextError $ "Failure parsing RadiusStatus from value: '" <> e
-           <> "'. Accepted values: Completed, Creating, Failed"
+           <> "'. Accepted values: completed, creating, failed"
 
 instance ToText RadiusStatus where
     toText = \case
@@ -240,7 +240,7 @@ instance FromText ReplicationScope where
     parser = takeLowerText >>= \case
         "domain" -> pure Domain
         e -> fromTextError $ "Failure parsing ReplicationScope from value: '" <> e
-           <> "'. Accepted values: Domain"
+           <> "'. Accepted values: domain"
 
 instance ToText ReplicationScope where
     toText = \case
@@ -267,7 +267,7 @@ instance FromText SnapshotStatus where
         "creating" -> pure SSCreating
         "failed" -> pure SSFailed
         e -> fromTextError $ "Failure parsing SnapshotStatus from value: '" <> e
-           <> "'. Accepted values: Completed, Creating, Failed"
+           <> "'. Accepted values: completed, creating, failed"
 
 instance ToText SnapshotStatus where
     toText = \case
@@ -294,7 +294,7 @@ instance FromText SnapshotType where
         "auto" -> pure Auto
         "manual" -> pure Manual
         e -> fromTextError $ "Failure parsing SnapshotType from value: '" <> e
-           <> "'. Accepted values: Auto, Manual"
+           <> "'. Accepted values: auto, manual"
 
 instance ToText SnapshotType where
     toText = \case
@@ -324,7 +324,7 @@ instance FromText TopicStatus where
         "registered" -> pure TRegistered
         "topic not found" -> pure TTopicNotFound
         e -> fromTextError $ "Failure parsing TopicStatus from value: '" <> e
-           <> "'. Accepted values: Deleted, Failed, Registered, Topic not found"
+           <> "'. Accepted values: deleted, failed, registered, topic not found"
 
 instance ToText TopicStatus where
     toText = \case
@@ -354,7 +354,7 @@ instance FromText TrustDirection where
         "one-way: outgoing" -> pure OneWayOutgoing
         "two-way" -> pure TwoWay
         e -> fromTextError $ "Failure parsing TrustDirection from value: '" <> e
-           <> "'. Accepted values: One-Way: Incoming, One-Way: Outgoing, Two-Way"
+           <> "'. Accepted values: one-way: incoming, one-way: outgoing, two-way"
 
 instance ToText TrustDirection where
     toText = \case
@@ -396,7 +396,7 @@ instance FromText TrustState where
         "verifyfailed" -> pure TSVerifyFailed
         "verifying" -> pure TSVerifying
         e -> fromTextError $ "Failure parsing TrustState from value: '" <> e
-           <> "'. Accepted values: Created, Creating, Deleted, Deleting, Failed, Verified, VerifyFailed, Verifying"
+           <> "'. Accepted values: created, creating, deleted, deleting, failed, verified, verifyfailed, verifying"
 
 instance ToText TrustState where
     toText = \case
@@ -426,7 +426,7 @@ instance FromText TrustType where
     parser = takeLowerText >>= \case
         "forest" -> pure Forest
         e -> fromTextError $ "Failure parsing TrustType from value: '" <> e
-           <> "'. Accepted values: Forest"
+           <> "'. Accepted values: forest"
 
 instance ToText TrustType where
     toText = \case

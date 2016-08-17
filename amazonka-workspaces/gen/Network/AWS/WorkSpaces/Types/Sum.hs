@@ -31,7 +31,7 @@ instance FromText Compute where
         "standard" -> pure Standard
         "value" -> pure Value
         e -> fromTextError $ "Failure parsing Compute from value: '" <> e
-           <> "'. Accepted values: PERFORMANCE, STANDARD, VALUE"
+           <> "'. Accepted values: performance, standard, value"
 
 instance ToText Compute where
     toText = \case
@@ -64,7 +64,7 @@ instance FromText WorkspaceDirectoryState where
         "registered" -> pure Registered
         "registering" -> pure Registering
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryState from value: '" <> e
-           <> "'. Accepted values: DEREGISTERED, DEREGISTERING, ERROR, REGISTERED, REGISTERING"
+           <> "'. Accepted values: deregistered, deregistering, error, registered, registering"
 
 instance ToText WorkspaceDirectoryState where
     toText = \case
@@ -93,7 +93,7 @@ instance FromText WorkspaceDirectoryType where
         "ad_connector" -> pure AdConnector
         "simple_ad" -> pure SimpleAd
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryType from value: '" <> e
-           <> "'. Accepted values: AD_CONNECTOR, SIMPLE_AD"
+           <> "'. Accepted values: ad_connector, simple_ad"
 
 instance ToText WorkspaceDirectoryType where
     toText = \case
@@ -135,7 +135,7 @@ instance FromText WorkspaceState where
         "terminating" -> pure WSTerminating
         "unhealthy" -> pure WSUnhealthy
         e -> fromTextError $ "Failure parsing WorkspaceState from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, ERROR, IMPAIRED, PENDING, REBOOTING, REBUILDING, SUSPENDED, TERMINATED, TERMINATING, UNHEALTHY"
+           <> "'. Accepted values: available, error, impaired, pending, rebooting, rebuilding, suspended, terminated, terminating, unhealthy"
 
 instance ToText WorkspaceState where
     toText = \case

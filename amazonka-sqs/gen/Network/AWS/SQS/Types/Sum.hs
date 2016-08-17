@@ -35,7 +35,7 @@ instance FromText MessageAttribute where
         "senderid" -> pure SenderId
         "senttimestamp" -> pure SentTimestamp
         e -> fromTextError $ "Failure parsing MessageAttribute from value: '" <> e
-           <> "'. Accepted values: All, ApproximateFirstReceiveTimestamp, ApproximateReceiveCount, SenderId, SentTimestamp"
+           <> "'. Accepted values: all, approximatefirstreceivetimestamp, approximatereceivecount, senderid, senttimestamp"
 
 instance ToText MessageAttribute where
     toText = \case
@@ -86,7 +86,7 @@ instance FromText QueueAttributeName where
         "redrivepolicy" -> pure RedrivePolicy
         "visibilitytimeout" -> pure VisibilityTimeout
         e -> fromTextError $ "Failure parsing QueueAttributeName from value: '" <> e
-           <> "'. Accepted values: ApproximateNumberOfMessages, ApproximateNumberOfMessagesDelayed, ApproximateNumberOfMessagesNotVisible, CreatedTimestamp, DelaySeconds, LastModifiedTimestamp, MaximumMessageSize, MessageRetentionPeriod, Policy, QueueArn, ReceiveMessageWaitTimeSeconds, RedrivePolicy, VisibilityTimeout"
+           <> "'. Accepted values: approximatenumberofmessages, approximatenumberofmessagesdelayed, approximatenumberofmessagesnotvisible, createdtimestamp, delayseconds, lastmodifiedtimestamp, maximummessagesize, messageretentionperiod, policy, queuearn, receivemessagewaittimeseconds, redrivepolicy, visibilitytimeout"
 
 instance ToText QueueAttributeName where
     toText = \case

@@ -29,7 +29,7 @@ instance FromText ChronologicalOrder where
         "forward" -> pure Forward
         "reverse" -> pure Reverse
         e -> fromTextError $ "Failure parsing ChronologicalOrder from value: '" <> e
-           <> "'. Accepted values: Forward, Reverse"
+           <> "'. Accepted values: forward, reverse"
 
 instance ToText ChronologicalOrder where
     toText = \case
@@ -59,7 +59,7 @@ instance FromText ComplianceType where
         "non_compliant" -> pure NonCompliant
         "not_applicable" -> pure NotApplicable
         e -> fromTextError $ "Failure parsing ComplianceType from value: '" <> e
-           <> "'. Accepted values: COMPLIANT, INSUFFICIENT_DATA, NON_COMPLIANT, NOT_APPLICABLE"
+           <> "'. Accepted values: compliant, insufficient_data, non_compliant, not_applicable"
 
 instance ToText ComplianceType where
     toText = \case
@@ -94,7 +94,7 @@ instance FromText ConfigRuleState where
         "deleting_results" -> pure DeletingResults
         "evaluating" -> pure Evaluating
         e -> fromTextError $ "Failure parsing ConfigRuleState from value: '" <> e
-           <> "'. Accepted values: ACTIVE, DELETING, DELETING_RESULTS, EVALUATING"
+           <> "'. Accepted values: active, deleting, deleting_results, evaluating"
 
 instance ToText ConfigRuleState where
     toText = \case
@@ -129,7 +129,7 @@ instance FromText ConfigurationItemStatus where
         "failed" -> pure Failed
         "ok" -> pure OK
         e -> fromTextError $ "Failure parsing ConfigurationItemStatus from value: '" <> e
-           <> "'. Accepted values: Deleted, Discovered, Failed, Ok"
+           <> "'. Accepted values: deleted, discovered, failed, ok"
 
 instance ToText ConfigurationItemStatus where
     toText = \case
@@ -159,7 +159,7 @@ instance FromText DeliveryStatus where
         "not_applicable" -> pure DSNotApplicable
         "success" -> pure DSSuccess
         e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
-           <> "'. Accepted values: Failure, Not_Applicable, Success"
+           <> "'. Accepted values: failure, not_applicable, success"
 
 instance ToText DeliveryStatus where
     toText = \case
@@ -218,7 +218,7 @@ instance FromText MaximumExecutionFrequency where
         "twelve_hours" -> pure TwelveHours
         "twentyfour_hours" -> pure TwentyFourHours
         e -> fromTextError $ "Failure parsing MaximumExecutionFrequency from value: '" <> e
-           <> "'. Accepted values: One_Hour, Six_Hours, Three_Hours, Twelve_Hours, TwentyFour_Hours"
+           <> "'. Accepted values: one_hour, six_hours, three_hours, twelve_hours, twentyfour_hours"
 
 instance ToText MaximumExecutionFrequency where
     toText = \case
@@ -252,7 +252,7 @@ instance FromText MessageType where
         "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
         "schedulednotification" -> pure ScheduledNotification
         e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
-           <> "'. Accepted values: ConfigurationItemChangeNotification, ConfigurationSnapshotDeliveryCompleted, ScheduledNotification"
+           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, schedulednotification"
 
 instance ToText MessageType where
     toText = \case
@@ -282,7 +282,7 @@ instance FromText Owner where
         "aws" -> pure AWS
         "custom_lambda" -> pure CustomLambda
         e -> fromTextError $ "Failure parsing Owner from value: '" <> e
-           <> "'. Accepted values: AWS, CUSTOM_LAMBDA"
+           <> "'. Accepted values: aws, custom_lambda"
 
 instance ToText Owner where
     toText = \case
@@ -313,7 +313,7 @@ instance FromText RecorderStatus where
         "pending" -> pure Pending
         "success" -> pure Success
         e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
-           <> "'. Accepted values: Failure, Pending, Success"
+           <> "'. Accepted values: failure, pending, success"
 
 instance ToText RecorderStatus where
     toText = \case
@@ -386,7 +386,7 @@ instance FromText ResourceType where
         "aws::rds::dbsubnetgroup" -> pure AWSRDSDBSubnetGroup
         "aws::rds::eventsubscription" -> pure AWSRDSEventSubscription
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: AWS::ACM::Certificate, AWS::CloudTrail::Trail, AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Host, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::Volume, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::RDS::DBInstance, AWS::RDS::DBSecurityGroup, AWS::RDS::DBSnapshot, AWS::RDS::DBSubnetGroup, AWS::RDS::EventSubscription"
+           <> "'. Accepted values: aws::acm::certificate, aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription"
 
 instance ToText ResourceType where
     toText = \case

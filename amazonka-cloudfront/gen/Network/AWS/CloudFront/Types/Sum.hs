@@ -135,7 +135,7 @@ instance FromText Method where
         "post" -> pure Post
         "put" -> pure Put
         e -> fromTextError $ "Failure parsing Method from value: '" <> e
-           <> "'. Accepted values: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT"
+           <> "'. Accepted values: delete, get, head, options, patch, post, put"
 
 instance ToText Method where
     toText = \case
@@ -169,7 +169,7 @@ instance FromText MinimumProtocolVersion where
         "sslv3" -> pure MPVSSLV3
         "tlsv1" -> pure MPVTLSV1
         e -> fromTextError $ "Failure parsing MinimumProtocolVersion from value: '" <> e
-           <> "'. Accepted values: SSLv3, TLSv1"
+           <> "'. Accepted values: sslv3, tlsv1"
 
 instance ToText MinimumProtocolVersion where
     toText = \case
@@ -232,7 +232,7 @@ instance FromText PriceClass where
         "priceclass_200" -> pure PriceClass200
         "priceclass_all" -> pure PriceClassAll
         e -> fromTextError $ "Failure parsing PriceClass from value: '" <> e
-           <> "'. Accepted values: PriceClass_100, PriceClass_200, PriceClass_All"
+           <> "'. Accepted values: priceclass_100, priceclass_200, priceclass_all"
 
 instance ToText PriceClass where
     toText = \case
@@ -266,7 +266,7 @@ instance FromText SSLProtocol where
         "tlsv1.1" -> pure TLSV1_1
         "tlsv1.2" -> pure TLSV1_2
         e -> fromTextError $ "Failure parsing SSLProtocol from value: '" <> e
-           <> "'. Accepted values: SSLv3, TLSv1, TLSv1.1, TLSv1.2"
+           <> "'. Accepted values: sslv3, tlsv1, tlsv1.1, tlsv1.2"
 
 instance ToText SSLProtocol where
     toText = \case

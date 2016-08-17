@@ -35,7 +35,7 @@ instance FromText ContactType where
         "public_body" -> pure PublicBody
         "reseller" -> pure Reseller
         e -> fromTextError $ "Failure parsing ContactType from value: '" <> e
-           <> "'. Accepted values: ASSOCIATION, COMPANY, PERSON, PUBLIC_BODY, RESELLER"
+           <> "'. Accepted values: association, company, person, public_body, reseller"
 
 instance ToText ContactType where
     toText = \case
@@ -521,7 +521,7 @@ instance FromText CountryCode where
         "zm" -> pure ZM
         "zw" -> pure ZW
         e -> fromTextError $ "Failure parsing CountryCode from value: '" <> e
-           <> "'. Accepted values: AD, AE, AF, AG, AI, AL, AM, AN, AO, AQ, AR, AS, AT, AU, AW, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BR, BS, BT, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GH, GI, GL, GM, GN, GQ, GR, GT, GU, GW, GY, HK, HN, HR, HT, HU, IE, IL, IM, IN, IQ, IR, IS, IT, ID, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PT, PW, PY, QA, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SK, SL, SM, SN, SO, SR, ST, SV, SY, SZ, TC, TD, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW"
+           <> "'. Accepted values: ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gl, gm, gn, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, ie, il, im, in, iq, ir, is, it, id, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, pt, pw, py, qa, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sk, sl, sm, sn, so, sr, st, sv, sy, sz, tc, td, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
 
 instance ToText CountryCode where
     toText = \case
@@ -789,7 +789,7 @@ instance FromText DomainAvailability where
         "unavailable_premium" -> pure UnavailablePremium
         "unavailable_restricted" -> pure UnavailableRestricted
         e -> fromTextError $ "Failure parsing DomainAvailability from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, AVAILABLE_PREORDER, AVAILABLE_RESERVED, DONT_KNOW, RESERVED, UNAVAILABLE, UNAVAILABLE_PREMIUM, UNAVAILABLE_RESTRICTED"
+           <> "'. Accepted values: available, available_preorder, available_reserved, dont_know, reserved, unavailable, unavailable_premium, unavailable_restricted"
 
 instance ToText DomainAvailability where
     toText = \case
@@ -859,7 +859,7 @@ instance FromText ExtraParamName where
         "sg_id_number" -> pure SgIdNumber
         "vat_number" -> pure VatNumber
         e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
-           <> "'. Accepted values: AU_ID_NUMBER, AU_ID_TYPE, BIRTH_CITY, BIRTH_COUNTRY, BIRTH_DATE_IN_YYYY_MM_DD, BIRTH_DEPARTMENT, BRAND_NUMBER, CA_BUSINESS_ENTITY_TYPE, CA_LEGAL_TYPE, DOCUMENT_NUMBER, DUNS_NUMBER, ES_IDENTIFICATION, ES_IDENTIFICATION_TYPE, ES_LEGAL_FORM, FI_BUSINESS_NUMBER, FI_ID_NUMBER, IT_PIN, RU_PASSPORT_DATA, SE_ID_NUMBER, SG_ID_NUMBER, VAT_NUMBER"
+           <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_business_entity_type, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, it_pin, ru_passport_data, se_id_number, sg_id_number, vat_number"
 
 instance ToText ExtraParamName where
     toText = \case
@@ -913,7 +913,7 @@ instance FromText OperationStatus where
         "submitted" -> pure Submitted
         "successful" -> pure Successful
         e -> fromTextError $ "Failure parsing OperationStatus from value: '" <> e
-           <> "'. Accepted values: ERROR, FAILED, IN_PROGRESS, SUBMITTED, SUCCESSFUL"
+           <> "'. Accepted values: error, failed, in_progress, submitted, successful"
 
 instance ToText OperationStatus where
     toText = \case
@@ -952,7 +952,7 @@ instance FromText OperationType where
         "update_domain_contact" -> pure UpdateDomainContact
         "update_nameserver" -> pure UpdateNameserver
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: CHANGE_PRIVACY_PROTECTION, DELETE_DOMAIN, DOMAIN_LOCK, REGISTER_DOMAIN, TRANSFER_IN_DOMAIN, UPDATE_DOMAIN_CONTACT, UPDATE_NAMESERVER"
+           <> "'. Accepted values: change_privacy_protection, delete_domain, domain_lock, register_domain, transfer_in_domain, update_domain_contact, update_nameserver"
 
 instance ToText OperationType where
     toText = \case
@@ -985,7 +985,7 @@ instance FromText ReachabilityStatus where
         "expired" -> pure Expired
         "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing ReachabilityStatus from value: '" <> e
-           <> "'. Accepted values: DONE, EXPIRED, PENDING"
+           <> "'. Accepted values: done, expired, pending"
 
 instance ToText ReachabilityStatus where
     toText = \case

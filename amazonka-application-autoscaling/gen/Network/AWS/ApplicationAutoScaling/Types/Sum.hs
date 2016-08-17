@@ -31,7 +31,7 @@ instance FromText AdjustmentType where
         "exactcapacity" -> pure ExactCapacity
         "percentchangeincapacity" -> pure PercentChangeInCapacity
         e -> fromTextError $ "Failure parsing AdjustmentType from value: '" <> e
-           <> "'. Accepted values: ChangeInCapacity, ExactCapacity, PercentChangeInCapacity"
+           <> "'. Accepted values: changeincapacity, exactcapacity, percentchangeincapacity"
 
 instance ToText AdjustmentType where
     toText = \case
@@ -63,7 +63,7 @@ instance FromText MetricAggregationType where
         "maximum" -> pure Maximum
         "minimum" -> pure Minimum
         e -> fromTextError $ "Failure parsing MetricAggregationType from value: '" <> e
-           <> "'. Accepted values: Average, Maximum, Minimum"
+           <> "'. Accepted values: average, maximum, minimum"
 
 instance ToText MetricAggregationType where
     toText = \case
@@ -91,7 +91,7 @@ instance FromText PolicyType where
     parser = takeLowerText >>= \case
         "stepscaling" -> pure StepScaling
         e -> fromTextError $ "Failure parsing PolicyType from value: '" <> e
-           <> "'. Accepted values: StepScaling"
+           <> "'. Accepted values: stepscaling"
 
 instance ToText PolicyType where
     toText = \case
@@ -117,7 +117,7 @@ instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
         "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: ecs:service:DesiredCount"
+           <> "'. Accepted values: ecs:service:desiredcount"
 
 instance ToText ScalableDimension where
     toText = \case
@@ -153,7 +153,7 @@ instance FromText ScalingActivityStatusCode where
         "successful" -> pure Successful
         "unfulfilled" -> pure Unfulfilled
         e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Overridden, Pending, Successful, Unfulfilled"
+           <> "'. Accepted values: failed, inprogress, overridden, pending, successful, unfulfilled"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case

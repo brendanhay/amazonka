@@ -31,7 +31,7 @@ instance FromText ApplicationRevisionSortBy where
         "lastusedtime" -> pure LastUsedTime
         "registertime" -> pure RegisterTime
         e -> fromTextError $ "Failure parsing ApplicationRevisionSortBy from value: '" <> e
-           <> "'. Accepted values: firstUsedTime, lastUsedTime, registerTime"
+           <> "'. Accepted values: firstusedtime, lastusedtime, registertime"
 
 instance ToText ApplicationRevisionSortBy where
     toText = \case
@@ -112,7 +112,7 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: APPLICATION_MISSING, DEPLOYMENT_GROUP_MISSING, HEALTH_CONSTRAINTS, HEALTH_CONSTRAINTS_INVALID, IAM_ROLE_MISSING, IAM_ROLE_PERMISSIONS, INTERNAL_ERROR, NO_EC2_SUBSCRIPTION, NO_INSTANCES, OVER_MAX_INSTANCES, REVISION_MISSING, THROTTLED, TIMEOUT"
+           <> "'. Accepted values: application_missing, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
 
 instance ToText DeployErrorCode where
     toText = \case
@@ -183,7 +183,7 @@ instance FromText DeploymentStatus where
         "stopped" -> pure Stopped
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing DeploymentStatus from value: '" <> e
-           <> "'. Accepted values: Created, Failed, InProgress, Queued, Stopped, Succeeded"
+           <> "'. Accepted values: created, failed, inprogress, queued, stopped, succeeded"
 
 instance ToText DeploymentStatus where
     toText = \case
@@ -218,7 +218,7 @@ instance FromText EC2TagFilterType where
         "key_only" -> pure KeyOnly
         "value_only" -> pure ValueOnly
         e -> fromTextError $ "Failure parsing EC2TagFilterType from value: '" <> e
-           <> "'. Accepted values: KEY_AND_VALUE, KEY_ONLY, VALUE_ONLY"
+           <> "'. Accepted values: key_and_value, key_only, value_only"
 
 instance ToText EC2TagFilterType where
     toText = \case
@@ -256,7 +256,7 @@ instance FromText InstanceStatus where
         "succeeded" -> pure ISSucceeded
         "unknown" -> pure ISUnknown
         e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Pending, Skipped, Succeeded, Unknown"
+           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
 
 instance ToText InstanceStatus where
     toText = \case
@@ -297,7 +297,7 @@ instance FromText LifecycleErrorCode where
         "success" -> pure Success
         "unknownerror" -> pure UnknownError
         e -> fromTextError $ "Failure parsing LifecycleErrorCode from value: '" <> e
-           <> "'. Accepted values: ScriptFailed, ScriptMissing, ScriptNotExecutable, ScriptTimedOut, Success, UnknownError"
+           <> "'. Accepted values: scriptfailed, scriptmissing, scriptnotexecutable, scripttimedout, success, unknownerror"
 
 instance ToText LifecycleErrorCode where
     toText = \case
@@ -335,7 +335,7 @@ instance FromText LifecycleEventStatus where
         "succeeded" -> pure LESSucceeded
         "unknown" -> pure LESUnknown
         e -> fromTextError $ "Failure parsing LifecycleEventStatus from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Pending, Skipped, Succeeded, Unknown"
+           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
 
 instance ToText LifecycleEventStatus where
     toText = \case
@@ -394,7 +394,7 @@ instance FromText MinimumHealthyHostsType where
         "fleet_percent" -> pure FleetPercent
         "host_count" -> pure HostCount
         e -> fromTextError $ "Failure parsing MinimumHealthyHostsType from value: '" <> e
-           <> "'. Accepted values: FLEET_PERCENT, HOST_COUNT"
+           <> "'. Accepted values: fleet_percent, host_count"
 
 instance ToText MinimumHealthyHostsType where
     toText = \case
@@ -423,7 +423,7 @@ instance FromText RegistrationStatus where
         "deregistered" -> pure Deregistered
         "registered" -> pure Registered
         e -> fromTextError $ "Failure parsing RegistrationStatus from value: '" <> e
-           <> "'. Accepted values: Deregistered, Registered"
+           <> "'. Accepted values: deregistered, registered"
 
 instance ToText RegistrationStatus where
     toText = \case
@@ -449,7 +449,7 @@ instance FromText RevisionLocationType where
         "github" -> pure GitHub
         "s3" -> pure S3
         e -> fromTextError $ "Failure parsing RevisionLocationType from value: '" <> e
-           <> "'. Accepted values: GitHub, S3"
+           <> "'. Accepted values: github, s3"
 
 instance ToText RevisionLocationType where
     toText = \case
@@ -504,7 +504,7 @@ instance FromText StopStatus where
         "pending" -> pure SSPending
         "succeeded" -> pure SSSucceeded
         e -> fromTextError $ "Failure parsing StopStatus from value: '" <> e
-           <> "'. Accepted values: Pending, Succeeded"
+           <> "'. Accepted values: pending, succeeded"
 
 instance ToText StopStatus where
     toText = \case
@@ -532,7 +532,7 @@ instance FromText TagFilterType where
         "key_only" -> pure TFTKeyOnly
         "value_only" -> pure TFTValueOnly
         e -> fromTextError $ "Failure parsing TagFilterType from value: '" <> e
-           <> "'. Accepted values: KEY_AND_VALUE, KEY_ONLY, VALUE_ONLY"
+           <> "'. Accepted values: key_and_value, key_only, value_only"
 
 instance ToText TagFilterType where
     toText = \case
@@ -572,7 +572,7 @@ instance FromText TriggerEventType where
         "instancestart" -> pure InstanceStart
         "instancesuccess" -> pure InstanceSuccess
         e -> fromTextError $ "Failure parsing TriggerEventType from value: '" <> e
-           <> "'. Accepted values: DeploymentFailure, DeploymentStart, DeploymentStop, DeploymentSuccess, InstanceFailure, InstanceStart, InstanceSuccess"
+           <> "'. Accepted values: deploymentfailure, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instancestart, instancesuccess"
 
 instance ToText TriggerEventType where
     toText = \case

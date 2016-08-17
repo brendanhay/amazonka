@@ -57,7 +57,7 @@ instance FromText CloudHSMObjectState where
         "ready" -> pure Ready
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing CloudHSMObjectState from value: '" <> e
-           <> "'. Accepted values: DEGRADED, READY, UPDATING"
+           <> "'. Accepted values: degraded, ready, updating"
 
 instance ToText CloudHSMObjectState where
     toText = \case
@@ -94,7 +94,7 @@ instance FromText HSMStatus where
         "terminating" -> pure HSTerminating
         "updating" -> pure HSUpdating
         e -> fromTextError $ "Failure parsing HSMStatus from value: '" <> e
-           <> "'. Accepted values: DEGRADED, PENDING, RUNNING, SUSPENDED, TERMINATED, TERMINATING, UPDATING"
+           <> "'. Accepted values: degraded, pending, running, suspended, terminated, terminating, updating"
 
 instance ToText HSMStatus where
     toText = \case
@@ -127,7 +127,7 @@ instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
         "production" -> pure Production
         e -> fromTextError $ "Failure parsing SubscriptionType from value: '" <> e
-           <> "'. Accepted values: PRODUCTION"
+           <> "'. Accepted values: production"
 
 instance ToText SubscriptionType where
     toText = \case

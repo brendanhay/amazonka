@@ -39,7 +39,7 @@ instance FromText CertificateStatus where
         "revoked" -> pure Revoked
         "validation_timed_out" -> pure ValidationTimedOut
         e -> fromTextError $ "Failure parsing CertificateStatus from value: '" <> e
-           <> "'. Accepted values: EXPIRED, FAILED, INACTIVE, ISSUED, PENDING_VALIDATION, REVOKED, VALIDATION_TIMED_OUT"
+           <> "'. Accepted values: expired, failed, inactive, issued, pending_validation, revoked, validation_timed_out"
 
 instance ToText CertificateStatus where
     toText = \case
@@ -79,7 +79,7 @@ instance FromText FailureReason where
         "no_available_contacts" -> pure NoAvailableContacts
         "other" -> pure Other
         e -> fromTextError $ "Failure parsing FailureReason from value: '" <> e
-           <> "'. Accepted values: ADDITIONAL_VERIFICATION_REQUIRED, DOMAIN_NOT_ALLOWED, INVALID_PUBLIC_DOMAIN, NO_AVAILABLE_CONTACTS, OTHER"
+           <> "'. Accepted values: additional_verification_required, domain_not_allowed, invalid_public_domain, no_available_contacts, other"
 
 instance ToText FailureReason where
     toText = \case
@@ -108,7 +108,7 @@ instance FromText KeyAlgorithm where
         "ec_prime256v1" -> pure EcPRIME256V1
         "rsa_2048" -> pure Rsa2048
         e -> fromTextError $ "Failure parsing KeyAlgorithm from value: '" <> e
-           <> "'. Accepted values: EC_prime256v1, RSA_2048"
+           <> "'. Accepted values: ec_prime256v1, rsa_2048"
 
 instance ToText KeyAlgorithm where
     toText = \case
@@ -150,7 +150,7 @@ instance FromText RevocationReason where
         "superceded" -> pure Superceded
         "unspecified" -> pure Unspecified
         e -> fromTextError $ "Failure parsing RevocationReason from value: '" <> e
-           <> "'. Accepted values: A_A_COMPROMISE, AFFILIATION_CHANGED, CA_COMPROMISE, CERTIFICATE_HOLD, CESSATION_OF_OPERATION, KEY_COMPROMISE, PRIVILEGE_WITHDRAWN, REMOVE_FROM_CRL, SUPERCEDED, UNSPECIFIED"
+           <> "'. Accepted values: a_a_compromise, affiliation_changed, ca_compromise, certificate_hold, cessation_of_operation, key_compromise, privilege_withdrawn, remove_from_crl, superceded, unspecified"
 
 instance ToText RevocationReason where
     toText = \case

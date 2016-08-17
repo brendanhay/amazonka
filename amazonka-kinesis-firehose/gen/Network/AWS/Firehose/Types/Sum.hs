@@ -33,7 +33,7 @@ instance FromText CompressionFormat where
         "uncompressed" -> pure Uncompressed
         "zip" -> pure Zip
         e -> fromTextError $ "Failure parsing CompressionFormat from value: '" <> e
-           <> "'. Accepted values: GZIP, Snappy, UNCOMPRESSED, ZIP"
+           <> "'. Accepted values: gzip, snappy, uncompressed, zip"
 
 instance ToText CompressionFormat where
     toText = \case
@@ -66,7 +66,7 @@ instance FromText DeliveryStreamStatus where
         "creating" -> pure Creating
         "deleting" -> pure Deleting
         e -> fromTextError $ "Failure parsing DeliveryStreamStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, CREATING, DELETING"
+           <> "'. Accepted values: active, creating, deleting"
 
 instance ToText DeliveryStreamStatus where
     toText = \case
@@ -99,7 +99,7 @@ instance FromText ElasticsearchIndexRotationPeriod where
         "onemonth" -> pure OneMonth
         "oneweek" -> pure OneWeek
         e -> fromTextError $ "Failure parsing ElasticsearchIndexRotationPeriod from value: '" <> e
-           <> "'. Accepted values: NoRotation, OneDay, OneHour, OneMonth, OneWeek"
+           <> "'. Accepted values: norotation, oneday, onehour, onemonth, oneweek"
 
 instance ToText ElasticsearchIndexRotationPeriod where
     toText = \case
@@ -131,7 +131,7 @@ instance FromText ElasticsearchS3BackupMode where
         "alldocuments" -> pure AllDocuments
         "faileddocumentsonly" -> pure FailedDocumentsOnly
         e -> fromTextError $ "Failure parsing ElasticsearchS3BackupMode from value: '" <> e
-           <> "'. Accepted values: AllDocuments, FailedDocumentsOnly"
+           <> "'. Accepted values: alldocuments, faileddocumentsonly"
 
 instance ToText ElasticsearchS3BackupMode where
     toText = \case
@@ -158,7 +158,7 @@ instance FromText NoEncryptionConfig where
     parser = takeLowerText >>= \case
         "noencryption" -> pure NoEncryption
         e -> fromTextError $ "Failure parsing NoEncryptionConfig from value: '" <> e
-           <> "'. Accepted values: NoEncryption"
+           <> "'. Accepted values: noencryption"
 
 instance ToText NoEncryptionConfig where
     toText = \case

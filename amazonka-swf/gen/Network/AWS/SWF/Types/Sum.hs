@@ -33,7 +33,7 @@ instance FromText ActivityTaskTimeoutType where
         "schedule_to_start" -> pure ATTTScheduleToStart
         "start_to_close" -> pure ATTTStartToClose
         e -> fromTextError $ "Failure parsing ActivityTaskTimeoutType from value: '" <> e
-           <> "'. Accepted values: HEARTBEAT, SCHEDULE_TO_CLOSE, SCHEDULE_TO_START, START_TO_CLOSE"
+           <> "'. Accepted values: heartbeat, schedule_to_close, schedule_to_start, start_to_close"
 
 instance ToText ActivityTaskTimeoutType where
     toText = \case
@@ -61,7 +61,7 @@ instance FromText CancelTimerFailedCause where
         "operation_not_permitted" -> pure CTFCOperationNotPermitted
         "timer_id_unknown" -> pure CTFCTimerIdUnknown
         e -> fromTextError $ "Failure parsing CancelTimerFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, TIMER_ID_UNKNOWN"
+           <> "'. Accepted values: operation_not_permitted, timer_id_unknown"
 
 instance ToText CancelTimerFailedCause where
     toText = \case
@@ -87,7 +87,7 @@ instance FromText CancelWorkflowExecutionFailedCause where
         "operation_not_permitted" -> pure COperationNotPermitted
         "unhandled_decision" -> pure CUnhandledDecision
         e -> fromTextError $ "Failure parsing CancelWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, UNHANDLED_DECISION"
+           <> "'. Accepted values: operation_not_permitted, unhandled_decision"
 
 instance ToText CancelWorkflowExecutionFailedCause where
     toText = \case
@@ -115,7 +115,7 @@ instance FromText ChildPolicy where
         "request_cancel" -> pure RequestCancel
         "terminate" -> pure Terminate
         e -> fromTextError $ "Failure parsing ChildPolicy from value: '" <> e
-           <> "'. Accepted values: ABANDON, REQUEST_CANCEL, TERMINATE"
+           <> "'. Accepted values: abandon, request_cancel, terminate"
 
 instance ToText ChildPolicy where
     toText = \case
@@ -153,7 +153,7 @@ instance FromText CloseStatus where
         "terminated" -> pure Terminated
         "timed_out" -> pure TimedOut
         e -> fromTextError $ "Failure parsing CloseStatus from value: '" <> e
-           <> "'. Accepted values: CANCELED, COMPLETED, CONTINUED_AS_NEW, FAILED, TERMINATED, TIMED_OUT"
+           <> "'. Accepted values: canceled, completed, continued_as_new, failed, terminated, timed_out"
 
 instance ToText CloseStatus where
     toText = \case
@@ -186,7 +186,7 @@ instance FromText CompleteWorkflowExecutionFailedCause where
         "operation_not_permitted" -> pure CWEFCOperationNotPermitted
         "unhandled_decision" -> pure CWEFCUnhandledDecision
         e -> fromTextError $ "Failure parsing CompleteWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, UNHANDLED_DECISION"
+           <> "'. Accepted values: operation_not_permitted, unhandled_decision"
 
 instance ToText CompleteWorkflowExecutionFailedCause where
     toText = \case
@@ -226,7 +226,7 @@ instance FromText ContinueAsNewWorkflowExecutionFailedCause where
         "workflow_type_deprecated" -> pure CANWEFCWorkflowTypeDeprecated
         "workflow_type_does_not_exist" -> pure CANWEFCWorkflowTypeDoesNotExist
         e -> fromTextError $ "Failure parsing ContinueAsNewWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED, DEFAULT_CHILD_POLICY_UNDEFINED, DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED, DEFAULT_TASK_LIST_UNDEFINED, DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED, OPERATION_NOT_PERMITTED, UNHANDLED_DECISION, WORKFLOW_TYPE_DEPRECATED, WORKFLOW_TYPE_DOES_NOT_EXIST"
+           <> "'. Accepted values: continue_as_new_workflow_execution_rate_exceeded, default_child_policy_undefined, default_execution_start_to_close_timeout_undefined, default_task_list_undefined, default_task_start_to_close_timeout_undefined, operation_not_permitted, unhandled_decision, workflow_type_deprecated, workflow_type_does_not_exist"
 
 instance ToText ContinueAsNewWorkflowExecutionFailedCause where
     toText = \case
@@ -257,7 +257,7 @@ instance FromText DecisionTaskTimeoutType where
     parser = takeLowerText >>= \case
         "start_to_close" -> pure StartToClose
         e -> fromTextError $ "Failure parsing DecisionTaskTimeoutType from value: '" <> e
-           <> "'. Accepted values: START_TO_CLOSE"
+           <> "'. Accepted values: start_to_close"
 
 instance ToText DecisionTaskTimeoutType where
     toText = \case
@@ -304,7 +304,7 @@ instance FromText DecisionType where
         "startchildworkflowexecution" -> pure StartChildWorkflowExecution
         "starttimer" -> pure StartTimer
         e -> fromTextError $ "Failure parsing DecisionType from value: '" <> e
-           <> "'. Accepted values: CancelTimer, CancelWorkflowExecution, CompleteWorkflowExecution, ContinueAsNewWorkflowExecution, FailWorkflowExecution, RecordMarker, RequestCancelActivityTask, RequestCancelExternalWorkflowExecution, ScheduleActivityTask, ScheduleLambdaFunction, SignalExternalWorkflowExecution, StartChildWorkflowExecution, StartTimer"
+           <> "'. Accepted values: canceltimer, cancelworkflowexecution, completeworkflowexecution, continueasnewworkflowexecution, failworkflowexecution, recordmarker, requestcancelactivitytask, requestcancelexternalworkflowexecution, scheduleactivitytask, schedulelambdafunction, signalexternalworkflowexecution, startchildworkflowexecution, starttimer"
 
 instance ToText DecisionType where
     toText = \case
@@ -445,7 +445,7 @@ instance FromText EventType where
         "workflowexecutionterminated" -> pure WorkflowExecutionTerminated
         "workflowexecutiontimedout" -> pure WorkflowExecutionTimedOut
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
-           <> "'. Accepted values: ActivityTaskCancelRequested, ActivityTaskCanceled, ActivityTaskCompleted, ActivityTaskFailed, ActivityTaskScheduled, ActivityTaskStarted, ActivityTaskTimedOut, CancelTimerFailed, CancelWorkflowExecutionFailed, ChildWorkflowExecutionCanceled, ChildWorkflowExecutionCompleted, ChildWorkflowExecutionFailed, ChildWorkflowExecutionStarted, ChildWorkflowExecutionTerminated, ChildWorkflowExecutionTimedOut, CompleteWorkflowExecutionFailed, ContinueAsNewWorkflowExecutionFailed, DecisionTaskCompleted, DecisionTaskScheduled, DecisionTaskStarted, DecisionTaskTimedOut, ExternalWorkflowExecutionCancelRequested, ExternalWorkflowExecutionSignaled, FailWorkflowExecutionFailed, LambdaFunctionCompleted, LambdaFunctionFailed, LambdaFunctionScheduled, LambdaFunctionStarted, LambdaFunctionTimedOut, MarkerRecorded, RecordMarkerFailed, RequestCancelActivityTaskFailed, RequestCancelExternalWorkflowExecutionFailed, RequestCancelExternalWorkflowExecutionInitiated, ScheduleActivityTaskFailed, ScheduleLambdaFunctionFailed, SignalExternalWorkflowExecutionFailed, SignalExternalWorkflowExecutionInitiated, StartChildWorkflowExecutionFailed, StartChildWorkflowExecutionInitiated, StartLambdaFunctionFailed, StartTimerFailed, TimerCanceled, TimerFired, TimerStarted, WorkflowExecutionCancelRequested, WorkflowExecutionCanceled, WorkflowExecutionCompleted, WorkflowExecutionContinuedAsNew, WorkflowExecutionFailed, WorkflowExecutionSignaled, WorkflowExecutionStarted, WorkflowExecutionTerminated, WorkflowExecutionTimedOut"
+           <> "'. Accepted values: activitytaskcancelrequested, activitytaskcanceled, activitytaskcompleted, activitytaskfailed, activitytaskscheduled, activitytaskstarted, activitytasktimedout, canceltimerfailed, cancelworkflowexecutionfailed, childworkflowexecutioncanceled, childworkflowexecutioncompleted, childworkflowexecutionfailed, childworkflowexecutionstarted, childworkflowexecutionterminated, childworkflowexecutiontimedout, completeworkflowexecutionfailed, continueasnewworkflowexecutionfailed, decisiontaskcompleted, decisiontaskscheduled, decisiontaskstarted, decisiontasktimedout, externalworkflowexecutioncancelrequested, externalworkflowexecutionsignaled, failworkflowexecutionfailed, lambdafunctioncompleted, lambdafunctionfailed, lambdafunctionscheduled, lambdafunctionstarted, lambdafunctiontimedout, markerrecorded, recordmarkerfailed, requestcancelactivitytaskfailed, requestcancelexternalworkflowexecutionfailed, requestcancelexternalworkflowexecutioninitiated, scheduleactivitytaskfailed, schedulelambdafunctionfailed, signalexternalworkflowexecutionfailed, signalexternalworkflowexecutioninitiated, startchildworkflowexecutionfailed, startchildworkflowexecutioninitiated, startlambdafunctionfailed, starttimerfailed, timercanceled, timerfired, timerstarted, workflowexecutioncancelrequested, workflowexecutioncanceled, workflowexecutioncompleted, workflowexecutioncontinuedasnew, workflowexecutionfailed, workflowexecutionsignaled, workflowexecutionstarted, workflowexecutionterminated, workflowexecutiontimedout"
 
 instance ToText EventType where
     toText = \case
@@ -523,7 +523,7 @@ instance FromText ExecutionStatus where
         "closed" -> pure Closed
         "open" -> pure Open
         e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
-           <> "'. Accepted values: CLOSED, OPEN"
+           <> "'. Accepted values: closed, open"
 
 instance ToText ExecutionStatus where
     toText = \case
@@ -549,7 +549,7 @@ instance FromText FailWorkflowExecutionFailedCause where
         "operation_not_permitted" -> pure FWEFCOperationNotPermitted
         "unhandled_decision" -> pure FWEFCUnhandledDecision
         e -> fromTextError $ "Failure parsing FailWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, UNHANDLED_DECISION"
+           <> "'. Accepted values: operation_not_permitted, unhandled_decision"
 
 instance ToText FailWorkflowExecutionFailedCause where
     toText = \case
@@ -573,7 +573,7 @@ instance FromText LambdaFunctionTimeoutType where
     parser = takeLowerText >>= \case
         "start_to_close" -> pure LFTTStartToClose
         e -> fromTextError $ "Failure parsing LambdaFunctionTimeoutType from value: '" <> e
-           <> "'. Accepted values: START_TO_CLOSE"
+           <> "'. Accepted values: start_to_close"
 
 instance ToText LambdaFunctionTimeoutType where
     toText = \case
@@ -596,7 +596,7 @@ instance FromText RecordMarkerFailedCause where
     parser = takeLowerText >>= \case
         "operation_not_permitted" -> pure OperationNotPermitted
         e -> fromTextError $ "Failure parsing RecordMarkerFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED"
+           <> "'. Accepted values: operation_not_permitted"
 
 instance ToText RecordMarkerFailedCause where
     toText = \case
@@ -621,7 +621,7 @@ instance FromText RegistrationStatus where
         "deprecated" -> pure Deprecated
         "registered" -> pure Registered
         e -> fromTextError $ "Failure parsing RegistrationStatus from value: '" <> e
-           <> "'. Accepted values: DEPRECATED, REGISTERED"
+           <> "'. Accepted values: deprecated, registered"
 
 instance ToText RegistrationStatus where
     toText = \case
@@ -650,7 +650,7 @@ instance FromText RequestCancelActivityTaskFailedCause where
         "activity_id_unknown" -> pure RCATFCActivityIdUnknown
         "operation_not_permitted" -> pure RCATFCOperationNotPermitted
         e -> fromTextError $ "Failure parsing RequestCancelActivityTaskFailedCause from value: '" <> e
-           <> "'. Accepted values: ACTIVITY_ID_UNKNOWN, OPERATION_NOT_PERMITTED"
+           <> "'. Accepted values: activity_id_unknown, operation_not_permitted"
 
 instance ToText RequestCancelActivityTaskFailedCause where
     toText = \case
@@ -678,7 +678,7 @@ instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
         "request_cancel_external_workflow_execution_rate_exceeded" -> pure RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
         "unknown_external_workflow_execution" -> pure RCEWEFCUnknownExternalWorkflowExecution
         e -> fromTextError $ "Failure parsing RequestCancelExternalWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED, UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+           <> "'. Accepted values: operation_not_permitted, request_cancel_external_workflow_execution_rate_exceeded, unknown_external_workflow_execution"
 
 instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
     toText = \case
@@ -723,7 +723,7 @@ instance FromText ScheduleActivityTaskFailedCause where
         "open_activities_limit_exceeded" -> pure SATFCOpenActivitiesLimitExceeded
         "operation_not_permitted" -> pure SATFCOperationNotPermitted
         e -> fromTextError $ "Failure parsing ScheduleActivityTaskFailedCause from value: '" <> e
-           <> "'. Accepted values: ACTIVITY_CREATION_RATE_EXCEEDED, ACTIVITY_ID_ALREADY_IN_USE, ACTIVITY_TYPE_DEPRECATED, ACTIVITY_TYPE_DOES_NOT_EXIST, DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED, DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED, DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED, DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED, DEFAULT_TASK_LIST_UNDEFINED, OPEN_ACTIVITIES_LIMIT_EXCEEDED, OPERATION_NOT_PERMITTED"
+           <> "'. Accepted values: activity_creation_rate_exceeded, activity_id_already_in_use, activity_type_deprecated, activity_type_does_not_exist, default_heartbeat_timeout_undefined, default_schedule_to_close_timeout_undefined, default_schedule_to_start_timeout_undefined, default_start_to_close_timeout_undefined, default_task_list_undefined, open_activities_limit_exceeded, operation_not_permitted"
 
 instance ToText ScheduleActivityTaskFailedCause where
     toText = \case
@@ -762,7 +762,7 @@ instance FromText ScheduleLambdaFunctionFailedCause where
         "lambda_service_not_available_in_region" -> pure LambdaServiceNotAvailableInRegion
         "open_lambda_functions_limit_exceeded" -> pure OpenLambdaFunctionsLimitExceeded
         e -> fromTextError $ "Failure parsing ScheduleLambdaFunctionFailedCause from value: '" <> e
-           <> "'. Accepted values: ID_ALREADY_IN_USE, LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED, LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION, OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+           <> "'. Accepted values: id_already_in_use, lambda_function_creation_rate_exceeded, lambda_service_not_available_in_region, open_lambda_functions_limit_exceeded"
 
 instance ToText ScheduleLambdaFunctionFailedCause where
     toText = \case
@@ -792,7 +792,7 @@ instance FromText SignalExternalWorkflowExecutionFailedCause where
         "signal_external_workflow_execution_rate_exceeded" -> pure SEWEFCSignalExternalWorkflowExecutionRateExceeded
         "unknown_external_workflow_execution" -> pure SEWEFCUnknownExternalWorkflowExecution
         e -> fromTextError $ "Failure parsing SignalExternalWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: OPERATION_NOT_PERMITTED, SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED, UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+           <> "'. Accepted values: operation_not_permitted, signal_external_workflow_execution_rate_exceeded, unknown_external_workflow_execution"
 
 instance ToText SignalExternalWorkflowExecutionFailedCause where
     toText = \case
@@ -837,7 +837,7 @@ instance FromText StartChildWorkflowExecutionFailedCause where
         "workflow_type_deprecated" -> pure SCWEFCWorkflowTypeDeprecated
         "workflow_type_does_not_exist" -> pure SCWEFCWorkflowTypeDoesNotExist
         e -> fromTextError $ "Failure parsing StartChildWorkflowExecutionFailedCause from value: '" <> e
-           <> "'. Accepted values: CHILD_CREATION_RATE_EXCEEDED, DEFAULT_CHILD_POLICY_UNDEFINED, DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED, DEFAULT_TASK_LIST_UNDEFINED, DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED, OPEN_CHILDREN_LIMIT_EXCEEDED, OPEN_WORKFLOWS_LIMIT_EXCEEDED, OPERATION_NOT_PERMITTED, WORKFLOW_ALREADY_RUNNING, WORKFLOW_TYPE_DEPRECATED, WORKFLOW_TYPE_DOES_NOT_EXIST"
+           <> "'. Accepted values: child_creation_rate_exceeded, default_child_policy_undefined, default_execution_start_to_close_timeout_undefined, default_task_list_undefined, default_task_start_to_close_timeout_undefined, open_children_limit_exceeded, open_workflows_limit_exceeded, operation_not_permitted, workflow_already_running, workflow_type_deprecated, workflow_type_does_not_exist"
 
 instance ToText StartChildWorkflowExecutionFailedCause where
     toText = \case
@@ -870,7 +870,7 @@ instance FromText StartLambdaFunctionFailedCause where
     parser = takeLowerText >>= \case
         "assume_role_failed" -> pure AssumeRoleFailed
         e -> fromTextError $ "Failure parsing StartLambdaFunctionFailedCause from value: '" <> e
-           <> "'. Accepted values: ASSUME_ROLE_FAILED"
+           <> "'. Accepted values: assume_role_failed"
 
 instance ToText StartLambdaFunctionFailedCause where
     toText = \case
@@ -899,7 +899,7 @@ instance FromText StartTimerFailedCause where
         "timer_creation_rate_exceeded" -> pure STFCTimerCreationRateExceeded
         "timer_id_already_in_use" -> pure STFCTimerIdAlreadyInUse
         e -> fromTextError $ "Failure parsing StartTimerFailedCause from value: '" <> e
-           <> "'. Accepted values: OPEN_TIMERS_LIMIT_EXCEEDED, OPERATION_NOT_PERMITTED, TIMER_CREATION_RATE_EXCEEDED, TIMER_ID_ALREADY_IN_USE"
+           <> "'. Accepted values: open_timers_limit_exceeded, operation_not_permitted, timer_creation_rate_exceeded, timer_id_already_in_use"
 
 instance ToText StartTimerFailedCause where
     toText = \case
@@ -925,7 +925,7 @@ instance FromText WorkflowExecutionCancelRequestedCause where
     parser = takeLowerText >>= \case
         "child_policy_applied" -> pure ChildPolicyApplied
         e -> fromTextError $ "Failure parsing WorkflowExecutionCancelRequestedCause from value: '" <> e
-           <> "'. Accepted values: CHILD_POLICY_APPLIED"
+           <> "'. Accepted values: child_policy_applied"
 
 instance ToText WorkflowExecutionCancelRequestedCause where
     toText = \case
@@ -952,7 +952,7 @@ instance FromText WorkflowExecutionTerminatedCause where
         "event_limit_exceeded" -> pure WETCEventLimitExceeded
         "operator_initiated" -> pure WETCOperatorInitiated
         e -> fromTextError $ "Failure parsing WorkflowExecutionTerminatedCause from value: '" <> e
-           <> "'. Accepted values: CHILD_POLICY_APPLIED, EVENT_LIMIT_EXCEEDED, OPERATOR_INITIATED"
+           <> "'. Accepted values: child_policy_applied, event_limit_exceeded, operator_initiated"
 
 instance ToText WorkflowExecutionTerminatedCause where
     toText = \case
@@ -977,7 +977,7 @@ instance FromText WorkflowExecutionTimeoutType where
     parser = takeLowerText >>= \case
         "start_to_close" -> pure WETTStartToClose
         e -> fromTextError $ "Failure parsing WorkflowExecutionTimeoutType from value: '" <> e
-           <> "'. Accepted values: START_TO_CLOSE"
+           <> "'. Accepted values: start_to_close"
 
 instance ToText WorkflowExecutionTimeoutType where
     toText = \case

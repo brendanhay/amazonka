@@ -30,7 +30,7 @@ instance FromText BucketAccelerateStatus where
         "enabled" -> pure BASEnabled
         "suspended" -> pure BASSuspended
         e -> fromTextError $ "Failure parsing BucketAccelerateStatus from value: '" <> e
-           <> "'. Accepted values: Enabled, Suspended"
+           <> "'. Accepted values: enabled, suspended"
 
 instance ToText BucketAccelerateStatus where
     toText = \case
@@ -93,7 +93,7 @@ instance FromText BucketLogsPermission where
         "read" -> pure Read
         "write" -> pure Write
         e -> fromTextError $ "Failure parsing BucketLogsPermission from value: '" <> e
-           <> "'. Accepted values: FULL_CONTROL, READ, WRITE"
+           <> "'. Accepted values: full_control, read, write"
 
 instance ToText BucketLogsPermission where
     toText = \case
@@ -123,7 +123,7 @@ instance FromText BucketVersioningStatus where
         "enabled" -> pure BVSEnabled
         "suspended" -> pure BVSSuspended
         e -> fromTextError $ "Failure parsing BucketVersioningStatus from value: '" <> e
-           <> "'. Accepted values: Enabled, Suspended"
+           <> "'. Accepted values: enabled, suspended"
 
 instance ToText BucketVersioningStatus where
     toText = \case
@@ -194,7 +194,7 @@ instance FromText Event where
         "s3:objectremoved:deletemarkercreated" -> pure S3ObjectRemovedDeleteMarkerCreated
         "s3:reducedredundancylostobject" -> pure S3ReducedRedundancyLostObject
         e -> fromTextError $ "Failure parsing Event from value: '" <> e
-           <> "'. Accepted values: s3:ObjectCreated:*, s3:ObjectCreated:CompleteMultipartUpload, s3:ObjectCreated:Copy, s3:ObjectCreated:Post, s3:ObjectCreated:Put, s3:ObjectRemoved:*, s3:ObjectRemoved:Delete, s3:ObjectRemoved:DeleteMarkerCreated, s3:ReducedRedundancyLostObject"
+           <> "'. Accepted values: s3:objectcreated:*, s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:objectremoved:*, s3:objectremoved:delete, s3:objectremoved:deletemarkercreated, s3:reducedredundancylostobject"
 
 instance ToText Event where
     toText = \case
@@ -230,7 +230,7 @@ instance FromText ExpirationStatus where
         "disabled" -> pure ESDisabled
         "enabled" -> pure ESEnabled
         e -> fromTextError $ "Failure parsing ExpirationStatus from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText ExpirationStatus where
     toText = \case
@@ -288,7 +288,7 @@ instance FromText MFADelete where
         "disabled" -> pure MDDisabled
         "enabled" -> pure MDEnabled
         e -> fromTextError $ "Failure parsing MFADelete from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText MFADelete where
     toText = \case
@@ -314,7 +314,7 @@ instance FromText MFADeleteStatus where
         "disabled" -> pure MDSDisabled
         "enabled" -> pure MDSEnabled
         e -> fromTextError $ "Failure parsing MFADeleteStatus from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText MFADeleteStatus where
     toText = \case
@@ -340,7 +340,7 @@ instance FromText MetadataDirective where
         "copy" -> pure Copy
         "replace" -> pure Replace
         e -> fromTextError $ "Failure parsing MetadataDirective from value: '" <> e
-           <> "'. Accepted values: COPY, REPLACE"
+           <> "'. Accepted values: copy, replace"
 
 instance ToText MetadataDirective where
     toText = \case
@@ -411,7 +411,7 @@ instance FromText ObjectStorageClass where
         "standard" -> pure OSCStandard
         "standard_ia" -> pure OSCStandardIA
         e -> fromTextError $ "Failure parsing ObjectStorageClass from value: '" <> e
-           <> "'. Accepted values: GLACIER, REDUCED_REDUNDANCY, STANDARD, STANDARD_IA"
+           <> "'. Accepted values: glacier, reduced_redundancy, standard, standard_ia"
 
 instance ToText ObjectStorageClass where
     toText = \case
@@ -437,7 +437,7 @@ instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
         "standard" -> pure OVSCStandard
         e -> fromTextError $ "Failure parsing ObjectVersionStorageClass from value: '" <> e
-           <> "'. Accepted values: STANDARD"
+           <> "'. Accepted values: standard"
 
 instance ToText ObjectVersionStorageClass where
     toText = \case
@@ -462,7 +462,7 @@ instance FromText Payer where
         "bucketowner" -> pure BucketOwner
         "requester" -> pure Requester
         e -> fromTextError $ "Failure parsing Payer from value: '" <> e
-           <> "'. Accepted values: BucketOwner, Requester"
+           <> "'. Accepted values: bucketowner, requester"
 
 instance ToText Payer where
     toText = \case
@@ -497,7 +497,7 @@ instance FromText Permission where
         "write" -> pure PWrite
         "write_acp" -> pure PWriteAcp
         e -> fromTextError $ "Failure parsing Permission from value: '" <> e
-           <> "'. Accepted values: FULL_CONTROL, READ, READ_ACP, WRITE, WRITE_ACP"
+           <> "'. Accepted values: full_control, read, read_acp, write, write_acp"
 
 instance ToText Permission where
     toText = \case
@@ -558,7 +558,7 @@ instance FromText ReplicationRuleStatus where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing ReplicationRuleStatus from value: '" <> e
-           <> "'. Accepted values: Disabled, Enabled"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText ReplicationRuleStatus where
     toText = \case
@@ -591,7 +591,7 @@ instance FromText ReplicationStatus where
         "pending" -> pure Pending
         "replica" -> pure Replica
         e -> fromTextError $ "Failure parsing ReplicationStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETE, FAILED, PENDING, REPLICA"
+           <> "'. Accepted values: complete, failed, pending, replica"
 
 instance ToText ReplicationStatus where
     toText = \case
@@ -667,7 +667,7 @@ instance FromText ServerSideEncryption where
         "aes256" -> pure AES256
         "aws:kms" -> pure AWSKMS
         e -> fromTextError $ "Failure parsing ServerSideEncryption from value: '" <> e
-           <> "'. Accepted values: AES256, aws:kms"
+           <> "'. Accepted values: aes256, aws:kms"
 
 instance ToText ServerSideEncryption where
     toText = \case
@@ -698,7 +698,7 @@ instance FromText StorageClass where
         "standard" -> pure Standard
         "standard_ia" -> pure StandardIA
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: REDUCED_REDUNDANCY, STANDARD, STANDARD_IA"
+           <> "'. Accepted values: reduced_redundancy, standard, standard_ia"
 
 instance ToText StorageClass where
     toText = \case
@@ -728,7 +728,7 @@ instance FromText TransitionStorageClass where
         "glacier" -> pure TSCGlacier
         "standard_ia" -> pure TSCStandardIA
         e -> fromTextError $ "Failure parsing TransitionStorageClass from value: '" <> e
-           <> "'. Accepted values: GLACIER, STANDARD_IA"
+           <> "'. Accepted values: glacier, standard_ia"
 
 instance ToText TransitionStorageClass where
     toText = \case
@@ -759,7 +759,7 @@ instance FromText Type where
         "canonicaluser" -> pure CanonicalUser
         "group" -> pure Group
         e -> fromTextError $ "Failure parsing Type from value: '" <> e
-           <> "'. Accepted values: AmazonCustomerByEmail, CanonicalUser, Group"
+           <> "'. Accepted values: amazoncustomerbyemail, canonicaluser, group"
 
 instance ToText Type where
     toText = \case

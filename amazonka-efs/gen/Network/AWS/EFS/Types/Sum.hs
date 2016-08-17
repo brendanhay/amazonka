@@ -61,7 +61,7 @@ instance FromText PerformanceMode where
         "generalpurpose" -> pure GeneralPurpose
         "maxio" -> pure MaxIO
         e -> fromTextError $ "Failure parsing PerformanceMode from value: '" <> e
-           <> "'. Accepted values: generalPurpose, maxIO"
+           <> "'. Accepted values: generalpurpose, maxio"
 
 instance ToText PerformanceMode where
     toText = \case

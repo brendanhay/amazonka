@@ -3,6 +3,9 @@
     "typeOverrides": {
         "CommandFilterKey": {
             "enumPrefix": "Command"
+        },
+        "DocumentHashType": {
+            "enumPrefix": "Hash"
         }
     }
 }

@@ -331,7 +331,7 @@ getAuth m = \case
 -- cannot be read, but not if the session token is absent.
 --
 -- /See:/ 'envAccessKey', 'envSecretKey', 'envSessionToken'
-fromEnv :: (MonadIO m, MonadThrow m) => m (Auth, Maybe Region)
+fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m (Auth, Maybe Region)
 fromEnv =
     fromEnvKeys
         envAccessKey
@@ -344,7 +344,7 @@ fromEnv =
 --
 -- Throws 'MissingEnvError' if either of the specified key environment variables
 -- cannot be read, but not if the session token is absent.
-fromEnvKeys :: (MonadIO m, MonadThrow m)
+fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
             => Text       -- ^ Access key environment variable.
             -> Text       -- ^ Secret key environment variable.
             -> Maybe Text -- ^ Session token environment variable.

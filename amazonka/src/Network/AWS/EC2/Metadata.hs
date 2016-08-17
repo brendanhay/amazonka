@@ -61,6 +61,7 @@ data Dynamic
     | Document
     -- ^ JSON containing instance attributes, such as instance-id,
     -- private IP address, etc.
+    -- /See:/ 'identity', 'InstanceDocument'.
     | PKCS7
     -- ^ Used to verify the document's authenticity and content against the
     -- signature.
@@ -317,15 +318,19 @@ userdata m = do
         Left  e -> throwM e
         Right b -> return (Just b)
 
--- | TODO: what an IdentityDocument is, and what values are available.
+-- | Retrieve the instance's identity document.
 --
--- Note about either return type.
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
 identity :: (MonadIO m, MonadThrow m)
          => Manager
          -> m (Either String IdentityDocument)
 identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
 
--- | TODO: note about deserialisation of 'Text' values vs what's available in core.
+-- | Represents an instance's identity document, detailing various EC2 metadata.
+--
+-- /Note:/ Fields such as '_instanceType' are represented as unparsed 'Text' and
+-- will need to be manually parsed using 'fromText' when the relevant types
+-- from a library such as "Network.AWS.EC2" are brought into scope.
 data IdentityDocument = IdentityDocument
     { _devpayProductCodes :: Maybe Text
     , _billingProducts    :: Maybe Text

@@ -1,0 +1,136 @@
+name:                  amazonka-elbv2
+version:               1.4.3
+synopsis:              Amazon Elastic Load Balancing SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    Elastic Load Balancing
+
+    A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.
+
+    Elastic Load Balancing supports two types of load balancers: Classic load balancers and Application load balancers (new). A Classic load balancer makes routing and load balancing decisions either at the transport layer (TCP\/SSL) or the application layer (HTTP\/HTTPS), and supports either EC2-Classic or a VPC. An Application load balancer makes routing and load balancing decisions at the application layer (HTTP\/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide>.
+
+    This reference covers the 2015-12-01 API, which supports Application load balancers. The 2012-06-01 API supports Classic load balancers.
+
+    To get started with an Application load balancer, complete the following tasks:
+
+    1.  Create a load balancer using < CreateLoadBalancer>.
+
+    2.  Create a target group using < CreateTargetGroup>.
+
+    3.  Register targets for the target group using < RegisterTargets>.
+
+    4.  Create one or more listeners for your load balancer using < CreateListener>.
+
+    5.  (Optional) Create one or more rules for content routing based on URL using < CreateRule>.
+
+    To delete an Application load balancer and its related resources, complete the following tasks:
+
+    1.  Delete the load balancer using < DeleteLoadBalancer>.
+
+    2.  Delete the target group using < DeleteTargetGroup>.
+
+    All Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ELBv2" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.ELBv2
+        , Network.AWS.ELBv2.AddTags
+        , Network.AWS.ELBv2.CreateListener
+        , Network.AWS.ELBv2.CreateLoadBalancer
+        , Network.AWS.ELBv2.CreateRule
+        , Network.AWS.ELBv2.CreateTargetGroup
+        , Network.AWS.ELBv2.DeleteListener
+        , Network.AWS.ELBv2.DeleteLoadBalancer
+        , Network.AWS.ELBv2.DeleteRule
+        , Network.AWS.ELBv2.DeleteTargetGroup
+        , Network.AWS.ELBv2.DeregisterTargets
+        , Network.AWS.ELBv2.DescribeListeners
+        , Network.AWS.ELBv2.DescribeLoadBalancerAttributes
+        , Network.AWS.ELBv2.DescribeLoadBalancers
+        , Network.AWS.ELBv2.DescribeRules
+        , Network.AWS.ELBv2.DescribeSSLPolicies
+        , Network.AWS.ELBv2.DescribeTags
+        , Network.AWS.ELBv2.DescribeTargetGroupAttributes
+        , Network.AWS.ELBv2.DescribeTargetGroups
+        , Network.AWS.ELBv2.DescribeTargetHealth
+        , Network.AWS.ELBv2.ModifyListener
+        , Network.AWS.ELBv2.ModifyLoadBalancerAttributes
+        , Network.AWS.ELBv2.ModifyRule
+        , Network.AWS.ELBv2.ModifyTargetGroup
+        , Network.AWS.ELBv2.ModifyTargetGroupAttributes
+        , Network.AWS.ELBv2.RegisterTargets
+        , Network.AWS.ELBv2.RemoveTags
+        , Network.AWS.ELBv2.SetRulePriorities
+        , Network.AWS.ELBv2.SetSecurityGroups
+        , Network.AWS.ELBv2.SetSubnets
+        , Network.AWS.ELBv2.Types
+        , Network.AWS.ELBv2.Waiters
+
+    other-modules:
+          Network.AWS.ELBv2.Types.Product
+        , Network.AWS.ELBv2.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.3.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-elbv2-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ELBv2
+        , Test.AWS.Gen.ELBv2
+        , Test.AWS.ELBv2.Internal
+
+    build-depends:
+          amazonka-core == 1.4.3.*
+        , amazonka-test == 1.4.3.*
+        , amazonka-elbv2 == 1.4.3.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -48,7 +48,7 @@ packages:
   - amazonka-elasticsearch
   - amazonka-elastictranscoder
   - amazonka-elb
-  - amazonka-elb-v2
+  - amazonka-elbv2
   - amazonka-emr
   - amazonka-gamelift
   - amazonka-glacier

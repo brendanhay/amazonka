@@ -28,9 +28,6 @@ module Network.AWS.EC2.Metadata
     , dynamic
     , metadata
     , userdata
-
-    -- ** Identity Documents
-    , IdentityDocument (..)
     , identity
 
     -- ** Path Constructors
@@ -39,6 +36,24 @@ module Network.AWS.EC2.Metadata
     , Mapping          (..)
     , Info             (..)
     , Interface        (..)
+
+    -- ** Identity Document
+    , IdentityDocument (..)
+
+    -- *** Lenses
+    , devpayProductCodes
+    , billingProducts
+    , version
+    , privateIP
+    , availabilityZone
+    , region
+    , instanceID
+    , instanceType
+    , accountID
+    , imageID
+    , kernelID
+    , ramdiskID
+    , architecture
     ) where
 
 import           Control.Monad
@@ -49,6 +64,7 @@ import qualified Data.ByteString.Lazy   as LBS
 import           Data.Monoid
 import qualified Data.Text              as Text
 import           Network.AWS.Data.JSON
+import           Network.AWS.Lens       (Lens', lens)
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
 
@@ -318,15 +334,7 @@ userdata m = do
         Left  e -> throwM e
         Right b -> return (Just b)
 
--- | Retrieve the instance's identity document.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
-identity :: (MonadIO m, MonadThrow m)
-         => Manager
-         -> m (Either String IdentityDocument)
-identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
-
--- | Represents an instance's identity document, detailing various EC2 metadata.
+-- | Represents an instance's identity document.
 --
 -- /Note:/ Fields such as '_instanceType' are represented as unparsed 'Text' and
 -- will need to be manually parsed using 'fromText' when the relevant types
@@ -346,6 +354,45 @@ data IdentityDocument = IdentityDocument
     , _ramdiskID          :: Maybe Text
     , _architecture       :: Text
     } deriving (Eq, Show)
+
+devpayProductCodes :: Lens' IdentityDocument (Maybe Text)
+devpayProductCodes = lens _devpayProductCodes (\s a -> s { _devpayProductCodes = a })
+
+billingProducts :: Lens' IdentityDocument (Maybe Text)
+billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
+
+version :: Lens' IdentityDocument Text
+version = lens _version (\s a -> s { _version = a })
+
+privateIP :: Lens' IdentityDocument Text
+privateIP = lens _privateIP (\s a -> s { _privateIP = a })
+
+availabilityZone :: Lens' IdentityDocument Text
+availabilityZone = lens _availabilityZone (\s a -> s { _availabilityZone = a })
+
+region :: Lens' IdentityDocument Region
+region = lens _region (\s a -> s { _region = a })
+
+instanceID :: Lens' IdentityDocument Text
+instanceID = lens _instanceID (\s a -> s { _instanceID = a })
+
+instanceType :: Lens' IdentityDocument Text
+instanceType = lens _instanceType (\s a -> s { _instanceType = a })
+
+accountID :: Lens' IdentityDocument Text
+accountID = lens _accountID (\s a -> s { _accountID = a })
+
+imageID :: Lens' IdentityDocument Text
+imageID = lens _imageID (\s a -> s { _imageID = a })
+
+kernelID :: Lens' IdentityDocument Text
+kernelID = lens _kernelID (\s a -> s { _kernelID = a })
+
+ramdiskID :: Lens' IdentityDocument (Maybe Text)
+ramdiskID = lens _ramdiskID (\s a -> s { _ramdiskID = a })
+
+architecture :: Lens' IdentityDocument Text
+architecture = lens _architecture (\s a -> s { _architecture = a })
 
 instance FromJSON IdentityDocument where
     parseJSON = withObject "dynamic/instance-identity/document" $ \o ->
@@ -381,6 +428,14 @@ instance ToJSON IdentityDocument where
             , "ramdiskId"          .= _ramdiskID
             , "architecture"       .= _architecture
             ]
+
+-- | Retrieve the instance's identity document, detailing various EC2 metadata.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
+identity :: (MonadIO m, MonadThrow m)
+         => Manager
+         -> m (Either String IdentityDocument)
+identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
 get m url = liftIO (strip `liftM` request m url)

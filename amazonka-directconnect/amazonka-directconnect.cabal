@@ -63,11 +63,11 @@ library
         , Network.AWS.DirectConnect.DescribeVirtualGateways
         , Network.AWS.DirectConnect.DescribeVirtualInterfaces
         , Network.AWS.DirectConnect.Types
+        , Network.AWS.DirectConnect.Types.Product
         , Network.AWS.DirectConnect.Waiters
 
     other-modules:
-          Network.AWS.DirectConnect.Types.Product
-        , Network.AWS.DirectConnect.Types.Sum
+          Network.AWS.DirectConnect.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -83,6 +83,7 @@ library
         , Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
         , Network.AWS.Route53.ListTrafficPolicyVersions
         , Network.AWS.Route53.Types
+        , Network.AWS.Route53.Types.Product
         , Network.AWS.Route53.UpdateHealthCheck
         , Network.AWS.Route53.UpdateHostedZoneComment
         , Network.AWS.Route53.UpdateTrafficPolicyComment
@@ -91,7 +92,6 @@ library
 
     other-modules:
           Network.AWS.Route53.Internal
-        , Network.AWS.Route53.Types.Product
         , Network.AWS.Route53.Types.Sum
 
     build-depends:

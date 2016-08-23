@@ -732,6 +732,7 @@ import           Network.AWS.S3.PutObject
 import           Network.AWS.S3.PutObjectACL
 import           Network.AWS.S3.RestoreObject
 import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 import           Network.AWS.S3.UploadPart
 import           Network.AWS.S3.UploadPartCopy
 import           Network.AWS.S3.Waiters

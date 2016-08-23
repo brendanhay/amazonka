@@ -81,6 +81,7 @@ library
         , Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
         , Network.AWS.ElasticBeanstalk.TerminateEnvironment
         , Network.AWS.ElasticBeanstalk.Types
+        , Network.AWS.ElasticBeanstalk.Types.Product
         , Network.AWS.ElasticBeanstalk.UpdateApplication
         , Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
         , Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
@@ -89,8 +90,7 @@ library
         , Network.AWS.ElasticBeanstalk.Waiters
 
     other-modules:
-          Network.AWS.ElasticBeanstalk.Types.Product
-        , Network.AWS.ElasticBeanstalk.Types.Sum
+          Network.AWS.ElasticBeanstalk.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

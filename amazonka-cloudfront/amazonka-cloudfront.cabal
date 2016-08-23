@@ -65,6 +65,7 @@ library
         , Network.AWS.CloudFront.ListTagsForResource
         , Network.AWS.CloudFront.TagResource
         , Network.AWS.CloudFront.Types
+        , Network.AWS.CloudFront.Types.Product
         , Network.AWS.CloudFront.UntagResource
         , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.UpdateDistribution
@@ -72,8 +73,7 @@ library
         , Network.AWS.CloudFront.Waiters
 
     other-modules:
-          Network.AWS.CloudFront.Types.Product
-        , Network.AWS.CloudFront.Types.Sum
+          Network.AWS.CloudFront.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

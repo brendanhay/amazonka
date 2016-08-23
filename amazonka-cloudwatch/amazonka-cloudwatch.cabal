@@ -57,11 +57,11 @@ library
         , Network.AWS.CloudWatch.PutMetricData
         , Network.AWS.CloudWatch.SetAlarmState
         , Network.AWS.CloudWatch.Types
+        , Network.AWS.CloudWatch.Types.Product
         , Network.AWS.CloudWatch.Waiters
 
     other-modules:
-          Network.AWS.CloudWatch.Types.Product
-        , Network.AWS.CloudWatch.Types.Sum
+          Network.AWS.CloudWatch.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

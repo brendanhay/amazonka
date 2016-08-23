@@ -493,6 +493,7 @@ import           Network.AWS.GameLift.RequestUploadCredentials
 import           Network.AWS.GameLift.ResolveAlias
 import           Network.AWS.GameLift.SearchGameSessions
 import           Network.AWS.GameLift.Types
+import           Network.AWS.GameLift.Types.Product
 import           Network.AWS.GameLift.UpdateAlias
 import           Network.AWS.GameLift.UpdateBuild
 import           Network.AWS.GameLift.UpdateFleetAttributes

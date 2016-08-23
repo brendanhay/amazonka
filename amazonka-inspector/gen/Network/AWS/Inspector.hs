@@ -432,6 +432,7 @@ import           Network.AWS.Inspector.StartAssessmentRun
 import           Network.AWS.Inspector.StopAssessmentRun
 import           Network.AWS.Inspector.SubscribeToEvent
 import           Network.AWS.Inspector.Types
+import           Network.AWS.Inspector.Types.Product
 import           Network.AWS.Inspector.UnsubscribeFromEvent
 import           Network.AWS.Inspector.UpdateAssessmentTarget
 import           Network.AWS.Inspector.Waiters

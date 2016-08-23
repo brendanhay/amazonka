@@ -2904,6 +2904,7 @@ import           Network.AWS.EC2.StartInstances
 import           Network.AWS.EC2.StopInstances
 import           Network.AWS.EC2.TerminateInstances
 import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
 import           Network.AWS.EC2.UnassignPrivateIPAddresses
 import           Network.AWS.EC2.UnmonitorInstances
 import           Network.AWS.EC2.Waiters

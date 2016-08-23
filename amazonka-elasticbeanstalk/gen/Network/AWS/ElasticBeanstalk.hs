@@ -593,6 +593,7 @@ import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 import           Network.AWS.ElasticBeanstalk.TerminateEnvironment
 import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
 import           Network.AWS.ElasticBeanstalk.UpdateApplication
 import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate

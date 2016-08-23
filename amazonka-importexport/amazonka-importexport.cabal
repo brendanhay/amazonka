@@ -47,12 +47,12 @@ library
         , Network.AWS.ImportExport.GetStatus
         , Network.AWS.ImportExport.ListJobs
         , Network.AWS.ImportExport.Types
+        , Network.AWS.ImportExport.Types.Product
         , Network.AWS.ImportExport.UpdateJob
         , Network.AWS.ImportExport.Waiters
 
     other-modules:
-          Network.AWS.ImportExport.Types.Product
-        , Network.AWS.ImportExport.Types.Sum
+          Network.AWS.ImportExport.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

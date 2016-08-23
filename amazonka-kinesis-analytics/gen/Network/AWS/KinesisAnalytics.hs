@@ -390,6 +390,7 @@ import           Network.AWS.KinesisAnalytics.ListApplications
 import           Network.AWS.KinesisAnalytics.StartApplication
 import           Network.AWS.KinesisAnalytics.StopApplication
 import           Network.AWS.KinesisAnalytics.Types
+import           Network.AWS.KinesisAnalytics.Types.Product
 import           Network.AWS.KinesisAnalytics.UpdateApplication
 import           Network.AWS.KinesisAnalytics.Waiters
 

@@ -143,6 +143,7 @@ library
         , Network.AWS.GameLift.ResolveAlias
         , Network.AWS.GameLift.SearchGameSessions
         , Network.AWS.GameLift.Types
+        , Network.AWS.GameLift.Types.Product
         , Network.AWS.GameLift.UpdateAlias
         , Network.AWS.GameLift.UpdateBuild
         , Network.AWS.GameLift.UpdateFleetAttributes
@@ -153,8 +154,7 @@ library
         , Network.AWS.GameLift.Waiters
 
     other-modules:
-          Network.AWS.GameLift.Types.Product
-        , Network.AWS.GameLift.Types.Sum
+          Network.AWS.GameLift.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -170,6 +170,7 @@ import           Network.AWS.EFS.DescribeMountTargetSecurityGroups
 import           Network.AWS.EFS.DescribeTags
 import           Network.AWS.EFS.ModifyMountTargetSecurityGroups
 import           Network.AWS.EFS.Types
+import           Network.AWS.EFS.Types.Product
 import           Network.AWS.EFS.Waiters
 
 {- $errors

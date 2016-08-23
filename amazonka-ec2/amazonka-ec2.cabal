@@ -248,13 +248,13 @@ library
         , Network.AWS.EC2.StopInstances
         , Network.AWS.EC2.TerminateInstances
         , Network.AWS.EC2.Types
+        , Network.AWS.EC2.Types.Product
         , Network.AWS.EC2.UnassignPrivateIPAddresses
         , Network.AWS.EC2.UnmonitorInstances
         , Network.AWS.EC2.Waiters
 
     other-modules:
           Network.AWS.EC2.Internal
-        , Network.AWS.EC2.Types.Product
         , Network.AWS.EC2.Types.Sum
 
     build-depends:

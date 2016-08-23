@@ -200,11 +200,11 @@ library
         , Network.AWS.Discovery.StartDataCollectionByAgentIds
         , Network.AWS.Discovery.StopDataCollectionByAgentIds
         , Network.AWS.Discovery.Types
+        , Network.AWS.Discovery.Types.Product
         , Network.AWS.Discovery.Waiters
 
     other-modules:
-          Network.AWS.Discovery.Types.Product
-        , Network.AWS.Discovery.Types.Sum
+          Network.AWS.Discovery.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -1030,6 +1030,7 @@ import           Network.AWS.SWF.SignalWorkflowExecution
 import           Network.AWS.SWF.StartWorkflowExecution
 import           Network.AWS.SWF.TerminateWorkflowExecution
 import           Network.AWS.SWF.Types
+import           Network.AWS.SWF.Types.Product
 import           Network.AWS.SWF.Waiters
 
 {- $errors

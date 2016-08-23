@@ -187,6 +187,7 @@ import           Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
 import           Network.AWS.ApplicationAutoScaling.PutScalingPolicy
 import           Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
 import           Network.AWS.ApplicationAutoScaling.Waiters
 
 {- $errors

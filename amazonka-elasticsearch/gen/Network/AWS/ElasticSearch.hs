@@ -212,6 +212,7 @@ import           Network.AWS.ElasticSearch.ListDomainNames
 import           Network.AWS.ElasticSearch.ListTags
 import           Network.AWS.ElasticSearch.RemoveTags
 import           Network.AWS.ElasticSearch.Types
+import           Network.AWS.ElasticSearch.Types.Product
 import           Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
 import           Network.AWS.ElasticSearch.Waiters
 

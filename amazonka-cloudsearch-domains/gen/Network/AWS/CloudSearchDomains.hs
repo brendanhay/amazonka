@@ -127,6 +127,7 @@ module Network.AWS.CloudSearchDomains
 import           Network.AWS.CloudSearchDomains.Search
 import           Network.AWS.CloudSearchDomains.Suggest
 import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.CloudSearchDomains.Types.Product
 import           Network.AWS.CloudSearchDomains.UploadDocuments
 import           Network.AWS.CloudSearchDomains.Waiters
 

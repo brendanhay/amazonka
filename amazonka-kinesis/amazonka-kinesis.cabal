@@ -61,11 +61,11 @@ library
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
         , Network.AWS.Kinesis.Types
+        , Network.AWS.Kinesis.Types.Product
         , Network.AWS.Kinesis.Waiters
 
     other-modules:
-          Network.AWS.Kinesis.Types.Product
-        , Network.AWS.Kinesis.Types.Sum
+          Network.AWS.Kinesis.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

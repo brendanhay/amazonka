@@ -485,6 +485,7 @@ import           Network.AWS.Config.StartConfigRulesEvaluation
 import           Network.AWS.Config.StartConfigurationRecorder
 import           Network.AWS.Config.StopConfigurationRecorder
 import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
 import           Network.AWS.Config.Waiters
 
 {- $errors

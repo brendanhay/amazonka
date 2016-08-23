@@ -15,6 +15,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- /Note:/ This module is auto-generated and exported for convenience, but should
+-- not be considered stable as the internal representations and naming is subject
+-- to change per release.
 module Network.AWS.IAM.Types.Product where
 
 import           Network.AWS.IAM.Types.Sum

@@ -204,6 +204,7 @@ import           Network.AWS.WorkSpaces.RebootWorkspaces
 import           Network.AWS.WorkSpaces.RebuildWorkspaces
 import           Network.AWS.WorkSpaces.TerminateWorkspaces
 import           Network.AWS.WorkSpaces.Types
+import           Network.AWS.WorkSpaces.Types.Product
 import           Network.AWS.WorkSpaces.Waiters
 
 {- $errors

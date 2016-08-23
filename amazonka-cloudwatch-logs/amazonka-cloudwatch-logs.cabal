@@ -75,11 +75,11 @@ library
         , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
         , Network.AWS.CloudWatchLogs.TestMetricFilter
         , Network.AWS.CloudWatchLogs.Types
+        , Network.AWS.CloudWatchLogs.Types.Product
         , Network.AWS.CloudWatchLogs.Waiters
 
     other-modules:
-          Network.AWS.CloudWatchLogs.Types.Product
-        , Network.AWS.CloudWatchLogs.Types.Sum
+          Network.AWS.CloudWatchLogs.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

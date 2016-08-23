@@ -134,12 +134,12 @@ library
         , Network.AWS.CodePipeline.RetryStageExecution
         , Network.AWS.CodePipeline.StartPipelineExecution
         , Network.AWS.CodePipeline.Types
+        , Network.AWS.CodePipeline.Types.Product
         , Network.AWS.CodePipeline.UpdatePipeline
         , Network.AWS.CodePipeline.Waiters
 
     other-modules:
-          Network.AWS.CodePipeline.Types.Product
-        , Network.AWS.CodePipeline.Types.Sum
+          Network.AWS.CodePipeline.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

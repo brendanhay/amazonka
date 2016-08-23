@@ -54,12 +54,12 @@ library
         , Network.AWS.KinesisAnalytics.StartApplication
         , Network.AWS.KinesisAnalytics.StopApplication
         , Network.AWS.KinesisAnalytics.Types
+        , Network.AWS.KinesisAnalytics.Types.Product
         , Network.AWS.KinesisAnalytics.UpdateApplication
         , Network.AWS.KinesisAnalytics.Waiters
 
     other-modules:
-          Network.AWS.KinesisAnalytics.Types.Product
-        , Network.AWS.KinesisAnalytics.Types.Sum
+          Network.AWS.KinesisAnalytics.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

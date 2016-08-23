@@ -247,6 +247,7 @@ import           Network.AWS.DirectConnect.DescribeLocations
 import           Network.AWS.DirectConnect.DescribeVirtualGateways
 import           Network.AWS.DirectConnect.DescribeVirtualInterfaces
 import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
 import           Network.AWS.DirectConnect.Waiters
 
 {- $errors

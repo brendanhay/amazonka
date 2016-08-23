@@ -742,6 +742,7 @@ import           Network.AWS.CloudFront.ListStreamingDistributions
 import           Network.AWS.CloudFront.ListTagsForResource
 import           Network.AWS.CloudFront.TagResource
 import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
 import           Network.AWS.CloudFront.UntagResource
 import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import           Network.AWS.CloudFront.UpdateDistribution

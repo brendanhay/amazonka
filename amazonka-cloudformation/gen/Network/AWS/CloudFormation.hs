@@ -376,6 +376,7 @@ import           Network.AWS.CloudFormation.ListStacks
 import           Network.AWS.CloudFormation.SetStackPolicy
 import           Network.AWS.CloudFormation.SignalResource
 import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
 import           Network.AWS.CloudFormation.UpdateStack
 import           Network.AWS.CloudFormation.ValidateTemplate
 import           Network.AWS.CloudFormation.Waiters

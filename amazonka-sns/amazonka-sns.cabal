@@ -75,12 +75,12 @@ library
         , Network.AWS.SNS.SetTopicAttributes
         , Network.AWS.SNS.Subscribe
         , Network.AWS.SNS.Types
+        , Network.AWS.SNS.Types.Product
         , Network.AWS.SNS.Unsubscribe
         , Network.AWS.SNS.Waiters
 
     other-modules:
-          Network.AWS.SNS.Types.Product
-        , Network.AWS.SNS.Types.Sum
+          Network.AWS.SNS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

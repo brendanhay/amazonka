@@ -109,11 +109,11 @@ library
         , Network.AWS.ApplicationAutoScaling.PutScalingPolicy
         , Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
         , Network.AWS.ApplicationAutoScaling.Types
+        , Network.AWS.ApplicationAutoScaling.Types.Product
         , Network.AWS.ApplicationAutoScaling.Waiters
 
     other-modules:
-          Network.AWS.ApplicationAutoScaling.Types.Product
-        , Network.AWS.ApplicationAutoScaling.Types.Sum
+          Network.AWS.ApplicationAutoScaling.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -79,11 +79,11 @@ library
         , Network.AWS.SWF.StartWorkflowExecution
         , Network.AWS.SWF.TerminateWorkflowExecution
         , Network.AWS.SWF.Types
+        , Network.AWS.SWF.Types.Product
         , Network.AWS.SWF.Waiters
 
     other-modules:
-          Network.AWS.SWF.Types.Product
-        , Network.AWS.SWF.Types.Sum
+          Network.AWS.SWF.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -166,6 +166,7 @@ import           Network.AWS.SDB.ListDomains
 import           Network.AWS.SDB.PutAttributes
 import           Network.AWS.SDB.Select
 import           Network.AWS.SDB.Types
+import           Network.AWS.SDB.Types.Product
 import           Network.AWS.SDB.Waiters
 
 {- $errors

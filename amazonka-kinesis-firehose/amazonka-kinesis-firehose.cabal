@@ -50,12 +50,12 @@ library
         , Network.AWS.Firehose.PutRecord
         , Network.AWS.Firehose.PutRecordBatch
         , Network.AWS.Firehose.Types
+        , Network.AWS.Firehose.Types.Product
         , Network.AWS.Firehose.UpdateDestination
         , Network.AWS.Firehose.Waiters
 
     other-modules:
-          Network.AWS.Firehose.Types.Product
-        , Network.AWS.Firehose.Types.Sum
+          Network.AWS.Firehose.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

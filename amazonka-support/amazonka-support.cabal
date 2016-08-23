@@ -82,11 +82,11 @@ library
         , Network.AWS.Support.RefreshTrustedAdvisorCheck
         , Network.AWS.Support.ResolveCase
         , Network.AWS.Support.Types
+        , Network.AWS.Support.Types.Product
         , Network.AWS.Support.Waiters
 
     other-modules:
-          Network.AWS.Support.Types.Product
-        , Network.AWS.Support.Types.Sum
+          Network.AWS.Support.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

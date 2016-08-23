@@ -576,6 +576,7 @@ import           Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
 import           Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
 import           Network.AWS.Route53.ListTrafficPolicyVersions
 import           Network.AWS.Route53.Types
+import           Network.AWS.Route53.Types.Product
 import           Network.AWS.Route53.UpdateHealthCheck
 import           Network.AWS.Route53.UpdateHostedZoneComment
 import           Network.AWS.Route53.UpdateTrafficPolicyComment

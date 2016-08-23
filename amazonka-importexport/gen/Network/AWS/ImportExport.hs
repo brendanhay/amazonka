@@ -130,6 +130,7 @@ import           Network.AWS.ImportExport.GetShippingLabel
 import           Network.AWS.ImportExport.GetStatus
 import           Network.AWS.ImportExport.ListJobs
 import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
 import           Network.AWS.ImportExport.UpdateJob
 import           Network.AWS.ImportExport.Waiters
 

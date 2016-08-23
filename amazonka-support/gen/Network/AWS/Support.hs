@@ -261,6 +261,7 @@ import           Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 import           Network.AWS.Support.RefreshTrustedAdvisorCheck
 import           Network.AWS.Support.ResolveCase
 import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 import           Network.AWS.Support.Waiters
 
 {- $errors

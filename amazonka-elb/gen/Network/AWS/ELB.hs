@@ -394,6 +394,7 @@ import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
 import           Network.AWS.ELB.Waiters
 
 {- $errors

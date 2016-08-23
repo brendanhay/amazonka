@@ -66,6 +66,7 @@ library
         , Network.AWS.MachineLearning.GetMLModel
         , Network.AWS.MachineLearning.Predict
         , Network.AWS.MachineLearning.Types
+        , Network.AWS.MachineLearning.Types.Product
         , Network.AWS.MachineLearning.UpdateBatchPrediction
         , Network.AWS.MachineLearning.UpdateDataSource
         , Network.AWS.MachineLearning.UpdateEvaluation
@@ -73,8 +74,7 @@ library
         , Network.AWS.MachineLearning.Waiters
 
     other-modules:
-          Network.AWS.MachineLearning.Types.Product
-        , Network.AWS.MachineLearning.Types.Sum
+          Network.AWS.MachineLearning.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

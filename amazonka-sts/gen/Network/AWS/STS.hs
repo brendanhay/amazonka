@@ -120,6 +120,7 @@ import           Network.AWS.STS.GetCallerIdentity
 import           Network.AWS.STS.GetFederationToken
 import           Network.AWS.STS.GetSessionToken
 import           Network.AWS.STS.Types
+import           Network.AWS.STS.Types.Product
 import           Network.AWS.STS.Waiters
 
 {- $errors

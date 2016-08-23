@@ -58,11 +58,11 @@ library
         , Network.AWS.DynamoDBStreams.GetShardIterator
         , Network.AWS.DynamoDBStreams.ListStreams
         , Network.AWS.DynamoDBStreams.Types
+        , Network.AWS.DynamoDBStreams.Types.Product
         , Network.AWS.DynamoDBStreams.Waiters
 
     other-modules:
-          Network.AWS.DynamoDBStreams.Types.Product
-        , Network.AWS.DynamoDBStreams.Types.Sum
+          Network.AWS.DynamoDBStreams.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

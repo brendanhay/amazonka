@@ -63,13 +63,13 @@ library
         , Network.AWS.CognitoSync.SetIdentityPoolConfiguration
         , Network.AWS.CognitoSync.SubscribeToDataset
         , Network.AWS.CognitoSync.Types
+        , Network.AWS.CognitoSync.Types.Product
         , Network.AWS.CognitoSync.UnsubscribeFromDataset
         , Network.AWS.CognitoSync.UpdateRecords
         , Network.AWS.CognitoSync.Waiters
 
     other-modules:
-          Network.AWS.CognitoSync.Types.Product
-        , Network.AWS.CognitoSync.Types.Sum
+          Network.AWS.CognitoSync.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

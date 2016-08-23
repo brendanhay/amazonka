@@ -429,6 +429,7 @@ import           Network.AWS.ElasticTranscoder.ReadPipeline
 import           Network.AWS.ElasticTranscoder.ReadPreset
 import           Network.AWS.ElasticTranscoder.TestRole
 import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
 import           Network.AWS.ElasticTranscoder.UpdatePipeline
 import           Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 import           Network.AWS.ElasticTranscoder.UpdatePipelineStatus

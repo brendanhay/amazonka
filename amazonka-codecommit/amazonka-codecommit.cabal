@@ -80,14 +80,14 @@ library
         , Network.AWS.CodeCommit.PutRepositoryTriggers
         , Network.AWS.CodeCommit.TestRepositoryTriggers
         , Network.AWS.CodeCommit.Types
+        , Network.AWS.CodeCommit.Types.Product
         , Network.AWS.CodeCommit.UpdateDefaultBranch
         , Network.AWS.CodeCommit.UpdateRepositoryDescription
         , Network.AWS.CodeCommit.UpdateRepositoryName
         , Network.AWS.CodeCommit.Waiters
 
     other-modules:
-          Network.AWS.CodeCommit.Types.Product
-        , Network.AWS.CodeCommit.Types.Sum
+          Network.AWS.CodeCommit.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

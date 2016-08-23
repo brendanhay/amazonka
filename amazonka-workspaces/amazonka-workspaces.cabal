@@ -54,11 +54,11 @@ library
         , Network.AWS.WorkSpaces.RebuildWorkspaces
         , Network.AWS.WorkSpaces.TerminateWorkspaces
         , Network.AWS.WorkSpaces.Types
+        , Network.AWS.WorkSpaces.Types.Product
         , Network.AWS.WorkSpaces.Waiters
 
     other-modules:
-          Network.AWS.WorkSpaces.Types.Product
-        , Network.AWS.WorkSpaces.Types.Sum
+          Network.AWS.WorkSpaces.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

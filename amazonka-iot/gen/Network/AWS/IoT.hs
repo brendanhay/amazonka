@@ -587,6 +587,7 @@ import           Network.AWS.IoT.SetDefaultPolicyVersion
 import           Network.AWS.IoT.SetLoggingOptions
 import           Network.AWS.IoT.TransferCertificate
 import           Network.AWS.IoT.Types
+import           Network.AWS.IoT.Types.Product
 import           Network.AWS.IoT.UpdateCACertificate
 import           Network.AWS.IoT.UpdateCertificate
 import           Network.AWS.IoT.UpdateThing

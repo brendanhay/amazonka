@@ -44,11 +44,11 @@ library
         , Network.AWS.MarketplaceAnalytics.GenerateDataSet
         , Network.AWS.MarketplaceAnalytics.StartSupportDataExport
         , Network.AWS.MarketplaceAnalytics.Types
+        , Network.AWS.MarketplaceAnalytics.Types.Product
         , Network.AWS.MarketplaceAnalytics.Waiters
 
     other-modules:
-          Network.AWS.MarketplaceAnalytics.Types.Product
-        , Network.AWS.MarketplaceAnalytics.Types.Sum
+          Network.AWS.MarketplaceAnalytics.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

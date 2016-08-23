@@ -908,6 +908,7 @@ import           Network.AWS.IAM.SetDefaultPolicyVersion
 import           Network.AWS.IAM.SimulateCustomPolicy
 import           Network.AWS.IAM.SimulatePrincipalPolicy
 import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
 import           Network.AWS.IAM.UpdateAccessKey
 import           Network.AWS.IAM.UpdateAccountPasswordPolicy
 import           Network.AWS.IAM.UpdateAssumeRolePolicy

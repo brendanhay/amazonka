@@ -100,14 +100,14 @@ library
         , Network.AWS.IoT.SetLoggingOptions
         , Network.AWS.IoT.TransferCertificate
         , Network.AWS.IoT.Types
+        , Network.AWS.IoT.Types.Product
         , Network.AWS.IoT.UpdateCACertificate
         , Network.AWS.IoT.UpdateCertificate
         , Network.AWS.IoT.UpdateThing
         , Network.AWS.IoT.Waiters
 
     other-modules:
-          Network.AWS.IoT.Types.Product
-        , Network.AWS.IoT.Types.Sum
+          Network.AWS.IoT.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

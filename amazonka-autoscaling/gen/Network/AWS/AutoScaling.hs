@@ -508,6 +508,7 @@ import           Network.AWS.AutoScaling.SetInstanceProtection
 import           Network.AWS.AutoScaling.SuspendProcesses
 import           Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
 import           Network.AWS.AutoScaling.UpdateAutoScalingGroup
 import           Network.AWS.AutoScaling.Waiters
 

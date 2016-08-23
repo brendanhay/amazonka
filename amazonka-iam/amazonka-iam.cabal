@@ -163,6 +163,7 @@ library
         , Network.AWS.IAM.SimulateCustomPolicy
         , Network.AWS.IAM.SimulatePrincipalPolicy
         , Network.AWS.IAM.Types
+        , Network.AWS.IAM.Types.Product
         , Network.AWS.IAM.UpdateAccessKey
         , Network.AWS.IAM.UpdateAccountPasswordPolicy
         , Network.AWS.IAM.UpdateAssumeRolePolicy
@@ -180,8 +181,7 @@ library
         , Network.AWS.IAM.Waiters
 
     other-modules:
-          Network.AWS.IAM.Types.Product
-        , Network.AWS.IAM.Types.Sum
+          Network.AWS.IAM.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

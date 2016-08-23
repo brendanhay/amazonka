@@ -208,6 +208,7 @@ import           Network.AWS.ECR.ListImages
 import           Network.AWS.ECR.PutImage
 import           Network.AWS.ECR.SetRepositoryPolicy
 import           Network.AWS.ECR.Types
+import           Network.AWS.ECR.Types.Product
 import           Network.AWS.ECR.UploadLayerPart
 import           Network.AWS.ECR.Waiters
 

@@ -436,6 +436,7 @@ import           Network.AWS.ELBv2.SetRulePriorities
 import           Network.AWS.ELBv2.SetSecurityGroups
 import           Network.AWS.ELBv2.SetSubnets
 import           Network.AWS.ELBv2.Types
+import           Network.AWS.ELBv2.Types.Product
 import           Network.AWS.ELBv2.Waiters
 
 {- $errors

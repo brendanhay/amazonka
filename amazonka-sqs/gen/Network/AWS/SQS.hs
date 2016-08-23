@@ -245,6 +245,7 @@ import           Network.AWS.SQS.SendMessage
 import           Network.AWS.SQS.SendMessageBatch
 import           Network.AWS.SQS.SetQueueAttributes
 import           Network.AWS.SQS.Types
+import           Network.AWS.SQS.Types.Product
 import           Network.AWS.SQS.Waiters
 
 {- $errors

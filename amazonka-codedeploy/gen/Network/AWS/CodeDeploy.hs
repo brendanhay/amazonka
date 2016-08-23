@@ -617,6 +617,7 @@ import           Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 import           Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
 import           Network.AWS.CodeDeploy.StopDeployment
 import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.CodeDeploy.UpdateApplication
 import           Network.AWS.CodeDeploy.UpdateDeploymentGroup
 import           Network.AWS.CodeDeploy.Waiters

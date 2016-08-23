@@ -95,12 +95,12 @@ library
         , Network.AWS.AutoScaling.SuspendProcesses
         , Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
         , Network.AWS.AutoScaling.Types
+        , Network.AWS.AutoScaling.Types.Product
         , Network.AWS.AutoScaling.UpdateAutoScalingGroup
         , Network.AWS.AutoScaling.Waiters
 
     other-modules:
-          Network.AWS.AutoScaling.Types.Product
-        , Network.AWS.AutoScaling.Types.Sum
+          Network.AWS.AutoScaling.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

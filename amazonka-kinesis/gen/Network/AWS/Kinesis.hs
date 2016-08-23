@@ -206,6 +206,7 @@ import           Network.AWS.Kinesis.PutRecords
 import           Network.AWS.Kinesis.RemoveTagsFromStream
 import           Network.AWS.Kinesis.SplitShard
 import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
 import           Network.AWS.Kinesis.Waiters
 
 {- $errors

@@ -47,12 +47,12 @@ library
         , Network.AWS.IoTDataPlane.GetThingShadow
         , Network.AWS.IoTDataPlane.Publish
         , Network.AWS.IoTDataPlane.Types
+        , Network.AWS.IoTDataPlane.Types.Product
         , Network.AWS.IoTDataPlane.UpdateThingShadow
         , Network.AWS.IoTDataPlane.Waiters
 
     other-modules:
-          Network.AWS.IoTDataPlane.Types.Product
-        , Network.AWS.IoTDataPlane.Types.Sum
+          Network.AWS.IoTDataPlane.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

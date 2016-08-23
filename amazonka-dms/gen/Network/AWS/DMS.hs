@@ -399,6 +399,7 @@ import           Network.AWS.DMS.StartReplicationTask
 import           Network.AWS.DMS.StopReplicationTask
 import           Network.AWS.DMS.TestConnection
 import           Network.AWS.DMS.Types
+import           Network.AWS.DMS.Types.Product
 import           Network.AWS.DMS.Waiters
 
 {- $errors

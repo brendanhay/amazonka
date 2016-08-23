@@ -57,12 +57,12 @@ library
         , Network.AWS.ECR.PutImage
         , Network.AWS.ECR.SetRepositoryPolicy
         , Network.AWS.ECR.Types
+        , Network.AWS.ECR.Types.Product
         , Network.AWS.ECR.UploadLayerPart
         , Network.AWS.ECR.Waiters
 
     other-modules:
-          Network.AWS.ECR.Types.Product
-        , Network.AWS.ECR.Types.Sum
+          Network.AWS.ECR.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

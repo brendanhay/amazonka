@@ -297,6 +297,7 @@ import           Network.AWS.CloudWatchLogs.PutRetentionPolicy
 import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter
 import           Network.AWS.CloudWatchLogs.TestMetricFilter
 import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
 import           Network.AWS.CloudWatchLogs.Waiters
 
 {- $errors

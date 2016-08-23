@@ -553,6 +553,7 @@ import           Network.AWS.APIGateway.PutRestAPI
 import           Network.AWS.APIGateway.TestInvokeAuthorizer
 import           Network.AWS.APIGateway.TestInvokeMethod
 import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
 import           Network.AWS.APIGateway.UpdateAccount
 import           Network.AWS.APIGateway.UpdateAPIKey
 import           Network.AWS.APIGateway.UpdateAuthorizer

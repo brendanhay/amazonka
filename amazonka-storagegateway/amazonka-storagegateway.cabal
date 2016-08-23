@@ -133,6 +133,7 @@ library
         , Network.AWS.StorageGateway.ShutdownGateway
         , Network.AWS.StorageGateway.StartGateway
         , Network.AWS.StorageGateway.Types
+        , Network.AWS.StorageGateway.Types.Product
         , Network.AWS.StorageGateway.UpdateBandwidthRateLimit
         , Network.AWS.StorageGateway.UpdateChapCredentials
         , Network.AWS.StorageGateway.UpdateGatewayInformation
@@ -143,8 +144,7 @@ library
         , Network.AWS.StorageGateway.Waiters
 
     other-modules:
-          Network.AWS.StorageGateway.Types.Product
-        , Network.AWS.StorageGateway.Types.Sum
+          Network.AWS.StorageGateway.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

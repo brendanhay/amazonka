@@ -302,6 +302,7 @@ import           Network.AWS.Discovery.ListConfigurations
 import           Network.AWS.Discovery.StartDataCollectionByAgentIds
 import           Network.AWS.Discovery.StopDataCollectionByAgentIds
 import           Network.AWS.Discovery.Types
+import           Network.AWS.Discovery.Types.Product
 import           Network.AWS.Discovery.Waiters
 
 {- $errors

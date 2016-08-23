@@ -60,11 +60,11 @@ library
         , Network.AWS.CloudWatchEvents.RemoveTargets
         , Network.AWS.CloudWatchEvents.TestEventPattern
         , Network.AWS.CloudWatchEvents.Types
+        , Network.AWS.CloudWatchEvents.Types.Product
         , Network.AWS.CloudWatchEvents.Waiters
 
     other-modules:
-          Network.AWS.CloudWatchEvents.Types.Product
-        , Network.AWS.CloudWatchEvents.Types.Sum
+          Network.AWS.CloudWatchEvents.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

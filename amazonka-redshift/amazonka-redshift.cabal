@@ -112,11 +112,11 @@ library
         , Network.AWS.Redshift.RevokeSnapshotAccess
         , Network.AWS.Redshift.RotateEncryptionKey
         , Network.AWS.Redshift.Types
+        , Network.AWS.Redshift.Types.Product
         , Network.AWS.Redshift.Waiters
 
     other-modules:
-          Network.AWS.Redshift.Types.Product
-        , Network.AWS.Redshift.Types.Sum
+          Network.AWS.Redshift.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

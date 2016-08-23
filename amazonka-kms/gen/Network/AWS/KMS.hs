@@ -336,6 +336,7 @@ import           Network.AWS.KMS.RetireGrant
 import           Network.AWS.KMS.RevokeGrant
 import           Network.AWS.KMS.ScheduleKeyDeletion
 import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
 import           Network.AWS.KMS.UpdateAlias
 import           Network.AWS.KMS.UpdateKeyDescription
 import           Network.AWS.KMS.Waiters

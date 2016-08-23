@@ -80,11 +80,11 @@ library
         , Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
         , Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
         , Network.AWS.ELB.Types
+        , Network.AWS.ELB.Types.Product
         , Network.AWS.ELB.Waiters
 
     other-modules:
-          Network.AWS.ELB.Types.Product
-        , Network.AWS.ELB.Types.Sum
+          Network.AWS.ELB.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

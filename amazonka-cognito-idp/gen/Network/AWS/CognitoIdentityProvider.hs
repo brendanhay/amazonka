@@ -516,6 +516,7 @@ import           Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
 import           Network.AWS.CognitoIdentityProvider.SetUserSettings
 import           Network.AWS.CognitoIdentityProvider.SignUp
 import           Network.AWS.CognitoIdentityProvider.Types
+import           Network.AWS.CognitoIdentityProvider.Types.Product
 import           Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
 import           Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
 import           Network.AWS.CognitoIdentityProvider.UpdateUserPool

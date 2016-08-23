@@ -151,6 +151,7 @@ import           Network.AWS.CloudWatchEvents.PutTargets
 import           Network.AWS.CloudWatchEvents.RemoveTargets
 import           Network.AWS.CloudWatchEvents.TestEventPattern
 import           Network.AWS.CloudWatchEvents.Types
+import           Network.AWS.CloudWatchEvents.Types.Product
 import           Network.AWS.CloudWatchEvents.Waiters
 
 {- $errors

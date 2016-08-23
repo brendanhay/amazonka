@@ -252,6 +252,7 @@ import           Network.AWS.Lambda.ListVersionsByFunction
 import           Network.AWS.Lambda.PublishVersion
 import           Network.AWS.Lambda.RemovePermission
 import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
 import           Network.AWS.Lambda.UpdateAlias
 import           Network.AWS.Lambda.UpdateEventSourceMapping
 import           Network.AWS.Lambda.UpdateFunctionCode

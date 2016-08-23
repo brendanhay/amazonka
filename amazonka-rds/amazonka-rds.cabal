@@ -147,11 +147,11 @@ library
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
         , Network.AWS.RDS.Types
+        , Network.AWS.RDS.Types.Product
         , Network.AWS.RDS.Waiters
 
     other-modules:
-          Network.AWS.RDS.Types.Product
-        , Network.AWS.RDS.Types.Sum
+          Network.AWS.RDS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

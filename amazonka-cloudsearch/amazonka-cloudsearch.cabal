@@ -67,14 +67,14 @@ library
         , Network.AWS.CloudSearch.IndexDocuments
         , Network.AWS.CloudSearch.ListDomainNames
         , Network.AWS.CloudSearch.Types
+        , Network.AWS.CloudSearch.Types.Product
         , Network.AWS.CloudSearch.UpdateAvailabilityOptions
         , Network.AWS.CloudSearch.UpdateScalingParameters
         , Network.AWS.CloudSearch.UpdateServiceAccessPolicies
         , Network.AWS.CloudSearch.Waiters
 
     other-modules:
-          Network.AWS.CloudSearch.Types.Product
-        , Network.AWS.CloudSearch.Types.Sum
+          Network.AWS.CloudSearch.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

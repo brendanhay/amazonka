@@ -411,6 +411,7 @@ import           Network.AWS.DirectoryService.RemoveIPRoutes
 import           Network.AWS.DirectoryService.RemoveTagsFromResource
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
 import           Network.AWS.DirectoryService.UpdateConditionalForwarder
 import           Network.AWS.DirectoryService.UpdateRadius
 import           Network.AWS.DirectoryService.VerifyTrust

@@ -213,6 +213,7 @@ import           Network.AWS.CognitoSync.SetCognitoEvents
 import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 import           Network.AWS.CognitoSync.SubscribeToDataset
 import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
 import           Network.AWS.CognitoSync.UnsubscribeFromDataset
 import           Network.AWS.CognitoSync.UpdateRecords
 import           Network.AWS.CognitoSync.Waiters

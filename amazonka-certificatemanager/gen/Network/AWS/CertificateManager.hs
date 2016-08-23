@@ -154,6 +154,7 @@ import           Network.AWS.CertificateManager.RemoveTagsFromCertificate
 import           Network.AWS.CertificateManager.RequestCertificate
 import           Network.AWS.CertificateManager.ResendValidationEmail
 import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
 import           Network.AWS.CertificateManager.Waiters
 
 {- $errors

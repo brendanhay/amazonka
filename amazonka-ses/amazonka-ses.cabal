@@ -83,6 +83,7 @@ library
         , Network.AWS.SES.SetIdentityNotificationTopic
         , Network.AWS.SES.SetReceiptRulePosition
         , Network.AWS.SES.Types
+        , Network.AWS.SES.Types.Product
         , Network.AWS.SES.UpdateReceiptRule
         , Network.AWS.SES.VerifyDomainDkim
         , Network.AWS.SES.VerifyDomainIdentity
@@ -91,8 +92,7 @@ library
         , Network.AWS.SES.Waiters
 
     other-modules:
-          Network.AWS.SES.Types.Product
-        , Network.AWS.SES.Types.Sum
+          Network.AWS.SES.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

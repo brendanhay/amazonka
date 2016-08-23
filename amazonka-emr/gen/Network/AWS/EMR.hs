@@ -483,6 +483,7 @@ import           Network.AWS.EMR.SetTerminationProtection
 import           Network.AWS.EMR.SetVisibleToAllUsers
 import           Network.AWS.EMR.TerminateJobFlows
 import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
 import           Network.AWS.EMR.Waiters
 
 {- $errors

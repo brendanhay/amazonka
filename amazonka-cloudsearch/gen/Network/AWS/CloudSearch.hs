@@ -406,6 +406,7 @@ import           Network.AWS.CloudSearch.DescribeSuggesters
 import           Network.AWS.CloudSearch.IndexDocuments
 import           Network.AWS.CloudSearch.ListDomainNames
 import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
 import           Network.AWS.CloudSearch.UpdateAvailabilityOptions
 import           Network.AWS.CloudSearch.UpdateScalingParameters
 import           Network.AWS.CloudSearch.UpdateServiceAccessPolicies

@@ -86,11 +86,11 @@ library
         , Network.AWS.ElastiCache.ResetCacheParameterGroup
         , Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.Types
+        , Network.AWS.ElastiCache.Types.Product
         , Network.AWS.ElastiCache.Waiters
 
     other-modules:
-          Network.AWS.ElastiCache.Types.Product
-        , Network.AWS.ElastiCache.Types.Sum
+          Network.AWS.ElastiCache.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

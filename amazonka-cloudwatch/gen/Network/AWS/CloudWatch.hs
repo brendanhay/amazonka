@@ -199,6 +199,7 @@ import           Network.AWS.CloudWatch.PutMetricAlarm
 import           Network.AWS.CloudWatch.PutMetricData
 import           Network.AWS.CloudWatch.SetAlarmState
 import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
 import           Network.AWS.CloudWatch.Waiters
 
 {- $errors

@@ -280,6 +280,7 @@ import           Network.AWS.Firehose.ListDeliveryStreams
 import           Network.AWS.Firehose.PutRecord
 import           Network.AWS.Firehose.PutRecordBatch
 import           Network.AWS.Firehose.Types
+import           Network.AWS.Firehose.Types.Product
 import           Network.AWS.Firehose.UpdateDestination
 import           Network.AWS.Firehose.Waiters
 

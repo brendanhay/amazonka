@@ -392,6 +392,7 @@ import           Network.AWS.MachineLearning.GetEvaluation
 import           Network.AWS.MachineLearning.GetMLModel
 import           Network.AWS.MachineLearning.Predict
 import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
 import           Network.AWS.MachineLearning.UpdateBatchPrediction
 import           Network.AWS.MachineLearning.UpdateDataSource
 import           Network.AWS.MachineLearning.UpdateEvaluation

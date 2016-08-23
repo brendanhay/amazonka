@@ -638,6 +638,7 @@ import           Network.AWS.ElastiCache.RemoveTagsFromResource
 import           Network.AWS.ElastiCache.ResetCacheParameterGroup
 import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
 import           Network.AWS.ElastiCache.Waiters
 
 {- $errors

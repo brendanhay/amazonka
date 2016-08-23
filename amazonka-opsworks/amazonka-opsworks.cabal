@@ -137,6 +137,7 @@ library
         , Network.AWS.OpsWorks.StopInstance
         , Network.AWS.OpsWorks.StopStack
         , Network.AWS.OpsWorks.Types
+        , Network.AWS.OpsWorks.Types.Product
         , Network.AWS.OpsWorks.UnassignInstance
         , Network.AWS.OpsWorks.UnassignVolume
         , Network.AWS.OpsWorks.UpdateApp
@@ -151,8 +152,7 @@ library
         , Network.AWS.OpsWorks.Waiters
 
     other-modules:
-          Network.AWS.OpsWorks.Types.Product
-        , Network.AWS.OpsWorks.Types.Sum
+          Network.AWS.OpsWorks.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

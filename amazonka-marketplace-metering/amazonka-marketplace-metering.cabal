@@ -51,11 +51,11 @@ library
           Network.AWS.MarketplaceMetering
         , Network.AWS.MarketplaceMetering.MeterUsage
         , Network.AWS.MarketplaceMetering.Types
+        , Network.AWS.MarketplaceMetering.Types.Product
         , Network.AWS.MarketplaceMetering.Waiters
 
     other-modules:
-          Network.AWS.MarketplaceMetering.Types.Product
-        , Network.AWS.MarketplaceMetering.Types.Sum
+          Network.AWS.MarketplaceMetering.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

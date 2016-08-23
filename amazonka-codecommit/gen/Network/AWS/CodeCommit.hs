@@ -291,6 +291,7 @@ import           Network.AWS.CodeCommit.ListRepositories
 import           Network.AWS.CodeCommit.PutRepositoryTriggers
 import           Network.AWS.CodeCommit.TestRepositoryTriggers
 import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
 import           Network.AWS.CodeCommit.UpdateDefaultBranch
 import           Network.AWS.CodeCommit.UpdateRepositoryDescription
 import           Network.AWS.CodeCommit.UpdateRepositoryName

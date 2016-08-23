@@ -72,13 +72,13 @@ library
         , Network.AWS.CloudFormation.SetStackPolicy
         , Network.AWS.CloudFormation.SignalResource
         , Network.AWS.CloudFormation.Types
+        , Network.AWS.CloudFormation.Types.Product
         , Network.AWS.CloudFormation.UpdateStack
         , Network.AWS.CloudFormation.ValidateTemplate
         , Network.AWS.CloudFormation.Waiters
 
     other-modules:
-          Network.AWS.CloudFormation.Types.Product
-        , Network.AWS.CloudFormation.Types.Sum
+          Network.AWS.CloudFormation.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

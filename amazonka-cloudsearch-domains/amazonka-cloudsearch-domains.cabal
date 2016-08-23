@@ -64,12 +64,12 @@ library
         , Network.AWS.CloudSearchDomains.Search
         , Network.AWS.CloudSearchDomains.Suggest
         , Network.AWS.CloudSearchDomains.Types
+        , Network.AWS.CloudSearchDomains.Types.Product
         , Network.AWS.CloudSearchDomains.UploadDocuments
         , Network.AWS.CloudSearchDomains.Waiters
 
     other-modules:
-          Network.AWS.CloudSearchDomains.Types.Product
-        , Network.AWS.CloudSearchDomains.Types.Sum
+          Network.AWS.CloudSearchDomains.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

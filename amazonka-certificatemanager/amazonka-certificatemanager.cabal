@@ -53,11 +53,11 @@ library
         , Network.AWS.CertificateManager.RequestCertificate
         , Network.AWS.CertificateManager.ResendValidationEmail
         , Network.AWS.CertificateManager.Types
+        , Network.AWS.CertificateManager.Types.Product
         , Network.AWS.CertificateManager.Waiters
 
     other-modules:
-          Network.AWS.CertificateManager.Types.Product
-        , Network.AWS.CertificateManager.Types.Sum
+          Network.AWS.CertificateManager.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

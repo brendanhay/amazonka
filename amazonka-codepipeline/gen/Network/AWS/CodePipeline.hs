@@ -595,6 +595,7 @@ import           Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
 import           Network.AWS.CodePipeline.RetryStageExecution
 import           Network.AWS.CodePipeline.StartPipelineExecution
 import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
 import           Network.AWS.CodePipeline.UpdatePipeline
 import           Network.AWS.CodePipeline.Waiters
 

@@ -64,6 +64,7 @@ module Network.AWS.MarketplaceMetering
 
 import           Network.AWS.MarketplaceMetering.MeterUsage
 import           Network.AWS.MarketplaceMetering.Types
+import           Network.AWS.MarketplaceMetering.Types.Product
 import           Network.AWS.MarketplaceMetering.Waiters
 
 {- $errors

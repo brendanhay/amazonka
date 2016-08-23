@@ -404,6 +404,7 @@ import           Network.AWS.DynamoDB.PutItem
 import           Network.AWS.DynamoDB.Query
 import           Network.AWS.DynamoDB.Scan
 import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
 import           Network.AWS.DynamoDB.UpdateItem
 import           Network.AWS.DynamoDB.UpdateTable
 import           Network.AWS.DynamoDB.Waiters

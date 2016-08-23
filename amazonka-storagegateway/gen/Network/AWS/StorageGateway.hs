@@ -427,6 +427,7 @@ import           Network.AWS.StorageGateway.SetLocalConsolePassword
 import           Network.AWS.StorageGateway.ShutdownGateway
 import           Network.AWS.StorageGateway.StartGateway
 import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 import           Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 import           Network.AWS.StorageGateway.UpdateChapCredentials
 import           Network.AWS.StorageGateway.UpdateGatewayInformation

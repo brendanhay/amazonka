@@ -65,6 +65,7 @@ library
         , Network.AWS.Lambda.PublishVersion
         , Network.AWS.Lambda.RemovePermission
         , Network.AWS.Lambda.Types
+        , Network.AWS.Lambda.Types.Product
         , Network.AWS.Lambda.UpdateAlias
         , Network.AWS.Lambda.UpdateEventSourceMapping
         , Network.AWS.Lambda.UpdateFunctionCode
@@ -72,8 +73,7 @@ library
         , Network.AWS.Lambda.Waiters
 
     other-modules:
-          Network.AWS.Lambda.Types.Product
-        , Network.AWS.Lambda.Types.Sum
+          Network.AWS.Lambda.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

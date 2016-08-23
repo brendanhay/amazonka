@@ -90,6 +90,7 @@ library
         , Network.AWS.CognitoIdentityProvider.SetUserSettings
         , Network.AWS.CognitoIdentityProvider.SignUp
         , Network.AWS.CognitoIdentityProvider.Types
+        , Network.AWS.CognitoIdentityProvider.Types.Product
         , Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
         , Network.AWS.CognitoIdentityProvider.UpdateUserPool
@@ -98,8 +99,7 @@ library
         , Network.AWS.CognitoIdentityProvider.Waiters
 
     other-modules:
-          Network.AWS.CognitoIdentityProvider.Types.Product
-        , Network.AWS.CognitoIdentityProvider.Types.Sum
+          Network.AWS.CognitoIdentityProvider.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

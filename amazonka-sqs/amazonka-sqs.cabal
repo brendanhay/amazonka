@@ -85,11 +85,11 @@ library
         , Network.AWS.SQS.SendMessageBatch
         , Network.AWS.SQS.SetQueueAttributes
         , Network.AWS.SQS.Types
+        , Network.AWS.SQS.Types.Product
         , Network.AWS.SQS.Waiters
 
     other-modules:
-          Network.AWS.SQS.Types.Product
-        , Network.AWS.SQS.Types.Sum
+          Network.AWS.SQS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

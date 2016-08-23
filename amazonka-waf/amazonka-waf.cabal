@@ -73,6 +73,7 @@ library
         , Network.AWS.WAF.ListWebACLs
         , Network.AWS.WAF.ListXSSMatchSets
         , Network.AWS.WAF.Types
+        , Network.AWS.WAF.Types.Product
         , Network.AWS.WAF.UpdateByteMatchSet
         , Network.AWS.WAF.UpdateIPSet
         , Network.AWS.WAF.UpdateRule
@@ -83,8 +84,7 @@ library
         , Network.AWS.WAF.Waiters
 
     other-modules:
-          Network.AWS.WAF.Types.Product
-        , Network.AWS.WAF.Types.Sum
+          Network.AWS.WAF.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

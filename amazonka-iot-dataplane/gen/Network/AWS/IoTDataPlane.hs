@@ -77,6 +77,7 @@ import           Network.AWS.IoTDataPlane.DeleteThingShadow
 import           Network.AWS.IoTDataPlane.GetThingShadow
 import           Network.AWS.IoTDataPlane.Publish
 import           Network.AWS.IoTDataPlane.Types
+import           Network.AWS.IoTDataPlane.Types.Product
 import           Network.AWS.IoTDataPlane.UpdateThingShadow
 import           Network.AWS.IoTDataPlane.Waiters
 

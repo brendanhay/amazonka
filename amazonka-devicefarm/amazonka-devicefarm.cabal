@@ -83,13 +83,13 @@ library
         , Network.AWS.DeviceFarm.StopRemoteAccessSession
         , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
+        , Network.AWS.DeviceFarm.Types.Product
         , Network.AWS.DeviceFarm.UpdateDevicePool
         , Network.AWS.DeviceFarm.UpdateProject
         , Network.AWS.DeviceFarm.Waiters
 
     other-modules:
-          Network.AWS.DeviceFarm.Types.Product
-        , Network.AWS.DeviceFarm.Types.Sum
+          Network.AWS.DeviceFarm.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

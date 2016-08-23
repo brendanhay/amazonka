@@ -839,6 +839,7 @@ import           Network.AWS.OpsWorks.StartStack
 import           Network.AWS.OpsWorks.StopInstance
 import           Network.AWS.OpsWorks.StopStack
 import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
 import           Network.AWS.OpsWorks.UnassignInstance
 import           Network.AWS.OpsWorks.UnassignVolume
 import           Network.AWS.OpsWorks.UpdateApp

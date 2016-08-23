@@ -64,12 +64,12 @@ library
         , Network.AWS.DataPipeline.SetStatus
         , Network.AWS.DataPipeline.SetTaskStatus
         , Network.AWS.DataPipeline.Types
+        , Network.AWS.DataPipeline.Types.Product
         , Network.AWS.DataPipeline.ValidatePipelineDefinition
         , Network.AWS.DataPipeline.Waiters
 
     other-modules:
-          Network.AWS.DataPipeline.Types.Product
-        , Network.AWS.DataPipeline.Types.Sum
+          Network.AWS.DataPipeline.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

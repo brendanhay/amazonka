@@ -1179,6 +1179,7 @@ import           Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 import           Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import           Network.AWS.RDS.RevokeDBSecurityGroupIngress
 import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
 import           Network.AWS.RDS.Waiters
 
 {- $errors

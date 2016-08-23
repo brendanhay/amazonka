@@ -62,12 +62,12 @@ library
         , Network.AWS.ServiceCatalog.SearchProducts
         , Network.AWS.ServiceCatalog.TerminateProvisionedProduct
         , Network.AWS.ServiceCatalog.Types
+        , Network.AWS.ServiceCatalog.Types.Product
         , Network.AWS.ServiceCatalog.UpdateProvisionedProduct
         , Network.AWS.ServiceCatalog.Waiters
 
     other-modules:
-          Network.AWS.ServiceCatalog.Types.Product
-        , Network.AWS.ServiceCatalog.Types.Sum
+          Network.AWS.ServiceCatalog.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

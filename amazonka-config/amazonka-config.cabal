@@ -78,11 +78,11 @@ library
         , Network.AWS.Config.StartConfigurationRecorder
         , Network.AWS.Config.StopConfigurationRecorder
         , Network.AWS.Config.Types
+        , Network.AWS.Config.Types.Product
         , Network.AWS.Config.Waiters
 
     other-modules:
-          Network.AWS.Config.Types.Product
-        , Network.AWS.Config.Types.Sum
+          Network.AWS.Config.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

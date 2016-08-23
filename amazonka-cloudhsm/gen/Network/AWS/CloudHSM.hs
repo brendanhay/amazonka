@@ -137,6 +137,7 @@ import           Network.AWS.CloudHSM.ModifyHSM
 import           Network.AWS.CloudHSM.ModifyLunaClient
 import           Network.AWS.CloudHSM.RemoveTagsFromResource
 import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
 import           Network.AWS.CloudHSM.Waiters
 
 {- $errors

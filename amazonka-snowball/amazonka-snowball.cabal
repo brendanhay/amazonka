@@ -52,12 +52,12 @@ library
         , Network.AWS.Snowball.GetSnowballUsage
         , Network.AWS.Snowball.ListJobs
         , Network.AWS.Snowball.Types
+        , Network.AWS.Snowball.Types.Product
         , Network.AWS.Snowball.UpdateJob
         , Network.AWS.Snowball.Waiters
 
     other-modules:
-          Network.AWS.Snowball.Types.Product
-        , Network.AWS.Snowball.Types.Sum
+          Network.AWS.Snowball.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

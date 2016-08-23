@@ -76,11 +76,11 @@ library
         , Network.AWS.DMS.StopReplicationTask
         , Network.AWS.DMS.TestConnection
         , Network.AWS.DMS.Types
+        , Network.AWS.DMS.Types.Product
         , Network.AWS.DMS.Waiters
 
     other-modules:
-          Network.AWS.DMS.Types.Product
-        , Network.AWS.DMS.Types.Sum
+          Network.AWS.DMS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

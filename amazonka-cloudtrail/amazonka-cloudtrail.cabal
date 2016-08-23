@@ -61,12 +61,12 @@ library
         , Network.AWS.CloudTrail.StartLogging
         , Network.AWS.CloudTrail.StopLogging
         , Network.AWS.CloudTrail.Types
+        , Network.AWS.CloudTrail.Types.Product
         , Network.AWS.CloudTrail.UpdateTrail
         , Network.AWS.CloudTrail.Waiters
 
     other-modules:
-          Network.AWS.CloudTrail.Types.Product
-        , Network.AWS.CloudTrail.Types.Sum
+          Network.AWS.CloudTrail.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

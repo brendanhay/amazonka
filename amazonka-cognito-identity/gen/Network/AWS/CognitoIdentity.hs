@@ -191,6 +191,7 @@ import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles
 import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
 import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 import           Network.AWS.CognitoIdentity.UnlinkIdentity
 import           Network.AWS.CognitoIdentity.UpdateIdentityPool

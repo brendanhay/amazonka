@@ -119,14 +119,14 @@ library
         , Network.AWS.CognitoIdentity.MergeDeveloperIdentities
         , Network.AWS.CognitoIdentity.SetIdentityPoolRoles
         , Network.AWS.CognitoIdentity.Types
+        , Network.AWS.CognitoIdentity.Types.Product
         , Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
         , Network.AWS.CognitoIdentity.UnlinkIdentity
         , Network.AWS.CognitoIdentity.UpdateIdentityPool
         , Network.AWS.CognitoIdentity.Waiters
 
     other-modules:
-          Network.AWS.CognitoIdentity.Types.Product
-        , Network.AWS.CognitoIdentity.Types.Sum
+          Network.AWS.CognitoIdentity.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

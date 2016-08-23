@@ -58,14 +58,14 @@ library
         , Network.AWS.ElasticTranscoder.ReadPreset
         , Network.AWS.ElasticTranscoder.TestRole
         , Network.AWS.ElasticTranscoder.Types
+        , Network.AWS.ElasticTranscoder.Types.Product
         , Network.AWS.ElasticTranscoder.UpdatePipeline
         , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
         , Network.AWS.ElasticTranscoder.UpdatePipelineStatus
         , Network.AWS.ElasticTranscoder.Waiters
 
     other-modules:
-          Network.AWS.ElasticTranscoder.Types.Product
-        , Network.AWS.ElasticTranscoder.Types.Sum
+          Network.AWS.ElasticTranscoder.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

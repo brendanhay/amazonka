@@ -243,6 +243,7 @@ import           Network.AWS.ServiceCatalog.ScanProvisionedProducts
 import           Network.AWS.ServiceCatalog.SearchProducts
 import           Network.AWS.ServiceCatalog.TerminateProvisionedProduct
 import           Network.AWS.ServiceCatalog.Types
+import           Network.AWS.ServiceCatalog.Types.Product
 import           Network.AWS.ServiceCatalog.UpdateProvisionedProduct
 import           Network.AWS.ServiceCatalog.Waiters
 

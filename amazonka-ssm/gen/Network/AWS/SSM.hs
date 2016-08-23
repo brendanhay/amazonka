@@ -523,6 +523,7 @@ import           Network.AWS.SSM.ModifyDocumentPermission
 import           Network.AWS.SSM.RemoveTagsFromResource
 import           Network.AWS.SSM.SendCommand
 import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 import           Network.AWS.SSM.UpdateAssociationStatus
 import           Network.AWS.SSM.UpdateManagedInstanceRole
 import           Network.AWS.SSM.Waiters

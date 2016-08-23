@@ -163,6 +163,7 @@ import           Network.AWS.DynamoDBStreams.GetRecords
 import           Network.AWS.DynamoDBStreams.GetShardIterator
 import           Network.AWS.DynamoDBStreams.ListStreams
 import           Network.AWS.DynamoDBStreams.Types
+import           Network.AWS.DynamoDBStreams.Types.Product
 import           Network.AWS.DynamoDBStreams.Waiters
 
 {- $errors

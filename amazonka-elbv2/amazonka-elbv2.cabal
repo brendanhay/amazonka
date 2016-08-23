@@ -97,11 +97,11 @@ library
         , Network.AWS.ELBv2.SetSecurityGroups
         , Network.AWS.ELBv2.SetSubnets
         , Network.AWS.ELBv2.Types
+        , Network.AWS.ELBv2.Types.Product
         , Network.AWS.ELBv2.Waiters
 
     other-modules:
-          Network.AWS.ELBv2.Types.Product
-        , Network.AWS.ELBv2.Types.Sum
+          Network.AWS.ELBv2.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

@@ -460,6 +460,7 @@ import           Network.AWS.WAF.ListSqlInjectionMatchSets
 import           Network.AWS.WAF.ListWebACLs
 import           Network.AWS.WAF.ListXSSMatchSets
 import           Network.AWS.WAF.Types
+import           Network.AWS.WAF.Types.Product
 import           Network.AWS.WAF.UpdateByteMatchSet
 import           Network.AWS.WAF.UpdateIPSet
 import           Network.AWS.WAF.UpdateRule

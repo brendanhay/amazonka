@@ -47,6 +47,7 @@ module Network.AWS.MarketplaceAnalytics
 import           Network.AWS.MarketplaceAnalytics.GenerateDataSet
 import           Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 import           Network.AWS.MarketplaceAnalytics.Types
+import           Network.AWS.MarketplaceAnalytics.Types.Product
 import           Network.AWS.MarketplaceAnalytics.Waiters
 
 {- $errors

@@ -246,6 +246,7 @@ import           Network.AWS.CloudTrail.RemoveTags
 import           Network.AWS.CloudTrail.StartLogging
 import           Network.AWS.CloudTrail.StopLogging
 import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
 import           Network.AWS.CloudTrail.UpdateTrail
 import           Network.AWS.CloudTrail.Waiters
 

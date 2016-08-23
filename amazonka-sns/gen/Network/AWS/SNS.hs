@@ -216,6 +216,7 @@ import           Network.AWS.SNS.SetSubscriptionAttributes
 import           Network.AWS.SNS.SetTopicAttributes
 import           Network.AWS.SNS.Subscribe
 import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 import           Network.AWS.SNS.Unsubscribe
 import           Network.AWS.SNS.Waiters
 

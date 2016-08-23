@@ -575,6 +575,7 @@ import           Network.AWS.DeviceFarm.ScheduleRun
 import           Network.AWS.DeviceFarm.StopRemoteAccessSession
 import           Network.AWS.DeviceFarm.StopRun
 import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.DeviceFarm.UpdateDevicePool
 import           Network.AWS.DeviceFarm.UpdateProject
 import           Network.AWS.DeviceFarm.Waiters

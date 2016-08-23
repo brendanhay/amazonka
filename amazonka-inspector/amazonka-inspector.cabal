@@ -74,13 +74,13 @@ library
         , Network.AWS.Inspector.StopAssessmentRun
         , Network.AWS.Inspector.SubscribeToEvent
         , Network.AWS.Inspector.Types
+        , Network.AWS.Inspector.Types.Product
         , Network.AWS.Inspector.UnsubscribeFromEvent
         , Network.AWS.Inspector.UpdateAssessmentTarget
         , Network.AWS.Inspector.Waiters
 
     other-modules:
-          Network.AWS.Inspector.Types.Product
-        , Network.AWS.Inspector.Types.Sum
+          Network.AWS.Inspector.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

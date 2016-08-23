@@ -456,6 +456,7 @@ import           Network.AWS.ECS.StopTask
 import           Network.AWS.ECS.SubmitContainerStateChange
 import           Network.AWS.ECS.SubmitTaskStateChange
 import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
 import           Network.AWS.ECS.UpdateContainerAgent
 import           Network.AWS.ECS.UpdateService
 import           Network.AWS.ECS.Waiters

@@ -53,11 +53,11 @@ library
         , Network.AWS.EFS.DescribeTags
         , Network.AWS.EFS.ModifyMountTargetSecurityGroups
         , Network.AWS.EFS.Types
+        , Network.AWS.EFS.Types.Product
         , Network.AWS.EFS.Waiters
 
     other-modules:
-          Network.AWS.EFS.Types.Product
-        , Network.AWS.EFS.Types.Sum
+          Network.AWS.EFS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

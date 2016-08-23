@@ -58,11 +58,11 @@ library
         , Network.AWS.EMR.SetVisibleToAllUsers
         , Network.AWS.EMR.TerminateJobFlows
         , Network.AWS.EMR.Types
+        , Network.AWS.EMR.Types.Product
         , Network.AWS.EMR.Waiters
 
     other-modules:
-          Network.AWS.EMR.Types.Product
-        , Network.AWS.EMR.Types.Sum
+          Network.AWS.EMR.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

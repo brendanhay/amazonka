@@ -56,11 +56,11 @@ library
         , Network.AWS.SDB.PutAttributes
         , Network.AWS.SDB.Select
         , Network.AWS.SDB.Types
+        , Network.AWS.SDB.Types.Product
         , Network.AWS.SDB.Waiters
 
     other-modules:
-          Network.AWS.SDB.Types.Product
-        , Network.AWS.SDB.Types.Sum
+          Network.AWS.SDB.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

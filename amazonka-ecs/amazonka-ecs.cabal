@@ -69,13 +69,13 @@ library
         , Network.AWS.ECS.SubmitContainerStateChange
         , Network.AWS.ECS.SubmitTaskStateChange
         , Network.AWS.ECS.Types
+        , Network.AWS.ECS.Types.Product
         , Network.AWS.ECS.UpdateContainerAgent
         , Network.AWS.ECS.UpdateService
         , Network.AWS.ECS.Waiters
 
     other-modules:
-          Network.AWS.ECS.Types.Product
-        , Network.AWS.ECS.Types.Sum
+          Network.AWS.ECS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

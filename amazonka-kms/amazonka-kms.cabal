@@ -112,13 +112,13 @@ library
         , Network.AWS.KMS.RevokeGrant
         , Network.AWS.KMS.ScheduleKeyDeletion
         , Network.AWS.KMS.Types
+        , Network.AWS.KMS.Types.Product
         , Network.AWS.KMS.UpdateAlias
         , Network.AWS.KMS.UpdateKeyDescription
         , Network.AWS.KMS.Waiters
 
     other-modules:
-          Network.AWS.KMS.Types.Product
-        , Network.AWS.KMS.Types.Sum
+          Network.AWS.KMS.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

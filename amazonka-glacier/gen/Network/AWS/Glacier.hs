@@ -300,6 +300,7 @@ import           Network.AWS.Glacier.SetDataRetrievalPolicy
 import           Network.AWS.Glacier.SetVaultAccessPolicy
 import           Network.AWS.Glacier.SetVaultNotifications
 import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
 import           Network.AWS.Glacier.UploadArchive
 import           Network.AWS.Glacier.UploadMultipartPart
 import           Network.AWS.Glacier.Waiters

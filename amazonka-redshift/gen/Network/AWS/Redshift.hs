@@ -946,6 +946,7 @@ import           Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 import           Network.AWS.Redshift.RevokeSnapshotAccess
 import           Network.AWS.Redshift.RotateEncryptionKey
 import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Redshift.Waiters
 
 {- $errors

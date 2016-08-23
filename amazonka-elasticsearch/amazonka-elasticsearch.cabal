@@ -55,12 +55,12 @@ library
         , Network.AWS.ElasticSearch.ListTags
         , Network.AWS.ElasticSearch.RemoveTags
         , Network.AWS.ElasticSearch.Types
+        , Network.AWS.ElasticSearch.Types.Product
         , Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
         , Network.AWS.ElasticSearch.Waiters
 
     other-modules:
-          Network.AWS.ElasticSearch.Types.Product
-        , Network.AWS.ElasticSearch.Types.Sum
+          Network.AWS.ElasticSearch.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

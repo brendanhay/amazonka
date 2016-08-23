@@ -76,14 +76,14 @@ library
         , Network.AWS.DirectoryService.RemoveTagsFromResource
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.Types.Product
         , Network.AWS.DirectoryService.UpdateConditionalForwarder
         , Network.AWS.DirectoryService.UpdateRadius
         , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters
 
     other-modules:
-          Network.AWS.DirectoryService.Types.Product
-        , Network.AWS.DirectoryService.Types.Sum
+          Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

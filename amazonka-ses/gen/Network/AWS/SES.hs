@@ -455,6 +455,7 @@ import           Network.AWS.SES.SetIdentityMailFromDomain
 import           Network.AWS.SES.SetIdentityNotificationTopic
 import           Network.AWS.SES.SetReceiptRulePosition
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 import           Network.AWS.SES.UpdateReceiptRule
 import           Network.AWS.SES.VerifyDomainDkim
 import           Network.AWS.SES.VerifyDomainIdentity

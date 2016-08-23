@@ -226,6 +226,7 @@ import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 import           Network.AWS.DataPipeline.SetStatus
 import           Network.AWS.DataPipeline.SetTaskStatus
 import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
 import           Network.AWS.DataPipeline.ValidatePipelineDefinition
 import           Network.AWS.DataPipeline.Waiters
 

@@ -223,6 +223,7 @@ import           Network.AWS.Route53Domains.ResendContactReachabilityEmail
 import           Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import           Network.AWS.Route53Domains.TransferDomain
 import           Network.AWS.Route53Domains.Types
+import           Network.AWS.Route53Domains.Types.Product
 import           Network.AWS.Route53Domains.UpdateDomainContact
 import           Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 import           Network.AWS.Route53Domains.UpdateDomainNameservers

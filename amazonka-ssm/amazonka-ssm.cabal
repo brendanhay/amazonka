@@ -120,13 +120,13 @@ library
         , Network.AWS.SSM.RemoveTagsFromResource
         , Network.AWS.SSM.SendCommand
         , Network.AWS.SSM.Types
+        , Network.AWS.SSM.Types.Product
         , Network.AWS.SSM.UpdateAssociationStatus
         , Network.AWS.SSM.UpdateManagedInstanceRole
         , Network.AWS.SSM.Waiters
 
     other-modules:
-          Network.AWS.SSM.Types.Product
-        , Network.AWS.SSM.Types.Sum
+          Network.AWS.SSM.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

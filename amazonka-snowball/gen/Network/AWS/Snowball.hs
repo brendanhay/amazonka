@@ -194,6 +194,7 @@ import           Network.AWS.Snowball.GetJobUnlockCode
 import           Network.AWS.Snowball.GetSnowballUsage
 import           Network.AWS.Snowball.ListJobs
 import           Network.AWS.Snowball.Types
+import           Network.AWS.Snowball.Types.Product
 import           Network.AWS.Snowball.UpdateJob
 import           Network.AWS.Snowball.Waiters
 

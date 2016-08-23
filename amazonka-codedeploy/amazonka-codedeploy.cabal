@@ -105,13 +105,13 @@ library
         , Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
         , Network.AWS.CodeDeploy.StopDeployment
         , Network.AWS.CodeDeploy.Types
+        , Network.AWS.CodeDeploy.Types.Product
         , Network.AWS.CodeDeploy.UpdateApplication
         , Network.AWS.CodeDeploy.UpdateDeploymentGroup
         , Network.AWS.CodeDeploy.Waiters
 
     other-modules:
-          Network.AWS.CodeDeploy.Types.Product
-        , Network.AWS.CodeDeploy.Types.Sum
+          Network.AWS.CodeDeploy.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.3.*

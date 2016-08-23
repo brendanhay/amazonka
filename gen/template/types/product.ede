@@ -9,6 +9,9 @@
 
 {% include "_include/license.ede" %}
 --
+-- /Note:/ This module is auto-generated and exported for convenience, but should
+-- not be considered stable as the internal representations and naming is subject
+-- to change per release.
 module {{ moduleName }} where
 
 {% for import in moduleImports %}

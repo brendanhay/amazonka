@@ -209,7 +209,6 @@ otherModules :: Getter Library [NS]
 otherModules = to f
   where
     f x = x ^. sumNS
-        : x ^. productNS
         : x ^. operationModules
        <> x ^. typeModules
 
@@ -219,6 +218,7 @@ exposedModules = to f
     f x =
         let ns = x ^. libraryNS
          in x ^.  typesNS
+          : x ^.  productNS
           : x ^.  waitersNS
           : x ^.. operations . each . to (operationNS ns . view opName)
 

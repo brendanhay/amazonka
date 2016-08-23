@@ -143,6 +143,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-dynamodb
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-dynamodb-extras
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-dynamodb-streams
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-ecr

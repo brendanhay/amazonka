@@ -17,6 +17,7 @@ packages:
   - test
   - examples
   - amazonka
+
   - amazonka-apigateway
   - amazonka-application-autoscaling
   - amazonka-autoscaling

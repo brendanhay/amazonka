@@ -1,0 +1,53 @@
+name:                  amazonka-dynamodb-extras
+version:               1.4.3
+synopsis:              Amazon DynamoDB SDK - Extras
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md
+description:
+    Addons for <http://hackage.haskell.org/package/amazonka-dynamodb amazonka-dynamodb>.
+    .
+    See <http://hackage.haskell.org/package/amazonka-dynamodb-extras/docs/Network-AWS-DynamoDB.html Network.AWS.DynamoDB>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.DynamoDB.Mapper
+        , Network.AWS.DynamoDB.Mapper.Schema
+        , Network.AWS.DynamoDB.Mapper.Value
+        , Network.AWS.DynamoDB.Mapper.Value.Unsafe
+
+    build-depends:
+          aeson                >= 0.8
+        , amazonka             == 1.4.3.*
+        , amazonka-core        == 1.4.3.*
+        , amazonka-dynamodb    == 1.4.3.*
+        , base                 >= 4.7 && < 5
+        , bytestring           >= 0.9
+        , case-insensitive     >= 1.2
+        , lens                 >= 4.4
+        , scientific
+        , tagged               >= 0.8
+        , text                 >= 1.1
+        , time                 >= 1.4
+        , unordered-containers >= 0.2.5
+        , vector
+        , containers
+        , hashable

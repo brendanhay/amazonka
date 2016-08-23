@@ -35,7 +35,8 @@ import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString.Char8             as BS8
 import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
-import           Data.Int
+import           Data.Int                          (Int, Int16, Int32, Int64,
+                                                    Int8)
 import           Data.Monoid
 import           Data.Scientific
 import           Data.Text                         (Text)
@@ -46,6 +47,8 @@ import           Data.Text.Lazy.Builder            (Builder)
 import qualified Data.Text.Lazy.Builder            as Build
 import qualified Data.Text.Lazy.Builder.Int        as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
+import           Data.Word                         (Word, Word16, Word32,
+                                                    Word64, Word8)
 import           Network.AWS.Data.Crypto
 import           Network.HTTP.Types
 import           Numeric
@@ -79,7 +82,37 @@ instance FromText ByteString where
 instance FromText Char where
     parser = A.anyChar <* A.endOfInput
 
+instance FromText String where
+    parser = Text.unpack <$> A.takeText
+
+instance FromText Word where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Word8 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Word16 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Word32 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Word64 where
+    parser = A.signed A.decimal <* A.endOfInput
+
 instance FromText Int where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Int8 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Int16 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Int32 where
+    parser = A.signed A.decimal <* A.endOfInput
+
+instance FromText Int64 where
     parser = A.signed A.decimal <* A.endOfInput
 
 instance FromText Integer where
@@ -94,11 +127,21 @@ instance FromText Natural where
 instance FromText Double where
     parser = A.signed A.rational <* A.endOfInput
 
+instance FromText Float where
+    parser = A.signed A.rational <* A.endOfInput
+
 instance FromText Bool where
     parser = takeLowerText >>= \case
         "true"  -> pure True
         "false" -> pure False
         e       -> fromTextError $ "Failure parsing Bool from '" <> e <> "'."
+
+instance FromText Ordering where
+    parser = takeLowerText >>= \case
+        "lt" -> pure LT
+        "eq" -> pure EQ
+        "gt" -> pure GT
+        e    -> fromTextError $ "Failure parsing Ordering from '" <> e <> "'."
 
 instance FromText StdMethod where
     parser = do
@@ -111,25 +154,36 @@ showText = Text.unpack . toText
 class ToText a where
     toText :: a -> Text
 
-instance ToText a => ToText (CI a) where
-    toText = toText . CI.original
-
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
 instance ToText Char       where toText = Text.singleton
 instance ToText String     where toText = Text.pack
+instance ToText Word       where toText = shortText . Build.decimal
+instance ToText Word8      where toText = shortText . Build.decimal
+instance ToText Word16     where toText = shortText . Build.decimal
+instance ToText Word32     where toText = shortText . Build.decimal
+instance ToText Word64     where toText = shortText . Build.decimal
 instance ToText Int        where toText = shortText . Build.decimal
+instance ToText Int8       where toText = shortText . Build.decimal
+instance ToText Int16      where toText = shortText . Build.decimal
+instance ToText Int32      where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal
 instance ToText Natural    where toText = shortText . Build.decimal
 instance ToText Scientific where toText = shortText . Build.scientificBuilder
 instance ToText Double     where toText = toText . ($ "") . showFFloat Nothing
+instance ToText Float      where toText = toText . ($ "") . showFFloat Nothing
 instance ToText StdMethod  where toText = toText . renderStdMethod
 instance ToText (Digest a) where toText = toText . digestToBase Base16
 
 instance ToText Bool where
     toText True  = "true"
     toText False = "false"
+
+instance ToText Ordering where
+    toText LT = "LT"
+    toText EQ = "EQ"
+    toText GT = "GT"
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32

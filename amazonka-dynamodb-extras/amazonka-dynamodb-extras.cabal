@@ -42,6 +42,8 @@ library
         , base                 >= 4.7 && < 5
         , bytestring           >= 0.9
         , case-insensitive     >= 1.2
+        , containers
+        , hashable
         , lens                 >= 4.4
         , scientific
         , tagged               >= 0.8
@@ -49,5 +51,3 @@ library
         , time                 >= 1.4
         , unordered-containers >= 0.2.5
         , vector
-        , containers
-        , hashable

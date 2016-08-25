@@ -30,9 +30,17 @@ library
 
     exposed-modules:
           Network.AWS.DynamoDB.Mapper
-        , Network.AWS.DynamoDB.Mapper.Schema
         , Network.AWS.DynamoDB.Mapper.Value
         , Network.AWS.DynamoDB.Mapper.Value.Unsafe
+
+        , Network.AWS.DynamoDB.Mapper.Attributes
+        , Network.AWS.DynamoDB.Mapper.Indexes
+        , Network.AWS.DynamoDB.Mapper.Item
+        , Network.AWS.DynamoDB.Mapper.Keys
+        , Network.AWS.DynamoDB.Mapper.Schema
+        , Network.AWS.DynamoDB.Mapper.Table
+        , Network.AWS.DynamoDB.Mapper.Throughput
+        , Network.AWS.DynamoDB.Mapper.Types
 
     build-depends:
           aeson                >= 0.8

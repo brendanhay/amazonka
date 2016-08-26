@@ -1,8 +1,11 @@
-{-# LANGUAGE DataKinds           #-}
-{-# LANGUAGE FlexibleInstances   #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TypeFamilies        #-}
-{-# LANGUAGE TypeOperators       #-}
+{-# LANGUAGE DataKinds            #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE ScopedTypeVariables  #-}
+{-# LANGUAGE TypeFamilies         #-}
+{-# LANGUAGE TypeOperators        #-}
+{-# LANGUAGE UndecidableInstances #-}
+
+{-# LANGUAGE RecordWildCards      #-}
 
 module Network.AWS.DynamoDB.Schema.Serializer where
 
@@ -20,12 +23,15 @@ import Network.AWS.DynamoDB.Schema.Types
 
 import qualified Data.HashMap.Strict as HashMap
 
+import Data.ByteString (ByteString)
+import Data.Void
+
 type Example =
     Table "credentials"
         ( PartitionKey "name"     Text
-       :# Attribute    "revision" Text
-       :# Attribute    "contents" Text
        :# SortKey      "version"  Integer
+       :# Attribute    "revision" ByteString
+       :# Attribute    "contents" Int
         )
 
         ( Throughput (ReadCapacity 1) (WriteCapacity 1)
@@ -47,6 +53,28 @@ type Example =
 
 example :: Proxy Example
 example = Proxy
+
+data Credentials = Credentials
+    { _name     :: Text
+    , _version  :: Integer
+    , _revision :: ByteString
+    , _contents :: ByteString
+    }
+
+instance DynamoItem Credentials where
+    -- toItem Credentials{..} =
+    --     serialize example mempty _name _version _revision _contents
+
+    -- fromItem = fmap unpack . deserialize example
+    --    where
+    --      -- This pattern match on ':*:' only exists because of the
+    --      -- current lack of a more familiar 'Applicative' interface:
+    --      unpack ( _name
+    --           :*: _version
+    --           :*: _revision
+    --           :*: _contents
+    --             ) = Credentials{..}
+
 
 -- Q: how to build a de/serializer for an index?
 -- Q: how to build scan/query/etc based on the schema/index/projections?
@@ -70,11 +98,49 @@ class DynamoSerializer a where
                 -> Either ItemError (Deserializer a)
 
 instance DynamoSerializer s => DynamoSerializer (Table n s o) where
-    type Serializer   (Table n s o) = Serializer s
+    type Serializer   (Table n s o) = Serializer   s
     type Deserializer (Table n s o) = Deserializer s
 
     serialize   _ = serialize   (Proxy :: Proxy s)
     deserialize _ = deserialize (Proxy :: Proxy s)
+
+instance ( DynamoSerializer s
+         , KnownSymbol      n
+         , DynamoValue      h
+         ) => DynamoSerializer (PartitionKey n h :# s) where
+    type Serializer   (PartitionKey n h :# s) = Serializer   (Attribute n h :# s)
+    type Deserializer (PartitionKey n h :# s) = Deserializer (Attribute n h :# s)
+
+    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n h :# s)) m
+    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n h :# s)) m
+
+instance ( KnownSymbol n
+         , DynamoValue h
+         ) => DynamoSerializer (PartitionKey n h) where
+    type Serializer   (PartitionKey n h) = Serializer   (Attribute n h)
+    type Deserializer (PartitionKey n h) = Deserializer (Attribute n h)
+
+    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n h)) m
+    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n h)) m
+
+instance ( DynamoSerializer s
+         , KnownSymbol      n
+         , DynamoValue      r
+         ) => DynamoSerializer (SortKey n r :# s) where
+    type Serializer   (SortKey n r :# s) = Serializer   (Attribute n r :# s)
+    type Deserializer (SortKey n r :# s) = Deserializer (Attribute n r :# s)
+
+    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n r :# s)) m
+    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n r :# s)) m
+
+instance ( KnownSymbol n
+         , DynamoValue r
+         ) => DynamoSerializer (SortKey n r) where
+    type Serializer   (SortKey n r) = Serializer   (Attribute n r)
+    type Deserializer (SortKey n r) = Deserializer (Attribute n r)
+
+    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n r)) m
+    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n r)) m
 
 instance ( DynamoSerializer s
          , KnownSymbol      n

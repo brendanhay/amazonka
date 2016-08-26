@@ -17,7 +17,7 @@ import Network.AWS.DynamoDB (ProjectionType, StreamViewType)
 
 import qualified Data.Text as Text
 
-data Table name schema options
+data Table (name :: Symbol) schema options
 
 data PartitionKey (name :: Symbol) hash
 data SortKey      (name :: Symbol) range

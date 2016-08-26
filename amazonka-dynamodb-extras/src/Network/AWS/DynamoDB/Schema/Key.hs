@@ -30,7 +30,8 @@ class DynamoKeys a where
 -- the use of 'NonEmpty'.
 --
 -- This requires the 'KeyInvariants' constraint to be satisfied first.
-instance ( KeyInvariants s
+instance ( KnownSymbol   n
+         , KeyInvariants s
          , DynamoKeys    s
          ) => DynamoKeys (Table n s o) where
     getKeys _ = getKeys (Proxy :: Proxy s)

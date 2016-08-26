@@ -144,6 +144,32 @@ import qualified Data.Vector.Primitive as VectorPrim
 import qualified Data.Vector.Storable  as VectorStore
 import qualified Data.Vector.Unboxed   as VectorUnbox
 
+data ValueError
+    = AttributeMalformed [DynamoType]
+    | AttributeMismatch  !DynamoType (Maybe DynamoType)
+    | ParseFailure       !DynamoType Text
+      deriving (Eq, Show, Typeable)
+
+instance Exception ValueError
+
+malformedError :: AttributeValue -> ValueError
+malformedError AttributeValue'{..} =
+    AttributeMalformed $ catMaybes
+        [ NULL <$ _avNULL
+        , BOOL <$ _avBOOL
+        , L    <$ _avL
+        , M    <$ _avM
+        , NS   <$ _avNS
+        , N    <$ _avN
+        , BS   <$ _avBS
+        , B    <$ _avB
+        , SS   <$ _avSS
+        , S    <$ _avS
+        ]
+
+mismatchError :: DynamoType -> AttributeValue -> ValueError
+mismatchError expect = AttributeMismatch expect . getAttributeType
+
 -- | The closed set of types that can be stored natively in DynamoDB.
 --
 -- FIXME: Add note about binary base64 transparency.
@@ -197,36 +223,6 @@ isAttributeValue AttributeValue'{..} =
     bit x (Just _) = flip setBit x
     bit _ Nothing  = id
 
-data ValueError
-    = AttributeMalformed [DynamoType]
-    | AttributeMismatch  !DynamoType (Maybe DynamoType)
-    | ParseFailure       !DynamoType Text
-      deriving (Eq, Show, Typeable)
-
-instance Exception ValueError
-
-malformedError :: AttributeValue -> ValueError
-malformedError AttributeValue'{..} =
-    AttributeMalformed $ catMaybes
-        [ NULL <$ _avNULL
-        , BOOL <$ _avBOOL
-        , L    <$ _avL
-        , M    <$ _avM
-        , NS   <$ _avNS
-        , N    <$ _avN
-        , BS   <$ _avBS
-        , B    <$ _avB
-        , SS   <$ _avSS
-        , S    <$ _avS
-        ]
-
-mismatchError :: DynamoType -> AttributeValue -> ValueError
-mismatchError expect = AttributeMismatch expect . getAttributeType
-
-note :: e -> Maybe a -> Either e a
-note e Nothing  = Left  e
-note _ (Just x) = Right x
-
 newValue :: AttributeValue -> Either ValueError Value
 newValue v
     | isAttributeValue v = Right (Value v)
@@ -237,100 +233,6 @@ getValueType =
     fromMaybe (error "Broken invariant for Value, no attribute field set.")
         . getAttributeType
         . getValue
-
-setNull :: Bool -> Value
-setNull x = Value (set avNULL (Just x) attributeValue)
-
-getNull :: Value -> Either ValueError Bool
-getNull (Value v) = note (mismatchError NULL v) (_avNULL v)
-
-setBool :: Bool -> Value
-setBool x = Value (set avBOOL (Just x) attributeValue)
-
-getBool :: Value -> Either ValueError Bool
-getBool (Value v) = note (mismatchError BOOL v) (_avBOOL v)
-
-setList :: [Value] -> Value
-setList x = Value (set avL (coerce x) attributeValue)
-
-getList :: Value -> Either ValueError [Value]
-getList (Value v) = note (mismatchError L v) (coerce <$> _avL v)
-
-setVector :: (VectorGen.Vector v a, DynamoValue a) => v a -> Value
-setVector = toValue . Vector.toList . Vector.convert
-
-getVector :: (VectorGen.Vector v a, DynamoValue a)
-          => Value
-          -> Either ValueError (v a)
-getVector = fmap (Vector.convert . Vector.fromList) . fromValue
-
-setMap :: HashMap Text Value -> Value
-setMap x = Value (set avM (coerce x) attributeValue)
-
-getMap :: Value -> Either ValueError (HashMap Text Value)
-getMap (Value v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
-
-setNumberSet :: [Scientific] -> Value
-setNumberSet x = Value (set avNS (map toText x) attributeValue)
-
-getNumberSet :: Value -> Either ValueError [Scientific]
-getNumberSet (Value v) =
-    note (mismatchError NS v) (_avNS v)
-        >>= first (ParseFailure NS . Text.pack)
-          . traverse fromText
-
-setNumber :: Scientific -> Value
-setNumber x = Value (set avN (Just (toText x)) attributeValue)
-
-getNumber :: Value -> Either ValueError Scientific
-getNumber (Value v) =
-    note (mismatchError N v) (_avN v)
-        >>= first (ParseFailure N . Text.pack)
-          . fromText
-
-setIntegralSet :: Integral a => [a] -> Value
-setIntegralSet = setNumberSet . map fromIntegral
-
-getIntegralSet :: Integral a => Value -> Either ValueError [a]
-getIntegralSet = getNumberSet >=> traverse parse
-  where
-    parse = first err . Sci.floatingOrInteger
-    err r = ParseFailure NS $
-        "Expected integral value, got: " <> toText (r :: Double)
-
-setIntegral :: Integral a => a -> Value
-setIntegral = setNumber . fromIntegral
-
-getIntegral :: Integral a => Value -> Either ValueError a
-getIntegral = getNumber >=> first err . Sci.floatingOrInteger
-  where
-    err r = ParseFailure NS $
-        "Expected integral value, got: " <> toText (r :: Double)
-
-setBinarySet :: [ByteString] -> Value
-setBinarySet x = Value (set avBS x attributeValue)
-
-getBinarySet :: Value -> Either ValueError [ByteString]
-getBinarySet (Value v) = note (mismatchError BS v) (coerce (_avBS v))
-
-setBinary :: ByteString -> Value
-setBinary x = Value (set avB (Just x) attributeValue)
-
-getBinary :: Value -> Either ValueError ByteString
-getBinary (Value v) = note (mismatchError B v) (coerce (_avB v))
-
-setStringSet :: [Text] -> Value
-setStringSet x = Value (set avSS x attributeValue)
-
-getStringSet :: Value -> Either ValueError [Text]
-getStringSet (Value v) = note (mismatchError SS v) (_avSS v)
-
-setString :: Text -> Value
-setString x = Value (set avS (Just x) attributeValue)
-
-getString :: Value -> Either ValueError Text
-getString (Value v) = note (mismatchError S v) (_avS v)
-
 
 -- | Serialise a value to a simple DynamoDB attribute.
 --
@@ -734,6 +636,103 @@ instance DynamoValue JS.Value where
         L    -> JS.Array . Vector.fromList <$> (getList v >>= traverse fromValue)
         NULL -> JS.Null   <$  getNull v
         t    -> Left (ParseFailure t "Unable to parse unsupported JSON value.")
+
+setNull :: Bool -> Value
+setNull x = Value (set avNULL (Just x) attributeValue)
+
+getNull :: Value -> Either ValueError Bool
+getNull (Value v) = note (mismatchError NULL v) (_avNULL v)
+
+setBool :: Bool -> Value
+setBool x = Value (set avBOOL (Just x) attributeValue)
+
+getBool :: Value -> Either ValueError Bool
+getBool (Value v) = note (mismatchError BOOL v) (_avBOOL v)
+
+setList :: [Value] -> Value
+setList x = Value (set avL (coerce x) attributeValue)
+
+getList :: Value -> Either ValueError [Value]
+getList (Value v) = note (mismatchError L v) (coerce <$> _avL v)
+
+setVector :: (VectorGen.Vector v a, DynamoValue a) => v a -> Value
+setVector = toValue . Vector.toList . Vector.convert
+
+getVector :: (VectorGen.Vector v a, DynamoValue a)
+          => Value
+          -> Either ValueError (v a)
+getVector = fmap (Vector.convert . Vector.fromList) . fromValue
+
+setMap :: HashMap Text Value -> Value
+setMap x = Value (set avM (coerce x) attributeValue)
+
+getMap :: Value -> Either ValueError (HashMap Text Value)
+getMap (Value v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
+
+setNumberSet :: [Scientific] -> Value
+setNumberSet x = Value (set avNS (map toText x) attributeValue)
+
+getNumberSet :: Value -> Either ValueError [Scientific]
+getNumberSet (Value v) =
+    note (mismatchError NS v) (_avNS v)
+        >>= first (ParseFailure NS . Text.pack)
+          . traverse fromText
+
+setNumber :: Scientific -> Value
+setNumber x = Value (set avN (Just (toText x)) attributeValue)
+
+getNumber :: Value -> Either ValueError Scientific
+getNumber (Value v) =
+    note (mismatchError N v) (_avN v)
+        >>= first (ParseFailure N . Text.pack)
+          . fromText
+
+setIntegralSet :: Integral a => [a] -> Value
+setIntegralSet = setNumberSet . map fromIntegral
+
+getIntegralSet :: Integral a => Value -> Either ValueError [a]
+getIntegralSet = getNumberSet >=> traverse parse
+  where
+    parse = first err . Sci.floatingOrInteger
+    err r = ParseFailure NS $
+        "Expected integral value, got: " <> toText (r :: Double)
+
+setIntegral :: Integral a => a -> Value
+setIntegral = setNumber . fromIntegral
+
+getIntegral :: Integral a => Value -> Either ValueError a
+getIntegral = getNumber >=> first err . Sci.floatingOrInteger
+  where
+    err r = ParseFailure NS $
+        "Expected integral value, got: " <> toText (r :: Double)
+
+setBinarySet :: [ByteString] -> Value
+setBinarySet x = Value (set avBS x attributeValue)
+
+getBinarySet :: Value -> Either ValueError [ByteString]
+getBinarySet (Value v) = note (mismatchError BS v) (coerce (_avBS v))
+
+setBinary :: ByteString -> Value
+setBinary x = Value (set avB (Just x) attributeValue)
+
+getBinary :: Value -> Either ValueError ByteString
+getBinary (Value v) = note (mismatchError B v) (coerce (_avB v))
+
+setStringSet :: [Text] -> Value
+setStringSet x = Value (set avSS x attributeValue)
+
+getStringSet :: Value -> Either ValueError [Text]
+getStringSet (Value v) = note (mismatchError SS v) (_avSS v)
+
+setString :: Text -> Value
+setString x = Value (set avS (Just x) attributeValue)
+
+getString :: Value -> Either ValueError Text
+getString (Value v) = note (mismatchError S v) (_avS v)
+
+note :: e -> Maybe a -> Either e a
+note e Nothing  = Left  e
+note _ (Just x) = Right x
 
 getJSON :: FromJSON a => JS.Value -> Either ValueError a
 getJSON = first (ParseFailure S . Text.pack) . parseEither parseJSON

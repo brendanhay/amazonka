@@ -22,6 +22,12 @@ import Network.AWS.DynamoDB
 import Network.AWS.DynamoDB.Schema.Attribute
 import Network.AWS.DynamoDB.Schema.Types
 
+import qualified Data.List.NonEmpty as NE
+
+-- Assumes that 'KeyInvariants' has been checked, and holds.
+unsafeGetPartitionKey :: DynamoKeys a => Proxy a -> KeySchemaElement
+unsafeGetPartitionKey = NE.head . getKeys
+
 class DynamoKeys a where
     getKeys :: Proxy a -> NonEmpty KeySchemaElement
 

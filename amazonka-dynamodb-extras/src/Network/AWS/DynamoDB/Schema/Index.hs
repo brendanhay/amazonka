@@ -11,11 +11,11 @@ module Network.AWS.DynamoDB.Schema.Index where
 
 import Control.Lens (view, (?~))
 
-import Data.Function  ((&))
-import Data.Function  (on)
-import Data.List      (nubBy)
-import Data.Proxy     (Proxy (..))
-import Data.Semigroup ((<>))
+import Data.Function      ((&), on)
+import Data.List          (nubBy)
+import Data.List.NonEmpty ((<|))
+import Data.Proxy         (Proxy (..))
+import Data.Semigroup     ((<>))
 import Data.Type.Bool
 
 import GHC.Exts (Constraint)
@@ -60,26 +60,37 @@ instance ( DynamoIndexes (Schema s a)
            getLocalIndexes  (Proxy :: Proxy (Schema s a))
         <> getLocalIndexes  (Proxy :: Proxy (Schema s b))
 
+-- Every global secondary index must have a partition key and can also
+-- have an optional sort key.
+-- The index key schema can be different from the table schema.
 instance ( GlobalIndexInvariants s o
          , DynamoKeys              o
          , DynamoThroughput        o
          , KnownSymbol           n
          ) => DynamoIndexes (Schema s (GlobalSecondaryIndex n o)) where
-    getGlobalIndexes _ = pure $
-        globalSecondaryIndex
+    getGlobalIndexes _ =
+        pure $ globalSecondaryIndex
             (symbolText (Proxy :: Proxy n))
             (getKeys    (Proxy :: Proxy o))
             (projection & pProjectionType ?~ All)
             (getThroughput (Proxy :: Proxy o))
 
+-- Every local secondary index must meet the following conditions:
+--
+-- The partition key is the same as that of the source table.
+-- The sort key consists of exactly one scalar attribute.
+-- The sort key of the source table is projected into the index, where it acts as
+-- a non-key attribute.
 instance ( LocalIndexInvariants s o
+         , DynamoKeys           s
          , DynamoKeys             o
          , KnownSymbol          n
          ) => DynamoIndexes (Schema s (LocalSecondaryIndex n o)) where
-    getLocalIndexes _ = pure $
-        localSecondaryIndex
+    getLocalIndexes _ =
+        pure $ localSecondaryIndex
             (symbolText (Proxy :: Proxy n))
-            (getKeys    (Proxy :: Proxy o))
+            (unsafeGetPartitionKey (Proxy :: Proxy s)
+                <| getKeys (Proxy :: Proxy o))
             (projection & pProjectionType ?~ All)
 
 instance DynamoIndexes (PartitionKey      n h)

@@ -30,17 +30,18 @@ library
 
     exposed-modules:
           Network.AWS.DynamoDB.Mapper
+        , Network.AWS.DynamoDB.Mapper.Item
         , Network.AWS.DynamoDB.Mapper.Value
         , Network.AWS.DynamoDB.Mapper.Value.Unsafe
 
-        , Network.AWS.DynamoDB.Mapper.Attributes
-        , Network.AWS.DynamoDB.Mapper.Indexes
-        , Network.AWS.DynamoDB.Mapper.Item
-        , Network.AWS.DynamoDB.Mapper.Keys
-        , Network.AWS.DynamoDB.Mapper.Schema
-        , Network.AWS.DynamoDB.Mapper.Table
-        , Network.AWS.DynamoDB.Mapper.Throughput
-        , Network.AWS.DynamoDB.Mapper.Types
+        , Network.AWS.DynamoDB.Schema
+        , Network.AWS.DynamoDB.Schema.Attribute
+        , Network.AWS.DynamoDB.Schema.Index
+        , Network.AWS.DynamoDB.Schema.Key
+        , Network.AWS.DynamoDB.Schema.Serializer
+        , Network.AWS.DynamoDB.Schema.Table
+        , Network.AWS.DynamoDB.Schema.Throughput
+        , Network.AWS.DynamoDB.Schema.Types
 
     build-depends:
           aeson                >= 0.8
@@ -57,5 +58,6 @@ library
         , tagged               >= 0.8
         , text                 >= 1.1
         , time                 >= 1.4
+        , type-level-sets      >= 0.7
         , unordered-containers >= 0.2.5
         , vector

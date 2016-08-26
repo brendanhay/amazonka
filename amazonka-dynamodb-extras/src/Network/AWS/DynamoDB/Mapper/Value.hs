@@ -1,5 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE LambdaCase           #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE UndecidableInstances #-}
 
 module Network.AWS.DynamoDB.Mapper.Value
     (
@@ -69,34 +73,76 @@ module Network.AWS.DynamoDB.Mapper.Value
     , getString
     ) where
 
-import Control.Exception (Exception)
-import Control.Lens      (set)
-import Control.Monad     ((>=>))
+import Control.Applicative (Const (..))
+import Control.Exception   (Exception)
+import Control.Lens        (set)
+import Control.Monad       ((>=>))
 
-import Data.Bifunctor      (first)
-import Data.Bits           (popCount, setBit, zeroBits)
-import Data.ByteString     (ByteString)
-import Data.Coerce         (coerce)
-import Data.HashMap.Strict (HashMap)
-import Data.Maybe          (catMaybes, fromMaybe, isJust)
-import Data.Monoid         ((<>))
-import Data.Scientific     (Scientific)
-import Data.Text           (Text)
-import Data.Typeable       (Typeable)
-import Data.Word           (Word16)
+import Data.Aeson            (FromJSON (..), ToJSON (..))
+import Data.Aeson.Types      (DotNetTime, parseEither)
+import Data.Bifunctor        (bimap, first)
+import Data.Bits             (popCount, setBit, zeroBits)
+import Data.ByteString       (ByteString)
+import Data.CaseInsensitive  (CI)
+import Data.Coerce           (coerce)
+import Data.Foldable         (toList)
+import Data.Functor.Identity (Identity (..))
+import Data.Hashable         (Hashable)
+import Data.HashMap.Strict   (HashMap)
+import Data.HashSet          (HashSet)
+import Data.Int              (Int, Int16, Int32, Int64, Int8)
+import Data.IntMap           (IntMap)
+import Data.IntSet           (IntSet)
+import Data.List.NonEmpty    (NonEmpty (..))
+import Data.Map.Strict       (Map)
+import Data.Maybe            (catMaybes, fromMaybe, isJust)
+import Data.Monoid           (Dual (..), (<>))
+import Data.Scientific       (Scientific)
+import Data.Sequence         (Seq)
+import Data.Set              (Set)
+import Data.Tagged           (Tagged (..))
+import Data.Text             (Text)
+import Data.Time             (Day, LocalTime, NominalDiffTime, TimeOfDay,
+                              UTCTime, ZonedTime)
+import Data.Typeable         (Typeable)
+import Data.Vector           (Vector)
+import Data.Version          (Version)
+import Data.Word             (Word, Word16, Word32, Word64, Word8)
+
+import Foreign.Storable (Storable)
 
 import Network.AWS.Data.Base64                  (Base64 (..))
 import Network.AWS.Data.Map                     (toMap)
-import Network.AWS.Data.Text                    (fromText, toText)
+import Network.AWS.Data.Text                    (FromText (..), ToText (..),
+                                                 fromText)
 import Network.AWS.DynamoDB                     hiding
                                                  (ScalarAttributeType (..))
 import Network.AWS.DynamoDB.Mapper.Value.Unsafe
 import Network.AWS.DynamoDB.Types.Product       (AttributeValue (..))
 
-import qualified Data.Scientific     as Sci
-import qualified Data.Text           as Text
-import qualified Data.Vector         as Vector
-import qualified Data.Vector.Generic as VectorGen
+import Numeric.Natural (Natural)
+
+import qualified Data.Aeson           as JS
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.CaseInsensitive as CI
+import qualified Data.Scientific      as Sci
+import qualified Data.Text            as Text
+import qualified Data.Text.Lazy       as LText
+
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashSet        as HashSet
+import qualified Data.IntMap.Strict  as IntMap
+import qualified Data.IntSet         as IntSet
+import qualified Data.List.NonEmpty  as NE
+import qualified Data.Map.Strict     as Map
+import qualified Data.Sequence       as Seq
+import qualified Data.Set            as Set
+
+import qualified Data.Vector           as Vector
+import qualified Data.Vector.Generic   as VectorGen
+import qualified Data.Vector.Primitive as VectorPrim
+import qualified Data.Vector.Storable  as VectorStore
+import qualified Data.Vector.Unboxed   as VectorUnbox
 
 -- | The closed set of types that can be stored natively in DynamoDB.
 --

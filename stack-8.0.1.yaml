@@ -5,6 +5,7 @@ extra-deps:
   - http-conduit-2.2.0
   - http-client-0.5.0.1
   - http-client-tls-0.3.0
+  - type-level-sets-0.7
 packages:
   - core
   - test

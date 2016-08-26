@@ -1,19 +1,6 @@
--- |
--- Description about DynamoDB items and attributes.
---
--- Notes:
---   * Available representations, and instances (such as missing, '()', 'Maybe').
---   * Principles of small values (Attribute) vs large/complex values (Item).
---   * Performance concerns, and the underlying representations.
---      - Time values run through Aeson's parser
---      - Vectors and sets stored as lists
-module Network.AWS.DynamoDB.Mapper where
-    -- (
+module Network.AWS.DynamoDB.Mapper
+    ( module Export
+    ) where
 
-    -- -- * Items
-    --   ItemError (..)
-    -- , Item      (..)
-
-    -- -- * Attributes
-    -- , Attribute (..)
-    -- ) where
+import Network.AWS.DynamoDB.Mapper.Item  as Export
+import Network.AWS.DynamoDB.Mapper.Value as Export

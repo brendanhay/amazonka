@@ -1,9 +1,6 @@
-{-# LANGUAGE FlexibleContexts      #-}
-{-# LANGUAGE FlexibleInstances     #-}
-{-# LANGUAGE LambdaCase            #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE UndecidableInstances  #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Network.AWS.DynamoDB.Mapper.Item where
     -- (
@@ -16,74 +13,24 @@ module Network.AWS.DynamoDB.Mapper.Item where
     -- , Attribute (..)
     -- ) where
 
-import Control.Applicative (Const (..))
-import Control.Exception   (Exception)
-import Control.Lens        (ASetter', Getting, set, view, (^.))
-import Control.Monad       ((>=>))
+import Control.Exception (Exception)
+import Control.Monad     ((>=>))
 
-import Data.Aeson            (FromJSON (..), ToJSON (..))
-import Data.Aeson.Types      (DotNetTime, parseEither)
-import Data.Bifunctor        (bimap, first)
-import Data.ByteString       (ByteString)
-import Data.CaseInsensitive  (CI)
-import Data.Coerce           (coerce)
-import Data.Foldable         (toList)
-import Data.Functor.Identity (Identity (..))
-import Data.Hashable         (Hashable)
-import Data.HashMap.Strict   (HashMap)
-import Data.HashSet          (HashSet)
-import Data.Int              (Int, Int16, Int32, Int64, Int8)
-import Data.IntMap           (IntMap)
-import Data.IntSet           (IntSet)
-import Data.List.NonEmpty    (NonEmpty (..))
-import Data.Map.Strict       (Map (..))
-import Data.Maybe            (catMaybes, fromMaybe, isJust)
-import Data.Monoid           (Dual (..), (<>))
-import Data.Proxy            (Proxy (..))
-import Data.Scientific       (Scientific)
-import Data.Sequence         (Seq)
-import Data.Set              (Set)
-import Data.Tagged           (Tagged (..))
-import Data.Text             (Text)
-import Data.Time             (Day, LocalTime, NominalDiffTime, TimeOfDay,
-                              UTCTime, ZonedTime)
-import Data.Typeable         (Typeable)
-import Data.Vector           (Vector)
-import Data.Version          (Version)
-import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
-import Foreign.Storable (Storable)
+import Data.Bifunctor      (bimap, first)
+import Data.Coerce         (coerce)
+import Data.HashMap.Strict (HashMap)
+import Data.Map            (Map)
+import Data.Text           (Text)
+import Data.Typeable       (Typeable)
 
-import Network.AWS.Data.Text
-import Network.AWS.DynamoDB  hiding (ScalarAttributeType (..))
+import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
 import Network.AWS.DynamoDB.Mapper.Value
 import Network.AWS.DynamoDB.Mapper.Value.Unsafe
 
-import Numeric.Natural (Natural)
-
-import qualified Data.Aeson             as JS
-import qualified Data.ByteString.Lazy   as LBS
-import qualified Data.CaseInsensitive   as CI
-import qualified Data.Scientific        as Sci
-import qualified Data.Text              as Text
-import qualified Data.Text.Lazy         as LText
-import qualified Data.Text.Lazy.Builder as LText
-
 import qualified Data.HashMap.Strict as HashMap
-import qualified Data.HashSet        as HashSet
-import qualified Data.IntMap.Strict  as IntMap
-import qualified Data.IntSet         as IntSet
-import qualified Data.List.NonEmpty  as NE
 import qualified Data.Map.Strict     as Map
-import qualified Data.Sequence       as Seq
-import qualified Data.Set            as Set
-
-import qualified Data.Vector           as Vector
-import qualified Data.Vector.Generic   as VectorGen
-import qualified Data.Vector.Primitive as VectorPrim
-import qualified Data.Vector.Storable  as VectorStore
-import qualified Data.Vector.Unboxed   as VectorUnbox
 
 item :: [(Text, Value)] -> HashMap Text Value
 item = HashMap.fromList

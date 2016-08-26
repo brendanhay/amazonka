@@ -30,12 +30,12 @@ data Throughput read write
 
 data Stream (view :: StreamViewType)
 
-data IndexPartitionKey key
-data IndexSortKey      key
+data IndexPartitionKey (key :: Symbol)
+data IndexSortKey      (key :: Symbol)
 
 -- Every global secondary index must have a partition key, and can have an optional
 -- sort key. The index key schema can be different from the table schema
-data GlobalSecondaryIndex name options
+data GlobalSecondaryIndex (name :: Symbol) options
 
 -- Every local secondary index must meet the following conditions:
 --
@@ -43,7 +43,7 @@ data GlobalSecondaryIndex name options
 -- The sort key consists of exactly one scalar attribute.
 -- The sort key of the source table is projected into the index, where it acts as
 -- a non-key attribute.
-data LocalSecondaryIndex name options
+data LocalSecondaryIndex (name :: Symbol) options
 
 -- Projections are not done.
 data Project (proj :: ProjectionType)

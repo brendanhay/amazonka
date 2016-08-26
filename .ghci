@@ -1,0 +1,8 @@
+:set prompt "> "
+
+:set -fprint-potential-instances
+:set -fprint-explicit-kinds
+
+:set -XOverloadedStrings
+:set -XDataKinds
+:set -XTypeOperators

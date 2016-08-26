@@ -71,7 +71,7 @@ type family Difference xs ys where
         If (x ∈ ys) (Difference xs ys)
            (x ': Difference xs ys)
 
--- | All elements 'x' removed from set 'xs'.
+-- | Element 'x' removed from set 'xs'.
 type family Remove x xs where
     Remove x '[]       = '[]
     Remove x (x ': ys) = ys

@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds            #-}
+{-# LANGUAGE PolyKinds            #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeFamilies         #-}
@@ -9,16 +10,16 @@
 
 module Network.AWS.DynamoDB.Schema.Index where
 
-import Control.Lens (view, (?~))
+import Control.Lens (view, (?~), (^.))
 
-import Data.Function      ((&), on)
-import Data.List          (nubBy)
-import Data.List.NonEmpty ((<|))
+import Data.Text (Text)
+import Data.Foldable (toList, find)
+import Data.List.NonEmpty (NonEmpty (..))
+import Data.Function      ((&))
+import Data.List          ((\\), nub)
 import Data.Proxy         (Proxy (..))
 import Data.Semigroup     ((<>))
-import Data.Type.Bool
 
-import GHC.Exts (Constraint)
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
@@ -26,13 +27,9 @@ import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 import Network.AWS.DynamoDB.Schema.Key
 import Network.AWS.DynamoDB.Schema.Throughput
 import Network.AWS.DynamoDB.Schema.Types
-import Network.AWS.DynamoDB.Schema.Attribute
+import Network.AWS.DynamoDB.Schema.Invariant
 
 import qualified Network.AWS.DynamoDB as Dynamo
-
--- | A type-level wrapper for passing the table's attribute schema
--- through type-class instance heads.
-data Schema s a
 
 class DynamoIndexes a where
     getGlobalIndexes :: Proxy a -> [Dynamo.GlobalSecondaryIndex]
@@ -41,119 +38,74 @@ class DynamoIndexes a where
     getGlobalIndexes = const []
     getLocalIndexes  = const []
 
-instance ( DynamoIndexes (Schema s o)
-         ) => DynamoIndexes (Table n s o) where
+instance ( DynamoIndexes (Schema a i)
+         ) => DynamoIndexes (Table n a t s i) where
+    getGlobalIndexes _ = getGlobalIndexes (Proxy :: Proxy (Schema a i))
+    getLocalIndexes  _ = getLocalIndexes  (Proxy :: Proxy (Schema a i))
+
+instance DynamoIndexes (Schema s '[])
+
+instance ( DynamoIndexes (Schema s i)
+         , DynamoIndexes (Schema s is)
+         ) => DynamoIndexes (Schema s (i ': is)) where
     getGlobalIndexes _ =
-        uniqueGlobalIndexes $ getGlobalIndexes (Proxy :: Proxy (Schema s o))
+           getGlobalIndexes (Proxy :: Proxy (Schema s i))
+        <> getGlobalIndexes (Proxy :: Proxy (Schema s is))
 
     getLocalIndexes  _ =
-        uniqueLocalIndexes  $ getLocalIndexes  (Proxy :: Proxy (Schema s o))
+           getLocalIndexes  (Proxy :: Proxy (Schema s i))
+        <> getLocalIndexes  (Proxy :: Proxy (Schema s is))
 
-instance ( DynamoIndexes (Schema s a)
-         , DynamoIndexes (Schema s b)
-         ) => DynamoIndexes (Schema s (a :# b)) where
-    getGlobalIndexes _ =
-           getGlobalIndexes (Proxy :: Proxy (Schema s a))
-        <> getGlobalIndexes (Proxy :: Proxy (Schema s b))
-
-    getLocalIndexes  _ =
-           getLocalIndexes  (Proxy :: Proxy (Schema s a))
-        <> getLocalIndexes  (Proxy :: Proxy (Schema s b))
-
--- Every global secondary index must have a partition key and can also
--- have an optional sort key.
--- The index key schema can be different from the table schema.
-instance ( GlobalIndexInvariants s o
-         , DynamoKeys              o
-         , DynamoThroughput        o
-         , KnownSymbol           n
-         ) => DynamoIndexes (Schema s (GlobalSecondaryIndex n o)) where
+instance ( UniqueAttributes    a
+         , HasAttributes     s a
+         , PartitionKeyOrder   a
+         , DynamoKeys          a
+         , DynamoThroughput  t
+         , KnownSymbol       n
+         , KnownSymbols        a
+         ) => DynamoIndexes (Schema s (GlobalSecondaryIndex n a t)) where
     getGlobalIndexes _ =
         pure $ globalSecondaryIndex
             (symbolText (Proxy :: Proxy n))
-            (getKeys    (Proxy :: Proxy o))
-            (projection & pProjectionType ?~ All)
-            (getThroughput (Proxy :: Proxy o))
+            (getKeys    (Proxy :: Proxy a))
+            (project (nonKeyAttributes (Proxy :: Proxy a)))
+            (getThroughput (Proxy :: Proxy t))
 
--- Every local secondary index must meet the following conditions:
---
--- The partition key is the same as that of the source table.
--- The sort key consists of exactly one scalar attribute.
--- The sort key of the source table is projected into the index, where it acts as
--- a non-key attribute.
-instance ( LocalIndexInvariants s o
-         , DynamoKeys           s
-         , DynamoKeys             o
-         , KnownSymbol          n
-         ) => DynamoIndexes (Schema s (LocalSecondaryIndex n o)) where
+instance ( UniqueAttributes    a
+         , HasAttributes     s a
+         , SortKeyOrder        a
+         , DynamoKeys        s
+         , DynamoKeys          a
+         , KnownSymbols        a
+         , KnownSymbol       n
+         ) => DynamoIndexes (Schema s (LocalSecondaryIndex n a)) where
     getLocalIndexes _ =
         pure $ localSecondaryIndex
             (symbolText (Proxy :: Proxy n))
-            (unsafeGetPartitionKey (Proxy :: Proxy s)
-                <| getKeys (Proxy :: Proxy o))
-            (projection & pProjectionType ?~ All)
+            (getKeys    (Proxy :: Proxy a))
+            indexProjection
+      where
+        -- Project 's' SortKey as a non-key attribute, if it exists.
+        schemaKeys = getKeys (Proxy :: Proxy s)
+        sortKey    =
+            view kseAttributeName
+                <$> find ((== Range) . view kseKeyType) schemaKeys
 
-instance DynamoIndexes (PartitionKey      n h)
-instance DynamoIndexes (SortKey           n r)
-instance DynamoIndexes (Attribute         n v)
-instance DynamoIndexes (IndexPartitionKey n)
-instance DynamoIndexes (IndexSortKey      n)
-instance DynamoIndexes (Throughput        r w)
-instance DynamoIndexes (Stream            v)
-instance DynamoIndexes (Project           p)
+        indexProjection =
+            project . nub . maybe id (:) sortKey $
+                nonKeyAttributes (Proxy :: Proxy a)
 
--- FIXME: Migrate this to a type family.
-uniqueGlobalIndexes :: [Dynamo.GlobalSecondaryIndex]
-                    -> [Dynamo.GlobalSecondaryIndex]
-uniqueGlobalIndexes = nubBy (on (==) (view gsiIndexName))
+project :: [Text] -> Projection
+project []     =
+    projection & pProjectionType ?~ KeysOnly
+project (x:xs) =
+    projection & pProjectionType ?~ Include
+        & pNonKeyAttributes ?~ x :| xs
 
--- FIXME: Migrate this to a type family.
-uniqueLocalIndexes :: [Dynamo.LocalSecondaryIndex]
-                   -> [Dynamo.LocalSecondaryIndex]
-uniqueLocalIndexes = nubBy (on (==) (view lsiIndexName))
-
--- | Invariants:
---   - A single IndexPartitionKey must be specified first.
---   - A single IndexSortKey may optionally be specified second.
-type family GlobalIndexInvariants s a :: Constraint where
-    GlobalIndexInvariants s a =
-        If (GlobalKeyPrecedence a) (UniqueAttributes a ~ HasAttributes s a)
-           (TypeError
-               ('Text "IndexPartitionKey must be specified first, then an optional\
-                      \ IndexSortKey, followed by any options:"
-                ':$$: 'ShowType a))
-
-type family GlobalKeyPrecedence a :: Bool where
-    GlobalKeyPrecedence (IndexPartitionKey n)                         = 'True
-    GlobalKeyPrecedence (IndexPartitionKey n :# IndexSortKey n')      = 'True
-    GlobalKeyPrecedence (IndexPartitionKey n :# IndexSortKey n' :# a) =
-        Not (HasIndexPartitionKey a || HasIndexSortKey a)
-    GlobalKeyPrecedence (IndexPartitionKey n :# a)                    =
-        Not (HasIndexPartitionKey a || HasIndexSortKey a)
-
--- | Invariants:
---   - A single IndexSortKey must be specified first.
-type family LocalIndexInvariants s a :: Constraint where
-    LocalIndexInvariants s a =
-        If (LocalKeyPrecedence a) (UniqueAttributes a ~ HasAttributes s a)
-           (TypeError
-               ('Text "IndexSortKey must be specified first, followed by any options:"
-                ':$$: 'ShowType a))
-
-type family LocalKeyPrecedence a :: Bool where
-    LocalKeyPrecedence (IndexSortKey n)      = 'True
-    LocalKeyPrecedence (IndexSortKey n :# a) =
-        Not (HasIndexPartitionKey a || HasIndexSortKey a)
-    LocalKeyPrecedence a                     = 'False
-
-type family HasIndexPartitionKey a :: Bool where
-    HasIndexPartitionKey (IndexPartitionKey n) = 'True
-    HasIndexPartitionKey (a :# b)              =
-        HasIndexPartitionKey a || HasIndexPartitionKey b
-    HasIndexPartitionKey a                     = 'False
-
-type family HasIndexSortKey a :: Bool where
-    HasIndexSortKey (IndexSortKey n) = 'True
-    HasIndexSortKey (a :# b)         =
-        HasIndexSortKey a || HasIndexSortKey b
-    HasIndexSortKey a                = 'False
+nonKeyAttributes :: forall a. (DynamoKeys a, KnownSymbols a)
+                 => Proxy a
+                 -> [Text]
+nonKeyAttributes _ =
+    let attrs = map (^. kseAttributeName) (toList (getKeys (Proxy :: Proxy a)))
+        keys  = symbolTexts (Proxy :: Proxy a)
+     in attrs \\ keys

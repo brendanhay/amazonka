@@ -2,7 +2,15 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Network.AWS.DynamoDB.Mapper.Item where
+-- |
+-- Module      : Network.AWS.DynamoDB.Itema
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.DynamoDB.Item where
     -- (
 
     -- -- * Items
@@ -26,8 +34,8 @@ import Data.Typeable       (Typeable)
 
 import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
-import Network.AWS.DynamoDB.Mapper.Value
-import Network.AWS.DynamoDB.Mapper.Value.Unsafe
+import Network.AWS.DynamoDB.Value
+import Network.AWS.DynamoDB.Value.Unsafe
 
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict     as Map

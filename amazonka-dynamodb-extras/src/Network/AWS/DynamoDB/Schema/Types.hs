@@ -1,31 +1,176 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE KindSignatures       #-}
-{-# LANGUAGE PolyKinds            #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE DataKinds                 #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE FlexibleInstances         #-}
+{-# LANGUAGE KindSignatures            #-}
+{-# LANGUAGE PolyKinds                 #-}
+{-# LANGUAGE ScopedTypeVariables       #-}
+{-# LANGUAGE TypeOperators             #-}
 
-module Network.AWS.DynamoDB.Schema.Types where
+-- |
+-- Module      : Network.AWS.DynamoDB.Schema.Types
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Types for specifing DynamoDB tables via a type-level DSL.
+module Network.AWS.DynamoDB.Schema.Types
+    (
+    -- * Usage
+    -- $usage
 
-import Data.Text          (Text)
-import Data.Type.Bool
-import Data.Type.Equality
+    -- * Table Schema
+      Table
+    , Schema
+
+    -- ** Attributes
+    , AttributeKind      (..)
+
+    , PartitionKey
+    , SortKey
+    , Attribute
+    ,                    (:#)
+
+    -- ** Provisioned Throughput
+    , ThroughputKind     (..)
+    , ReadCapacityKind   (..)
+    , WriteCapacityKind  (..)
+
+    , Throughput
+    , ReadCapacity
+    , WriteCapacity
+
+    -- ** DynamoDB Streams
+    , StreamingKind      (..)
+
+    , StreamingDisabled
+    , Streaming
+
+    -- ** Indexes
+    , SecondaryIndexKind (..)
+    , GlobalSecondaryIndex
+    , LocalSecondaryIndex
+
+    -- *** Index Attributes
+    , Project
+    , IndexPartitionKey
+    , IndexSortKey
+    , IndexAttribute
+
+    -- * Miscellaneous
+    , KnownSymbols (..)
+    , symbolText
+    ) where
+
+import Data.Proxy (Proxy (..))
+import Data.Text  (Text)
 
 import GHC.TypeLits
 
-import Network.AWS.DynamoDB (ProjectionType, StreamViewType)
+import Network.AWS.DynamoDB (StreamViewType)
 
 import qualified Data.Text as Text
 
+{- $usage
+
+Something about type/constructor promotion and usage.
+
+-}
+
 -- | A DynamoDB table schema.
 --
--- The parameters are the table name, the attribute schema, and any additional
--- configuration options.
-data Table (name :: Symbol) schema options
+-- The kinds of the parameters are:
+--
+--    * The 'Symbol' table name.
+--    * An attribute schema defined using the desired 'AttributeKind's. ':#' can be used for composition.
+--    * The provisioned throughput specified by 'ThroughputKind'.
+--    * The streaming specification settings specified by 'StreamingKind'.
+--    * An optionally empty list of indexes defined using  'SecondaryIndexKind'.
+--
+data Table
+    (name       :: Symbol)
+    (attributes :: AttributeKind)
+    (throughput :: ThroughputKind)
+    (streaming  :: StreamingKind)
+    (indexes    :: [SecondaryIndexKind])
 
-data PartitionKey (name :: Symbol) hash
-data SortKey      (name :: Symbol) range
-data Attribute    (name :: Symbol) value
+-- | A type-level wrapper for passing the table's attribute schema
+-- through type-class instance heads.
+data Schema (schema :: AttributeKind) a
+
+-- | A DynamoDB table key or attribute.
+--
+-- This kind specifies the set of available keys and attributes.
+-- The constructors are promoted to the type-level and unticked aliases are
+-- also exported.
+data AttributeKind
+    = forall hash  . PartitionKey Symbol hash
+    | forall range . SortKey      Symbol range
+    | forall value . Attribute    Symbol value
+    | AttributeKind :# AttributeKind
+
+-- NamingRules
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.NamingRules
+
+-- The following characters have special meanings in DynamoDB: # (hash) and : (colon)
+
+-- Tables, attributes, and other objects in DynamoDB must have names. Names should be meaningful and concise—for example, names such as Products, Books, and Authors are self-explanatory.
+
+-- The following are the naming rules for DynamoDB:
+
+-- All names must be encoded using UTF-8, and are case-sensitive.
+-- Table names and index names must be between 3 and 255 characters long, and can contain only the following characters:
+-- a-z
+-- A-Z
+-- 0-9
+-- _ (underscore)
+-- - (dash)
+-- . (dot)
+-- Attribute names must be between 1 and 255 characters long.
+
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html
+
+-- Choosing a Partition Key
+--
+-- The following table compares some common partition key schemas for
+-- provisioned throughput efficiency:
+
+-- The primary key uniquely identifies each item in a table. The primary key can be simple (partition key) or composite (partition key and sort key).
+
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.Partitions.html
+
+-- Guidelines for tables:
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GuidelinesForTables.html
+
+type PartitionKey = 'PartitionKey
+type SortKey      = 'SortKey
+type Attribute    = 'Attribute
+
+infixr 8 :#
+
+type a :# b = a ':# b
+
+-- -- | 'AttributeKind's must be specified as a type-level non-empty list.
+-- --
+-- -- For example a single attribute can be specified simply as:
+-- --
+-- -- @
+-- -- PartitionKey "name" Text
+-- -- @
+-- --
+-- -- But two or more attributes must composed:
+-- --
+-- -- @
+-- --  ( PartitionKey "name"    Text
+-- -- :# SortKey      "version" Integer
+-- -- :# Attribute    "content" ByteString
+-- --  )
+-- -- @
+-- --
+-- data a :# b
+
+data ReadCapacityKind = ReadCapacity Nat
 
 -- | One read capacity unit represents one strongly consistent read per second, or
 -- two eventually consistent reads per second, for items up to 4 KB in size.
@@ -34,7 +179,11 @@ data Attribute    (name :: Symbol) value
 -- consume additional read capacity units. The total number of read capacity units
 -- required depends on the item size, and whether you want an eventually
 -- consistent or strongly consistent read.
-data ReadCapacity (read  :: Nat)
+--
+-- The type parameter is of kind 'Nat'.
+type ReadCapacity = 'ReadCapacity
+
+data WriteCapacityKind = WriteCapacity Nat
 
 -- | One write capacity unit represents one write per second for items up
 -- to 1 KB in size.
@@ -42,7 +191,12 @@ data ReadCapacity (read  :: Nat)
 -- If you need to write an item that is larger than 1 KB, DynamoDB will need
 -- to consume additional write capacity units. The total number of write capacity
 -- units required depends on the item size.
-data WriteCapacity (write :: Nat)
+--
+-- The type parameter is of kind 'Nat'.
+type WriteCapacity = 'WriteCapacity
+
+-- | A promoted kind and types for specifying provisioned throughput capacity.
+data ThroughputKind = Throughput ReadCapacityKind WriteCapacityKind
 
 -- | The provisioned throughput capacity you want to reserve for reads and writes.
 --
@@ -50,58 +204,80 @@ data WriteCapacity (write :: Nat)
 -- while ensuring consistent, low-latency performance. You can also change your
 -- provisioned throughput settings, increasing or decreasing capacity as needed.
 --
--- The parameters are 'ReadCapacity' and 'WriteCapacity', respectively.
-data Throughput read write
+-- The types parameters are of kind 'ReadCapacity' and 'WriteCapacity', respectively.
+--
+-- Regarding 'PartitionKey's,
+--
+-- @
+-- Total Provisioned Throughput / Partitions = Throughput Per Partition
+-- @
+--
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html How it works - Provisioned Throughput>.
+type Throughput = 'Throughput
 
-data Stream (view :: StreamViewType)
+-- |
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html
+data StreamingKind
+    = StreamingDisabled
+    | Streaming StreamViewType
 
-data IndexPartitionKey (key :: Symbol)
-data IndexSortKey      (key :: Symbol)
+type StreamingDisabled = 'StreamingDisabled
+type Streaming         = 'Streaming
 
--- Every global secondary index must have a partition key and can also
+data SecondaryIndexKind
+    = GlobalSecondaryIndex Symbol AttributeKind ThroughputKind
+    | LocalSecondaryIndex  Symbol AttributeKind
+
+-- | Every global secondary index must have a partition key and can also
 -- have an optional sort key.
 -- The index key schema can be different from the table schema
-data GlobalSecondaryIndex (name :: Symbol) options
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
+type GlobalSecondaryIndex = 'GlobalSecondaryIndex
 
--- Every local secondary index must meet the following conditions:
+-- <http://docs.aws.amazon.com/amazondynamodb/latt:DynamoAttributesest/APIReference/API_GlobalSecondaryIndex.html#DDB-Type-GlobalSecondaryIndex-KeySchema GlobalSecondaryIndex>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_LocalSecondaryIndex.html#DDB-Type-LocalSecondaryIndex-KeySchema LocalSecondaryIndex>
+
+-- | Every local secondary index must meet the following conditions:
 --
 -- The partition key is the same as that of the source table.
 -- The sort key consists of exactly one scalar attribute.
 -- The sort key of the source table is projected into the index, where it acts as
 -- a non-key attribute.
-data LocalSecondaryIndex (name :: Symbol) options
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html
+type LocalSecondaryIndex = 'LocalSecondaryIndex
 
--- Projections are not done.
-data Project (proj :: ProjectionType)
+-- | Project the attribute into the index.
+data Project
 
-infixr 8 :#, :*:
+type IndexPartitionKey name = PartitionKey name Project
+type IndexSortKey      name = SortKey      name Project
+type IndexAttribute    name = Attribute    name Project
 
--- | A column specifier.
-data a :# b
+class KnownSymbols a where
+    symbolTexts :: Proxy a -> [Text]
 
--- | A deserialized product.
-data a :*: b = a :*: b
-    deriving (Show)
+instance KnownSymbols '[] where
+    symbolTexts = const []
 
--- | Does the element 'x' exist in the set 'xs'.
-type family (∈) x xs :: Bool where
-    (∈) x '[]       = 'False
-    (∈) x (y ': xs) = x == y || x ∈ xs
+instance (KnownSymbol a, KnownSymbols as) => KnownSymbols (a ': as) where
+    symbolTexts _ =
+        symbolText (Proxy :: Proxy a) : symbolTexts (Proxy :: Proxy as)
 
--- | All elements of set 'ys' removed from set 'xs'.
-type family Difference xs ys where
-    Difference '[]       ys        = '[]
-    Difference xs       '[]        = xs
-    Difference (x ': xs) (x ': ys) = Difference xs ys
-    Difference (x ': xs) ys        =
-        If (x ∈ ys) (Difference xs ys)
-           (x ': Difference xs ys)
+instance KnownSymbol n => KnownSymbols (PartitionKey n h) where
+    symbolTexts _ = [symbolText (Proxy :: Proxy n)]
 
--- | Element 'x' removed from set 'xs'.
-type family Remove x xs where
-    Remove x '[]       = '[]
-    Remove x (x ': ys) = ys
-    Remove x (y ': ys) = y ': Remove x ys
+instance KnownSymbol n => KnownSymbols (SortKey n r) where
+    symbolTexts _ = [symbolText (Proxy :: Proxy n)]
+
+instance KnownSymbol n => KnownSymbols (Attribute n v) where
+    symbolTexts _ = [symbolText (Proxy :: Proxy n)]
+
+instance (KnownSymbols a, KnownSymbols b) => KnownSymbols (a :# b) where
+    symbolTexts _ =
+        symbolTexts (Proxy :: Proxy a) ++ symbolTexts (Proxy :: Proxy b)
 
 symbolText :: KnownSymbol n => proxy n -> Text
 symbolText = Text.pack . symbolVal

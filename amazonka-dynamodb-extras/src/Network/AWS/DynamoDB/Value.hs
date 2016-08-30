@@ -5,7 +5,15 @@
 {-# LANGUAGE RecordWildCards      #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Network.AWS.DynamoDB.Mapper.Value
+-- |
+-- Module      : Network.AWS.DynamoDB.Value
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.DynamoDB.Value
     (
     -- * Native Types
       DynamoType  (..)
@@ -46,17 +54,17 @@ module Network.AWS.DynamoDB.Mapper.Value
     , getMap
 
     -- ** Number
-    , setNumberSet
-    , getNumberSet
-
     , setNumber
     , getNumber
 
-    , setIntegralSet
-    , getIntegralSet
-
     , setIntegral
     , getIntegral
+
+    , setNumberSet
+    , getNumberSet
+
+    , setIntegralSet
+    , getIntegralSet
 
     -- ** Binary
     , setBinarySet
@@ -111,14 +119,12 @@ import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
 import Foreign.Storable (Storable)
 
-import Network.AWS.Data.Base64                  (Base64 (..))
-import Network.AWS.Data.Map                     (toMap)
-import Network.AWS.Data.Text                    (FromText (..), ToText (..),
-                                                 fromText)
-import Network.AWS.DynamoDB                     hiding
-                                                 (ScalarAttributeType (..))
-import Network.AWS.DynamoDB.Mapper.Value.Unsafe
-import Network.AWS.DynamoDB.Types.Product       (AttributeValue (..))
+import Network.AWS.Data.Base64            (Base64 (..))
+import Network.AWS.Data.Map               (toMap)
+import Network.AWS.Data.Text              (FromText (..), ToText (..), fromText)
+import Network.AWS.DynamoDB               hiding (ScalarAttributeType (..))
+import Network.AWS.DynamoDB.Types.Product (AttributeValue (..))
+import Network.AWS.DynamoDB.Value.Unsafe
 
 import Numeric.Natural (Natural)
 

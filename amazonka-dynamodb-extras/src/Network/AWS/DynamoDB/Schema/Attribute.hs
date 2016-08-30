@@ -1,43 +1,71 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE PolyKinds            #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE PolyKinds           #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeOperators       #-}
 
-{-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
+-- |
+-- Module      : Network.AWS.DynamoDB.Schema.Types
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Type classes for determing attribute scalar types and definitions suitable
+-- for use with "Network.AWS.DynamoDB" operations.
+module Network.AWS.DynamoDB.Schema.Attribute
+    (
+    -- * Scalar Types
+      DynamoScalarType (..)
 
-module Network.AWS.DynamoDB.Schema.Attribute where
+    -- * Attribute Definitions
+    , DynamoAttributes (..)
+    ) where
 
 import Data.ByteString    (ByteString)
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Proxy         (Proxy (..))
 import Data.Semigroup     ((<>))
 import Data.Text          (Text)
-import Data.Type.Bool
-import Data.Type.Equality
-import Data.Type.Set      ((:++), Cmp, Nub, Sort)
 
-import GHC.Exts     (Constraint)
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB
+import Network.AWS.DynamoDB.Schema.Invariant
 import Network.AWS.DynamoDB.Schema.Types
 
+-- | Retrieve a type's corresponding DynamoDB scalar type.
+--
+-- Instances of this class are considered suitable for use as
+-- a parameter to a table or index 'PartitionKey' and 'SortKey', but additional
+-- considerations must be made about the value's uniformity, which affects
+-- partition placement, data access, and provisioned throughput.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GuidelinesForTables.html#GuidelinesForTables.UniformWorkload Table Guidelines - Uniform Workloads>.
 class DynamoScalarType a where
+    -- | Retrieve the 'ScalarAttributeType', which can be either a
+    -- 'S' (string), 'N' (number), or 'B' (binary).
     getScalarType :: Proxy a -> ScalarAttributeType
 
 instance DynamoScalarType Text       where getScalarType = const S
 instance DynamoScalarType Integer    where getScalarType = const N
 instance DynamoScalarType ByteString where getScalarType = const B
 
+-- | Retrieve a type's non-empty list of DynamoDB attribute definitions.
+--
+-- Instances are expected to enforce the invariant that resulting definition's
+-- attribute names are unique.
+--
+-- /See:/ 'UniqueAttributes'.
 class DynamoAttributes a where
+    -- | Retrieve the non-empty list of 'AttributeDefinition's.
     getAttributes :: Proxy a -> NonEmpty AttributeDefinition
 
-instance ( UniqueAttributes s
-         , DynamoAttributes s
-         ) => DynamoAttributes (Table n s o) where
-    getAttributes _ = getAttributes (Proxy :: Proxy s)
+instance ( UniqueAttributes a
+         , DynamoAttributes a
+         ) => DynamoAttributes (Table n a t s i) where
+    getAttributes _ = getAttributes (Proxy :: Proxy a)
 
 instance ( DynamoAttributes a
          , DynamoAttributes b
@@ -69,48 +97,3 @@ instance ( KnownSymbol      n
         pure $ attributeDefinition
             (symbolText    (Proxy :: Proxy n))
             (getScalarType (Proxy :: Proxy v))
-
--- | Check that only 'Attribute's are members of 'a'.
-type family OnlyAttributes a :: Bool where
-    OnlyAttributes (Attribute n v) = 'True
-    OnlyAttributes (a :# b)        = OnlyAttributes a && OnlyAttributes b
-    OnlyAttributes a               = 'False
-
--- | Assert that 'Attribute's in 'a', are uniquely identified.
-type family UniqueAttributes a :: Constraint where
-    UniqueAttributes a =
-        If (IsSet (AttributeNames a)) (() :: Constraint)
-           (TypeError
-               ('Text "All Key and Attribute names must be unique:"
-                ':$$: 'ShowType a))
-
--- | Assert that 'Attribute' references in 'a', exist in schema 's'.
-type family HasAttributes s a :: Constraint where
-    HasAttributes s a =
-        -- Remove all of the schema 's' attributes from 'a':
-        HasAttributes' s (Difference (AttributeNames a) (AttributeNames s))
-
-type family HasAttributes' s a :: Constraint where
-    HasAttributes' s '[] = ()
-    HasAttributes' s  a  =
-        TypeError ('Text "Keys or Attributes referenced by the names:"
-                   ':$$: 'ShowType a
-                   ':$$: 'Text "Are not defined in the schema:"
-                   ':$$: 'ShowType s)
-
--- | Obtain all key and attribute names.
-type family AttributeNames a :: [Symbol] where
-    AttributeNames (PartitionKey      n h) = '[n]
-    AttributeNames (SortKey           n r) = '[n]
-    AttributeNames (Attribute         n v) = '[n]
-    AttributeNames (IndexPartitionKey n)   = '[n]
-    AttributeNames (IndexSortKey      n)   = '[n]
-    AttributeNames (a :# b)                =
-        AttributeNames a :++ AttributeNames b
-    AttributeNames _                       = '[]
-
-type instance Cmp (a :: Symbol) (b :: Symbol) = CmpSymbol a b
-
--- | Check that 'a' is a set containing no duplicates.
-type family IsSet a :: Bool where
-    IsSet a = Sort a == Nub (Sort a)

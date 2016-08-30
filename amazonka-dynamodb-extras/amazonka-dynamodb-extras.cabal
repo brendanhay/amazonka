@@ -29,16 +29,17 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.DynamoDB.Mapper
-        , Network.AWS.DynamoDB.Mapper.Item
-        , Network.AWS.DynamoDB.Mapper.Value
-        , Network.AWS.DynamoDB.Mapper.Value.Unsafe
+          Network.AWS.DynamoDB.Item
+        , Network.AWS.DynamoDB.Value
+        , Network.AWS.DynamoDB.Value.Unsafe
 
         , Network.AWS.DynamoDB.Schema
         , Network.AWS.DynamoDB.Schema.Attribute
         , Network.AWS.DynamoDB.Schema.Index
+        , Network.AWS.DynamoDB.Schema.Invariant
         , Network.AWS.DynamoDB.Schema.Key
         , Network.AWS.DynamoDB.Schema.Serializer
+        , Network.AWS.DynamoDB.Schema.Stream
         , Network.AWS.DynamoDB.Schema.Table
         , Network.AWS.DynamoDB.Schema.Throughput
         , Network.AWS.DynamoDB.Schema.Types
@@ -48,7 +49,7 @@ library
         , amazonka             == 1.4.3.*
         , amazonka-core        == 1.4.3.*
         , amazonka-dynamodb    == 1.4.3.*
-        , base                 >= 4.7 && < 5
+        , base                 >= 4.9 && < 5
         , bytestring           >= 0.9
         , case-insensitive     >= 1.2
         , containers

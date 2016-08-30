@@ -1,11 +1,11 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE UndecidableInstances #-}
-
-{-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE DataKinds                 #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE FlexibleInstances         #-}
+{-# LANGUAGE PolyKinds                 #-}
+{-# LANGUAGE ScopedTypeVariables       #-}
+{-# LANGUAGE TypeFamilies              #-}
+{-# LANGUAGE TypeOperators             #-}
+{-# LANGUAGE UndecidableInstances      #-}
 
 module Network.AWS.DynamoDB.Schema.Serializer where
 
@@ -15,66 +15,23 @@ import Data.Text           (Text)
 
 import GHC.TypeLits
 
-import Network.AWS.DynamoDB (ProjectionType (..), StreamViewType (..))
-
-import Network.AWS.DynamoDB.Mapper.Item
-import Network.AWS.DynamoDB.Mapper.Value
+import Network.AWS.DynamoDB.Item
 import Network.AWS.DynamoDB.Schema.Types
+import Network.AWS.DynamoDB.Value
 
 import qualified Data.HashMap.Strict as HashMap
 
-import Data.ByteString (ByteString)
-import Data.Void
+infixr 8 :*:
 
-type Example =
-    Table "credentials"
-        ( PartitionKey "name"     Text
-       :# SortKey      "version"  Integer
-       :# Attribute    "revision" ByteString
-       :# Attribute    "contents" Int
-        )
+-- | A deserialized product.
+data a :*: b = a :*: b
+    deriving (Show)
 
-        ( Throughput (ReadCapacity 1) (WriteCapacity 1)
+serialize :: DynamoSerializer a => Proxy a -> Serialized a
+serialize p = getSerializer p mempty
 
-       :# Stream 'SVTKeysOnly
-
-       :# GlobalSecondaryIndex "revision"
-             ( IndexPartitionKey "name"
-            :# IndexSortKey      "revision"
-            :# Throughput (ReadCapacity 1) (WriteCapacity 1)
-            :# Project 'All
-             )
-
-       :# LocalSecondaryIndex "version"
-             ( IndexSortKey "contents"
-            :# Project 'KeysOnly
-             )
-        )
-
-example :: Proxy Example
-example = Proxy
-
-data Credentials = Credentials
-    { _name     :: Text
-    , _version  :: Integer
-    , _revision :: ByteString
-    , _contents :: ByteString
-    }
-
-instance DynamoItem Credentials where
-    -- toItem Credentials{..} =
-    --     serialize example mempty _name _version _revision _contents
-
-    -- fromItem = fmap unpack . deserialize example
-    --    where
-    --      -- This pattern match on ':*:' only exists because of the
-    --      -- current lack of a more familiar 'Applicative' interface:
-    --      unpack ( _name
-    --           :*: _version
-    --           :*: _revision
-    --           :*: _contents
-    --             ) = Credentials{..}
-
+deserialize :: DynamoSerializer a => Proxy a -> Either ItemError (Deserialized a)
+deserialize p = getDeserializer p mempty
 
 -- Q: how to build a de/serializer for an index?
 -- Q: how to build scan/query/etc based on the schema/index/projections?
@@ -86,85 +43,85 @@ instance DynamoItem Credentials where
 -- A: Type-class invariants are only checked at the top-level instance, ie. for 'Table'.
 
 class DynamoSerializer a where
-    type Serializer   a
-    type Deserializer a
+    type Serialized   a
+    type Deserialized a
 
-    serialize :: Proxy a
-              -> HashMap Text Value
-              -> Serializer a
+    getSerializer :: Proxy a
+                  -> HashMap Text Value
+                  -> Serialized a
 
-    deserialize :: Proxy a
-                -> HashMap Text Value
-                -> Either ItemError (Deserializer a)
+    getDeserializer :: Proxy a
+                    -> HashMap Text Value
+                    -> Either ItemError (Deserialized a)
 
-instance DynamoSerializer s => DynamoSerializer (Table n s o) where
-    type Serializer   (Table n s o) = Serializer   s
-    type Deserializer (Table n s o) = Deserializer s
+instance DynamoSerializer a => DynamoSerializer (Table n a t s is) where
+    type Serialized   (Table n a t s is) = Serialized   a
+    type Deserialized (Table n a t s is) = Deserialized a
 
-    serialize   _ = serialize   (Proxy :: Proxy s)
-    deserialize _ = deserialize (Proxy :: Proxy s)
+    getSerializer   _ = getSerializer   (Proxy :: Proxy a)
+    getDeserializer _ = getDeserializer (Proxy :: Proxy a)
 
-instance ( DynamoSerializer s
+instance ( DynamoSerializer a
          , KnownSymbol      n
          , DynamoValue      h
-         ) => DynamoSerializer (PartitionKey n h :# s) where
-    type Serializer   (PartitionKey n h :# s) = Serializer   (Attribute n h :# s)
-    type Deserializer (PartitionKey n h :# s) = Deserializer (Attribute n h :# s)
+         ) => DynamoSerializer (PartitionKey n h :# a) where
+    type Serialized   (PartitionKey n h :# a) = Serialized   (Attribute n h :# a)
+    type Deserialized (PartitionKey n h :# a) = Deserialized (Attribute n h :# a)
 
-    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n h :# s)) m
-    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n h :# s)) m
+    getSerializer   _ m = getSerializer   (Proxy :: Proxy (Attribute n h :# a)) m
+    getDeserializer _ m = getDeserializer (Proxy :: Proxy (Attribute n h :# a)) m
 
 instance ( KnownSymbol n
          , DynamoValue h
          ) => DynamoSerializer (PartitionKey n h) where
-    type Serializer   (PartitionKey n h) = Serializer   (Attribute n h)
-    type Deserializer (PartitionKey n h) = Deserializer (Attribute n h)
+    type Serialized   (PartitionKey n h) = Serialized   (Attribute n h)
+    type Deserialized (PartitionKey n h) = Deserialized (Attribute n h)
 
-    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n h)) m
-    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n h)) m
+    getSerializer   _ m = getSerializer   (Proxy :: Proxy (Attribute n h)) m
+    getDeserializer _ m = getDeserializer (Proxy :: Proxy (Attribute n h)) m
 
-instance ( DynamoSerializer s
+instance ( DynamoSerializer a
          , KnownSymbol      n
          , DynamoValue      r
-         ) => DynamoSerializer (SortKey n r :# s) where
-    type Serializer   (SortKey n r :# s) = Serializer   (Attribute n r :# s)
-    type Deserializer (SortKey n r :# s) = Deserializer (Attribute n r :# s)
+         ) => DynamoSerializer (SortKey n r :# a) where
+    type Serialized   (SortKey n r :# a) = Serialized   (Attribute n r :# a)
+    type Deserialized (SortKey n r :# a) = Deserialized (Attribute n r :# a)
 
-    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n r :# s)) m
-    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n r :# s)) m
+    getSerializer   _ m = getSerializer   (Proxy :: Proxy (Attribute n r :# a)) m
+    getDeserializer _ m = getDeserializer (Proxy :: Proxy (Attribute n r :# a)) m
 
 instance ( KnownSymbol n
          , DynamoValue r
          ) => DynamoSerializer (SortKey n r) where
-    type Serializer   (SortKey n r) = Serializer   (Attribute n r)
-    type Deserializer (SortKey n r) = Deserializer (Attribute n r)
+    type Serialized   (SortKey n r) = Serialized   (Attribute n r)
+    type Deserialized (SortKey n r) = Deserialized (Attribute n r)
 
-    serialize   _ m = serialize   (Proxy :: Proxy (Attribute n r)) m
-    deserialize _ m = deserialize (Proxy :: Proxy (Attribute n r)) m
+    getSerializer   _ m = getSerializer   (Proxy :: Proxy (Attribute n r)) m
+    getDeserializer _ m = getDeserializer (Proxy :: Proxy (Attribute n r)) m
 
-instance ( DynamoSerializer s
+instance ( DynamoSerializer a
          , KnownSymbol      n
          , DynamoValue      v
-         ) => DynamoSerializer (Attribute n v :# s) where
-    type Serializer   (Attribute n v :# s) = v ->  Serializer   s
-    type Deserializer (Attribute n v :# s) = v :*: Deserializer s
+         ) => DynamoSerializer (Attribute n v :# a) where
+    type Serialized   (Attribute n v :# a) = v ->  Serialized   a
+    type Deserialized (Attribute n v :# a) = v :*: Deserialized a
 
-    serialize _ m =
-          serialize (Proxy :: Proxy s)
-        . serialize (Proxy :: Proxy (Attribute n v)) m
+    getSerializer _ m =
+          getSerializer (Proxy :: Proxy a)
+        . getSerializer (Proxy :: Proxy (Attribute n v)) m
 
-    deserialize _ m =
-        (:*:) <$> deserialize (Proxy :: Proxy (Attribute n v)) m
-              <*> deserialize (Proxy :: Proxy s) m
+    getDeserializer _ m =
+        (:*:) <$> getDeserializer (Proxy :: Proxy (Attribute n v)) m
+              <*> getDeserializer (Proxy :: Proxy a) m
 
 instance ( KnownSymbol n
          , DynamoValue v
          ) => DynamoSerializer (Attribute n v) where
-    type Serializer   (Attribute n v) = v -> HashMap Text Value
-    type Deserializer (Attribute n v) = v
+    type Serialized   (Attribute n v) = v -> HashMap Text Value
+    type Deserialized (Attribute n v) = v
 
-    serialize _ m v =
+    getSerializer _ m v =
         uncurry HashMap.insert (attr (symbolText (Proxy :: Proxy n)) v) m
 
-    deserialize _ =
+    getDeserializer _ =
         parse (symbolText (Proxy :: Proxy n))

@@ -112,8 +112,22 @@ type Example =
 example :: Proxy Example
 example = Proxy
 
--- scan :: Proxy a ->  -> Scan
--- scan = undefined
+-- scan :: Schema -> Maybe IndexName -> [AttributeNames] || Nothing (All) -> Scan
+-- scanfilter
+-- projectionexpression/expressionattributenames,expressionattributevalues
+-- select
+-- filter expressions
+-- pagination
+-- indexname
+-- tablename
 
 -- query :: Proxy a
--- query = undefined
+-- projectionexpression
+-- attributestoget
+-- expressionattributenames
+-- expressionattributevalues
+-- filterexpression
+-- select
+-- keyconditionexpression
+-- indexname
+-- tablename

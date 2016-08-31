@@ -35,6 +35,7 @@ library
 
         , Network.AWS.DynamoDB.Schema
         , Network.AWS.DynamoDB.Schema.Attribute
+        , Network.AWS.DynamoDB.Schema.Expression
         , Network.AWS.DynamoDB.Schema.Index
         , Network.AWS.DynamoDB.Schema.Key
         , Network.AWS.DynamoDB.Schema.Serialize

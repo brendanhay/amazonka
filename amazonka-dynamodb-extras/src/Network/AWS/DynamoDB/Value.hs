@@ -190,7 +190,23 @@ data DynamoType
     | B    -- ^ Binary.
     | SS   -- ^ String Set.
     | S    -- ^ String.
-      deriving (Eq, Show)
+      deriving (Eq)
+
+instance Show DynamoType where
+    show = Text.unpack . toText
+
+instance ToText DynamoType where
+    toText = \case
+        NULL -> "NULL"
+        BOOL -> "BOOL"
+        L    -> "L"
+        M    -> "M"
+        NS   -> "NS"
+        N    -> "N"
+        BS   -> "BS"
+        B    -> "B"
+        SS   -> "SS"
+        S    -> "S"
 
 -- | Determine the populated 'AttributeValue' type.
 getAttributeType :: AttributeValue -> Maybe DynamoType

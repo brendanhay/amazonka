@@ -6,8 +6,6 @@
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-{-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
-
 module Network.AWS.DynamoDB.Schema.Key where
 
 import Data.List.NonEmpty (NonEmpty (..))
@@ -18,8 +16,7 @@ import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 
-import Network.AWS.DynamoDB.Schema.Invariant
-import Network.AWS.DynamoDB.Schema.Types
+import Network.AWS.DynamoDB.Schema.Attribute
 
 import qualified Data.List.NonEmpty as NE
 
@@ -30,47 +27,77 @@ unsafeGetPartitionKey = NE.head . getKeys
 class DynamoKeys a where
     getKeys :: Proxy a -> NonEmpty KeySchemaElement
 
-instance ( UniqueAttributes  a
-         , PartitionKeyOrder a
-         , DynamoKeys        a
-         ) => DynamoKeys (Table n a t s i) where
-    getKeys _ = getKeys (Proxy :: Proxy a)
+instance ( KnownSymbol n
+         ) => DynamoKeys (PartitionKey n) where
+    getKeys _ = singletonKey (Proxy :: Proxy n) Hash
 
 instance ( KnownSymbol n
-         ) => DynamoKeys (PartitionKey n h) where
+         ) => DynamoKeys (PartitionKey n ::: v) where
     getKeys _ = singletonKey (Proxy :: Proxy n) Hash
 
 instance ( KnownSymbol n
          , KnownSymbol n'
-         ) => DynamoKeys (PartitionKey n h :# SortKey n' r) where
+         ) => DynamoKeys (PartitionKey n :# SortKey n') where
     getKeys _ =
            singletonKey (Proxy :: Proxy n)  Hash
         <> singletonKey (Proxy :: Proxy n') Range
 
 instance ( KnownSymbol n
-         ) => DynamoKeys (PartitionKey n h :# Attribute n' v) where
-    getKeys _ =
-         singletonKey (Proxy :: Proxy n) Hash
-
-instance ( KnownSymbol n
          , KnownSymbol n'
-         ) => DynamoKeys (PartitionKey n h :# SortKey n' r :# a) where
+         ) => DynamoKeys (PartitionKey n ::: h :# SortKey n' ::: v) where
     getKeys _ =
            singletonKey (Proxy :: Proxy n)  Hash
         <> singletonKey (Proxy :: Proxy n') Range
 
 instance ( KnownSymbol n
-         ) => DynamoKeys (PartitionKey n h :# Attribute n' v :# a) where
+         ) => DynamoKeys (PartitionKey n :# Attribute n') where
     getKeys _ =
          singletonKey (Proxy :: Proxy n) Hash
 
 instance ( KnownSymbol n
-         ) => DynamoKeys (SortKey n r) where
-    getKeys _ = singletonKey (Proxy :: Proxy n) Hash
+         ) => DynamoKeys (PartitionKey n ::: h :# Attribute n' ::: v) where
+    getKeys _ =
+         singletonKey (Proxy :: Proxy n) Hash
 
 instance ( KnownSymbol n
-         ) => DynamoKeys (SortKey n r :# a) where
-    getKeys _ = singletonKey (Proxy :: Proxy n)  Hash
+         , KnownSymbol n'
+         ) => DynamoKeys (PartitionKey n :# SortKey n' :# a) where
+    getKeys _ =
+           singletonKey (Proxy :: Proxy n)  Hash
+        <> singletonKey (Proxy :: Proxy n') Range
+
+instance ( KnownSymbol n
+         , KnownSymbol n'
+         ) => DynamoKeys (PartitionKey n ::: h :# SortKey n' ::: r :# a) where
+    getKeys _ =
+           singletonKey (Proxy :: Proxy n)  Hash
+        <> singletonKey (Proxy :: Proxy n') Range
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (PartitionKey n :# Attribute n' :# a) where
+    getKeys _ =
+         singletonKey (Proxy :: Proxy n) Hash
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (PartitionKey n ::: h :# Attribute n' ::: v :# a) where
+    getKeys _ =
+         singletonKey (Proxy :: Proxy n) Hash
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (SortKey n) where
+    getKeys _ = singletonKey (Proxy :: Proxy n) Range
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (SortKey n ::: r) where
+    getKeys _ = singletonKey (Proxy :: Proxy n) Range
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (SortKey n :# a) where
+    getKeys _ = singletonKey (Proxy :: Proxy n) Range
+
+instance ( KnownSymbol n
+         ) => DynamoKeys (SortKey n ::: r :# a) where
+    getKeys _ = singletonKey (Proxy :: Proxy n) Range
 
 singletonKey :: KnownSymbol n => Proxy n -> KeyType -> NonEmpty KeySchemaElement
-singletonKey p = pure . keySchemaElement (symbolText p)
+singletonKey p = pure . keySchemaElement (symbolToText p)

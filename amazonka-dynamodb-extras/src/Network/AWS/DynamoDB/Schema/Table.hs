@@ -1,14 +1,16 @@
+{-# LANGUAGE DataKinds            #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
+
+{-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
 module Network.AWS.DynamoDB.Schema.Table
     ( diffSchema
     , diffDescription
 
     , Table
-    , getTableName
     , DynamoTable (..)
 
     , CreateTable
@@ -20,7 +22,7 @@ module Network.AWS.DynamoDB.Schema.Table
 
     ) where
 
-import Control.Lens (view, (.~), (?~))
+import Control.Lens ((.~), (?~))
 
 import Data.Foldable (toList)
 import Data.Function ((&))
@@ -36,12 +38,29 @@ import Network.AWS.DynamoDB.Schema.Index
 import Network.AWS.DynamoDB.Schema.Key
 import Network.AWS.DynamoDB.Schema.Stream
 import Network.AWS.DynamoDB.Schema.Throughput
-import Network.AWS.DynamoDB.Schema.Types
+import Network.AWS.DynamoDB.Schema.Serialize
+
+-- | A DynamoDB table schema.
+--
+-- The kinds of the parameters are:
+--
+--    * The 'Symbol' table name.
+--    * An attribute schema defined using the desired 'AttributeKind's. ':#' can be used for composition.
+--    * The provisioned throughput specified by 'ThroughputKind'.
+--    * The streaming specification settings specified by 'StreamingKind'.
+--    * An optionally empty list of indexes defined using  'SecondaryIndexKind'.
+--
+data Table
+    (name       :: Symbol)
+    (attributes :: AttributeKind)
+    (throughput :: ThroughputKind)
+    (streaming  :: StreamingKind)
+    (indexes    :: [SecondaryIndexKind])
 
 -- Note: Think of naming consistency 'get*' vs 'schema*' etc.
 
-getTableName :: DynamoTable a => Proxy a -> Text
-getTableName = view ctTableName . getCreateTable
+-- getTableName :: DynamoTable a => Proxy a -> Text
+-- getTableName = view ctTableName . getCreateTable
 
 -- create :: DynamoTable a => Proxy a -> CreateTable
 -- create = getCreateTable
@@ -74,6 +93,9 @@ diffDescription = undefined
 --     new = getCreateTable b
 
 class DynamoTable a where
+    -- | Get the DynamoDB table name.
+    getTableName   :: Proxy a -> Text
+
     -- | Get the DynamoDB 'CreateTable' configuration.
     getCreateTable :: Proxy a -> CreateTable
 
@@ -85,12 +107,42 @@ instance ( Table n a t s is ~ b
          , DynamoIndexes    b
          , KnownSymbol      n
          ) => DynamoTable (Table n a t s is) where
+    getTableName   _ = symbolToText (Proxy :: Proxy n)
     getCreateTable _ =
         let p = Proxy :: Proxy b in
-        createTable (symbolText (Proxy :: Proxy n))
+        createTable (getTableName p)
            (getKeys p)
            (getThroughput p)
                 & ctStreamSpecification    ?~ getStreaming     p
                 & ctAttributeDefinitions   .~ toList (getAttributes p)
                 & ctGlobalSecondaryIndexes .~ getGlobalIndexes p
                 & ctLocalSecondaryIndexes  .~ getLocalIndexes  p
+
+instance ( UniqueAttributes a
+         , DynamoAttributes a
+         ) => DynamoAttributes (Table n a t s i) where
+    getAttributes _ = getAttributes (Proxy :: Proxy a)
+
+instance ( UniqueAttributes  a
+         , PartitionKeyOrder a
+         , DynamoKeys        a
+         ) => DynamoKeys (Table n a t s i) where
+    getKeys _ = getKeys (Proxy :: Proxy a)
+
+instance DynamoThroughput t => DynamoThroughput (Table n a t s is) where
+    getThroughput _ = getThroughput (Proxy :: Proxy t)
+
+instance DynamoStreaming s => DynamoStreaming (Table n a t s is) where
+    getStreaming _ = getStreaming (Proxy :: Proxy s)
+
+instance ( DynamoIndexes (Schema a i)
+         ) => DynamoIndexes (Table n a t s i) where
+    getGlobalIndexes _ = getGlobalIndexes (Proxy :: Proxy (Schema a i))
+    getLocalIndexes  _ = getLocalIndexes  (Proxy :: Proxy (Schema a i))
+
+instance DynamoSerializer a => DynamoSerializer (Table n a t s is) where
+    type Serialized   (Table n a t s is) = Serialized   a
+    type Deserialized (Table n a t s is) = Deserialized a
+
+    getSerializer   _ = getSerializer   (Proxy :: Proxy a)
+    getDeserializer _ = getDeserializer (Proxy :: Proxy a)

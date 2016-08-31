@@ -36,13 +36,11 @@ library
         , Network.AWS.DynamoDB.Schema
         , Network.AWS.DynamoDB.Schema.Attribute
         , Network.AWS.DynamoDB.Schema.Index
-        , Network.AWS.DynamoDB.Schema.Invariant
         , Network.AWS.DynamoDB.Schema.Key
-        , Network.AWS.DynamoDB.Schema.Serializer
+        , Network.AWS.DynamoDB.Schema.Serialize
         , Network.AWS.DynamoDB.Schema.Stream
         , Network.AWS.DynamoDB.Schema.Table
         , Network.AWS.DynamoDB.Schema.Throughput
-        , Network.AWS.DynamoDB.Schema.Types
 
     build-depends:
           aeson                >= 0.8

@@ -8,17 +8,23 @@
 
 {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
-module Network.AWS.DynamoDB.Schema.Index where
+module Network.AWS.DynamoDB.Schema.Index
+    ( SecondaryIndexKind (..)
+    , GlobalSecondaryIndex
+    , LocalSecondaryIndex
+
+    , DynamoIndexes (..)
+    ) where
 
 import Control.Lens (view, (?~), (^.))
 
-import Data.Text (Text)
-import Data.Foldable (toList, find)
-import Data.List.NonEmpty (NonEmpty (..))
+import Data.Foldable      (toList, find)
 import Data.Function      ((&))
 import Data.List          ((\\), nub)
+import Data.List.NonEmpty (NonEmpty (..))
 import Data.Proxy         (Proxy (..))
 import Data.Semigroup     ((<>))
+import Data.Text          (Text)
 
 import GHC.TypeLits
 
@@ -26,10 +32,33 @@ import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 
 import Network.AWS.DynamoDB.Schema.Key
 import Network.AWS.DynamoDB.Schema.Throughput
-import Network.AWS.DynamoDB.Schema.Types
-import Network.AWS.DynamoDB.Schema.Invariant
+import Network.AWS.DynamoDB.Schema.Attribute
 
 import qualified Network.AWS.DynamoDB as Dynamo
+
+data SecondaryIndexKind
+    = GlobalSecondaryIndex Symbol AttributeKind ThroughputKind
+    | LocalSecondaryIndex  Symbol AttributeKind
+
+-- | Every global secondary index must have a partition key and can also
+-- have an optional sort key.
+-- The index key schema can be different from the table schema
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
+type GlobalSecondaryIndex = 'GlobalSecondaryIndex
+
+-- <http://docs.aws.amazon.com/amazondynamodb/latt:DynamoAttributesest/APIReference/API_GlobalSecondaryIndex.html#DDB-Type-GlobalSecondaryIndex-KeySchema GlobalSecondaryIndex>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_LocalSecondaryIndex.html#DDB-Type-LocalSecondaryIndex-KeySchema LocalSecondaryIndex>
+
+-- | Every local secondary index must meet the following conditions:
+--
+-- The partition key is the same as that of the source table.
+-- The sort key consists of exactly one scalar attribute.
+-- The sort key of the source table is projected into the index, where it acts as
+-- a non-key attribute.
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html
+type LocalSecondaryIndex = 'LocalSecondaryIndex
 
 class DynamoIndexes a where
     getGlobalIndexes :: Proxy a -> [Dynamo.GlobalSecondaryIndex]
@@ -37,11 +66,6 @@ class DynamoIndexes a where
 
     getGlobalIndexes = const []
     getLocalIndexes  = const []
-
-instance ( DynamoIndexes (Schema a i)
-         ) => DynamoIndexes (Table n a t s i) where
-    getGlobalIndexes _ = getGlobalIndexes (Proxy :: Proxy (Schema a i))
-    getLocalIndexes  _ = getLocalIndexes  (Proxy :: Proxy (Schema a i))
 
 instance DynamoIndexes (Schema s '[])
 
@@ -66,7 +90,7 @@ instance ( UniqueAttributes    a
          ) => DynamoIndexes (Schema s (GlobalSecondaryIndex n a t)) where
     getGlobalIndexes _ =
         pure $ globalSecondaryIndex
-            (symbolText (Proxy :: Proxy n))
+            (symbolToText (Proxy :: Proxy n))
             (getKeys    (Proxy :: Proxy a))
             (project (nonKeyAttributes (Proxy :: Proxy a)))
             (getThroughput (Proxy :: Proxy t))
@@ -81,7 +105,7 @@ instance ( UniqueAttributes    a
          ) => DynamoIndexes (Schema s (LocalSecondaryIndex n a)) where
     getLocalIndexes _ =
         pure $ localSecondaryIndex
-            (symbolText (Proxy :: Proxy n))
+            (symbolToText (Proxy :: Proxy n))
             (getKeys    (Proxy :: Proxy a))
             indexProjection
       where
@@ -107,5 +131,5 @@ nonKeyAttributes :: forall a. (DynamoKeys a, KnownSymbols a)
                  -> [Text]
 nonKeyAttributes _ =
     let attrs = map (^. kseAttributeName) (toList (getKeys (Proxy :: Proxy a)))
-        keys  = symbolTexts (Proxy :: Proxy a)
+        keys  = symbolsToText (Proxy :: Proxy a)
      in attrs \\ keys

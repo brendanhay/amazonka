@@ -41,21 +41,19 @@ module Network.AWS.DynamoDB.Schema
     , Value
     ) where
 
+import Data.ByteString (ByteString)
+import Data.Proxy
+import Data.Text       (Text)
+
+import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
+
 import Network.AWS.DynamoDB.Item
 import Network.AWS.DynamoDB.Value
 
 import Network.AWS.DynamoDB.Schema.Attribute
-import Network.AWS.DynamoDB.Schema.Key
-import Network.AWS.DynamoDB.Schema.Types
-
-import Data.ByteString      (ByteString)
-import Data.Proxy
-import Data.Text            (Text)
-import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
 import Network.AWS.DynamoDB.Schema.Index
 import Network.AWS.DynamoDB.Schema.Key
-import Network.AWS.DynamoDB.Schema.Serializer
+import Network.AWS.DynamoDB.Schema.Serialize
 import Network.AWS.DynamoDB.Schema.Stream
 import Network.AWS.DynamoDB.Schema.Table
 import Network.AWS.DynamoDB.Schema.Throughput
@@ -64,24 +62,23 @@ import Network.AWS.DynamoDB.Schema.Throughput
 @
 type Example =
     Table "credentials"
-        ( PartitionKey "name"     Text
-       :# SortKey      "version"  Integer
-       :# Attribute    "revision" ByteString
-       :# Attribute    "contents" Int
+        ( PartitionKey "name"     ::: Text
+       :# SortKey      "version"  ::: Integer
+       :# Attribute    "revision" ::: ByteString
+       :# Attribute    "contents" ::: Int
         )
 
-        ( Throughput (ReadCapacity 1) (WriteCapacity 1) )
-        ( Streaming 'SVTKeysOnly )
+        (Throughput (ReadCapacity 1) (WriteCapacity 1))
+        (Streaming 'SVTKeysOnly)
 
        '[ GlobalSecondaryIndex "revision"
-             ( IndexPartitionKey "name"
+             ( PartitionKey "name"
             :# IndexSortKey      "revision"
-             )
-             ( Throughput (ReadCapacity 1) (WriteCapacity 1) )
+             ) (Throughput (ReadCapacity 1) (WriteCapacity 1))
 
         , LocalSecondaryIndex "version"
-             ( IndexSortKey   "contents"
-            :# IndexAttribute "name"
+             ( SortKey   "contents"
+            :# Attribute "name"
              )
         ]
 
@@ -92,26 +89,31 @@ example = Proxy
 
 type Example =
     Table "credentials"
-        ( PartitionKey "name"     Text
-       :# SortKey      "version"  Integer
-       :# Attribute    "revision" ByteString
-       :# Attribute    "contents" Integer
+        ( PartitionKey "name"     ::: ByteString
+       :# SortKey      "version"  ::: Text
+       :# Attribute    "revision" ::: Integer
+       :# Attribute    "contents" ::: Integer
         )
 
-        ( Throughput (ReadCapacity 1) (WriteCapacity 1) )
-        ( Streaming 'SVTKeysOnly )
+        (Throughput (ReadCapacity 1) (WriteCapacity 1))
+        (Streaming 'SVTKeysOnly)
 
        '[ GlobalSecondaryIndex "revision"
-             ( IndexPartitionKey "name"
-            :# IndexSortKey      "revision"
-             )
-             ( Throughput (ReadCapacity 1) (WriteCapacity 1) )
+             ( PartitionKey "name"
+            :# SortKey      "revision"
+             ) (Throughput (ReadCapacity 1) (WriteCapacity 1))
 
         , LocalSecondaryIndex "version"
-             ( IndexSortKey   "contents"
-            :# IndexAttribute "name"
+             ( SortKey   "contents"
+            :# Attribute "name"
              )
         ]
 
 example :: Proxy Example
 example = Proxy
+
+-- scan :: Proxy a ->  -> Scan
+-- scan = undefined
+
+-- query :: Proxy a
+-- query = undefined

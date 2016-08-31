@@ -8,6 +8,7 @@ module Network.AWS.DynamoDB.Schema.Stream
     ( StreamSpecification
     , StreamViewType  (..)
 
+    , StreamingKind (..)
     , StreamingDisabled
     , Streaming
 
@@ -20,14 +21,20 @@ import Data.Function ((&))
 import Data.Proxy    (Proxy (..))
 
 import Network.AWS.DynamoDB
-import Network.AWS.DynamoDB.Schema.Types
+
+-- |
+--
+-- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html
+data StreamingKind
+    = StreamingDisabled
+    | Streaming StreamViewType
+
+type StreamingDisabled = 'StreamingDisabled
+type Streaming         = 'Streaming
 
 class DynamoStreaming a where
     -- | Get the 'StreamSpecification' describing a table's streaming configuration.
     getStreaming :: Proxy a -> StreamSpecification
-
-instance DynamoStreaming s => DynamoStreaming (Table n a t s is) where
-    getStreaming _ = getStreaming (Proxy :: Proxy s)
 
 instance DynamoStreaming StreamingDisabled where
     getStreaming _ = streaming Nothing

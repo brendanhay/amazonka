@@ -9,7 +9,7 @@ module Network.AWS.DynamoDB.Schema.Expression
     (
     -- * Expressions
       Expression
-    , IsExpression (..)
+    , IsExpression
 
     -- ** Evaluation
     , eval
@@ -18,7 +18,7 @@ module Network.AWS.DynamoDB.Schema.Expression
     , KeyExpression
 
     , partition
-    , partitionAndSort
+    , sort
 
     -- * Conditions
     , Condition
@@ -111,13 +111,14 @@ data Function a where
     Size       :: Path               -> Function Operand
     BeginsWith :: Path -> Text       -> Function Range
 
--- | Represents a conditional sub-expression.
+-- | A conditional sub-expression that can be used in both
+-- 'Expression's and 'KeyExpression's.
 data Condition a where
     Compare  :: Relation a -> Operand -> Operand -> Condition a
     Function :: Function a                       -> Condition a
     Between  :: Operand -> (Operand, Operand)    -> Condition Range
 
--- | Represents an expression that can be 'eval'uated
+-- | A logical expression consisting of conditions and predicates.
 data Expression where
     CondE  :: Condition a                    -> Expression
     InE    :: Operand    -> NonEmpty Operand -> Expression
@@ -148,17 +149,32 @@ instance IsExpression (Condition a) where liftE = CondE
 -- You can optionally narrow the scope of the 'Query' by specifying a sort
 -- key condition.
 --
--- /See:/ 'partition', 'partitionAndSort'.
-newtype KeyExpression = KeyExpression Expression
+-- /See:/ 'partition', 'sort'.
+data KeyExpression a where
+   Partition :: Condition Hash                    -> KeyExpression Hash
+   Sort      :: Condition Hash -> Condition Range -> KeyExpression Range
 
-instance IsExpression KeyExpression where
-    liftE (KeyExpression e) = e
+instance IsExpression (KeyExpression a) where
+    liftE = \case
+        Partition h   -> liftE h
+        Sort      h r -> liftE h <> liftE r
 
-partition :: Condition Hash -> KeyExpression
-partition = KeyExpression . liftE
+-- | Specify the exact partition key.
+--
+-- >>> partition (equals "my-key-name" "bar")
+-- "my-key-name" = :sub
+--
+partition :: Condition Hash -> KeyExpression Hash
+partition = Partition
 
-partitionAndSort :: Condition Hash -> Condition Range -> KeyExpression
-partitionAndSort a b = KeyExpression (liftE a <> liftE b)
+-- | You can narrow the scope of a 'KeyExpression' by specifying a sort key
+-- condition as follows:
+--
+-- >>> partition (equals "partition-key" "foo") `sort` lessThan "sort-key" "123"
+-- "partition-key" = :sub1 AND "sort-key" < :sub2
+--
+sort :: KeyExpression Hash -> Condition Range -> KeyExpression Range
+sort (Partition h) = Sort h
 
 equals :: Operand -> Operand -> Condition Hash
 equals = Compare Equal
@@ -181,21 +197,85 @@ greaterOrEqual = Compare GreaterOrEqual
 between :: Operand -> (Operand, Operand) -> Condition Range
 between = Between
 
+-- | Test the existence of an attribute.
+--
+-- Evaluates to true if the item contains the attribute specified by 'Path'.
+-- For example, to check whether an item in the table has
+-- a side view picture:
+--
+-- >>> exists "Pictures.SideView"
+-- attribute_exists ("Pictures.SideView")
+--
 exists :: Path -> Condition Operand
 exists p = Function (Exists p)
 
+-- | Test the non-existence of an attribute.
+--
+-- Evaluates to true if the attribute specified by 'Path'
+-- does not exist in the item.
+-- For example, to check whether an item has a @Manufacturer@ attribute:
+--
+-- >>> notExists "Manufacturer"
+-- attribute_not_exists ("Manufacturer")
+--
 notExists :: Path -> Condition Operand
 notExists p = Function (NotExists p)
 
+-- | Test if the attribute is of the specified 'DynamoType'.
+--
+-- Evaluates to true if the attribute at the specified path is of a particular
+-- data type. For example, to check whether the @FiveStar@ attribute is
+-- of type @L@ (list):
+--
+-- >>> isType "ProductReviews.FiveStar" L
+-- attribute_type ("ProductReviews.FiveStar", :sub)
+--
 isType :: Path -> DynamoType -> Condition Operand
 isType p t = Function (IsType p t)
 
+-- | Return a number representing an attribute's size.
+--
+-- The following are valid data types for use with size:
+--
+-- * If the attribute is of type 'S' (string), size returns the length of the string.
+--
+-- * If the attribute is of type 'B' (binary), size returns the number of bytes in the attribute value.
+--
+-- * If the attribute is a Set data type, size returns the number of elements in the set.
+--
+-- * If the attribute is of type 'L' (list) or 'M' (map), size returns the number of child elements.
+--
 size :: Path -> Condition Operand
 size p = Function (Size p)
 
+-- | Test if the attribute contains a particular substring or set element.
+--
+-- Evalutes to true if the attribute specified by path is:
+--
+-- * A string that contains a particular substring.
+--
+-- * A set that contains a particular element within the set.
+--
+-- The path and the operand must be distinct; that is, @contains (a, a)@
+-- will result in an error.
+--
+-- For example, to check whether the Brand string attribute contains
+-- the substring Company:
+--
+-- >>> contains ("Brand", "Company")
+-- contains ("Brand", :sub)
+--
 contains :: Path -> Operand -> Condition Operand
 contains p o = Function (Contains p o)
 
+-- | Test if the attribute begins with a particular substring.
+--
+-- For example, to check whether the first few characters of the front view
+-- picture attribute is URL:
+--
+-- >>> beginsWith ("Pictures.FrontView", "http://")
+-- begins_with ("Pictures.FrontView", :sub)
+--
 beginsWith :: Path -> Text -> Condition Range
 beginsWith p x = Function (BeginsWith p x)
 
@@ -203,17 +283,31 @@ beginsWith p x = Function (BeginsWith p x)
 in_ :: Operand -> NonEmpty Operand -> Expression
 in_ = InE
 
--- | Conjunction.
+-- | Logical conjunction, where the resulting expression is true if both
+-- sub-expressions are true.
+--
+-- >>> equals "a" "b" `and` greater "c" "d"
+-- "a" = "b" AND "c" > "d"
 --
 -- /See:/ '<>', 'mappend'.
 and :: (IsExpression a, IsExpression b) => a -> b -> Expression
 and a b = AndE (liftE a) (liftE b)
 
--- | Disjunction.
+-- | Logical disjunction, where the resulting expression is true if either
+-- sub-expression is true.
+--
+-- >>> equals "a" "b" `or` equals "c" "d"
+-- "a" = "b" OR "c" = "d"
+--
 or :: (IsExpression a, IsExpression b) => a -> b -> Expression
 or a b = OrE (liftE a) (liftE b)
 
--- | Negation.
+-- | Logical negation, where the resulting expression is true if
+-- the sub-expression is false, and false if the sub-expression is true.
+--
+-- >>> not (equals "a" "b")
+-- NOT "a" = "b"
+--
 not :: IsExpression a => a -> Expression
 not = NotE . liftE
 
@@ -232,6 +326,19 @@ not = NotE . liftE
 -- and
 -- or
 -- @
+--
+-- To demonstrate the fixities outlined above without the use of 'parens',
+-- suppose that conditions a and b are true, and that condition c is false. The
+-- following expression will evaluate to true:
+--
+-- >>> a `or` b `and` c
+-- a OR b AND c
+--
+-- However, if you enclose a condition in parentheses, it will be evaluated first.
+-- For example, the following evaluates to false:
+--
+-- >>> (a `or` b) `and` c
+-- (a OR b) AND c
 --
 parens :: IsExpression a => a -> Expression
 parens = ParenE . liftE

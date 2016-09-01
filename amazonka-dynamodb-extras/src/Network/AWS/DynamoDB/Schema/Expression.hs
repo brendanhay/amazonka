@@ -8,17 +8,11 @@
 module Network.AWS.DynamoDB.Schema.Expression
     (
     -- * Expressions
-      Expression
-    , IsExpression
-
-    -- ** Evaluation
-    , eval
-
-    -- ** Key Expressions
-    , KeyExpression
-
+      KeyExpression
     , partition
     , sort
+
+    , Expression
 
     -- * Conditions
     , Condition
@@ -32,9 +26,8 @@ module Network.AWS.DynamoDB.Schema.Expression
     , lessOrEqual
     , greater
     , greaterOrEqual
-    , between
 
-    -- ** Functions
+    -- ** Path Functions
     , exists
     , notExists
     , isType
@@ -42,8 +35,11 @@ module Network.AWS.DynamoDB.Schema.Expression
     , contains
     , beginsWith
 
-    -- ** Combinators
+    -- ** Ranges and Membership
+    , between
     , in_
+
+    -- ** Logical Combinators
     , and
     , or
     , not
@@ -52,6 +48,10 @@ module Network.AWS.DynamoDB.Schema.Expression
     -- * Operands
     , Path         (..)
     , Operand      (..)
+
+    -- * Evaluation
+    , IsExpression
+    , eval
     ) where
 
 import Data.Foldable          (toList)
@@ -118,7 +118,9 @@ data Condition a where
     Function :: Function a                       -> Condition a
     Between  :: Operand -> (Operand, Operand)    -> Condition Range
 
--- | A logical expression consisting of conditions and predicates.
+-- | A logical expression consisting of sub-expressions and conditions
+-- that can be used as part of a filter expression for 'Query' and 'Scan'
+-- operations.
 data Expression where
     CondE  :: Condition a                    -> Expression
     InE    :: Operand    -> NonEmpty Operand -> Expression
@@ -143,7 +145,7 @@ class IsExpression a where
 instance IsExpression Expression    where liftE = id
 instance IsExpression (Condition a) where liftE = CondE
 
--- | An opaque expression which can be used as a condition expression
+-- | An expression which can be used as a condition expression
 -- for 'Query' requests to provide a specific value for the partition key.
 --
 -- You can optionally narrow the scope of the 'Query' by specifying a sort
@@ -194,6 +196,16 @@ greater = Compare Greater
 greaterOrEqual :: Operand -> Operand -> Condition Range
 greaterOrEqual = Compare GreaterOrEqual
 
+-- | Test the if an attribute is within the specified range.
+--
+-- For example:
+--
+-- >>> between a (b, c)
+-- a BETWEEN b AND c
+--
+-- Which results in true if @a@ is greater than or equal to @b@, and less than
+-- or equal to @c@.
+--
 between :: Operand -> (Operand, Operand) -> Condition Range
 between = Between
 
@@ -279,7 +291,15 @@ contains p o = Function (Contains p o)
 beginsWith :: Path -> Text -> Condition Range
 beginsWith p x = Function (BeginsWith p x)
 
--- | Test that the operand is an element of a set, @x ∈ xs@.
+-- | Test that operand is a member of the specified set, @x ∈ xs@.
+--
+-- Evalutes to true if the operand is equal to any value in the set. For example:
+--
+-- >>> in_ "a" (pure "b" <> pure "a")
+-- "a" IN ("b", "a")
+--
+-- Will result in true.
+--
 in_ :: Operand -> NonEmpty Operand -> Expression
 in_ = InE
 

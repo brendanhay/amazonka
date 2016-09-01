@@ -1,17 +1,62 @@
-{-# LANGUAGE DeriveFoldable             #-}
-{-# LANGUAGE DeriveFunctor              #-}
-{-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE PolyKinds                  #-}
 
-module Network.AWS.DynamoDB.Schema.Expression where
-    -- (
+module Network.AWS.DynamoDB.Schema.Expression
+    (
+    -- * Expressions
+      Expression
+    , IsExpression (..)
 
-    -- ) where
+    -- ** Evaluation
+    , eval
 
+    -- ** Key Expressions
+    , KeyExpression
+
+    , partition
+    , partitionAndSort
+
+    -- * Conditions
+    , Condition
+    , Hash
+    , Range
+
+    -- ** Relational Equality
+    , equals
+    , notEquals
+    , less
+    , lessOrEqual
+    , greater
+    , greaterOrEqual
+    , between
+
+    -- ** Functions
+    , exists
+    , notExists
+    , isType
+    , size
+    , contains
+    , beginsWith
+
+    -- ** Combinators
+    , in_
+    , and
+    , or
+    , not
+    , parens
+
+    -- * Operands
+    , Path         (..)
+    , Operand      (..)
+    ) where
+
+import Data.Foldable          (toList)
 import Data.List              (intersperse)
+import Data.List.NonEmpty     (NonEmpty (..))
 import Data.Monoid            (Monoid (..))
 import Data.Semigroup         (Semigroup (..))
 import Data.String
@@ -19,16 +64,11 @@ import Data.Text              (Text)
 import Data.Text.Lazy.Builder (Builder)
 
 import Network.AWS.Data.Text
-import Network.AWS.DynamoDB       ()
 import Network.AWS.DynamoDB.Value (DynamoType)
 
 import qualified Data.Text.Lazy.Builder as Build
 
 import Prelude hiding (and, not, or)
-
--- FilterExpression
-
--- KeyConditionExpression
 
 newtype Path = Path Text
     deriving (Eq, Ord, Show, IsString, ToText)
@@ -40,6 +80,7 @@ data Operand
     | DocumentPath  Path
       deriving (Eq, Ord, Show)
 
+-- | Instantiates to a safe document 'Path'.
 instance IsString Operand where
     fromString = DocumentPath . fromString
 
@@ -48,151 +89,266 @@ instance ToText Operand where
         AttributeName t -> t
         DocumentPath  p -> toText p
 
-data Comparator
-    = Equal            -- ^ a =  b — true if a is equal to b
-    | NotEqual         -- ^ a <> b — true if a is not equal to b
-    | LessThan          -- ^ a <  b — true if a is less than b
-    | LessThanEqual    -- ^ a <= b — true if a is less than or equal to b
-    | GreaterThan       -- ^ a >  b — true if a is greater than b
-    | GreaterThanEqual -- ^ a >= b — true if a is greater than or equal to b
-      deriving (Eq, Ord, Show)
+-- | Denotes a valid condition for hash types such as partition keys.
+data Hash
 
-instance ToText Comparator where
-    toText = \case
-        Equal            -> "="
-        NotEqual         -> "<>"
-        LessThan         -> "<"
-        LessThanEqual    -> "<="
-        GreaterThan      -> ">"
-        GreaterThanEqual -> ">="
+-- | Denotes a valid condition for range types such as sort keys.
+data Range
 
-data Function
-    = Exists     Path
-    | NotExists  Path
-    | TypeOf     Path !DynamoType
-    | BeginsWith Path Text
-    | Contains   Path Operand
-    | Size       Path
-      deriving (Eq, Show)
+data Relation a where
+    Equal          :: Relation Hash
+    NotEqual       :: Relation Operand
+    Less           :: Relation Range
+    LessOrEqual    :: Relation Range
+    Greater        :: Relation Range
+    GreaterOrEqual :: Relation Range
 
-data ConditionF a
-    = CompareF  !Comparator Operand Operand
-    | BetweenF  Operand Operand Operand
-    | InF       Operand [Operand]
-    | FunctionF Function
-    | AndF      a a
-    | OrF       a a
-    | NotF      a
-    | EmptyF
-      deriving (Functor, Foldable, Traversable)
+data Function a where
+    Exists     :: Path               -> Function Operand
+    NotExists  :: Path               -> Function Operand
+    IsType     :: Path -> DynamoType -> Function Operand
+    Contains   :: Path -> Operand    -> Function Operand
+    Size       :: Path               -> Function Operand
+    BeginsWith :: Path -> Text       -> Function Range
 
-newtype Fix f = Fix { outF :: f (Fix f) }
+-- | Represents a conditional sub-expression.
+data Condition a where
+    Compare  :: Relation a -> Operand -> Operand -> Condition a
+    Function :: Function a                       -> Condition a
+    Between  :: Operand -> (Operand, Operand)    -> Condition Range
 
-inF :: f (Fix f) -> Fix f
-inF = Fix
+-- | Represents an expression that can be 'eval'uated
+data Expression where
+    CondE  :: Condition a                    -> Expression
+    InE    :: Operand    -> NonEmpty Operand -> Expression
+    AndE   :: Expression -> Expression       -> Expression
+    OrE    :: Expression -> Expression       -> Expression
+    NotE   :: Expression                     -> Expression
+    ParenE :: Expression                     -> Expression
+    EmptyE ::                                   Expression
 
-type ConditionExpression = Fix ConditionF
+-- | The associative operation corresponds to conjunction using 'and'.
+instance Semigroup Expression
 
-instance Semigroup ConditionExpression where
-    (<>) = and
+-- | The identity of an expression will 'eval'uate to 'Nothing',
+instance Monoid Expression where
+    mempty  = EmptyE
+    mappend = AndE
 
-instance Monoid ConditionExpression where
-    mempty  = inF EmptyF
-    mappend = (<>)
+class IsExpression a where
+    -- | Lift a condition or sub-expression to a top-level expression.
+    liftE :: a -> Expression
 
-equals :: Operand -> Operand -> ConditionExpression
-equals a b = inF $ CompareF Equal a b
+instance IsExpression Expression    where liftE = id
+instance IsExpression (Condition a) where liftE = CondE
 
-notEquals :: Operand -> Operand -> ConditionExpression
-notEquals a b = inF $ CompareF NotEqual a b
+-- | An opaque expression which can be used as a condition expression
+-- for 'Query' requests to provide a specific value for the partition key.
+--
+-- You can optionally narrow the scope of the 'Query' by specifying a sort
+-- key condition.
+--
+-- /See:/ 'partition', 'partitionAndSort'.
+newtype KeyExpression = KeyExpression Expression
 
-lessThan :: Operand -> Operand -> ConditionExpression
-lessThan a b = inF $ CompareF LessThan a b
+instance IsExpression KeyExpression where
+    liftE (KeyExpression e) = e
 
-lessThanEqual :: Operand -> Operand -> ConditionExpression
-lessThanEqual a b = inF $ CompareF LessThanEqual a b
+partition :: Condition Hash -> KeyExpression
+partition = KeyExpression . liftE
 
-greaterThan :: Operand -> Operand -> ConditionExpression
-greaterThan a b = inF $ CompareF GreaterThan a b
+partitionAndSort :: Condition Hash -> Condition Range -> KeyExpression
+partitionAndSort a b = KeyExpression (liftE a <> liftE b)
 
-greaterThanEqual :: Operand -> Operand -> ConditionExpression
-greaterThanEqual a b = inF $ CompareF GreaterThanEqual a b
+equals :: Operand -> Operand -> Condition Hash
+equals = Compare Equal
 
-exists :: Path -> ConditionExpression
-exists p = inF $ FunctionF (Exists p)
+notEquals :: Operand -> Operand -> Condition Operand
+notEquals = Compare NotEqual
 
-notExists :: Path -> ConditionExpression
-notExists p = inF $ FunctionF (NotExists p)
+less :: Operand -> Operand -> Condition Range
+less = Compare Less
 
-typeOf :: Path -> DynamoType -> ConditionExpression
-typeOf p t = inF $ FunctionF (TypeOf p t)
+lessOrEqual :: Operand -> Operand -> Condition Range
+lessOrEqual = Compare LessOrEqual
 
--- attribute substrings etc.
--- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html#Expressions.SpecifyingConditions.ConditionExpressions
-beginsWith :: Path -> Text -> ConditionExpression
-beginsWith p x = inF $ FunctionF (BeginsWith p x)
+greater :: Operand -> Operand -> Condition Range
+greater = Compare Greater
 
--- The path and the operand must be distinct; that is, contains (a, a) will return an error.
-contains :: Path -> Operand -> ConditionExpression
-contains p o = inF $ FunctionF (Contains p o)
+greaterOrEqual :: Operand -> Operand -> Condition Range
+greaterOrEqual = Compare GreaterOrEqual
 
-size :: Path -> ConditionExpression
-size p = inF $ FunctionF (Size p)
+between :: Operand -> (Operand, Operand) -> Condition Range
+between = Between
 
-and :: ConditionExpression -> ConditionExpression -> ConditionExpression
-and a b = inF $ AndF a b
+exists :: Path -> Condition Operand
+exists p = Function (Exists p)
 
-or :: ConditionExpression -> ConditionExpression -> ConditionExpression
-or a b = inF $ OrF a b
+notExists :: Path -> Condition Operand
+notExists p = Function (NotExists p)
 
-not :: ConditionExpression -> ConditionExpression
-not = inF . NotF
+isType :: Path -> DynamoType -> Condition Operand
+isType p t = Function (IsType p t)
 
-eval :: ConditionExpression -> Builder
-eval = go . outF
-  where
-    go = \case
-        CompareF op a b ->
-            build a >>> build op >>> build b
+size :: Path -> Condition Operand
+size p = Function (Size p)
 
-        BetweenF a b and' ->
-            build a >>> "BETWEEN" >>> build b >>> "AND" >>> build and'
+contains :: Path -> Operand -> Condition Operand
+contains p o = Function (Contains p o)
 
-        InF a xs ->
-            build a >>> "IN" >>>
-                parens (mconcat (intersperse ", " (map build xs)))
+beginsWith :: Path -> Text -> Condition Range
+beginsWith p x = Function (BeginsWith p x)
 
-        FunctionF fun ->
-            case fun of
-                Exists     p   ->
-                   "attribute_exists"     >>> parens (build p)
-                NotExists  p   ->
-                   "attribute_not_exists" >>> parens (build p)
-                TypeOf     p t ->
-                   "attribute_type"       >>> parens (build p <> "," >>> build t)
-                BeginsWith p x ->
-                   "begins_with"          >>> parens (build p <> "," >>> build x)
-                Contains   p o ->
-                   "contains"             >>> parens (build p <> "," >>> build o)
-                Size       p   ->
-                   "size"                 >>> parens (build p)
+-- | Test that the operand is an element of a set, @x ∈ xs@.
+in_ :: Operand -> NonEmpty Operand -> Expression
+in_ = InE
 
-        AndF a b -> parens (eval a) >>> "AND" >>> parens (eval b)
-        OrF  a b -> parens (eval a) >>> "OR"  >>> parens (eval b)
-        NotF a   -> "NOT" >>> parens (eval a)
+-- | Conjunction.
+--
+-- /See:/ '<>', 'mappend'.
+and :: (IsExpression a, IsExpression b) => a -> b -> Expression
+and a b = AndE (liftE a) (liftE b)
 
-        EmptyF   -> mempty
+-- | Disjunction.
+or :: (IsExpression a, IsExpression b) => a -> b -> Expression
+or a b = OrE (liftE a) (liftE b)
 
--- Type class to get a lens to set/get the field of supported requests?
--- expression :: ConditionExpression a -> Text
+-- | Negation.
+not :: IsExpression a => a -> Expression
+not = NotE . liftE
+
+-- | Explicitly enclose an expression in parentheses.
+--
+-- /Note:/ Typically you won't need to use this, and should rely on fixity
+-- delcarations corresponding to the following order of expressions:
+--
+-- @
+-- equals notEquals less lessOrEqual greater greaterOrEqual
+-- in_
+-- between
+-- exists notExists isType contains size beginsWith
+-- parens
+-- not
+-- and
+-- or
+-- @
+--
+parens :: IsExpression a => a -> Expression
+parens = ParenE . liftE
+
+-- Precedence
+
+infixl 9 `equals`, `notEquals`, `less`, `lessOrEqual`, `greater`, `greaterOrEqual`
+infixl 8 `in_`
+infixl 7 `between`
+infixl 6 `exists`, `notExists`, `isType`, `contains`, `size`, `beginsWith`
+infixl 5 `parens`
+infixl 4 `not`
+infixl 3 `and`
+infixl 2 `or`
+
+eval :: IsExpression a => a -> Maybe Builder
+eval = expression . liftE
+
+{-
+@
+expression ::=
+      condition
+    | operand IN ( operand (',' operand (, ...) ))
+    | expression AND expression
+    | expression OR expression
+    | NOT expression
+    | ( expression )
+    | ''
+@
+-}
+expression :: Expression -> Maybe Builder
+expression = \case
+    CondE  c    -> Just (condition c)
+    InE    x xs -> Just (build x >>> "IN" >>> tupled (fmap build xs))
+
+    AndE EmptyE b -> expression b
+    AndE a EmptyE -> expression a
+    AndE a b      -> do
+        x <- expression a
+        y <- expression b
+        pure $! paren (x >>> "AND" >>> y)
+
+    OrE a b -> do
+        x <- expression a
+        y <- expression b
+        pure $! paren (x >>> "OR" >>> y)
+
+    NotE   a -> ("NOT" >>>) <$> expression a
+    ParenE a -> paren <$> expression a
+
+    EmptyE   -> Nothing
+
+{-
+@
+condition ::=
+      operand comparator operand
+    | operand BETWEEN operand AND operand
+    | function
+@
+-}
+condition :: Condition a -> Builder
+condition = \case
+    Compare  r a b    -> build a >>> comparator r >>> build b
+    Function f        -> function f
+    Between  a (b, c) -> build a >>> "BETWEEN" >>> build b >>> "AND" >>> build c
+
+{-
+@
+function ::=
+      attribute_exists (path)
+    | attribute_not_exists (path)
+    | attribute_type (path, type)
+    | begins_with (path, substr)
+    | contains (path, operand)
+    | size (path)
+@
+-}
+function :: Function a -> Builder
+function = \case
+    Exists     p   -> "attribute_exists"     >>> paren (build p)
+    NotExists  p   -> "attribute_not_exists" >>> paren (build p)
+    Size       p   -> "size"                 >>> paren (build p)
+    IsType     p t -> "attribute_type"       >>> tupled [build p, build t]
+    Contains   p o -> "contains"             >>> tupled [build p, build o]
+    BeginsWith p x -> "begins_with"          >>> tupled [build p, build x]
+
+{-
+@
+comparator ::=
+      =
+    | <>
+    | <
+    | <=
+    | >
+    | >=
+@
+-}
+comparator :: Relation a -> Builder
+comparator = \case
+    Equal          -> "="
+    NotEqual       -> "<>"
+    Less           -> "<"
+    LessOrEqual    -> "<="
+    Greater        -> ">"
+    GreaterOrEqual -> ">="
 
 (>>>) :: Builder -> Builder -> Builder
 (>>>) a b = a <> " " <> b
 {-# INLINE (>>>) #-}
 
-parens :: Builder -> Builder
-parens x = "(" <> x <> ")"
-{-# INLINE parens #-}
+paren :: Builder -> Builder
+paren a = "(" <> a <> ")"
+{-# INLINE paren #-}
+
+tupled :: Foldable f => f Builder -> Builder
+tupled = paren . mconcat . intersperse ", " . toList
+{-# INLINE tupled #-}
 
 build :: ToText a => a -> Builder
 build = Build.fromText . toText

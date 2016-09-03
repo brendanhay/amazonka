@@ -65,6 +65,7 @@ import           Control.Concurrent
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Maybe  (MaybeT (..))
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.Char                  (isSpace)
@@ -78,7 +79,7 @@ import           Network.AWS.Data.Log
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Lens           (catching, catching_, exception,
                                              throwingM, _IOException)
-import           Network.AWS.Lens           (Prism', prism)
+import           Network.AWS.Lens           (Prism', prism, (<&>))
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
@@ -98,9 +99,13 @@ envSecretKey = "AWS_SECRET_ACCESS_KEY"
 envSessionToken :: Text -- ^ AWS_SESSION_TOKEN
 envSessionToken = "AWS_SESSION_TOKEN"
 
--- | Credentials profile environment variable.
+-- | Default credentials profile environment variable.
 envProfile :: Text -- ^ AWS_PROFILE
 envProfile = "AWS_PROFILE"
+
+-- | Default region environment variable
+envRegion :: Text -- ^ AWS_REGION
+envRegion = "AWS_REGION"
 
 -- | Credentials INI file access key variable.
 credAccessKey :: Text -- ^ aws_access_key_id
@@ -159,9 +164,9 @@ data Credentials
     | FromSession AccessKey SecretKey SessionToken
       -- ^ Explicit access key, secret key and a session token. See 'fromSession'.
 
-    | FromEnv Text Text (Maybe Text)
-      -- ^ Lookup specific environment variables for access key, secret key, and
-      -- an optional session token respectively.
+    | FromEnv Text Text (Maybe Text) (Maybe Text)
+      -- ^ Lookup specific environment variables for access key, secret key,
+      -- an optional session token, and an optional region, respectively.
 
     | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
@@ -175,11 +180,12 @@ data Credentials
     | Discover
       -- ^ Attempt credentials discovery via the following steps:
       --
-      -- * Read the 'envAccessKey' and 'envSecretKey' from the environment if they are set.
+      -- * Read the 'envAccessKey', 'envSecretKey', and 'envRegion' from the environment if they are set.
       --
       -- * Read the credentials file if 'credFile' exists.
       --
-      -- * Retrieve the first available IAM profile if running on EC2.
+      -- * Retrieve the first available IAM profile and read
+      -- the 'Region' from the instance identity document, if running on EC2.
       --
       -- An attempt is made to resolve <http://instance-data> rather than directly
       -- retrieving <http://169.254.169.254> for IAM profile information.
@@ -189,12 +195,18 @@ data Credentials
 
 instance ToLog Credentials where
     build = \case
-        FromKeys    a _   -> "FromKeys "    <> build a <> " ****"
-        FromSession a _ _ -> "FromSession " <> build a <> " **** ****"
-        FromEnv     a s t -> "FromEnv "     <> build a <> " " <> build s <> " " <> m t
-        FromProfile n     -> "FromProfile " <> build n
-        FromFile    n f   -> "FromFile "    <> build n <> " " <> build f
-        Discover          -> "Discover"
+        FromKeys    a _ ->
+            "FromKeys " <> build a <> " ****"
+        FromSession a _ _ ->
+            "FromSession " <> build a <> " **** ****"
+        FromEnv     a s t r ->
+            "FromEnv " <> build a <> " " <> build s <> " " <> m t <> " " <> m r
+        FromProfile n ->
+            "FromProfile " <> build n
+        FromFile    n f ->
+            "FromFile " <> build n <> " " <> build f
+        Discover ->
+            "Discover"
       where
         m (Just x) = "(Just " <> build x <> ")"
         m Nothing  = "Nothing"
@@ -206,6 +218,7 @@ instance Show Credentials where
 data AuthError
     = RetrievalError   HttpException
     | MissingEnvError  Text
+    | InvalidEnvError  Text
     | MissingFileError FilePath
     | InvalidFileError Text
     | InvalidIAMError  Text
@@ -217,6 +230,7 @@ instance ToLog AuthError where
     build = \case
         RetrievalError   e -> build e
         MissingEnvError  e -> "[MissingEnvError]  { message = " <> build e <> "}"
+        InvalidEnvError  e -> "[InvalidEnvError]  { message = " <> build e <> "}"
         MissingFileError f -> "[MissingFileError] { path = "    <> build f <> "}"
         InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
         InvalidIAMError  e -> "[InvalidIAMError]  { message = " <> build e <> "}"
@@ -230,8 +244,11 @@ class AsAuthError a where
     -- the local metadata endpoint.
     _RetrievalError   :: Prism' a HttpException
 
-    -- | An error occured looking up a named environment variable.
+    -- | The named environment variable was not found.
     _MissingEnvError  :: Prism' a Text
+
+    -- | An error occured parsing named environment variable's value.
+    _InvalidEnvError  :: Prism' a Text
 
     -- | The specified credentials file could not be found.
     _MissingFileError :: Prism' a FilePath
@@ -244,6 +261,7 @@ class AsAuthError a where
 
     _RetrievalError   = _AuthError . _RetrievalError
     _MissingEnvError  = _AuthError . _MissingEnvError
+    _InvalidEnvError  = _AuthError . _InvalidEnvError
     _MissingFileError = _AuthError . _MissingFileError
     _InvalidFileError = _AuthError . _InvalidFileError
     _InvalidIAMError  = _AuthError . _InvalidIAMError
@@ -260,6 +278,10 @@ instance AsAuthError AuthError where
 
     _MissingEnvError = prism MissingEnvError $ \case
         MissingEnvError  e -> Right e
+        x                  -> Left  x
+
+    _InvalidEnvError = prism InvalidEnvError $ \case
+        InvalidEnvError  e -> Right e
         x                  -> Left  x
 
     _MissingFileError = prism MissingFileError $ \case
@@ -281,14 +303,14 @@ instance AsAuthError AuthError where
 getAuth :: (Applicative m, MonadIO m, MonadCatch m)
         => Manager
         -> Credentials
-        -> m Auth
+        -> m (Auth, Maybe Region)
 getAuth m = \case
-    FromKeys    a s   -> return (fromKeys a s)
-    FromSession a s t -> return (fromSession a s t)
-    FromEnv     a s t -> fromEnvKeys a s t
-    FromProfile n     -> fromProfileName m n
-    FromFile    n f   -> fromFilePath n f
-    Discover          ->
+    FromKeys    a s     -> return (fromKeys a s, Nothing)
+    FromSession a s t   -> return (fromSession a s t, Nothing)
+    FromEnv     a s t r -> fromEnvKeys a s t r
+    FromProfile n       -> fromProfileName m n
+    FromFile    n f     -> fromFilePath n f
+    Discover            ->
         -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
         -- let both errors propagate.
         catching_ _MissingEnvError fromEnv $
@@ -309,8 +331,13 @@ getAuth m = \case
 -- cannot be read, but not if the session token is absent.
 --
 -- /See:/ 'envAccessKey', 'envSecretKey', 'envSessionToken'
-fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m Auth
-fromEnv = fromEnvKeys envAccessKey envSecretKey (Just envSessionToken)
+fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m (Auth, Maybe Region)
+fromEnv =
+    fromEnvKeys
+        envAccessKey
+        envSecretKey
+        (Just envSessionToken)
+        (Just envRegion)
 
 -- | Retrieve access key, secret key and a session token from specific
 -- environment variables.
@@ -321,13 +348,26 @@ fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
             => Text       -- ^ Access key environment variable.
             -> Text       -- ^ Secret key environment variable.
             -> Maybe Text -- ^ Session token environment variable.
-            -> m Auth
-fromEnvKeys a s t = fmap Auth $ AuthEnv
-    <$> (AccessKey         <$> req a)
-    <*> (SecretKey         <$> req s)
-    <*> (fmap SessionToken <$> opt t)
-    <*> pure Nothing
+            -> Maybe Text -- ^ Region environment variable.
+            -> m (Auth, Maybe Region)
+fromEnvKeys access secret session region =
+    (,) <$> fmap Auth lookupKeys <*> lookupRegion
   where
+    lookupKeys = AuthEnv
+        <$> (req access  <&> AccessKey . BS8.pack)
+        <*> (req secret  <&> SecretKey . BS8.pack)
+        <*> (opt session <&> fmap (SessionToken . BS8.pack))
+        <*> return Nothing
+
+    lookupRegion :: (MonadIO m, MonadThrow m) => m (Maybe Region)
+    lookupRegion = runMaybeT $ do
+        k <- MaybeT (return region)
+        r <- MaybeT (opt region)
+        case fromText (Text.pack r) of
+            Right x -> return x
+            Left  e -> throwM . InvalidEnvError $
+                "Unable to parse ENV variable: " <> k <> ", " <> Text.pack e
+
     req k = do
         m <- opt (Just k)
         maybe (throwM . MissingEnvError $ "Unable to read ENV variable: " <> k)
@@ -335,7 +375,7 @@ fromEnvKeys a s t = fmap Auth $ AuthEnv
               m
 
     opt Nothing  = return Nothing
-    opt (Just k) = fmap BS8.pack <$> liftIO (lookupEnv (Text.unpack k))
+    opt (Just k) = liftIO (lookupEnv (Text.unpack k))
 
 -- | Loads the default @credentials@ INI file using the default profile name.
 --
@@ -343,12 +383,11 @@ fromEnvKeys a s t = fmap Auth $ AuthEnv
 -- if an error occurs during parsing.
 --
 -- /See:/ 'credProfile', 'credFile', and 'envProfile'
-fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m Auth
+fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m (Auth, Maybe Region)
 fromFile = do
-  f <- credFile
-  ep <- liftIO (lookupEnv (Text.unpack envProfile))
-  let p = Text.pack (fromMaybe (Text.unpack credProfile) ep)
-  fromFilePath p f
+  p <- liftIO (lookupEnv (Text.unpack envProfile))
+  fromFilePath (maybe credProfile Text.pack p)
+      =<< credFile
 
 -- | Retrieve the access, secret and session token from the specified section
 -- (profile) in a valid INI @credentials@ file.
@@ -358,17 +397,18 @@ fromFile = do
 fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
              => Text
              -> FilePath
-             -> m Auth
+             -> m (Auth, Maybe Region)
 fromFilePath n f = do
     p <- liftIO (doesFileExist f)
     unless p $
         throwM (MissingFileError f)
-    i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
-    fmap Auth $ AuthEnv
-        <$> (AccessKey         <$> req credAccessKey    i)
-        <*> (SecretKey         <$> req credSecretKey    i)
-        <*> (fmap SessionToken <$> opt credSessionToken i)
-        <*> pure Nothing
+    ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
+    env <- AuthEnv
+        <$> (req credAccessKey    ini <&> AccessKey)
+        <*> (req credSecretKey    ini <&> SecretKey)
+        <*> (opt credSessionToken ini <&> fmap SessionToken)
+        <*> return Nothing
+    return (Auth env, Nothing)
   where
     req k i =
         case INI.lookupValue n k i of
@@ -396,7 +436,7 @@ fromFilePath n f = do
 --
 -- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
 -- the default IAM profile cannot be read.
-fromProfile :: (MonadIO m, MonadCatch m) => Manager -> m Auth
+fromProfile :: (MonadIO m, MonadCatch m) => Manager -> m (Auth, Maybe Region)
 fromProfile m = do
     ls <- try $ metadata m (IAM (SecurityCredentials Nothing))
     case BS8.lines `liftM` ls of
@@ -419,21 +459,34 @@ fromProfile m = do
 --
 -- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
 -- the specified IAM profile cannot be read.
-fromProfileName :: (MonadIO m, MonadCatch m) => Manager -> Text -> m Auth
-fromProfileName m name = auth >>= start
+fromProfileName :: (MonadIO m, MonadCatch m)
+                => Manager
+                -> Text
+                -> m (Auth, Maybe Region)
+fromProfileName m name = do
+    auth <- getCredentials >>= start
+    reg  <- getRegion
+    return (auth, Just reg)
   where
-    auth :: (MonadIO m, MonadCatch m) => m AuthEnv
-    auth = do
-        bs <- try $ metadata m (IAM . SecurityCredentials $ Just name)
-        case bs of
-            Left  e -> throwM (RetrievalError e)
-            Right x ->
-                either (throwM . invalidErr)
-                       return
-                       (eitherDecode' (LBS8.fromStrict x))
+    getCredentials :: (MonadIO m, MonadCatch m) => m AuthEnv
+    getCredentials =
+        try (metadata m (IAM . SecurityCredentials $ Just name)) >>=
+            handleErr (eitherDecode' . LBS8.fromStrict) invalidIAMErr
 
-    invalidErr = InvalidIAMError
+    getRegion :: (MonadIO m, MonadCatch m) => m Region
+    getRegion =
+       try (identity m) >>=
+           handleErr (fmap _region) invalidIdentityErr
+
+    handleErr _ _ (Left  e) = throwM (RetrievalError e)
+    handleErr f g (Right x) = either (throwM . g) return (f x)
+
+    invalidIAMErr = InvalidIAMError
         . mappend ("Error parsing IAM profile '" <> name <> "' ")
+        . Text.pack
+
+    invalidIdentityErr = InvalidIAMError
+        . mappend "Error parsing Instance Identity Document "
         . Text.pack
 
     start :: MonadIO m => AuthEnv -> m Auth
@@ -455,8 +508,8 @@ fromProfileName m name = auth >>= start
     loop :: Weak (IORef AuthEnv) -> ThreadId -> UTCTime -> IO ()
     loop w !p !x = do
         diff x <$> getCurrentTime >>= threadDelay
-        ea <- try auth
-        case ea of
+        env <- try getCredentials
+        case env of
             Left   e -> throwTo p (RetrievalError e)
             Right !a -> do
                  mr <- deRefWeak w

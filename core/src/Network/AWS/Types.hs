@@ -618,8 +618,10 @@ instance ToByteString Region
 instance ToLog Region where
     build = build . toBS
 
-instance FromXML Region where parseXML = parseXMLText "Region"
-instance ToXML   Region where toXML    = toXMLText
+instance FromXML  Region where parseXML  = parseXMLText "Region"
+instance ToXML    Region where toXML     = toXMLText
+instance FromJSON Region where parseJSON = parseJSONText "Region"
+instance ToJSON   Region where toJSON    = toJSONText
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int

@@ -430,7 +430,7 @@ use non-SSL localhost as the endpoint:
 
 The updated configuration is then passed to the 'Env' during setup:
 
-> e <- newEnv Frankfurt Discover <&> configure dynamo
+> e <- newEnv Discover <&> configure dynamo
 > runResourceT . runAWS e $ do
 >     -- This S3 operation will communicate with remote AWS APIs.
 >     x <- send listBuckets
@@ -444,7 +444,7 @@ The updated configuration is then passed to the 'Env' during setup:
 You can also scope the 'Endpoint' modifications (or any other 'Service' configuration)
 to specific actions:
 
-> e <- newEnv Ireland Discover
+> e <- newEnv Discover
 > runResourceT . runAWS e $ do
 >     -- Service operations here will communicate with AWS, even DynamoDB.
 >     x <- send listTables

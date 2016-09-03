@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE ViewPatterns  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
@@ -37,6 +38,7 @@ module Network.AWS.Env
     , retryConnectionFailure
     ) where
 
+import Data.Maybe (fromMaybe)
 import           Control.Applicative
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
@@ -170,6 +172,11 @@ timeout s = local (override (serviceTimeout ?~ s))
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
 -- Lenses from 'HasEnv' can be used to further configure the resulting 'Env'.
 --
+-- /Since:/ @1.5.0@ - The region is now retrieved from the @AWS_REGION@ environment
+-- variable (identical to official SDKs), or defaults to @us-east-1@.
+-- You can override the 'Env' region by using 'envRegion', or the current operation's
+-- region by using 'within'.
+--
 -- /Since:/ @1.3.6@ - The default logic for retrying 'HttpException's now uses
 -- 'retryConnectionFailure' to retry specific connection failure conditions up to 3 times.
 -- Previously only service specific errors were automatically retried.
@@ -180,25 +187,29 @@ timeout s = local (override (serviceTimeout ?~ s))
 --
 -- /See:/ 'newEnvWith'.
 newEnv :: (Applicative m, MonadIO m, MonadCatch m)
-       => Region      -- ^ Initial region to operate in.
-       -> Credentials -- ^ Credential discovery mechanism.
+       => Credentials -- ^ Credential discovery mechanism.
        -> m Env
-newEnv r c = liftIO (newManager conduitManagerSettings)
-    >>= newEnvWith r c Nothing
+newEnv c =
+    liftIO (newManager conduitManagerSettings)
+        >>= newEnvWith c Nothing
 
 -- | /See:/ 'newEnv'
 --
+-- The 'Maybe' 'Bool' parameter is used by the EC2 instance check. By passing a
+-- value of 'Nothing', the check will be performed. 'Just' 'True' would cause
+-- the check to be skipped and the host treated as an EC2 instance.
+--
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
-           => Region               -- ^ Initial region to operate in.
-           -> Credentials          -- ^ Credential discovery mechanism.
-           -> Maybe Bool           -- ^ Dictate if the instance is running on EC2. (Preload memoisation.)
+           => Credentials -- ^ Credential discovery mechanism.
+           -> Maybe Bool  -- ^ Preload the EC2 instance check.
            -> Manager
            -> m Env
-newEnvWith r c p m =
+newEnvWith c p m = do
+    (a, fromMaybe NorthVirginia -> r) <- getAuth m c
     Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m
         <$> liftIO (newIORef p)
-        <*> getAuth m c
+        <*> pure a
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.

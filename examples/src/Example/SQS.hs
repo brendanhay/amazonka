@@ -21,16 +21,17 @@ import qualified Data.Text.IO            as Text
 import           Network.AWS.SQS
 import           System.IO
 
-roundTrip :: Text   -- ^ Name of the queue to create.
+roundTrip :: Region -- ^ Region to operate in.
+          -> Text   -- ^ Name of the queue to create.
           -> [Text] -- ^ Contents of the messages to send.
           -> IO ()
-roundTrip name xs = do
+roundTrip r name xs = do
     lgr <- newLogger Debug stdout
-    env <- newEnv Ireland Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr
 
     let say = liftIO . Text.putStrLn
 
-    runResourceT . runAWST env $ do
+    runResourceT . runAWST env . within r $ do
         void $ send (createQueue name)
         url <- view gqursQueueURL <$> send (getQueueURL name)
         say  $ "Received Queue URL: " <> url

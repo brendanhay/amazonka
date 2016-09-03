@@ -30,11 +30,11 @@ printTables :: Region     -- ^ Region to operate in.
             -> IO ()
 printTables r s h p = do
     lgr <- newLogger Debug stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr
 
     let dynamo = setEndpoint s h p dynamoDB
 
-    runResourceT . runAWST env $ do
+    runResourceT . runAWST env . within r $ do
         -- Scoping the endpoint change using 'reconfigure':
         reconfigure dynamo $ do
             say $ "Listing all tables in region " <> toText r

@@ -320,20 +320,26 @@ import System.IO
 
 example :: IO PutObjectResponse
 example = do
-    -- A new 'Logger' to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
+    -- A new 'Logger' to replace the default noop logger is created, with the logger
+    -- set to print debug information and errors to stdout:
     lgr  <- newLogger Debug stdout
 
-    -- To specify configuration preferences, 'newEnv' is used to create a new configuration environment.
-    -- The 'Region' denotes the AWS region requests will be performed against, and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
-    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM Profile:
-    env  <- newEnv Frankfurt Discover
+    -- To specify configuration preferences, 'newEnv' is used to create a new
+    -- configuration environment. The 'Credentials' parameter is used to specify
+    -- mechanism for supplying or retrieving AuthN/AuthZ information.
+    -- In this case 'Discover' will cause the library to try a number of options such
+    -- as default environment variables, or an instance's IAM Profile and identity document:
+    env  <- newEnv Discover
 
     -- The payload (and hash) for the S3 object is retrieved from a 'FilePath':
     body <- sourceFileIO "local\/path\/to\/object-payload"
 
-    -- We now run the 'AWS' computation with the overriden logger, performing the 'PutObject' request:
-    runResourceT . runAWS (env & envLogger .~ lgr) $
-        send (putObject "bucket-name" "object-key" body)
+    -- We now run the 'AWS' computation with the overriden logger, performing the
+    -- 'PutObject' request. 'envRegion' or 'within' can be used to set the
+    -- remote AWS 'Region':
+    runResourceT $ runAWS (env & envLogger .~ lgr) $
+        within Frankfurt $
+            send (putObject "bucket-name" "object-key" body)
 @
 -}
 

@@ -24,9 +24,11 @@ instance Semigroup Path where
 
 name :: Text -> Path
 name = Name
+{-# INLINE name #-}
 
 index :: Path -> Natural -> Path
 index = Index
+{-# INLINE index #-}
 
 -- A top-level attribute name, such as Id, Title, Description or ProductCategory
 -- A document path that references a nested attribute
@@ -38,14 +40,21 @@ data Operand
 class IsOperand a where
     liftO :: a -> Operand
 
-instance IsOperand Operand where liftO = id
-instance IsOperand Path    where liftO = Path
+instance IsOperand Operand where
+    liftO = id
+    {-# INLINE liftO #-}
+
+instance IsOperand Path where
+    liftO = Path
+    {-# INLINE liftO #-}
 
 instance {-# OVERLAPPABLE #-} DynamoValue a => IsOperand a where
     liftO = Value . toValue
+    {-# INLINE liftO #-}
 
 verbatim :: Text -> Operand
 verbatim = Verbatim
+{-# INLINE verbatim #-}
 
 -- | Denotes a valid condition for hash types such as partition keys.
 data Hash
@@ -111,8 +120,13 @@ class IsExpression a where
     -- | Lift a condition or sub-expression to a top-level expression.
     liftE :: a -> Expression
 
-instance IsExpression Expression    where liftE = id
-instance IsExpression (Condition a) where liftE = CondE
+instance IsExpression Expression where
+    liftE = id
+    {-# INLINE liftE #-}
+
+instance IsExpression (Condition a) where
+    liftE = CondE
+    {-# INLINE liftE #-}
 
 -- | A restricted expression that can be used as a @KeyConditionExpression@
 -- for 'Query' requests, to provide a specific value the partition key must

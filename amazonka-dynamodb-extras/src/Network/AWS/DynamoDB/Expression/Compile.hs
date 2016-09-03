@@ -37,16 +37,18 @@ type Compile = MaybeT
 -- or a rendered DynamoDB compatible textual representation.
 compile :: IsExpression a => a -> Maybe (Builder, NamesAndValues)
 compile = run (mempty, mempty) . expression . liftE
+{-# INLINE compile #-}
 
 -- | Evaluation doesn't do any placeholder subsitutition.
 evaluate :: IsExpression a => a -> Maybe (Builder, Values)
 evaluate = run mempty . expression . liftE
+{-# INLINE evaluate #-}
 
 run :: s -> Compile (State s) a -> Maybe (a, s)
 run s = go . flip runState s . runMaybeT
   where
     go (mb, r) = (,r) <$> mb
-
+{-# INLINE run #-}
 
 {-|
 @

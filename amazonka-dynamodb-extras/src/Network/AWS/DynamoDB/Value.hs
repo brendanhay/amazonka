@@ -119,12 +119,12 @@ import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
 import Foreign.Storable (Storable)
 
-import Network.AWS.Data.Base64            (Base64 (..))
-import Network.AWS.Data.Map               (toMap)
-import Network.AWS.Data.Text              (FromText (..), ToText (..), fromText)
-import Network.AWS.DynamoDB               hiding (ScalarAttributeType (..))
-import Network.AWS.DynamoDB.Types.Product (AttributeValue (..))
-import Network.AWS.DynamoDB.Value.Unsafe
+import Network.AWS.Data.Base64             (Base64 (..))
+import Network.AWS.Data.Map                (toMap)
+import Network.AWS.Data.Text
+import Network.AWS.DynamoDB                hiding (ScalarAttributeType (..))
+import Network.AWS.DynamoDB.Types.Product  (AttributeValue (..))
+import Network.AWS.DynamoDB.Value.Internal
 
 import Numeric.Natural (Natural)
 
@@ -208,6 +208,24 @@ instance ToText DynamoType where
         SS   -> "SS"
         S    -> "S"
 
+instance FromText DynamoType where
+    parser = takeText >>= \case
+        "NULL" -> pure NULL
+        "BOOL" -> pure BOOL
+        "L"    -> pure L
+        "M"    -> pure M
+        "NS"   -> pure NS
+        "N"    -> pure N
+        "BS"   -> pure BS
+        "B"    -> pure B
+        "SS"   -> pure SS
+        "S"    -> pure S
+        e      -> fromTextError ("Unable to parse DynamoType from: " <> e)
+
+instance DynamoValue DynamoType where
+    toValue   = setString . toText
+    fromValue = getString >=> parseText S
+
 -- | Determine the populated 'AttributeValue' type.
 getAttributeType :: AttributeValue -> Maybe DynamoType
 getAttributeType AttributeValue'{..}
@@ -247,7 +265,7 @@ isAttributeValue AttributeValue'{..} =
 
 newValue :: AttributeValue -> Either ValueError Value
 newValue v
-    | isAttributeValue v = Right (Value v)
+    | isAttributeValue v = Right (UnsafeValue v)
     | otherwise          = Left  (malformedError v)
 
 getValueType :: Value -> DynamoType
@@ -660,22 +678,22 @@ instance DynamoValue JS.Value where
         t    -> Left (ParseFailure t "Unable to parse unsupported JSON value.")
 
 setNull :: Bool -> Value
-setNull x = Value (set avNULL (Just x) attributeValue)
+setNull x = UnsafeValue (set avNULL (Just x) attributeValue)
 
 getNull :: Value -> Either ValueError Bool
-getNull (Value v) = note (mismatchError NULL v) (_avNULL v)
+getNull (UnsafeValue v) = note (mismatchError NULL v) (_avNULL v)
 
 setBool :: Bool -> Value
-setBool x = Value (set avBOOL (Just x) attributeValue)
+setBool x = UnsafeValue (set avBOOL (Just x) attributeValue)
 
 getBool :: Value -> Either ValueError Bool
-getBool (Value v) = note (mismatchError BOOL v) (_avBOOL v)
+getBool (UnsafeValue v) = note (mismatchError BOOL v) (_avBOOL v)
 
 setList :: [Value] -> Value
-setList x = Value (set avL (coerce x) attributeValue)
+setList x = UnsafeValue (set avL (coerce x) attributeValue)
 
 getList :: Value -> Either ValueError [Value]
-getList (Value v) = note (mismatchError L v) (coerce <$> _avL v)
+getList (UnsafeValue v) = note (mismatchError L v) (coerce <$> _avL v)
 
 setVector :: (VectorGen.Vector v a, DynamoValue a) => v a -> Value
 setVector = toValue . Vector.toList . Vector.convert
@@ -686,25 +704,25 @@ getVector :: (VectorGen.Vector v a, DynamoValue a)
 getVector = fmap (Vector.convert . Vector.fromList) . fromValue
 
 setMap :: HashMap Text Value -> Value
-setMap x = Value (set avM (coerce x) attributeValue)
+setMap x = UnsafeValue (set avM (coerce x) attributeValue)
 
 getMap :: Value -> Either ValueError (HashMap Text Value)
-getMap (Value v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
+getMap (UnsafeValue v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
 
 setNumberSet :: [Scientific] -> Value
-setNumberSet x = Value (set avNS (map toText x) attributeValue)
+setNumberSet x = UnsafeValue (set avNS (map toText x) attributeValue)
 
 getNumberSet :: Value -> Either ValueError [Scientific]
-getNumberSet (Value v) =
+getNumberSet (UnsafeValue v) =
     note (mismatchError NS v) (_avNS v)
         >>= first (ParseFailure NS . Text.pack)
           . traverse fromText
 
 setNumber :: Scientific -> Value
-setNumber x = Value (set avN (Just (toText x)) attributeValue)
+setNumber x = UnsafeValue (set avN (Just (toText x)) attributeValue)
 
 getNumber :: Value -> Either ValueError Scientific
-getNumber (Value v) =
+getNumber (UnsafeValue v) =
     note (mismatchError N v) (_avN v)
         >>= first (ParseFailure N . Text.pack)
           . fromText
@@ -729,28 +747,28 @@ getIntegral = getNumber >=> first err . Sci.floatingOrInteger
         "Expected integral value, got: " <> toText (r :: Double)
 
 setBinarySet :: [ByteString] -> Value
-setBinarySet x = Value (set avBS x attributeValue)
+setBinarySet x = UnsafeValue (set avBS x attributeValue)
 
 getBinarySet :: Value -> Either ValueError [ByteString]
-getBinarySet (Value v) = note (mismatchError BS v) (coerce (_avBS v))
+getBinarySet (UnsafeValue v) = note (mismatchError BS v) (coerce (_avBS v))
 
 setBinary :: ByteString -> Value
-setBinary x = Value (set avB (Just x) attributeValue)
+setBinary x = UnsafeValue (set avB (Just x) attributeValue)
 
 getBinary :: Value -> Either ValueError ByteString
-getBinary (Value v) = note (mismatchError B v) (coerce (_avB v))
+getBinary (UnsafeValue v) = note (mismatchError B v) (coerce (_avB v))
 
 setStringSet :: [Text] -> Value
-setStringSet x = Value (set avSS x attributeValue)
+setStringSet x = UnsafeValue (set avSS x attributeValue)
 
 getStringSet :: Value -> Either ValueError [Text]
-getStringSet (Value v) = note (mismatchError SS v) (_avSS v)
+getStringSet (UnsafeValue v) = note (mismatchError SS v) (_avSS v)
 
 setString :: Text -> Value
-setString x = Value (set avS (Just x) attributeValue)
+setString x = UnsafeValue (set avS (Just x) attributeValue)
 
 getString :: Value -> Either ValueError Text
-getString (Value v) = note (mismatchError S v) (_avS v)
+getString (UnsafeValue v) = note (mismatchError S v) (_avS v)
 
 note :: e -> Maybe a -> Either e a
 note e Nothing  = Left  e

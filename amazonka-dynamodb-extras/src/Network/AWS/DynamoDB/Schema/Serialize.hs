@@ -71,11 +71,11 @@ instance ( DynamoSerializer a
     type Deserialized (PartitionKey n ::: h :# a) =
          Deserialized (Attribute    n ::: h :# a)
 
-    getSerializer   _ m =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: h :# a)) m
+    getSerializer   _ =
+        getSerializer   (Proxy :: Proxy (Attribute n ::: h :# a))
 
-    getDeserializer _ m =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: h :# a)) m
+    getDeserializer _ =
+        getDeserializer (Proxy :: Proxy (Attribute n ::: h :# a))
 
 instance ( KnownSymbol n
          , DynamoValue h
@@ -86,11 +86,11 @@ instance ( KnownSymbol n
     type Deserialized (PartitionKey n ::: h) =
          Deserialized (Attribute    n ::: h)
 
-    getSerializer   _ m =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: h)) m
+    getSerializer   _ =
+        getSerializer   (Proxy :: Proxy (Attribute n ::: h))
 
-    getDeserializer _ m =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: h)) m
+    getDeserializer _ =
+        getDeserializer (Proxy :: Proxy (Attribute n ::: h))
 
 instance ( DynamoSerializer a
          , KnownSymbol      n
@@ -102,11 +102,11 @@ instance ( DynamoSerializer a
     type Deserialized (SortKey   n ::: r :# a) =
          Deserialized (Attribute n ::: r :# a)
 
-    getSerializer   _ m =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: r :# a)) m
+    getSerializer   _ =
+        getSerializer   (Proxy :: Proxy (Attribute n ::: r :# a))
 
-    getDeserializer _ m =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: r :# a)) m
+    getDeserializer _ =
+        getDeserializer (Proxy :: Proxy (Attribute n ::: r :# a))
 
 instance ( KnownSymbol n
          , DynamoValue r
@@ -117,11 +117,11 @@ instance ( KnownSymbol n
     type Deserialized (SortKey   n ::: r) =
          Deserialized (Attribute n ::: r)
 
-    getSerializer   _ m =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: r)) m
+    getSerializer   _ =
+        getSerializer   (Proxy :: Proxy (Attribute n ::: r))
 
-    getDeserializer _ m =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: r)) m
+    getDeserializer _ =
+        getDeserializer (Proxy :: Proxy (Attribute n ::: r))
 
 instance ( DynamoSerializer a
          , KnownSymbol      n

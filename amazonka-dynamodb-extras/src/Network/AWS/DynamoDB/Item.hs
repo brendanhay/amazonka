@@ -35,7 +35,7 @@ import Data.Typeable       (Typeable)
 import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
 import Network.AWS.DynamoDB.Value
-import Network.AWS.DynamoDB.Value.Unsafe
+import Network.AWS.DynamoDB.Value.Internal
 
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict     as Map

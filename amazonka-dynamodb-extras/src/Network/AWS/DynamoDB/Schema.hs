@@ -52,8 +52,6 @@ import Network.AWS.DynamoDB.Value
 
 import Network.AWS.DynamoDB.Schema.Attribute
 import Network.AWS.DynamoDB.Schema.Index
-import Network.AWS.DynamoDB.Schema.Key
-import Network.AWS.DynamoDB.Schema.Serialize
 import Network.AWS.DynamoDB.Schema.Stream
 import Network.AWS.DynamoDB.Schema.Table
 import Network.AWS.DynamoDB.Schema.Throughput

@@ -31,11 +31,15 @@ library
     exposed-modules:
           Network.AWS.DynamoDB.Item
         , Network.AWS.DynamoDB.Value
-        , Network.AWS.DynamoDB.Value.Unsafe
+        , Network.AWS.DynamoDB.Value.Internal
+
+        , Network.AWS.DynamoDB.Expression
+        , Network.AWS.DynamoDB.Expression.Internal
+        , Network.AWS.DynamoDB.Expression.Placeholder
+        , Network.AWS.DynamoDB.Expression.Compile
 
         , Network.AWS.DynamoDB.Schema
         , Network.AWS.DynamoDB.Schema.Attribute
-        , Network.AWS.DynamoDB.Schema.Expression
         , Network.AWS.DynamoDB.Schema.Index
         , Network.AWS.DynamoDB.Schema.Key
         , Network.AWS.DynamoDB.Schema.Serialize
@@ -61,3 +65,4 @@ library
         , type-level-sets      >= 0.7
         , unordered-containers >= 0.2.5
         , vector
+        , transformers

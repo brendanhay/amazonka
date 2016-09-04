@@ -12,7 +12,7 @@ import Data.Text          (Text)
 
 import Numeric.Natural (Natural)
 
-import Network.AWS.DynamoDB.Value (DynamoType, DynamoValue (..), Value)
+import Network.AWS.DynamoDB.Value (DynamoType, Value)
 
 data Path
     = Name   Text
@@ -33,9 +33,8 @@ index = Index
 -- A top-level attribute name, such as Id, Title, Description or ProductCategory
 -- A document path that references a nested attribute
 data Operand
-    = Verbatim Text
-    | Path     Path
-    | Value    Value
+    = Path  Path
+    | Value Value
 
 class IsOperand a where
     liftO :: a -> Operand
@@ -48,13 +47,9 @@ instance IsOperand Path where
     liftO = Path
     {-# INLINE liftO #-}
 
-instance {-# OVERLAPPABLE #-} DynamoValue a => IsOperand a where
-    liftO = Value . toValue
+instance IsOperand Value where
+    liftO = Value
     {-# INLINE liftO #-}
-
-verbatim :: Text -> Operand
-verbatim = Verbatim
-{-# INLINE verbatim #-}
 
 -- | Denotes a valid condition for hash types such as partition keys.
 data Hash
@@ -134,11 +129,11 @@ instance IsExpression (Condition a) where
 --
 -- /Note:/ Any function signature that has an 'IsExpression' constraint,
 -- accepts a 'KeyExpression' as a parameter.
-data KeyExpression a where
-   Partition :: Condition Hash                    -> KeyExpression Hash
-   Sort      :: Condition Hash -> Condition Range -> KeyExpression Range
+data KeyExpression
+    = Partition (Condition Hash)
+    | Sort      (Condition Hash) (Condition Range)
 
-instance IsExpression (KeyExpression a) where
+instance IsExpression KeyExpression where
     liftE = \case
         Partition h   -> liftE h
         Sort      h r -> liftE h <> liftE r

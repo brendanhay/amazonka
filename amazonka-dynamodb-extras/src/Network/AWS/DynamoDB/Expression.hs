@@ -19,7 +19,8 @@ module Network.AWS.DynamoDB.Expression
     -- * Expressions
     -- $expressions
 
-      Expression
+      IsExpression (..)
+    , Expression
     , Condition
     , Hash
     , Range
@@ -29,7 +30,7 @@ module Network.AWS.DynamoDB.Expression
 
     , KeyExpression
     , partition
-    , sort
+    , partitionFilter
 
     -- * Making Comparisons
     -- $comparators
@@ -64,13 +65,13 @@ module Network.AWS.DynamoDB.Expression
     -- $precedence
 
     -- * Operands
+    , IsOperand    (..)
     , Operand      (..)
 
     -- * Paths
     , Path         (..)
 
     -- * Evaluation
-    , IsExpression (..)
     , compile
     , evaluate
     ) where
@@ -84,24 +85,42 @@ import Network.AWS.DynamoDB.Value               (DynamoType)
 
 import Prelude hiding (compare)
 
--- | Specify the exact partition key.
+-- $setup
+-- >>> import Network.AWS.DynamoDB.Value (DynamoValue (..))
+-- >>> :set -XOverloadedStrings
+-- >>> let eval = maybe mempty fst . evaluate
+
+-- Note about how by default attribute names are substituted for placeholders,
+-- as well as values. Just for the doctests the names are shown.
+
+-- just roll partition/sort into a single additional function.
+-- KeyExpression no longer needs to be a GADT, sort doesn't need to be disambiguated with Data.List
+-- and partition should just take 'text' in reference to a single key, likewise the sort variant.
+
+-- | Specify an exact partition key.
 --
--- >>> partition (equals "my-key-name" "bar")
--- "my-key-name" = :sub
+-- >>> eval $ partition "partition-key" (equals (toValue "bar"))
+-- "partition-key = :v1"
 --
-partition :: Condition Hash -> KeyExpression Hash
-partition = Partition
+partition :: Text                     -- ^ The partition key name.
+          -> (Path -> Condition Hash) -- ^ A partially applied hash condition, such as @equals (toValue "bar")@.
+          -> KeyExpression
+partition h f = Partition (f (name h))
 {-# INLINE partition #-}
 
--- | You can narrow the scope of a 'KeyExpression' by specifying a sort key
--- condition as follows:
+-- | Specify an exact partition key, and narrow the scope
+-- by specifying a sort key condition as follows:
 --
--- >>> partition (equals "partition-key" "foo") `sort` lessThan "sort-key" "123"
--- "partition-key" = :sub1 AND "sort-key" < :sub2
+-- >>> eval $ partitionFilter "partition-key" (equals "foo") "sort-key" (toValue 123)
+-- "(partition-key = :v1 AND sort-key < :v2)"
 --
-sort :: KeyExpression Hash -> Condition Range -> KeyExpression Range
-sort (Partition h) = Sort h
-{-# INLINE sort #-}
+partitionFilter :: Text                      -- ^ The partition key name.
+                -> (Path -> Condition Hash)  -- ^ A partially applied hash condition, such as @equals (toValue "foo")@.
+                -> Text                      -- ^ The sort key name.
+                -> (Path -> Condition Range) -- ^ A partially applied range condition, such as @less (toValue 123)@.
+                -> KeyExpression
+partitionFilter h f r g = Sort (f (name h)) (g (name r))
+{-# INLINE partitionFilter #-}
 
 -- | True if a is equal to b.
 --

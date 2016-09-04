@@ -62,7 +62,19 @@ library
         , tagged               >= 0.8
         , text                 >= 1.1
         , time                 >= 1.4
+        , transformers
         , type-level-sets      >= 0.7
         , unordered-containers >= 0.2.5
         , vector
-        , transformers
+
+test-suite tests
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    build-depends:
+          base
+        , doctest >= 0.8

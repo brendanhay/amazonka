@@ -5,8 +5,13 @@
 {-# LANGUAGE TupleSections     #-}
 
 module Network.AWS.DynamoDB.Expression.Compile
-    ( compile
+    (
+    -- * Compiling Expressions
+      compile
     , evaluate
+
+    -- ** Components
+    , run
 
     , expression
     , condition
@@ -16,8 +21,7 @@ module Network.AWS.DynamoDB.Expression.Compile
     , operand
     ) where
 
-import Control.Monad.Trans.Maybe        (MaybeT (..))
-import Control.Monad.Trans.State.Strict (State, runState)
+import Control.Monad.Trans.Maybe (MaybeT (..))
 
 import Data.Foldable          (toList)
 import Data.List              (intersperse)
@@ -31,21 +35,19 @@ import Network.AWS.DynamoDB.Expression.Placeholder
 
 import qualified Data.Text.Lazy.Builder as Build
 
-type Compile = MaybeT
-
 -- | Compilation of an expression can result in either an empty expression,
 -- or a rendered DynamoDB compatible textual representation.
 compile :: IsExpression a => a -> Maybe (Builder, NamesAndValues)
 compile = run (mempty, mempty) . expression . liftE
 {-# INLINE compile #-}
 
--- | Evaluation doesn't do any placeholder subsitutition.
+-- | Evaluation doesn't perform any attribute name placeholder subsitutition.
 evaluate :: IsExpression a => a -> Maybe (Builder, Values)
 evaluate = run mempty . expression . liftE
 {-# INLINE evaluate #-}
 
-run :: s -> Compile (State s) a -> Maybe (a, s)
-run s = go . flip runState s . runMaybeT
+run :: s -> MaybeT (Substitute s) a -> Maybe (a, s)
+run s = go . substituteAll s . runMaybeT
   where
     go (mb, r) = (,r) <$> mb
 {-# INLINE run #-}
@@ -62,7 +64,7 @@ expression ::=
     | ''
 @
 -}
-expression :: Substitute m => Expression -> Compile m Builder
+expression :: Placeholders m => Expression -> MaybeT m Builder
 expression = \case
     CondE  c -> condition c
     NotE   a -> ("NOT" >>>) <$> expression a
@@ -81,7 +83,7 @@ expression = \case
         y <- expression b
         pure $! parens (x >>> "OR" >>> y)
 
-{-||
+{-|
 @
 condition ::=
       operand comparator operand
@@ -89,7 +91,7 @@ condition ::=
     | function
 @
 -}
-condition :: Substitute m => Condition a -> Compile m Builder
+condition :: Placeholders m => Condition a -> MaybeT m Builder
 condition = \case
     Function f -> function f
 
@@ -120,7 +122,7 @@ function ::=
     | size (path)
 @
 -}
-function :: Substitute m => Function a -> Compile m Builder
+function :: Placeholders m => Function a -> MaybeT m Builder
 function = \case
     Exists     p   -> prefix "attribute_exists"     p Nothing
     NotExists  p   -> prefix "attribute_not_exists" p Nothing
@@ -157,17 +159,16 @@ comparator = \case
     Greater        -> ">"
     GreaterOrEqual -> ">="
 
-path :: Substitute m => Path -> Compile m Builder
+path :: Placeholders m => Path -> MaybeT m Builder
 path = \case
     Name   t   -> substituteName t
     Nested a b -> (\x y -> x <> "." <> y) <$> path a <*> path b
     Index  p i -> flip mappend ("[" <> build i <> "]") <$> path p
 
-operand :: Substitute m => Operand -> Compile m Builder
+operand :: Placeholders m => Operand -> MaybeT m Builder
 operand = \case
-    Verbatim t -> pure (Build.fromText t)
-    Path     p -> path p
-    Value    v -> substituteValue v
+    Path  p -> path p
+    Value v -> substituteValue v
 
 (>>>) :: Builder -> Builder -> Builder
 (>>>) a b = a <> " " <> b

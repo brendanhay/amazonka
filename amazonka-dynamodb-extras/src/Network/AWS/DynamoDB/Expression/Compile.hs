@@ -15,8 +15,6 @@ module Network.AWS.DynamoDB.Expression.Compile
 
     , expression
     , condition
-    , function
-    , comparator
     , path
     , operand
     ) where
@@ -85,90 +83,74 @@ expression = \case
 
 {-|
 @
+relation ::=
+      operand =  operand
+    | operand <> operand
+    | operand <  operand
+    | operand <= operand
+    | operand >  operand
+    | operand >= operand
+
+function ::=
+      attribute_exists     (path)
+    | attribute_not_exists (path)
+    | attribute_type       (path, type)
+    | begins_with          (path, substr)
+    | contains             (path, operand)
+    | size                 (path)
+
 condition ::=
-      operand comparator operand
-    | operand BETWEEN operand AND operand
+      relation
     | function
+    | operand BETWEEN operand AND operand
 @
 -}
 condition :: Placeholders m => Condition a -> MaybeT m Builder
 condition = \case
-    Function f -> function f
+    Equal          a b -> concat3 <$> operand (liftO a) <*> pure "="  <*> operand (liftO b)
+    NotEqual       a b -> concat3 <$> operand (liftO a) <*> pure "<>" <*> operand (liftO b)
+    Less           a b -> concat3 <$> operand (liftO a) <*> pure "<"  <*> operand (liftO b)
+    LessOrEqual    a b -> concat3 <$> operand (liftO a) <*> pure "<=" <*> operand (liftO b)
+    Greater        a b -> concat3 <$> operand (liftO a) <*> pure ">"  <*> operand (liftO b)
+    GreaterOrEqual a b -> concat3 <$> operand (liftO a) <*> pure ">=" <*> operand (liftO b)
 
-    Compare r a b -> do
-        x <- operand a
-        y <- operand b
-        pure $! x >>> comparator r >>> y
+    Exists     p   -> concat2 "attribute_exists"     <$> fmap parens (path p)
+    NotExists  p   -> concat2 "attribute_not_exists" <$> fmap parens (path p)
+    Size       p   -> concat2 "size"                 <$> fmap parens (path p)
+    Contains   p o -> concat2 "contains"             <$> tuple [path p, operand o]
+    IsType     p t -> concat2 "attribute_type"       <$> tuple [path p, substituteValue t]
+    BeginsWith p x -> concat2 "begins_with"          <$> tuple [path p, substituteValue x]
 
-    Between a (b, c) -> do
-        x <- operand a
-        y <- operand b
-        z <- operand c
-        pure$! x >>> "BETWEEN" >>> y >>> "AND" >>> z
-
-    In x xs -> do
-        y  <- operand x
-        ys <- traverse operand xs
-        pure $! y >>> "IN" >>> tupled ys
-
-{-|
-@
-function ::=
-      attribute_exists (path)
-    | attribute_not_exists (path)
-    | attribute_type (path, type)
-    | begins_with (path, substr)
-    | contains (path, operand)
-    | size (path)
-@
--}
-function :: Placeholders m => Function a -> MaybeT m Builder
-function = \case
-    Exists     p   -> prefix "attribute_exists"     p Nothing
-    NotExists  p   -> prefix "attribute_not_exists" p Nothing
-    Size       p   -> prefix "size"                 p Nothing
-    Contains   p o -> prefix "contains"             p . Just =<< operand o
-    IsType     p x -> do
-        y <- substituteValue x
-        prefix "attribute_type" p (Just y)
-    BeginsWith p x -> do
-        y <- substituteValue x
-        prefix "begins_with" p (Just y)
+    Between a (b, c) ->
+        concat5 <$> operand a <*> pure "BETWEEN" <*> operand b <*> pure "AND" <*> operand c
+    In      x xs     ->
+        concat3 <$> operand x <*> pure "IN" <*> fmap tupled (traverse operand xs)
   where
-    prefix n p vs = do
-        v <- path p
-        pure $! n >>> maybe (parens v) (\x -> tupled [v, x]) vs
-
-{-|
-@
-comparator ::=
-      =
-    | <>
-    | <
-    | <=
-    | >
-    | >=
-@
--}
-comparator :: Relation a -> Builder
-comparator = \case
-    Equal          -> "="
-    NotEqual       -> "<>"
-    Less           -> "<"
-    LessOrEqual    -> "<="
-    Greater        -> ">"
-    GreaterOrEqual -> ">="
+    tuple :: Placeholders f => [f Builder] -> f Builder
+    tuple = fmap tupled . traverse id
 
 path :: Placeholders m => Path -> MaybeT m Builder
 path = \case
     Name   t   -> substituteName t
-    Nested a b -> (\x y -> x <> "." <> y) <$> path a <*> path b
+    Nested a b -> concat3 <$> path a <*> pure "." <*> path b
     Index  p i -> flip mappend ("[" <> build i <> "]") <$> path p
 
 operand :: Placeholders m => Operand -> MaybeT m Builder
 operand = \case
     Path  p -> path p
     Value v -> substituteValue v
+
+concat2 :: Builder -> Builder -> Builder
+concat2 = (>>>)
+{-# INLINE concat2 #-}
+
+concat3 :: Builder -> Builder -> Builder -> Builder
+concat3 a b c = a >>> b >>> c
+{-# INLINE concat3 #-}
+
+concat5 :: Builder -> Builder -> Builder -> Builder -> Builder -> Builder
+concat5 a b c d e = a >>> b >>> c >>> d >>> e
+{-# INLINE concat5 #-}
 
 (>>>) :: Builder -> Builder -> Builder
 (>>>) a b = a <> " " <> b

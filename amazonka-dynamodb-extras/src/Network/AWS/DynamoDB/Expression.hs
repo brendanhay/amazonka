@@ -1,4 +1,5 @@
-{-# LANGUAGE GADTs #-}
+{-# LANGUAGE GADTs           #-}
+{-# LANGUAGE PatternSynonyms #-}
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Expression
@@ -35,18 +36,26 @@ module Network.AWS.DynamoDB.Expression
     -- * Making Comparisons
     -- $comparators
 
-    , equals
-    , notEquals
-    , less
-    , lessOrEqual
-    , greater
-    , greaterOrEqual
+    , (#=)
+    , (#<>)
+    , (#<)
+    , (#<=)
+    , (#>)
+    , (#>=)
 
-    -- ** Ranges
-    -- $ranges
+    , (=:)
+    , (<>:)
+    , (<:)
+    , (<=:)
+    , (>:)
+    , (>=:)
 
-    , between
-    , in_
+    , equal
+    , notEqual
+    , lessThan
+    , lessThanOrEqual
+    , greaterThan
+    , greaterThanOrEqual
 
     -- * Functions
     , exists
@@ -55,6 +64,12 @@ module Network.AWS.DynamoDB.Expression
     , size
     , contains
     , beginsWith
+
+    -- * Ranges
+    -- $ranges
+
+    , between
+    , in_
 
     -- * Logical Evaluations
     , and_
@@ -65,6 +80,8 @@ module Network.AWS.DynamoDB.Expression
     -- $precedence
 
     -- * Operands
+    -- $operands
+
     , IsOperand    (..)
     , Operand      (..)
 
@@ -81,12 +98,11 @@ import Data.Text          (Text)
 
 import Network.AWS.DynamoDB.Expression.Compile  (compile, evaluate)
 import Network.AWS.DynamoDB.Expression.Internal
-import Network.AWS.DynamoDB.Value               (DynamoType)
+import Network.AWS.DynamoDB.Value               (DynamoType, DynamoValue (..))
 
 import Prelude hiding (compare)
 
 -- $setup
--- >>> import Network.AWS.DynamoDB.Value (DynamoValue (..))
 -- >>> :set -XOverloadedStrings
 -- >>> let eval = maybe mempty fst . evaluate
 
@@ -99,11 +115,11 @@ import Prelude hiding (compare)
 
 -- | Specify an exact partition key.
 --
--- >>> eval $ partition "partition-key" (equals (toValue "bar"))
+-- >>> eval $ partition "partition-key" (=: "bar")
 -- "partition-key = :v1"
 --
 partition :: Text                     -- ^ The partition key name.
-          -> (Path -> Condition Hash) -- ^ A partially applied hash condition, such as @equals (toValue "bar")@.
+          -> (Path -> Condition Hash) -- ^ A partially applied hash condition, such as @(=: "bar")@.
           -> KeyExpression
 partition h f = Partition (f (name h))
 {-# INLINE partition #-}
@@ -111,74 +127,198 @@ partition h f = Partition (f (name h))
 -- | Specify an exact partition key, and narrow the scope
 -- by specifying a sort key condition as follows:
 --
--- >>> eval $ partitionFilter "partition-key" (equals "foo") "sort-key" (toValue 123)
+-- >>> eval $ partitionFilter "partition-key" (=: "foo") "sort-key" (>: 123)
 -- "(partition-key = :v1 AND sort-key < :v2)"
 --
 partitionFilter :: Text                      -- ^ The partition key name.
-                -> (Path -> Condition Hash)  -- ^ A partially applied hash condition, such as @equals (toValue "foo")@.
+                -> (Path -> Condition Hash)  -- ^ A partially applied hash condition, such as @(=: "foo")@.
                 -> Text                      -- ^ The sort key name.
-                -> (Path -> Condition Range) -- ^ A partially applied range condition, such as @less (toValue 123)@.
+                -> (Path -> Condition Range) -- ^ A partially applied range condition, such as @(>: 123)@.
                 -> KeyExpression
 partitionFilter h f r g = Sort (f (name h)) (g (name r))
 {-# INLINE partitionFilter #-}
 
+-- FIXME: Note about mnemonics for #/: and substituted values.
+
+(#=) :: IsOperand b => Path -> b -> Condition Hash
+(#=) = equal
+{-# INLINE (#=) #-}
+
+(#<>) :: IsOperand b => Path -> b -> Condition Operand
+(#<>) = notEqual
+
+(#<) :: IsOperand b => Path -> b -> Condition Range
+(#<) = lessThan
+
+(#<=) :: IsOperand b => Path -> b -> Condition Range
+(#<=) = lessThanOrEqual
+
+(#>) :: IsOperand b => Path -> b -> Condition Range
+(#>) = greaterThan
+
+(#>=) :: IsOperand b => Path -> b -> Condition Range
+(#>=) = greaterThanOrEqual
+
+(=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Hash
+(=:) a b = equal a (toValue b)
+{-# INLINE (=:) #-}
+
+(<>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Operand
+(<>:) a b = notEqual a (toValue b)
+
+(<:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(<:) a b = lessThan a (toValue b)
+
+(<=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(<=:) a b = lessThanOrEqual a (toValue b)
+
+(>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(>:) a b = greaterThan a (toValue b)
+
+(>=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(>=:) a b = greaterThanOrEqual a (toValue b)
+
 -- | True if a is equal to b.
 --
--- >>> equals a b
+-- >>> equal a b
 -- a = b
 --
-equals :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
-equals = compare Equal
-{-# INLINE equals #-}
+equal :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
+equal a b = Equal (liftO a) (liftO b)
+{-# INLINE equal #-}
 
 -- | True if a is not equal to b.
 --
--- >>> notEquals a b
+-- >>> notEqual a b
 -- a <> b
 --
-notEquals :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
-notEquals = compare NotEqual
-{-# INLINE notEquals #-}
+notEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
+notEqual a b = NotEqual (liftO a) (liftO b)
+{-# INLINE notEqual #-}
 
--- | True if a is less than b.
+-- | True if a is lessThan than b.
 --
--- >>> less a b
+-- >>> lessThan a b
 -- a < b
 --
-less :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-less = compare Less
-{-# INLINE less #-}
+lessThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+lessThan a b = Less (liftO a) (liftO b)
+{-# INLINE lessThan #-}
 
--- | True if a is less than or equal to b.
+-- | True if a is lessThan than or equal to b.
 --
--- >>> lessOrEqual a b
+-- >>> lessThanOrEqual a b
 -- a <= b
 --
-lessOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-lessOrEqual = compare LessOrEqual
-{-# INLINE lessOrEqual #-}
+lessThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+lessThanOrEqual a b = LessOrEqual (liftO a) (liftO b)
+{-# INLINE lessThanOrEqual #-}
 
 -- | True if a is greater than b.
 --
--- >>> greater a b
+-- >>> greaterThan a b
 -- a > b
 --
-greater :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-greater = compare Greater
-{-# INLINE greater #-}
+greaterThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+greaterThan a b = Greater (liftO a) (liftO b)
+{-# INLINE greaterThan #-}
 
 -- | True if a is greater than or equal to b.
 --
--- >>> greaterOrEqual a b
+-- >>> greaterThanOrEqual a b
 -- a >= b
 --
-greaterOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-greaterOrEqual = compare GreaterOrEqual
+greaterThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+greaterThanOrEqual a b = GreaterOrEqual (liftO a) (liftO b)
+{-# INLINE greaterThanOrEqual #-}
 
--- | Lift a binary comparison and its two operands to a condition.
-compare :: (IsOperand a, IsOperand b) => Relation c -> a -> b -> Condition c
-compare cmp a b = Compare cmp (liftO a) (liftO b)
-{-# INLINE compare #-}
+-- | Test the existence of an attribute.
+--
+-- Evaluates to true if the item contains the attribute specified by 'Path'.
+-- For example, to check whether an item in the table has
+-- a side view picture:
+--
+-- >>> exists "Pictures.SideView"
+-- attribute_exists ("Pictures.SideView")
+--
+exists :: Path -> Condition Operand
+exists = Exists
+{-# INLINE exists #-}
+
+-- | Test the non-existence of an attribute.
+--
+-- Evaluates to true if the attribute specified by 'Path'
+-- does not exist in the item.
+-- For example, to check whether an item has a @Manufacturer@ attribute:
+--
+-- >>> notExists "Manufacturer"
+-- attribute_not_exists ("Manufacturer")
+--
+notExists :: Path -> Condition Operand
+notExists = NotExists
+{-# INLINE notExists #-}
+
+-- | Test if the attribute is of the specified 'DynamoType'.
+--
+-- Evaluates to true if the attribute at the specified path is of a particular
+-- data type. For example, to check whether the @FiveStar@ attribute is
+-- of type @L@ (list):
+--
+-- >>> isType "ProductReviews.FiveStar" L
+-- attribute_type ("ProductReviews.FiveStar", :sub)
+--
+isType :: Path -> DynamoType -> Condition Operand
+isType = IsType
+{-# INLINE isType #-}
+
+-- | Return a number representing an attribute's size.
+--
+-- The following are valid data types for use with size:
+--
+-- * If the attribute is of type 'S' (string), size returns the length of the string.
+--
+-- * If the attribute is of type 'B' (binary), size returns the number of bytes in the attribute value.
+--
+-- * If the attribute is a Set data type, size returns the number of elements in the set.
+--
+-- * If the attribute is of type 'L' (list) or 'M' (map), size returns the number of child elements.
+--
+size :: Path -> Condition Operand
+size = Size
+{-# INLINE size #-}
+
+-- | Test if the attribute contains a particular substring or set element.
+--
+-- Evalutes to true if the attribute specified by path is:
+--
+-- * A string that contains a particular substring.
+--
+-- * A set that contains a particular element within the set.
+--
+-- The path and the operand must be distinct; that is, @contains (a, a)@
+-- will result in an error.
+--
+-- For example, to check whether the Brand string attribute contains
+-- the substring Company:
+--
+-- >>> contains ("Brand", "Company")
+-- contains ("Brand", :sub)
+--
+contains :: Path -> Operand -> Condition Operand
+contains = Contains
+{-# INLINE contains #-}
+
+-- | Test if the attribute begins with a particular substring.
+--
+-- For example, to check whether the first few characters of the front view
+-- picture attribute is URL:
+--
+-- >>> beginsWith ("Pictures.FrontView", "http://")
+-- begins_with ("Pictures.FrontView", :sub)
+--
+beginsWith :: Path -> Text -> Condition Range
+beginsWith = BeginsWith
+{-# INLINE beginsWith #-}
 
 -- | Test the if an attribute is within the specified range.
 --
@@ -206,94 +346,6 @@ between = Between
 in_ :: Operand -> NonEmpty Operand -> Condition Operand
 in_ = In
 {-# INLINE in_ #-}
-
--- | Test the existence of an attribute.
---
--- Evaluates to true if the item contains the attribute specified by 'Path'.
--- For example, to check whether an item in the table has
--- a side view picture:
---
--- >>> exists "Pictures.SideView"
--- attribute_exists ("Pictures.SideView")
---
-exists :: Path -> Condition Operand
-exists p = Function (Exists p)
-{-# INLINE exists #-}
-
--- | Test the non-existence of an attribute.
---
--- Evaluates to true if the attribute specified by 'Path'
--- does not exist in the item.
--- For example, to check whether an item has a @Manufacturer@ attribute:
---
--- >>> notExists "Manufacturer"
--- attribute_not_exists ("Manufacturer")
---
-notExists :: Path -> Condition Operand
-notExists p = Function (NotExists p)
-{-# INLINE notExists #-}
-
--- | Test if the attribute is of the specified 'DynamoType'.
---
--- Evaluates to true if the attribute at the specified path is of a particular
--- data type. For example, to check whether the @FiveStar@ attribute is
--- of type @L@ (list):
---
--- >>> isType "ProductReviews.FiveStar" L
--- attribute_type ("ProductReviews.FiveStar", :sub)
---
-isType :: Path -> DynamoType -> Condition Operand
-isType p t = Function (IsType p t)
-{-# INLINE isType #-}
-
--- | Return a number representing an attribute's size.
---
--- The following are valid data types for use with size:
---
--- * If the attribute is of type 'S' (string), size returns the length of the string.
---
--- * If the attribute is of type 'B' (binary), size returns the number of bytes in the attribute value.
---
--- * If the attribute is a Set data type, size returns the number of elements in the set.
---
--- * If the attribute is of type 'L' (list) or 'M' (map), size returns the number of child elements.
---
-size :: Path -> Condition Operand
-size p = Function (Size p)
-{-# INLINE size #-}
-
--- | Test if the attribute contains a particular substring or set element.
---
--- Evalutes to true if the attribute specified by path is:
---
--- * A string that contains a particular substring.
---
--- * A set that contains a particular element within the set.
---
--- The path and the operand must be distinct; that is, @contains (a, a)@
--- will result in an error.
---
--- For example, to check whether the Brand string attribute contains
--- the substring Company:
---
--- >>> contains ("Brand", "Company")
--- contains ("Brand", :sub)
---
-contains :: Path -> Operand -> Condition Operand
-contains p o = Function (Contains p o)
-{-# INLINE contains #-}
-
--- | Test if the attribute begins with a particular substring.
---
--- For example, to check whether the first few characters of the front view
--- picture attribute is URL:
---
--- >>> beginsWith ("Pictures.FrontView", "http://")
--- begins_with ("Pictures.FrontView", :sub)
---
-beginsWith :: Path -> Text -> Condition Range
-beginsWith p x = Function (BeginsWith p x)
-{-# INLINE beginsWith #-}
 
 -- | Logical conjunction, where the resulting expression is true if both
 -- sub-expressions are true.
@@ -328,7 +380,8 @@ not_ = NotE . liftE
 
 -- Precedence
 
-infixl 9 `equals`, `notEquals`, `less`, `lessOrEqual`, `greater`, `greaterOrEqual`
+--infixl 9 :=:, :<>:, :<:, :<=:, :>:, :>=:
+infixl 9 `equal`, `notEqual`, `lessThan`, `lessThanOrEqual`, `greaterThan`, `greaterThanOrEqual`
 infixl 8 `in_`
 infixl 7 `between`
 infixl 6 `exists`, `notExists`, `isType`, `contains`, `size`, `beginsWith`
@@ -377,7 +430,8 @@ or an enumerated list of values.
 
 The infix function precedence follows the order:
 
-> equals, notEquals, less, lessOrEqual, greater, greaterOrEqual
+> :=:, :<>:, :<:, :<=:, :>:, :>=:
+> equals, notEquals, less, lessOrEqual, greater, greaterThanOrEqual
 > in_
 > between
 > exists, notExists, isType, contains, size, beginsWith
@@ -396,5 +450,10 @@ For example, the following evaluates to false:
 
 >>> (a `or` b) `and` c
 (a OR b) AND c
+
+-}
+
+{- $operands
+Note about overloading of operands, 'IsOperand', and 'DynamoValue'.
 
 -}

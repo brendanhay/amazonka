@@ -57,32 +57,31 @@ data Hash
 -- | Denotes a valid condition for range types such as sort keys.
 data Range
 
-data Relation a where
-    Equal          :: Relation Hash
-    NotEqual       :: Relation Operand
-    Less           :: Relation Range
-    LessOrEqual    :: Relation Range
-    Greater        :: Relation Range
-    GreaterOrEqual :: Relation Range
-
-data Function a where
-    Exists     :: Path               -> Function Operand
-    NotExists  :: Path               -> Function Operand
-    IsType     :: Path -> DynamoType -> Function Operand
-    Contains   :: Path -> Operand    -> Function Operand
-    Size       :: Path               -> Function Operand
-    BeginsWith :: Path -> Text       -> Function Range
-
 -- | A condition is a singular sub-expression that can be used or combined
 -- to form an 'Expression'.
 --
 -- Any function signature that has an 'IsExpression' constraint, accepts
 -- a 'Condition' as a parameter.
 data Condition a where
-    Compare  :: Relation a -> Operand -> Operand -> Condition a
-    Function :: Function a                       -> Condition a
-    Between  :: Operand -> (Operand, Operand)    -> Condition Range
-    In       :: Operand -> NonEmpty Operand      -> Condition Operand
+    -- Comparators
+    Equal          :: Operand -> Operand            -> Condition Hash
+    NotEqual       :: Operand -> Operand            -> Condition Operand
+    Less           :: Operand -> Operand            -> Condition Range
+    LessOrEqual    :: Operand -> Operand            -> Condition Range
+    Greater        :: Operand -> Operand            -> Condition Range
+    GreaterOrEqual :: Operand -> Operand            -> Condition Range
+
+    -- Functions
+    Exists         :: Path                          -> Condition Operand
+    NotExists      :: Path                          -> Condition Operand
+    IsType         :: Path -> DynamoType            -> Condition Operand
+    Contains       :: Path -> Operand               -> Condition Operand
+    Size           :: Path                          -> Condition Operand
+    BeginsWith     :: Path -> Text                  -> Condition Range
+
+    -- Ranges
+    Between        :: Operand -> (Operand, Operand) -> Condition Range
+    In             :: Operand -> NonEmpty Operand   -> Condition Operand
 
 -- | A compound logical expression consisting of sub-expressions and conditions
 -- that can be used as part of a filter expression for 'Query' and 'Scan'

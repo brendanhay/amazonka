@@ -4,7 +4,7 @@
 {-# LANGUAGE PolyKinds           #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Network.AWS.DynamoDB.Schema.Stream
+module Amazonka.DynamoDB.Schema.Stream
     ( StreamSpecification
     , StreamViewType  (..)
 

@@ -6,14 +6,14 @@
 {-# LANGUAGE UndecidableInstances #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB.Value
+-- Module      : Amazonka.DynamoDB.Item.Value
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.DynamoDB.Value
+module Amazonka.DynamoDB.Item.Value
     (
     -- * Native Types
       DynamoType  (..)
@@ -81,6 +81,8 @@ module Network.AWS.DynamoDB.Value
     , getString
     ) where
 
+import Amazonka.DynamoDB.Item.Internal
+
 import Control.Applicative (Const (..))
 import Control.Exception   (Exception)
 import Control.Lens        (set)
@@ -119,12 +121,11 @@ import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
 import Foreign.Storable (Storable)
 
-import Network.AWS.Data.Base64             (Base64 (..))
-import Network.AWS.Data.Map                (toMap)
+import Network.AWS.Data.Base64            (Base64 (..))
+import Network.AWS.Data.Map               (toMap)
 import Network.AWS.Data.Text
-import Network.AWS.DynamoDB                hiding (ScalarAttributeType (..))
-import Network.AWS.DynamoDB.Types.Product  (AttributeValue (..))
-import Network.AWS.DynamoDB.Value.Internal
+import Network.AWS.DynamoDB               hiding (ScalarAttributeType (..))
+import Network.AWS.DynamoDB.Types.Product (AttributeValue (..))
 
 import Numeric.Natural (Natural)
 

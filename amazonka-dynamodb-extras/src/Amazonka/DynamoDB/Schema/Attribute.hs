@@ -8,7 +8,7 @@
 {-# LANGUAGE UndecidableInstances      #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB.Schema.Types
+-- Module      : Amazonka.DynamoDB.Schema.Types
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,8 +16,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Type classes for determing attribute scalar types and definitions suitable
--- for use with "Network.AWS.DynamoDB" operations.
-module Network.AWS.DynamoDB.Schema.Attribute
+-- for use with "Amazonka.DynamoDB" operations.
+module Amazonka.DynamoDB.Schema.Attribute
     (
     -- * Scalar Types
       DynamoScalarType (..)

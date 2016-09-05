@@ -6,7 +6,7 @@
 
 {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
-module Network.AWS.DynamoDB.Schema.Table
+module Amazonka.DynamoDB.Schema.Table
     ( diffSchema
     , diffDescription
 
@@ -22,6 +22,13 @@ module Network.AWS.DynamoDB.Schema.Table
 
     ) where
 
+import Amazonka.DynamoDB.Schema.Attribute
+import Amazonka.DynamoDB.Schema.Index
+import Amazonka.DynamoDB.Schema.Key
+import Amazonka.DynamoDB.Schema.Stream
+import Amazonka.DynamoDB.Schema.Throughput
+import Amazonka.DynamoDB.Schema.Serialize
+
 import Control.Lens ((.~), (?~))
 
 import Data.Foldable (toList)
@@ -32,13 +39,6 @@ import Data.Text     (Text)
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
-import Network.AWS.DynamoDB.Schema.Attribute
-import Network.AWS.DynamoDB.Schema.Index
-import Network.AWS.DynamoDB.Schema.Key
-import Network.AWS.DynamoDB.Schema.Stream
-import Network.AWS.DynamoDB.Schema.Throughput
-import Network.AWS.DynamoDB.Schema.Serialize
 
 -- | A DynamoDB table schema.
 --

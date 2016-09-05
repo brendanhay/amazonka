@@ -3,7 +3,7 @@
 {-# LANGUAGE PolyKinds           #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Network.AWS.DynamoDB.Schema.Throughput
+module Amazonka.DynamoDB.Schema.Throughput
     ( ThroughputKind     (..)
     , ReadCapacityKind   (..)
     , WriteCapacityKind  (..)

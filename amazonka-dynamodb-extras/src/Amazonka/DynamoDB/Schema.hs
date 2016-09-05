@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeOperators #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB.Schema
+-- Module      : Amazonka.DynamoDB.Schema
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,7 +15,7 @@
 -- It provides type and value-level functions that take the schema as a
 -- parameter to ensure your de/serialization logic, queries, and index
 -- projections are checked at compile time.
-module Network.AWS.DynamoDB.Schema
+module Amazonka.DynamoDB.Schema
     (
     -- * Usage
     -- $usage
@@ -41,20 +41,18 @@ module Network.AWS.DynamoDB.Schema
     , Value
     ) where
 
+import Amazonka.DynamoDB.Item
+import Amazonka.DynamoDB.Schema.Attribute
+import Amazonka.DynamoDB.Schema.Index
+import Amazonka.DynamoDB.Schema.Stream
+import Amazonka.DynamoDB.Schema.Table
+import Amazonka.DynamoDB.Schema.Throughput
+
 import Data.ByteString (ByteString)
 import Data.Proxy
 import Data.Text       (Text)
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
-import Network.AWS.DynamoDB.Item
-import Network.AWS.DynamoDB.Value
-
-import Network.AWS.DynamoDB.Schema.Attribute
-import Network.AWS.DynamoDB.Schema.Index
-import Network.AWS.DynamoDB.Schema.Stream
-import Network.AWS.DynamoDB.Schema.Table
-import Network.AWS.DynamoDB.Schema.Throughput
 
 {- $usage
 @

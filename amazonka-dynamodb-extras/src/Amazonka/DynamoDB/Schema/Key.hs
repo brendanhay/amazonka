@@ -6,7 +6,9 @@
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Network.AWS.DynamoDB.Schema.Key where
+module Amazonka.DynamoDB.Schema.Key where
+
+import Amazonka.DynamoDB.Schema.Attribute
 
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Proxy         (Proxy (..))
@@ -15,8 +17,6 @@ import Data.Semigroup     ((<>))
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
-import Network.AWS.DynamoDB.Schema.Attribute
 
 import qualified Data.List.NonEmpty as NE
 

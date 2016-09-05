@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 
-module Network.AWS.DynamoDB.Expression.Placeholder
+module Amazonka.DynamoDB.Expression.Placeholder
     ( Placeholders (..)
     , NamesAndValues
     , Values
@@ -10,6 +10,8 @@ module Network.AWS.DynamoDB.Expression.Placeholder
     , Substitute
     , substituteAll
     ) where
+
+import Amazonka.DynamoDB.Item (DynamoValue (..), Value)
 
 import Control.Lens                     (Lens', lens, use, uses, (%=), (.=), _1,
                                          _2)
@@ -22,8 +24,6 @@ import Data.Hashable          (Hashable (..))
 import Data.HashMap.Strict    (HashMap)
 import Data.Text              (Text)
 import Data.Text.Lazy.Builder (Builder)
-
-import Network.AWS.DynamoDB.Value (DynamoValue (..), Value)
 
 import qualified Data.HashMap.Strict        as Map
 import qualified Data.Text.Lazy.Builder     as Build

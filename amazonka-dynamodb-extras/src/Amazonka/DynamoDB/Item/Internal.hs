@@ -1,12 +1,12 @@
 -- |
--- Module      : Network.AWS.DynamoDB.Value.Internal
+-- Module      : Amazonka.DynamoDB.Item.Internal
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.DynamoDB.Value.Internal
+module Amazonka.DynamoDB.Item.Internal
     ( Value (..)
     ) where
 

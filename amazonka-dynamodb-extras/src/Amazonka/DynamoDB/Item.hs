@@ -3,27 +3,47 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB.Itema
+-- Module      : Amazonka.DynamoDB.Itema
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.DynamoDB.Item where
-    -- (
+module Amazonka.DynamoDB.Item
+    (
+    -- * Safe Values
+      Value
+    , newValue
+    , getValue
+    , getValueType
+    , ValueError  (..)
+    , DynamoValue (..)
 
-    -- -- * Items
-    --   ItemError (..)
-    -- , Item      (..)
+    -- * Items
+    , ItemError   (..)
+    , DynamoItem  (..)
+    , encode
+    , decode
+    , unsafeDecode
 
-    -- -- * Attributes
-    -- , Attribute (..)
-    -- ) where
+    -- ** Serialization
+    , item
+    , value
+
+    -- ** Deserialization
+    , parse
+    , parseMaybe
+
+    -- * Native Types
+    , DynamoType  (..)
+    ) where
+
+import Amazonka.DynamoDB.Item.Internal
+import Amazonka.DynamoDB.Item.Value
 
 import Control.Exception (Exception)
 import Control.Monad     ((>=>))
-
 
 import Data.Bifunctor      (bimap, first)
 import Data.Coerce         (coerce)
@@ -34,9 +54,6 @@ import Data.Typeable       (Typeable)
 
 import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
-import Network.AWS.DynamoDB.Value
-import Network.AWS.DynamoDB.Value.Internal
-
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict     as Map
 
@@ -44,9 +61,9 @@ item :: [(Text, Value)] -> HashMap Text Value
 item = HashMap.fromList
 {-# INLINE item #-}
 
-attr :: DynamoValue a => Text -> a -> (Text, Value)
-attr k v = (k, toValue v)
-{-# INLINE attr #-}
+value :: DynamoValue a => Text -> a -> (Text, Value)
+value k v = (k, toValue v)
+{-# INLINE value #-}
 
 parse :: DynamoValue a => Text -> HashMap Text Value -> Either ItemError a
 parse k m =

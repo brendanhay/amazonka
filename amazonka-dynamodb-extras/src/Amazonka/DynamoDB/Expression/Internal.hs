@@ -3,7 +3,9 @@
 {-# LANGUAGE LambdaCase           #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Network.AWS.DynamoDB.Expression.Internal where
+module Amazonka.DynamoDB.Expression.Internal where
+
+import Amazonka.DynamoDB.Item (DynamoType, Value)
 
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Monoid        (Monoid (..))
@@ -11,8 +13,6 @@ import Data.Semigroup     (Semigroup (..))
 import Data.Text          (Text)
 
 import Numeric.Natural (Natural)
-
-import Network.AWS.DynamoDB.Value (DynamoType, Value)
 
 data Path
     = Name   Text

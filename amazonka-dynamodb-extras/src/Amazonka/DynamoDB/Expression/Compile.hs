@@ -4,7 +4,7 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE TupleSections     #-}
 
-module Network.AWS.DynamoDB.Expression.Compile
+module Amazonka.DynamoDB.Expression.Compile
     (
     -- * Compiling Expressions
       compile
@@ -19,6 +19,9 @@ module Network.AWS.DynamoDB.Expression.Compile
     , operand
     ) where
 
+import Amazonka.DynamoDB.Expression.Internal
+import Amazonka.DynamoDB.Expression.Placeholder
+
 import Control.Monad.Trans.Maybe (MaybeT (..))
 
 import Data.Foldable          (toList)
@@ -27,9 +30,6 @@ import Data.Monoid
 import Data.Text.Lazy.Builder (Builder)
 
 import Network.AWS.Data.Text (ToText (..))
-
-import Network.AWS.DynamoDB.Expression.Internal
-import Network.AWS.DynamoDB.Expression.Placeholder
 
 import qualified Data.Text.Lazy.Builder as Build
 

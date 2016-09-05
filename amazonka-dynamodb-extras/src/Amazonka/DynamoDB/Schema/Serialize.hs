@@ -7,17 +7,16 @@
 {-# LANGUAGE TypeOperators             #-}
 {-# LANGUAGE UndecidableInstances      #-}
 
-module Network.AWS.DynamoDB.Schema.Serialize where
+module Amazonka.DynamoDB.Schema.Serialize where
+
+import Amazonka.DynamoDB.Item
+import Amazonka.DynamoDB.Schema.Attribute
 
 import Data.HashMap.Strict (HashMap)
 import Data.Proxy          (Proxy (..))
 import Data.Text           (Text)
 
 import GHC.TypeLits
-
-import Network.AWS.DynamoDB.Item
-import Network.AWS.DynamoDB.Schema.Attribute
-import Network.AWS.DynamoDB.Value
 
 import qualified Data.HashMap.Strict as HashMap
 

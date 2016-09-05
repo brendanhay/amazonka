@@ -2,7 +2,7 @@
 {-# LANGUAGE PatternSynonyms #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB.Expression
+-- Module      : Amazonka.DynamoDB.Expression
 -- Copyright   : (c) 2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -12,7 +12,7 @@
 -- A shallow DSL embedding of DynamoDB's expression language that can be used
 -- to specify @KeyConditionExpression@ or @FilterExpression@ parameters for
 -- 'Scan' and 'Query' operations.
-module Network.AWS.DynamoDB.Expression
+module Amazonka.DynamoDB.Expression
     (
     -- * Usage
     -- $usage
@@ -108,12 +108,12 @@ module Network.AWS.DynamoDB.Expression
     , evaluate
     ) where
 
+import Amazonka.DynamoDB.Expression.Compile  (compile, evaluate)
+import Amazonka.DynamoDB.Expression.Internal
+import Amazonka.DynamoDB.Item                (DynamoType, DynamoValue (..))
+
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text          (Text)
-
-import Network.AWS.DynamoDB.Expression.Compile  (compile, evaluate)
-import Network.AWS.DynamoDB.Expression.Internal
-import Network.AWS.DynamoDB.Value               (DynamoType, DynamoValue (..))
 
 import Prelude hiding (compare)
 
@@ -430,19 +430,7 @@ infixl 3 `and_`
 infixl 2 `or_`
 
 {- $usage
-TODO:
-
-* Find a way to ensure sharing when passing in values that will be
-  substituted with placeholders.
-* Determine if placeholders are used for paths or only top-level attributes.
-* Replace attribute names/paths with placeholders
-  each component of a path gets a placeholder.
-* Replace values with placeholders
-* Supplement 'eval' with 'compile' which will return the
-
-It seems operands are not just names/paths, but also a placeholder in
-attribute values.
-
+TODO
 -}
 
 {- $expressions

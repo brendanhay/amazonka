@@ -29,23 +29,26 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.DynamoDB.Item
-        , Network.AWS.DynamoDB.Value
-        , Network.AWS.DynamoDB.Value.Internal
+          -- amazonka-dynamodb-item
+          Amazonka.DynamoDB.Item
+        , Amazonka.DynamoDB.Item.Internal
+        , Amazonka.DynamoDB.Item.Value
 
-        , Network.AWS.DynamoDB.Expression
-        , Network.AWS.DynamoDB.Expression.Internal
-        , Network.AWS.DynamoDB.Expression.Placeholder
-        , Network.AWS.DynamoDB.Expression.Compile
+          -- amazonka-dynamodb-expression
+        , Amazonka.DynamoDB.Expression
+        , Amazonka.DynamoDB.Expression.Compile
+        , Amazonka.DynamoDB.Expression.Internal
+        , Amazonka.DynamoDB.Expression.Placeholder
 
-        , Network.AWS.DynamoDB.Schema
-        , Network.AWS.DynamoDB.Schema.Attribute
-        , Network.AWS.DynamoDB.Schema.Index
-        , Network.AWS.DynamoDB.Schema.Key
-        , Network.AWS.DynamoDB.Schema.Serialize
-        , Network.AWS.DynamoDB.Schema.Stream
-        , Network.AWS.DynamoDB.Schema.Table
-        , Network.AWS.DynamoDB.Schema.Throughput
+          -- amazonka-dynamodb-schema
+        , Amazonka.DynamoDB.Schema
+        , Amazonka.DynamoDB.Schema.Attribute
+        , Amazonka.DynamoDB.Schema.Index
+        , Amazonka.DynamoDB.Schema.Key
+        , Amazonka.DynamoDB.Schema.Serialize
+        , Amazonka.DynamoDB.Schema.Stream
+        , Amazonka.DynamoDB.Schema.Table
+        , Amazonka.DynamoDB.Schema.Throughput
 
     build-depends:
           aeson                >= 0.8

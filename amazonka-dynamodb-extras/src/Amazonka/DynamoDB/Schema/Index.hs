@@ -8,13 +8,17 @@
 
 {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
-module Network.AWS.DynamoDB.Schema.Index
+module Amazonka.DynamoDB.Schema.Index
     ( SecondaryIndexKind (..)
     , GlobalSecondaryIndex
     , LocalSecondaryIndex
 
     , DynamoIndexes (..)
     ) where
+
+import Amazonka.DynamoDB.Schema.Key
+import Amazonka.DynamoDB.Schema.Throughput
+import Amazonka.DynamoDB.Schema.Attribute
 
 import Control.Lens (view, (?~), (^.))
 
@@ -29,10 +33,6 @@ import Data.Text          (Text)
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
-import Network.AWS.DynamoDB.Schema.Key
-import Network.AWS.DynamoDB.Schema.Throughput
-import Network.AWS.DynamoDB.Schema.Attribute
 
 import qualified Network.AWS.DynamoDB as Dynamo
 

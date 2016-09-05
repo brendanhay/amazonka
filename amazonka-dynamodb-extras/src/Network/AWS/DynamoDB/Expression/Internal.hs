@@ -108,7 +108,10 @@ instance Monoid Expression where
     mappend a      EmptyE = a
     mappend a      b      = AndE a b
 
--- data Expr = Expr (HashMap Text) Expression
+data Expression
+    = Proj Proj
+    | Cond Cond
+    | Upd  Upd
 
 class IsExpression a where
     -- | Lift a condition or sub-expression to a top-level expression.

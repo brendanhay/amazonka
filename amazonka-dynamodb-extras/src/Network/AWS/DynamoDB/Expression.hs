@@ -17,14 +17,20 @@ module Network.AWS.DynamoDB.Expression
     -- * Usage
     -- $usage
 
-    -- * Expressions
-    -- $expressions
+    -- * Projection Expressions
+    -- $projection_expressions
 
-      IsExpression (..)
-    , Expression
+    -- * Condition Expressions
+    -- $condition_expressions
+
+      Expression
     , Condition
     , Hash
     , Range
+    , IsExpression (..)
+
+    -- * Update Expressions
+    -- $update_expressions
 
     -- * Key Expressions
     -- $key_expressions
@@ -36,12 +42,25 @@ module Network.AWS.DynamoDB.Expression
     -- * Making Comparisons
     -- $comparators
 
+    , equal
+    , notEqual
+    , lessThan
+    , lessThanOrEqual
+    , greaterThan
+    , greaterThanOrEqual
+
+    -- ** Infix Comparators
+    -- $infix_comparators
+
     , (#=)
     , (#<>)
     , (#<)
     , (#<=)
     , (#>)
     , (#>=)
+
+    -- *** Serialized Values
+    -- $infix_comparator_values
 
     , (=:)
     , (<>:)
@@ -50,14 +69,9 @@ module Network.AWS.DynamoDB.Expression
     , (>:)
     , (>=:)
 
-    , equal
-    , notEqual
-    , lessThan
-    , lessThanOrEqual
-    , greaterThan
-    , greaterThanOrEqual
-
     -- * Functions
+    -- $functions
+
     , exists
     , notExists
     , isType
@@ -82,10 +96,11 @@ module Network.AWS.DynamoDB.Expression
     -- * Operands
     -- $operands
 
-    , IsOperand    (..)
     , Operand      (..)
+    , IsOperand    (..)
 
-    -- * Paths
+    -- * Document Paths
+    -- $document_paths
     , Path         (..)
 
     -- * Evaluation
@@ -102,16 +117,14 @@ import Network.AWS.DynamoDB.Value               (DynamoType, DynamoValue (..))
 
 import Prelude hiding (compare)
 
--- $setup
--- >>> :set -XOverloadedStrings
--- >>> let eval = maybe mempty fst . evaluate
-
+-- FIXME:
+-- Update Expressions vs Condition Expressions vs Projection Expressions
 -- Note about how by default attribute names are substituted for placeholders,
 -- as well as values. Just for the doctests the names are shown.
 
--- just roll partition/sort into a single additional function.
--- KeyExpression no longer needs to be a GADT, sort doesn't need to be disambiguated with Data.List
--- and partition should just take 'text' in reference to a single key, likewise the sort variant.
+-- $setup
+-- >>> :set -XOverloadedStrings
+-- >>> let eval = maybe mempty fst . evaluate
 
 -- | Specify an exact partition key.
 --
@@ -138,51 +151,12 @@ partitionFilter :: Text                      -- ^ The partition key name.
 partitionFilter h f r g = Sort (f (name h)) (g (name r))
 {-# INLINE partitionFilter #-}
 
--- FIXME: Note about mnemonics for #/: and substituted values.
-
-(#=) :: IsOperand b => Path -> b -> Condition Hash
-(#=) = equal
-{-# INLINE (#=) #-}
-
-(#<>) :: IsOperand b => Path -> b -> Condition Operand
-(#<>) = notEqual
-
-(#<) :: IsOperand b => Path -> b -> Condition Range
-(#<) = lessThan
-
-(#<=) :: IsOperand b => Path -> b -> Condition Range
-(#<=) = lessThanOrEqual
-
-(#>) :: IsOperand b => Path -> b -> Condition Range
-(#>) = greaterThan
-
-(#>=) :: IsOperand b => Path -> b -> Condition Range
-(#>=) = greaterThanOrEqual
-
-(=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Hash
-(=:) a b = equal a (toValue b)
-{-# INLINE (=:) #-}
-
-(<>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Operand
-(<>:) a b = notEqual a (toValue b)
-
-(<:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(<:) a b = lessThan a (toValue b)
-
-(<=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(<=:) a b = lessThanOrEqual a (toValue b)
-
-(>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(>:) a b = greaterThan a (toValue b)
-
-(>=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(>=:) a b = greaterThanOrEqual a (toValue b)
-
 -- | True if a is equal to b.
 --
 -- >>> equal a b
 -- a = b
 --
+-- /See:/ '#=', '=:'
 equal :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
 equal a b = Equal (liftO a) (liftO b)
 {-# INLINE equal #-}
@@ -192,6 +166,7 @@ equal a b = Equal (liftO a) (liftO b)
 -- >>> notEqual a b
 -- a <> b
 --
+-- /See:/ '#<>', '<>:'
 notEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
 notEqual a b = NotEqual (liftO a) (liftO b)
 {-# INLINE notEqual #-}
@@ -201,6 +176,7 @@ notEqual a b = NotEqual (liftO a) (liftO b)
 -- >>> lessThan a b
 -- a < b
 --
+-- /See:/ '#<', '<:'
 lessThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
 lessThan a b = Less (liftO a) (liftO b)
 {-# INLINE lessThan #-}
@@ -210,6 +186,7 @@ lessThan a b = Less (liftO a) (liftO b)
 -- >>> lessThanOrEqual a b
 -- a <= b
 --
+-- /See:/ '#<=', '<=:'
 lessThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
 lessThanOrEqual a b = LessOrEqual (liftO a) (liftO b)
 {-# INLINE lessThanOrEqual #-}
@@ -219,6 +196,7 @@ lessThanOrEqual a b = LessOrEqual (liftO a) (liftO b)
 -- >>> greaterThan a b
 -- a > b
 --
+-- /See:/ '#>', '>:'
 greaterThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
 greaterThan a b = Greater (liftO a) (liftO b)
 {-# INLINE greaterThan #-}
@@ -228,9 +206,70 @@ greaterThan a b = Greater (liftO a) (liftO b)
 -- >>> greaterThanOrEqual a b
 -- a >= b
 --
+-- /See:/ '#>=', '>=:'
 greaterThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
 greaterThanOrEqual a b = GreaterOrEqual (liftO a) (liftO b)
 {-# INLINE greaterThanOrEqual #-}
+
+-- | Synonym for 'equal'.
+(#=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
+(#=) = equal
+{-# INLINE (#=) #-}
+
+-- | Synonym for 'notEqual'.
+(#<>) :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
+(#<>) = notEqual
+{-# INLINE (#<>) #-}
+
+-- | Synonym for 'lessThan'.
+(#<) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+(#<) = lessThan
+{-# INLINE (#<) #-}
+
+-- | Synonym for 'lessThanOrEqual'.
+(#<=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+(#<=) = lessThanOrEqual
+{-# INLINE (#<=) #-}
+
+-- | Synonym for 'greaterThan'.
+(#>) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+(#>) = greaterThan
+{-# INLINE (#>) #-}
+
+-- | Synonym for 'greaterThanOrEqual'.
+(#>=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
+(#>=) = greaterThanOrEqual
+{-# INLINE (#>=) #-}
+
+-- | Synonym for 'equal' that serializes the RHS to an 'AttributeValue'.
+(=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Hash
+(=:) a b = equal a (toValue b)
+{-# INLINE (=:) #-}
+
+-- | Synonym for 'notEqual' that serializes the RHS to an 'AttributeValue'.
+(<>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Operand
+(<>:) a b = notEqual a (toValue b)
+{-# INLINE (<>:) #-}
+
+-- | Synonym for 'lessThan' that serializes the RHS to an 'AttributeValue'.
+(<:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(<:) a b = lessThan a (toValue b)
+{-# INLINE (<:) #-}
+
+-- | Synonym for 'lessThanOrEqual' that serializes the RHS to an 'AttributeValue'.
+(<=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(<=:) a b = lessThanOrEqual a (toValue b)
+{-# INLINE (<=:) #-}
+
+-- | Synonym for 'greaterThan' that serializes the RHS to an 'AttributeValue'.
+(>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(>:) a b = greaterThan a (toValue b)
+{-# INLINE (>:) #-}
+
+-- | Synonym for 'greaterThanOrEqual' that serializes the RHS to an 'AttributeValue'.
+(>=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
+(>=:) a b = greaterThanOrEqual a (toValue b)
+{-# INLINE (>=:) #-}
 
 -- | Test the existence of an attribute.
 --
@@ -380,7 +419,8 @@ not_ = NotE . liftE
 
 -- Precedence
 
---infixl 9 :=:, :<>:, :<:, :<=:, :>:, :>=:
+infixl 9 #=, #<>, #<, #<=, #>, #>=
+infixl 9 =:, <>:, <:, <=:, >:, >=:
 infixl 9 `equal`, `notEqual`, `lessThan`, `lessThanOrEqual`, `greaterThan`, `greaterThanOrEqual`
 infixl 8 `in_`
 infixl 7 `between`
@@ -414,11 +454,51 @@ functions. For a complete list of elements allowed in an expression, see
 -}
 
 {- $key_expressions
+Something about key expressions.
 -}
 
 {- $comparators
 Use these comparators to compare an operand against a range of values, or an
 enumerated list of values.
+-}
+
+{- $infix_comparators
+The @#@ prefix is a mnenomic for attribute name substitution. The infix
+operators prefixed in this way are synonyms for their function variants.
+
+All operator names correspond directly to the DynamoDB comparator
+rather than an equivalent Haskell operator.
+
+For example, instead of writing:
+
+>>> eval $ equals (name "Foo") (name "Bar")
+"Foo = Bar"
+
+You can use the corresponding @#@ prefixed binary operator:
+
+>>> eval $ name "Foo" #= name "Bar"
+"Foo = Bar"
+-}
+
+{- $infix_comparator_values
+The @:@ prefix is a mnenomic for attribute value substitution. The infix
+operators prefixed in this way take a 'DynamoValue' on the right-hand side,
+omitting the need to wrap the RHS in 'toValue'.
+
+For example, instead of writing:
+
+>>> eval $ name "AttributeName" #= toValue 123
+"AttributeName = :v1"
+
+You can use the corresponding @:@ prefixed binary operator:
+
+>>> eval $ name "AttributeName" =: 123
+"AttributeName = :v1"
+-}
+
+{- $functions
+Use the following functions to determine whether an attribute exists within an
+item, or to evaluate the value of an attribute.
 -}
 
 {- $ranges
@@ -430,7 +510,8 @@ or an enumerated list of values.
 
 The infix function precedence follows the order:
 
-> :=:, :<>:, :<:, :<=:, :>:, :>=:
+> #=, #<>, #<, #<=, #>, #>=
+> =:, <>:, <:, <=:, >:, >=:
 > equals, notEquals, less, lessOrEqual, greater, greaterThanOrEqual
 > in_
 > between
@@ -456,4 +537,13 @@ For example, the following evaluates to false:
 {- $operands
 Note about overloading of operands, 'IsOperand', and 'DynamoValue'.
 
+-}
+
+{- $document_paths
+
+Accessing List Elements
+
+Access Nested Attributes and Map Elements
+
+Document Path Examples
 -}

@@ -35,10 +35,13 @@ library
         , Amazonka.DynamoDB.Item.Value
 
           -- amazonka-dynamodb-expression
-        , Amazonka.DynamoDB.Expression
+--        , Amazonka.DynamoDB.Expression
         , Amazonka.DynamoDB.Expression.Compile
+        , Amazonka.DynamoDB.Expression.Condition
         , Amazonka.DynamoDB.Expression.Internal
         , Amazonka.DynamoDB.Expression.Placeholder
+        , Amazonka.DynamoDB.Expression.Projection
+        , Amazonka.DynamoDB.Expression.Update
 
           -- amazonka-dynamodb-schema
         , Amazonka.DynamoDB.Schema
@@ -51,11 +54,12 @@ library
         , Amazonka.DynamoDB.Schema.Throughput
 
     build-depends:
-          aeson                >= 0.8
-        , amazonka             == 1.4.3.*
+          amazonka             == 1.4.3.*
         , amazonka-core        == 1.4.3.*
         , amazonka-dynamodb    == 1.4.3.*
+        , attoparsec
         , base                 >= 4.9 && < 5
+        , bifunctors           >= 4.2
         , bytestring           >= 0.9
         , case-insensitive     >= 1.2
         , containers

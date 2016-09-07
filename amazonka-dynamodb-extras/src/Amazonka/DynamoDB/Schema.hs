@@ -52,8 +52,6 @@ import Data.ByteString (ByteString)
 import Data.Proxy
 import Data.Text       (Text)
 
-import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
-
 {- $usage
 @
 type Example =

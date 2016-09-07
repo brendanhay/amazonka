@@ -144,7 +144,7 @@ instance ( KnownSymbol n
     type Deserialized (Attribute n ::: v) = v
 
     getSerializer _ m v =
-        uncurry HashMap.insert (attr (symbolToText (Proxy :: Proxy n)) v) m
+        uncurry HashMap.insert (value (symbolToText (Proxy :: Proxy n)) v) m
 
     getDeserializer _ =
         parse (symbolToText (Proxy :: Proxy n))

@@ -16,9 +16,11 @@ module Amazonka.DynamoDB.Item
       Value
     , newValue
     , getValue
-    , getValueType
+    -- , getValueType
     , ValueError  (..)
     , DynamoValue (..)
+    , toValue
+    , fromValue
 
     -- * Items
     , ItemError   (..)
@@ -36,7 +38,7 @@ module Amazonka.DynamoDB.Item
     , parseMaybe
 
     -- * Native Types
-    , DynamoType  (..)
+    , NativeType (..)
     ) where
 
 import Amazonka.DynamoDB.Item.Internal

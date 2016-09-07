@@ -1,95 +1,80 @@
-{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 
+-- |
+-- Module      : Amazonka.DynamoDB.Expression.Condition
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Placeholders for Expression Names and Values.
+--
+-- /See:/
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- in the AWS documentation.
 module Amazonka.DynamoDB.Expression.Placeholder
-    ( Placeholders (..)
-    , NamesAndValues
-    , Values
+    ( substitute
+    , bisubstitute
 
-    , Substitute
-    , substituteAll
+    , Supply
+    , supply
+    , next
     ) where
 
-import Amazonka.DynamoDB.Item (DynamoValue (..), Value)
-
-import Control.Lens                     (Lens', lens, use, uses, (%=), (.=), _1,
-                                         _2)
+import Control.Lens                     (_1, _2)
+import Control.Lens.Zoom                (zoom)
 import Control.Monad.Trans.Class        (lift)
-import Control.Monad.Trans.Maybe        (MaybeT)
-import Control.Monad.Trans.State.Strict (State, runState)
+import Control.Monad.Trans.State.Strict
 
-import Data.Bifunctor         (second)
+import Data.Bitraversable     (Bitraversable (..))
 import Data.Hashable          (Hashable (..))
 import Data.HashMap.Strict    (HashMap)
-import Data.Text              (Text)
+import Data.Monoid            ((<>))
 import Data.Text.Lazy.Builder (Builder)
 
 import qualified Data.HashMap.Strict        as Map
-import qualified Data.Text.Lazy.Builder     as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 
-type Substitute a = State (Memo a)
+substitute :: (Monad m, Traversable t, Eq a, Hashable a)
+           => t a
+           -> StateT (HashMap a Builder) m (t Builder)
+substitute =
+    mapStateT (flip evalStateT supply)
+        . traverse (replace (next_ ":v"))
 
-type NamesAndValues = (HashMap Text Builder, HashMap Value Builder)
-type Values         = HashMap Value Builder
+bisubstitute :: (Monad m, Bitraversable p, Eq a, Eq b, Hashable a, Hashable b)
+             => p a b
+             -> StateT (HashMap a Builder, HashMap b Builder) m (p Builder Builder)
+bisubstitute =
+    mapStateT (flip evalStateT supply)
+        . bitraverse (zoom _1 . replace (next_ "#n"))
+                     (zoom _2 . replace (next_ ":v"))
 
-newtype Supply = Supply [Builder]
+data Supply = Supply [Builder]
 
-newSupply :: Builder -> Supply
-newSupply p = Supply (map (mappend p . Build.decimal) ([1..] :: [Int]))
+supply :: Supply
+supply = Supply (map Build.decimal ([1..] :: [Int]))
 
-data Memo a = Memo
-    { _names  :: Supply
-    , _values :: Supply
-    , _cached :: a
-    }
+next_ :: Monad m => Builder -> a -> StateT Supply m Builder
+next_ = const . next
 
-names, values :: Lens' (Memo a) Supply
-names  = lens _names  (\s a -> s { _names  = a })
-values = lens _values (\s a -> s { _values = a })
+next :: Monad m => Builder -> StateT Supply m Builder
+next p = do
+    Supply (x:xs) <- get
+    put (Supply xs)
+    pure (p <> x)
 
-cached :: Lens' (Memo a) a
-cached = lens _cached (\s a -> s { _cached = a })
-
-newMemo :: a -> Memo a
-newMemo = Memo (newSupply "#n") (newSupply ":v")
-
-substituteAll :: s -> State (Memo s) a -> (a, s)
-substituteAll s m = second _cached (runState m (newMemo s))
-
-class Monad m => Placeholders m where
-    substituteName  :: Text -> m Builder
-    substituteValue :: DynamoValue a => a -> m Builder
-
-instance Placeholders m => Placeholders (MaybeT m) where
-    substituteName  = lift . substituteName
-    substituteValue = lift . substituteValue
-
-instance Placeholders (State (Memo NamesAndValues)) where
-    substituteName  = substitute names  (cached._1)
-    substituteValue = substitute values (cached._2) . toValue
-
-instance Placeholders (State (Memo Values)) where
-    substituteName  = pure . Build.fromText
-    substituteValue = substitute values cached . toValue
-
-substitute :: (Hashable a, Eq a)
-           => Lens' s Supply
-           -> Lens' s (HashMap a Builder)
-           -> a
-           -> State s Builder
-substitute supply memo k = do
-    mn <- uses memo (Map.lookup k)
-    case mn of
-        Just  n -> return n
+replace :: (Monad m, Eq a, Hashable a)
+        => (a -> m b)
+        -> a
+        -> StateT (HashMap a b) m b
+replace f x = do
+    my <- gets (Map.lookup x)
+    case my of
+        Just y  -> pure y
         Nothing -> do
-            n <- next supply
-            memo %= Map.insert k n
-            return n
-
-next :: Lens' s Supply -> State s Builder
-next l = do
-    Supply (x:xs) <- use l
-    l .= Supply xs
-    pure x
+            y <- lift (f x)
+            modify' (Map.insert x y)
+            pure y

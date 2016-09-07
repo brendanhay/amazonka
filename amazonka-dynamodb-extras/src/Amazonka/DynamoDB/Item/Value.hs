@@ -1,8 +1,13 @@
+{-# LANGUAGE ConstraintKinds      #-}
+{-# LANGUAGE DataKinds            #-}
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE LambdaCase           #-}
 {-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE PolyKinds            #-}
 {-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE ScopedTypeVariables  #-}
+{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 
 -- |
@@ -16,9 +21,9 @@
 module Amazonka.DynamoDB.Item.Value
     (
     -- * Native Types
-      DynamoType  (..)
+      NativeType  (..)
     , getAttributeType
-    , isAttributeValue
+    , isSingleAttribute
 
     -- * Errors
     , ValueError  (..)
@@ -26,13 +31,23 @@ module Amazonka.DynamoDB.Item.Value
     , mismatchError
 
     -- * Type Class
+    , DynamoList
+    , DynamoNumber
+    , DynamoNumberOrSet
+    , DynamoSet
     , DynamoValue (..)
+    , toValue
+    , fromValue
 
-    -- * Safe Values
+    -- * Values
     , Value
     , newValue
     , getValue
-    , getValueType
+
+    -- ** Safe Values
+    , NativeValue
+    , newNativeValue
+    , getNativeValue
 
     -- ** Null
     , setNull
@@ -88,10 +103,7 @@ import Control.Exception   (Exception)
 import Control.Lens        (set)
 import Control.Monad       ((>=>))
 
-import Data.Aeson            (FromJSON (..), ToJSON (..))
-import Data.Aeson.Types      (DotNetTime, parseEither)
 import Data.Bifunctor        (bimap, first)
-import Data.Bits             (popCount, setBit, zeroBits)
 import Data.ByteString       (ByteString)
 import Data.CaseInsensitive  (CI)
 import Data.Coerce           (coerce)
@@ -105,8 +117,9 @@ import Data.IntMap           (IntMap)
 import Data.IntSet           (IntSet)
 import Data.List.NonEmpty    (NonEmpty (..))
 import Data.Map.Strict       (Map)
-import Data.Maybe            (catMaybes, fromMaybe, isJust)
+import Data.Maybe            (catMaybes)
 import Data.Monoid           (Dual (..), (<>))
+import Data.Proxy            (Proxy (..))
 import Data.Scientific       (Scientific)
 import Data.Sequence         (Seq)
 import Data.Set              (Set)
@@ -121,6 +134,8 @@ import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
 import Foreign.Storable (Storable)
 
+import GHC.Exts (Constraint)
+
 import Network.AWS.Data.Base64            (Base64 (..))
 import Network.AWS.Data.Map               (toMap)
 import Network.AWS.Data.Text
@@ -129,7 +144,6 @@ import Network.AWS.DynamoDB.Types.Product (AttributeValue (..))
 
 import Numeric.Natural (Natural)
 
-import qualified Data.Aeson           as JS
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Scientific      as Sci
@@ -152,9 +166,9 @@ import qualified Data.Vector.Storable  as VectorStore
 import qualified Data.Vector.Unboxed   as VectorUnbox
 
 data ValueError
-    = AttributeMalformed [DynamoType]
-    | AttributeMismatch  !DynamoType (Maybe DynamoType)
-    | ParseFailure       !DynamoType Text
+    = AttributeMalformed [NativeType]
+    | AttributeMismatch  !NativeType (Maybe NativeType)
+    | ParseFailure       !NativeType Text
       deriving (Eq, Show, Typeable)
 
 instance Exception ValueError
@@ -174,106 +188,38 @@ malformedError AttributeValue'{..} =
         , S    <$ _avS
         ]
 
-mismatchError :: DynamoType -> AttributeValue -> ValueError
+mismatchError :: NativeType -> AttributeValue -> ValueError
 mismatchError expect = AttributeMismatch expect . getAttributeType
-
--- | The closed set of types that can be stored natively in DynamoDB.
---
--- FIXME: Add note about binary base64 transparency.
-data DynamoType
-    = NULL -- ^ Null.
-    | BOOL -- ^ Boolean.
-    | L    -- ^ List.
-    | M    -- ^ Map.
-    | NS   -- ^ Number Set.
-    | N    -- ^ Number.
-    | BS   -- ^ Binary Set.
-    | B    -- ^ Binary.
-    | SS   -- ^ String Set.
-    | S    -- ^ String.
-      deriving (Eq)
-
-instance Show DynamoType where
-    show = Text.unpack . toText
-
-instance ToText DynamoType where
-    toText = \case
-        NULL -> "NULL"
-        BOOL -> "BOOL"
-        L    -> "L"
-        M    -> "M"
-        NS   -> "NS"
-        N    -> "N"
-        BS   -> "BS"
-        B    -> "B"
-        SS   -> "SS"
-        S    -> "S"
-
-instance FromText DynamoType where
-    parser = takeText >>= \case
-        "NULL" -> pure NULL
-        "BOOL" -> pure BOOL
-        "L"    -> pure L
-        "M"    -> pure M
-        "NS"   -> pure NS
-        "N"    -> pure N
-        "BS"   -> pure BS
-        "B"    -> pure B
-        "SS"   -> pure SS
-        "S"    -> pure S
-        e      -> fromTextError ("Unable to parse DynamoType from: " <> e)
-
-instance DynamoValue DynamoType where
-    toValue   = setString . toText
-    fromValue = getString >=> parseText S
-
--- | Determine the populated 'AttributeValue' type.
-getAttributeType :: AttributeValue -> Maybe DynamoType
-getAttributeType AttributeValue'{..}
-    | isJust _avNULL = Just NULL
-    | isJust _avBOOL = Just BOOL
-    | isJust _avL    = Just L
-    | isJust _avM    = Just M
-    | isJust _avNS   = Just NS
-    | isJust _avN    = Just N
-    | isJust _avBS   = Just BS
-    | isJust _avB    = Just B
-    | isJust _avSS   = Just SS
-    | isJust _avS    = Just S
-    | otherwise      = Nothing
-
--- | Check the invariant that one, and only one field is set.
-isAttributeValue :: AttributeValue -> Bool
-isAttributeValue AttributeValue'{..} =
-    popCount board == 1
-  where
-    board :: Word16
-    board =
-          bit 0 _avBOOL
-        $ bit 1 _avNULL
-        $ bit 2 _avL
-        $ bit 3 _avM
-        $ bit 4 _avNS
-        $ bit 5 _avN
-        $ bit 6 _avBS
-        $ bit 7 _avB
-        $ bit 8 _avSS
-        $ bit 9 _avS
-        $ zeroBits
-
-    bit x (Just _) = flip setBit x
-    bit _ Nothing  = id
 
 newValue :: AttributeValue -> Either ValueError Value
 newValue v
-    | isAttributeValue v = Right (UnsafeValue v)
-    | otherwise          = Left  (malformedError v)
+    | isSingleAttribute v = Right (UnsafeValue v)
+    | otherwise           = Left  (malformedError v)
 
-getValueType :: Value -> DynamoType
-getValueType =
-    fromMaybe (error "Broken invariant for Value, no attribute field set.")
-        . getAttributeType
-        . getValue
+newNativeValue :: forall a. DynamoNative a
+               => Value
+               -> Either ValueError (NativeValue a)
+newNativeValue (UnsafeValue v)
+    | getAttributeType v == Just (getNativeType (Proxy :: Proxy a))
+        = Right (UnsafeNativeValue v)
+    | otherwise
+        = Left  (malformedError v)
+
+type DynamoList        a = (DynamoValue a, DynamoType a ~ 'L)
+type DynamoNumber      a = (DynamoValue a, DynamoType a ~ 'N)
+type DynamoNumberOrSet a = (DynamoValue a, IsDynamoNumberOrSet (DynamoType a))
+type DynamoSet         a = (DynamoValue a, IsDynamoSet (DynamoType a))
+
+type family IsDynamoNumberOrSet a :: Constraint where
+    IsDynamoNumberOrSet 'N =  ()
+    IsDynamoNumberOrSet 'NS = ()
+    IsDynamoNumberOrSet 'BS = ()
+    IsDynamoNumberOrSet 'SS = ()
+
+type family IsDynamoSet a :: Constraint where
+    IsDynamoSet 'NS = ()
+    IsDynamoSet 'BS = ()
+    IsDynamoSet 'SS = ()
 
 -- | Serialise a value to a simple DynamoDB attribute.
 --
@@ -302,165 +248,253 @@ getValueType =
 -- @
 --
 -- That is, you get back what you put in.
-class DynamoValue a where
-    toValue   :: a -> Value
-    fromValue :: Value -> Either ValueError a
+class DynamoNative (DynamoType a) => DynamoValue a where
+    type DynamoType a :: NativeType
 
-instance DynamoValue Value where
-    toValue   = id
-    fromValue = Right
+    toNative   :: a -> NativeValue (DynamoType a)
+    fromNative :: NativeValue (DynamoType a) -> Either ValueError a
+
+toValue :: DynamoValue a => a -> Value
+toValue = coerce . toNative
+
+fromValue :: DynamoValue a
+          => Value
+          -> Either ValueError a
+fromValue = newNativeValue >=> fromNative
+
+instance DynamoNative a => DynamoValue (NativeValue (a :: NativeType)) where
+    type DynamoType (NativeValue a) = a
+
+    toNative   = id
+    fromNative = Right
+
+instance DynamoValue NativeType where
+    type DynamoType NativeType = 'S
+
+    toNative   = setString . toText
+    fromNative = getString >=> parseText S
 
 instance DynamoValue () where
-    toValue   = const (setNull True)
-    fromValue = fmap (const ()). getNull
+    type DynamoType () = 'NULL
+
+    toNative   = const (setNull True)
+    fromNative = fmap (const ()). getNull
 
 instance DynamoValue Ordering where
-    toValue   = setString . toText
-    fromValue = getString >=> parseText S
+    type DynamoType Ordering = 'S
+
+    toNative   = setString . toText
+    fromNative = getString >=> parseText S
 
 instance DynamoValue Char where
-    toValue   = setString . toText
-    fromValue = getString >=> parseText S
+    type DynamoType Char = 'S
+
+    toNative   = setString . toText
+    fromNative = getString >=> parseText S
 
 instance DynamoValue Text where
-    toValue   = setString
-    fromValue = getString
+    type DynamoType Text = 'S
+
+    toNative   = setString
+    fromNative = getString
 
 instance DynamoValue LText.Text where
-    toValue   = toValue . LText.toStrict
-    fromValue = fmap LText.fromStrict . fromValue
+    type DynamoType LText.Text = 'S
+
+    toNative   = toNative . LText.toStrict
+    fromNative = fmap LText.fromStrict . fromNative
 
 instance DynamoValue ByteString where
-    toValue   = setBinary
-    fromValue = getBinary
+    type DynamoType ByteString = 'B
+
+    toNative   = setBinary
+    fromNative = getBinary
 
 instance DynamoValue LBS.ByteString where
-    toValue   = toValue . LBS.toStrict
-    fromValue = fmap LBS.fromStrict . fromValue
+    type DynamoType LBS.ByteString = 'B
+
+    toNative   = toNative . LBS.toStrict
+    fromNative = fmap LBS.fromStrict . fromNative
 
 instance DynamoValue Bool where
-    toValue   = setBool
-    fromValue = getBool
+    type DynamoType Bool = 'BOOL
+
+    toNative   = setBool
+    fromNative = getBool
 
 instance DynamoValue Word where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Word = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Word8 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Word8 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Word32 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Word32 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Word64 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Word64 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Int where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Int = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Int8 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Int8 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Int32 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Int32 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Int64 where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Int64 = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Integer where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Integer = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Natural where
-    toValue   = setIntegral
-    fromValue = getIntegral
+    type DynamoType Natural = 'N
+
+    toNative   = setIntegral
+    fromNative = getIntegral
 
 instance DynamoValue Double where
-    toValue   = toValue . Sci.fromFloatDigits
-    fromValue = fmap Sci.toRealFloat . fromValue
+    type DynamoType Double = 'N
+
+    toNative   = toNative . Sci.fromFloatDigits
+    fromNative = fmap Sci.toRealFloat . fromNative
 
 instance DynamoValue Float where
-    toValue   = toValue . Sci.fromFloatDigits
-    fromValue = fmap Sci.toRealFloat . fromValue
+    type DynamoType Float = 'N
+
+    toNative   = toNative . Sci.fromFloatDigits
+    fromNative = fmap Sci.toRealFloat . fromNative
 
 instance DynamoValue Scientific where
-    toValue   = setNumber
-    fromValue = getNumber
+    type DynamoType Scientific = 'N
+
+    toNative   = setNumber
+    fromNative = getNumber
 
 instance DynamoValue a => DynamoValue (Identity a) where
-    toValue   = toValue . runIdentity
-    fromValue = fmap Identity . fromValue
+    type DynamoType (Identity a) = DynamoType a
+
+    toNative   = toNative . runIdentity
+    fromNative = fmap Identity . fromNative
 
 instance DynamoValue a => DynamoValue (Const a b) where
-    toValue   = toValue . getConst
-    fromValue = fmap Const . fromValue
+    type DynamoType (Const a b) = DynamoType a
+
+    toNative   = toNative . getConst
+    fromNative = fmap Const . fromNative
 
 instance DynamoValue b => DynamoValue (Tagged s b) where
-    toValue   = toValue . unTagged
-    fromValue = fmap Tagged . fromValue
+    type DynamoType (Tagged s b) = DynamoType b
+
+    toNative   = toNative . unTagged
+    fromNative = fmap Tagged . fromNative
 
 instance DynamoValue a => DynamoValue (Dual a) where
-    toValue   = toValue . getDual
-    fromValue = fmap Dual . fromValue
+    type DynamoType (Dual a) = DynamoType a
+
+    toNative   = toNative . getDual
+    fromNative = fmap Dual . fromNative
 
 instance (DynamoValue a, CI.FoldCase a) => DynamoValue (CI a) where
-    toValue   = toValue . CI.original
-    fromValue = fmap CI.mk . fromValue
+    type DynamoType (CI a) = DynamoType a
+
+    toNative   = toNative . CI.original
+    fromNative = fmap CI.mk . fromNative
 
 instance DynamoValue a => DynamoValue [a] where
-    toValue   = setList . map toValue
-    fromValue = getList >=> traverse fromValue
+    type DynamoType [a] = 'L
+
+    toNative   = setList . map toValue
+    fromNative = getList >=> traverse fromValue
 
 instance DynamoValue a => DynamoValue (NonEmpty a) where
-     toValue   = toValue . NE.toList
-     fromValue =
-         fromValue >=> \case
+     type DynamoType (NonEmpty a) = 'L
+
+     toNative   = toNative . NE.toList
+     fromNative =
+         fromNative >=> \case
              x:xs -> Right (x :| xs)
              _    -> Left (ParseFailure L "Unexpected empty list.")
 
 instance DynamoValue a => DynamoValue (Vector a) where
-    toValue   = setVector
-    fromValue = getVector
+    type DynamoType (Vector a) = 'L
+
+    toNative   = setVector
+    fromNative = getVector
 
 instance (VectorGen.Vector VectorUnbox.Vector a, DynamoValue a)
       => DynamoValue (VectorUnbox.Vector a) where
-    toValue   = setVector
-    fromValue = getVector
+    type DynamoType (VectorUnbox.Vector a) = 'L
+
+    toNative   = setVector
+    fromNative = getVector
 
 instance (Storable a, DynamoValue a)
       => DynamoValue (VectorStore.Vector a) where
-    toValue   = setVector
-    fromValue = getVector
+    type DynamoType (VectorStore.Vector a) = 'L
+
+    toNative   = setVector
+    fromNative = getVector
 
 instance (VectorPrim.Prim a, DynamoValue a)
       => DynamoValue (VectorPrim.Vector a) where
-    toValue   = setVector
-    fromValue = getVector
+    type DynamoType (VectorPrim.Vector a) = 'L
+
+    toNative   = setVector
+    fromNative = getVector
 
 instance DynamoValue a => DynamoValue (Seq a) where
-    toValue   = toValue . toList
-    fromValue = fmap Seq.fromList . fromValue
+    type DynamoType (Seq a) = 'L
+
+    toNative   = toNative . toList
+    fromNative = fmap Seq.fromList . fromNative
 
 instance DynamoValue IntSet where
-    toValue   = setNumberSet . map fromIntegral . IntSet.toList
-    fromValue = getNumberSet >=> fmap IntSet.fromList . traverse go
+    type DynamoType IntSet = 'NS
+
+    toNative   = setNumberSet . map fromIntegral . IntSet.toList
+    fromNative = getNumberSet >=> fmap IntSet.fromList . traverse go
       where
         go    = first err . Sci.floatingOrInteger
         err r = ParseFailure NS $
             "Expected integral value, got: " <> toText (r :: Double)
 
 instance DynamoValue a => DynamoValue (IntMap a) where
-    toValue =
+    type DynamoType (IntMap a) = 'M
+
+    toNative =
         setMap . HashMap.fromList . map (bimap toText toValue) . IntMap.toList
 
-    fromValue =
+    fromNative =
         getMap >=> fmap IntMap.fromList . traverse go . HashMap.toList
       where
         go (k, v) =
@@ -468,317 +502,394 @@ instance DynamoValue a => DynamoValue (IntMap a) where
                <*> fromValue v
 
 instance DynamoValue a => DynamoValue (Map Text a) where
-    toValue   = toValue . HashMap.fromList . Map.toList
-    fromValue = fmap (Map.fromList . HashMap.toList) . fromValue
+    type DynamoType (Map Text a) = 'M
+
+    toNative   = toNative . HashMap.fromList . Map.toList
+    fromNative = fmap (Map.fromList . HashMap.toList) . fromNative
 
 instance DynamoValue (Set Text) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Text) = 'SS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set LText.Text) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set LText.Text) = 'SS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set ByteString) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set ByteString) = 'BS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set LBS.ByteString) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set LBS.ByteString) = 'BS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Word) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Word) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Word8) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Word8) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Word16) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Word16) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Word32) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Word32) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Word64) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Word64) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Int) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Int) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Int8) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Int8) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Int16) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Int16) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Int32) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Int32) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Int64) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Int64) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Integer) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Integer) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Natural) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Natural) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Float) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Float) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Double) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Double) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue (Set Scientific) where
-    toValue   = toValue . toHashSet
-    fromValue = fmap fromHashSet . fromValue
+    type DynamoType (Set Scientific) = 'NS
+
+    toNative   = toNative . toHashSet
+    fromNative = fmap fromHashSet . fromNative
 
 instance DynamoValue a => DynamoValue (HashMap Text a) where
-    toValue   = setMap . HashMap.map toValue
-    fromValue = getMap >=> traverse fromValue
+    type DynamoType (HashMap Text a) = 'M
+
+    toNative   = setMap . HashMap.map toValue
+    fromNative = getMap >=> traverse fromValue
 
 instance DynamoValue (HashSet Text) where
-    toValue   = setStringSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getStringSet
+    type DynamoType (HashSet Text) = 'SS
+
+    toNative   = setStringSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getStringSet
 
 instance DynamoValue (HashSet LText.Text) where
-    toValue   = setStringSet . map LText.toStrict . HashSet.toList
-    fromValue = fmap (HashSet.fromList . map LText.fromStrict) . getStringSet
+    type DynamoType (HashSet LText.Text) = 'SS
+
+    toNative   = setStringSet . map LText.toStrict . HashSet.toList
+    fromNative = fmap (HashSet.fromList . map LText.fromStrict) . getStringSet
 
 instance DynamoValue (HashSet ByteString) where
-    toValue   = setBinarySet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getBinarySet
+    type DynamoType (HashSet ByteString) = 'BS
+
+    toNative   = setBinarySet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getBinarySet
 
 instance DynamoValue (HashSet LBS.ByteString) where
-    toValue   = setBinarySet . map LBS.toStrict . HashSet.toList
-    fromValue = fmap (HashSet.fromList . map LBS.fromStrict) . getBinarySet
+    type DynamoType (HashSet LBS.ByteString) = 'BS
+
+    toNative   = setBinarySet . map LBS.toStrict . HashSet.toList
+    fromNative = fmap (HashSet.fromList . map LBS.fromStrict) . getBinarySet
 
 instance DynamoValue (HashSet Word) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Word) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Word8) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Word8) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Word16) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Word16) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Word32) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Word32) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Word64) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Word64) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Int) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Int) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Int8) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Int8) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Int16) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Int16) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Int32) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Int32) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Int64) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Int64) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Integer) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Integer) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Natural) where
-    toValue   = setIntegralSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getIntegralSet
+    type DynamoType (HashSet Natural) = 'NS
+
+    toNative   = setIntegralSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getIntegralSet
 
 instance DynamoValue (HashSet Float) where
-    toValue   = setNumberSet . map Sci.fromFloatDigits . HashSet.toList
-    fromValue = fmap (HashSet.fromList . map Sci.toRealFloat) . getNumberSet
+    type DynamoType (HashSet Float) = 'NS
+
+    toNative   = setNumberSet . map Sci.fromFloatDigits . HashSet.toList
+    fromNative = fmap (HashSet.fromList . map Sci.toRealFloat) . getNumberSet
 
 instance DynamoValue (HashSet Double) where
-    toValue   = setNumberSet . map Sci.fromFloatDigits . HashSet.toList
-    fromValue = fmap (HashSet.fromList . map Sci.toRealFloat) . getNumberSet
+    type DynamoType (HashSet Double) = 'NS
+
+    toNative   = setNumberSet . map Sci.fromFloatDigits . HashSet.toList
+    fromNative = fmap (HashSet.fromList . map Sci.toRealFloat) . getNumberSet
 
 instance DynamoValue (HashSet Scientific) where
-    toValue   = setNumberSet . HashSet.toList
-    fromValue = fmap HashSet.fromList . getNumberSet
+    type DynamoType (HashSet Scientific) = 'NS
 
-instance DynamoValue Version where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+    toNative   = setNumberSet . HashSet.toList
+    fromNative = fmap HashSet.fromList . getNumberSet
 
-instance DynamoValue Day where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue Version where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue TimeOfDay where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue Day where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue ZonedTime where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue TimeOfDay where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue LocalTime where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue ZonedTime where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue NominalDiffTime where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue LocalTime where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue UTCTime where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue NominalDiffTime where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-instance DynamoValue DotNetTime where
-    toValue   = toValue . toJSON
-    fromValue = fromValue >=> getJSON
+-- instance DynamoValue UTCTime where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
--- FIXME: add top-level note about binary sets/strings.
-instance DynamoValue JS.Value where
-    toValue = \case
-        JS.String x -> setString x
-        JS.Number x -> setNumber x
-        JS.Bool   x -> setBool   x
-        JS.Array  x -> setList . map toValue $ Vector.toList x
-        JS.Object x -> setMap  $ HashMap.map toValue x
-        JS.Null     -> setNull True
+-- instance DynamoValue DotNetTime where
+--     toNative   = toNative . toJSON
+--     fromNative = fromNative >=> getJSON
 
-    fromValue v = case getValueType v of
-        S    -> JS.String <$> getString v
-        N    -> JS.Number <$> getNumber v
-        BOOL -> JS.Bool   <$> getBool v
-        M    -> JS.Object <$> (getMap v >>= traverse fromValue)
-        L    -> JS.Array . Vector.fromList <$> (getList v >>= traverse fromValue)
-        NULL -> JS.Null   <$  getNull v
-        t    -> Left (ParseFailure t "Unable to parse unsupported JSON value.")
+-- -- FIXME: add top-level note about binary sets/strings.
+-- instance DynamoValue JS.Value where
+--     toNative = \case
+--         JS.String x -> setString x
+--         JS.Number x -> setNumber x
+--         JS.Bool   x -> setBool   x
+--         JS.Array  x -> setList . map toNative $ Vector.toList x
+--         JS.Object x -> setMap  $ HashMap.map toNative x
+--         JS.Null     -> setNull True
 
-setNull :: Bool -> Value
-setNull x = UnsafeValue (set avNULL (Just x) attributeValue)
+--     fromNative v = case getValueType v of
+--         S    -> JS.String <$> getString v
+--         N    -> JS.Number <$> getNumber v
+--         BOOL -> JS.Bool   <$> getBool v
+--         M    -> JS.Object <$> (getMap v >>= traverse fromNative)
+--         L    -> JS.Array . Vector.fromList <$> (getList v >>= traverse fromNative)
+--         NULL -> JS.Null   <$  getNull v
+--         t    -> Left (ParseFailure t "Unable to parse unsupported JSON value.")
 
-getNull :: Value -> Either ValueError Bool
-getNull (UnsafeValue v) = note (mismatchError NULL v) (_avNULL v)
+setNull :: Bool -> NativeValue 'NULL
+setNull x = UnsafeNativeValue (set avNULL (Just x) attributeValue)
 
-setBool :: Bool -> Value
-setBool x = UnsafeValue (set avBOOL (Just x) attributeValue)
+getNull :: NativeValue 'NULL -> Either ValueError Bool
+getNull (UnsafeNativeValue v) = note (mismatchError NULL v) (_avNULL v)
 
-getBool :: Value -> Either ValueError Bool
-getBool (UnsafeValue v) = note (mismatchError BOOL v) (_avBOOL v)
+setBool :: Bool -> NativeValue 'BOOL
+setBool x = UnsafeNativeValue (set avBOOL (Just x) attributeValue)
 
-setList :: [Value] -> Value
-setList x = UnsafeValue (set avL (coerce x) attributeValue)
+getBool :: NativeValue 'BOOL -> Either ValueError Bool
+getBool (UnsafeNativeValue v) = note (mismatchError BOOL v) (_avBOOL v)
 
-getList :: Value -> Either ValueError [Value]
-getList (UnsafeValue v) = note (mismatchError L v) (coerce <$> _avL v)
+setList :: [Value] -> NativeValue 'L
+setList x = UnsafeNativeValue (set avL (coerce x) attributeValue)
 
-setVector :: (VectorGen.Vector v a, DynamoValue a) => v a -> Value
-setVector = toValue . Vector.toList . Vector.convert
+getList :: NativeValue 'L -> Either ValueError [Value]
+getList (UnsafeNativeValue v) = note (mismatchError L v) (coerce <$> _avL v)
+
+setVector :: (VectorGen.Vector v a, DynamoValue a) => v a -> NativeValue 'L
+setVector = toNative . Vector.toList . Vector.convert
 
 getVector :: (VectorGen.Vector v a, DynamoValue a)
-          => Value
+          => NativeValue 'L
           -> Either ValueError (v a)
-getVector = fmap (Vector.convert . Vector.fromList) . fromValue
+getVector = fmap (Vector.convert . Vector.fromList) . fromNative
 
-setMap :: HashMap Text Value -> Value
-setMap x = UnsafeValue (set avM (coerce x) attributeValue)
+setMap :: HashMap Text Value -> NativeValue 'M
+setMap x = UnsafeNativeValue (set avM (coerce x) attributeValue)
 
-getMap :: Value -> Either ValueError (HashMap Text Value)
-getMap (UnsafeValue v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
+getMap :: NativeValue 'M -> Either ValueError (HashMap Text Value)
+getMap (UnsafeNativeValue v) = note (mismatchError M v) (coerce . toMap <$> _avM v)
 
-setNumberSet :: [Scientific] -> Value
-setNumberSet x = UnsafeValue (set avNS (map toText x) attributeValue)
+setNumberSet :: [Scientific] -> NativeValue 'NS
+setNumberSet x = UnsafeNativeValue (set avNS (map toText x) attributeValue)
 
-getNumberSet :: Value -> Either ValueError [Scientific]
-getNumberSet (UnsafeValue v) =
+getNumberSet :: NativeValue 'NS -> Either ValueError [Scientific]
+getNumberSet (UnsafeNativeValue v) =
     note (mismatchError NS v) (_avNS v)
         >>= first (ParseFailure NS . Text.pack)
           . traverse fromText
 
-setNumber :: Scientific -> Value
-setNumber x = UnsafeValue (set avN (Just (toText x)) attributeValue)
+setNumber :: Scientific -> NativeValue 'N
+setNumber x = UnsafeNativeValue (set avN (Just (toText x)) attributeValue)
 
-getNumber :: Value -> Either ValueError Scientific
-getNumber (UnsafeValue v) =
+getNumber :: NativeValue 'N -> Either ValueError Scientific
+getNumber (UnsafeNativeValue v) =
     note (mismatchError N v) (_avN v)
         >>= first (ParseFailure N . Text.pack)
           . fromText
 
-setIntegralSet :: Integral a => [a] -> Value
+setIntegralSet :: Integral a => [a] -> NativeValue 'NS
 setIntegralSet = setNumberSet . map fromIntegral
 
-getIntegralSet :: Integral a => Value -> Either ValueError [a]
+getIntegralSet :: Integral a => NativeValue 'NS -> Either ValueError [a]
 getIntegralSet = getNumberSet >=> traverse parse
   where
     parse = first err . Sci.floatingOrInteger
     err r = ParseFailure NS $
         "Expected integral value, got: " <> toText (r :: Double)
 
-setIntegral :: Integral a => a -> Value
+setIntegral :: Integral a => a -> NativeValue 'N
 setIntegral = setNumber . fromIntegral
 
-getIntegral :: Integral a => Value -> Either ValueError a
+getIntegral :: Integral a => NativeValue 'N -> Either ValueError a
 getIntegral = getNumber >=> first err . Sci.floatingOrInteger
   where
     err r = ParseFailure NS $
         "Expected integral value, got: " <> toText (r :: Double)
 
-setBinarySet :: [ByteString] -> Value
-setBinarySet x = UnsafeValue (set avBS x attributeValue)
+setBinarySet :: [ByteString] -> NativeValue 'BS
+setBinarySet x = UnsafeNativeValue (set avBS x attributeValue)
 
-getBinarySet :: Value -> Either ValueError [ByteString]
-getBinarySet (UnsafeValue v) = note (mismatchError BS v) (coerce (_avBS v))
+getBinarySet :: NativeValue 'BS -> Either ValueError [ByteString]
+getBinarySet (UnsafeNativeValue v) = note (mismatchError BS v) (coerce (_avBS v))
 
-setBinary :: ByteString -> Value
-setBinary x = UnsafeValue (set avB (Just x) attributeValue)
+setBinary :: ByteString -> NativeValue 'B
+setBinary x = UnsafeNativeValue (set avB (Just x) attributeValue)
 
-getBinary :: Value -> Either ValueError ByteString
-getBinary (UnsafeValue v) = note (mismatchError B v) (coerce (_avB v))
+getBinary :: NativeValue 'B -> Either ValueError ByteString
+getBinary (UnsafeNativeValue v) = note (mismatchError B v) (coerce (_avB v))
 
-setStringSet :: [Text] -> Value
-setStringSet x = UnsafeValue (set avSS x attributeValue)
+setStringSet :: [Text] -> NativeValue 'SS
+setStringSet x = UnsafeNativeValue (set avSS x attributeValue)
 
-getStringSet :: Value -> Either ValueError [Text]
-getStringSet (UnsafeValue v) = note (mismatchError SS v) (_avSS v)
+getStringSet :: NativeValue 'SS -> Either ValueError [Text]
+getStringSet (UnsafeNativeValue v) = note (mismatchError SS v) (_avSS v)
 
-setString :: Text -> Value
-setString x = UnsafeValue (set avS (Just x) attributeValue)
+setString :: Text -> NativeValue 'S
+setString x = UnsafeNativeValue (set avS (Just x) attributeValue)
 
-getString :: Value -> Either ValueError Text
-getString (UnsafeValue v) = note (mismatchError S v) (_avS v)
+getString :: NativeValue 'S -> Either ValueError Text
+getString (UnsafeNativeValue v) = note (mismatchError S v) (_avS v)
 
 note :: e -> Maybe a -> Either e a
 note e Nothing  = Left  e
 note _ (Just x) = Right x
 
-getJSON :: FromJSON a => JS.Value -> Either ValueError a
-getJSON = first (ParseFailure S . Text.pack) . parseEither parseJSON
-
-parseText :: FromText a => DynamoType -> Text -> Either ValueError a
+parseText :: FromText a => NativeType -> Text -> Either ValueError a
 parseText t = first (ParseFailure t . Text.pack) . fromText
 
 toHashSet :: (Eq a, Hashable a) => Set a -> HashSet a

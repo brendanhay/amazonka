@@ -11,7 +11,11 @@ module Main where
 import Test.DocTest (doctest)
 
 main :: IO ()
-main = doctest
-    [ "-isrc"
-    , "Network.AWS.DynamoDB.Expression"
+main = doctest $
+    ["-isrc"
+    , "-XOverloadedStrings"
+    , "src/Amazonka/DynamoDB/Expression/Compile.hs"
+    , "src/Amazonka/DynamoDB/Expression/Condition.hs"
+    , "src/Amazonka/DynamoDB/Expression/Update.hs"
+    , "src/Amazonka/DynamoDB/Expression/Projection.hs"
     ]

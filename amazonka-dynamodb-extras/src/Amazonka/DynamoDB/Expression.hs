@@ -108,326 +108,14 @@ module Amazonka.DynamoDB.Expression
     , evaluate
     ) where
 
-import Amazonka.DynamoDB.Expression.Compile  (compile, evaluate)
+import Amazonka.DynamoDB.Expression.Condition
 import Amazonka.DynamoDB.Expression.Internal
-import Amazonka.DynamoDB.Item                (DynamoType, DynamoValue (..))
-
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.Text          (Text)
-
-import Prelude hiding (compare)
+import Amazonka.DynamoDB.Expression.Update
 
 -- FIXME:
 -- Update Expressions vs Condition Expressions vs Projection Expressions
 -- Note about how by default attribute names are substituted for placeholders,
 -- as well as values. Just for the doctests the names are shown.
-
--- $setup
--- >>> :set -XOverloadedStrings
--- >>> let eval = maybe mempty fst . evaluate
-
--- | Specify an exact partition key.
---
--- >>> eval $ partition "partition-key" (=: "bar")
--- "partition-key = :v1"
---
-partition :: Text                     -- ^ The partition key name.
-          -> (Path -> Condition Hash) -- ^ A partially applied hash condition, such as @(=: "bar")@.
-          -> KeyExpression
-partition h f = Partition (f (name h))
-{-# INLINE partition #-}
-
--- | Specify an exact partition key, and narrow the scope
--- by specifying a sort key condition as follows:
---
--- >>> eval $ partitionFilter "partition-key" (=: "foo") "sort-key" (>: 123)
--- "(partition-key = :v1 AND sort-key < :v2)"
---
-partitionFilter :: Text                      -- ^ The partition key name.
-                -> (Path -> Condition Hash)  -- ^ A partially applied hash condition, such as @(=: "foo")@.
-                -> Text                      -- ^ The sort key name.
-                -> (Path -> Condition Range) -- ^ A partially applied range condition, such as @(>: 123)@.
-                -> KeyExpression
-partitionFilter h f r g = Sort (f (name h)) (g (name r))
-{-# INLINE partitionFilter #-}
-
--- | True if a is equal to b.
---
--- >>> equal a b
--- a = b
---
--- /See:/ '#=', '=:'
-equal :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
-equal a b = Equal (liftO a) (liftO b)
-{-# INLINE equal #-}
-
--- | True if a is not equal to b.
---
--- >>> notEqual a b
--- a <> b
---
--- /See:/ '#<>', '<>:'
-notEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
-notEqual a b = NotEqual (liftO a) (liftO b)
-{-# INLINE notEqual #-}
-
--- | True if a is lessThan than b.
---
--- >>> lessThan a b
--- a < b
---
--- /See:/ '#<', '<:'
-lessThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-lessThan a b = Less (liftO a) (liftO b)
-{-# INLINE lessThan #-}
-
--- | True if a is lessThan than or equal to b.
---
--- >>> lessThanOrEqual a b
--- a <= b
---
--- /See:/ '#<=', '<=:'
-lessThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-lessThanOrEqual a b = LessOrEqual (liftO a) (liftO b)
-{-# INLINE lessThanOrEqual #-}
-
--- | True if a is greater than b.
---
--- >>> greaterThan a b
--- a > b
---
--- /See:/ '#>', '>:'
-greaterThan :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-greaterThan a b = Greater (liftO a) (liftO b)
-{-# INLINE greaterThan #-}
-
--- | True if a is greater than or equal to b.
---
--- >>> greaterThanOrEqual a b
--- a >= b
---
--- /See:/ '#>=', '>=:'
-greaterThanOrEqual :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-greaterThanOrEqual a b = GreaterOrEqual (liftO a) (liftO b)
-{-# INLINE greaterThanOrEqual #-}
-
--- | Synonym for 'equal'.
-(#=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Hash
-(#=) = equal
-{-# INLINE (#=) #-}
-
--- | Synonym for 'notEqual'.
-(#<>) :: (IsOperand a, IsOperand b) => a -> b -> Condition Operand
-(#<>) = notEqual
-{-# INLINE (#<>) #-}
-
--- | Synonym for 'lessThan'.
-(#<) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-(#<) = lessThan
-{-# INLINE (#<) #-}
-
--- | Synonym for 'lessThanOrEqual'.
-(#<=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-(#<=) = lessThanOrEqual
-{-# INLINE (#<=) #-}
-
--- | Synonym for 'greaterThan'.
-(#>) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-(#>) = greaterThan
-{-# INLINE (#>) #-}
-
--- | Synonym for 'greaterThanOrEqual'.
-(#>=) :: (IsOperand a, IsOperand b) => a -> b -> Condition Range
-(#>=) = greaterThanOrEqual
-{-# INLINE (#>=) #-}
-
--- | Synonym for 'equal' that serializes the RHS to an 'AttributeValue'.
-(=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Hash
-(=:) a b = equal a (toValue b)
-{-# INLINE (=:) #-}
-
--- | Synonym for 'notEqual' that serializes the RHS to an 'AttributeValue'.
-(<>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Operand
-(<>:) a b = notEqual a (toValue b)
-{-# INLINE (<>:) #-}
-
--- | Synonym for 'lessThan' that serializes the RHS to an 'AttributeValue'.
-(<:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(<:) a b = lessThan a (toValue b)
-{-# INLINE (<:) #-}
-
--- | Synonym for 'lessThanOrEqual' that serializes the RHS to an 'AttributeValue'.
-(<=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(<=:) a b = lessThanOrEqual a (toValue b)
-{-# INLINE (<=:) #-}
-
--- | Synonym for 'greaterThan' that serializes the RHS to an 'AttributeValue'.
-(>:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(>:) a b = greaterThan a (toValue b)
-{-# INLINE (>:) #-}
-
--- | Synonym for 'greaterThanOrEqual' that serializes the RHS to an 'AttributeValue'.
-(>=:) :: (IsOperand a, DynamoValue b) => a -> b -> Condition Range
-(>=:) a b = greaterThanOrEqual a (toValue b)
-{-# INLINE (>=:) #-}
-
--- | Test the existence of an attribute.
---
--- Evaluates to true if the item contains the attribute specified by 'Path'.
--- For example, to check whether an item in the table has
--- a side view picture:
---
--- >>> exists "Pictures.SideView"
--- attribute_exists ("Pictures.SideView")
---
-exists :: Path -> Condition Operand
-exists = Exists
-{-# INLINE exists #-}
-
--- | Test the non-existence of an attribute.
---
--- Evaluates to true if the attribute specified by 'Path'
--- does not exist in the item.
--- For example, to check whether an item has a @Manufacturer@ attribute:
---
--- >>> notExists "Manufacturer"
--- attribute_not_exists ("Manufacturer")
---
-notExists :: Path -> Condition Operand
-notExists = NotExists
-{-# INLINE notExists #-}
-
--- | Test if the attribute is of the specified 'DynamoType'.
---
--- Evaluates to true if the attribute at the specified path is of a particular
--- data type. For example, to check whether the @FiveStar@ attribute is
--- of type @L@ (list):
---
--- >>> isType "ProductReviews.FiveStar" L
--- attribute_type ("ProductReviews.FiveStar", :sub)
---
-isType :: Path -> DynamoType -> Condition Operand
-isType = IsType
-{-# INLINE isType #-}
-
--- | Return a number representing an attribute's size.
---
--- The following are valid data types for use with size:
---
--- * If the attribute is of type 'S' (string), size returns the length of the string.
---
--- * If the attribute is of type 'B' (binary), size returns the number of bytes in the attribute value.
---
--- * If the attribute is a Set data type, size returns the number of elements in the set.
---
--- * If the attribute is of type 'L' (list) or 'M' (map), size returns the number of child elements.
---
-size :: Path -> Condition Operand
-size = Size
-{-# INLINE size #-}
-
--- | Test if the attribute contains a particular substring or set element.
---
--- Evalutes to true if the attribute specified by path is:
---
--- * A string that contains a particular substring.
---
--- * A set that contains a particular element within the set.
---
--- The path and the operand must be distinct; that is, @contains (a, a)@
--- will result in an error.
---
--- For example, to check whether the Brand string attribute contains
--- the substring Company:
---
--- >>> contains ("Brand", "Company")
--- contains ("Brand", :sub)
---
-contains :: Path -> Operand -> Condition Operand
-contains = Contains
-{-# INLINE contains #-}
-
--- | Test if the attribute begins with a particular substring.
---
--- For example, to check whether the first few characters of the front view
--- picture attribute is URL:
---
--- >>> beginsWith ("Pictures.FrontView", "http://")
--- begins_with ("Pictures.FrontView", :sub)
---
-beginsWith :: Path -> Text -> Condition Range
-beginsWith = BeginsWith
-{-# INLINE beginsWith #-}
-
--- | Test the if an attribute is within the specified range.
---
--- For example:
---
--- >>> between a (b, c)
--- a BETWEEN b AND c
---
--- Which results in true if @a@ is greater than or equal to @b@, and less than
--- or equal to @c@.
---
-between :: Operand -> (Operand, Operand) -> Condition Range
-between = Between
-{-# INLINE between #-}
-
--- | Test that operand is a member of the specified set, @x ∈ xs@.
---
--- Evalutes to true if the operand is equal to any value in the set. For example:
---
--- >>> in_ a (pure b <> pure a)
--- a IN (b, a)
---
--- Will result in true.
---
-in_ :: Operand -> NonEmpty Operand -> Condition Operand
-in_ = In
-{-# INLINE in_ #-}
-
--- | Logical conjunction, where the resulting expression is true if both
--- sub-expressions are true.
---
--- >>> equals a b `and` greater c d
--- a = b AND c > d
---
--- /See:/ '<>', 'mappend'.
-and_ :: (IsExpression a, IsExpression b) => a -> b -> Expression
-and_ a b = AndE (liftE a) (liftE b)
-{-# INLINE and_ #-}
-
--- | Logical disjunction, where the resulting expression is true if either
--- sub-expression is true.
---
--- >>> equals a b `or` equals c d
--- a = b OR c = d
---
-or_ :: (IsExpression a, IsExpression b) => a -> b -> Expression
-or_ a b = OrE (liftE a) (liftE b)
-{-# INLINE or_ #-}
-
--- | Logical negation, where the resulting expression is true if
--- the sub-expression is false, and false if the sub-expression is true.
---
--- >>> not (equals a b)
--- NOT a = b
---
-not_ :: IsExpression a => a -> Expression
-not_ = NotE . liftE
-{-# INLINE not_ #-}
-
--- Precedence
-
-infixl 9 #=, #<>, #<, #<=, #>, #>=
-infixl 9 =:, <>:, <:, <=:, >:, >=:
-infixl 9 `equal`, `notEqual`, `lessThan`, `lessThanOrEqual`, `greaterThan`, `greaterThanOrEqual`
-infixl 8 `in_`
-infixl 7 `between`
-infixl 6 `exists`, `notExists`, `isType`, `contains`, `size`, `beginsWith`
-infixl 4 `not_`
-infixl 3 `and_`
-infixl 2 `or_`
 
 {- $usage
 TODO
@@ -528,10 +216,66 @@ Note about overloading of operands, 'IsOperand', and 'DynamoValue'.
 -}
 
 {- $document_paths
-
-Accessing List Elements
-
-Access Nested Attributes and Map Elements
-
-Document Path Examples
+-- To do this, you must construct a path to the element's location,
+-- or document path, within the item. The document path tells DynamoDB where to
+-- find the attribute, even if it is deeply nested within multiple lists and
+-- maps.
+--
+-- For a top-level attribute, the document path is simply the attribute name.
+--
+-- For a nested attribute, you construct the document path using dereference
+-- operators which are handled by the 'Semigroup' instance for attributes,
+-- and 'index' for list elements.
+--
+-- Accessing a Top-level Attribute:
+--
+-- >>> eval $ key "AttributeName"
+-- AttributeName
+--
+-- Accessing Map Elements:
+--
+-- >>> eval $ key "AttributeName" <> key "Foo" <> key "Bar"
+-- AttributeName.Foo.Bar
+--
+-- It's important to observe the property that:
+--
+-- > key "AttributeName" <> key "Foo" <> key "Bar" /= key "AttributeName.Foo.Bar"
+--
+-- This is because the @\'.\'@ dereference operator is a valid path character,
+-- and the expression compiler will substitute each individual component of a
+-- path with a placeholder.
+--
+-- So with subsitution, the above example(s) would become:
+--
+-- @
+-- >>> key "AttributeName" <> key "Foo" <> key "Bar"
+-- #n1.#n2.#n3
+-- @
+--
+-- @
+-- >>> key "AttributeName.Foo.Bar"
+-- #n1
+-- @
+--
+-- Accessing List Elements:
+--
+-- >>> eval $ key "MyList"      `index` 0
+-- MyList[0]
+--
+-- >>> eval $ key "AnotherList" `index` 12
+-- AnotherList[12]
+--
+-- >>> eval $ key "ThisList"    `index` 5  `index` 11
+-- ThisList[5][11]
+--
+-- List dereferencing starts from zero.
+--
+-- /Warning:/ The maximum depth for a document path is 32. Therefore, the
+-- number of dereferences in any path cannot exceed this limit. This limit
+-- is not enforced by the expression language.
+--
+-- /Note:/ Usually in a document path, the first character of each attribute
+-- must be @[a-zA-Z]@ and the second character (if present) also must be
+-- [a-zA-Z0-9].  But since the expression compiler actually substitutes all
+-- attribute names by default, this requirement doesn't need to be met.
 -}

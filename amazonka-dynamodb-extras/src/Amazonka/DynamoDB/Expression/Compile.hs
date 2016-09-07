@@ -2,53 +2,100 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
+-- |
+-- Module      : Amazonka.DynamoDB.Expression.Compile
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
 module Amazonka.DynamoDB.Expression.Compile
     (
-    -- * Compiling Expressions
+    -- * Compilation
       compile
-    , evaluate
+    , bicompile
 
-    -- ** Components
-    , run
-
-    , expression
+    -- * Grammar
+    , conditionExpression
     , condition
-    , path
+
+    , updateExpression
+    , update
+
+    , projectionExpression
+
     , operand
+    , path
+    , attribute
     ) where
 
 import Amazonka.DynamoDB.Expression.Internal
-import Amazonka.DynamoDB.Expression.Placeholder
+import Amazonka.DynamoDB.Expression.Placeholder (bisubstitute, substitute)
 
-import Control.Monad.Trans.Maybe (MaybeT (..))
+import Control.Applicative              ((<**>))
+import Control.Monad.Trans.State.Strict (runState)
 
-import Data.Foldable          (toList)
+import Data.Bitraversable     (Bitraversable (..))
+import Data.Foldable          (fold, foldl', toList)
+import Data.Hashable          (Hashable)
+import Data.HashMap.Strict    (HashMap)
 import Data.List              (intersperse)
-import Data.Monoid
+import Data.Maybe             (catMaybes)
+import Data.Semigroup         ((<>))
+import Data.Sequence          (Seq, ViewL (..), (<|))
 import Data.Text.Lazy.Builder (Builder)
 
 import Network.AWS.Data.Text (ToText (..))
 
+import qualified Data.Sequence          as Seq
 import qualified Data.Text.Lazy.Builder as Build
 
--- | Compilation of an expression can result in either an empty expression,
--- or a rendered DynamoDB compatible textual representation.
-compile :: IsExpression a => a -> Maybe (Builder, NamesAndValues)
-compile = run (mempty, mempty) . expression . liftE
+-- | Given an expression evaluator, compile the expression and return
+-- the result along with any substituted placeholders for the functor's
+-- argument.
+--
+-- Typical usage specializes as follows:
+--
+-- @
+-- compile projectionExpression
+--     :: ProjectionExpression Name -> (Maybe Builder, HashMap Name Builder)
+-- @
+--
+-- Or to compile a bifunctor and render the first argument (such as a 'Name') verbatim:
+--
+-- @
+-- compile conditionExpression . first name
+--     :: ConditionExpression Name Value -> (Maybe Builder, HashMap Value Builder)
+-- @
+--
+compile :: (Traversable t, Eq b, Hashable b)
+        => (t Builder -> a) -- ^ Reduce a functor to the returned result.
+        -> t b              -- ^ A functor perform substitution on.
+        -> (a, HashMap b Builder)
+compile f = flip runState mempty . fmap f . substitute
 {-# INLINE compile #-}
 
--- | Evaluation doesn't perform any attribute name placeholder subsitutition.
-evaluate :: IsExpression a => a -> Maybe (Builder, Values)
-evaluate = run mempty . expression . liftE
-{-# INLINE evaluate #-}
-
-run :: s -> MaybeT (Substitute s) a -> Maybe (a, s)
-run s = go . substituteAll s . runMaybeT
-  where
-    go (mb, r) = (,r) <$> mb
-{-# INLINE run #-}
+-- | Given an expression evaluator, compile the expression and return
+-- the result along with the substituted placeholders for the bifunctor's
+-- first and second arguments.
+--
+-- Typical usage specializes as follows:
+--
+-- @
+-- bicompile conditionExpression
+--     :: UpdateExpression Name Value -> (Maybe Builder, (HashMap Name Builder, HashMap Value Builder))
+-- @
+--
+bicompile :: (Bitraversable p, Eq b, Hashable b, Eq c, Hashable c)
+          => (p Builder Builder -> a) -- ^ Reduce a bifunctor to the returned result.
+          -> p b c                    -- ^ A bifunctor perform substitution on.
+          -> (a, (HashMap b Builder, HashMap c Builder))
+bicompile f = flip runState (mempty, mempty) . fmap f . bisubstitute
+{-# INLINE bicompile #-}
 
 {-|
 @
@@ -62,24 +109,25 @@ expression ::=
     | ''
 @
 -}
-expression :: Placeholders m => Expression -> MaybeT m Builder
-expression = \case
-    CondE  c -> condition c
-    NotE   a -> ("NOT" >>>) <$> expression a
-    ParenE a -> parens <$> expression a
-    EmptyE   -> MaybeT $ pure Nothing
+conditionExpression :: ConditionExpression Builder Builder -> Maybe Builder
+conditionExpression = \case
+    CondE c -> Just (condition c)
 
-    AndE EmptyE b      -> expression b
-    AndE a      EmptyE -> expression a
+    NotE  a -> ("NOT" >>>) <$> conditionExpression a
+
+    AndE EmptyE b      -> conditionExpression b
+    AndE a      EmptyE -> conditionExpression a
     AndE a      b      -> do
-        x <- expression a
-        y <- expression b
-        pure $! parens (x >>> "AND" >>> y)
+        x <- conditionExpression a
+        y <- conditionExpression b
+        Just $! parens (x >>> "AND" >>> y)
 
     OrE a b -> do
-        x <- expression a
-        y <- expression b
-        pure $! parens (x >>> "OR" >>> y)
+        x <- conditionExpression a
+        y <- conditionExpression b
+        Just $! parens (x >>> "OR" >>> y)
+
+    EmptyE  -> Nothing
 
 {-|
 @
@@ -105,52 +153,131 @@ condition ::=
     | operand BETWEEN operand AND operand
 @
 -}
-condition :: Placeholders m => Condition a -> MaybeT m Builder
+condition :: Condition a Builder Builder -> Builder
 condition = \case
-    Equal          a b -> concat3 <$> operand (liftO a) <*> pure "="  <*> operand (liftO b)
-    NotEqual       a b -> concat3 <$> operand (liftO a) <*> pure "<>" <*> operand (liftO b)
-    Less           a b -> concat3 <$> operand (liftO a) <*> pure "<"  <*> operand (liftO b)
-    LessOrEqual    a b -> concat3 <$> operand (liftO a) <*> pure "<=" <*> operand (liftO b)
-    Greater        a b -> concat3 <$> operand (liftO a) <*> pure ">"  <*> operand (liftO b)
-    GreaterOrEqual a b -> concat3 <$> operand (liftO a) <*> pure ">=" <*> operand (liftO b)
+    Equal          a b -> operand a >>> "="  >>> operand b
+    NotEqual       a b -> operand a >>> "<>" >>> operand b
+    Less           a b -> operand a >>> "<"  >>> operand b
+    LessOrEqual    a b -> operand a >>> "<=" >>> operand b
+    Greater        a b -> operand a >>> ">"  >>> operand b
+    GreaterOrEqual a b -> operand a >>> ">=" >>> operand b
 
-    Exists     p   -> concat2 "attribute_exists"     <$> fmap parens (path p)
-    NotExists  p   -> concat2 "attribute_not_exists" <$> fmap parens (path p)
-    Size       p   -> concat2 "size"                 <$> fmap parens (path p)
-    Contains   p o -> concat2 "contains"             <$> tuple [path p, operand o]
-    IsType     p t -> concat2 "attribute_type"       <$> tuple [path p, substituteValue t]
-    BeginsWith p x -> concat2 "begins_with"          <$> tuple [path p, substituteValue x]
+    Exists     p   -> "attribute_exists"     >>> parens (path p)
+    NotExists  p   -> "attribute_not_exists" >>> parens (path p)
+    Size       p   -> "size"                 >>> parens (path p)
+    Contains   p o -> "contains"             >>> tupled [path p, operand o]
+    IsType     p t -> "attribute_type"       >>> tupled [path p, t]
+    BeginsWith p x -> "begins_with"          >>> tupled [path p, x]
 
     Between a (b, c) ->
-        concat5 <$> operand a <*> pure "BETWEEN" <*> operand b <*> pure "AND" <*> operand c
+        operand a >>> "BETWEEN" >>> operand b >>> "AND" >>> operand c
     In      x xs     ->
-        concat3 <$> operand x <*> pure "IN" <*> fmap tupled (traverse operand xs)
+        operand x >>> "IN" >>> tupled (operand <$> xs)
+{-|
+@
+expression ::=
+      SET set-action , ...
+    | REMOVE remove-action , ...
+    | ADD add-action , ...
+    | DELETE delete-action , ...
+@
+-}
+updateExpression :: UpdateExpression Builder Builder -> Maybe Builder
+updateExpression UpdateExpression{..}
+    | null statements = Nothing
+    | otherwise       = Just (mconcat (intersperse " " statements))
   where
-    tuple :: Placeholders f => [f Builder] -> f Builder
-    tuple = fmap tupled . traverse id
+    statements =
+        catMaybes
+            [ command "SET"    setf _set
+            , command "REMOVE" path _remove
+            , command "ADD"    addf _add
+            , command "DELETE" delf _delete
+            ]
 
-path :: Placeholders m => Path -> MaybeT m Builder
-path = \case
-    Name   t   -> substituteName t
-    Nested a b -> concat3 <$> path a <*> pure "." <*> path b
-    Index  p i -> flip mappend ("[" <> build i <> "]") <$> path p
+    command :: Builder -> (a -> Builder) -> Seq a -> Maybe Builder
+    command cmd f s =
+        case Seq.viewl s of
+            EmptyL  -> Nothing
+            x :< xs -> Just $ foldl' (\r z -> r <> "," >>> f z) (cmd >>> f x) xs
 
-operand :: Placeholders m => Operand -> MaybeT m Builder
+    setf (p, u) = path p >>> "=" >>> update u
+    addf (p, v) = path p >>> v
+    delf (p, v) = path p >>> v
+
+{-|
+@
+
+@
+-}
+projectionExpression :: ProjectionExpression Builder -> Builder
+projectionExpression = fold . sintersperse ", " . fmap path . _project
+  where
+    -- In containers >= 0.5.8
+    sintersperse y xs =
+        case Seq.viewl xs of
+            EmptyL -> Seq.empty
+            p :< ps -> p <| (ps <**> (const y <| Seq.singleton id))
+
+{-|
+@
+value ::=
+      operand
+    | operand \'+\' operand
+    | operand \'-\' operand
+
+operand ::=
+      path
+    | function
+
+function ::=
+      if_not_exists (path, operand)
+    | list_append   (operand, operand)
+@
+-}
+update :: Update Builder Builder -> Builder
+update = \case
+    Operand     o   -> operand o
+    Plus        p u -> path p >>> "+" >>> update u
+    Minus       p u -> path p >>> "-" >>> update u
+    IfNotExists p u -> "if_not_exists" >>> tupled [path p, update u]
+    ListAppend  a b -> "list_append"   >>> tupled [update a, update b]
+
+{-|
+@
+operand ::=
+      path
+    | value
+@
+-}
+operand :: Operand Builder Builder -> Builder
 operand = \case
     Path  p -> path p
-    Value v -> substituteValue v
+    Value v -> v
+{-# INLINE operand #-}
 
-concat2 :: Builder -> Builder -> Builder
-concat2 = (>>>)
-{-# INLINE concat2 #-}
+{-|
+@
+path ::=
+      attribute
+    | path \'.\' path
+    | path [integer]
+@
+-}
+path :: Path Builder -> Builder
+path = \case
+    Attr   x   -> x
+    Index  x i -> x <> "[" <> build i <> "]"
+    Nested a b -> path a <> "." <> path b
+{-# INLINE path #-}
 
-concat3 :: Builder -> Builder -> Builder -> Builder
-concat3 a b c = a >>> b >>> c
-{-# INLINE concat3 #-}
-
-concat5 :: Builder -> Builder -> Builder -> Builder -> Builder -> Builder
-concat5 a b c d e = a >>> b >>> c >>> d >>> e
-{-# INLINE concat5 #-}
+{-|
+@
+attribute ::= string
+@
+-}
+attribute :: Name -> Builder
+attribute = Build.fromText . fromName
 
 (>>>) :: Builder -> Builder -> Builder
 (>>>) a b = a <> " " <> b

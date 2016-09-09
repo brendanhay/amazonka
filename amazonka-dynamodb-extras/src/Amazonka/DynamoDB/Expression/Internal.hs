@@ -8,6 +8,7 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE StandaloneDeriving         #-}
+{-# LANGUAGE TupleSections              #-}
 
 module Amazonka.DynamoDB.Expression.Internal where
 
@@ -23,9 +24,8 @@ import Data.Bitraversable
 import Data.Function        (on)
 import Data.Hashable        (Hashable)
 import Data.List.NonEmpty   (NonEmpty (..))
-import Data.Monoid          (Monoid (..))
 import Data.Semigroup       (Semigroup (..))
-import Data.Sequence        (Seq)
+import Data.Sequence        (Seq, (<|))
 import Data.String          (IsString (..))
 import Data.Text            (Text)
 
@@ -34,14 +34,6 @@ import Network.AWS.Data.Text
 import Numeric.Natural (Natural)
 
 import qualified Data.Sequence as Seq
-
--- $setup
--- >>> :set -XOverloadedStrings
--- >>> :load Amazonka.DynamoDB.Expression.Compile
--- >>> import Amazonka.DynamoDB.Expression.Compile (path, name)
--- >>> import Data.Text.Lazy.Builder (toLazyText)
--- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . path . fmap name
 
 newtype Name = Name { fromName :: Text }
     deriving (Eq, Show, Ord, Hashable, IsString, ToText, FromText)
@@ -267,8 +259,6 @@ data ConditionExpression p v where
     NotE   :: ConditionExpression p v
            -> ConditionExpression p v
 
-    EmptyE :: ConditionExpression p v
-
 deriving instance (Show p, Show v) => Show (ConditionExpression p v)
 
 instance Functor (ConditionExpression p) where
@@ -286,7 +276,6 @@ instance Bifunctor ConditionExpression where
         AndE  a b -> AndE  (bimap f g a) (bimap f g b)
         OrE   a b -> OrE   (bimap f g a) (bimap f g b)
         NotE  a   -> NotE  (bimap f g a)
-        EmptyE    -> EmptyE
 
 instance Bifoldable ConditionExpression where
     bifoldr f g z = \case
@@ -294,7 +283,6 @@ instance Bifoldable ConditionExpression where
         AndE  a b -> bifoldr f g (bifoldr f g z b) a
         OrE   a b -> bifoldr f g (bifoldr f g z b) a
         NotE  a   -> bifoldr f g z a
-        EmptyE    -> z
 
 instance Bitraversable ConditionExpression where
     bitraverse f g = \case
@@ -302,25 +290,14 @@ instance Bitraversable ConditionExpression where
         AndE  a b -> AndE  <$> bitraverse f g a <*> bitraverse f g b
         OrE   a b -> OrE   <$> bitraverse f g a <*> bitraverse f g b
         NotE  a   -> NotE  <$> bitraverse f g a
-        EmptyE    -> pure EmptyE
 
 -- | The associative operation corresponds to conjunction using 'and'.
-instance Semigroup (ConditionExpression p v)
-
--- | The identity of an expression will 'eval'uate to 'Nothing',
-instance Monoid (ConditionExpression p v) where
-    mempty = EmptyE
-
-    mappend EmptyE b      = b
-    mappend a      EmptyE = a
-    mappend a      b      = AndE a b
+instance Semigroup (ConditionExpression p v) where
+    (<>) = AndE
 
 -- | A restricted expression that can be used as a @KeyConditionExpression@
 -- for 'Query' requests, to provide a specific value the partition key must
 -- match and an optional sort key condition.
---
--- /Note:/ Any function signature that has an 'IsCondition' constraint,
--- accepts a 'KeyExpression' as a parameter.
 data KeyConditionExpression p v
     = Partition (Condition Hash p v)
     | Sort      (Condition Hash p v) (Condition Range p v)
@@ -396,7 +373,7 @@ instance Bitraversable Update where
 -- update expression in any order. However, each section keyword can appear only
 -- once.
 --
--- You can combine multiple 'UpdateExpression's using the 'Monoid' or 'Semigroup'
+-- You can combine multiple 'UpdateExpression's using the 'Semigroup'
 -- instance. Ordering of actions is preserved, but the specific top-level action types
 -- will always be compiled in the following order:
 --
@@ -404,22 +381,21 @@ instance Bitraversable Update where
 -- SET action[, ...] REMOVE action[, ...] ADD action[, ...] DELETE action[, ...]
 -- @
 --
-data UpdateExpression p v = UpdateExpression
-    { _set    :: Seq (Path p, Update p v)
-    , _remove :: Seq (Path p)
-    , _add    :: Seq (Path p, v)
-    , _delete :: Seq (Path p, v)
+data UpdateExpression p v = UnsafeUpdateExpression
+    { _unsafeSet    :: Seq (Path p, Update p v)
+    , _unsafeRemove :: Seq (Path p)
+    , _unsafeAdd    :: Seq (Path p, v)
+    , _unsafeDelete :: Seq (Path p, v)
     } deriving (Eq, Show)
+    -- Assumes the invariant that an UpdateExpression cannot be empty is met,
+    -- despite internally using sequences for concat/fold reasons.
 
-instance Semigroup (UpdateExpression p v)
-
-instance Monoid (UpdateExpression p v) where
-    mempty      = UpdateExpression mempty mempty mempty mempty
-    mappend a b = UpdateExpression
-        { _set    = on mappend _set    a b
-        , _remove = on mappend _remove a b
-        , _add    = on mappend _add    a b
-        , _delete = on mappend _delete a b
+instance Semigroup (UpdateExpression p v) where
+    (<>) a b = UnsafeUpdateExpression
+        { _unsafeSet    = on (<>) _unsafeSet    a b
+        , _unsafeRemove = on (<>) _unsafeRemove a b
+        , _unsafeAdd    = on (<>) _unsafeAdd    a b
+        , _unsafeDelete = on (<>) _unsafeDelete a b
         }
 
 instance Functor (UpdateExpression p) where
@@ -432,42 +408,43 @@ instance Traversable (UpdateExpression p) where
     traverse = bitraverse (pure . id)
 
 instance Bifunctor UpdateExpression where
-    bimap f g UpdateExpression{..} =
-        UpdateExpression
-            { _set    = bimap (fmap f) (bimap f g) <$> _set
-            , _remove =        fmap f              <$> _remove
-            , _add    = bimap (fmap f) g           <$> _add
-            , _delete = bimap (fmap f) g           <$> _delete
+    bimap f g UnsafeUpdateExpression{..} =
+        UnsafeUpdateExpression
+            { _unsafeSet    = bimap (fmap f) (bimap f g) <$> _unsafeSet
+            , _unsafeRemove =        fmap f              <$> _unsafeRemove
+            , _unsafeAdd    = bimap (fmap f) g           <$> _unsafeAdd
+            , _unsafeDelete = bimap (fmap f) g           <$> _unsafeDelete
             }
 
 instance Bifoldable UpdateExpression where
-    bifoldr f g z UpdateExpression{..} =
-        let del' = foldr (\(p, v) a -> (flip (foldr f)) p (g v a)) z _delete
-            add' = foldr (\(p, v) a -> (flip (foldr f)) p (g v a)) del' _add
-            rem' = foldr (flip (foldr f)) add' _remove
-            set' = foldr (\(p, v) a -> (flip (foldr f)) p (bifoldr f g a v)) rem' _set
+    bifoldr f g z UnsafeUpdateExpression{..} =
+        let del' = foldr (\(p, v) a -> (flip (foldr f)) p (g v a)) z _unsafeDelete
+            add' = foldr (\(p, v) a -> (flip (foldr f)) p (g v a)) del' _unsafeAdd
+            rem' = foldr (flip (foldr f)) add' _unsafeRemove
+            set' = foldr (\(p, v) a -> (flip (foldr f)) p (bifoldr f g a v)) rem' _unsafeSet
          in set'
 
 instance Bitraversable UpdateExpression where
-    bitraverse f g UpdateExpression{..} =
-        UpdateExpression
-            <$> traverse (bitraverse (traverse f) (bitraverse f g)) _set
-            <*> traverse (traverse f) _remove
-            <*> traverse (bitraverse (traverse f) g) _add
-            <*> traverse (bitraverse (traverse f) g) _delete
+    bitraverse f g UnsafeUpdateExpression{..} =
+        UnsafeUpdateExpression
+            <$> traverse (bitraverse (traverse f) (bitraverse f g)) _unsafeSet
+            <*> traverse (traverse f) _unsafeRemove
+            <*> traverse (bitraverse (traverse f) g) _unsafeAdd
+            <*> traverse (bitraverse (traverse f) g) _unsafeDelete
 
 newtype ProjectionExpression p = ProjectionExpression
-    { _project :: Seq (Path p)
+    { _project :: (Path p, Seq (Path p))
     } deriving (Eq, Show, Functor, Foldable, Traversable)
 
 instance Applicative ProjectionExpression where
-    pure  = ProjectionExpression . pure . pure
+    pure = ProjectionExpression . (,mempty) . pure
 
-    ProjectionExpression fs <*> ProjectionExpression xs
-        = ProjectionExpression (Seq.zipWith (<*>) fs xs)
+    ProjectionExpression (f, fs) <*> ProjectionExpression (x, xs)
+        = ProjectionExpression (f <*> x, Seq.zipWith (<*>) fs xs)
 
-instance Semigroup (ProjectionExpression p)
-    (<>) a b = ProjectionExpression (on (<>) _project a b)
+instance Semigroup (ProjectionExpression p) where
+    (<>) (ProjectionExpression (x, xs)) (ProjectionExpression (y, ys))
+        = ProjectionExpression (x, xs <> (y <| ys))
 
 class IsOperand a where
     -- | Lift a path or a value to an operand.
@@ -495,12 +472,6 @@ instance IsCondition (Condition a) where
 
 instance IsCondition ConditionExpression where
     liftC = id
-    {-# INLINE liftC #-}
-
-instance IsCondition KeyConditionExpression where
-    liftC = \case
-        Partition h   -> liftC h
-        Sort      h r -> liftC h <> liftC r
     {-# INLINE liftC #-}
 
 class IsUpdate a where

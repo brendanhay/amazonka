@@ -35,7 +35,7 @@ library
         , Amazonka.DynamoDB.Item.Value
 
           -- amazonka-dynamodb-expression
---        , Amazonka.DynamoDB.Expression
+        , Amazonka.DynamoDB.Expression
         , Amazonka.DynamoDB.Expression.Compile
         , Amazonka.DynamoDB.Expression.Condition
         , Amazonka.DynamoDB.Expression.Internal
@@ -56,9 +56,9 @@ library
     build-depends:
           amazonka             == 1.4.3.*
         , amazonka-core        == 1.4.3.*
-        , amazonka-dynamodb    == 1.4.3.*
+        , amazonka-dynamodb
         , attoparsec
-        , base                 >= 4.9 && < 5
+        , base                 >= 4.8 && < 5
         , bifunctors           >= 4.2
         , bytestring           >= 0.9
         , case-insensitive     >= 1.2

@@ -42,7 +42,7 @@ module Amazonka.DynamoDB.Expression.Update
     , listAppend
     ) where
 
-import Amazonka.DynamoDB.Expression.Compile  ()
+import Amazonka.DynamoDB.Expression.Compile
 import Amazonka.DynamoDB.Expression.Internal
 import Amazonka.DynamoDB.Item.Value
 
@@ -51,11 +51,10 @@ import Data.Monoid (mempty)
 import qualified Data.Sequence as Seq
 
 -- $setup
--- >>> import Amazonka.DynamoDB.Expression.Compile
 -- >>> import Data.Semigroup ((<>))
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . maybe mempty fst . compile updateExpression . liftU
+-- >>> let eval = Text.putStrLn . toLazyText . fst . compile updateExpression
 
 {-| Use the SET action in an update expression to add one or more attributes
 and values to an item. If any of these attribute already exist, they are
@@ -63,8 +62,12 @@ replaced by the new values. However, note that you can also use SET to add or
 subtract from an attribute that is of type Number.
 -}
 set :: IsUpdate a => Path Name -> a -> UpdateExpression Name Value
-set p u = mempty { _set = Seq.singleton (p, liftU u) }
-
+set p u = UnsafeUpdateExpression
+    { _unsafeSet    = Seq.singleton (p, liftU u)
+    , _unsafeRemove = mempty
+    , _unsafeAdd    = mempty
+    , _unsafeDelete = mempty
+    }
 
 -- SET Price = Price + :p
 increment :: DynamoNumber a => Path Name -> a -> UpdateExpression Name Value
@@ -104,7 +107,12 @@ listAppend a b = ListAppend (liftU a) (liftU b)
 attributes from an item.
 -}
 remove :: Path p -> UpdateExpression p Value
-remove p = mempty { _remove = Seq.singleton p }
+remove p = UnsafeUpdateExpression
+    { _unsafeSet    = mempty
+    , _unsafeRemove = Seq.singleton p
+    , _unsafeAdd    = mempty
+    , _unsafeDelete = mempty
+    }
 
 {-|
 
@@ -118,7 +126,12 @@ update expression to do either of the following:
     * If the attribute is a set, and the value you are adding is also a set, then the value is appended to the existing set.
 -}
 add :: DynamoNumberOrSet a => Path p -> a -> UpdateExpression p Value
-add p v = mempty { _add = Seq.singleton (p, toValue v) }
+add p v = UnsafeUpdateExpression
+    { _unsafeSet    = mempty
+    , _unsafeRemove = mempty
+    , _unsafeAdd    = Seq.singleton (p, toValue v)
+    , _unsafeDelete = mempty
+    }
 
 {-| Use the DELETE action in an update expression to delete an element from a set.
 
@@ -131,4 +144,9 @@ The value element is the element(s) in the set that you want to delete.
 
 -}
 delete :: DynamoSet a => Path p -> a -> UpdateExpression p Value
-delete p v = mempty { _delete = Seq.singleton (p, toValue v) }
+delete p v = UnsafeUpdateExpression
+    { _unsafeSet    = mempty
+    , _unsafeRemove = mempty
+    , _unsafeAdd    = mempty
+    , _unsafeDelete = Seq.singleton (p, toValue v)
+    }

@@ -13,6 +13,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
+-- Compilation of an expression consists of substituting either the first argument of a 'Traversable' or
+-- both arguments of a 'Bitraversable' (such as 'Name' and 'Path') with
+-- safe placeholders.
+--
+-- The expression is then pretty printed and the resulting placeholder mapping
+-- is also returned.
 module Amazonka.DynamoDB.Expression.Compile
     (
     -- * Compilation
@@ -30,23 +36,21 @@ module Amazonka.DynamoDB.Expression.Compile
 
     , operand
     , path
-    , attribute
+    , name
     ) where
 
-import Amazonka.DynamoDB.Expression.Internal
-import Amazonka.DynamoDB.Expression.Placeholder (bisubstitute, substitute)
+import Amazonka.DynamoDB.Expression.Internal    hiding (name)
+import Amazonka.DynamoDB.Expression.Placeholder
 
-import Control.Applicative              ((<**>))
 import Control.Monad.Trans.State.Strict (runState)
 
 import Data.Bitraversable     (Bitraversable (..))
-import Data.Foldable          (fold, foldl', toList)
+import Data.Foldable          (foldl', toList)
 import Data.Hashable          (Hashable)
-import Data.HashMap.Strict    (HashMap)
 import Data.List              (intersperse)
 import Data.Maybe             (catMaybes)
 import Data.Semigroup         ((<>))
-import Data.Sequence          (Seq, ViewL (..), (<|))
+import Data.Sequence          (Seq, ViewL (..))
 import Data.Text.Lazy.Builder (Builder)
 
 import Network.AWS.Data.Text (ToText (..))
@@ -55,46 +59,46 @@ import qualified Data.Sequence          as Seq
 import qualified Data.Text.Lazy.Builder as Build
 
 -- | Given an expression evaluator, compile the expression and return
--- the result along with any substituted placeholders for the functor's
+-- the result along with any substituted placeholders for the 'Traversable'
 -- argument.
 --
 -- Typical usage specializes as follows:
 --
 -- @
 -- compile projectionExpression
---     :: ProjectionExpression Name -> (Maybe Builder, HashMap Name Builder)
+--     :: ProjectionExpression Name -> (Builder, HashMap Name Builder)
 -- @
 --
--- Or to compile a bifunctor and render the first argument (such as a 'Name') verbatim:
+-- Or to compile a 'Bitraversable' and render the first argument (such as a 'Name') verbatim:
 --
 -- @
 -- compile conditionExpression . first name
---     :: ConditionExpression Name Value -> (Maybe Builder, HashMap Value Builder)
+--     :: ConditionExpression Name Value -> (Builder, HashMap Value Builder)
 -- @
 --
 compile :: (Traversable t, Eq b, Hashable b)
-        => (t Builder -> a) -- ^ Reduce a functor to the returned result.
-        -> t b              -- ^ A functor perform substitution on.
-        -> (a, HashMap b Builder)
-compile f = flip runState mempty . fmap f . substitute
+        => (t Builder -> a) -- ^ An expression grammar.
+        -> t b              -- ^ An expression to perform substitution on.
+        -> (a, Placeholders b)
+compile f = flip runState empty . fmap f . substitute
 {-# INLINE compile #-}
 
 -- | Given an expression evaluator, compile the expression and return
--- the result along with the substituted placeholders for the bifunctor's
+-- the result along with the substituted placeholders for the 'Bitraversable's
 -- first and second arguments.
 --
 -- Typical usage specializes as follows:
 --
 -- @
 -- bicompile conditionExpression
---     :: UpdateExpression Name Value -> (Maybe Builder, (HashMap Name Builder, HashMap Value Builder))
+--     :: UpdateExpression Name Value -> (Builder, (HashMap Name Builder, HashMap Value Builder))
 -- @
 --
 bicompile :: (Bitraversable p, Eq b, Hashable b, Eq c, Hashable c)
-          => (p Builder Builder -> a) -- ^ Reduce a bifunctor to the returned result.
-          -> p b c                    -- ^ A bifunctor perform substitution on.
-          -> (a, (HashMap b Builder, HashMap c Builder))
-bicompile f = flip runState (mempty, mempty) . fmap f . bisubstitute
+          => (p Builder Builder -> a) -- ^ An expression grammar.
+          -> p b c                    -- ^ An expression to perform substitution on.
+          -> (a, (Placeholders b, Placeholders c))
+bicompile f = flip runState (empty, empty) . fmap f . bisubstitute
 {-# INLINE bicompile #-}
 
 {-|
@@ -109,25 +113,12 @@ expression ::=
     | ''
 @
 -}
-conditionExpression :: ConditionExpression Builder Builder -> Maybe Builder
+conditionExpression :: ConditionExpression Builder Builder -> Builder
 conditionExpression = \case
-    CondE c -> Just (condition c)
-
-    NotE  a -> ("NOT" >>>) <$> conditionExpression a
-
-    AndE EmptyE b      -> conditionExpression b
-    AndE a      EmptyE -> conditionExpression a
-    AndE a      b      -> do
-        x <- conditionExpression a
-        y <- conditionExpression b
-        Just $! parens (x >>> "AND" >>> y)
-
-    OrE a b -> do
-        x <- conditionExpression a
-        y <- conditionExpression b
-        Just $! parens (x >>> "OR" >>> y)
-
-    EmptyE  -> Nothing
+    CondE c   -> condition c
+    NotE  a   -> parens ("NOT" >>> conditionExpression a)
+    AndE  a b -> parens (conditionExpression a >>> "AND" >>> conditionExpression b)
+    OrE   a b -> parens (conditionExpression a >>> "OR"  >>> conditionExpression b)
 
 {-|
 @
@@ -181,18 +172,19 @@ expression ::=
     | ADD add-action , ...
     | DELETE delete-action , ...
 @
+
+FIXME: Assumes the invariant that an UpdateExpression has no empty/identity is held.
 -}
-updateExpression :: UpdateExpression Builder Builder -> Maybe Builder
-updateExpression UpdateExpression{..}
-    | null statements = Nothing
-    | otherwise       = Just (mconcat (intersperse " " statements))
+updateExpression :: UpdateExpression Builder Builder -> Builder
+updateExpression UnsafeUpdateExpression{..} =
+    mconcat (intersperse " " statements)
   where
     statements =
         catMaybes
-            [ command "SET"    setf _set
-            , command "REMOVE" path _remove
-            , command "ADD"    addf _add
-            , command "DELETE" delf _delete
+            [ command "SET"    setf _unsafeSet
+            , command "REMOVE" path _unsafeRemove
+            , command "ADD"    addf _unsafeAdd
+            , command "DELETE" delf _unsafeDelete
             ]
 
     command :: Builder -> (a -> Builder) -> Seq a -> Maybe Builder
@@ -207,17 +199,12 @@ updateExpression UpdateExpression{..}
 
 {-|
 @
-
+projection ::= path , ...
 @
 -}
 projectionExpression :: ProjectionExpression Builder -> Builder
-projectionExpression = fold . sintersperse ", " . fmap path . _project
-  where
-    -- In containers >= 0.5.8
-    sintersperse y xs =
-        case Seq.viewl xs of
-            EmptyL -> Seq.empty
-            p :< ps -> p <| (ps <**> (const y <| Seq.singleton id))
+projectionExpression (ProjectionExpression (x, xs)) =
+    path x <> foldMap (mappend ", " . path) xs
 
 {-|
 @
@@ -259,7 +246,7 @@ operand = \case
 {-|
 @
 path ::=
-      attribute
+      name
     | path \'.\' path
     | path [integer]
 @
@@ -273,11 +260,11 @@ path = \case
 
 {-|
 @
-attribute ::= string
+name ::= string
 @
 -}
-attribute :: Name -> Builder
-attribute = Build.fromText . fromName
+name :: Name -> Builder
+name = Build.fromText . fromName
 
 (>>>) :: Builder -> Builder -> Builder
 (>>>) a b = a <> " " <> b

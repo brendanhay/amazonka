@@ -1,3 +1,5 @@
+{-# LANGUAGE TupleSections #-}
+
 -- |
 -- Module      : Amazonka.DynamoDB.Expression.Projection
 -- Copyright   : (c) 2016 Brendan Hay
@@ -16,27 +18,22 @@ module Amazonka.DynamoDB.Expression.Projection
     , project
     ) where
 
-import Amazonka.DynamoDB.Expression.Compile  ()
 import Amazonka.DynamoDB.Expression.Internal
 
-import Data.Foldable (toList)
-
-import qualified Data.Sequence as Seq
-
 -- $setup
--- >>> import Amazonka.DynamoDB.Expression.Compile
+-- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import Data.Semigroup ((<>))
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . projectionExpression . fmap attribute
+-- >>> let eval = Text.putStrLn . toLazyText . Compile.projectionExpression . fmap Compile.name
 
 -- | Project a document path.
 --
--- The 'Semigroup' or 'Monoid' instances can be used to project mutliple paths.
+-- The 'Semigroup' instance can be used to project mutliple paths.
 --
 -- >>> eval $ project (name "Title") <> project (index "RelatedItems" 2) <> project (name "Product" <> index "Reviews" 0)
 -- Title, RelatedItems[2], Product.Reviews[0]
 --
 project :: Path p -> ProjectionExpression p
-project = ProjectionExpression . Seq.singleton
+project = ProjectionExpression . (,mempty)
 {-# INLINE project #-}

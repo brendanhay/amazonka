@@ -82,14 +82,17 @@ import Data.Bifunctor     (bimap)
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text          (Text)
 
+
+
 -- $setup
 -- >>> :set -XOverloadedStrings
--- >>> import Amazonka.DynamoDB.Expression.Compile
+-- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
+-- >>> import Data.Bifunctor (first)
 -- >>> import Data.Maybe (fromMaybe)
 -- >>> import Data.Semigroup ((<>))
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . maybe mempty fst . compile conditionExpression . liftC
+-- >>> let eval = Text.putStrLn . toLazyText . fst . Compile.compile Compile.conditionExpression . first Compile.name . liftC
 
 -- | Specify an exact partition key.
 --
@@ -263,7 +266,7 @@ greaterThanOrEqual a b = GreaterOrEqual (liftO a) (liftO b)
 -- For example, to check whether an item in the table has
 -- a side view picture:
 --
--- >>> eval $ exists (attr "Pictures" <> attr "SideView")
+-- >>> eval $ exists (name "Pictures" <> name "SideView")
 -- attribute_exists (Pictures.SideView)
 --
 exists :: Path p -> Condition Term p Value
@@ -404,7 +407,7 @@ or_ a b = OrE (liftC a) (liftC b)
 -- the sub-expression is false, and false if the sub-expression is true.
 --
 -- >>> eval $ not_ (equal (name "Foo") (name "Bar"))
--- NOT Foo = Bar
+-- (NOT Foo = Bar)
 --
 not_ :: IsCondition a => a p v -> ConditionExpression p v
 not_ = NotE . liftC

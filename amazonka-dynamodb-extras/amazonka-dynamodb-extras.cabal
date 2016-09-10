@@ -29,8 +29,10 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          Amazonka.DynamoDB.CompiledScan
+
           -- amazonka-dynamodb-item
-          Amazonka.DynamoDB.Item
+        , Amazonka.DynamoDB.Item
         , Amazonka.DynamoDB.Item.Internal
         , Amazonka.DynamoDB.Item.Value
 

@@ -25,6 +25,10 @@ module Amazonka.DynamoDB.Expression.Compile
       compile
     , bicompile
 
+    , finalizeNames
+    , finalizeValues
+    , finalize
+
     -- * Grammar
     , conditionExpression
     , condition
@@ -41,21 +45,29 @@ module Amazonka.DynamoDB.Expression.Compile
 
 import Amazonka.DynamoDB.Expression.Internal    hiding (name)
 import Amazonka.DynamoDB.Expression.Placeholder
+import Amazonka.DynamoDB.Item.Value             (Value, getValue)
 
-import Control.Monad.Trans.State.Strict (runState)
+import Control.Monad.Trans.State.Strict (StateT)
 
+import Data.Bifunctor         (bimap)
 import Data.Bitraversable     (Bitraversable (..))
 import Data.Foldable          (foldl', toList)
 import Data.Hashable          (Hashable)
+import Data.HashMap.Strict    (HashMap)
 import Data.List              (intersperse)
 import Data.Maybe             (catMaybes)
 import Data.Semigroup         ((<>))
 import Data.Sequence          (Seq, ViewL (..))
+import Data.Text              (Text)
 import Data.Text.Lazy.Builder (Builder)
+import Data.Tuple             (swap)
 
 import Network.AWS.Data.Text (ToText (..))
+import Network.AWS.DynamoDB  (AttributeValue)
 
+import qualified Data.HashMap.Strict    as Map
 import qualified Data.Sequence          as Seq
+import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
 
 -- | Given an expression evaluator, compile the expression and return
@@ -72,15 +84,15 @@ import qualified Data.Text.Lazy.Builder as Build
 -- Or to compile a 'Bitraversable' and render the first argument (such as a 'Name') verbatim:
 --
 -- @
--- compile conditionExpression . first name
+-- flip runState mempty . compile conditionExpression . first name
 --     :: ConditionExpression Name Value -> (Builder, HashMap Value Builder)
 -- @
 --
-compile :: (Traversable t, Eq b, Hashable b)
+compile :: (Monad m, Traversable t, Eq b, Hashable b)
         => (t Builder -> a) -- ^ An expression grammar.
         -> t b              -- ^ An expression to perform substitution on.
-        -> (a, Placeholders b)
-compile f = flip runState empty . fmap f . substitute
+        -> StateT (HashMap b Builder) m a
+compile f = fmap f . substitute
 {-# INLINE compile #-}
 
 -- | Given an expression evaluator, compile the expression and return
@@ -90,16 +102,25 @@ compile f = flip runState empty . fmap f . substitute
 -- Typical usage specializes as follows:
 --
 -- @
--- bicompile conditionExpression
+-- flip runState (mempty, mempty) . bicompile conditionExpression
 --     :: UpdateExpression Name Value -> (Builder, (HashMap Name Builder, HashMap Value Builder))
 -- @
 --
-bicompile :: (Bitraversable p, Eq b, Hashable b, Eq c, Hashable c)
+bicompile :: (Monad m, Bitraversable p, Eq b, Hashable b, Eq c, Hashable c)
           => (p Builder Builder -> a) -- ^ An expression grammar.
           -> p b c                    -- ^ An expression to perform substitution on.
-          -> (a, (Placeholders b, Placeholders c))
-bicompile f = flip runState (empty, empty) . fmap f . bisubstitute
+          -> StateT (HashMap b Builder, HashMap c Builder) m a
+bicompile f = fmap f . bisubstitute
 {-# INLINE bicompile #-}
+
+finalize :: Builder -> Text
+finalize = LText.toStrict . Build.toLazyText
+
+finalizeNames :: HashMap Name Builder -> HashMap Text Text
+finalizeNames = Map.fromList . map (bimap finalize toText . swap) .  Map.toList
+
+finalizeValues :: HashMap Value Builder -> HashMap Text AttributeValue
+finalizeValues = Map.fromList . map (bimap finalize getValue . swap) . Map.toList
 
 {-|
 @

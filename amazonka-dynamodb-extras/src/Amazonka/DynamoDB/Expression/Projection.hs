@@ -20,6 +20,13 @@ module Amazonka.DynamoDB.Expression.Projection
 
 import Amazonka.DynamoDB.Expression.Internal
 
+-- Query:qProjectionExpression :: ProjectionExpression
+-- Query:qFilterExpression :: FilterExpression
+-- Query:qKeyConditionExpression :: KeyConditionExpression
+
+-- Query:qExpressionAttributeNames
+-- Query:qExpressionAttributeValues
+
 -- $setup
 -- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import Data.Semigroup ((<>))

@@ -6,7 +6,7 @@
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-{-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
+-- {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
 module Amazonka.DynamoDB.Schema.Index
     ( SecondaryIndexKind (..)

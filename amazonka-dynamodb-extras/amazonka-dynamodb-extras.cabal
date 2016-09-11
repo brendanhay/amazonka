@@ -29,7 +29,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Amazonka.DynamoDB.CompiledScan
+          Amazonka.DynamoDB.Plan
 
           -- amazonka-dynamodb-item
         , Amazonka.DynamoDB.Item
@@ -37,7 +37,7 @@ library
         , Amazonka.DynamoDB.Item.Value
 
           -- amazonka-dynamodb-expression
-        , Amazonka.DynamoDB.Expression
+        --, Amazonka.DynamoDB.Expression
         , Amazonka.DynamoDB.Expression.Compile
         , Amazonka.DynamoDB.Expression.Condition
         , Amazonka.DynamoDB.Expression.Internal
@@ -68,6 +68,7 @@ library
         , hashable
         , lens                 >= 4.4
         , scientific
+        , semigroups           >= 0.12
         , tagged               >= 0.8
         , text                 >= 1.1
         , time                 >= 1.4

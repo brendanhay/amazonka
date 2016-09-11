@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE GADTs             #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -22,14 +23,15 @@
 module Amazonka.DynamoDB.Expression.Compile
     (
     -- * Compilation
-      compile
-    , bicompile
+      compileNames
+    , compileValues
+    , compile
 
-    , finalizeNames
-    , finalizeValues
     , finalize
 
     -- * Grammar
+    , keyConditionExpression
+
     , conditionExpression
     , condition
 
@@ -45,27 +47,21 @@ module Amazonka.DynamoDB.Expression.Compile
 
 import Amazonka.DynamoDB.Expression.Internal    hiding (name)
 import Amazonka.DynamoDB.Expression.Placeholder
-import Amazonka.DynamoDB.Item.Value             (Value, getValue)
+import Amazonka.DynamoDB.Item.Value             (Value)
 
 import Control.Monad.Trans.State.Strict (StateT)
 
-import Data.Bifunctor         (bimap)
 import Data.Bitraversable     (Bitraversable (..))
 import Data.Foldable          (foldl', toList)
-import Data.Hashable          (Hashable)
-import Data.HashMap.Strict    (HashMap)
 import Data.List              (intersperse)
 import Data.Maybe             (catMaybes)
 import Data.Semigroup         ((<>))
 import Data.Sequence          (Seq, ViewL (..))
 import Data.Text              (Text)
 import Data.Text.Lazy.Builder (Builder)
-import Data.Tuple             (swap)
 
 import Network.AWS.Data.Text (ToText (..))
-import Network.AWS.DynamoDB  (AttributeValue)
 
-import qualified Data.HashMap.Strict    as Map
 import qualified Data.Sequence          as Seq
 import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
@@ -77,23 +73,33 @@ import qualified Data.Text.Lazy.Builder as Build
 -- Typical usage specializes as follows:
 --
 -- @
--- compile projectionExpression
---     :: ProjectionExpression Name -> (Builder, HashMap Name Builder)
+-- flip runState placeholders . compileNames projectionExpression . pure
+--     :: ProjectionExpression Name -> (Identity Builder, Placeholders Name b)
 -- @
 --
--- Or to compile a 'Bitraversable' and render the first argument (such as a 'Name') verbatim:
+compileNames :: (Monad m, Traversable t, Traversable p)
+             => (p Builder -> r) -- ^ An expression grammar.
+             -> t (p Name)       -- ^ An expression to perform substitution on.
+             -> StateT (Placeholders Name b) m (t r)
+compileNames f = sequenceA . fmap (fmap f . traverse substituteName)
+{-# INLINE compileNames #-}
+
+-- |
+--
+-- To compile a 'Bitraversable', substituing the 'Value's for placeholders
+-- and rendering the first argument (such as a 'Name') verbatim:
 --
 -- @
--- flip runState mempty . compile conditionExpression . first name
---     :: ConditionExpression Name Value -> (Builder, HashMap Value Builder)
+-- flip runState placeholders . compileValues conditionExpression . first name
+--     :: ConditionExpression Name Value -> (Builder, Placeholders a Value)
 -- @
 --
-compile :: (Monad m, Traversable t, Eq b, Hashable b)
-        => (t Builder -> a) -- ^ An expression grammar.
-        -> t b              -- ^ An expression to perform substitution on.
-        -> StateT (HashMap b Builder) m a
-compile f = fmap f . substitute
-{-# INLINE compile #-}
+compileValues :: (Monad m, Traversable t, Traversable p)
+              => (p Builder -> r) -- ^ An expression grammar.
+              -> t (p Value)      -- ^ An expression to perform substitution on.
+              -> StateT (Placeholders a Value) m (t r)
+compileValues f = sequenceA . fmap (fmap f . traverse substituteValue)
+{-# INLINE compileValues #-}
 
 -- | Given an expression evaluator, compile the expression and return
 -- the result along with the substituted placeholders for the 'Bitraversable's
@@ -102,25 +108,26 @@ compile f = fmap f . substitute
 -- Typical usage specializes as follows:
 --
 -- @
--- flip runState (mempty, mempty) . bicompile conditionExpression
---     :: UpdateExpression Name Value -> (Builder, (HashMap Name Builder, HashMap Value Builder))
+-- flip runState placeholders . compile conditionExpression . pure
+--     :: ConditionExpression Name Value -> (Identity Builder, Placeholders Name Value)
 -- @
 --
-bicompile :: (Monad m, Bitraversable p, Eq b, Hashable b, Eq c, Hashable c)
-          => (p Builder Builder -> a) -- ^ An expression grammar.
-          -> p b c                    -- ^ An expression to perform substitution on.
-          -> StateT (HashMap b Builder, HashMap c Builder) m a
-bicompile f = fmap f . bisubstitute
-{-# INLINE bicompile #-}
+compile :: (Monad m, Traversable t, Bitraversable p)
+          => (p Builder Builder -> r) -- ^ An expression grammar.
+          -> t (p Name Value)         -- ^ An expression to perform substitution on.
+          -> StateT (Placeholders Name Value) m (t r)
+compile f = sequenceA . fmap (fmap f . bitraverse substituteName substituteValue)
+{-# INLINE compile #-}
 
-finalize :: Builder -> Text
-finalize = LText.toStrict . Build.toLazyText
-
-finalizeNames :: HashMap Name Builder -> HashMap Text Text
-finalizeNames = Map.fromList . map (bimap finalize toText . swap) .  Map.toList
-
-finalizeValues :: HashMap Value Builder -> HashMap Text AttributeValue
-finalizeValues = Map.fromList . map (bimap finalize getValue . swap) . Map.toList
+{-|
+@
+TODO
+@
+-}
+keyConditionExpression :: KeyConditionExpression Builder Builder -> Builder
+keyConditionExpression = \case
+    Partition h   -> condition h
+    Sort      h r -> conditionExpression (CondE h <> CondE r)
 
 {-|
 @
@@ -302,3 +309,7 @@ tupled = parens . mconcat . intersperse ", " . toList
 build :: ToText a => a -> Builder
 build = Build.fromText . toText
 {-# INLINE build #-}
+
+finalize :: Builder -> Text
+finalize = LText.toStrict . Build.toLazyText
+{-# INLINE finalize #-}

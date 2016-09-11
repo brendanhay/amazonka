@@ -1,6 +1,7 @@
 {-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- |
 -- Module      : Network.AWS.Request
@@ -35,6 +36,7 @@ module Network.AWS.Request
 
     -- ** Constructors
     , defaultRequest
+    , coerceRequest
 
     -- ** Hashing
     , contentMD5
@@ -124,6 +126,16 @@ defaultRequest s x = Request
     , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
     , _rqBody    = ""
+    }
+
+coerceRequest :: Request a -> Request b
+coerceRequest Request{..} = Request
+    { _rqService = _rqService
+    , _rqMethod  = _rqMethod
+    , _rqPath    = _rqPath
+    , _rqQuery   = _rqQuery
+    , _rqHeaders = _rqHeaders
+    , _rqBody    = _rqBody
     }
 
 contentMD5 :: Request a -> Request a

@@ -154,12 +154,13 @@ instance NFData Alias
 --
 -- /See:/ 'build' smart constructor.
 data Build = Build'
-    { _bCreationTime :: !(Maybe POSIX)
-    , _bStatus       :: !(Maybe BuildStatus)
-    , _bBuildId      :: !(Maybe Text)
-    , _bName         :: !(Maybe Text)
-    , _bVersion      :: !(Maybe Text)
-    , _bSizeOnDisk   :: !(Maybe Nat)
+    { _bCreationTime    :: !(Maybe POSIX)
+    , _bStatus          :: !(Maybe BuildStatus)
+    , _bOperatingSystem :: !(Maybe OperatingSystem)
+    , _bBuildId         :: !(Maybe Text)
+    , _bName            :: !(Maybe Text)
+    , _bVersion         :: !(Maybe Text)
+    , _bSizeOnDisk      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Build' with the minimum fields required to make a request.
@@ -169,6 +170,8 @@ data Build = Build'
 -- * 'bCreationTime'
 --
 -- * 'bStatus'
+--
+-- * 'bOperatingSystem'
 --
 -- * 'bBuildId'
 --
@@ -183,6 +186,7 @@ build =
     Build'
     { _bCreationTime = Nothing
     , _bStatus = Nothing
+    , _bOperatingSystem = Nothing
     , _bBuildId = Nothing
     , _bName = Nothing
     , _bVersion = Nothing
@@ -202,6 +206,10 @@ bCreationTime = lens _bCreationTime (\ s a -> s{_bCreationTime = a}) . mapping _
 -- -   __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 bStatus :: Lens' Build (Maybe BuildStatus)
 bStatus = lens _bStatus (\ s a -> s{_bStatus = a});
+
+-- | Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
+bOperatingSystem :: Lens' Build (Maybe OperatingSystem)
+bOperatingSystem = lens _bOperatingSystem (\ s a -> s{_bOperatingSystem = a});
 
 -- | Unique identifier for a build.
 bBuildId :: Lens' Build (Maybe Text)
@@ -225,7 +233,8 @@ instance FromJSON Build where
               (\ x ->
                  Build' <$>
                    (x .:? "CreationTime") <*> (x .:? "Status") <*>
-                     (x .:? "BuildId")
+                     (x .:? "OperatingSystem")
+                     <*> (x .:? "BuildId")
                      <*> (x .:? "Name")
                      <*> (x .:? "Version")
                      <*> (x .:? "SizeOnDisk"))
@@ -450,6 +459,7 @@ data FleetAttributes = FleetAttributes'
     , _faStatus                         :: !(Maybe FleetStatus)
     , _faServerLaunchParameters         :: !(Maybe Text)
     , _faLogPaths                       :: !(Maybe [Text])
+    , _faOperatingSystem                :: !(Maybe OperatingSystem)
     , _faBuildId                        :: !(Maybe Text)
     , _faTerminationTime                :: !(Maybe POSIX)
     , _faNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
@@ -470,6 +480,8 @@ data FleetAttributes = FleetAttributes'
 -- * 'faServerLaunchParameters'
 --
 -- * 'faLogPaths'
+--
+-- * 'faOperatingSystem'
 --
 -- * 'faBuildId'
 --
@@ -492,6 +504,7 @@ fleetAttributes =
     , _faStatus = Nothing
     , _faServerLaunchParameters = Nothing
     , _faLogPaths = Nothing
+    , _faOperatingSystem = Nothing
     , _faBuildId = Nothing
     , _faTerminationTime = Nothing
     , _faNewGameSessionProtectionPolicy = Nothing
@@ -518,13 +531,17 @@ faCreationTime = lens _faCreationTime (\ s a -> s{_faCreationTime = a}) . mappin
 faStatus :: Lens' FleetAttributes (Maybe FleetStatus)
 faStatus = lens _faStatus (\ s a -> s{_faStatus = a});
 
--- | Deprecated. Server launch parameters are now specified using a 'RuntimeConfiguration' object.
+-- | Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet\'s 'RuntimeConfiguration'.
 faServerLaunchParameters :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchParameters = lens _faServerLaunchParameters (\ s a -> s{_faServerLaunchParameters = a});
 
 -- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide>. If no default log path for a fleet is specified, GameLift will automatically upload logs stored on each instance at 'C:\\game\\logs'. Use the GameLift console to access stored logs.
 faLogPaths :: Lens' FleetAttributes [Text]
 faLogPaths = lens _faLogPaths (\ s a -> s{_faLogPaths = a}) . _Default . _Coerce;
+
+-- | Operating system of the fleet\'s computing resources. A fleet\'s operating system depends on the OS specified for the build that is deployed on this fleet.
+faOperatingSystem :: Lens' FleetAttributes (Maybe OperatingSystem)
+faOperatingSystem = lens _faOperatingSystem (\ s a -> s{_faOperatingSystem = a});
 
 -- | Unique identifier for a build.
 faBuildId :: Lens' FleetAttributes (Maybe Text)
@@ -545,7 +562,7 @@ faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\ s a
 faName :: Lens' FleetAttributes (Maybe Text)
 faName = lens _faName (\ s a -> s{_faName = a});
 
--- | Deprecated. Server launch parameters are now set using a 'RuntimeConfiguration' object.
+-- | Path to a game server executable in the fleet\'s build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet\'s 'RuntimeConfiguration'.
 faServerLaunchPath :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchPath = lens _faServerLaunchPath (\ s a -> s{_faServerLaunchPath = a});
 
@@ -565,6 +582,7 @@ instance FromJSON FleetAttributes where
                    (x .:? "CreationTime") <*> (x .:? "Status") <*>
                      (x .:? "ServerLaunchParameters")
                      <*> (x .:? "LogPaths" .!= mempty)
+                     <*> (x .:? "OperatingSystem")
                      <*> (x .:? "BuildId")
                      <*> (x .:? "TerminationTime")
                      <*> (x .:? "NewGameSessionProtectionPolicy")
@@ -1328,9 +1346,9 @@ scalingPolicy =
 -- | Current status of the scaling policy. The scaling policy is only in force when in an 'ACTIVE' status.
 --
 -- -   __ACTIVE__ – The scaling policy is currently in force.
--- -   __UPDATEREQUESTED__ – A request to update the scaling policy has been received.
+-- -   __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.
 -- -   __UPDATING__ – A change is being made to the scaling policy.
--- -   __DELETEREQUESTED__ – A request to delete the scaling policy has been received.
+-- -   __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.
 -- -   __DELETING__ – The scaling policy is being deleted.
 -- -   __DELETED__ – The scaling policy has been deleted.
 -- -   __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.

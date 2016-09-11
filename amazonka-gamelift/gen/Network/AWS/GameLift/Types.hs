@@ -52,6 +52,9 @@ module Network.AWS.GameLift.Types
     -- * MetricName
     , MetricName (..)
 
+    -- * OperatingSystem
+    , OperatingSystem (..)
+
     -- * PlayerSessionCreationPolicy
     , PlayerSessionCreationPolicy (..)
 
@@ -92,6 +95,7 @@ module Network.AWS.GameLift.Types
     , build
     , bCreationTime
     , bStatus
+    , bOperatingSystem
     , bBuildId
     , bName
     , bVersion
@@ -131,6 +135,7 @@ module Network.AWS.GameLift.Types
     , faStatus
     , faServerLaunchParameters
     , faLogPaths
+    , faOperatingSystem
     , faBuildId
     , faTerminationTime
     , faNewGameSessionProtectionPolicy

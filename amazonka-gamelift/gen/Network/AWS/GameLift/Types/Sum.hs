@@ -416,6 +416,35 @@ instance ToJSON MetricName where
 instance FromJSON MetricName where
     parseJSON = parseJSONText "MetricName"
 
+data OperatingSystem
+    = AmazonLinux
+    | Windows2012
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OperatingSystem where
+    parser = takeLowerText >>= \case
+        "amazon_linux" -> pure AmazonLinux
+        "windows_2012" -> pure Windows2012
+        e -> fromTextError $ "Failure parsing OperatingSystem from value: '" <> e
+           <> "'. Accepted values: amazon_linux, windows_2012"
+
+instance ToText OperatingSystem where
+    toText = \case
+        AmazonLinux -> "AMAZON_LINUX"
+        Windows2012 -> "WINDOWS_2012"
+
+instance Hashable     OperatingSystem
+instance NFData       OperatingSystem
+instance ToByteString OperatingSystem
+instance ToQuery      OperatingSystem
+instance ToHeader     OperatingSystem
+
+instance ToJSON OperatingSystem where
+    toJSON = toJSONText
+
+instance FromJSON OperatingSystem where
+    parseJSON = parseJSONText "OperatingSystem"
+
 data PlayerSessionCreationPolicy
     = AcceptAll
     | DenyAll

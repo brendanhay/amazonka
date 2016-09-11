@@ -57,6 +57,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CodeMismatchException
     , _CodeMismatchException
 
+    -- ** UserImportInProgressException
+    , _UserImportInProgressException
+
     -- ** InvalidSmsRoleTrustRelationshipException
     , _InvalidSmsRoleTrustRelationshipException
 
@@ -68,6 +71,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** UserLambdaValidationException
     , _UserLambdaValidationException
+
+    -- ** PreconditionNotMetException
+    , _PreconditionNotMetException
 
     -- ** ExpiredCodeException
     , _ExpiredCodeException
@@ -138,6 +144,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** ConfirmForgotPassword
     , module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
 
+    -- ** ListUserImportJobs
+    , module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
+
     -- ** ListUsers
     , module Network.AWS.CognitoIdentityProvider.ListUsers
 
@@ -164,6 +173,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** AdminConfirmSignUp
     , module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
+
+    -- ** StartUserImportJob
+    , module Network.AWS.CognitoIdentityProvider.StartUserImportJob
 
     -- ** GetDevice
     , module Network.AWS.CognitoIdentityProvider.GetDevice
@@ -192,8 +204,14 @@ module Network.AWS.CognitoIdentityProvider
     -- ** AdminResetUserPassword
     , module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
 
+    -- ** CreateUserImportJob
+    , module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
+
     -- ** GetUser
     , module Network.AWS.CognitoIdentityProvider.GetUser
+
+    -- ** GetCSVHeader
+    , module Network.AWS.CognitoIdentityProvider.GetCSVHeader
 
     -- ** AdminDeleteUser
     , module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
@@ -227,6 +245,12 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** CreateUserPoolClient
     , module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
+
+    -- ** StopUserImportJob
+    , module Network.AWS.CognitoIdentityProvider.StopUserImportJob
+
+    -- ** DescribeUserImportJob
+    , module Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
 
     -- ** GlobalSignOut
     , module Network.AWS.CognitoIdentityProvider.GlobalSignOut
@@ -277,6 +301,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** StatusType
     , StatusType (..)
+
+    -- ** UserImportJobStatusType
+    , UserImportJobStatusType (..)
 
     -- ** UserPoolMFAType
     , UserPoolMFAType (..)
@@ -399,6 +426,23 @@ module Network.AWS.CognitoIdentityProvider
     , sactMaxLength
     , sactMinLength
 
+    -- ** UserImportJobType
+    , UserImportJobType
+    , userImportJobType
+    , uijtStatus
+    , uijtSkippedUsers
+    , uijtJobId
+    , uijtUserPoolId
+    , uijtJobName
+    , uijtPreSignedURL
+    , uijtFailedUsers
+    , uijtStartDate
+    , uijtCompletionMessage
+    , uijtCreationDate
+    , uijtCompletionDate
+    , uijtCloudWatchLogsRoleARN
+    , uijtImportedUsers
+
     -- ** UserPoolClientDescription
     , UserPoolClientDescription
     , userPoolClientDescription
@@ -492,22 +536,26 @@ import           Network.AWS.CognitoIdentityProvider.ChangePassword
 import           Network.AWS.CognitoIdentityProvider.ConfirmDevice
 import           Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
 import           Network.AWS.CognitoIdentityProvider.ConfirmSignUp
+import           Network.AWS.CognitoIdentityProvider.CreateUserImportJob
 import           Network.AWS.CognitoIdentityProvider.CreateUserPool
 import           Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
 import           Network.AWS.CognitoIdentityProvider.DeleteUser
 import           Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
 import           Network.AWS.CognitoIdentityProvider.DeleteUserPool
 import           Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
+import           Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
 import           Network.AWS.CognitoIdentityProvider.DescribeUserPool
 import           Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
 import           Network.AWS.CognitoIdentityProvider.ForgetDevice
 import           Network.AWS.CognitoIdentityProvider.ForgotPassword
+import           Network.AWS.CognitoIdentityProvider.GetCSVHeader
 import           Network.AWS.CognitoIdentityProvider.GetDevice
 import           Network.AWS.CognitoIdentityProvider.GetUser
 import           Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
 import           Network.AWS.CognitoIdentityProvider.GlobalSignOut
 import           Network.AWS.CognitoIdentityProvider.InitiateAuth
 import           Network.AWS.CognitoIdentityProvider.ListDevices
+import           Network.AWS.CognitoIdentityProvider.ListUserImportJobs
 import           Network.AWS.CognitoIdentityProvider.ListUserPoolClients
 import           Network.AWS.CognitoIdentityProvider.ListUserPools
 import           Network.AWS.CognitoIdentityProvider.ListUsers
@@ -515,6 +563,8 @@ import           Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
 import           Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
 import           Network.AWS.CognitoIdentityProvider.SetUserSettings
 import           Network.AWS.CognitoIdentityProvider.SignUp
+import           Network.AWS.CognitoIdentityProvider.StartUserImportJob
+import           Network.AWS.CognitoIdentityProvider.StopUserImportJob
 import           Network.AWS.CognitoIdentityProvider.Types
 import           Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
 import           Network.AWS.CognitoIdentityProvider.UpdateUserAttributes

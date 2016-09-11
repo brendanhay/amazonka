@@ -66,22 +66,26 @@ library
         , Network.AWS.CognitoIdentityProvider.ConfirmDevice
         , Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
         , Network.AWS.CognitoIdentityProvider.ConfirmSignUp
+        , Network.AWS.CognitoIdentityProvider.CreateUserImportJob
         , Network.AWS.CognitoIdentityProvider.CreateUserPool
         , Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
         , Network.AWS.CognitoIdentityProvider.DeleteUser
         , Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
         , Network.AWS.CognitoIdentityProvider.DeleteUserPool
         , Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
+        , Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
         , Network.AWS.CognitoIdentityProvider.DescribeUserPool
         , Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
         , Network.AWS.CognitoIdentityProvider.ForgetDevice
         , Network.AWS.CognitoIdentityProvider.ForgotPassword
+        , Network.AWS.CognitoIdentityProvider.GetCSVHeader
         , Network.AWS.CognitoIdentityProvider.GetDevice
         , Network.AWS.CognitoIdentityProvider.GetUser
         , Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
         , Network.AWS.CognitoIdentityProvider.GlobalSignOut
         , Network.AWS.CognitoIdentityProvider.InitiateAuth
         , Network.AWS.CognitoIdentityProvider.ListDevices
+        , Network.AWS.CognitoIdentityProvider.ListUserImportJobs
         , Network.AWS.CognitoIdentityProvider.ListUserPoolClients
         , Network.AWS.CognitoIdentityProvider.ListUserPools
         , Network.AWS.CognitoIdentityProvider.ListUsers
@@ -89,6 +93,8 @@ library
         , Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
         , Network.AWS.CognitoIdentityProvider.SetUserSettings
         , Network.AWS.CognitoIdentityProvider.SignUp
+        , Network.AWS.CognitoIdentityProvider.StartUserImportJob
+        , Network.AWS.CognitoIdentityProvider.StopUserImportJob
         , Network.AWS.CognitoIdentityProvider.Types
         , Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.UpdateUserAttributes

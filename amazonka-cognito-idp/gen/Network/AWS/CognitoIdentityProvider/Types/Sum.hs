@@ -89,6 +89,7 @@ instance FromJSON AttributeDataType where
 data AuthFlowType
     = AdminNoSrpAuth
     | CustomAuth
+    | RefreshToken
     | RefreshTokenAuth
     | UserSrpAuth
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -97,15 +98,17 @@ instance FromText AuthFlowType where
     parser = takeLowerText >>= \case
         "admin_no_srp_auth" -> pure AdminNoSrpAuth
         "custom_auth" -> pure CustomAuth
+        "refresh_token" -> pure RefreshToken
         "refresh_token_auth" -> pure RefreshTokenAuth
         "user_srp_auth" -> pure UserSrpAuth
         e -> fromTextError $ "Failure parsing AuthFlowType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth, custom_auth, refresh_token_auth, user_srp_auth"
+           <> "'. Accepted values: admin_no_srp_auth, custom_auth, refresh_token, refresh_token_auth, user_srp_auth"
 
 instance ToText AuthFlowType where
     toText = \case
         AdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
         CustomAuth -> "CUSTOM_AUTH"
+        RefreshToken -> "REFRESH_TOKEN"
         RefreshTokenAuth -> "REFRESH_TOKEN_AUTH"
         UserSrpAuth -> "USER_SRP_AUTH"
 
@@ -214,19 +217,22 @@ instance ToHeader     DeviceRememberedStatusType
 instance ToJSON DeviceRememberedStatusType where
     toJSON = toJSONText
 
-data ExplicitAuthFlowsType =
-    EAFTAdminNoSrpAuth
+data ExplicitAuthFlowsType
+    = EAFTAdminNoSrpAuth
+    | EAFTCustomAuthFlowOnly
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExplicitAuthFlowsType where
     parser = takeLowerText >>= \case
         "admin_no_srp_auth" -> pure EAFTAdminNoSrpAuth
+        "custom_auth_flow_only" -> pure EAFTCustomAuthFlowOnly
         e -> fromTextError $ "Failure parsing ExplicitAuthFlowsType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth"
+           <> "'. Accepted values: admin_no_srp_auth, custom_auth_flow_only"
 
 instance ToText ExplicitAuthFlowsType where
     toText = \case
         EAFTAdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
+        EAFTCustomAuthFlowOnly -> "CUSTOM_AUTH_FLOW_ONLY"
 
 instance Hashable     ExplicitAuthFlowsType
 instance NFData       ExplicitAuthFlowsType
@@ -265,6 +271,50 @@ instance ToHeader     StatusType
 
 instance FromJSON StatusType where
     parseJSON = parseJSONText "StatusType"
+
+data UserImportJobStatusType
+    = Created
+    | Expired
+    | Failed
+    | InProgress
+    | Pending
+    | Stopped
+    | Stopping
+    | Succeeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText UserImportJobStatusType where
+    parser = takeLowerText >>= \case
+        "created" -> pure Created
+        "expired" -> pure Expired
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "pending" -> pure Pending
+        "stopped" -> pure Stopped
+        "stopping" -> pure Stopping
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing UserImportJobStatusType from value: '" <> e
+           <> "'. Accepted values: created, expired, failed, inprogress, pending, stopped, stopping, succeeded"
+
+instance ToText UserImportJobStatusType where
+    toText = \case
+        Created -> "Created"
+        Expired -> "Expired"
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Pending -> "Pending"
+        Stopped -> "Stopped"
+        Stopping -> "Stopping"
+        Succeeded -> "Succeeded"
+
+instance Hashable     UserImportJobStatusType
+instance NFData       UserImportJobStatusType
+instance ToByteString UserImportJobStatusType
+instance ToQuery      UserImportJobStatusType
+instance ToHeader     UserImportJobStatusType
+
+instance FromJSON UserImportJobStatusType where
+    parseJSON = parseJSONText "UserImportJobStatusType"
 
 data UserPoolMFAType
     = ON

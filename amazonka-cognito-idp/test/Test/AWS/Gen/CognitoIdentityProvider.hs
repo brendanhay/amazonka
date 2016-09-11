@@ -61,6 +61,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestConfirmForgotPassword $
 --             confirmForgotPassword
 --
+--         , requestListUserImportJobs $
+--             listUserImportJobs
+--
 --         , requestListUsers $
 --             listUsers
 --
@@ -87,6 +90,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestAdminConfirmSignUp $
 --             adminConfirmSignUp
+--
+--         , requestStartUserImportJob $
+--             startUserImportJob
 --
 --         , requestGetDevice $
 --             getDevice
@@ -115,8 +121,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminResetUserPassword $
 --             adminResetUserPassword
 --
+--         , requestCreateUserImportJob $
+--             createUserImportJob
+--
 --         , requestGetUser $
 --             getUser
+--
+--         , requestGetCSVHeader $
+--             getCSVHeader
 --
 --         , requestAdminDeleteUser $
 --             adminDeleteUser
@@ -150,6 +162,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestCreateUserPoolClient $
 --             createUserPoolClient
+--
+--         , requestStopUserImportJob $
+--             stopUserImportJob
+--
+--         , requestDescribeUserImportJob $
+--             describeUserImportJob
 --
 --         , requestGlobalSignOut $
 --             globalSignOut
@@ -211,6 +229,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseConfirmForgotPassword $
 --             confirmForgotPasswordResponse
 --
+--         , responseListUserImportJobs $
+--             listUserImportJobsResponse
+--
 --         , responseListUsers $
 --             listUsersResponse
 --
@@ -237,6 +258,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseAdminConfirmSignUp $
 --             adminConfirmSignUpResponse
+--
+--         , responseStartUserImportJob $
+--             startUserImportJobResponse
 --
 --         , responseGetDevice $
 --             getDeviceResponse
@@ -265,8 +289,14 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminResetUserPassword $
 --             adminResetUserPasswordResponse
 --
+--         , responseCreateUserImportJob $
+--             createUserImportJobResponse
+--
 --         , responseGetUser $
 --             getUserResponse
+--
+--         , responseGetCSVHeader $
+--             getCSVHeaderResponse
 --
 --         , responseAdminDeleteUser $
 --             adminDeleteUserResponse
@@ -300,6 +330,12 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseCreateUserPoolClient $
 --             createUserPoolClientResponse
+--
+--         , responseStopUserImportJob $
+--             stopUserImportJobResponse
+--
+--         , responseDescribeUserImportJob $
+--             describeUserImportJobResponse
 --
 --         , responseGlobalSignOut $
 --             globalSignOutResponse
@@ -385,6 +421,11 @@ requestConfirmForgotPassword = req
     "ConfirmForgotPassword"
     "fixture/ConfirmForgotPassword.yaml"
 
+requestListUserImportJobs :: ListUserImportJobs -> TestTree
+requestListUserImportJobs = req
+    "ListUserImportJobs"
+    "fixture/ListUserImportJobs.yaml"
+
 requestListUsers :: ListUsers -> TestTree
 requestListUsers = req
     "ListUsers"
@@ -429,6 +470,11 @@ requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
 requestAdminConfirmSignUp = req
     "AdminConfirmSignUp"
     "fixture/AdminConfirmSignUp.yaml"
+
+requestStartUserImportJob :: StartUserImportJob -> TestTree
+requestStartUserImportJob = req
+    "StartUserImportJob"
+    "fixture/StartUserImportJob.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
 requestGetDevice = req
@@ -475,10 +521,20 @@ requestAdminResetUserPassword = req
     "AdminResetUserPassword"
     "fixture/AdminResetUserPassword.yaml"
 
+requestCreateUserImportJob :: CreateUserImportJob -> TestTree
+requestCreateUserImportJob = req
+    "CreateUserImportJob"
+    "fixture/CreateUserImportJob.yaml"
+
 requestGetUser :: GetUser -> TestTree
 requestGetUser = req
     "GetUser"
     "fixture/GetUser.yaml"
+
+requestGetCSVHeader :: GetCSVHeader -> TestTree
+requestGetCSVHeader = req
+    "GetCSVHeader"
+    "fixture/GetCSVHeader.yaml"
 
 requestAdminDeleteUser :: AdminDeleteUser -> TestTree
 requestAdminDeleteUser = req
@@ -534,6 +590,16 @@ requestCreateUserPoolClient :: CreateUserPoolClient -> TestTree
 requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
+
+requestStopUserImportJob :: StopUserImportJob -> TestTree
+requestStopUserImportJob = req
+    "StopUserImportJob"
+    "fixture/StopUserImportJob.yaml"
+
+requestDescribeUserImportJob :: DescribeUserImportJob -> TestTree
+requestDescribeUserImportJob = req
+    "DescribeUserImportJob"
+    "fixture/DescribeUserImportJob.yaml"
 
 requestGlobalSignOut :: GlobalSignOut -> TestTree
 requestGlobalSignOut = req
@@ -654,6 +720,13 @@ responseConfirmForgotPassword = res
     cognitoIdentityProvider
     (Proxy :: Proxy ConfirmForgotPassword)
 
+responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
+responseListUserImportJobs = res
+    "ListUserImportJobsResponse"
+    "fixture/ListUserImportJobsResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListUserImportJobs)
+
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers = res
     "ListUsersResponse"
@@ -716,6 +789,13 @@ responseAdminConfirmSignUp = res
     "fixture/AdminConfirmSignUpResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminConfirmSignUp)
+
+responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
+responseStartUserImportJob = res
+    "StartUserImportJobResponse"
+    "fixture/StartUserImportJobResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy StartUserImportJob)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
 responseGetDevice = res
@@ -780,12 +860,26 @@ responseAdminResetUserPassword = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminResetUserPassword)
 
+responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
+responseCreateUserImportJob = res
+    "CreateUserImportJobResponse"
+    "fixture/CreateUserImportJobResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateUserImportJob)
+
 responseGetUser :: GetUserResponse -> TestTree
 responseGetUser = res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy GetUser)
+
+responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
+responseGetCSVHeader = res
+    "GetCSVHeaderResponse"
+    "fixture/GetCSVHeaderResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetCSVHeader)
 
 responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
 responseAdminDeleteUser = res
@@ -863,6 +957,20 @@ responseCreateUserPoolClient = res
     "fixture/CreateUserPoolClientResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPoolClient)
+
+responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
+responseStopUserImportJob = res
+    "StopUserImportJobResponse"
+    "fixture/StopUserImportJobResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy StopUserImportJob)
+
+responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
+responseDescribeUserImportJob = res
+    "DescribeUserImportJobResponse"
+    "fixture/DescribeUserImportJobResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DescribeUserImportJob)
 
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
 responseGlobalSignOut = res

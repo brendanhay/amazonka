@@ -112,7 +112,7 @@ instance ToPath AdminUserGlobalSignOut where
 instance ToQuery AdminUserGlobalSignOut where
         toQuery = const mempty
 
--- | The global signot response, as an administrator.
+-- | The global sign-out response, as an administrator.
 --
 -- /See:/ 'adminUserGlobalSignOutResponse' smart constructor.
 newtype AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'

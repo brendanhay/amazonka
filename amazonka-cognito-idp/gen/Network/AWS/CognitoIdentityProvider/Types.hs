@@ -27,10 +27,12 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _InvalidUserPoolConfigurationException
     , _InvalidSmsRoleAccessPolicyException
     , _CodeMismatchException
+    , _UserImportInProgressException
     , _InvalidSmsRoleTrustRelationshipException
     , _TooManyRequestsException
     , _ConcurrentModificationException
     , _UserLambdaValidationException
+    , _PreconditionNotMetException
     , _ExpiredCodeException
     , _TooManyFailedAttemptsException
     , _UserNotConfirmedException
@@ -65,6 +67,9 @@ module Network.AWS.CognitoIdentityProvider.Types
 
     -- * StatusType
     , StatusType (..)
+
+    -- * UserImportJobStatusType
+    , UserImportJobStatusType (..)
 
     -- * UserPoolMFAType
     , UserPoolMFAType (..)
@@ -186,6 +191,23 @@ module Network.AWS.CognitoIdentityProvider.Types
     , stringAttributeConstraintsType
     , sactMaxLength
     , sactMinLength
+
+    -- * UserImportJobType
+    , UserImportJobType
+    , userImportJobType
+    , uijtStatus
+    , uijtSkippedUsers
+    , uijtJobId
+    , uijtUserPoolId
+    , uijtJobName
+    , uijtPreSignedURL
+    , uijtFailedUsers
+    , uijtStartDate
+    , uijtCompletionMessage
+    , uijtCreationDate
+    , uijtCompletionDate
+    , uijtCloudWatchLogsRoleARN
+    , uijtImportedUsers
 
     -- * UserPoolClientDescription
     , UserPoolClientDescription
@@ -350,6 +372,11 @@ _InvalidSmsRoleAccessPolicyException =
 _CodeMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeMismatchException = _ServiceError . hasCode "CodeMismatchException"
 
+-- | This exception is thrown when you are trying to modify a user pool while a user import job is in progress for that pool.
+_UserImportInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserImportInProgressException =
+    _ServiceError . hasCode "UserImportInProgressException"
+
 -- | This exception is thrown when the trust relationship is invalid for the role provided for SMS configuration. This can happen if you do not trust __cognito-idp.amazonaws.com__ or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
 _InvalidSmsRoleTrustRelationshipException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSmsRoleTrustRelationshipException =
@@ -368,6 +395,11 @@ _ConcurrentModificationException =
 _UserLambdaValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UserLambdaValidationException =
     _ServiceError . hasCode "UserLambdaValidationException"
+
+-- | This exception is thrown when a precondition is not met.
+_PreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
+_PreconditionNotMetException =
+    _ServiceError . hasCode "PreconditionNotMetException"
 
 -- | This exception is thrown if a code has expired.
 _ExpiredCodeException :: AsError a => Getting (First ServiceError) a ServiceError

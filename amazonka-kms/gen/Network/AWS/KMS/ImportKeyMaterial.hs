@@ -32,10 +32,10 @@ module Network.AWS.KMS.ImportKeyMaterial
     , ImportKeyMaterial
     -- * Request Lenses
     , ikmExpirationModel
+    , ikmValidTo
     , ikmKeyId
     , ikmImportToken
     , ikmEncryptedKeyMaterial
-    , ikmValidTo
 
     -- * Destructuring the Response
     , importKeyMaterialResponse
@@ -54,10 +54,10 @@ import           Network.AWS.Response
 -- | /See:/ 'importKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
     { _ikmExpirationModel      :: !(Maybe ExpirationModelType)
+    , _ikmValidTo              :: !(Maybe POSIX)
     , _ikmKeyId                :: !Text
     , _ikmImportToken          :: !Base64
     , _ikmEncryptedKeyMaterial :: !Base64
-    , _ikmValidTo              :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportKeyMaterial' with the minimum fields required to make a request.
@@ -66,31 +66,34 @@ data ImportKeyMaterial = ImportKeyMaterial'
 --
 -- * 'ikmExpirationModel'
 --
+-- * 'ikmValidTo'
+--
 -- * 'ikmKeyId'
 --
 -- * 'ikmImportToken'
 --
 -- * 'ikmEncryptedKeyMaterial'
---
--- * 'ikmValidTo'
 importKeyMaterial
     :: Text -- ^ 'ikmKeyId'
     -> ByteString -- ^ 'ikmImportToken'
     -> ByteString -- ^ 'ikmEncryptedKeyMaterial'
-    -> UTCTime -- ^ 'ikmValidTo'
     -> ImportKeyMaterial
-importKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ pValidTo_ =
+importKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ =
     ImportKeyMaterial'
     { _ikmExpirationModel = Nothing
+    , _ikmValidTo = Nothing
     , _ikmKeyId = pKeyId_
     , _ikmImportToken = _Base64 # pImportToken_
     , _ikmEncryptedKeyMaterial = _Base64 # pEncryptedKeyMaterial_
-    , _ikmValidTo = _Time # pValidTo_
     }
 
 -- | Specifies whether the key material expires. The default is 'KEY_MATERIAL_EXPIRES', in which case you must include the 'ValidTo' parameter. When this parameter is set to 'KEY_MATERIAL_DOES_NOT_EXPIRE', you must omit the 'ValidTo' parameter.
 ikmExpirationModel :: Lens' ImportKeyMaterial (Maybe ExpirationModelType)
 ikmExpirationModel = lens _ikmExpirationModel (\ s a -> s{_ikmExpirationModel = a});
+
+-- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the 'ExpirationModel' parameter is set to 'KEY_MATERIAL_DOES_NOT_EXPIRE'. Otherwise it is required.
+ikmValidTo :: Lens' ImportKeyMaterial (Maybe UTCTime)
+ikmValidTo = lens _ikmValidTo (\ s a -> s{_ikmValidTo = a}) . mapping _Time;
 
 -- | The identifier of the CMK to import the key material into. The CMK\'s 'Origin' must be 'EXTERNAL'.
 --
@@ -123,10 +126,6 @@ ikmImportToken = lens _ikmImportToken (\ s a -> s{_ikmImportToken = a}) . _Base6
 ikmEncryptedKeyMaterial :: Lens' ImportKeyMaterial ByteString
 ikmEncryptedKeyMaterial = lens _ikmEncryptedKeyMaterial (\ s a -> s{_ikmEncryptedKeyMaterial = a}) . _Base64;
 
--- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the 'ExpirationModel' parameter is set to 'KEY_MATERIAL_DOES_NOT_EXPIRE'. Otherwise it is required.
-ikmValidTo :: Lens' ImportKeyMaterial UTCTime
-ikmValidTo = lens _ikmValidTo (\ s a -> s{_ikmValidTo = a}) . _Time;
-
 instance AWSRequest ImportKeyMaterial where
         type Rs ImportKeyMaterial = ImportKeyMaterialResponse
         request = postJSON kms
@@ -153,11 +152,12 @@ instance ToJSON ImportKeyMaterial where
           = object
               (catMaybes
                  [("ExpirationModel" .=) <$> _ikmExpirationModel,
+                  ("ValidTo" .=) <$> _ikmValidTo,
                   Just ("KeyId" .= _ikmKeyId),
                   Just ("ImportToken" .= _ikmImportToken),
                   Just
-                    ("EncryptedKeyMaterial" .= _ikmEncryptedKeyMaterial),
-                  Just ("ValidTo" .= _ikmValidTo)])
+                    ("EncryptedKeyMaterial" .=
+                       _ikmEncryptedKeyMaterial)])
 
 instance ToPath ImportKeyMaterial where
         toPath = const "/"

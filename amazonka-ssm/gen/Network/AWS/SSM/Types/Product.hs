@@ -1266,7 +1266,7 @@ iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a})
 iiIsLatestVersion :: Lens' InstanceInformation (Maybe Bool)
 iiIsLatestVersion = lens _iiIsLatestVersion (\ s a -> s{_iiIsLatestVersion = a});
 
--- | The version of the SSM agent running on your instance.
+-- | The version of the SSM agent running on your Linux instance.
 iiAgentVersion :: Lens' InstanceInformation (Maybe Text)
 iiAgentVersion = lens _iiAgentVersion (\ s a -> s{_iiAgentVersion = a});
 

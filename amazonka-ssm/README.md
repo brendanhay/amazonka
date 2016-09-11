@@ -13,7 +13,7 @@
 
 ## Description
 
-This is the Amazon EC2 Simple Systems Manager (SSM) API Reference. SSM enables you to remotely manage the configuration of your Amazon EC2 instances, virtual machines (VMs), or servers in your on-premises environment or in an environment provided by other cloud providers using scripts, commands, or the Amazon EC2 console. SSM includes an on-demand solution called /Amazon EC2 Run Command/ and a lightweight instance configuration solution called /SSM Config/.
+Amazon EC2 Simple Systems Manager (SSM) enables you to remotely manage the configuration of your Amazon EC2 instances, virtual machines (VMs), or servers in your on-premises environment or in an environment provided by other cloud providers using scripts, commands, or the Amazon EC2 console. SSM includes an on-demand solution called /Amazon EC2 Run Command/ and a lightweight instance configuration solution called /SSM Config/.
 
 This references is intended to be used with the EC2 Run Command User Guide for <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/execute-remote-commands.html Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/execute-remote-commands.html Windows>.
 

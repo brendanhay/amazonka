@@ -450,7 +450,7 @@ _DocumentPermissionLimit = _ServiceError . hasCode "DocumentPermissionLimit"
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentAlreadyExists = _ServiceError . hasCode "DocumentAlreadyExists"
 
--- | You can have at most 100 active SSM documents.
+-- | You can have at most 200 active SSM documents.
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentLimitExceeded = _ServiceError . hasCode "DocumentLimitExceeded"
 

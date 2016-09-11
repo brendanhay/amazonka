@@ -75,7 +75,7 @@ createRestAPI pName_ =
     , _craName = pName_
     }
 
--- | The Id of the < RestApi> that you want to clone from.
+-- | The ID of the < RestApi> that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
 craCloneFrom = lens _craCloneFrom (\ s a -> s{_craCloneFrom = a});
 

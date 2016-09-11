@@ -88,7 +88,7 @@ gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a});
 gmmResourceId :: Lens' GetMethod Text
 gmmResourceId = lens _gmmResourceId (\ s a -> s{_gmmResourceId = a});
 
--- | Specifies the put method request\'s HTTP method type.
+-- | Specifies the method request\'s HTTP method type.
 gmmHttpMethod :: Lens' GetMethod Text
 gmmHttpMethod = lens _gmmHttpMethod (\ s a -> s{_gmmHttpMethod = a});
 

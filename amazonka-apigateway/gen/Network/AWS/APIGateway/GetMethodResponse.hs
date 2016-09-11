@@ -89,11 +89,11 @@ gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
 gmResourceId :: Lens' GetMethodResponse Text
 gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a});
 
--- | The HTTP verb identifier for the parent < Method> resource.
+-- | The HTTP verb of the < Method> resource.
 gmHttpMethod :: Lens' GetMethodResponse Text
 gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a});
 
--- | The status code identifier for the < MethodResponse> resource.
+-- | The status code for the < MethodResponse> resource.
 gmStatusCode :: Lens' GetMethodResponse Text
 gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
 

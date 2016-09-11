@@ -103,7 +103,9 @@ instance ToQuery GetStages where
         toQuery GetStages'{..}
           = mconcat ["deploymentId" =: _gsDeploymentId]
 
--- | A list of < Stage> resource that are associated with the < ApiKey> resource.
+-- | A list of < Stage> resources that are associated with the < ApiKey> resource.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'

@@ -103,7 +103,7 @@ createStage pRestAPIId_ pStageName_ pDeploymentId_ =
     , _csDeploymentId = pDeploymentId_
     }
 
--- | A map that defines the stage variables for the new < Stage> resource. Variable names can have alphanumeric characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for the new < Stage> resource. Variable names can have alphanumeric and underscore characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
 csVariables :: Lens' CreateStage (HashMap Text Text)
 csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
 

@@ -23,9 +23,12 @@ import           Network.AWS.Prelude
 
 -- | A resource that can be distributed to callers for executing < Method> resources that require an API key. API keys can be mapped to any < Stage> on any < RestApi>, which indicates that the callers with the API key can make requests to that stage.
 --
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
+--
 -- /See:/ 'apiKey' smart constructor.
 data APIKey = APIKey'
     { _akEnabled         :: !(Maybe Bool)
+    , _akValue           :: !(Maybe Text)
     , _akCreatedDate     :: !(Maybe POSIX)
     , _akName            :: !(Maybe Text)
     , _akId              :: !(Maybe Text)
@@ -39,6 +42,8 @@ data APIKey = APIKey'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'akEnabled'
+--
+-- * 'akValue'
 --
 -- * 'akCreatedDate'
 --
@@ -56,6 +61,7 @@ apiKey
 apiKey =
     APIKey'
     { _akEnabled = Nothing
+    , _akValue = Nothing
     , _akCreatedDate = Nothing
     , _akName = Nothing
     , _akId = Nothing
@@ -67,6 +73,10 @@ apiKey =
 -- | Specifies whether the API Key can be used by callers.
 akEnabled :: Lens' APIKey (Maybe Bool)
 akEnabled = lens _akEnabled (\ s a -> s{_akEnabled = a});
+
+-- | The value of the API Key.
+akValue :: Lens' APIKey (Maybe Text)
+akValue = lens _akValue (\ s a -> s{_akValue = a});
 
 -- | The date when the API Key was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 akCreatedDate :: Lens' APIKey (Maybe UTCTime)
@@ -97,8 +107,9 @@ instance FromJSON APIKey where
           = withObject "APIKey"
               (\ x ->
                  APIKey' <$>
-                   (x .:? "enabled") <*> (x .:? "createdDate") <*>
-                     (x .:? "name")
+                   (x .:? "enabled") <*> (x .:? "value") <*>
+                     (x .:? "createdDate")
+                     <*> (x .:? "name")
                      <*> (x .:? "id")
                      <*> (x .:? "stageKeys" .!= mempty)
                      <*> (x .:? "lastUpdatedDate")
@@ -108,11 +119,93 @@ instance Hashable APIKey
 
 instance NFData APIKey
 
+-- | API stage name of the associated API stage in a usage plan.
+--
+-- /See:/ 'apiStage' smart constructor.
+data APIStage = APIStage'
+    { _asStage :: !(Maybe Text)
+    , _asApiId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'APIStage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asStage'
+--
+-- * 'asApiId'
+apiStage
+    :: APIStage
+apiStage =
+    APIStage'
+    { _asStage = Nothing
+    , _asApiId = Nothing
+    }
+
+-- | API stage name of the associated API stage in a usage plan.
+asStage :: Lens' APIStage (Maybe Text)
+asStage = lens _asStage (\ s a -> s{_asStage = a});
+
+-- | API Id of the associated API stage in a usage plan.
+asApiId :: Lens' APIStage (Maybe Text)
+asApiId = lens _asApiId (\ s a -> s{_asApiId = a});
+
+instance FromJSON APIStage where
+        parseJSON
+          = withObject "APIStage"
+              (\ x ->
+                 APIStage' <$> (x .:? "stage") <*> (x .:? "apiId"))
+
+instance Hashable APIStage
+
+instance NFData APIStage
+
+instance ToJSON APIStage where
+        toJSON APIStage'{..}
+          = object
+              (catMaybes
+                 [("stage" .=) <$> _asStage,
+                  ("apiId" .=) <$> _asApiId])
+
 -- | Represents an AWS account that is associated with Amazon API Gateway.
+--
+-- To view the account info, call 'GET' on this resource.
+--
+-- ==== Error Codes
+-- #error-codes#
+--
+-- The following exception may be thrown when the request fails.
+--
+-- -   UnauthorizedException
+-- -   NotFoundException
+-- -   TooManyRequestsException
+--
+-- For detailed error code information, including the corresponding HTTP Status Codes, see <http://docs.aws.amazon.com/apigateway/api-reference/handling-errors/#api-error-codes API Gateway Error Codes>
+--
+-- ==== Example: Get the information about an account.
+-- #example-get-the-information-about-an-account.#
+--
+-- ===== Request
+-- #request#
+--
+-- > GET /account HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160531T184618Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns a '200 OK' status code and a payload similar to the following:
+--
+-- > { "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } }
+--
+-- In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-limits.html API Gateway Limits> <http://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html Developer Guide>, <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html AWS CLI>
 --
 -- /See:/ 'account' smart constructor.
 data Account = Account'
-    { _aCloudwatchRoleARN :: !(Maybe Text)
+    { _aApiKeyVersion     :: !(Maybe Text)
+    , _aCloudwatchRoleARN :: !(Maybe Text)
+    , _aFeatures          :: !(Maybe [Text])
     , _aThrottleSettings  :: !(Maybe ThrottleSettings)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -120,22 +213,36 @@ data Account = Account'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aApiKeyVersion'
+--
 -- * 'aCloudwatchRoleARN'
+--
+-- * 'aFeatures'
 --
 -- * 'aThrottleSettings'
 account
     :: Account
 account =
     Account'
-    { _aCloudwatchRoleARN = Nothing
+    { _aApiKeyVersion = Nothing
+    , _aCloudwatchRoleARN = Nothing
+    , _aFeatures = Nothing
     , _aThrottleSettings = Nothing
     }
 
--- | Specifies the Amazon resource name (ARN) of an Amazon CloudWatch role for the current < Account> resource.
+-- | The version of the API keys used for the account.
+aApiKeyVersion :: Lens' Account (Maybe Text)
+aApiKeyVersion = lens _aApiKeyVersion (\ s a -> s{_aApiKeyVersion = a});
+
+-- | The ARN of an Amazon CloudWatch role for the current < Account>.
 aCloudwatchRoleARN :: Lens' Account (Maybe Text)
 aCloudwatchRoleARN = lens _aCloudwatchRoleARN (\ s a -> s{_aCloudwatchRoleARN = a});
 
--- | Specifies the application programming interface (API) throttle settings for the current < Account> resource.
+-- | A list of features supported for the account. When usage plans are enabled, the features list will include an entry of '\"UsagePlans\"'.
+aFeatures :: Lens' Account [Text]
+aFeatures = lens _aFeatures (\ s a -> s{_aFeatures = a}) . _Default . _Coerce;
+
+-- | Specifies the API request limits configured for the current < Account>.
 aThrottleSettings :: Lens' Account (Maybe ThrottleSettings)
 aThrottleSettings = lens _aThrottleSettings (\ s a -> s{_aThrottleSettings = a});
 
@@ -144,14 +251,18 @@ instance FromJSON Account where
           = withObject "Account"
               (\ x ->
                  Account' <$>
-                   (x .:? "cloudwatchRoleArn") <*>
-                     (x .:? "throttleSettings"))
+                   (x .:? "apiKeyVersion") <*>
+                     (x .:? "cloudwatchRoleArn")
+                     <*> (x .:? "features" .!= mempty)
+                     <*> (x .:? "throttleSettings"))
 
 instance Hashable Account
 
 instance NFData Account
 
 -- | Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
 -- /See:/ 'authorizer' smart constructor.
 data Authorizer = Authorizer'
@@ -214,7 +325,7 @@ aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
 aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
 aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
 
--- | Undocumented member.
+-- | A list of the provider ARNs of the authorizer.
 aProviderARNs :: Lens' Authorizer [Text]
 aProviderARNs = lens _aProviderARNs (\ s a -> s{_aProviderARNs = a}) . _Default . _Coerce;
 
@@ -242,7 +353,7 @@ aType = lens _aType (\ s a -> s{_aType = a});
 aIdentitySource :: Lens' Authorizer (Maybe Text)
 aIdentitySource = lens _aIdentitySource (\ s a -> s{_aIdentitySource = a});
 
--- | Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+-- | Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM role for Amazon API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 aAuthorizerCredentials :: Lens' Authorizer (Maybe Text)
 aAuthorizerCredentials = lens _aAuthorizerCredentials (\ s a -> s{_aAuthorizerCredentials = a});
 
@@ -266,7 +377,11 @@ instance Hashable Authorizer
 
 instance NFData Authorizer
 
--- | Represents the base path that callers of the API that must provide as part of the URL after the domain name.
+-- | Represents the base path that callers of the API must provide as part of the URL after the domain name.
+--
+-- A custom domain name plus a 'BasePathMapping' specification identifies a deployed < RestApi> in a given stage of the owner < Account>.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
 --
 -- /See:/ 'basePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
@@ -317,7 +432,11 @@ instance Hashable BasePathMapping
 
 instance NFData BasePathMapping
 
--- | Represents a Client Certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.
+-- | Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.
+--
+-- Client certificates are used authenticate an API by the back-end server. To authenticate an API client (or user), use a custom < Authorizer>.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
 -- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
@@ -352,23 +471,23 @@ clientCertificate =
     , _ccDescription = Nothing
     }
 
--- | The PEM-encoded public key of the Client Certificate, that can be used to configure certificate authentication in the integration endpoint .
+-- | The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
 ccPemEncodedCertificate :: Lens' ClientCertificate (Maybe Text)
 ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncodedCertificate = a});
 
--- | The identifier of the Client Certificate.
+-- | The identifier of the client certificate.
 ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
 ccClientCertificateId = lens _ccClientCertificateId (\ s a -> s{_ccClientCertificateId = a});
 
--- | The date when the Client Certificate was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the client certificate was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccCreatedDate = lens _ccCreatedDate (\ s a -> s{_ccCreatedDate = a}) . mapping _Time;
 
--- | The date when the Client Certificate will expire, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the client certificate will expire, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccExpirationDate = lens _ccExpirationDate (\ s a -> s{_ccExpirationDate = a}) . mapping _Time;
 
--- | The description of the Client Certificate.
+-- | The description of the client certificate.
 ccDescription :: Lens' ClientCertificate (Maybe Text)
 ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 
@@ -388,6 +507,10 @@ instance Hashable ClientCertificate
 instance NFData ClientCertificate
 
 -- | An immutable representation of a < RestApi> resource that can be called by users using < Stages>. A deployment must be associated with a < Stage> for it to be callable over the Internet.
+--
+-- To create a deployment, call 'POST' on the < Deployments> resource of a < RestApi>. To view, update, or delete a deployment, call 'GET', 'PATCH', or 'DELETE' on the specified deployment resource ('\/restapis\/{restapi_id}\/deployments\/{deployment_id}').
+--
+-- < RestApi>, < Deployments>, < Stage>, <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html AWS CLI>, <https://aws.amazon.com/tools/ AWS SDKs>
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
@@ -418,7 +541,7 @@ deployment =
     , _dDescription = Nothing
     }
 
--- | Gets a summary of the < RestApi> at the date and time that the deployment resource was created.
+-- | A summary of the < RestApi> at the date and time that the deployment resource was created.
 dApiSummary :: Lens' Deployment (HashMap Text (HashMap Text MethodSnapshot))
 dApiSummary = lens _dApiSummary (\ s a -> s{_dApiSummary = a}) . _Default . _Map;
 
@@ -449,6 +572,8 @@ instance Hashable Deployment
 instance NFData Deployment
 
 -- | Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
 --
 -- /See:/ 'domainName' smart constructor.
 data DomainName = DomainName'
@@ -508,7 +633,11 @@ instance Hashable DomainName
 
 instance NFData DomainName
 
--- | Represents a HTTP, AWS, or Mock integration.
+-- | Represents an HTTP, AWS, or Mock integration.
+--
+-- In the API Gateway console, the built-in Lambda integration is an AWS integration.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 --
 -- /See:/ 'integration' smart constructor.
 data Integration = Integration'
@@ -575,17 +704,16 @@ iRequestTemplates = lens _iRequestTemplates (\ s a -> s{_iRequestTemplates = a})
 iCredentials :: Lens' Integration (Maybe Text)
 iCredentials = lens _iCredentials (\ s a -> s{_iCredentials = a});
 
--- | Represents requests parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
+-- | A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' must be a valid and unique method request parameter name.
 iRequestParameters :: Lens' Integration (HashMap Text Text)
 iRequestParameters = lens _iRequestParameters (\ s a -> s{_iRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available requestTemplates defined on the Integration. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
+-- | Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in 'requestTemplates'. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
 --
--- 'WHEN_NO_MATCH' passes the request body for unmapped content types through to the Integration backend without transformation.
+-- -   'WHEN_NO_MATCH' passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request.
+-- -   'WHEN_NO_TEMPLATES' passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP '415 Unsupported Media Type' response.
+-- -   'NEVER' rejects the method request with an HTTP '415 Unsupported Media Type' response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 --
--- 'NEVER' rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
---
--- 'WHEN_NO_TEMPLATES' will allow pass-through when the Integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
 iPassthroughBehavior :: Lens' Integration (Maybe Text)
 iPassthroughBehavior = lens _iPassthroughBehavior (\ s a -> s{_iPassthroughBehavior = a});
 
@@ -594,6 +722,23 @@ iUri :: Lens' Integration (Maybe Text)
 iUri = lens _iUri (\ s a -> s{_iUri = a});
 
 -- | Specifies the integration\'s responses.
+--
+-- ==== Example: Get integration responses of a method
+-- #example-get-integration-responses-of-a-method#
+--
+-- ===== Request
+-- #request#
+--
+-- > GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns '200 OK' status and a payload as follows:
+--
+-- > { "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": ">util.urlDecode(\"%3CkinesisStreams%3E#foreach(>stream in >input.path('>.StreamNames'))%3Cstream%3E%3Cname%3E>stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 iIntegrationResponses :: Lens' Integration (HashMap Text IntegrationResponse)
 iIntegrationResponses = lens _iIntegrationResponses (\ s a -> s{_iIntegrationResponses = a}) . _Default . _Map;
 
@@ -629,7 +774,9 @@ instance Hashable Integration
 
 instance NFData Integration
 
--- | Represents an integration response. The status code must map to an existing < MethodResponse>, and parameters and templates can be used to transform the backend response.
+-- | Represents an integration response. The status code must map to an existing < MethodResponse>, and parameters and templates can be used to transform the back-end response.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 --
 -- /See:/ 'integrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
@@ -664,7 +811,7 @@ integrationResponse =
 iResponseTemplates :: Lens' IntegrationResponse (HashMap Text Text)
 iResponseTemplates = lens _iResponseTemplates (\ s a -> s{_iResponseTemplates = a}) . _Default . _Map;
 
--- | Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the backend. If the backend is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS backends, the HTTP status code is matched.
+-- | Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the '.+' regex to match error response. However, make sure that the error response does not contain any newline ('\\n') character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 iSelectionPattern :: Lens' IntegrationResponse (Maybe Text)
 iSelectionPattern = lens _iSelectionPattern (\ s a -> s{_iSelectionPattern = a});
 
@@ -672,7 +819,7 @@ iSelectionPattern = lens _iSelectionPattern (\ s a -> s{_iSelectionPattern = a})
 iStatusCode :: Lens' IntegrationResponse (Maybe Text)
 iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});
 
--- | Represents response parameters that can be read from the backend response. Response parameters are represented as a key\/value map, with a destination as the key and a source as the value. A destination must match an existing response parameter in the < MethodResponse>. The source can be a header from the backend response, or a static value. Static values are specified using enclosing single quotes, and backend response headers can be read using the pattern 'integration.response.header.{name}'.
+-- | A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of 'method.response.header.{name}', where 'name' is a valid and unique header name. The mapped non-static value must match the pattern of 'integration.response.header.{name}' or 'integration.response.body.{JSON-expression}', where 'name' is a valid and unique response header name and 'JSON-expression' is a valid JSON expression without the '>' prefix.
 iResponseParameters :: Lens' IntegrationResponse (HashMap Text Text)
 iResponseParameters = lens _iResponseParameters (\ s a -> s{_iResponseParameters = a}) . _Default . _Map;
 
@@ -690,7 +837,28 @@ instance Hashable IntegrationResponse
 
 instance NFData IntegrationResponse
 
--- | Represents a method.
+-- | Represents a client-facing interface by which the client calls the API to access back-end resources. A __Method__ resource is integrated with an < Integration> resource. Both consist of a request and one or more responses. The method request takes the client input that is passed to the back end through the integration request. A method response returns the output from the back end to the client through an integration response. A method request is embodied in a __Method__ resource, whereas an integration request is embodied in an < Integration> resource. On the other hand, a method response is represented by a < MethodResponse> resource, whereas an integration response is represented by an < IntegrationResponse> resource.
+--
+-- ==== Example: Retrive the GET method on a specified resource
+-- #example-retrive-the-get-method-on-a-specified-resource#
+--
+-- ===== Request
+-- #request#
+--
+-- The following example request retrieves the information about the GET method on an API resource ('3kzxbg5sa2') of an API ('fugvjdxtri').
+--
+-- > GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T210259Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns a '200 OK' status code and a payload similar to the following:
+--
+-- > { "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": ">util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }
+--
+-- In the example above, the response template for the '200 OK' response maps the JSON output from the 'ListStreams' action in the back end to an XML output. The mapping template is URL-encoded as '%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E' and the output is decoded using the <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference >util.urlDecode()> helper function.
+--
+-- < MethodResponse>, < Integration>, < IntegrationResponse>, < Resource>, <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html Set up an API\'s method>
 --
 -- /See:/ 'method' smart constructor.
 data Method = Method'
@@ -737,23 +905,42 @@ method =
     , _mMethodIntegration = Nothing
     }
 
--- | Represents available responses that can be sent to the caller. Method responses are represented as a key\/value map, with an HTTP status code as the key and a < MethodResponse> as the value. The status codes are available for the < Integration> responses to map to.
+-- | Gets a method response associated with a given HTTP status code.
+--
+-- The collection of method responses are encapsulated in a key-value map, where the key is a response\'s HTTP status code and the value is a < MethodResponse> resource that specifies the response returned to the caller from the back end through the integration response.
+--
+-- ==== Example: Get a 200 OK response of a GET method
+-- #example-get-a-200-ok-response-of-a-get-method#
+--
+-- ===== Request
+-- #request#
+--
+-- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T215008Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns a '200 OK' status code and a payload similar to the following:
+--
+-- > { "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.operator": false, "method.response.header.operand_2": false, "method.response.header.operand_1": false }, "statusCode": "200" }
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html AWS CLI>
 mMethodResponses :: Lens' Method (HashMap Text MethodResponse)
 mMethodResponses = lens _mMethodResponses (\ s a -> s{_mMethodResponses = a}) . _Default . _Map;
 
--- | The HTTP method.
+-- | The method\'s HTTP verb.
 mHttpMethod :: Lens' Method (Maybe Text)
 mHttpMethod = lens _mHttpMethod (\ s a -> s{_mHttpMethod = a});
 
--- | Specifies the < Model> resources used for the request\'s content type. Request models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
+-- | A key-value map specifying data schemas, represented by < Model> resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 mRequestModels :: Lens' Method (HashMap Text Text)
 mRequestModels = lens _mRequestModels (\ s a -> s{_mRequestModels = a}) . _Default . _Map;
 
--- | Represents request parameters that can be accepted by Amazon API Gateway. Request parameters are represented as a key\/value map, with a source as the key and a Boolean flag as the value. The Boolean flag is used to specify whether the parameter is required. A source must match the pattern 'method.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' is a valid, unique parameter name. Sources specified here are available to the integration for mapping to integration request parameters or templates.
+-- | A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key is a method request parameter name matching the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ('true') or optional ('false'). The method request parameter names defined here are available in < Integration> to be mapped to integration request parameters or templates.
 mRequestParameters :: Lens' Method (HashMap Text Bool)
 mRequestParameters = lens _mRequestParameters (\ s a -> s{_mRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the identifier of an < Authorizer> to use on this Method. The authorizationType must be CUSTOM.
+-- | The identifier of an < Authorizer> to use on this method. The 'authorizationType' must be 'CUSTOM'.
 mAuthorizerId :: Lens' Method (Maybe Text)
 mAuthorizerId = lens _mAuthorizerId (\ s a -> s{_mAuthorizerId = a});
 
@@ -761,11 +948,28 @@ mAuthorizerId = lens _mAuthorizerId (\ s a -> s{_mAuthorizerId = a});
 mAuthorizationType :: Lens' Method (Maybe Text)
 mAuthorizationType = lens _mAuthorizationType (\ s a -> s{_mAuthorizationType = a});
 
--- | Specifies whether the method requires a valid < ApiKey>.
+-- | A boolean flag specifying whether a valid < ApiKey> is required to invoke this method.
 mApiKeyRequired :: Lens' Method (Maybe Bool)
 mApiKeyRequired = lens _mApiKeyRequired (\ s a -> s{_mApiKeyRequired = a});
 
--- | The method\'s integration.
+-- | Gets the method\'s integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.
+--
+-- ==== Example:
+-- #example#
+--
+-- ===== Request
+-- #request#
+--
+-- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns a '200 OK' status code and a payload similar to the following:
+--
+-- > { "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \">input.params('operand1')\",\n \"b\": \">input.params('operand2')\", \n \"op\": \">input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set(>res = >input.path('>'))\n{\n \"result\": \">res.a, >res.b, >res.op => >res.c\",\n \"a\" : \">res.a\",\n \"b\" : \">res.b\",\n \"op\" : \">res.op\",\n \"c\" : \">res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
 mMethodIntegration :: Lens' Method (Maybe Integration)
 mMethodIntegration = lens _mMethodIntegration (\ s a -> s{_mMethodIntegration = a});
 
@@ -787,7 +991,26 @@ instance Hashable Method
 
 instance NFData Method
 
--- | Represents a method response. Amazon API Gateway sends back the status code to the caller as the HTTP status code. Parameters and models can be used to transform the response from the method\'s integration.
+-- | Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
+--
+-- ==== Example: A __MethodResponse__ instance of an API
+-- #example-a-methodresponse-instance-of-an-api#
+--
+-- ===== Request
+-- #request#
+--
+-- The example request retrieves a __MethodResponse__ of the 200 status code.
+--
+-- > GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T222952Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- The successful response returns '200 OK' status and a payload as follows:
+--
+-- > { "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }
+--
+-- < Method>, < IntegrationResponse>, < Integration> <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 --
 -- /See:/ 'methodResponse' smart constructor.
 data MethodResponse = MethodResponse'
@@ -822,7 +1045,7 @@ mResponseModels = lens _mResponseModels (\ s a -> s{_mResponseModels = a}) . _De
 mStatusCode :: Lens' MethodResponse (Maybe Text)
 mStatusCode = lens _mStatusCode (\ s a -> s{_mStatusCode = a});
 
--- | Represents response parameters that can be sent back to the caller by Amazon API Gateway. Response parameters are represented as a key\/value map, with a destination as the key and a boolean flag as the value, which is used to specify whether the parameter is required. A destination must match the pattern 'method.response.header.{name}', where 'name' is a valid, unique header name. Destinations specified here are available to the integration for mapping from integration response parameters.
+-- | A key-value map specifying required or optional response parameters that Amazon API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern 'method.response.header.{name}', where 'name' is a valid and unique header name. Amazon API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API\'s < IntegrationResponse>. The integration response data that can be mapped include an integration response header expressed in 'integration.response.header.{name}', a static value enclosed within a pair of single quotes (e.g., '\'application\/json\''), or a JSON expression from the back-end response payload in the form of 'integration.response.body.{JSON-expression}', where 'JSON-expression' is a valid JSON expression without the '>' prefix.)
 mResponseParameters :: Lens' MethodResponse (HashMap Text Bool)
 mResponseParameters = lens _mResponseParameters (\ s a -> s{_mResponseParameters = a}) . _Default . _Map;
 
@@ -894,11 +1117,11 @@ methodSetting =
     , _msUnauthorizedCacheControlHeaderStrategy = Nothing
     }
 
--- | Specifies the time to live (TTL) in seconds, for cached responses. The higher a the TTL, the longer the response will be cached. The PATCH path for this setting is '\/{method_setting_key}\/caching\/ttlInSeconds', and the value is an integer.
+-- | Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is '\/{method_setting_key}\/caching\/ttlInSeconds', and the value is an integer.
 msCacheTtlInSeconds :: Lens' MethodSetting (Maybe Int)
 msCacheTtlInSeconds = lens _msCacheTtlInSeconds (\ s a -> s{_msCacheTtlInSeconds = a});
 
--- | Specifies the whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is '\/{method_setting_key}\/logging\/dataTrace', and the value is a Boolean.
+-- | Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is '\/{method_setting_key}\/logging\/dataTrace', and the value is a Boolean.
 msDataTraceEnabled :: Lens' MethodSetting (Maybe Bool)
 msDataTraceEnabled = lens _msDataTraceEnabled (\ s a -> s{_msDataTraceEnabled = a});
 
@@ -930,7 +1153,7 @@ msMetricsEnabled = lens _msMetricsEnabled (\ s a -> s{_msMetricsEnabled = a});
 msThrottlingRateLimit :: Lens' MethodSetting (Maybe Double)
 msThrottlingRateLimit = lens _msThrottlingRateLimit (\ s a -> s{_msThrottlingRateLimit = a});
 
--- | Specifies the strategy on how to handle the unauthorized requests for cache invalidation. The PATCH path for this setting is '\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy', and the available values are 'FAIL_WITH_403', 'SUCCEED_WITH_RESPONSE_HEADER', 'SUCCEED_WITHOUT_RESPONSE_HEADER'.
+-- | Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is '\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy', and the available values are 'FAIL_WITH_403', 'SUCCEED_WITH_RESPONSE_HEADER', 'SUCCEED_WITHOUT_RESPONSE_HEADER'.
 msUnauthorizedCacheControlHeaderStrategy :: Lens' MethodSetting (Maybe UnauthorizedCacheControlHeaderStrategy)
 msUnauthorizedCacheControlHeaderStrategy = lens _msUnauthorizedCacheControlHeaderStrategy (\ s a -> s{_msUnauthorizedCacheControlHeaderStrategy = a});
 
@@ -997,7 +1220,13 @@ instance Hashable MethodSnapshot
 
 instance NFData MethodSnapshot
 
--- | Represents the structure of a request or response payload for a method.
+-- | Represents the data structure of a method\'s request or response payload.
+--
+-- A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.
+--
+-- A model is used for generating an API\'s SDK, validating the input request body, and creating a skeletal mapping template.
+--
+-- < Method>, < MethodResponse>, <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'model' smart constructor.
 data Model = Model'
@@ -1032,7 +1261,7 @@ model =
     , _mContentType = Nothing
     }
 
--- | The schema for the model. For 'application\/json' models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- | The schema for the model. For 'application\/json' models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model. Do not include \"\\*\/\" characters in the description of any properties because such \"\\*\/\" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API\'s SDK generated by API Gateway to fail.
 mSchema :: Lens' Model (Maybe Text)
 mSchema = lens _mSchema (\ s a -> s{_mSchema = a});
 
@@ -1096,19 +1325,19 @@ patchOperation =
     , _poFrom = Nothing
     }
 
--- | A patch operation whose value indicates the operation to perform. Its value MUST be one of \"add\", \"remove\", \"replace\", \"move\", \"copy\", or \"test\"; other values are errors.
+-- | An update operation to be performed with this PATCH request. The valid value can be \"add\", \"remove\", or \"replace\". Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.
 poOp :: Lens' PatchOperation (Maybe Op)
 poOp = lens _poOp (\ s a -> s{_poOp = a});
 
--- | Operation objects MUST have exactly one \"path\" member. That member\'s value is a string containing a \`JSON-Pointer\` value that references a location within the target document (the \"target location\") where the operation is performed.
+-- | The 'op' operation\'s target, as identified by a <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08 JSON Pointer> value that references a location within the targeted resource. For example, if the target resource has an updateable property of '{\"name\":\"value\"}', the path for this property is '\/name'. If the 'name' property value is a JSON object (e.g., '{\"name\": {\"child\/name\": \"child-value\"}}'), the path for the 'child\/name' property will be '\/name\/child~1name'. Any slash (\"\/\") character appearing in path names must be escaped with \"~1\", as shown in the example above. Each 'op' operation can have only one 'path' associated with it.
 poPath :: Lens' PatchOperation (Maybe Text)
 poPath = lens _poPath (\ s a -> s{_poPath = a});
 
--- | The actual value content.
+-- | The new target value of the update operation.
 poValue :: Lens' PatchOperation (Maybe Text)
 poValue = lens _poValue (\ s a -> s{_poValue = a});
 
--- | The \"move\" and \"copy\" operation object MUST contain a \"from\" member, which is a string containing a 'JSON Pointer' value that references the location in the target document to move the value from.
+-- | Not supported.
 poFrom :: Lens' PatchOperation (Maybe Text)
 poFrom = lens _poFrom (\ s a -> s{_poFrom = a});
 
@@ -1123,7 +1352,68 @@ instance ToJSON PatchOperation where
                  [("op" .=) <$> _poOp, ("path" .=) <$> _poPath,
                   ("value" .=) <$> _poValue, ("from" .=) <$> _poFrom])
 
--- | Represents a resource.
+-- | Quotas configured for a usage plan.
+--
+-- /See:/ 'quotaSettings' smart constructor.
+data QuotaSettings = QuotaSettings'
+    { _qsOffset :: !(Maybe Int)
+    , _qsPeriod :: !(Maybe QuotaPeriodType)
+    , _qsLimit  :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'QuotaSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qsOffset'
+--
+-- * 'qsPeriod'
+--
+-- * 'qsLimit'
+quotaSettings
+    :: QuotaSettings
+quotaSettings =
+    QuotaSettings'
+    { _qsOffset = Nothing
+    , _qsPeriod = Nothing
+    , _qsLimit = Nothing
+    }
+
+-- | The number of requests subtracted from the given limit in the initial time period.
+qsOffset :: Lens' QuotaSettings (Maybe Int)
+qsOffset = lens _qsOffset (\ s a -> s{_qsOffset = a});
+
+-- | The time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".
+qsPeriod :: Lens' QuotaSettings (Maybe QuotaPeriodType)
+qsPeriod = lens _qsPeriod (\ s a -> s{_qsPeriod = a});
+
+-- | The maximum number of requests that can be made in a given time period.
+qsLimit :: Lens' QuotaSettings (Maybe Int)
+qsLimit = lens _qsLimit (\ s a -> s{_qsLimit = a});
+
+instance FromJSON QuotaSettings where
+        parseJSON
+          = withObject "QuotaSettings"
+              (\ x ->
+                 QuotaSettings' <$>
+                   (x .:? "offset") <*> (x .:? "period") <*>
+                     (x .:? "limit"))
+
+instance Hashable QuotaSettings
+
+instance NFData QuotaSettings
+
+instance ToJSON QuotaSettings where
+        toJSON QuotaSettings'{..}
+          = object
+              (catMaybes
+                 [("offset" .=) <$> _qsOffset,
+                  ("period" .=) <$> _qsPeriod,
+                  ("limit" .=) <$> _qsLimit])
+
+-- | Represents an API resource.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
@@ -1170,7 +1460,25 @@ rPath = lens _rPath (\ s a -> s{_rPath = a});
 rId :: Lens' Resource (Maybe Text)
 rId = lens _rId (\ s a -> s{_rId = a});
 
--- | Map of methods for this resource, which is included only if the request uses the __embed__ query option.
+-- | Gets an API resource\'s method of a given HTTP verb.
+--
+-- The resource methods are a map of methods indexed by methods\' HTTP verbs enabled on the resource. This method map is included in the '200 OK' response of the 'GET \/restapis\/{restapi_id}\/resources\/{resource_id}' or 'GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods' request.
+--
+-- ==== Example: Get the GET method of an API resource
+-- #example-get-the-get-method-of-an-api-resource#
+--
+-- ===== Request
+-- #request#
+--
+-- > GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160608T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160608/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+-- #response#
+--
+-- > { "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": false, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": ">util.urlDecode(\"%3CkinesisStreams%3E#foreach(>stream in >input.path('>.StreamNames'))%3Cstream%3E%3Cname%3E>stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }
+--
+-- If the 'OPTIONS' is enabled on the resource, you can follow the example here to get that method. Just replace the 'GET' of the last path segment in the request URL with 'OPTIONS'.
+--
 rResourceMethods :: Lens' Resource (HashMap Text Method)
 rResourceMethods = lens _rResourceMethods (\ s a -> s{_rResourceMethods = a}) . _Default . _Map;
 
@@ -1193,6 +1501,8 @@ instance Hashable Resource
 instance NFData Resource
 
 -- | Represents a REST API.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
@@ -1227,7 +1537,7 @@ restAPI =
     , _raDescription = Nothing
     }
 
--- | Undocumented member.
+-- | The warning messages reported when 'failonwarnings' is turned on during API import.
 raWarnings :: Lens' RestAPI [Text]
 raWarnings = lens _raWarnings (\ s a -> s{_raWarnings = a}) . _Default . _Coerce;
 
@@ -1263,6 +1573,8 @@ instance Hashable RestAPI
 instance NFData RestAPI
 
 -- | Represents a unique identifier for a version of a deployed < RestApi> that is callable by users.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploy an API>
 --
 -- /See:/ 'stage' smart constructor.
 data Stage = Stage'
@@ -1325,11 +1637,11 @@ stage =
 sDeploymentId :: Lens' Stage (Maybe Text)
 sDeploymentId = lens _sDeploymentId (\ s a -> s{_sDeploymentId = a});
 
--- | A map that defines the stage variables for a < Stage> resource. Variable names can have alphanumeric characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for a < Stage> resource. Variable names can have alphanumeric and underscore characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
 sVariables :: Lens' Stage (HashMap Text Text)
 sVariables = lens _sVariables (\ s a -> s{_sVariables = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The identifier of a client certificate for an API stage.
 sClientCertificateId :: Lens' Stage (Maybe Text)
 sClientCertificateId = lens _sClientCertificateId (\ s a -> s{_sClientCertificateId = a});
 
@@ -1341,7 +1653,7 @@ sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Tim
 sCacheClusterStatus :: Lens' Stage (Maybe CacheClusterStatus)
 sCacheClusterStatus = lens _sCacheClusterStatus (\ s a -> s{_sCacheClusterStatus = a});
 
--- | A map that defines the method settings for a < Stage> resource. Keys are defined as '{resource_path}\/{http_method}' for an individual method override, or '\\*\/\\*' for the settings applied to all methods in the stage.
+-- | A map that defines the method settings for a < Stage> resource. Keys (designated as '\/{method_setting_key' below) are method paths defined as '{resource_path}\/{http_method}' for an individual method override, or '\/\\*\/\\*' for overriding all methods in the stage. Any forward slash (\"\/\") characters in the 'resource_path' part must be encoded as \"~1\" as in, for example, '~1resource~1sub-resource\/GET'.
 sMethodSettings :: Lens' Stage (HashMap Text MethodSetting)
 sMethodSettings = lens _sMethodSettings (\ s a -> s{_sMethodSettings = a}) . _Default . _Map;
 
@@ -1428,7 +1740,7 @@ instance ToJSON StageKey where
                  [("restApiId" .=) <$> _skRestAPIId,
                   ("stageName" .=) <$> _skStageName])
 
--- | Returns the throttle settings.
+-- | The API request rate limits.
 --
 -- /See:/ 'throttleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
@@ -1451,11 +1763,11 @@ throttleSettings =
     , _tsRateLimit = Nothing
     }
 
--- | Returns the burstLimit when __ThrottleSettings__ is called.
+-- | The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 tsBurstLimit :: Lens' ThrottleSettings (Maybe Int)
 tsBurstLimit = lens _tsBurstLimit (\ s a -> s{_tsBurstLimit = a});
 
--- | Returns the rateLimit when __ThrottleSettings__ is called.
+-- | The API request steady-state rate limit.
 tsRateLimit :: Lens' ThrottleSettings (Maybe Double)
 tsRateLimit = lens _tsRateLimit (\ s a -> s{_tsRateLimit = a});
 
@@ -1469,3 +1781,228 @@ instance FromJSON ThrottleSettings where
 instance Hashable ThrottleSettings
 
 instance NFData ThrottleSettings
+
+instance ToJSON ThrottleSettings where
+        toJSON ThrottleSettings'{..}
+          = object
+              (catMaybes
+                 [("burstLimit" .=) <$> _tsBurstLimit,
+                  ("rateLimit" .=) <$> _tsRateLimit])
+
+-- | Represents the usage data of a usage plan.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>, <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage Manage Usage in a Usage Plan>
+--
+-- /See:/ 'usage' smart constructor.
+data Usage = Usage'
+    { _uUsagePlanId :: !(Maybe Text)
+    , _uEndDate     :: !(Maybe Text)
+    , _uItems       :: !(Maybe (Map Text [[Integer]]))
+    , _uStartDate   :: !(Maybe Text)
+    , _uPosition    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Usage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uUsagePlanId'
+--
+-- * 'uEndDate'
+--
+-- * 'uItems'
+--
+-- * 'uStartDate'
+--
+-- * 'uPosition'
+usage
+    :: Usage
+usage =
+    Usage'
+    { _uUsagePlanId = Nothing
+    , _uEndDate = Nothing
+    , _uItems = Nothing
+    , _uStartDate = Nothing
+    , _uPosition = Nothing
+    }
+
+-- | The plan Id associated with this usage data.
+uUsagePlanId :: Lens' Usage (Maybe Text)
+uUsagePlanId = lens _uUsagePlanId (\ s a -> s{_uUsagePlanId = a});
+
+-- | The ending date of the usage data.
+uEndDate :: Lens' Usage (Maybe Text)
+uEndDate = lens _uEndDate (\ s a -> s{_uEndDate = a});
+
+-- | The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, '{..., \"values\" : { \"{api_key}\" : [ [0, 100], [10, 90], [100, 10]]}', where '{api_key}' stands for an API key value and the daily log entry is of the format '[used quota, remaining quota]'.
+uItems :: Lens' Usage (HashMap Text [[Integer]])
+uItems = lens _uItems (\ s a -> s{_uItems = a}) . _Default . _Map;
+
+-- | The starting date of the usage data.
+uStartDate :: Lens' Usage (Maybe Text)
+uStartDate = lens _uStartDate (\ s a -> s{_uStartDate = a});
+
+-- | Undocumented member.
+uPosition :: Lens' Usage (Maybe Text)
+uPosition = lens _uPosition (\ s a -> s{_uPosition = a});
+
+instance FromJSON Usage where
+        parseJSON
+          = withObject "Usage"
+              (\ x ->
+                 Usage' <$>
+                   (x .:? "usagePlanId") <*> (x .:? "endDate") <*>
+                     (x .:? "values" .!= mempty)
+                     <*> (x .:? "startDate")
+                     <*> (x .:? "position"))
+
+instance Hashable Usage
+
+instance NFData Usage
+
+-- | Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
+--
+-- In a usage plan, you associate an API by specifying the API\'s Id and a stage name of the specified API. You add plan customers by adding API keys to the plan.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
+--
+-- /See:/ 'usagePlan' smart constructor.
+data UsagePlan = UsagePlan'
+    { _upApiStages   :: !(Maybe [APIStage])
+    , _upName        :: !(Maybe Text)
+    , _upId          :: !(Maybe Text)
+    , _upThrottle    :: !(Maybe ThrottleSettings)
+    , _upQuota       :: !(Maybe QuotaSettings)
+    , _upDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UsagePlan' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upApiStages'
+--
+-- * 'upName'
+--
+-- * 'upId'
+--
+-- * 'upThrottle'
+--
+-- * 'upQuota'
+--
+-- * 'upDescription'
+usagePlan
+    :: UsagePlan
+usagePlan =
+    UsagePlan'
+    { _upApiStages = Nothing
+    , _upName = Nothing
+    , _upId = Nothing
+    , _upThrottle = Nothing
+    , _upQuota = Nothing
+    , _upDescription = Nothing
+    }
+
+-- | The associated API stages of a usage plan.
+upApiStages :: Lens' UsagePlan [APIStage]
+upApiStages = lens _upApiStages (\ s a -> s{_upApiStages = a}) . _Default . _Coerce;
+
+-- | The name of a usage plan.
+upName :: Lens' UsagePlan (Maybe Text)
+upName = lens _upName (\ s a -> s{_upName = a});
+
+-- | The identifier of a < UsagePlan> resource.
+upId :: Lens' UsagePlan (Maybe Text)
+upId = lens _upId (\ s a -> s{_upId = a});
+
+-- | The request throttle limits of a usage plan.
+upThrottle :: Lens' UsagePlan (Maybe ThrottleSettings)
+upThrottle = lens _upThrottle (\ s a -> s{_upThrottle = a});
+
+-- | The maximum number of permitted requests per a given unit time interval.
+upQuota :: Lens' UsagePlan (Maybe QuotaSettings)
+upQuota = lens _upQuota (\ s a -> s{_upQuota = a});
+
+-- | The description of a usage plan.
+upDescription :: Lens' UsagePlan (Maybe Text)
+upDescription = lens _upDescription (\ s a -> s{_upDescription = a});
+
+instance FromJSON UsagePlan where
+        parseJSON
+          = withObject "UsagePlan"
+              (\ x ->
+                 UsagePlan' <$>
+                   (x .:? "apiStages" .!= mempty) <*> (x .:? "name") <*>
+                     (x .:? "id")
+                     <*> (x .:? "throttle")
+                     <*> (x .:? "quota")
+                     <*> (x .:? "description"))
+
+instance Hashable UsagePlan
+
+instance NFData UsagePlan
+
+-- | Represents a usage plan key to identify a plan customer.
+--
+-- To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected < ApiKey>.
+--
+-- \"
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
+--
+-- /See:/ 'usagePlanKey' smart constructor.
+data UsagePlanKey = UsagePlanKey'
+    { _upkValue :: !(Maybe Text)
+    , _upkName  :: !(Maybe Text)
+    , _upkId    :: !(Maybe Text)
+    , _upkType  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UsagePlanKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upkValue'
+--
+-- * 'upkName'
+--
+-- * 'upkId'
+--
+-- * 'upkType'
+usagePlanKey
+    :: UsagePlanKey
+usagePlanKey =
+    UsagePlanKey'
+    { _upkValue = Nothing
+    , _upkName = Nothing
+    , _upkId = Nothing
+    , _upkType = Nothing
+    }
+
+-- | The value of a usage plan key.
+upkValue :: Lens' UsagePlanKey (Maybe Text)
+upkValue = lens _upkValue (\ s a -> s{_upkValue = a});
+
+-- | The name of a usage plan key.
+upkName :: Lens' UsagePlanKey (Maybe Text)
+upkName = lens _upkName (\ s a -> s{_upkName = a});
+
+-- | The Id of a usage plan key.
+upkId :: Lens' UsagePlanKey (Maybe Text)
+upkId = lens _upkId (\ s a -> s{_upkId = a});
+
+-- | The type of a usage plan key. Currently, the valid key type is 'API_KEY'.
+upkType :: Lens' UsagePlanKey (Maybe Text)
+upkType = lens _upkType (\ s a -> s{_upkType = a});
+
+instance FromJSON UsagePlanKey where
+        parseJSON
+          = withObject "UsagePlanKey"
+              (\ x ->
+                 UsagePlanKey' <$>
+                   (x .:? "value") <*> (x .:? "name") <*> (x .:? "id")
+                     <*> (x .:? "type"))
+
+instance Hashable UsagePlanKey
+
+instance NFData UsagePlanKey

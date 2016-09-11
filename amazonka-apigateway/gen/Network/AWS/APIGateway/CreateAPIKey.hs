@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an < ApiKey> resource.
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Network.AWS.APIGateway.CreateAPIKey
     (
     -- * Creating a Request
@@ -26,6 +28,8 @@ module Network.AWS.APIGateway.CreateAPIKey
     , CreateAPIKey
     -- * Request Lenses
     , cakEnabled
+    , cakValue
+    , cakGenerateDistinctId
     , cakName
     , cakStageKeys
     , cakDescription
@@ -35,6 +39,7 @@ module Network.AWS.APIGateway.CreateAPIKey
     , APIKey
     -- * Response Lenses
     , akEnabled
+    , akValue
     , akCreatedDate
     , akName
     , akId
@@ -54,10 +59,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-    { _cakEnabled     :: !(Maybe Bool)
-    , _cakName        :: !(Maybe Text)
-    , _cakStageKeys   :: !(Maybe [StageKey])
-    , _cakDescription :: !(Maybe Text)
+    { _cakEnabled            :: !(Maybe Bool)
+    , _cakValue              :: !(Maybe Text)
+    , _cakGenerateDistinctId :: !(Maybe Bool)
+    , _cakName               :: !(Maybe Text)
+    , _cakStageKeys          :: !(Maybe [StageKey])
+    , _cakDescription        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
@@ -65,6 +72,10 @@ data CreateAPIKey = CreateAPIKey'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cakEnabled'
+--
+-- * 'cakValue'
+--
+-- * 'cakGenerateDistinctId'
 --
 -- * 'cakName'
 --
@@ -76,6 +87,8 @@ createAPIKey
 createAPIKey =
     CreateAPIKey'
     { _cakEnabled = Nothing
+    , _cakValue = Nothing
+    , _cakGenerateDistinctId = Nothing
     , _cakName = Nothing
     , _cakStageKeys = Nothing
     , _cakDescription = Nothing
@@ -85,11 +98,19 @@ createAPIKey =
 cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
 cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
 
+-- | Specifies a value of the API key.
+cakValue :: Lens' CreateAPIKey (Maybe Text)
+cakValue = lens _cakValue (\ s a -> s{_cakValue = a});
+
+-- | Specifies whether ('true') or not ('false') the key identifier is distinct from the created API key value.
+cakGenerateDistinctId :: Lens' CreateAPIKey (Maybe Bool)
+cakGenerateDistinctId = lens _cakGenerateDistinctId (\ s a -> s{_cakGenerateDistinctId = a});
+
 -- | The name of the < ApiKey>.
 cakName :: Lens' CreateAPIKey (Maybe Text)
 cakName = lens _cakName (\ s a -> s{_cakName = a});
 
--- | Specifies whether the < ApiKey> can be used by callers.
+-- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 cakStageKeys :: Lens' CreateAPIKey [StageKey]
 cakStageKeys = lens _cakStageKeys (\ s a -> s{_cakStageKeys = a}) . _Default . _Coerce;
 
@@ -117,6 +138,8 @@ instance ToJSON CreateAPIKey where
           = object
               (catMaybes
                  [("enabled" .=) <$> _cakEnabled,
+                  ("value" .=) <$> _cakValue,
+                  ("generateDistinctId" .=) <$> _cakGenerateDistinctId,
                   ("name" .=) <$> _cakName,
                   ("stageKeys" .=) <$> _cakStageKeys,
                   ("description" .=) <$> _cakDescription])

@@ -37,6 +37,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetDeployment $
 --             getDeployment
 --
+--         , requestCreateUsagePlan $
+--             createUsagePlan
+--
 --         , requestGetDomainNames $
 --             getDomainNames
 --
@@ -85,6 +88,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateAccount $
 --             updateAccount
 --
+--         , requestGetUsagePlan $
+--             getUsagePlan
+--
 --         , requestDeleteDeployment $
 --             deleteDeployment
 --
@@ -96,6 +102,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestUpdateResource $
 --             updateResource
+--
+--         , requestGetUsage $
+--             getUsage
 --
 --         , requestCreateModel $
 --             createModel
@@ -142,6 +151,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestDeleteRestAPI $
 --             deleteRestAPI
 --
+--         , requestImportAPIKeys $
+--             importAPIKeys
+--
 --         , requestTestInvokeMethod $
 --             testInvokeMethod
 --
@@ -154,6 +166,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestPutIntegrationResponse $
 --             putIntegrationResponse
 --
+--         , requestGetUsagePlanKeys $
+--             getUsagePlanKeys
+--
 --         , requestFlushStageCache $
 --             flushStageCache
 --
@@ -165,6 +180,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestUpdateIntegrationResponse $
 --             updateIntegrationResponse
+--
+--         , requestUpdateUsage $
+--             updateUsage
 --
 --         , requestDeleteIntegration $
 --             deleteIntegration
@@ -181,6 +199,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetResources $
 --             getResources
 --
+--         , requestGetUsagePlanKey $
+--             getUsagePlanKey
+--
 --         , requestGetAccount $
 --             getAccount
 --
@@ -189,6 +210,12 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestGetAuthorizer $
 --             getAuthorizer
+--
+--         , requestDeleteUsagePlan $
+--             deleteUsagePlan
+--
+--         , requestUpdateUsagePlan $
+--             updateUsagePlan
 --
 --         , requestGetStage $
 --             getStage
@@ -214,6 +241,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateClientCertificate $
 --             updateClientCertificate
 --
+--         , requestCreateUsagePlanKey $
+--             createUsagePlanKey
+--
 --         , requestCreateAuthorizer $
 --             createAuthorizer
 --
@@ -226,8 +256,14 @@ import Test.AWS.APIGateway.Internal
 --         , requestCreateStage $
 --             createStage
 --
+--         , requestDeleteUsagePlanKey $
+--             deleteUsagePlanKey
+--
 --         , requestCreateAPIKey $
 --             createAPIKey
+--
+--         , requestGetUsagePlans $
+--             getUsagePlans
 --
 --         , requestPutMethod $
 --             putMethod
@@ -270,6 +306,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetDeployment $
 --             deployment
+--
+--         , responseCreateUsagePlan $
+--             usagePlan
 --
 --         , responseGetDomainNames $
 --             getDomainNamesResponse
@@ -319,6 +358,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateAccount $
 --             account
 --
+--         , responseGetUsagePlan $
+--             usagePlan
+--
 --         , responseDeleteDeployment $
 --             deleteDeploymentResponse
 --
@@ -330,6 +372,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseUpdateResource $
 --             resource
+--
+--         , responseGetUsage $
+--             usage
 --
 --         , responseCreateModel $
 --             model
@@ -376,6 +421,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseDeleteRestAPI $
 --             deleteRestAPIResponse
 --
+--         , responseImportAPIKeys $
+--             importAPIKeysResponse
+--
 --         , responseTestInvokeMethod $
 --             testInvokeMethodResponse
 --
@@ -388,6 +436,9 @@ import Test.AWS.APIGateway.Internal
 --         , responsePutIntegrationResponse $
 --             integrationResponse
 --
+--         , responseGetUsagePlanKeys $
+--             getUsagePlanKeysResponse
+--
 --         , responseFlushStageCache $
 --             flushStageCacheResponse
 --
@@ -399,6 +450,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseUpdateIntegrationResponse $
 --             integrationResponse
+--
+--         , responseUpdateUsage $
+--             usage
 --
 --         , responseDeleteIntegration $
 --             deleteIntegrationResponse'
@@ -415,6 +469,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseGetResources $
 --             getResourcesResponse
 --
+--         , responseGetUsagePlanKey $
+--             usagePlanKey
+--
 --         , responseGetAccount $
 --             account
 --
@@ -423,6 +480,12 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetAuthorizer $
 --             authorizer
+--
+--         , responseDeleteUsagePlan $
+--             deleteUsagePlanResponse
+--
+--         , responseUpdateUsagePlan $
+--             usagePlan
 --
 --         , responseGetStage $
 --             stage
@@ -448,6 +511,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateClientCertificate $
 --             clientCertificate
 --
+--         , responseCreateUsagePlanKey $
+--             usagePlanKey
+--
 --         , responseCreateAuthorizer $
 --             authorizer
 --
@@ -460,8 +526,14 @@ import Test.AWS.APIGateway.Internal
 --         , responseCreateStage $
 --             stage
 --
+--         , responseDeleteUsagePlanKey $
+--             deleteUsagePlanKeyResponse
+--
 --         , responseCreateAPIKey $
 --             apiKey
+--
+--         , responseGetUsagePlans $
+--             getUsagePlansResponse
 --
 --         , responsePutMethod $
 --             method
@@ -512,6 +584,11 @@ requestGetDeployment :: GetDeployment -> TestTree
 requestGetDeployment = req
     "GetDeployment"
     "fixture/GetDeployment.yaml"
+
+requestCreateUsagePlan :: CreateUsagePlan -> TestTree
+requestCreateUsagePlan = req
+    "CreateUsagePlan"
+    "fixture/CreateUsagePlan.yaml"
 
 requestGetDomainNames :: GetDomainNames -> TestTree
 requestGetDomainNames = req
@@ -593,6 +670,11 @@ requestUpdateAccount = req
     "UpdateAccount"
     "fixture/UpdateAccount.yaml"
 
+requestGetUsagePlan :: GetUsagePlan -> TestTree
+requestGetUsagePlan = req
+    "GetUsagePlan"
+    "fixture/GetUsagePlan.yaml"
+
 requestDeleteDeployment :: DeleteDeployment -> TestTree
 requestDeleteDeployment = req
     "DeleteDeployment"
@@ -612,6 +694,11 @@ requestUpdateResource :: UpdateResource -> TestTree
 requestUpdateResource = req
     "UpdateResource"
     "fixture/UpdateResource.yaml"
+
+requestGetUsage :: GetUsage -> TestTree
+requestGetUsage = req
+    "GetUsage"
+    "fixture/GetUsage.yaml"
 
 requestCreateModel :: CreateModel -> TestTree
 requestCreateModel = req
@@ -688,6 +775,11 @@ requestDeleteRestAPI = req
     "DeleteRestAPI"
     "fixture/DeleteRestAPI.yaml"
 
+requestImportAPIKeys :: ImportAPIKeys -> TestTree
+requestImportAPIKeys = req
+    "ImportAPIKeys"
+    "fixture/ImportAPIKeys.yaml"
+
 requestTestInvokeMethod :: TestInvokeMethod -> TestTree
 requestTestInvokeMethod = req
     "TestInvokeMethod"
@@ -708,6 +800,11 @@ requestPutIntegrationResponse = req
     "PutIntegrationResponse"
     "fixture/PutIntegrationResponse.yaml"
 
+requestGetUsagePlanKeys :: GetUsagePlanKeys -> TestTree
+requestGetUsagePlanKeys = req
+    "GetUsagePlanKeys"
+    "fixture/GetUsagePlanKeys.yaml"
+
 requestFlushStageCache :: FlushStageCache -> TestTree
 requestFlushStageCache = req
     "FlushStageCache"
@@ -727,6 +824,11 @@ requestUpdateIntegrationResponse :: UpdateIntegrationResponse -> TestTree
 requestUpdateIntegrationResponse = req
     "UpdateIntegrationResponse"
     "fixture/UpdateIntegrationResponse.yaml"
+
+requestUpdateUsage :: UpdateUsage -> TestTree
+requestUpdateUsage = req
+    "UpdateUsage"
+    "fixture/UpdateUsage.yaml"
 
 requestDeleteIntegration :: DeleteIntegration -> TestTree
 requestDeleteIntegration = req
@@ -753,6 +855,11 @@ requestGetResources = req
     "GetResources"
     "fixture/GetResources.yaml"
 
+requestGetUsagePlanKey :: GetUsagePlanKey -> TestTree
+requestGetUsagePlanKey = req
+    "GetUsagePlanKey"
+    "fixture/GetUsagePlanKey.yaml"
+
 requestGetAccount :: GetAccount -> TestTree
 requestGetAccount = req
     "GetAccount"
@@ -767,6 +874,16 @@ requestGetAuthorizer :: GetAuthorizer -> TestTree
 requestGetAuthorizer = req
     "GetAuthorizer"
     "fixture/GetAuthorizer.yaml"
+
+requestDeleteUsagePlan :: DeleteUsagePlan -> TestTree
+requestDeleteUsagePlan = req
+    "DeleteUsagePlan"
+    "fixture/DeleteUsagePlan.yaml"
+
+requestUpdateUsagePlan :: UpdateUsagePlan -> TestTree
+requestUpdateUsagePlan = req
+    "UpdateUsagePlan"
+    "fixture/UpdateUsagePlan.yaml"
 
 requestGetStage :: GetStage -> TestTree
 requestGetStage = req
@@ -808,6 +925,11 @@ requestUpdateClientCertificate = req
     "UpdateClientCertificate"
     "fixture/UpdateClientCertificate.yaml"
 
+requestCreateUsagePlanKey :: CreateUsagePlanKey -> TestTree
+requestCreateUsagePlanKey = req
+    "CreateUsagePlanKey"
+    "fixture/CreateUsagePlanKey.yaml"
+
 requestCreateAuthorizer :: CreateAuthorizer -> TestTree
 requestCreateAuthorizer = req
     "CreateAuthorizer"
@@ -828,10 +950,20 @@ requestCreateStage = req
     "CreateStage"
     "fixture/CreateStage.yaml"
 
+requestDeleteUsagePlanKey :: DeleteUsagePlanKey -> TestTree
+requestDeleteUsagePlanKey = req
+    "DeleteUsagePlanKey"
+    "fixture/DeleteUsagePlanKey.yaml"
+
 requestCreateAPIKey :: CreateAPIKey -> TestTree
 requestCreateAPIKey = req
     "CreateAPIKey"
     "fixture/CreateAPIKey.yaml"
+
+requestGetUsagePlans :: GetUsagePlans -> TestTree
+requestGetUsagePlans = req
+    "GetUsagePlans"
+    "fixture/GetUsagePlans.yaml"
 
 requestPutMethod :: PutMethod -> TestTree
 requestPutMethod = req
@@ -905,6 +1037,13 @@ responseGetDeployment = res
     "fixture/GetDeploymentResponse.proto"
     apiGateway
     (Proxy :: Proxy GetDeployment)
+
+responseCreateUsagePlan :: UsagePlan -> TestTree
+responseCreateUsagePlan = res
+    "CreateUsagePlanResponse"
+    "fixture/CreateUsagePlanResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateUsagePlan)
 
 responseGetDomainNames :: GetDomainNamesResponse -> TestTree
 responseGetDomainNames = res
@@ -1018,6 +1157,13 @@ responseUpdateAccount = res
     apiGateway
     (Proxy :: Proxy UpdateAccount)
 
+responseGetUsagePlan :: UsagePlan -> TestTree
+responseGetUsagePlan = res
+    "GetUsagePlanResponse"
+    "fixture/GetUsagePlanResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetUsagePlan)
+
 responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
 responseDeleteDeployment = res
     "DeleteDeploymentResponse"
@@ -1045,6 +1191,13 @@ responseUpdateResource = res
     "fixture/UpdateResourceResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateResource)
+
+responseGetUsage :: Usage -> TestTree
+responseGetUsage = res
+    "GetUsageResponse"
+    "fixture/GetUsageResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetUsage)
 
 responseCreateModel :: Model -> TestTree
 responseCreateModel = res
@@ -1151,6 +1304,13 @@ responseDeleteRestAPI = res
     apiGateway
     (Proxy :: Proxy DeleteRestAPI)
 
+responseImportAPIKeys :: ImportAPIKeysResponse -> TestTree
+responseImportAPIKeys = res
+    "ImportAPIKeysResponse"
+    "fixture/ImportAPIKeysResponse.proto"
+    apiGateway
+    (Proxy :: Proxy ImportAPIKeys)
+
 responseTestInvokeMethod :: TestInvokeMethodResponse -> TestTree
 responseTestInvokeMethod = res
     "TestInvokeMethodResponse"
@@ -1179,6 +1339,13 @@ responsePutIntegrationResponse = res
     apiGateway
     (Proxy :: Proxy PutIntegrationResponse)
 
+responseGetUsagePlanKeys :: GetUsagePlanKeysResponse -> TestTree
+responseGetUsagePlanKeys = res
+    "GetUsagePlanKeysResponse"
+    "fixture/GetUsagePlanKeysResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetUsagePlanKeys)
+
 responseFlushStageCache :: FlushStageCacheResponse -> TestTree
 responseFlushStageCache = res
     "FlushStageCacheResponse"
@@ -1206,6 +1373,13 @@ responseUpdateIntegrationResponse = res
     "fixture/UpdateIntegrationResponseResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateIntegrationResponse)
+
+responseUpdateUsage :: Usage -> TestTree
+responseUpdateUsage = res
+    "UpdateUsageResponse"
+    "fixture/UpdateUsageResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateUsage)
 
 responseDeleteIntegration :: DeleteIntegrationResponse' -> TestTree
 responseDeleteIntegration = res
@@ -1242,6 +1416,13 @@ responseGetResources = res
     apiGateway
     (Proxy :: Proxy GetResources)
 
+responseGetUsagePlanKey :: UsagePlanKey -> TestTree
+responseGetUsagePlanKey = res
+    "GetUsagePlanKeyResponse"
+    "fixture/GetUsagePlanKeyResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetUsagePlanKey)
+
 responseGetAccount :: Account -> TestTree
 responseGetAccount = res
     "GetAccountResponse"
@@ -1262,6 +1443,20 @@ responseGetAuthorizer = res
     "fixture/GetAuthorizerResponse.proto"
     apiGateway
     (Proxy :: Proxy GetAuthorizer)
+
+responseDeleteUsagePlan :: DeleteUsagePlanResponse -> TestTree
+responseDeleteUsagePlan = res
+    "DeleteUsagePlanResponse"
+    "fixture/DeleteUsagePlanResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteUsagePlan)
+
+responseUpdateUsagePlan :: UsagePlan -> TestTree
+responseUpdateUsagePlan = res
+    "UpdateUsagePlanResponse"
+    "fixture/UpdateUsagePlanResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateUsagePlan)
 
 responseGetStage :: Stage -> TestTree
 responseGetStage = res
@@ -1319,6 +1514,13 @@ responseUpdateClientCertificate = res
     apiGateway
     (Proxy :: Proxy UpdateClientCertificate)
 
+responseCreateUsagePlanKey :: UsagePlanKey -> TestTree
+responseCreateUsagePlanKey = res
+    "CreateUsagePlanKeyResponse"
+    "fixture/CreateUsagePlanKeyResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateUsagePlanKey)
+
 responseCreateAuthorizer :: Authorizer -> TestTree
 responseCreateAuthorizer = res
     "CreateAuthorizerResponse"
@@ -1347,12 +1549,26 @@ responseCreateStage = res
     apiGateway
     (Proxy :: Proxy CreateStage)
 
+responseDeleteUsagePlanKey :: DeleteUsagePlanKeyResponse -> TestTree
+responseDeleteUsagePlanKey = res
+    "DeleteUsagePlanKeyResponse"
+    "fixture/DeleteUsagePlanKeyResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteUsagePlanKey)
+
 responseCreateAPIKey :: APIKey -> TestTree
 responseCreateAPIKey = res
     "CreateAPIKeyResponse"
     "fixture/CreateAPIKeyResponse.proto"
     apiGateway
     (Proxy :: Proxy CreateAPIKey)
+
+responseGetUsagePlans :: GetUsagePlansResponse -> TestTree
+responseGetUsagePlans = res
+    "GetUsagePlansResponse"
+    "fixture/GetUsagePlansResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetUsagePlans)
 
 responsePutMethod :: Method -> TestTree
 responsePutMethod = res

@@ -111,7 +111,7 @@ timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQu
 timBody :: Lens' TestInvokeMethod (Maybe Text)
 timBody = lens _timBody (\ s a -> s{_timBody = a});
 
--- | A < ClientCertificate> identifier to use in the test invocation. API Gateway will use use the certificate when making the HTTPS request to the defined backend endpoint.
+-- | A < ClientCertificate> identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.
 timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
 timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a});
 
@@ -179,7 +179,9 @@ instance ToPath TestInvokeMethod where
 instance ToQuery TestInvokeMethod where
         toQuery = const mempty
 
--- | Represents the response of the test invoke request in HTTP method.
+-- | Represents the response of the test invoke request in the HTTP method.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
 --
 -- /See:/ 'testInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
@@ -227,7 +229,7 @@ timrsLog = lens _timrsLog (\ s a -> s{_timrsLog = a});
 timrsStatus :: Lens' TestInvokeMethodResponse (Maybe Int)
 timrsStatus = lens _timrsStatus (\ s a -> s{_timrsStatus = a});
 
--- | The body of HTTP response.
+-- | The body of the HTTP response.
 timrsBody :: Lens' TestInvokeMethodResponse (Maybe Text)
 timrsBody = lens _timrsBody (\ s a -> s{_timrsBody = a});
 
@@ -235,7 +237,7 @@ timrsBody = lens _timrsBody (\ s a -> s{_timrsBody = a});
 timrsLatency :: Lens' TestInvokeMethodResponse (Maybe Integer)
 timrsLatency = lens _timrsLatency (\ s a -> s{_timrsLatency = a});
 
--- | The headers of HTTP response.
+-- | The headers of the HTTP response.
 timrsHeaders :: Lens' TestInvokeMethodResponse (HashMap Text Text)
 timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _Map;
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a new < Authorizer> resource to an existing < RestApi> resource.
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request
@@ -126,7 +128,7 @@ caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 caIdentityValidationExpression :: Lens' CreateAuthorizer (Maybe Text)
 caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> s{_caIdentityValidationExpression = a});
 
--- | Undocumented member.
+-- | A list of the Cognito Your User Pool authorizer\'s provider ARNs.
 caProviderARNs :: Lens' CreateAuthorizer [Text]
 caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Default . _Coerce;
 

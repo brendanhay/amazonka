@@ -85,7 +85,7 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _ummHttpMethod = pHttpMethod_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 
@@ -97,7 +97,7 @@ ummRestAPIId = lens _ummRestAPIId (\ s a -> s{_ummRestAPIId = a});
 ummResourceId :: Lens' UpdateMethod Text
 ummResourceId = lens _ummResourceId (\ s a -> s{_ummResourceId = a});
 
--- | The HTTP verb that identifies the < Method> resource.
+-- | The HTTP verb of the < Method> resource.
 ummHttpMethod :: Lens' UpdateMethod Text
 ummHttpMethod = lens _ummHttpMethod (\ s a -> s{_ummHttpMethod = a});
 

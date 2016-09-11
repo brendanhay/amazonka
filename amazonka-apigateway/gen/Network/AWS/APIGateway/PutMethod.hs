@@ -110,7 +110,7 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
 putRequestModels :: Lens' PutMethod (HashMap Text Text)
 putRequestModels = lens _putRequestModels (\ s a -> s{_putRequestModels = a}) . _Default . _Map;
 
--- | Represents requests parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
+-- | A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key defines a method request parameter name matching the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ('true') or optional ('false'). The method request parameter names defined here are available in < Integration> to be mapped to integration request parameters or body-mapping templates.
 putRequestParameters :: Lens' PutMethod (HashMap Text Bool)
 putRequestParameters = lens _putRequestParameters (\ s a -> s{_putRequestParameters = a}) . _Default . _Map;
 
@@ -130,7 +130,7 @@ putRestAPIId = lens _putRestAPIId (\ s a -> s{_putRestAPIId = a});
 putResourceId :: Lens' PutMethod Text
 putResourceId = lens _putResourceId (\ s a -> s{_putResourceId = a});
 
--- | Specifies the put method request\'s HTTP method type.
+-- | Specifies the method request\'s HTTP method type.
 putHttpMethod :: Lens' PutMethod Text
 putHttpMethod = lens _putHttpMethod (\ s a -> s{_putHttpMethod = a});
 

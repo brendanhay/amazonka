@@ -86,7 +86,7 @@ updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _umStatusCode = pStatusCode_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
 umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce;
 
@@ -98,11 +98,11 @@ umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a});
 umResourceId :: Lens' UpdateMethodResponse Text
 umResourceId = lens _umResourceId (\ s a -> s{_umResourceId = a});
 
--- | The HTTP verb identifier for the parent < Method> resource.
+-- | The HTTP verb of the < Method> resource.
 umHttpMethod :: Lens' UpdateMethodResponse Text
 umHttpMethod = lens _umHttpMethod (\ s a -> s{_umHttpMethod = a});
 
--- | The status code identifier for the < MethodResponse> resource.
+-- | The status code for the < MethodResponse> resource.
 umStatusCode :: Lens' UpdateMethodResponse Text
 umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a});
 

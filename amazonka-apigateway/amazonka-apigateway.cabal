@@ -15,7 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon API Gateway
 
-    Amazon API Gateway helps developers deliver robust, secure and scalable mobile and web application backends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
+    Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -52,6 +52,8 @@ library
         , Network.AWS.APIGateway.CreateResource
         , Network.AWS.APIGateway.CreateRestAPI
         , Network.AWS.APIGateway.CreateStage
+        , Network.AWS.APIGateway.CreateUsagePlan
+        , Network.AWS.APIGateway.CreateUsagePlanKey
         , Network.AWS.APIGateway.DeleteAPIKey
         , Network.AWS.APIGateway.DeleteAuthorizer
         , Network.AWS.APIGateway.DeleteBasePathMapping
@@ -66,6 +68,8 @@ library
         , Network.AWS.APIGateway.DeleteResource
         , Network.AWS.APIGateway.DeleteRestAPI
         , Network.AWS.APIGateway.DeleteStage
+        , Network.AWS.APIGateway.DeleteUsagePlan
+        , Network.AWS.APIGateway.DeleteUsagePlanKey
         , Network.AWS.APIGateway.FlushStageAuthorizersCache
         , Network.AWS.APIGateway.FlushStageCache
         , Network.AWS.APIGateway.GenerateClientCertificate
@@ -97,6 +101,12 @@ library
         , Network.AWS.APIGateway.GetSDK
         , Network.AWS.APIGateway.GetStage
         , Network.AWS.APIGateway.GetStages
+        , Network.AWS.APIGateway.GetUsage
+        , Network.AWS.APIGateway.GetUsagePlan
+        , Network.AWS.APIGateway.GetUsagePlanKey
+        , Network.AWS.APIGateway.GetUsagePlanKeys
+        , Network.AWS.APIGateway.GetUsagePlans
+        , Network.AWS.APIGateway.ImportAPIKeys
         , Network.AWS.APIGateway.ImportRestAPI
         , Network.AWS.APIGateway.PutIntegration
         , Network.AWS.APIGateway.PutIntegrationResponse
@@ -121,6 +131,8 @@ library
         , Network.AWS.APIGateway.UpdateResource
         , Network.AWS.APIGateway.UpdateRestAPI
         , Network.AWS.APIGateway.UpdateStage
+        , Network.AWS.APIGateway.UpdateUsage
+        , Network.AWS.APIGateway.UpdateUsagePlan
         , Network.AWS.APIGateway.Waiters
 
     other-modules:

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Simulate the execution of an < Authorizer> in your < RestApi> with headers, parameters, and an incoming request body.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorizers>
 module Network.AWS.APIGateway.TestInvokeAuthorizer
     (
     -- * Creating a Request
@@ -173,7 +175,7 @@ instance ToPath TestInvokeAuthorizer where
 instance ToQuery TestInvokeAuthorizer where
         toQuery = const mempty
 
--- | Represents the response of the test invoke request in for a custom < Authorizer>
+-- | Represents the response of the test invoke request for a custom < Authorizer>
 --
 -- /See:/ 'testInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
@@ -229,7 +231,7 @@ tiarsLog = lens _tiarsLog (\ s a -> s{_tiarsLog = a});
 tiarsPrincipalId :: Lens' TestInvokeAuthorizerResponse (Maybe Text)
 tiarsPrincipalId = lens _tiarsPrincipalId (\ s a -> s{_tiarsPrincipalId = a});
 
--- | The execution latency of the test authorizer request
+-- | The execution latency of the test authorizer request.
 tiarsLatency :: Lens' TestInvokeAuthorizerResponse (Maybe Integer)
 tiarsLatency = lens _tiarsLatency (\ s a -> s{_tiarsLatency = a});
 
@@ -237,7 +239,7 @@ tiarsLatency = lens _tiarsLatency (\ s a -> s{_tiarsLatency = a});
 tiarsAuthorization :: Lens' TestInvokeAuthorizerResponse (HashMap Text [Text])
 tiarsAuthorization = lens _tiarsAuthorization (\ s a -> s{_tiarsAuthorization = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The <http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
 tiarsClaims :: Lens' TestInvokeAuthorizerResponse (HashMap Text Text)
 tiarsClaims = lens _tiarsClaims (\ s a -> s{_tiarsClaims = a}) . _Default . _Map;
 
@@ -245,7 +247,7 @@ tiarsClaims = lens _tiarsClaims (\ s a -> s{_tiarsClaims = a}) . _Default . _Map
 tiarsClientStatus :: Lens' TestInvokeAuthorizerResponse (Maybe Int)
 tiarsClientStatus = lens _tiarsClientStatus (\ s a -> s{_tiarsClientStatus = a});
 
--- | The policy JSON document returned by the < Authorizer>
+-- | The JSON policy document returned by the < Authorizer>
 tiarsPolicy :: Lens' TestInvokeAuthorizerResponse (Maybe Text)
 tiarsPolicy = lens _tiarsPolicy (\ s a -> s{_tiarsPolicy = a});
 

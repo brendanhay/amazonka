@@ -76,7 +76,7 @@ getModel pRestAPIId_ pModelName_ =
     , _ggModelName = pModelName_
     }
 
--- | Resolves all external model references and returns a flattened model schema.
+-- | A query parameter of a Boolean value to resolve ('true') all external model references and returns a flattened model schema or not ('false') The default is 'false'.
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 

@@ -129,6 +129,8 @@ instance ToQuery GetBasePathMappings where
 
 -- | Represents a collection of < BasePathMapping> resources.
 --
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
+--
 -- /See:/ 'getBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
     { _gbpmrsItems          :: !(Maybe [BasePathMapping])

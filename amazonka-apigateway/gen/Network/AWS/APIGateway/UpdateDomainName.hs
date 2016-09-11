@@ -69,7 +69,7 @@ updateDomainName pDomainName_ =
     , _udnDomainName = pDomainName_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
 udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce;
 

@@ -127,6 +127,8 @@ instance ToQuery GetResources where
 
 -- | Represents a collection of < Resource> resources.
 --
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
+--
 -- /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
     { _grrsItems          :: !(Maybe [Resource])

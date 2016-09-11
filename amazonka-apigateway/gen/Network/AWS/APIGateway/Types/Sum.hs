@@ -19,7 +19,30 @@ module Network.AWS.APIGateway.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The authorizer type. Only current value is TOKEN.
+data APIKeysFormat =
+    CSV
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText APIKeysFormat where
+    parser = takeLowerText >>= \case
+        "csv" -> pure CSV
+        e -> fromTextError $ "Failure parsing APIKeysFormat from value: '" <> e
+           <> "'. Accepted values: csv"
+
+instance ToText APIKeysFormat where
+    toText = \case
+        CSV -> "csv"
+
+instance Hashable     APIKeysFormat
+instance NFData       APIKeysFormat
+instance ToByteString APIKeysFormat
+instance ToQuery      APIKeysFormat
+instance ToHeader     APIKeysFormat
+
+instance ToJSON APIKeysFormat where
+    toJSON = toJSONText
+
+-- | The authorizer type. the only current value is TOKEN.
 data AuthorizerType
     = CognitoUserPools
     | Token
@@ -229,6 +252,38 @@ instance ToHeader     PutMode
 
 instance ToJSON PutMode where
     toJSON = toJSONText
+
+data QuotaPeriodType
+    = Day
+    | Month
+    | Week
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText QuotaPeriodType where
+    parser = takeLowerText >>= \case
+        "day" -> pure Day
+        "month" -> pure Month
+        "week" -> pure Week
+        e -> fromTextError $ "Failure parsing QuotaPeriodType from value: '" <> e
+           <> "'. Accepted values: day, month, week"
+
+instance ToText QuotaPeriodType where
+    toText = \case
+        Day -> "DAY"
+        Month -> "MONTH"
+        Week -> "WEEK"
+
+instance Hashable     QuotaPeriodType
+instance NFData       QuotaPeriodType
+instance ToByteString QuotaPeriodType
+instance ToQuery      QuotaPeriodType
+instance ToHeader     QuotaPeriodType
+
+instance ToJSON QuotaPeriodType where
+    toJSON = toJSONText
+
+instance FromJSON QuotaPeriodType where
+    parseJSON = parseJSONText "QuotaPeriodType"
 
 data UnauthorizedCacheControlHeaderStrategy
     = FailWith403

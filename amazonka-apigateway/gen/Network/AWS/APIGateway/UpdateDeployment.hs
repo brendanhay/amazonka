@@ -75,7 +75,7 @@ updateDeployment pRestAPIId_ pDeploymentId_ =
     , _udDeploymentId = pDeploymentId_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
@@ -83,7 +83,7 @@ udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a})
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 
--- | The replacment identifier for the < Deployment> resource to change information about.
+-- | The replacement identifier for the < Deployment> resource to change information about.
 udDeploymentId :: Lens' UpdateDeployment Text
 udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
 

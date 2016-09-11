@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing < Authorizer> resource.
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
     (
     -- * Creating a Request
@@ -81,7 +83,7 @@ updateAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _uaaAuthorizerId = pAuthorizerId_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
 uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
 

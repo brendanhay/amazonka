@@ -136,17 +136,18 @@ pRequestTemplates = lens _pRequestTemplates (\ s a -> s{_pRequestTemplates = a})
 pCredentials :: Lens' PutIntegration (Maybe Text)
 pCredentials = lens _pCredentials (\ s a -> s{_pCredentials = a});
 
--- | Represents request parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
+-- | A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' must be a valid and unique method request parameter name.
 pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available requestTemplates defined on the Integration. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
+-- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the 'requestTemplates' property on the Integration resource. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
 --
--- 'WHEN_NO_MATCH' passes the request body for unmapped content types through to the Integration backend without transformation.
+-- -   'WHEN_NO_MATCH' passes the request body for unmapped content types through to the integration back end without transformation.
 --
--- 'NEVER' rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
+-- -   'NEVER' rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
 --
--- 'WHEN_NO_TEMPLATES' will allow pass-through when the Integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
+-- -   'WHEN_NO_TEMPLATES' allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
+--
 pPassthroughBehavior :: Lens' PutIntegration (Maybe Text)
 pPassthroughBehavior = lens _pPassthroughBehavior (\ s a -> s{_pPassthroughBehavior = a});
 

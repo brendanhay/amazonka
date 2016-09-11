@@ -79,7 +79,7 @@ dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a});
 dmmResourceId :: Lens' DeleteMethod Text
 dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a});
 
--- | The HTTP verb that identifies the < Method> resource.
+-- | The HTTP verb of the < Method> resource.
 dmmHttpMethod :: Lens' DeleteMethod Text
 dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a});
 

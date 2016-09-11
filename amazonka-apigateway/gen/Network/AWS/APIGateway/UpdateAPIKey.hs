@@ -33,6 +33,7 @@ module Network.AWS.APIGateway.UpdateAPIKey
     , APIKey
     -- * Response Lenses
     , akEnabled
+    , akValue
     , akCreatedDate
     , akName
     , akId
@@ -72,7 +73,7 @@ updateAPIKey pApiKey_ =
     , _uakApiKey = pApiKey_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
 uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
 

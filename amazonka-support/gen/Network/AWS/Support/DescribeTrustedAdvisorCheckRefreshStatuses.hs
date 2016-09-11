@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the refresh status of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
+--
+-- Some checks are refreshed automatically, and their refresh statuses cannot be retrieved by using this operation. Use of the 'DescribeTrustedAdvisorCheckRefreshStatuses' operation for these checks causes an 'InvalidParameterValue' error.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.
+-- |
+--
+-- /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
     { _dtacrsCheckIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -59,7 +63,7 @@ describeTrustedAdvisorCheckRefreshStatuses =
     { _dtacrsCheckIds = mempty
     }
 
--- | The IDs of the Trusted Advisor checks.
+-- | The IDs of the Trusted Advisor checks to get the status of. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an 'InvalidParameterValue' error.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerce;
 

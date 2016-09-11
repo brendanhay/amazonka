@@ -120,18 +120,30 @@ instance NFData AttachmentDetails
 
 -- | A JSON-formatted object that contains the metadata for a support case. It is contained the response from a < DescribeCases> request. __CaseDetails__ contains the following fields:
 --
--- 1.  __CaseID.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
--- 2.  __CategoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to < DescribeServices>.
--- 3.  __DisplayId.__ The identifier for the case on pages in the AWS Support Center.
--- 4.  __Language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
--- 5.  __RecentCommunications.__ One or more < Communication> objects. Fields of these objects are 'Attachments', 'Body', 'CaseId', 'SubmittedBy', and 'TimeCreated'.
--- 6.  __NextToken.__ A resumption point for pagination.
--- 7.  __ServiceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to < DescribeServices>.
--- 8.  __SeverityCode.__ The severity code assigned to the case. Contains one of the values returned by the call to < DescribeSeverityLevels>.
--- 9.  __Status.__ The status of the case in the AWS Support Center.
--- 10. __Subject.__ The subject line of the case.
--- 11. __SubmittedBy.__ The email address of the account that submitted the case.
--- 12. __TimeCreated.__ The time the case was created, in ISO-8601 format.
+-- -   __caseId.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
+--
+-- -   __categoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to < DescribeServices>.
+--
+-- -   __displayId.__ The identifier for the case on pages in the AWS Support Center.
+--
+-- -   __language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+--
+-- -   __recentCommunications.__ One or more < Communication> objects. Fields of these objects are 'attachments', 'body', 'caseId', 'submittedBy', and 'timeCreated'.
+--
+-- -   __nextToken.__ A resumption point for pagination.
+--
+-- -   __serviceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to < DescribeServices>.
+--
+-- -   __severityCode.__ The severity code assigned to the case. Contains one of the values returned by the call to < DescribeSeverityLevels>.
+--
+-- -   __status.__ The status of the case in the AWS Support Center.
+--
+-- -   __subject.__ The subject line of the case.
+--
+-- -   __submittedBy.__ The email address of the account that submitted the case.
+--
+-- -   __timeCreated.__ The time the case was created, in ISO-8601 format.
+--
 --
 -- /See:/ 'caseDetails' smart constructor.
 data CaseDetails = CaseDetails'
@@ -443,7 +455,7 @@ severityLevel =
 slName :: Lens' SeverityLevel (Maybe Text)
 slName = lens _slName (\ s a -> s{_slName = a});
 
--- | One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in 'SeverityLevel.name'.
+-- | One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in 'severityLevel.name'.
 slCode :: Lens' SeverityLevel (Maybe Text)
 slCode = lens _slCode (\ s a -> s{_slCode = a});
 
@@ -488,11 +500,11 @@ supportService =
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
--- | The friendly name for an AWS service. The 'Code' element contains the corresponding code.
+-- | The friendly name for an AWS service. The 'code' element contains the corresponding code.
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a});
 
--- | The code for an AWS service returned by the < DescribeServices> response. The 'Name' element contains the corresponding friendly name.
+-- | The code for an AWS service returned by the < DescribeServices> response. The 'name' element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\ s a -> s{_ssCode = a});
 
@@ -890,8 +902,8 @@ instance NFData TrustedAdvisorCostOptimizingSummary
 -- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
     { _tardIsSuppressed :: !(Maybe Bool)
+    , _tardRegion       :: !(Maybe Text)
     , _tardStatus       :: !Text
-    , _tardRegion       :: !Text
     , _tardResourceId   :: !Text
     , _tardMetadata     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -902,23 +914,22 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
 --
 -- * 'tardIsSuppressed'
 --
--- * 'tardStatus'
---
 -- * 'tardRegion'
+--
+-- * 'tardStatus'
 --
 -- * 'tardResourceId'
 --
 -- * 'tardMetadata'
 trustedAdvisorResourceDetail
     :: Text -- ^ 'tardStatus'
-    -> Text -- ^ 'tardRegion'
     -> Text -- ^ 'tardResourceId'
     -> TrustedAdvisorResourceDetail
-trustedAdvisorResourceDetail pStatus_ pRegion_ pResourceId_ =
+trustedAdvisorResourceDetail pStatus_ pResourceId_ =
     TrustedAdvisorResourceDetail'
     { _tardIsSuppressed = Nothing
+    , _tardRegion = Nothing
     , _tardStatus = pStatus_
-    , _tardRegion = pRegion_
     , _tardResourceId = pResourceId_
     , _tardMetadata = mempty
     }
@@ -927,13 +938,13 @@ trustedAdvisorResourceDetail pStatus_ pRegion_ pResourceId_ =
 tardIsSuppressed :: Lens' TrustedAdvisorResourceDetail (Maybe Bool)
 tardIsSuppressed = lens _tardIsSuppressed (\ s a -> s{_tardIsSuppressed = a});
 
+-- | The AWS region in which the identified resource is located.
+tardRegion :: Lens' TrustedAdvisorResourceDetail (Maybe Text)
+tardRegion = lens _tardRegion (\ s a -> s{_tardRegion = a});
+
 -- | The status code for the resource identified in the Trusted Advisor check.
 tardStatus :: Lens' TrustedAdvisorResourceDetail Text
 tardStatus = lens _tardStatus (\ s a -> s{_tardStatus = a});
-
--- | The AWS region in which the identified resource is located.
-tardRegion :: Lens' TrustedAdvisorResourceDetail Text
-tardRegion = lens _tardRegion (\ s a -> s{_tardRegion = a});
 
 -- | The unique identifier for the identified resource.
 tardResourceId :: Lens' TrustedAdvisorResourceDetail Text
@@ -948,8 +959,8 @@ instance FromJSON TrustedAdvisorResourceDetail where
           = withObject "TrustedAdvisorResourceDetail"
               (\ x ->
                  TrustedAdvisorResourceDetail' <$>
-                   (x .:? "isSuppressed") <*> (x .: "status") <*>
-                     (x .: "region")
+                   (x .:? "isSuppressed") <*> (x .:? "region") <*>
+                     (x .: "status")
                      <*> (x .: "resourceId")
                      <*> (x .:? "metadata" .!= mempty))
 

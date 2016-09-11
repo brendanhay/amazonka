@@ -42,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.
+-- |
+--
+-- /See:/ 'describeTrustedAdvisorChecks' smart constructor.
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
     { _dtacLanguage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

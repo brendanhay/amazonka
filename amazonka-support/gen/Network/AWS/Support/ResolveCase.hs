@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Takes a 'CaseId' and returns the initial state of the case along with the state of the case after the call to < ResolveCase> completed.
+-- Takes a 'caseId' and returns the initial state of the case along with the state of the case after the call to < ResolveCase> completed.
 module Network.AWS.Support.ResolveCase
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'resolveCase' smart constructor.
+-- |
+--
+-- /See:/ 'resolveCase' smart constructor.
 newtype ResolveCase = ResolveCase'
     { _rcCaseId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

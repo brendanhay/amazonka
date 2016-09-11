@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns communications (and attachments) for one or more support cases. You can use the 'AfterTime' and 'BeforeTime' parameters to filter by date. You can use the 'CaseId' parameter to restrict the results to a particular case.
+-- Returns communications (and attachments) for one or more support cases. You can use the 'afterTime' and 'beforeTime' parameters to filter by date. You can use the 'caseId' parameter to restrict the results to a particular case.
 --
 -- Case data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error.
 --
--- You can use the 'MaxResults' and 'NextToken' parameters to control the pagination of the result set. Set 'MaxResults' to the number of cases you want displayed on each page, and use 'NextToken' to specify the resumption of pagination.
+-- You can use the 'maxResults' and 'nextToken' parameters to control the pagination of the result set. Set 'maxResults' to the number of cases you want displayed on each page, and use 'nextToken' to specify the resumption of pagination.
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
@@ -54,7 +54,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeCommunications' smart constructor.
+-- |
+--
+-- /See:/ 'describeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
     { _dAfterTime  :: !(Maybe Text)
     , _dBeforeTime :: !(Maybe Text)

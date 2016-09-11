@@ -18,14 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of cases that you specify by passing one or more case IDs. In addition, you can filter the cases by date by setting values for the 'AfterTime' and 'BeforeTime' request parameters. You can set values for the 'IncludeResolvedCases' and 'IncludeCommunications' request parameters to control how much information is returned.
+-- Returns a list of cases that you specify by passing one or more case IDs. In addition, you can filter the cases by date by setting values for the 'afterTime' and 'beforeTime' request parameters. You can set values for the 'includeResolvedCases' and 'includeCommunications' request parameters to control how much information is returned.
 --
 -- Case data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error.
 --
 -- The response returns the following in JSON format:
 --
--- 1.  One or more < CaseDetails> data types.
--- 2.  One or more 'NextToken' values, which specify where to paginate the returned records represented by the 'CaseDetails' objects.
+-- -   One or more < CaseDetails> data types.
+--
+-- -   One or more 'nextToken' values, which specify where to paginate the returned records represented by the 'CaseDetails' objects.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCases
@@ -61,7 +63,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeCases' smart constructor.
+-- |
+--
+-- /See:/ 'describeCases' smart constructor.
 data DescribeCases = DescribeCases'
     { _dcIncludeResolvedCases  :: !(Maybe Bool)
     , _dcCaseIdList            :: !(Maybe [Text])
@@ -198,7 +202,7 @@ instance ToPath DescribeCases where
 instance ToQuery DescribeCases where
         toQuery = const mempty
 
--- | Returns an array of < CaseDetails> objects and a 'NextToken' that defines a point for pagination in the result set.
+-- | Returns an array of < CaseDetails> objects and a 'nextToken' that defines a point for pagination in the result set.
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'

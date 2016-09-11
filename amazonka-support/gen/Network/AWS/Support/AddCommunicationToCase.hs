@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds additional customer communication to an AWS Support case. You use the 'CaseId' value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the 'CcEmailAddresses' value. The 'CommunicationBody' value contains the text of the communication.
+-- Adds additional customer communication to an AWS Support case. You use the 'caseId' value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the 'ccEmailAddresses' value. The 'communicationBody' value contains the text of the communication.
 --
 -- The response indicates the success or failure of the request.
 --

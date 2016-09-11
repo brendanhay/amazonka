@@ -20,7 +20,7 @@
 --
 -- Sends a message to all of a topic\'s subscribed endpoints. When a 'messageId' is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic\'s subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol.
 --
--- To use the 'Publish' action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing to a mobile endpoint.
+-- To use the 'Publish' action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action.
 --
 -- For more information about formatting messages, see <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html Send Custom Platform-Specific Payloads in Messages to Mobile Devices>.
 module Network.AWS.SNS.Publish
@@ -142,7 +142,7 @@ pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a})
 --
 -- If you want to send the same message to all transport protocols, include the text of the message as a String value.
 --
--- If you want to send different messages for each transport protocol, set the value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON object.
+-- If you want to send different messages for each transport protocol, set the value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter.
 --
 -- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters).
 --

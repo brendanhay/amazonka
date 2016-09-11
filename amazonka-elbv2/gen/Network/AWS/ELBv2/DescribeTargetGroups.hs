@@ -21,6 +21,8 @@
 -- Describes the specified target groups or all of your target groups. By default, all target groups are described. Alternatively, you can specify one of the following to filter the results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of one or more target groups.
 --
 -- To describe the targets for a target group, use < DescribeTargetHealth>. To describe the attributes of a target group, use < DescribeTargetGroupAttributes>.
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeTargetGroups
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.ELBv2.DescribeTargetGroups
 import           Network.AWS.ELBv2.Types
 import           Network.AWS.ELBv2.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -103,6 +106,13 @@ dtgMarker = lens _dtgMarker (\ s a -> s{_dtgMarker = a});
 -- | The maximum number of results to return with this call.
 dtgPageSize :: Lens' DescribeTargetGroups (Maybe Natural)
 dtgPageSize = lens _dtgPageSize (\ s a -> s{_dtgPageSize = a}) . mapping _Nat;
+
+instance AWSPager DescribeTargetGroups where
+        page rq rs
+          | stop (rs ^. dtgsrsNextMarker) = Nothing
+          | stop (rs ^. dtgsrsTargetGroups) = Nothing
+          | otherwise =
+            Just $ rq & dtgMarker .~ rs ^. dtgsrsNextMarker
 
 instance AWSRequest DescribeTargetGroups where
         type Rs DescribeTargetGroups =

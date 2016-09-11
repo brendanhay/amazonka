@@ -21,6 +21,8 @@
 -- Describes the specified Application load balancers or all of your Application load balancers.
 --
 -- To describe the listeners for a load balancer, use < DescribeListeners>. To describe the attributes for a load balancer, use < DescribeLoadBalancerAttributes>.
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeLoadBalancers
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ELBv2.DescribeLoadBalancers
 import           Network.AWS.ELBv2.Types
 import           Network.AWS.ELBv2.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,6 +97,13 @@ dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
 -- | The maximum number of results to return with this call.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
+
+instance AWSPager DescribeLoadBalancers where
+        page rq rs
+          | stop (rs ^. dlbrsNextMarker) = Nothing
+          | stop (rs ^. dlbrsLoadBalancers) = Nothing
+          | otherwise =
+            Just $ rq & dlbMarker .~ rs ^. dlbrsNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
         type Rs DescribeLoadBalancers =

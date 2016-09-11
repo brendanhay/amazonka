@@ -145,7 +145,7 @@ module Network.AWS.ELBv2
     -- * Operations
     -- $operations
 
-    -- ** DescribeLoadBalancers
+    -- ** DescribeLoadBalancers (Paginated)
     , module Network.AWS.ELBv2.DescribeLoadBalancers
 
     -- ** DescribeTags
@@ -172,7 +172,7 @@ module Network.AWS.ELBv2
     -- ** SetRulePriorities
     , module Network.AWS.ELBv2.SetRulePriorities
 
-    -- ** DescribeTargetGroups
+    -- ** DescribeTargetGroups (Paginated)
     , module Network.AWS.ELBv2.DescribeTargetGroups
 
     -- ** DescribeRules
@@ -220,7 +220,7 @@ module Network.AWS.ELBv2
     -- ** DescribeLoadBalancerAttributes
     , module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
 
-    -- ** DescribeListeners
+    -- ** DescribeListeners (Paginated)
     , module Network.AWS.ELBv2.DescribeListeners
 
     -- ** DescribeTargetHealth

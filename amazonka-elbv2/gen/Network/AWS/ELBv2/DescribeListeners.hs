@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified listeners or the listeners for the specified load balancer. You must specify either a load balancer or one or more listeners.
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeListeners
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.ELBv2.DescribeListeners
 import           Network.AWS.ELBv2.Types
 import           Network.AWS.ELBv2.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -92,6 +95,13 @@ dlMarker = lens _dlMarker (\ s a -> s{_dlMarker = a});
 -- | The maximum number of results to return with this call.
 dlPageSize :: Lens' DescribeListeners (Maybe Natural)
 dlPageSize = lens _dlPageSize (\ s a -> s{_dlPageSize = a}) . mapping _Nat;
+
+instance AWSPager DescribeListeners where
+        page rq rs
+          | stop (rs ^. dlsrsNextMarker) = Nothing
+          | stop (rs ^. dlsrsListeners) = Nothing
+          | otherwise =
+            Just $ rq & dlMarker .~ rs ^. dlsrsNextMarker
 
 instance AWSRequest DescribeListeners where
         type Rs DescribeListeners = DescribeListenersResponse

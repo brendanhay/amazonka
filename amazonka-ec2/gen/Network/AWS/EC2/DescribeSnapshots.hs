@@ -123,7 +123,7 @@ dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default . _Coe
 --
 -- -   'description' - A description of the snapshot.
 --
--- -   'owner-alias' - The AWS account alias (for example, 'amazon') that owns the snapshot.
+-- -   'owner-alias' - Value from an Amazon-maintained list ('amazon' | 'aws-marketplace' | 'microsoft') of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM consolew.
 --
 -- -   'owner-id' - The ID of the AWS account that owns the snapshot.
 --

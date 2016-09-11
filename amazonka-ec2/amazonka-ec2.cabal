@@ -130,6 +130,8 @@ library
         , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeHostReservationOfferings
+        , Network.AWS.EC2.DescribeHostReservations
         , Network.AWS.EC2.DescribeHosts
         , Network.AWS.EC2.DescribeIdFormat
         , Network.AWS.EC2.DescribeIdentityIdFormat
@@ -198,6 +200,7 @@ library
         , Network.AWS.EC2.EnableVolumeIO
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetConsoleScreenshot
+        , Network.AWS.EC2.GetHostReservationPurchasePreview
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.ImportImage
         , Network.AWS.EC2.ImportInstance
@@ -221,6 +224,7 @@ library
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC
+        , Network.AWS.EC2.PurchaseHostReservation
         , Network.AWS.EC2.PurchaseReservedInstancesOffering
         , Network.AWS.EC2.PurchaseScheduledInstances
         , Network.AWS.EC2.RebootInstances

@@ -93,7 +93,7 @@ describeInstances =
 
 -- | One or more filters.
 --
--- -   'affinity' - The affinity setting for an instance running on a Dedicated host ('default' | 'host').
+-- -   'affinity' - The affinity setting for an instance running on a Dedicated Host ('default' | 'host').
 --
 -- -   'architecture' - The instance architecture ('i386' | 'x86_64').
 --
@@ -117,7 +117,7 @@ describeInstances =
 --
 -- -   'group-name' - The name of the security group for the instance. EC2-Classic only.
 --
--- -   'host-Id' - The ID of the Dedicated host on which the instance is running, if applicable.
+-- -   'host-id' - The ID of the Dedicated Host on which the instance is running, if applicable.
 --
 -- -   'hypervisor' - The hypervisor type of the instance ('ovm' | 'xen').
 --

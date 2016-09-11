@@ -274,6 +274,9 @@ import Test.AWS.EC2.Internal
 --         , requestRequestSpotInstances $
 --             requestSpotInstances
 --
+--         , requestDescribeHostReservationOfferings $
+--             describeHostReservationOfferings
+--
 --         , requestDescribeVolumes $
 --             describeVolumes
 --
@@ -294,6 +297,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestRevokeSecurityGroupIngress $
 --             revokeSecurityGroupIngress
+--
+--         , requestDescribeHostReservations $
+--             describeHostReservations
 --
 --         , requestEnableVPCClassicLinkDNSSupport $
 --             enableVPCClassicLinkDNSSupport
@@ -390,6 +396,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestDetachVPNGateway $
 --             detachVPNGateway
+--
+--         , requestGetHostReservationPurchasePreview $
+--             getHostReservationPurchasePreview
 --
 --         , requestEnableVolumeIO $
 --             enableVolumeIO
@@ -546,6 +555,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestRebootInstances $
 --             rebootInstances
+--
+--         , requestPurchaseHostReservation $
+--             purchaseHostReservation
 --
 --         , requestCreateImage $
 --             createImage
@@ -895,6 +907,9 @@ import Test.AWS.EC2.Internal
 --         , responseRequestSpotInstances $
 --             requestSpotInstancesResponse
 --
+--         , responseDescribeHostReservationOfferings $
+--             describeHostReservationOfferingsResponse
+--
 --         , responseDescribeVolumes $
 --             describeVolumesResponse
 --
@@ -915,6 +930,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseRevokeSecurityGroupIngress $
 --             revokeSecurityGroupIngressResponse
+--
+--         , responseDescribeHostReservations $
+--             describeHostReservationsResponse
 --
 --         , responseEnableVPCClassicLinkDNSSupport $
 --             enableVPCClassicLinkDNSSupportResponse
@@ -1011,6 +1029,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseDetachVPNGateway $
 --             detachVPNGatewayResponse
+--
+--         , responseGetHostReservationPurchasePreview $
+--             getHostReservationPurchasePreviewResponse
 --
 --         , responseEnableVolumeIO $
 --             enableVolumeIOResponse
@@ -1167,6 +1188,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseRebootInstances $
 --             rebootInstancesResponse
+--
+--         , responsePurchaseHostReservation $
+--             purchaseHostReservationResponse
 --
 --         , responseCreateImage $
 --             createImageResponse
@@ -1682,6 +1706,11 @@ requestRequestSpotInstances = req
     "RequestSpotInstances"
     "fixture/RequestSpotInstances.yaml"
 
+requestDescribeHostReservationOfferings :: DescribeHostReservationOfferings -> TestTree
+requestDescribeHostReservationOfferings = req
+    "DescribeHostReservationOfferings"
+    "fixture/DescribeHostReservationOfferings.yaml"
+
 requestDescribeVolumes :: DescribeVolumes -> TestTree
 requestDescribeVolumes = req
     "DescribeVolumes"
@@ -1716,6 +1745,11 @@ requestRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
 requestRevokeSecurityGroupIngress = req
     "RevokeSecurityGroupIngress"
     "fixture/RevokeSecurityGroupIngress.yaml"
+
+requestDescribeHostReservations :: DescribeHostReservations -> TestTree
+requestDescribeHostReservations = req
+    "DescribeHostReservations"
+    "fixture/DescribeHostReservations.yaml"
 
 requestEnableVPCClassicLinkDNSSupport :: EnableVPCClassicLinkDNSSupport -> TestTree
 requestEnableVPCClassicLinkDNSSupport = req
@@ -1876,6 +1910,11 @@ requestDetachVPNGateway :: DetachVPNGateway -> TestTree
 requestDetachVPNGateway = req
     "DetachVPNGateway"
     "fixture/DetachVPNGateway.yaml"
+
+requestGetHostReservationPurchasePreview :: GetHostReservationPurchasePreview -> TestTree
+requestGetHostReservationPurchasePreview = req
+    "GetHostReservationPurchasePreview"
+    "fixture/GetHostReservationPurchasePreview.yaml"
 
 requestEnableVolumeIO :: EnableVolumeIO -> TestTree
 requestEnableVolumeIO = req
@@ -2136,6 +2175,11 @@ requestRebootInstances :: RebootInstances -> TestTree
 requestRebootInstances = req
     "RebootInstances"
     "fixture/RebootInstances.yaml"
+
+requestPurchaseHostReservation :: PurchaseHostReservation -> TestTree
+requestPurchaseHostReservation = req
+    "PurchaseHostReservation"
+    "fixture/PurchaseHostReservation.yaml"
 
 requestCreateImage :: CreateImage -> TestTree
 requestCreateImage = req
@@ -2878,6 +2922,13 @@ responseRequestSpotInstances = res
     ec2
     (Proxy :: Proxy RequestSpotInstances)
 
+responseDescribeHostReservationOfferings :: DescribeHostReservationOfferingsResponse -> TestTree
+responseDescribeHostReservationOfferings = res
+    "DescribeHostReservationOfferingsResponse"
+    "fixture/DescribeHostReservationOfferingsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeHostReservationOfferings)
+
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
 responseDescribeVolumes = res
     "DescribeVolumesResponse"
@@ -2926,6 +2977,13 @@ responseRevokeSecurityGroupIngress = res
     "fixture/RevokeSecurityGroupIngressResponse.proto"
     ec2
     (Proxy :: Proxy RevokeSecurityGroupIngress)
+
+responseDescribeHostReservations :: DescribeHostReservationsResponse -> TestTree
+responseDescribeHostReservations = res
+    "DescribeHostReservationsResponse"
+    "fixture/DescribeHostReservationsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeHostReservations)
 
 responseEnableVPCClassicLinkDNSSupport :: EnableVPCClassicLinkDNSSupportResponse -> TestTree
 responseEnableVPCClassicLinkDNSSupport = res
@@ -3150,6 +3208,13 @@ responseDetachVPNGateway = res
     "fixture/DetachVPNGatewayResponse.proto"
     ec2
     (Proxy :: Proxy DetachVPNGateway)
+
+responseGetHostReservationPurchasePreview :: GetHostReservationPurchasePreviewResponse -> TestTree
+responseGetHostReservationPurchasePreview = res
+    "GetHostReservationPurchasePreviewResponse"
+    "fixture/GetHostReservationPurchasePreviewResponse.proto"
+    ec2
+    (Proxy :: Proxy GetHostReservationPurchasePreview)
 
 responseEnableVolumeIO :: EnableVolumeIOResponse -> TestTree
 responseEnableVolumeIO = res
@@ -3514,6 +3579,13 @@ responseRebootInstances = res
     "fixture/RebootInstancesResponse.proto"
     ec2
     (Proxy :: Proxy RebootInstances)
+
+responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
+responsePurchaseHostReservation = res
+    "PurchaseHostReservationResponse"
+    "fixture/PurchaseHostReservationResponse.proto"
+    ec2
+    (Proxy :: Proxy PurchaseHostReservation)
 
 responseCreateImage :: CreateImageResponse -> TestTree
 responseCreateImage = res

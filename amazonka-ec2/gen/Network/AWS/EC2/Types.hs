@@ -23,6 +23,9 @@ module Network.AWS.EC2.Types
     -- * AccountAttributeName
     , AccountAttributeName (..)
 
+    -- * ActivityStatus
+    , ActivityStatus (..)
+
     -- * AddressStatus
     , AddressStatus (..)
 
@@ -161,6 +164,9 @@ module Network.AWS.EC2.Types
     -- * OperationType
     , OperationType (..)
 
+    -- * PaymentOption
+    , PaymentOption (..)
+
     -- * PermissionGroup
     , PermissionGroup (..)
 
@@ -187,6 +193,9 @@ module Network.AWS.EC2.Types
 
     -- * ReportStatusType
     , ReportStatusType (..)
+
+    -- * ReservationState
+    , ReservationState (..)
 
     -- * ReservedInstanceState
     , ReservedInstanceState (..)
@@ -600,6 +609,17 @@ module Network.AWS.EC2.Types
     , hiInstanceId
     , hiInstanceType
 
+    -- * HostOffering
+    , HostOffering
+    , hostOffering
+    , hoInstanceFamily
+    , hoCurrencyCode
+    , hoHourlyPrice
+    , hoUpfrontPrice
+    , hoOfferingId
+    , hoDuration
+    , hoPaymentOption
+
     -- * HostProperties
     , HostProperties
     , hostProperties
@@ -607,6 +627,23 @@ module Network.AWS.EC2.Types
     , hpTotalVCPUs
     , hpCores
     , hpSockets
+
+    -- * HostReservation
+    , HostReservation
+    , hostReservation
+    , hrState
+    , hrInstanceFamily
+    , hrCurrencyCode
+    , hrHostReservationId
+    , hrStart
+    , hrHourlyPrice
+    , hrCount
+    , hrUpfrontPrice
+    , hrEnd
+    , hrHostIdSet
+    , hrOfferingId
+    , hrDuration
+    , hrPaymentOption
 
     -- * IAMInstanceProfile
     , IAMInstanceProfile
@@ -1201,6 +1238,18 @@ module Network.AWS.EC2.Types
     , pbRequestTime
     , pbProvisionTime
 
+    -- * Purchase
+    , Purchase
+    , purchase
+    , pInstanceFamily
+    , pCurrencyCode
+    , pHostReservationId
+    , pHourlyPrice
+    , pUpfrontPrice
+    , pHostIdSet
+    , pDuration
+    , pPaymentOption
+
     -- * PurchaseRequest
     , PurchaseRequest
     , purchaseRequest
@@ -1632,6 +1681,7 @@ module Network.AWS.EC2.Types
     -- * SpotFleetRequestConfig
     , SpotFleetRequestConfig
     , spotFleetRequestConfig
+    , sfrcActivityStatus
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
     , sfrcSpotFleetRequestConfig

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify the auto-placement setting of a Dedicated host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of 'host', but without targeting a specific host ID, onto any available Dedicated host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
+-- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of 'host', but without targeting a specific host ID, onto any available Dedicated Host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
 module Network.AWS.EC2.ModifyHosts
     (
     -- * Creating a Request
@@ -68,7 +68,7 @@ modifyHosts pAutoPlacement_ =
     , _mhAutoPlacement = pAutoPlacement_
     }
 
--- | The host IDs of the Dedicated hosts you want to modify.
+-- | The host IDs of the Dedicated Hosts you want to modify.
 mhHostIds :: Lens' ModifyHosts [Text]
 mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce;
 
@@ -136,11 +136,11 @@ modifyHostsResponse pResponseStatus_ =
     , _mhrsResponseStatus = pResponseStatus_
     }
 
--- | The IDs of the Dedicated hosts that could not be modified. Check whether the setting you requested can be used.
+-- | The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
 mhrsUnsuccessful :: Lens' ModifyHostsResponse [UnsuccessfulItem]
 mhrsUnsuccessful = lens _mhrsUnsuccessful (\ s a -> s{_mhrsUnsuccessful = a}) . _Default . _Coerce;
 
--- | The IDs of the Dedicated hosts that were successfully modified.
+-- | The IDs of the Dedicated Hosts that were successfully modified.
 mhrsSuccessful :: Lens' ModifyHostsResponse [Text]
 mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Default . _Coerce;
 

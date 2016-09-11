@@ -69,7 +69,7 @@ modifyIdFormat pResource_ pUseLongIds_ =
     , _mifUseLongIds = pUseLongIds_
     }
 
--- | The type of resource.
+-- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
 mifResource :: Lens' ModifyIdFormat Text
 mifResource = lens _mifResource (\ s a -> s{_mifResource = a});
 

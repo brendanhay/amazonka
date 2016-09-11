@@ -398,7 +398,7 @@ instance Hashable AvailabilityZoneMessage
 
 instance NFData AvailabilityZoneMessage
 
--- | The capacity information for instances launched onto the Dedicated host.
+-- | The capacity information for instances launched onto the Dedicated Host.
 --
 -- /See:/ 'availableCapacity' smart constructor.
 data AvailableCapacity = AvailableCapacity'
@@ -421,11 +421,11 @@ availableCapacity =
     , _acAvailableVCPUs = Nothing
     }
 
--- | The total number of instances that the Dedicated host supports.
+-- | The total number of instances that the Dedicated Host supports.
 acAvailableInstanceCapacity :: Lens' AvailableCapacity [InstanceCapacity]
 acAvailableInstanceCapacity = lens _acAvailableInstanceCapacity (\ s a -> s{_acAvailableInstanceCapacity = a}) . _Default . _Coerce;
 
--- | The number of vCPUs available on the Dedicated host.
+-- | The number of vCPUs available on the Dedicated Host.
 acAvailableVCPUs :: Lens' AvailableCapacity (Maybe Int)
 acAvailableVCPUs = lens _acAvailableVCPUs (\ s a -> s{_acAvailableVCPUs = a});
 
@@ -2315,7 +2315,7 @@ instance Hashable HistoryRecord
 
 instance NFData HistoryRecord
 
--- | Describes the properties of the Dedicated host.
+-- | Describes the properties of the Dedicated Host.
 --
 -- /See:/ 'host' smart constructor.
 data Host = Host'
@@ -2366,7 +2366,7 @@ host =
     , _hAutoPlacement = Nothing
     }
 
--- | The Dedicated host\'s state.
+-- | The Dedicated Host\'s state.
 hState :: Lens' Host (Maybe AllocationState)
 hState = lens _hState (\ s a -> s{_hState = a});
 
@@ -2374,27 +2374,27 @@ hState = lens _hState (\ s a -> s{_hState = a});
 hClientToken :: Lens' Host (Maybe Text)
 hClientToken = lens _hClientToken (\ s a -> s{_hClientToken = a});
 
--- | The ID of the Dedicated host.
+-- | The ID of the Dedicated Host.
 hHostId :: Lens' Host (Maybe Text)
 hHostId = lens _hHostId (\ s a -> s{_hHostId = a});
 
--- | The number of new instances that can be launched onto the Dedicated host.
+-- | The number of new instances that can be launched onto the Dedicated Host.
 hAvailableCapacity :: Lens' Host (Maybe AvailableCapacity)
 hAvailableCapacity = lens _hAvailableCapacity (\ s a -> s{_hAvailableCapacity = a});
 
--- | The reservation ID of the Dedicated host. This returns a 'null' response if the Dedicated host doesn\'t have an associated reservation.
+-- | The reservation ID of the Dedicated Host. This returns a 'null' response if the Dedicated Host doesn\'t have an associated reservation.
 hHostReservationId :: Lens' Host (Maybe Text)
 hHostReservationId = lens _hHostReservationId (\ s a -> s{_hHostReservationId = a});
 
--- | The hardware specifications of the Dedicated host.
+-- | The hardware specifications of the Dedicated Host.
 hHostProperties :: Lens' Host (Maybe HostProperties)
 hHostProperties = lens _hHostProperties (\ s a -> s{_hHostProperties = a});
 
--- | The Availability Zone of the Dedicated host.
+-- | The Availability Zone of the Dedicated Host.
 hAvailabilityZone :: Lens' Host (Maybe Text)
 hAvailabilityZone = lens _hAvailabilityZone (\ s a -> s{_hAvailabilityZone = a});
 
--- | The IDs and instance type that are currently running on the Dedicated host.
+-- | The IDs and instance type that are currently running on the Dedicated Host.
 hInstances :: Lens' Host [HostInstance]
 hInstances = lens _hInstances (\ s a -> s{_hInstances = a}) . _Default . _Coerce;
 
@@ -2420,7 +2420,7 @@ instance Hashable Host
 
 instance NFData Host
 
--- | Describes an instance running on a Dedicated host.
+-- | Describes an instance running on a Dedicated Host.
 --
 -- /See:/ 'hostInstance' smart constructor.
 data HostInstance = HostInstance'
@@ -2443,11 +2443,11 @@ hostInstance =
     , _hiInstanceType = Nothing
     }
 
--- | the IDs of instances that are running on the Dedicated host.
+-- | the IDs of instances that are running on the Dedicated Host.
 hiInstanceId :: Lens' HostInstance (Maybe Text)
 hiInstanceId = lens _hiInstanceId (\ s a -> s{_hiInstanceId = a});
 
--- | The instance type size (for example, m3.medium) of the running instance.
+-- | The instance type size (for example, 'm3.medium') of the running instance.
 hiInstanceType :: Lens' HostInstance (Maybe Text)
 hiInstanceType = lens _hiInstanceType (\ s a -> s{_hiInstanceType = a});
 
@@ -2460,7 +2460,92 @@ instance Hashable HostInstance
 
 instance NFData HostInstance
 
--- | Describes properties of a Dedicated host.
+-- | Details about the Dedicated Host Reservation offering.
+--
+-- /See:/ 'hostOffering' smart constructor.
+data HostOffering = HostOffering'
+    { _hoInstanceFamily :: !(Maybe Text)
+    , _hoCurrencyCode   :: !(Maybe CurrencyCodeValues)
+    , _hoHourlyPrice    :: !(Maybe Text)
+    , _hoUpfrontPrice   :: !(Maybe Text)
+    , _hoOfferingId     :: !(Maybe Text)
+    , _hoDuration       :: !(Maybe Int)
+    , _hoPaymentOption  :: !(Maybe PaymentOption)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HostOffering' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hoInstanceFamily'
+--
+-- * 'hoCurrencyCode'
+--
+-- * 'hoHourlyPrice'
+--
+-- * 'hoUpfrontPrice'
+--
+-- * 'hoOfferingId'
+--
+-- * 'hoDuration'
+--
+-- * 'hoPaymentOption'
+hostOffering
+    :: HostOffering
+hostOffering =
+    HostOffering'
+    { _hoInstanceFamily = Nothing
+    , _hoCurrencyCode = Nothing
+    , _hoHourlyPrice = Nothing
+    , _hoUpfrontPrice = Nothing
+    , _hoOfferingId = Nothing
+    , _hoDuration = Nothing
+    , _hoPaymentOption = Nothing
+    }
+
+-- | The instance family of the offering.
+hoInstanceFamily :: Lens' HostOffering (Maybe Text)
+hoInstanceFamily = lens _hoInstanceFamily (\ s a -> s{_hoInstanceFamily = a});
+
+-- | The currency of the offering.
+hoCurrencyCode :: Lens' HostOffering (Maybe CurrencyCodeValues)
+hoCurrencyCode = lens _hoCurrencyCode (\ s a -> s{_hoCurrencyCode = a});
+
+-- | The hourly price of the offering.
+hoHourlyPrice :: Lens' HostOffering (Maybe Text)
+hoHourlyPrice = lens _hoHourlyPrice (\ s a -> s{_hoHourlyPrice = a});
+
+-- | The upfront price of the offering. Does not apply to No Upfront offerings.
+hoUpfrontPrice :: Lens' HostOffering (Maybe Text)
+hoUpfrontPrice = lens _hoUpfrontPrice (\ s a -> s{_hoUpfrontPrice = a});
+
+-- | The ID of the offering.
+hoOfferingId :: Lens' HostOffering (Maybe Text)
+hoOfferingId = lens _hoOfferingId (\ s a -> s{_hoOfferingId = a});
+
+-- | The duration of the offering (in seconds).
+hoDuration :: Lens' HostOffering (Maybe Int)
+hoDuration = lens _hoDuration (\ s a -> s{_hoDuration = a});
+
+-- | The available payment option.
+hoPaymentOption :: Lens' HostOffering (Maybe PaymentOption)
+hoPaymentOption = lens _hoPaymentOption (\ s a -> s{_hoPaymentOption = a});
+
+instance FromXML HostOffering where
+        parseXML x
+          = HostOffering' <$>
+              (x .@? "instanceFamily") <*> (x .@? "currencyCode")
+                <*> (x .@? "hourlyPrice")
+                <*> (x .@? "upfrontPrice")
+                <*> (x .@? "offeringId")
+                <*> (x .@? "duration")
+                <*> (x .@? "paymentOption")
+
+instance Hashable HostOffering
+
+instance NFData HostOffering
+
+-- | Describes properties of a Dedicated Host.
 --
 -- /See:/ 'hostProperties' smart constructor.
 data HostProperties = HostProperties'
@@ -2491,19 +2576,19 @@ hostProperties =
     , _hpSockets = Nothing
     }
 
--- | The instance type size that the Dedicated host supports (for example, m3.medium).
+-- | The instance type size that the Dedicated Host supports (for example, 'm3.medium').
 hpInstanceType :: Lens' HostProperties (Maybe Text)
 hpInstanceType = lens _hpInstanceType (\ s a -> s{_hpInstanceType = a});
 
--- | The number of vCPUs on the Dedicated host.
+-- | The number of vCPUs on the Dedicated Host.
 hpTotalVCPUs :: Lens' HostProperties (Maybe Int)
 hpTotalVCPUs = lens _hpTotalVCPUs (\ s a -> s{_hpTotalVCPUs = a});
 
--- | The number of cores on the Dedicated host.
+-- | The number of cores on the Dedicated Host.
 hpCores :: Lens' HostProperties (Maybe Int)
 hpCores = lens _hpCores (\ s a -> s{_hpCores = a});
 
--- | The number of sockets on the Dedicated host.
+-- | The number of sockets on the Dedicated Host.
 hpSockets :: Lens' HostProperties (Maybe Int)
 hpSockets = lens _hpSockets (\ s a -> s{_hpSockets = a});
 
@@ -2517,6 +2602,147 @@ instance FromXML HostProperties where
 instance Hashable HostProperties
 
 instance NFData HostProperties
+
+-- | Details about the Dedicated Host Reservation and associated Dedicated Hosts.
+--
+-- /See:/ 'hostReservation' smart constructor.
+data HostReservation = HostReservation'
+    { _hrState             :: !(Maybe ReservationState)
+    , _hrInstanceFamily    :: !(Maybe Text)
+    , _hrCurrencyCode      :: !(Maybe CurrencyCodeValues)
+    , _hrHostReservationId :: !(Maybe Text)
+    , _hrStart             :: !(Maybe ISO8601)
+    , _hrHourlyPrice       :: !(Maybe Text)
+    , _hrCount             :: !(Maybe Int)
+    , _hrUpfrontPrice      :: !(Maybe Text)
+    , _hrEnd               :: !(Maybe ISO8601)
+    , _hrHostIdSet         :: !(Maybe [Text])
+    , _hrOfferingId        :: !(Maybe Text)
+    , _hrDuration          :: !(Maybe Int)
+    , _hrPaymentOption     :: !(Maybe PaymentOption)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HostReservation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hrState'
+--
+-- * 'hrInstanceFamily'
+--
+-- * 'hrCurrencyCode'
+--
+-- * 'hrHostReservationId'
+--
+-- * 'hrStart'
+--
+-- * 'hrHourlyPrice'
+--
+-- * 'hrCount'
+--
+-- * 'hrUpfrontPrice'
+--
+-- * 'hrEnd'
+--
+-- * 'hrHostIdSet'
+--
+-- * 'hrOfferingId'
+--
+-- * 'hrDuration'
+--
+-- * 'hrPaymentOption'
+hostReservation
+    :: HostReservation
+hostReservation =
+    HostReservation'
+    { _hrState = Nothing
+    , _hrInstanceFamily = Nothing
+    , _hrCurrencyCode = Nothing
+    , _hrHostReservationId = Nothing
+    , _hrStart = Nothing
+    , _hrHourlyPrice = Nothing
+    , _hrCount = Nothing
+    , _hrUpfrontPrice = Nothing
+    , _hrEnd = Nothing
+    , _hrHostIdSet = Nothing
+    , _hrOfferingId = Nothing
+    , _hrDuration = Nothing
+    , _hrPaymentOption = Nothing
+    }
+
+-- | The state of the reservation.
+hrState :: Lens' HostReservation (Maybe ReservationState)
+hrState = lens _hrState (\ s a -> s{_hrState = a});
+
+-- | The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
+hrInstanceFamily :: Lens' HostReservation (Maybe Text)
+hrInstanceFamily = lens _hrInstanceFamily (\ s a -> s{_hrInstanceFamily = a});
+
+-- | The currency in which the 'upfrontPrice' and 'hourlyPrice' amounts are specified. At this time, the only supported currency is 'USD'.
+hrCurrencyCode :: Lens' HostReservation (Maybe CurrencyCodeValues)
+hrCurrencyCode = lens _hrCurrencyCode (\ s a -> s{_hrCurrencyCode = a});
+
+-- | The ID of the reservation that specifies the associated Dedicated Hosts.
+hrHostReservationId :: Lens' HostReservation (Maybe Text)
+hrHostReservationId = lens _hrHostReservationId (\ s a -> s{_hrHostReservationId = a});
+
+-- | The date and time that the reservation started.
+hrStart :: Lens' HostReservation (Maybe UTCTime)
+hrStart = lens _hrStart (\ s a -> s{_hrStart = a}) . mapping _Time;
+
+-- | The hourly price of the reservation.
+hrHourlyPrice :: Lens' HostReservation (Maybe Text)
+hrHourlyPrice = lens _hrHourlyPrice (\ s a -> s{_hrHourlyPrice = a});
+
+-- | The number of Dedicated Hosts the reservation is associated with.
+hrCount :: Lens' HostReservation (Maybe Int)
+hrCount = lens _hrCount (\ s a -> s{_hrCount = a});
+
+-- | The upfront price of the reservation.
+hrUpfrontPrice :: Lens' HostReservation (Maybe Text)
+hrUpfrontPrice = lens _hrUpfrontPrice (\ s a -> s{_hrUpfrontPrice = a});
+
+-- | The date and time that the reservation ends.
+hrEnd :: Lens' HostReservation (Maybe UTCTime)
+hrEnd = lens _hrEnd (\ s a -> s{_hrEnd = a}) . mapping _Time;
+
+-- | The IDs of the Dedicated Hosts associated with the reservation.
+hrHostIdSet :: Lens' HostReservation [Text]
+hrHostIdSet = lens _hrHostIdSet (\ s a -> s{_hrHostIdSet = a}) . _Default . _Coerce;
+
+-- | The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
+hrOfferingId :: Lens' HostReservation (Maybe Text)
+hrOfferingId = lens _hrOfferingId (\ s a -> s{_hrOfferingId = a});
+
+-- | The length of the reservation\'s term, specified in seconds. Can be '31536000 (1 year)' | '94608000 (3 years)'.
+hrDuration :: Lens' HostReservation (Maybe Int)
+hrDuration = lens _hrDuration (\ s a -> s{_hrDuration = a});
+
+-- | The payment option selected for this reservation.
+hrPaymentOption :: Lens' HostReservation (Maybe PaymentOption)
+hrPaymentOption = lens _hrPaymentOption (\ s a -> s{_hrPaymentOption = a});
+
+instance FromXML HostReservation where
+        parseXML x
+          = HostReservation' <$>
+              (x .@? "state") <*> (x .@? "instanceFamily") <*>
+                (x .@? "currencyCode")
+                <*> (x .@? "hostReservationId")
+                <*> (x .@? "start")
+                <*> (x .@? "hourlyPrice")
+                <*> (x .@? "count")
+                <*> (x .@? "upfrontPrice")
+                <*> (x .@? "end")
+                <*>
+                (x .@? "hostIdSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "offeringId")
+                <*> (x .@? "duration")
+                <*> (x .@? "paymentOption")
+
+instance Hashable HostReservation
+
+instance NFData HostReservation
 
 -- | Describes an IAM instance profile.
 --
@@ -3358,7 +3584,7 @@ iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Defau
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a});
 
--- | The instance type. For more information about the instance types that you can import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User Guide.
+-- | The instance type. For more information about the instance types that you can import, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#vmimport-instance-types Instance Types> in the VM Import\/Export User Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\ s a -> s{_iilsInstanceType = a});
 
@@ -4168,7 +4394,7 @@ instance ToQuery
                "NoDevice" =: _ibdmsNoDevice, "Ebs" =: _ibdmsEBS,
                "DeviceName" =: _ibdmsDeviceName]
 
--- | Information about the instance type that the Dedicated host supports.
+-- | Information about the instance type that the Dedicated Host supports.
 --
 -- /See:/ 'instanceCapacity' smart constructor.
 data InstanceCapacity = InstanceCapacity'
@@ -4195,15 +4421,15 @@ instanceCapacity =
     , _icTotalCapacity = Nothing
     }
 
--- | The number of instances that can still be launched onto the Dedicated host.
+-- | The number of instances that can still be launched onto the Dedicated Host.
 icAvailableCapacity :: Lens' InstanceCapacity (Maybe Int)
 icAvailableCapacity = lens _icAvailableCapacity (\ s a -> s{_icAvailableCapacity = a});
 
--- | The instance type size supported by the Dedicated host.
+-- | The instance type size supported by the Dedicated Host.
 icInstanceType :: Lens' InstanceCapacity (Maybe Text)
 icInstanceType = lens _icInstanceType (\ s a -> s{_icInstanceType = a});
 
--- | The total number of instances that can be launched onto the Dedicated host.
+-- | The total number of instances that can be launched onto the Dedicated Host.
 icTotalCapacity :: Lens' InstanceCapacity (Maybe Int)
 icTotalCapacity = lens _icTotalCapacity (\ s a -> s{_icTotalCapacity = a});
 
@@ -6638,7 +6864,7 @@ placement =
     , _pGroupName = Nothing
     }
 
--- | The affinity setting for the instance on the Dedicated host. This parameter is not supported for the < ImportInstance> command.
+-- | The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the < ImportInstance> command.
 pAffinity :: Lens' Placement (Maybe Text)
 pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
 
@@ -7186,6 +7412,102 @@ instance FromXML ProvisionedBandwidth where
 instance Hashable ProvisionedBandwidth
 
 instance NFData ProvisionedBandwidth
+
+-- | Describes the result of the purchase.
+--
+-- /See:/ 'purchase' smart constructor.
+data Purchase = Purchase'
+    { _pInstanceFamily    :: !(Maybe Text)
+    , _pCurrencyCode      :: !(Maybe CurrencyCodeValues)
+    , _pHostReservationId :: !(Maybe Text)
+    , _pHourlyPrice       :: !(Maybe Text)
+    , _pUpfrontPrice      :: !(Maybe Text)
+    , _pHostIdSet         :: !(Maybe [Text])
+    , _pDuration          :: !(Maybe Int)
+    , _pPaymentOption     :: !(Maybe PaymentOption)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Purchase' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pInstanceFamily'
+--
+-- * 'pCurrencyCode'
+--
+-- * 'pHostReservationId'
+--
+-- * 'pHourlyPrice'
+--
+-- * 'pUpfrontPrice'
+--
+-- * 'pHostIdSet'
+--
+-- * 'pDuration'
+--
+-- * 'pPaymentOption'
+purchase
+    :: Purchase
+purchase =
+    Purchase'
+    { _pInstanceFamily = Nothing
+    , _pCurrencyCode = Nothing
+    , _pHostReservationId = Nothing
+    , _pHourlyPrice = Nothing
+    , _pUpfrontPrice = Nothing
+    , _pHostIdSet = Nothing
+    , _pDuration = Nothing
+    , _pPaymentOption = Nothing
+    }
+
+-- | The instance family on the Dedicated Host that the reservation can be associated with.
+pInstanceFamily :: Lens' Purchase (Maybe Text)
+pInstanceFamily = lens _pInstanceFamily (\ s a -> s{_pInstanceFamily = a});
+
+-- | The currency in which the 'UpfrontPrice' and 'HourlyPrice' amounts are specified. At this time, the only supported currency is 'USD'.
+pCurrencyCode :: Lens' Purchase (Maybe CurrencyCodeValues)
+pCurrencyCode = lens _pCurrencyCode (\ s a -> s{_pCurrencyCode = a});
+
+-- | The ID of the reservation.
+pHostReservationId :: Lens' Purchase (Maybe Text)
+pHostReservationId = lens _pHostReservationId (\ s a -> s{_pHostReservationId = a});
+
+-- | The hourly price of the reservation per hour.
+pHourlyPrice :: Lens' Purchase (Maybe Text)
+pHourlyPrice = lens _pHourlyPrice (\ s a -> s{_pHourlyPrice = a});
+
+-- | The upfront price of the reservation.
+pUpfrontPrice :: Lens' Purchase (Maybe Text)
+pUpfrontPrice = lens _pUpfrontPrice (\ s a -> s{_pUpfrontPrice = a});
+
+-- | The IDs of the Dedicated Hosts associated with the reservation.
+pHostIdSet :: Lens' Purchase [Text]
+pHostIdSet = lens _pHostIdSet (\ s a -> s{_pHostIdSet = a}) . _Default . _Coerce;
+
+-- | The duration of the reservation\'s term in seconds.
+pDuration :: Lens' Purchase (Maybe Int)
+pDuration = lens _pDuration (\ s a -> s{_pDuration = a});
+
+-- | The payment option for the reservation.
+pPaymentOption :: Lens' Purchase (Maybe PaymentOption)
+pPaymentOption = lens _pPaymentOption (\ s a -> s{_pPaymentOption = a});
+
+instance FromXML Purchase where
+        parseXML x
+          = Purchase' <$>
+              (x .@? "instanceFamily") <*> (x .@? "currencyCode")
+                <*> (x .@? "hostReservationId")
+                <*> (x .@? "hourlyPrice")
+                <*> (x .@? "upfrontPrice")
+                <*>
+                (x .@? "hostIdSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "duration")
+                <*> (x .@? "paymentOption")
+
+instance Hashable Purchase
+
+instance NFData Purchase
 
 -- | Describes a request to purchase Scheduled Instances.
 --
@@ -10007,7 +10329,7 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
 sStateMessage :: Lens' Snapshot (Maybe Text)
 sStateMessage = lens _sStateMessage (\ s a -> s{_sStateMessage = a});
 
--- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns the snapshot.
+-- | Value from an Amazon-maintained list ('amazon' | 'aws-marketplace' | 'microsoft') of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
 
@@ -10676,7 +10998,8 @@ instance ToQuery SpotFleetMonitoring where
 --
 -- /See:/ 'spotFleetRequestConfig' smart constructor.
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
-    { _sfrcSpotFleetRequestId     :: !Text
+    { _sfrcActivityStatus         :: !(Maybe ActivityStatus)
+    , _sfrcSpotFleetRequestId     :: !Text
     , _sfrcSpotFleetRequestState  :: !BatchState
     , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     , _sfrcCreateTime             :: !ISO8601
@@ -10685,6 +11008,8 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 -- | Creates a value of 'SpotFleetRequestConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfrcActivityStatus'
 --
 -- * 'sfrcSpotFleetRequestId'
 --
@@ -10701,11 +11026,16 @@ spotFleetRequestConfig
     -> SpotFleetRequestConfig
 spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ pCreateTime_ =
     SpotFleetRequestConfig'
-    { _sfrcSpotFleetRequestId = pSpotFleetRequestId_
+    { _sfrcActivityStatus = Nothing
+    , _sfrcSpotFleetRequestId = pSpotFleetRequestId_
     , _sfrcSpotFleetRequestState = pSpotFleetRequestState_
     , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
     , _sfrcCreateTime = _Time # pCreateTime_
     }
+
+-- | The progress of the Spot fleet request. If there is an error, the status is 'error'. After all bids are placed, the status is 'pending_fulfillment'. If the size of the fleet is equal to or greater than its target capacity, the status is 'fulfilled'. If the size of the fleet is decreased, the status is 'pending_termination' while Spot instances are terminating.
+sfrcActivityStatus :: Lens' SpotFleetRequestConfig (Maybe ActivityStatus)
+sfrcActivityStatus = lens _sfrcActivityStatus (\ s a -> s{_sfrcActivityStatus = a});
 
 -- | The ID of the Spot fleet request.
 sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig Text
@@ -10726,8 +11056,9 @@ sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . _Time;
 instance FromXML SpotFleetRequestConfig where
         parseXML x
           = SpotFleetRequestConfig' <$>
-              (x .@ "spotFleetRequestId") <*>
-                (x .@ "spotFleetRequestState")
+              (x .@? "activityStatus") <*>
+                (x .@ "spotFleetRequestId")
+                <*> (x .@ "spotFleetRequestState")
                 <*> (x .@ "spotFleetRequestConfig")
                 <*> (x .@ "createTime")
 

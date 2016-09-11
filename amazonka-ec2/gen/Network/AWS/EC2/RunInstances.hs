@@ -292,6 +292,8 @@ rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior
 rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
 
 -- | The block device mapping.
+--
+-- Supplying both a snapshot ID and an encryption value as arguments for block-device mapping results in an error. This is because only blank volumes can be encrypted on start, and these are not created from a snapshot. If a snapshot is the basis for the volume, it contains data by definition and its encryption status cannot be changed using this action.
 rBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
 rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappings = a}) . _Default . _Coerce;
 

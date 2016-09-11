@@ -43,6 +43,38 @@ instance ToByteString AccountAttributeName
 instance ToQuery      AccountAttributeName
 instance ToHeader     AccountAttributeName
 
+data ActivityStatus
+    = Error'
+    | Fulfilled
+    | PendingFulfillment
+    | PendingTermination
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ActivityStatus where
+    parser = takeLowerText >>= \case
+        "error" -> pure Error'
+        "fulfilled" -> pure Fulfilled
+        "pending_fulfillment" -> pure PendingFulfillment
+        "pending_termination" -> pure PendingTermination
+        e -> fromTextError $ "Failure parsing ActivityStatus from value: '" <> e
+           <> "'. Accepted values: error, fulfilled, pending_fulfillment, pending_termination"
+
+instance ToText ActivityStatus where
+    toText = \case
+        Error' -> "error"
+        Fulfilled -> "fulfilled"
+        PendingFulfillment -> "pending_fulfillment"
+        PendingTermination -> "pending_termination"
+
+instance Hashable     ActivityStatus
+instance NFData       ActivityStatus
+instance ToByteString ActivityStatus
+instance ToQuery      ActivityStatus
+instance ToHeader     ActivityStatus
+
+instance FromXML ActivityStatus where
+    parseXML = parseXMLText "ActivityStatus"
+
 data AddressStatus
     = InClassic
     | InVPC
@@ -648,24 +680,24 @@ instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
 
 data EventType
-    = Error'
-    | FleetRequestChange
-    | InstanceChange
+    = ETError'
+    | ETFleetRequestChange
+    | ETInstanceChange
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
-        "error" -> pure Error'
-        "fleetrequestchange" -> pure FleetRequestChange
-        "instancechange" -> pure InstanceChange
+        "error" -> pure ETError'
+        "fleetrequestchange" -> pure ETFleetRequestChange
+        "instancechange" -> pure ETInstanceChange
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
            <> "'. Accepted values: error, fleetrequestchange, instancechange"
 
 instance ToText EventType where
     toText = \case
-        Error' -> "error"
-        FleetRequestChange -> "fleetRequestChange"
-        InstanceChange -> "instanceChange"
+        ETError' -> "error"
+        ETFleetRequestChange -> "fleetRequestChange"
+        ETInstanceChange -> "instanceChange"
 
 instance Hashable     EventType
 instance NFData       EventType
@@ -1620,6 +1652,35 @@ instance ToByteString OperationType
 instance ToQuery      OperationType
 instance ToHeader     OperationType
 
+data PaymentOption
+    = POAllUpfront
+    | PONoUpfront
+    | POPartialUpfront
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PaymentOption where
+    parser = takeLowerText >>= \case
+        "allupfront" -> pure POAllUpfront
+        "noupfront" -> pure PONoUpfront
+        "partialupfront" -> pure POPartialUpfront
+        e -> fromTextError $ "Failure parsing PaymentOption from value: '" <> e
+           <> "'. Accepted values: allupfront, noupfront, partialupfront"
+
+instance ToText PaymentOption where
+    toText = \case
+        POAllUpfront -> "AllUpfront"
+        PONoUpfront -> "NoUpfront"
+        POPartialUpfront -> "PartialUpfront"
+
+instance Hashable     PaymentOption
+instance NFData       PaymentOption
+instance ToByteString PaymentOption
+instance ToQuery      PaymentOption
+instance ToHeader     PaymentOption
+
+instance FromXML PaymentOption where
+    parseXML = parseXMLText "PaymentOption"
+
 data PermissionGroup =
     All
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -1869,6 +1930,38 @@ instance ToByteString ReportStatusType
 instance ToQuery      ReportStatusType
 instance ToHeader     ReportStatusType
 
+data ReservationState
+    = RSActive
+    | RSPaymentFailed
+    | RSPaymentPending
+    | RSRetired
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReservationState where
+    parser = takeLowerText >>= \case
+        "active" -> pure RSActive
+        "payment-failed" -> pure RSPaymentFailed
+        "payment-pending" -> pure RSPaymentPending
+        "retired" -> pure RSRetired
+        e -> fromTextError $ "Failure parsing ReservationState from value: '" <> e
+           <> "'. Accepted values: active, payment-failed, payment-pending, retired"
+
+instance ToText ReservationState where
+    toText = \case
+        RSActive -> "active"
+        RSPaymentFailed -> "payment-failed"
+        RSPaymentPending -> "payment-pending"
+        RSRetired -> "retired"
+
+instance Hashable     ReservationState
+instance NFData       ReservationState
+instance ToByteString ReservationState
+instance ToQuery      ReservationState
+instance ToHeader     ReservationState
+
+instance FromXML ReservationState where
+    parseXML = parseXMLText "ReservationState"
+
 data ReservedInstanceState
     = Active
     | PaymentFailed
@@ -2022,21 +2115,21 @@ instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
 
 data RouteState
-    = RSActive
-    | RSBlackhole
+    = RActive
+    | RBlackhole
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RouteState where
     parser = takeLowerText >>= \case
-        "active" -> pure RSActive
-        "blackhole" -> pure RSBlackhole
+        "active" -> pure RActive
+        "blackhole" -> pure RBlackhole
         e -> fromTextError $ "Failure parsing RouteState from value: '" <> e
            <> "'. Accepted values: active, blackhole"
 
 instance ToText RouteState where
     toText = \case
-        RSActive -> "active"
-        RSBlackhole -> "blackhole"
+        RActive -> "active"
+        RBlackhole -> "blackhole"
 
 instance Hashable     RouteState
 instance NFData       RouteState

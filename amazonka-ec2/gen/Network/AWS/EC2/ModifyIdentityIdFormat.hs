@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the ID format of a resource for the specified IAM user, IAM role, or root user. You can specify that resources should receive longer IDs (17-character IDs) when they are created. The following resource types support longer IDs: 'instance' | 'reservation' | 'snapshot' | 'volume'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Modifies the ID format of a resource for a specified IAM user, IAM role, or the root user for an account; or all IAM users, IAM roles, and the root user for an account. You can specify that resources should receive longer IDs (17-character IDs) when they are created.
+--
+-- The following resource types support longer IDs: 'instance' | 'reservation' | 'snapshot' | 'volume'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This setting applies to the principal specified in the request; it does not apply to the principal that makes the request.
 --
@@ -75,7 +77,7 @@ modifyIdentityIdFormat pResource_ pUseLongIds_ pPrincipalARN_ =
     , _miifPrincipalARN = pPrincipalARN_
     }
 
--- | The type of resource.
+-- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
 miifResource :: Lens' ModifyIdentityIdFormat Text
 miifResource = lens _miifResource (\ s a -> s{_miifResource = a});
 
@@ -83,7 +85,7 @@ miifResource = lens _miifResource (\ s a -> s{_miifResource = a});
 miifUseLongIds :: Lens' ModifyIdentityIdFormat Bool
 miifUseLongIds = lens _miifUseLongIds (\ s a -> s{_miifUseLongIds = a});
 
--- | The ARN of the principal, which can be an IAM user, IAM role, or the root user.
+-- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify 'all' to modify the ID format for all IAM users, IAM roles, and the root user of the account.
 miifPrincipalARN :: Lens' ModifyIdentityIdFormat Text
 miifPrincipalARN = lens _miifPrincipalARN (\ s a -> s{_miifPrincipalARN = a});
 

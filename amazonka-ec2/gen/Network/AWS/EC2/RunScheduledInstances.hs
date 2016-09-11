@@ -105,7 +105,7 @@ rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 rsiScheduledInstanceId :: Lens' RunScheduledInstances Text
 rsiScheduledInstanceId = lens _rsiScheduledInstanceId (\ s a -> s{_rsiScheduledInstanceId = a});
 
--- | The launch specification.
+-- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
 rsiLaunchSpecification :: Lens' RunScheduledInstances ScheduledInstancesLaunchSpecification
 rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
 

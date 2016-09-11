@@ -71,7 +71,7 @@ describeIdentityIdFormat pPrincipalARN_ =
     , _diifPrincipalARN = pPrincipalARN_
     }
 
--- | The type of resource.
+-- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
 diifResource :: Lens' DescribeIdentityIdFormat (Maybe Text)
 diifResource = lens _diifResource (\ s a -> s{_diifResource = a});
 

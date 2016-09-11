@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allocates a Dedicated host to your account. At minimum you need to specify the instance size type, Availability Zone, and quantity of hosts you want to allocate.
+-- Allocates a Dedicated Host to your account. At minimum you need to specify the instance size type, Availability Zone, and quantity of hosts you want to allocate.
 module Network.AWS.EC2.AllocateHosts
     (
     -- * Creating a Request
@@ -88,21 +88,21 @@ allocateHosts pInstanceType_ pQuantity_ pAvailabilityZone_ =
 ahClientToken :: Lens' AllocateHosts (Maybe Text)
 ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a});
 
--- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated hosts, when you are launching instances without specifying a host ID.
+-- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID.
 --
 -- Default: Enabled
 ahAutoPlacement :: Lens' AllocateHosts (Maybe AutoPlacement)
 ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a});
 
--- | Specify the instance type that you want your Dedicated hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
+-- | Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
 ahInstanceType :: Lens' AllocateHosts Text
 ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a});
 
--- | The number of Dedicated hosts you want to allocate to your account with these parameters.
+-- | The number of Dedicated Hosts you want to allocate to your account with these parameters.
 ahQuantity :: Lens' AllocateHosts Int
 ahQuantity = lens _ahQuantity (\ s a -> s{_ahQuantity = a});
 
--- | The Availability Zone for the Dedicated hosts.
+-- | The Availability Zone for the Dedicated Hosts.
 ahAvailabilityZone :: Lens' AllocateHosts Text
 ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a});
 
@@ -162,7 +162,7 @@ allocateHostsResponse pResponseStatus_ =
     , _ahrsResponseStatus = pResponseStatus_
     }
 
--- | The ID of the allocated Dedicated host. This is used when you want to launch an instance onto a specific host.
+-- | The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
 ahrsHostIds :: Lens' AllocateHostsResponse [Text]
 ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coerce;
 

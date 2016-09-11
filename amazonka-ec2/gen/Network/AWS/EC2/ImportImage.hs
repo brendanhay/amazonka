@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).
+-- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import\/Export> in the /VM Import\/Export User Guide/.
 module Network.AWS.EC2.ImportImage
     (
     -- * Creating a Request
@@ -134,7 +134,7 @@ impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a});
 
 -- | The license type to be used for the Amazon Machine Image (AMI) after importing.
 --
--- __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html VM Import\/Export Prerequisites> in the /Amazon Elastic Compute Cloud User Guide/.
+-- __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import\/Export User Guide.
 --
 -- Valid values: 'AWS' | 'BYOL'
 impLicenseType :: Lens' ImportImage (Maybe Text)

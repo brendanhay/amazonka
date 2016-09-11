@@ -273,6 +273,7 @@ data ContainerDefinition = ContainerDefinition'
     , _cdReadonlyRootFilesystem :: !(Maybe Bool)
     , _cdEssential              :: !(Maybe Bool)
     , _cdCpu                    :: !(Maybe Int)
+    , _cdMemoryReservation      :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContainerDefinition' with the minimum fields required to make a request.
@@ -328,6 +329,8 @@ data ContainerDefinition = ContainerDefinition'
 -- * 'cdEssential'
 --
 -- * 'cdCpu'
+--
+-- * 'cdMemoryReservation'
 containerDefinition
     :: ContainerDefinition
 containerDefinition =
@@ -357,9 +360,10 @@ containerDefinition =
     , _cdReadonlyRootFilesystem = Nothing
     , _cdEssential = Nothing
     , _cdCpu = Nothing
+    , _cdMemoryReservation = Nothing
     }
 
--- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with ' repository-url\/image:tag '. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to 'Image' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the 'IMAGE' parameter of <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with ' repository-url\/image:tag '. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to 'Image' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the 'IMAGE' parameter of <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- -   Images in official repositories on Docker Hub use a single name (for example, 'ubuntu' or 'mongo').
 --
@@ -370,29 +374,29 @@ containerDefinition =
 cdImage :: Lens' ContainerDefinition (Maybe Text)
 cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 
--- | The command that is passed to the container. This parameter maps to 'Cmd' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the 'COMMAND' parameter to <https://docs.docker.com/reference/commandline/run/ docker run>. For more information, see <https://docs.docker.com/reference/builder/#cmd>.
+-- | The command that is passed to the container. This parameter maps to 'Cmd' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the 'COMMAND' parameter to <https://docs.docker.com/reference/commandline/run/ docker run>. For more information, see <https://docs.docker.com/reference/builder/#cmd>.
 cdCommand :: Lens' ContainerDefinition [Text]
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default . _Coerce;
 
--- | The hostname to use for your container. This parameter maps to 'Hostname' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--hostname' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The hostname to use for your container. This parameter maps to 'Hostname' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--hostname' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdHostname :: Lens' ContainerDefinition (Maybe Text)
 cdHostname = lens _cdHostname (\ s a -> s{_cdHostname = a});
 
--- | A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This parameter maps to 'SecurityOpt' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--security-opt' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This parameter maps to 'SecurityOpt' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--security-opt' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- The Amazon ECS container agent running on a container instance must register with the 'ECS_SELINUX_CAPABLE=true' or 'ECS_APPARMOR_CAPABLE=true' environment variables before containers placed on that instance can use these security options. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS Container Agent Configuration> in the /Amazon EC2 Container Service Developer Guide/.
 cdDockerSecurityOptions :: Lens' ContainerDefinition [Text]
 cdDockerSecurityOptions = lens _cdDockerSecurityOptions (\ s a -> s{_cdDockerSecurityOptions = a}) . _Default . _Coerce;
 
--- | When this parameter is true, networking is disabled within the container. This parameter maps to 'NetworkDisabled' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>.
+-- | When this parameter is true, networking is disabled within the container. This parameter maps to 'NetworkDisabled' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API>.
 cdDisableNetworking :: Lens' ContainerDefinition (Maybe Bool)
 cdDisableNetworking = lens _cdDisableNetworking (\ s a -> s{_cdDisableNetworking = a});
 
--- | Data volumes to mount from another container. This parameter maps to 'VolumesFrom' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--volumes-from' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | Data volumes to mount from another container. This parameter maps to 'VolumesFrom' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--volumes-from' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdVolumesFrom :: Lens' ContainerDefinition [VolumeFrom]
 cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a}) . _Default . _Coerce;
 
--- | The environment variables to pass to a container. This parameter maps to 'Env' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--env' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The environment variables to pass to a container. This parameter maps to 'Env' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--env' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- We do not recommend using plain text environment variables for sensitive information, such as credential data.
 cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
@@ -400,49 +404,53 @@ cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default 
 
 -- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container agent or enter your commands and arguments as 'command' array items instead.
 --
--- The entry point that is passed to the container. This parameter maps to 'Entrypoint' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--entrypoint' option to <https://docs.docker.com/reference/commandline/run/ docker run>. For more information, see <https://docs.docker.com/reference/builder/#entrypoint>.
+-- The entry point that is passed to the container. This parameter maps to 'Entrypoint' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--entrypoint' option to <https://docs.docker.com/reference/commandline/run/ docker run>. For more information, see <https://docs.docker.com/reference/builder/#entrypoint>.
 cdEntryPoint :: Lens' ContainerDefinition [Text]
 cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default . _Coerce;
 
--- | The working directory in which to run commands inside the container. This parameter maps to 'WorkingDir' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--workdir' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The working directory in which to run commands inside the container. This parameter maps to 'WorkingDir' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--workdir' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdWorkingDirectory :: Lens' ContainerDefinition (Maybe Text)
 cdWorkingDirectory = lens _cdWorkingDirectory (\ s a -> s{_cdWorkingDirectory = a});
 
--- | A list of 'ulimits' to set in the container. This parameter maps to 'Ulimits' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--ulimit' option to <https://docs.docker.com/reference/commandline/run/ docker run>. Valid naming values are displayed in the < Ulimit> data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
+-- | A list of 'ulimits' to set in the container. This parameter maps to 'Ulimits' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--ulimit' option to <https://docs.docker.com/reference/commandline/run/ docker run>. Valid naming values are displayed in the < Ulimit> data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
 cdUlimits :: Lens' ContainerDefinition [Ulimit]
 cdUlimits = lens _cdUlimits (\ s a -> s{_cdUlimits = a}) . _Default . _Coerce;
 
--- | When this parameter is true, the container is given elevated privileges on the host container instance (similar to the 'root' user). This parameter maps to 'Privileged' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--privileged' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | When this parameter is true, the container is given elevated privileges on the host container instance (similar to the 'root' user). This parameter maps to 'Privileged' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--privileged' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdPrivileged :: Lens' ContainerDefinition (Maybe Bool)
 cdPrivileged = lens _cdPrivileged (\ s a -> s{_cdPrivileged = a});
 
--- | The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. This parameter maps to 'PortBindings' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--publish' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. This parameter maps to 'PortBindings' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--publish' option to <https://docs.docker.com/reference/commandline/run/ docker run>. If the network mode of a task definition is set to 'none', then you cannot specify port mappings. If the network mode of a task definition is set to 'host', then host ports must either be undefined or they must match the container port in the port mapping.
 --
 -- After a task reaches the 'RUNNING' status, manual and automatic host and container port assignments are visible in the __Network Bindings__ section of a container description of a selected task in the Amazon ECS console, or the 'networkBindings' section < DescribeTasks> responses.
 cdPortMappings :: Lens' ContainerDefinition [PortMapping]
 cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default . _Coerce;
 
--- | A key\/value map of labels to add to the container. This parameter maps to 'Labels' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--label' option to <https://docs.docker.com/reference/commandline/run/ docker run>. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
+-- | A key\/value map of labels to add to the container. This parameter maps to 'Labels' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--label' option to <https://docs.docker.com/reference/commandline/run/ docker run>. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: 'sudo docker version | grep \"Server API version\"'
 cdDockerLabels :: Lens' ContainerDefinition (HashMap Text Text)
 cdDockerLabels = lens _cdDockerLabels (\ s a -> s{_cdDockerLabels = a}) . _Default . _Map;
 
--- | A list of hostnames and IP address mappings to append to the '\/etc\/hosts' file on the container. This parameter maps to 'ExtraHosts' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--add-host' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | A list of hostnames and IP address mappings to append to the '\/etc\/hosts' file on the container. This parameter maps to 'ExtraHosts' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--add-host' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdExtraHosts :: Lens' ContainerDefinition [HostEntry]
 cdExtraHosts = lens _cdExtraHosts (\ s a -> s{_cdExtraHosts = a}) . _Default . _Coerce;
 
--- | The number of MiB of memory to reserve for the container. You must specify a non-zero integer for this parameter; the Docker daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers. If your container attempts to exceed the memory allocated here, the container is killed. This parameter maps to 'Memory' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--memory' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to 'Memory' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--memory' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+--
+-- You must specify a non-zero integer for one or both of 'memory' or 'memoryReservation' in container definitions. If you specify both, 'memory' must be greater than 'memoryReservation'. If you specify 'memoryReservation', then that value is subtracted from the available memory resources for the container instance on which the container is placed; otherwise, the value of 'memory' is used.
+--
+-- The Docker daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
 cdMemory :: Lens' ContainerDefinition (Maybe Int)
 cdMemory = lens _cdMemory (\ s a -> s{_cdMemory = a});
 
--- | The user name to use inside the container. This parameter maps to 'User' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--user' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The user name to use inside the container. This parameter maps to 'User' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--user' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdUser :: Lens' ContainerDefinition (Maybe Text)
 cdUser = lens _cdUser (\ s a -> s{_cdUser = a});
 
--- | A list of DNS search domains that are presented to the container. This parameter maps to 'DnsSearch' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--dns-search' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | A list of DNS search domains that are presented to the container. This parameter maps to 'DnsSearch' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--dns-search' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdDnsSearchDomains :: Lens' ContainerDefinition [Text]
 cdDnsSearchDomains = lens _cdDnsSearchDomains (\ s a -> s{_cdDnsSearchDomains = a}) . _Default . _Coerce;
 
--- | The log configuration specification for the container. This parameter maps to 'LogConfig' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--log-driver' option to <https://docs.docker.com/reference/commandline/run/ docker run>. By default, containers use the same logging driver that the Docker daemon uses; however the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers> in the Docker documentation.
+-- | The log configuration specification for the container. This parameter maps to 'LogConfig' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--log-driver' option to <https://docs.docker.com/reference/commandline/run/ docker run>. By default, containers use the same logging driver that the Docker daemon uses; however the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers> in the Docker documentation.
 --
 -- Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the < LogConfiguration> data type). Currently unsupported log drivers may be available in future releases of the Amazon ECS container agent.
 --
@@ -452,25 +460,25 @@ cdDnsSearchDomains = lens _cdDnsSearchDomains (\ s a -> s{_cdDnsSearchDomains = 
 cdLogConfiguration :: Lens' ContainerDefinition (Maybe LogConfiguration)
 cdLogConfiguration = lens _cdLogConfiguration (\ s a -> s{_cdLogConfiguration = a});
 
--- | The name of a container. If you are linking multiple containers together in a task definition, the 'name' of one container can be entered in the 'links' of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This parameter maps to 'name' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--name' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The name of a container. If you are linking multiple containers together in a task definition, the 'name' of one container can be entered in the 'links' of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This parameter maps to 'name' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--name' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdName :: Lens' ContainerDefinition (Maybe Text)
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
--- | A list of DNS servers that are presented to the container. This parameter maps to 'Dns' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--dns' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | A list of DNS servers that are presented to the container. This parameter maps to 'Dns' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--dns' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdDnsServers :: Lens' ContainerDefinition [Text]
 cdDnsServers = lens _cdDnsServers (\ s a -> s{_cdDnsServers = a}) . _Default . _Coerce;
 
--- | The mount points for data volumes in your container. This parameter maps to 'Volumes' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--volume' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The mount points for data volumes in your container. This parameter maps to 'Volumes' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--volume' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 cdMountPoints :: Lens' ContainerDefinition [MountPoint]
 cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default . _Coerce;
 
--- | The 'link' parameter allows containers to communicate with each other without the need for port mappings, using the 'name' parameter and optionally, an 'alias' for the link. This construct is analogous to 'name:alias' in Docker links. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed for each 'name' and 'alias'. For more information on linking Docker containers, see <https://docs.docker.com/userguide/dockerlinks/>. This parameter maps to 'Links' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--link' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The 'link' parameter allows containers to communicate with each other without the need for port mappings, using the 'name' parameter and optionally, an 'alias' for the link. This construct is analogous to 'name:alias' in Docker links. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed for each 'name' and 'alias'. For more information on linking Docker containers, see <https://docs.docker.com/userguide/dockerlinks/>. This parameter maps to 'Links' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--link' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
 cdLinks :: Lens' ContainerDefinition [Text]
 cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default . _Coerce;
 
--- | When this parameter is true, the container is given read-only access to its root file system. This parameter maps to 'ReadonlyRootfs' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--read-only' option to 'docker run'.
+-- | When this parameter is true, the container is given read-only access to its root file system. This parameter maps to 'ReadonlyRootfs' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--read-only' option to 'docker run'.
 cdReadonlyRootFilesystem :: Lens' ContainerDefinition (Maybe Bool)
 cdReadonlyRootFilesystem = lens _cdReadonlyRootFilesystem (\ s a -> s{_cdReadonlyRootFilesystem = a});
 
@@ -480,7 +488,7 @@ cdReadonlyRootFilesystem = lens _cdReadonlyRootFilesystem (\ s a -> s{_cdReadonl
 cdEssential :: Lens' ContainerDefinition (Maybe Bool)
 cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 
--- | The number of 'cpu' units reserved for the container. A container instance has 1,024 'cpu' units for every CPU core. This parameter specifies the minimum amount of CPU to reserve for a container, and containers share unallocated CPU units with other containers on the instance with the same ratio as their allocated amount. This parameter maps to 'CpuShares' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API> and the '--cpu-shares' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+-- | The number of 'cpu' units reserved for the container. A container instance has 1,024 'cpu' units for every CPU core. This parameter specifies the minimum amount of CPU to reserve for a container, and containers share unallocated CPU units with other containers on the instance with the same ratio as their allocated amount. This parameter maps to 'CpuShares' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--cpu-shares' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instances> detail page by 1,024.
 --
@@ -494,6 +502,14 @@ cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 --
 cdCpu :: Lens' ContainerDefinition (Maybe Int)
 cdCpu = lens _cdCpu (\ s a -> s{_cdCpu = a});
+
+-- | The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit; however, your container can consume more memory when it needs to, up to either the hard limit specified with the 'memory' parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to 'MemoryReservation' in the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the '--memory-reservation' option to <https://docs.docker.com/reference/commandline/run/ docker run>.
+--
+-- You must specify a non-zero integer for one or both of 'memory' or 'memoryReservation' in container definitions. If you specify both, 'memory' must be greater than 'memoryReservation'. If you specify 'memoryReservation', then that value is subtracted from the available memory resources for the container instance on which the container is placed; otherwise, the value of 'memory' is used.
+--
+-- For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a 'memoryReservation' of 128 MiB, and a 'memory' hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
+cdMemoryReservation :: Lens' ContainerDefinition (Maybe Int)
+cdMemoryReservation = lens _cdMemoryReservation (\ s a -> s{_cdMemoryReservation = a});
 
 instance FromJSON ContainerDefinition where
         parseJSON
@@ -523,7 +539,8 @@ instance FromJSON ContainerDefinition where
                      <*> (x .:? "links" .!= mempty)
                      <*> (x .:? "readonlyRootFilesystem")
                      <*> (x .:? "essential")
-                     <*> (x .:? "cpu"))
+                     <*> (x .:? "cpu")
+                     <*> (x .:? "memoryReservation"))
 
 instance Hashable ContainerDefinition
 
@@ -558,7 +575,8 @@ instance ToJSON ContainerDefinition where
                   ("readonlyRootFilesystem" .=) <$>
                     _cdReadonlyRootFilesystem,
                   ("essential" .=) <$> _cdEssential,
-                  ("cpu" .=) <$> _cdCpu])
+                  ("cpu" .=) <$> _cdCpu,
+                  ("memoryReservation" .=) <$> _cdMemoryReservation])
 
 -- | An EC2 instance that is running the Amazon ECS agent and has been registered with a cluster.
 --
@@ -1822,6 +1840,7 @@ data TaskDefinition = TaskDefinition'
     , _tdFamily               :: !(Maybe Text)
     , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
     , _tdTaskRoleARN          :: !(Maybe Text)
+    , _tdNetworkMode          :: !(Maybe NetworkMode)
     , _tdTaskDefinitionARN    :: !(Maybe Text)
     , _tdRevision             :: !(Maybe Int)
     , _tdVolumes              :: !(Maybe [Volume])
@@ -1840,6 +1859,8 @@ data TaskDefinition = TaskDefinition'
 --
 -- * 'tdTaskRoleARN'
 --
+-- * 'tdNetworkMode'
+--
 -- * 'tdTaskDefinitionARN'
 --
 -- * 'tdRevision'
@@ -1855,6 +1876,7 @@ taskDefinition =
     , _tdFamily = Nothing
     , _tdContainerDefinitions = Nothing
     , _tdTaskRoleARN = Nothing
+    , _tdNetworkMode = Nothing
     , _tdTaskDefinitionARN = Nothing
     , _tdRevision = Nothing
     , _tdVolumes = Nothing
@@ -1876,6 +1898,14 @@ tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDe
 -- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 tdTaskRoleARN :: Lens' TaskDefinition (Maybe Text)
 tdTaskRoleARN = lens _tdTaskRoleARN (\ s a -> s{_tdTaskRoleARN = a});
+
+-- | The Docker networking mode to use for the containers in the task. The valid values are 'none', 'bridge', and 'host'.
+--
+-- If the network mode is 'none', the containers do not have external connectivity. The default Docker network mode is 'bridge'. The 'host' network mode offers the highest networking performance for containers because it uses the host network stack instead of the virtualized network stack provided by the 'bridge' mode.
+--
+-- For more information, see <https://docs.docker.com/engine/reference/run/#network-settings Network settings> in the /Docker run reference/.
+tdNetworkMode :: Lens' TaskDefinition (Maybe NetworkMode)
+tdNetworkMode = lens _tdNetworkMode (\ s a -> s{_tdNetworkMode = a});
 
 -- | The full Amazon Resource Name (ARN) of the task definition.
 tdTaskDefinitionARN :: Lens' TaskDefinition (Maybe Text)
@@ -1901,6 +1931,7 @@ instance FromJSON TaskDefinition where
                    (x .:? "status") <*> (x .:? "family") <*>
                      (x .:? "containerDefinitions" .!= mempty)
                      <*> (x .:? "taskRoleArn")
+                     <*> (x .:? "networkMode")
                      <*> (x .:? "taskDefinitionArn")
                      <*> (x .:? "revision")
                      <*> (x .:? "volumes" .!= mempty)

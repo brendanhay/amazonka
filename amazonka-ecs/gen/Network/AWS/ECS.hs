@@ -162,6 +162,9 @@ module Network.AWS.ECS
     -- ** LogDriver
     , LogDriver (..)
 
+    -- ** NetworkMode
+    , NetworkMode (..)
+
     -- ** SortOrder
     , SortOrder (..)
 
@@ -233,6 +236,7 @@ module Network.AWS.ECS
     , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
+    , cdMemoryReservation
 
     -- ** ContainerInstance
     , ContainerInstance
@@ -392,6 +396,7 @@ module Network.AWS.ECS
     , tdFamily
     , tdContainerDefinitions
     , tdTaskRoleARN
+    , tdNetworkMode
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes

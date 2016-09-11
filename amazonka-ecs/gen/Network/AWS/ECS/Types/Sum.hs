@@ -92,6 +92,7 @@ data LogDriver
     | Gelf
     | JSONFile
     | Journald
+    | Splunk
     | Syslog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -102,9 +103,10 @@ instance FromText LogDriver where
         "gelf" -> pure Gelf
         "json-file" -> pure JSONFile
         "journald" -> pure Journald
+        "splunk" -> pure Splunk
         "syslog" -> pure Syslog
         e -> fromTextError $ "Failure parsing LogDriver from value: '" <> e
-           <> "'. Accepted values: awslogs, fluentd, gelf, json-file, journald, syslog"
+           <> "'. Accepted values: awslogs, fluentd, gelf, json-file, journald, splunk, syslog"
 
 instance ToText LogDriver where
     toText = \case
@@ -113,6 +115,7 @@ instance ToText LogDriver where
         Gelf -> "gelf"
         JSONFile -> "json-file"
         Journald -> "journald"
+        Splunk -> "splunk"
         Syslog -> "syslog"
 
 instance Hashable     LogDriver
@@ -126,6 +129,38 @@ instance ToJSON LogDriver where
 
 instance FromJSON LogDriver where
     parseJSON = parseJSONText "LogDriver"
+
+data NetworkMode
+    = Bridge
+    | Host
+    | None
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NetworkMode where
+    parser = takeLowerText >>= \case
+        "bridge" -> pure Bridge
+        "host" -> pure Host
+        "none" -> pure None
+        e -> fromTextError $ "Failure parsing NetworkMode from value: '" <> e
+           <> "'. Accepted values: bridge, host, none"
+
+instance ToText NetworkMode where
+    toText = \case
+        Bridge -> "bridge"
+        Host -> "host"
+        None -> "none"
+
+instance Hashable     NetworkMode
+instance NFData       NetworkMode
+instance ToByteString NetworkMode
+instance ToQuery      NetworkMode
+instance ToHeader     NetworkMode
+
+instance ToJSON NetworkMode where
+    toJSON = toJSONText
+
+instance FromJSON NetworkMode where
+    parseJSON = parseJSONText "NetworkMode"
 
 data SortOrder
     = Asc

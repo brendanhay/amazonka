@@ -109,18 +109,21 @@ instance ToJSON PolicyType where
 instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
 
-data ScalableDimension =
-    EcsServiceDesiredCount
+data ScalableDimension
+    = EC2SpotFleetRequestTargetCapacity
+    | EcsServiceDesiredCount
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
+        "ec2:spot-fleet-request:targetcapacity" -> pure EC2SpotFleetRequestTargetCapacity
         "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: ecs:service:desiredcount"
+           <> "'. Accepted values: ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount"
 
 instance ToText ScalableDimension where
     toText = \case
+        EC2SpotFleetRequestTargetCapacity -> "ec2:spot-fleet-request:TargetCapacity"
         EcsServiceDesiredCount -> "ecs:service:DesiredCount"
 
 instance Hashable     ScalableDimension
@@ -173,18 +176,21 @@ instance ToHeader     ScalingActivityStatusCode
 instance FromJSON ScalingActivityStatusCode where
     parseJSON = parseJSONText "ScalingActivityStatusCode"
 
-data ServiceNamespace =
-    Ecs
+data ServiceNamespace
+    = EC2
+    | Ecs
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ServiceNamespace where
     parser = takeLowerText >>= \case
+        "ec2" -> pure EC2
         "ecs" -> pure Ecs
         e -> fromTextError $ "Failure parsing ServiceNamespace from value: '" <> e
-           <> "'. Accepted values: ecs"
+           <> "'. Accepted values: ec2, ecs"
 
 instance ToText ServiceNamespace where
     toText = \case
+        EC2 -> "ec2"
         Ecs -> "ecs"
 
 instance Hashable     ServiceNamespace

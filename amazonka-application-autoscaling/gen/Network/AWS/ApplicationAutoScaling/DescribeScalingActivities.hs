@@ -85,11 +85,11 @@ describeScalingActivities pServiceNamespace_ =
     , _dsaServiceNamespace = pServiceNamespace_
     }
 
--- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 dsaScalableDimension :: Lens' DescribeScalingActivities (Maybe ScalableDimension)
 dsaScalableDimension = lens _dsaScalableDimension (\ s a -> s{_dsaScalableDimension = a});
 
--- | The unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'. If you specify a scalable dimension, you must also specify a resource ID.
 dsaResourceId :: Lens' DescribeScalingActivities (Maybe Text)
 dsaResourceId = lens _dsaResourceId (\ s a -> s{_dsaResourceId = a});
 

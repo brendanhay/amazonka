@@ -20,7 +20,22 @@
 --
 -- Evaluates your resources against the specified Config rules. You can specify up to 25 Config rules per request.
 --
--- An existing < StartConfigRulesEvaluation> call must complete for the rules that you specified before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a notification when the evaluation starts.
+-- An existing < StartConfigRulesEvaluation> call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a 'ConfigRuleEvaluationStarted' notification when the evaluation starts.
+--
+-- You don\'t need to call the 'StartConfigRulesEvaluation' API to run an evaluation for a new rule. When you create a new rule, AWS Config automatically evaluates your resources against the rule.
+--
+-- The 'StartConfigRulesEvaluation' API is useful if you want to run on-demand evaluations, such as the following example:
+--
+-- 1.  You have a custom rule that evaluates your IAM resources every 24 hours.
+--
+-- 2.  You update your Lambda function to add additional conditions to your rule.
+--
+-- 3.  Instead of waiting for the next periodic evaluation, you call the 'StartConfigRulesEvaluation' API.
+--
+-- 4.  AWS Config invokes your Lambda function and evaluates your IAM resources.
+--
+-- 5.  Your custom rule will still run periodic evaluations every 24 hours.
+--
 module Network.AWS.Config.StartConfigRulesEvaluation
     (
     -- * Creating a Request

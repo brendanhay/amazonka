@@ -473,7 +473,7 @@ _InvalidS3KeyPrefixException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidS3KeyPrefixException =
     _ServiceError . hasCode "InvalidS3KeyPrefixException"
 
--- | This exception is thrown when the previous < StartConfigRulesEvaluation> call is in progress or a previous evaluation is in progress.
+-- | This exception is thrown if an evaluation is in progress or if you call the < StartConfigRulesEvaluation> API more than once per minute.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 

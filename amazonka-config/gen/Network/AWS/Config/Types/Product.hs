@@ -381,7 +381,7 @@ instance Hashable ConfigExportDeliveryInfo
 
 instance NFData ConfigExportDeliveryInfo
 
--- | An AWS Lambda function that evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
+-- | An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
 --
 -- You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see < ConfigSnapshotDeliveryProperties>.
 --
@@ -445,11 +445,11 @@ crInputParameters = lens _crInputParameters (\ s a -> s{_crInputParameters = a})
 crConfigRuleName :: Lens' ConfigRule (Maybe Text)
 crConfigRuleName = lens _crConfigRuleName (\ s a -> s{_crConfigRuleName = a});
 
--- | If you want to create a rule that evaluates at a frequency that is independent of the configuration snapshot delivery, use the 'MaximumExecutionFrequency' parameter in the < SourceDetail> object.
+-- | The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for 'MaximumExecutionFrequency' when:
 --
--- If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:
+-- -   You are using an AWS managed rule that is triggered at a periodic frequency.
 --
--- A rule that runs an evaluation when AWS Config delivers a configuration snapshot cannot run evaluations more frequently than AWS Config delivers the snapshots. Set the value of the 'MaximumExecutionFrequency' to be equal to or greater than the value of the 'deliveryFrequency' key, which is part of 'ConfigSnapshotDeliveryProperties'.
+-- -   Your custom rule is triggered when AWS Config delivers the configuration snapshot.
 --
 -- For more information, see < ConfigSnapshotDeliveryProperties>.
 crMaximumExecutionFrequency :: Lens' ConfigRule (Maybe MaximumExecutionFrequency)
@@ -648,7 +648,7 @@ instance Hashable ConfigRuleEvaluationStatus
 
 instance NFData ConfigRuleEvaluationStatus
 
--- | Shows the options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
+-- | Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
 --
 -- If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:
 --
@@ -660,15 +660,17 @@ instance NFData ConfigRuleEvaluationStatus
 --
 -- If the 'deliveryFrequency' value is less frequent than the 'MaximumExecutionFrequency' value for a rule, AWS Config invokes the rule only as often as the 'deliveryFrequency' value.
 --
--- 1.  For example, you have a rule and you specify the 'MaximumExecutionFrequency' value to be 'Six_Hours'.
+-- 1.  For example, you want your rule to run evaluations when AWS Config delivers the configuration snapshot.
 --
--- 2.  You then specify the delivery channel 'deliveryFrequency' value to 'TwentyFour_Hours'.
+-- 2.  You specify the 'MaximumExecutionFrequency' value for 'Six_Hours'.
 --
--- 3.  Because the value for 'deliveryFrequency' is less frequent than 'MaximumExecutionFrequency', AWS Config invokes evaluations for the rule every 24 hours.
+-- 3.  You then specify the delivery channel 'deliveryFrequency' value for 'TwentyFour_Hours'.
+--
+-- 4.  Because the value for 'deliveryFrequency' is less frequent than 'MaximumExecutionFrequency', AWS Config invokes evaluations for the rule every 24 hours.
 --
 -- You should set the 'MaximumExecutionFrequency' value to be at least as frequent as the 'deliveryFrequency' value. You can view the 'deliveryFrequency' value by using the 'DescribeDeliveryChannnels' action.
 --
--- To update the frequency with which AWS Config delivers your configuration snapshots, use the 'PutDeliveryChannel' action.
+-- To update the 'deliveryFrequency' with which AWS Config delivers your configuration snapshots, use the 'PutDeliveryChannel' action.
 --
 -- /See:/ 'configSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
@@ -1880,7 +1882,7 @@ instance ToJSON Source where
                   ("Owner" .=) <$> _sOwner,
                   ("SourceDetails" .=) <$> _sSourceDetails])
 
--- | Provides the source and the message type that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
+-- | Provides the source and the message types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for 'SourceDetail' only for custom rules.
 --
 -- /See:/ 'sourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
@@ -1907,17 +1909,17 @@ sourceDetail =
     , _sdEventSource = Nothing
     }
 
--- | The type of SNS message that triggers AWS Config to run an evaluation.
+-- | The type of notification that triggers AWS Config to run an evaluation. You can specify the following notification types:
 --
--- For evaluations that are initiated when AWS Config delivers a configuration item change notification, you must use 'ConfigurationItemChangeNotification'.
+-- 'ConfigurationItemChangeNotification' - Triggers an evaluation when AWS Config delivers a configuration item change notification.
 --
--- For evaluations that are initiated at a frequency that you choose (for example, every 24 hours), you must use 'ScheduledNotification'.
+-- 'ScheduledNotification' - Triggers a periodic evaluation at the frequency specified for 'MaximumExecutionFrequency'.
 --
--- For evaluations that are initiated when AWS Config delivers a configuration snapshot, you must use 'ConfigurationSnapshotDeliveryCompleted'.
+-- 'ConfigurationSnapshotDeliveryCompleted' - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
 sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
 
--- | If the trigger type for your rule includes periodic, AWS Config runs evaluations for the rule at a frequency that you choose. If you specify a value for 'MaximumExecutionFrequency', then 'MessageType' must use the 'ScheduledNotification' value.
+-- | The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If you specify a value for 'MaximumExecutionFrequency', then 'MessageType' must use the 'ScheduledNotification' value.
 sdMaximumExecutionFrequency :: Lens' SourceDetail (Maybe MaximumExecutionFrequency)
 sdMaximumExecutionFrequency = lens _sdMaximumExecutionFrequency (\ s a -> s{_sdMaximumExecutionFrequency = a});
 

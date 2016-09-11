@@ -20,6 +20,8 @@
 --
 -- Lists all the image IDs for a given repository.
 --
+-- You can filter images based on whether or not they are tagged by setting the 'tagStatus' parameter to 'TAGGED' or 'UNTAGGED'. For example, you can filter your results to return only 'UNTAGGED' images and then pipe that result to a < BatchDeleteImage> operation to delete them. Or, you can filter your results to return only 'TAGGED' images to list all of the tags in your repository.
+--
 -- This operation returns paginated results.
 module Network.AWS.ECR.ListImages
     (
@@ -94,7 +96,7 @@ liRegistryId = lens _liRegistryId (\ s a -> s{_liRegistryId = a});
 liNextToken :: Lens' ListImages (Maybe Text)
 liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
--- | Undocumented member.
+-- | The filter key and value with which to filter your 'ListImages' results.
 liFilter :: Lens' ListImages (Maybe ListImagesFilter)
 liFilter = lens _liFilter (\ s a -> s{_liFilter = a});
 

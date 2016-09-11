@@ -334,7 +334,9 @@ instance Hashable LayerFailure
 
 instance NFData LayerFailure
 
--- | /See:/ 'listImagesFilter' smart constructor.
+-- | An object representing a filter on a < ListImages> operation.
+--
+-- /See:/ 'listImagesFilter' smart constructor.
 newtype ListImagesFilter = ListImagesFilter'
     { _lifTagStatus :: Maybe TagStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -351,7 +353,7 @@ listImagesFilter =
     { _lifTagStatus = Nothing
     }
 
--- | Undocumented member.
+-- | The tag status with which to filter your < ListImages> results. You can filter results based on whether they are 'TAGGED' or 'UNTAGGED'.
 lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
 lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a});
 

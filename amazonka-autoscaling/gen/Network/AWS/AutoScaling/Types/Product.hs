@@ -1037,7 +1037,7 @@ lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . 
 lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
 lcSpotPrice = lens _lcSpotPrice (\ s a -> s{_lcSpotPrice = a});
 
--- | Controls whether instances in this group are launched with detailed monitoring.
+-- | Controls whether instances in this group are launched with detailed ('true') or basic ('false') monitoring.
 lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
 lcInstanceMonitoring = lens _lcInstanceMonitoring (\ s a -> s{_lcInstanceMonitoring = a});
 

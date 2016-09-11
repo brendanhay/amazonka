@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables monitoring of the specified metrics for the specified Auto Scaling group.
+-- Disables group metrics for the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request

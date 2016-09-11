@@ -178,9 +178,7 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
 
--- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled by default.
---
--- When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, by specifying 'False', CloudWatch generates metrics every 5 minutes. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitoring Your Auto Scaling Instances and Groups> in the /Auto Scaling User Guide/.
+-- | Enables detailed monitoring ('true') or basic monitoring ('false') for the Auto Scaling instances.
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMonitoring = a});
 

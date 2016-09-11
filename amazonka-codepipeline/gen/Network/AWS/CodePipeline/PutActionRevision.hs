@@ -165,7 +165,7 @@ putActionRevisionResponse pResponseStatus_ =
     , _prsResponseStatus = pResponseStatus_
     }
 
--- | The new revision number or ID for the revision after the action completes.
+-- | Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
 prsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
 prsNewRevision = lens _prsNewRevision (\ s a -> s{_prsNewRevision = a});
 

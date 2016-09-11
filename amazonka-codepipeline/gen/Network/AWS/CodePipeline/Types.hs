@@ -26,6 +26,7 @@ module Network.AWS.CodePipeline.Types
     , _InvalidJobException
     , _PipelineVersionNotFoundException
     , _StageNotRetryableException
+    , _PipelineExecutionNotFoundException
     , _ActionTypeNotFoundException
     , _InvalidNextTokenException
     , _InvalidStageDeclarationException
@@ -71,6 +72,9 @@ module Network.AWS.CodePipeline.Types
 
     -- * JobStatus
     , JobStatus (..)
+
+    -- * PipelineExecutionStatus
+    , PipelineExecutionStatus (..)
 
     -- * StageExecutionStatus
     , StageExecutionStatus (..)
@@ -136,9 +140,9 @@ module Network.AWS.CodePipeline.Types
     -- * ActionRevision
     , ActionRevision
     , actionRevision
-    , arRevisionId
-    , arRevisionChangeId
-    , arCreated
+    , aRevisionId
+    , aRevisionChangeId
+    , aCreated
 
     -- * ActionState
     , ActionState
@@ -199,6 +203,16 @@ module Network.AWS.CodePipeline.Types
     , alS3Location
     , alType
 
+    -- * ArtifactRevision
+    , ArtifactRevision
+    , artifactRevision
+    , arRevisionSummary
+    , arRevisionURL
+    , arCreated
+    , arName
+    , arRevisionId
+    , arRevisionChangeIdentifier
+
     -- * ArtifactStore
     , ArtifactStore
     , artifactStore
@@ -215,6 +229,8 @@ module Network.AWS.CodePipeline.Types
     -- * CurrentRevision
     , CurrentRevision
     , currentRevision
+    , crRevisionSummary
+    , crCreated
     , crRevision
     , crChangeIdentifier
 
@@ -296,6 +312,15 @@ module Network.AWS.CodePipeline.Types
     , pdRoleARN
     , pdArtifactStore
     , pdStages
+
+    -- * PipelineExecution
+    , PipelineExecution
+    , pipelineExecution
+    , peStatus
+    , pePipelineName
+    , pePipelineVersion
+    , pePipelineExecutionId
+    , peArtifactRevisions
 
     -- * PipelineSummary
     , PipelineSummary
@@ -455,6 +480,11 @@ _PipelineVersionNotFoundException =
 _StageNotRetryableException :: AsError a => Getting (First ServiceError) a ServiceError
 _StageNotRetryableException =
     _ServiceError . hasCode "StageNotRetryableException"
+
+-- | The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
+_PipelineExecutionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_PipelineExecutionNotFoundException =
+    _ServiceError . hasCode "PipelineExecutionNotFoundException"
 
 -- | The specified action type cannot be found.
 _ActionTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

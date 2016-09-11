@@ -29,6 +29,8 @@
 --
 -- -   < GetPipeline>, which returns information about a pipeline structure.
 --
+-- -   < GetPipelineExecution>, which returns information about a specific execution of a pipeline.
+--
 -- -   < GetPipelineState>, which returns information about the current state of the stages and actions of a pipeline.
 --
 -- -   < ListPipelines>, which gets a summary of all of the pipelines associated with your account.
@@ -119,6 +121,9 @@ module Network.AWS.CodePipeline
     -- ** StageNotRetryableException
     , _StageNotRetryableException
 
+    -- ** PipelineExecutionNotFoundException
+    , _PipelineExecutionNotFoundException
+
     -- ** ActionTypeNotFoundException
     , _ActionTypeNotFoundException
 
@@ -203,6 +208,9 @@ module Network.AWS.CodePipeline
     -- ** RetryStageExecution
     , module Network.AWS.CodePipeline.RetryStageExecution
 
+    -- ** GetPipelineExecution
+    , module Network.AWS.CodePipeline.GetPipelineExecution
+
     -- ** PutJobSuccessResult
     , module Network.AWS.CodePipeline.PutJobSuccessResult
 
@@ -271,6 +279,9 @@ module Network.AWS.CodePipeline
     -- ** JobStatus
     , JobStatus (..)
 
+    -- ** PipelineExecutionStatus
+    , PipelineExecutionStatus (..)
+
     -- ** StageExecutionStatus
     , StageExecutionStatus (..)
 
@@ -335,9 +346,9 @@ module Network.AWS.CodePipeline
     -- ** ActionRevision
     , ActionRevision
     , actionRevision
-    , arRevisionId
-    , arRevisionChangeId
-    , arCreated
+    , aRevisionId
+    , aRevisionChangeId
+    , aCreated
 
     -- ** ActionState
     , ActionState
@@ -398,6 +409,16 @@ module Network.AWS.CodePipeline
     , alS3Location
     , alType
 
+    -- ** ArtifactRevision
+    , ArtifactRevision
+    , artifactRevision
+    , arRevisionSummary
+    , arRevisionURL
+    , arCreated
+    , arName
+    , arRevisionId
+    , arRevisionChangeIdentifier
+
     -- ** ArtifactStore
     , ArtifactStore
     , artifactStore
@@ -414,6 +435,8 @@ module Network.AWS.CodePipeline
     -- ** CurrentRevision
     , CurrentRevision
     , currentRevision
+    , crRevisionSummary
+    , crCreated
     , crRevision
     , crChangeIdentifier
 
@@ -495,6 +518,15 @@ module Network.AWS.CodePipeline
     , pdRoleARN
     , pdArtifactStore
     , pdStages
+
+    -- ** PipelineExecution
+    , PipelineExecution
+    , pipelineExecution
+    , peStatus
+    , pePipelineName
+    , pePipelineVersion
+    , pePipelineExecutionId
+    , peArtifactRevisions
 
     -- ** PipelineSummary
     , PipelineSummary
@@ -580,6 +612,7 @@ import           Network.AWS.CodePipeline.DisableStageTransition
 import           Network.AWS.CodePipeline.EnableStageTransition
 import           Network.AWS.CodePipeline.GetJobDetails
 import           Network.AWS.CodePipeline.GetPipeline
+import           Network.AWS.CodePipeline.GetPipelineExecution
 import           Network.AWS.CodePipeline.GetPipelineState
 import           Network.AWS.CodePipeline.GetThirdPartyJobDetails
 import           Network.AWS.CodePipeline.ListActionTypes

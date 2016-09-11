@@ -25,11 +25,11 @@ module Network.AWS.CodePipeline.PutApprovalResult
       putApprovalResult
     , PutApprovalResult
     -- * Request Lenses
-    , parToken
     , parPipelineName
     , parStageName
     , parActionName
     , parResult
+    , parToken
 
     -- * Destructuring the Response
     , putApprovalResultResponse
@@ -50,18 +50,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
-    { _parToken        :: !(Maybe Text)
-    , _parPipelineName :: !Text
+    { _parPipelineName :: !Text
     , _parStageName    :: !Text
     , _parActionName   :: !Text
     , _parResult       :: !ApprovalResult
+    , _parToken        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutApprovalResult' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'parToken'
 --
 -- * 'parPipelineName'
 --
@@ -70,24 +68,23 @@ data PutApprovalResult = PutApprovalResult'
 -- * 'parActionName'
 --
 -- * 'parResult'
+--
+-- * 'parToken'
 putApprovalResult
     :: Text -- ^ 'parPipelineName'
     -> Text -- ^ 'parStageName'
     -> Text -- ^ 'parActionName'
     -> ApprovalResult -- ^ 'parResult'
+    -> Text -- ^ 'parToken'
     -> PutApprovalResult
-putApprovalResult pPipelineName_ pStageName_ pActionName_ pResult_ =
+putApprovalResult pPipelineName_ pStageName_ pActionName_ pResult_ pToken_ =
     PutApprovalResult'
-    { _parToken = Nothing
-    , _parPipelineName = pPipelineName_
+    { _parPipelineName = pPipelineName_
     , _parStageName = pStageName_
     , _parActionName = pActionName_
     , _parResult = pResult_
+    , _parToken = pToken_
     }
-
--- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the < GetPipelineState> action and is used to validate that the approval request corresponding to this token is still valid.
-parToken :: Lens' PutApprovalResult (Maybe Text)
-parToken = lens _parToken (\ s a -> s{_parToken = a});
 
 -- | The name of the pipeline that contains the action.
 parPipelineName :: Lens' PutApprovalResult Text
@@ -104,6 +101,10 @@ parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
 -- | Represents information about the result of the approval request.
 parResult :: Lens' PutApprovalResult ApprovalResult
 parResult = lens _parResult (\ s a -> s{_parResult = a});
+
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the < GetPipelineState> action and is used to validate that the approval request corresponding to this token is still valid.
+parToken :: Lens' PutApprovalResult Text
+parToken = lens _parToken (\ s a -> s{_parToken = a});
 
 instance AWSRequest PutApprovalResult where
         type Rs PutApprovalResult = PutApprovalResultResponse
@@ -132,11 +133,11 @@ instance ToJSON PutApprovalResult where
         toJSON PutApprovalResult'{..}
           = object
               (catMaybes
-                 [("token" .=) <$> _parToken,
-                  Just ("pipelineName" .= _parPipelineName),
+                 [Just ("pipelineName" .= _parPipelineName),
                   Just ("stageName" .= _parStageName),
                   Just ("actionName" .= _parActionName),
-                  Just ("result" .= _parResult)])
+                  Just ("result" .= _parResult),
+                  Just ("token" .= _parToken)])
 
 instance ToPath PutApprovalResult where
         toPath = const "/"

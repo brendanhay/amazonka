@@ -70,6 +70,9 @@ import Test.AWS.CodePipeline.Internal
 --         , requestRetryStageExecution $
 --             retryStageExecution
 --
+--         , requestGetPipelineExecution $
+--             getPipelineExecution
+--
 --         , requestPutJobSuccessResult $
 --             putJobSuccessResult
 --
@@ -147,6 +150,9 @@ import Test.AWS.CodePipeline.Internal
 --
 --         , responseRetryStageExecution $
 --             retryStageExecutionResponse
+--
+--         , responseGetPipelineExecution $
+--             getPipelineExecutionResponse
 --
 --         , responsePutJobSuccessResult $
 --             putJobSuccessResultResponse
@@ -255,6 +261,11 @@ requestRetryStageExecution :: RetryStageExecution -> TestTree
 requestRetryStageExecution = req
     "RetryStageExecution"
     "fixture/RetryStageExecution.yaml"
+
+requestGetPipelineExecution :: GetPipelineExecution -> TestTree
+requestGetPipelineExecution = req
+    "GetPipelineExecution"
+    "fixture/GetPipelineExecution.yaml"
 
 requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
 requestPutJobSuccessResult = req
@@ -410,6 +421,13 @@ responseRetryStageExecution = res
     "fixture/RetryStageExecutionResponse.proto"
     codePipeline
     (Proxy :: Proxy RetryStageExecution)
+
+responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
+responseGetPipelineExecution = res
+    "GetPipelineExecutionResponse"
+    "fixture/GetPipelineExecutionResponse.proto"
+    codePipeline
+    (Proxy :: Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
 responsePutJobSuccessResult = res

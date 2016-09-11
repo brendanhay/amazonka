@@ -31,6 +31,8 @@ You can work with pipelines by calling:
 
 -   < GetPipeline>, which returns information about a pipeline structure.
 
+-   < GetPipelineExecution>, which returns information about a specific execution of a pipeline.
+
 -   < GetPipelineState>, which returns information about the current state of the stages and actions of a pipeline.
 
 -   < ListPipelines>, which gets a summary of all of the pipelines associated with your account.

@@ -93,24 +93,24 @@ instance FromJSON ActionConfigurationPropertyType where
     parseJSON = parseJSONText "ActionConfigurationPropertyType"
 
 data ActionExecutionStatus
-    = Failed
-    | InProgress
-    | Succeeded
+    = AESFailed
+    | AESInProgress
+    | AESSucceeded
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionExecutionStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "inprogress" -> pure InProgress
-        "succeeded" -> pure Succeeded
+        "failed" -> pure AESFailed
+        "inprogress" -> pure AESInProgress
+        "succeeded" -> pure AESSucceeded
         e -> fromTextError $ "Failure parsing ActionExecutionStatus from value: '" <> e
            <> "'. Accepted values: failed, inprogress, succeeded"
 
 instance ToText ActionExecutionStatus where
     toText = \case
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Succeeded -> "Succeeded"
+        AESFailed -> "Failed"
+        AESInProgress -> "InProgress"
+        AESSucceeded -> "Succeeded"
 
 instance Hashable     ActionExecutionStatus
 instance NFData       ActionExecutionStatus
@@ -358,6 +358,38 @@ instance ToHeader     JobStatus
 
 instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
+
+data PipelineExecutionStatus
+    = Failed
+    | InProgress
+    | Succeeded
+    | Superseded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PipelineExecutionStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "succeeded" -> pure Succeeded
+        "superseded" -> pure Superseded
+        e -> fromTextError $ "Failure parsing PipelineExecutionStatus from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, succeeded, superseded"
+
+instance ToText PipelineExecutionStatus where
+    toText = \case
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Succeeded -> "Succeeded"
+        Superseded -> "Superseded"
+
+instance Hashable     PipelineExecutionStatus
+instance NFData       PipelineExecutionStatus
+instance ToByteString PipelineExecutionStatus
+instance ToQuery      PipelineExecutionStatus
+instance ToHeader     PipelineExecutionStatus
+
+instance FromJSON PipelineExecutionStatus where
+    parseJSON = parseJSONText "PipelineExecutionStatus"
 
 data StageExecutionStatus
     = SESFailed

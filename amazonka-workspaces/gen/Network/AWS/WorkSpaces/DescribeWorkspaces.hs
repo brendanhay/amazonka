@@ -97,11 +97,11 @@ dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
 
 -- | An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter.
 --
--- Because the < CreateWorkspaces> operation is asynchronous, the identifier returned by < CreateWorkspaces> is not immediately available. If you immediately call < DescribeWorkspaces> with this identifier, no information will be returned.
+-- Because the < CreateWorkspaces> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call < DescribeWorkspaces> with this identifier, no information is returned.
 dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
 dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1;
 
--- | Used with the 'DirectoryId' parameter to specify the directory user for which to obtain the WorkSpace.
+-- | Used with the 'DirectoryId' parameter to specify the directory user for whom to obtain the WorkSpace.
 dwUserName :: Lens' DescribeWorkspaces (Maybe Text)
 dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
 
@@ -188,7 +188,7 @@ describeWorkspacesResponse pResponseStatus_ =
     , _dwrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that timeframe.
+-- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwrsNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
 dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a});
 

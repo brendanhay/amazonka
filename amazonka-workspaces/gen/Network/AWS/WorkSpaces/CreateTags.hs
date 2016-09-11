@@ -42,7 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the create tags action.
+-- | The request of the < CreateTags> operation.
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
@@ -108,7 +108,7 @@ instance ToPath CreateTags where
 instance ToQuery CreateTags where
         toQuery = const mempty
 
--- | The result of the create tags action.
+-- | The result of the < CreateTags> operation.
 --
 -- /See:/ 'createTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'

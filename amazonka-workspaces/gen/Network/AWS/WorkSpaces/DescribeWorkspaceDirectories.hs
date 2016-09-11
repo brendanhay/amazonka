@@ -149,7 +149,7 @@ describeWorkspaceDirectoriesResponse pResponseStatus_ =
 dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
 dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that timeframe.
+-- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 

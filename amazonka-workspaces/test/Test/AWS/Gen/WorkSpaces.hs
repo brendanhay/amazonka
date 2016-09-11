@@ -28,7 +28,10 @@ import Test.AWS.WorkSpaces.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeTags $
+--         [ requestModifyWorkspaceProperties $
+--             modifyWorkspaceProperties
+--
+--         , requestDescribeTags $
 --             describeTags
 --
 --         , requestDescribeWorkspaceDirectories $
@@ -46,6 +49,12 @@ import Test.AWS.WorkSpaces.Internal
 --         , requestDeleteTags $
 --             deleteTags
 --
+--         , requestStopWorkspaces $
+--             stopWorkspaces
+--
+--         , requestDescribeWorkspacesConnectionStatus $
+--             describeWorkspacesConnectionStatus
+--
 --         , requestRebootWorkspaces $
 --             rebootWorkspaces
 --
@@ -58,10 +67,16 @@ import Test.AWS.WorkSpaces.Internal
 --         , requestDescribeWorkspaces $
 --             describeWorkspaces
 --
+--         , requestStartWorkspaces $
+--             startWorkspaces
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeTags $
+--         [ responseModifyWorkspaceProperties $
+--             modifyWorkspacePropertiesResponse
+--
+--         , responseDescribeTags $
 --             describeTagsResponse
 --
 --         , responseDescribeWorkspaceDirectories $
@@ -79,6 +94,12 @@ import Test.AWS.WorkSpaces.Internal
 --         , responseDeleteTags $
 --             deleteTagsResponse
 --
+--         , responseStopWorkspaces $
+--             stopWorkspacesResponse
+--
+--         , responseDescribeWorkspacesConnectionStatus $
+--             describeWorkspacesConnectionStatusResponse
+--
 --         , responseRebootWorkspaces $
 --             rebootWorkspacesResponse
 --
@@ -91,10 +112,18 @@ import Test.AWS.WorkSpaces.Internal
 --         , responseDescribeWorkspaces $
 --             describeWorkspacesResponse
 --
+--         , responseStartWorkspaces $
+--             startWorkspacesResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestModifyWorkspaceProperties :: ModifyWorkspaceProperties -> TestTree
+requestModifyWorkspaceProperties = req
+    "ModifyWorkspaceProperties"
+    "fixture/ModifyWorkspaceProperties.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
 requestDescribeTags = req
@@ -126,6 +155,16 @@ requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
+requestStopWorkspaces :: StopWorkspaces -> TestTree
+requestStopWorkspaces = req
+    "StopWorkspaces"
+    "fixture/StopWorkspaces.yaml"
+
+requestDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatus -> TestTree
+requestDescribeWorkspacesConnectionStatus = req
+    "DescribeWorkspacesConnectionStatus"
+    "fixture/DescribeWorkspacesConnectionStatus.yaml"
+
 requestRebootWorkspaces :: RebootWorkspaces -> TestTree
 requestRebootWorkspaces = req
     "RebootWorkspaces"
@@ -146,7 +185,19 @@ requestDescribeWorkspaces = req
     "DescribeWorkspaces"
     "fixture/DescribeWorkspaces.yaml"
 
+requestStartWorkspaces :: StartWorkspaces -> TestTree
+requestStartWorkspaces = req
+    "StartWorkspaces"
+    "fixture/StartWorkspaces.yaml"
+
 -- Responses
+
+responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
+responseModifyWorkspaceProperties = res
+    "ModifyWorkspacePropertiesResponse"
+    "fixture/ModifyWorkspacePropertiesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy ModifyWorkspaceProperties)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags = res
@@ -190,6 +241,20 @@ responseDeleteTags = res
     workSpaces
     (Proxy :: Proxy DeleteTags)
 
+responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
+responseStopWorkspaces = res
+    "StopWorkspacesResponse"
+    "fixture/StopWorkspacesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy StopWorkspaces)
+
+responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
+responseDescribeWorkspacesConnectionStatus = res
+    "DescribeWorkspacesConnectionStatusResponse"
+    "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
+
 responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
 responseRebootWorkspaces = res
     "RebootWorkspacesResponse"
@@ -217,3 +282,10 @@ responseDescribeWorkspaces = res
     "fixture/DescribeWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy DescribeWorkspaces)
+
+responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
+responseStartWorkspaces = res
+    "StartWorkspacesResponse"
+    "fixture/StartWorkspacesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy StartWorkspaces)

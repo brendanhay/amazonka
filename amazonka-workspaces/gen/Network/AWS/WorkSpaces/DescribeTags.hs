@@ -42,7 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the describe tags action.
+-- | The request of the < DescribeTags> operation.
 --
 -- /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
@@ -99,7 +99,7 @@ instance ToPath DescribeTags where
 instance ToQuery DescribeTags where
         toQuery = const mempty
 
--- | The result of the describe tags action.
+-- | The result of the < DescribeTags> operation.
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'

@@ -16,13 +16,23 @@ module Network.AWS.WorkSpaces.Types
       workSpaces
 
     -- * Errors
+    , _AccessDeniedException
     , _ResourceUnavailableException
     , _InvalidParameterValuesException
+    , _OperationInProgressException
     , _ResourceLimitExceededException
+    , _InvalidResourceStateException
+    , _UnsupportedWorkspaceConfigurationException
     , _ResourceNotFoundException
 
     -- * Compute
     , Compute (..)
+
+    -- * ConnectionState
+    , ConnectionState (..)
+
+    -- * RunningMode
+    , RunningMode (..)
 
     -- * WorkspaceDirectoryState
     , WorkspaceDirectoryState (..)
@@ -71,6 +81,16 @@ module Network.AWS.WorkSpaces.Types
     , rebuildRequest
     , rrWorkspaceId
 
+    -- * StartRequest
+    , StartRequest
+    , startRequest
+    , sWorkspaceId
+
+    -- * StopRequest
+    , StopRequest
+    , stopRequest
+    , srWorkspaceId
+
     -- * Tag
     , Tag
     , tag
@@ -96,6 +116,7 @@ module Network.AWS.WorkSpaces.Types
     , wUserName
     , wSubnetId
     , wBundleId
+    , wWorkspaceProperties
     , wRootVolumeEncryptionEnabled
     , wErrorCode
     , wVolumeEncryptionKey
@@ -114,6 +135,14 @@ module Network.AWS.WorkSpaces.Types
     , wbUserStorage
     , wbDescription
 
+    -- * WorkspaceConnectionStatus
+    , WorkspaceConnectionStatus
+    , workspaceConnectionStatus
+    , wcsLastKnownUserConnectionTimestamp
+    , wcsConnectionStateCheckTimestamp
+    , wcsWorkspaceId
+    , wcsConnectionState
+
     -- * WorkspaceDirectory
     , WorkspaceDirectory
     , workspaceDirectory
@@ -130,9 +159,16 @@ module Network.AWS.WorkSpaces.Types
     , wdDNSIPAddresses
     , wdDirectoryName
 
+    -- * WorkspaceProperties
+    , WorkspaceProperties
+    , workspaceProperties
+    , wpRunningMode
+    , wpRunningModeAutoStopTimeoutInMinutes
+
     -- * WorkspaceRequest
     , WorkspaceRequest
     , workspaceRequest
+    , wrWorkspaceProperties
     , wrRootVolumeEncryptionEnabled
     , wrVolumeEncryptionKey
     , wrUserVolumeEncryptionEnabled
@@ -182,6 +218,10 @@ workSpaces =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Prism for AccessDeniedException' errors.
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
+
 -- | The specified resource is not available.
 _ResourceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceUnavailableException =
@@ -192,10 +232,25 @@ _InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a 
 _InvalidParameterValuesException =
     _ServiceError . hasCode "InvalidParameterValuesException"
 
+-- | The properties of this WorkSpace are currently being modified. Try again in a moment.
+_OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationInProgressException =
+    _ServiceError . hasCode "OperationInProgressException"
+
 -- | Your resource limits have been exceeded.
 _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceLimitExceededException =
     _ServiceError . hasCode "ResourceLimitExceededException"
+
+-- | The specified WorkSpace has an invalid state for this operation.
+_InvalidResourceStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidResourceStateException =
+    _ServiceError . hasCode "InvalidResourceStateException"
+
+-- | The WorkSpace does not have the supported configuration for this operation. For more information, see the <http://docs.aws.amazon.com/workspaces/latest/adminguide Amazon WorkSpaces Administration Guide>.
+_UnsupportedWorkspaceConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedWorkspaceConfigurationException =
+    _ServiceError . hasCode "UnsupportedWorkspaceConfigurationException"
 
 -- | The resource could not be found.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -42,7 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the delete tags action.
+-- | The request of the < DeleteTags> operation.
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
@@ -108,7 +108,7 @@ instance ToPath DeleteTags where
 instance ToQuery DeleteTags where
         toQuery = const mempty
 
--- | The result of the delete tags action.
+-- | The result of the < DeleteTags> operation.
 --
 -- /See:/ 'deleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'

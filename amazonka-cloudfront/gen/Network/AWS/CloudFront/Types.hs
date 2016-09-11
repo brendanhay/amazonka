@@ -28,6 +28,7 @@ module Network.AWS.CloudFront.Types
     , _InvalidArgument
     , _TooManyInvalidationsInProgress
     , _InvalidWebACLId
+    , _TooManyQueryStringParameters
     , _TooManyDistributionCNAMEs
     , _NoSuchCloudFrontOriginAccessIdentity
     , _CloudFrontOriginAccessIdentityInUse
@@ -48,6 +49,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyDistributions
     , _TooManyCertificates
     , _DistributionAlreadyExists
+    , _InvalidQueryStringParameters
     , _MissingBody
     , _IllegalUpdate
     , _InvalidIfMatchVersion
@@ -74,6 +76,9 @@ module Network.AWS.CloudFront.Types
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
+
+    -- * HTTPVersion
+    , HTTPVersion (..)
 
     -- * ItemSelection
     , ItemSelection (..)
@@ -245,6 +250,7 @@ module Network.AWS.CloudFront.Types
     -- * DistributionConfig
     , DistributionConfig
     , distributionConfig
+    , dcHTTPVersion
     , dcAliases
     , dcDefaultRootObject
     , dcPriceClass
@@ -295,10 +301,12 @@ module Network.AWS.CloudFront.Types
     , dsViewerCertificate
     , dsRestrictions
     , dsWebACLId
+    , dsHTTPVersion
 
     -- * ForwardedValues
     , ForwardedValues
     , forwardedValues
+    , fvQueryStringCacheKeys
     , fvHeaders
     , fvQueryString
     , fvCookies
@@ -394,6 +402,12 @@ module Network.AWS.CloudFront.Types
     , paths
     , pItems
     , pQuantity
+
+    -- * QueryStringCacheKeys
+    , QueryStringCacheKeys
+    , queryStringCacheKeys
+    , qsckItems
+    , qsckQuantity
 
     -- * Restrictions
     , Restrictions
@@ -519,14 +533,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2016-08-01' of the Amazon CloudFront SDK configuration.
+-- | API version '2016-09-07' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-08-01"
+    , _svcVersion = "2016-09-07"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -609,6 +623,11 @@ _TooManyInvalidationsInProgress =
 -- | Prism for InvalidWebACLId' errors.
 _InvalidWebACLId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidWebACLId = _ServiceError . hasStatus 400 . hasCode "InvalidWebACLId"
+
+-- | Prism for TooManyQueryStringParameters' errors.
+_TooManyQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyQueryStringParameters =
+    _ServiceError . hasStatus 400 . hasCode "TooManyQueryStringParameters"
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
 _TooManyDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
@@ -707,6 +726,11 @@ _TooManyCertificates =
 _DistributionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DistributionAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists"
+
+-- | Prism for InvalidQueryStringParameters' errors.
+_InvalidQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryStringParameters =
+    _ServiceError . hasStatus 400 . hasCode "InvalidQueryStringParameters"
 
 -- | This operation requires a body. Ensure that the body is present and the Content-Type header is set.
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError

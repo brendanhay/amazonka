@@ -56,6 +56,9 @@ module Network.AWS.CloudFront
     -- ** InvalidWebACLId
     , _InvalidWebACLId
 
+    -- ** TooManyQueryStringParameters
+    , _TooManyQueryStringParameters
+
     -- ** TooManyDistributionCNAMEs
     , _TooManyDistributionCNAMEs
 
@@ -115,6 +118,9 @@ module Network.AWS.CloudFront
 
     -- ** DistributionAlreadyExists
     , _DistributionAlreadyExists
+
+    -- ** InvalidQueryStringParameters
+    , _InvalidQueryStringParameters
 
     -- ** MissingBody
     , _MissingBody
@@ -279,6 +285,9 @@ module Network.AWS.CloudFront
 
     -- ** GeoRestrictionType
     , GeoRestrictionType (..)
+
+    -- ** HTTPVersion
+    , HTTPVersion (..)
 
     -- ** ItemSelection
     , ItemSelection (..)
@@ -450,6 +459,7 @@ module Network.AWS.CloudFront
     -- ** DistributionConfig
     , DistributionConfig
     , distributionConfig
+    , dcHTTPVersion
     , dcAliases
     , dcDefaultRootObject
     , dcPriceClass
@@ -500,10 +510,12 @@ module Network.AWS.CloudFront
     , dsViewerCertificate
     , dsRestrictions
     , dsWebACLId
+    , dsHTTPVersion
 
     -- ** ForwardedValues
     , ForwardedValues
     , forwardedValues
+    , fvQueryStringCacheKeys
     , fvHeaders
     , fvQueryString
     , fvCookies
@@ -599,6 +611,12 @@ module Network.AWS.CloudFront
     , paths
     , pItems
     , pQuantity
+
+    -- ** QueryStringCacheKeys
+    , QueryStringCacheKeys
+    , queryStringCacheKeys
+    , qsckItems
+    , qsckQuantity
 
     -- ** Restrictions
     , Restrictions

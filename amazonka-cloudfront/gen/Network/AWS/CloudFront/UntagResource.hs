@@ -85,7 +85,7 @@ instance NFData UntagResource
 instance ToElement UntagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-08-01/}TagKeys"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}TagKeys"
               .
               _urTagKeys
 
@@ -93,7 +93,7 @@ instance ToHeaders UntagResource where
         toHeaders = const mempty
 
 instance ToPath UntagResource where
-        toPath = const "/2016-08-01/tagging"
+        toPath = const "/2016-09-07/tagging"
 
 instance ToQuery UntagResource where
         toQuery UntagResource'{..}

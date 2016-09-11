@@ -1229,7 +1229,8 @@ instance NFData Distribution
 --
 -- /See:/ 'distributionConfig' smart constructor.
 data DistributionConfig = DistributionConfig'
-    { _dcAliases              :: !(Maybe Aliases)
+    { _dcHTTPVersion          :: !(Maybe HTTPVersion)
+    , _dcAliases              :: !(Maybe Aliases)
     , _dcDefaultRootObject    :: !(Maybe Text)
     , _dcPriceClass           :: !(Maybe PriceClass)
     , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
@@ -1248,6 +1249,8 @@ data DistributionConfig = DistributionConfig'
 -- | Creates a value of 'DistributionConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcHTTPVersion'
 --
 -- * 'dcAliases'
 --
@@ -1285,7 +1288,8 @@ distributionConfig
     -> DistributionConfig
 distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
     DistributionConfig'
-    { _dcAliases = Nothing
+    { _dcHTTPVersion = Nothing
+    , _dcAliases = Nothing
     , _dcDefaultRootObject = Nothing
     , _dcPriceClass = Nothing
     , _dcCustomErrorResponses = Nothing
@@ -1300,6 +1304,10 @@ distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ 
     , _dcComment = pComment_
     , _dcEnabled = pEnabled_
     }
+
+-- | (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP\/2 will automatically use an earlier version.
+dcHTTPVersion :: Lens' DistributionConfig (Maybe HTTPVersion)
+dcHTTPVersion = lens _dcHTTPVersion (\ s a -> s{_dcHTTPVersion = a});
 
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 dcAliases :: Lens' DistributionConfig (Maybe Aliases)
@@ -1360,8 +1368,9 @@ dcEnabled = lens _dcEnabled (\ s a -> s{_dcEnabled = a});
 instance FromXML DistributionConfig where
         parseXML x
           = DistributionConfig' <$>
-              (x .@? "Aliases") <*> (x .@? "DefaultRootObject") <*>
-                (x .@? "PriceClass")
+              (x .@? "HttpVersion") <*> (x .@? "Aliases") <*>
+                (x .@? "DefaultRootObject")
+                <*> (x .@? "PriceClass")
                 <*> (x .@? "CustomErrorResponses")
                 <*> (x .@? "WebACLId")
                 <*> (x .@? "ViewerCertificate")
@@ -1381,7 +1390,8 @@ instance NFData DistributionConfig
 instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
           = mconcat
-              ["Aliases" @= _dcAliases,
+              ["HttpVersion" @= _dcHTTPVersion,
+               "Aliases" @= _dcAliases,
                "DefaultRootObject" @= _dcDefaultRootObject,
                "PriceClass" @= _dcPriceClass,
                "CustomErrorResponses" @= _dcCustomErrorResponses,
@@ -1540,6 +1550,7 @@ data DistributionSummary = DistributionSummary'
     , _dsViewerCertificate    :: !ViewerCertificate
     , _dsRestrictions         :: !Restrictions
     , _dsWebACLId             :: !Text
+    , _dsHTTPVersion          :: !HTTPVersion
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DistributionSummary' with the minimum fields required to make a request.
@@ -1577,6 +1588,8 @@ data DistributionSummary = DistributionSummary'
 -- * 'dsRestrictions'
 --
 -- * 'dsWebACLId'
+--
+-- * 'dsHTTPVersion'
 distributionSummary
     :: Text -- ^ 'dsId'
     -> Text -- ^ 'dsARN'
@@ -1594,8 +1607,9 @@ distributionSummary
     -> ViewerCertificate -- ^ 'dsViewerCertificate'
     -> Restrictions -- ^ 'dsRestrictions'
     -> Text -- ^ 'dsWebACLId'
+    -> HTTPVersion -- ^ 'dsHTTPVersion'
     -> DistributionSummary
-distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ =
+distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ pHTTPVersion_ =
     DistributionSummary'
     { _dsId = pId_
     , _dsARN = pARN_
@@ -1613,6 +1627,7 @@ distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases
     , _dsViewerCertificate = pViewerCertificate_
     , _dsRestrictions = pRestrictions_
     , _dsWebACLId = pWebACLId_
+    , _dsHTTPVersion = pHTTPVersion_
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
@@ -1679,6 +1694,10 @@ dsRestrictions = lens _dsRestrictions (\ s a -> s{_dsRestrictions = a});
 dsWebACLId :: Lens' DistributionSummary Text
 dsWebACLId = lens _dsWebACLId (\ s a -> s{_dsWebACLId = a});
 
+-- | Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP\/2 will automatically use an earlier version.
+dsHTTPVersion :: Lens' DistributionSummary HTTPVersion
+dsHTTPVersion = lens _dsHTTPVersion (\ s a -> s{_dsHTTPVersion = a});
+
 instance FromXML DistributionSummary where
         parseXML x
           = DistributionSummary' <$>
@@ -1696,6 +1715,7 @@ instance FromXML DistributionSummary where
                 <*> (x .@ "ViewerCertificate")
                 <*> (x .@ "Restrictions")
                 <*> (x .@ "WebACLId")
+                <*> (x .@ "HttpVersion")
 
 instance Hashable DistributionSummary
 
@@ -1705,14 +1725,17 @@ instance NFData DistributionSummary
 --
 -- /See:/ 'forwardedValues' smart constructor.
 data ForwardedValues = ForwardedValues'
-    { _fvHeaders     :: !(Maybe Headers)
-    , _fvQueryString :: !Bool
-    , _fvCookies     :: !CookiePreference
+    { _fvQueryStringCacheKeys :: !(Maybe QueryStringCacheKeys)
+    , _fvHeaders              :: !(Maybe Headers)
+    , _fvQueryString          :: !Bool
+    , _fvCookies              :: !CookiePreference
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ForwardedValues' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fvQueryStringCacheKeys'
 --
 -- * 'fvHeaders'
 --
@@ -1725,16 +1748,25 @@ forwardedValues
     -> ForwardedValues
 forwardedValues pQueryString_ pCookies_ =
     ForwardedValues'
-    { _fvHeaders = Nothing
+    { _fvQueryStringCacheKeys = Nothing
+    , _fvHeaders = Nothing
     , _fvQueryString = pQueryString_
     , _fvCookies = pCookies_
     }
+
+-- | A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
+fvQueryStringCacheKeys :: Lens' ForwardedValues (Maybe QueryStringCacheKeys)
+fvQueryStringCacheKeys = lens _fvQueryStringCacheKeys (\ s a -> s{_fvQueryStringCacheKeys = a});
 
 -- | A complex type that specifies the Headers, if any, that you want CloudFront to vary upon for this cache behavior.
 fvHeaders :: Lens' ForwardedValues (Maybe Headers)
 fvHeaders = lens _fvHeaders (\ s a -> s{_fvHeaders = a});
 
--- | Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior. If so, specify true; if not, specify false.
+-- | Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of QueryString and on the values that you specify for QueryStringCacheKeys, if any:
+--
+-- -   If you specify true for QueryString and you don\'t specify any values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+-- -   If you specify true for QueryString and you specify one or more values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
+-- -   If you specify false for QueryString, CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
 fvQueryString :: Lens' ForwardedValues Bool
 fvQueryString = lens _fvQueryString (\ s a -> s{_fvQueryString = a});
 
@@ -1745,8 +1777,9 @@ fvCookies = lens _fvCookies (\ s a -> s{_fvCookies = a});
 instance FromXML ForwardedValues where
         parseXML x
           = ForwardedValues' <$>
-              (x .@? "Headers") <*> (x .@ "QueryString") <*>
-                (x .@ "Cookies")
+              (x .@? "QueryStringCacheKeys") <*> (x .@? "Headers")
+                <*> (x .@ "QueryString")
+                <*> (x .@ "Cookies")
 
 instance Hashable ForwardedValues
 
@@ -1755,7 +1788,8 @@ instance NFData ForwardedValues
 instance ToXML ForwardedValues where
         toXML ForwardedValues'{..}
           = mconcat
-              ["Headers" @= _fvHeaders,
+              ["QueryStringCacheKeys" @= _fvQueryStringCacheKeys,
+               "Headers" @= _fvHeaders,
                "QueryString" @= _fvQueryString,
                "Cookies" @= _fvCookies]
 
@@ -2507,6 +2541,53 @@ instance ToXML Paths where
           = mconcat
               ["Items" @= toXML (toXMLList "Path" <$> _pItems),
                "Quantity" @= _pQuantity]
+
+-- | /See:/ 'queryStringCacheKeys' smart constructor.
+data QueryStringCacheKeys = QueryStringCacheKeys'
+    { _qsckItems    :: !(Maybe [Text])
+    , _qsckQuantity :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'QueryStringCacheKeys' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qsckItems'
+--
+-- * 'qsckQuantity'
+queryStringCacheKeys
+    :: Int -- ^ 'qsckQuantity'
+    -> QueryStringCacheKeys
+queryStringCacheKeys pQuantity_ =
+    QueryStringCacheKeys'
+    { _qsckItems = Nothing
+    , _qsckQuantity = pQuantity_
+    }
+
+-- | Optional: A list that contains the query string parameters that you want CloudFront to use as a basis for caching for this cache behavior. If Quantity is 0, you can omit Items.
+qsckItems :: Lens' QueryStringCacheKeys [Text]
+qsckItems = lens _qsckItems (\ s a -> s{_qsckItems = a}) . _Default . _Coerce;
+
+-- | The number of whitelisted query string parameters for this cache behavior.
+qsckQuantity :: Lens' QueryStringCacheKeys Int
+qsckQuantity = lens _qsckQuantity (\ s a -> s{_qsckQuantity = a});
+
+instance FromXML QueryStringCacheKeys where
+        parseXML x
+          = QueryStringCacheKeys' <$>
+              (x .@? "Items" .!@ mempty >>=
+                 may (parseXMLList "Name"))
+                <*> (x .@ "Quantity")
+
+instance Hashable QueryStringCacheKeys
+
+instance NFData QueryStringCacheKeys
+
+instance ToXML QueryStringCacheKeys where
+        toXML QueryStringCacheKeys'{..}
+          = mconcat
+              ["Items" @= toXML (toXMLList "Name" <$> _qsckItems),
+               "Quantity" @= _qsckQuantity]
 
 -- | A complex type that identifies ways in which you want to restrict distribution of your content.
 --

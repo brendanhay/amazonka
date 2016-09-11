@@ -89,7 +89,7 @@ instance ToElement
          CreateStreamingDistributionWithTags where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-08-01/}StreamingDistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}StreamingDistributionConfigWithTags"
               .
               _csdwtStreamingDistributionConfigWithTags
 
@@ -99,7 +99,7 @@ instance ToHeaders
 
 instance ToPath CreateStreamingDistributionWithTags
          where
-        toPath = const "/2016-08-01/streaming-distribution"
+        toPath = const "/2016-09-07/streaming-distribution"
 
 instance ToQuery CreateStreamingDistributionWithTags
          where

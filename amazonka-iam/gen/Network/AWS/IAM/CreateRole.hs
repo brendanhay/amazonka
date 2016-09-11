@@ -81,7 +81,7 @@ crPath = lens _crPath (\ s a -> s{_crPath = a});
 
 -- | The name of the role to create.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. Role names are not distinguished by case. For example, you cannot create roles named both \"PRODROLE\" and \"prodrole\".
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 

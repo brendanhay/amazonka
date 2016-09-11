@@ -77,7 +77,7 @@ cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 
 -- | The name of the group to create. Do not include the path in this value.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both \"ADMINS\" and \"admins\".
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 

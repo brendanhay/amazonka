@@ -77,7 +77,7 @@ cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 
 -- | The name of the user to create.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 

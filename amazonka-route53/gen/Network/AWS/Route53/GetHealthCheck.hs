@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the health check, send a 'GET' request to the '\/Route 53 API version\/healthcheck\/health check ID' resource.
+-- Gets information about a specified health check. Send a 'GET' request to the '\/2013-04-01\/healthcheck\/health check ID ' resource. For more information about using the console to perform this operation, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the Amazon Route 53 Developer Guide.
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request
@@ -42,7 +42,11 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to get a health check.
+-- | This action gets information about a specified health check.
+--
+-- Send a 'GET' request to the '\/Amazon Route 53 API version\/gethealthcheckrequest' resource.
+--
+-- For information about getting information about a health check using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the /Amazon Route 53 Developer Guide/.
 --
 -- /See:/ 'getHealthCheck' smart constructor.
 newtype GetHealthCheck = GetHealthCheck'
@@ -62,7 +66,7 @@ getHealthCheck pHealthCheckId_ =
     { _ghcHealthCheckId = pHealthCheckId_
     }
 
--- | The ID of the health check to retrieve.
+-- | The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
 ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a});
 
@@ -90,7 +94,7 @@ instance ToPath GetHealthCheck where
 instance ToQuery GetHealthCheck where
         toQuery = const mempty
 
--- | A complex type containing information about the specified health check.
+-- | A complex type that contains the response to a 'GetHealthCheck' request.
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
@@ -119,7 +123,7 @@ getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
 ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
 ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified health check.
+-- | A complex type that contains information about one health check that is associated with the current AWS account.
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});
 

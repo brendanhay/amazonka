@@ -18,15 +18,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the latest version for every traffic policy that is associated with the current AWS account. To get the information, send a 'GET' request to the '\/Route 53 API version\/trafficpolicy' resource.
+-- Gets information about the latest version for every traffic policy that is associated with the current AWS account. Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policies, you can use the 'maxitems' parameter to list them in groups of up to 100.
 --
 -- The response includes three values that help you navigate from one group of 'maxitems' traffic policies to the next:
 --
 -- -   __IsTruncated__
+--
+--     If the value of 'IsTruncated' in the response is 'true', there are more traffic policies associated with the current AWS account.
+--
+--     If 'IsTruncated' is 'false', this response includes the last traffic policy that is associated with the current account.
+--
 -- -   __TrafficPolicyIdMarker__
+--
+--     If 'IsTruncated' is 'true', 'TrafficPolicyIdMarker' is the ID of the first traffic policy in the next group of 'MaxItems' traffic policies. If you want to list more traffic policies, make another call to 'ListTrafficPolicies', and specify the value of the 'TrafficPolicyIdMarker' element from the response in the 'TrafficPolicyIdMarker' request parameter.
+--
+--     If 'IsTruncated' is 'false', the 'TrafficPolicyIdMarker' element is omitted from the response.
+--
 -- -   __MaxItems__
+--
+--     The value that you specified for the 'MaxItems' parameter in the request that produced the current response.
+--
 module Network.AWS.Route53.ListTrafficPolicies
     (
     -- * Creating a Request
@@ -77,7 +90,7 @@ listTrafficPolicies =
     , _ltpMaxItems = Nothing
     }
 
--- | For your first request to 'ListTrafficPolicies', do not include the 'TrafficPolicyIdMarker' parameter.
+-- | (Conditional) For your first request to 'ListTrafficPolicies', do not include the 'TrafficPolicyIdMarker' parameter.
 --
 -- If you have more traffic policies than the value of 'MaxItems', 'ListTrafficPolicies' returns only the first 'MaxItems' traffic policies. To get the next group of 'MaxItems' policies, submit another request to 'ListTrafficPolicies'. For the value of 'TrafficPolicyIdMarker', specify the value of the 'TrafficPolicyIdMarker' element that was returned in the previous response.
 --
@@ -85,7 +98,7 @@ listTrafficPolicies =
 ltpTrafficPolicyIdMarker :: Lens' ListTrafficPolicies (Maybe Text)
 ltpTrafficPolicyIdMarker = lens _ltpTrafficPolicyIdMarker (\ s a -> s{_ltpTrafficPolicyIdMarker = a});
 
--- | The maximum number of traffic policies to be included in the response body for this request. If you have more than 'MaxItems' traffic policies, the value of the 'IsTruncated' element in the response is 'true', and the value of the 'TrafficPolicyIdMarker' element is the ID of the first traffic policy in the next group of 'MaxItems' traffic policies.
+-- | (Optional) The maximum number of traffic policies to be included in the response body for this request. If you have more than 'MaxItems' traffic policies, the value of the 'IsTruncated' element in the response is 'true', and the value of the 'TrafficPolicyIdMarker' element is the ID of the first traffic policy in the next group of 'MaxItems' traffic policies.
 ltpMaxItems :: Lens' ListTrafficPolicies (Maybe Text)
 ltpMaxItems = lens _ltpMaxItems (\ s a -> s{_ltpMaxItems = a});
 

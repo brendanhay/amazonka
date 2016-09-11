@@ -260,6 +260,9 @@ module Network.AWS.Route53
     -- ** CreateTrafficPolicyVersion
     , module Network.AWS.Route53.CreateTrafficPolicyVersion
 
+    -- ** TestDNSAnswer
+    , module Network.AWS.Route53.TestDNSAnswer
+
     -- ** ListHealthChecks (Paginated)
     , module Network.AWS.Route53.ListHealthChecks
 
@@ -575,6 +578,7 @@ import           Network.AWS.Route53.ListTrafficPolicyInstances
 import           Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
 import           Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
 import           Network.AWS.Route53.ListTrafficPolicyVersions
+import           Network.AWS.Route53.TestDNSAnswer
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.UpdateHealthCheck
 import           Network.AWS.Route53.UpdateHostedZoneComment

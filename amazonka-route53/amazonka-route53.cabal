@@ -82,6 +82,7 @@ library
         , Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
         , Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
         , Network.AWS.Route53.ListTrafficPolicyVersions
+        , Network.AWS.Route53.TestDNSAnswer
         , Network.AWS.Route53.Types
         , Network.AWS.Route53.UpdateHealthCheck
         , Network.AWS.Route53.UpdateHostedZoneComment

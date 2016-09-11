@@ -20,7 +20,7 @@
 --
 -- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
--- To create a traffic policy, send a 'POST' request to the '\/Route 53 API version\/trafficpolicy' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response includes the 'CreateTrafficPolicyResponse' element, which contains information about the new traffic policy.
+-- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response includes the 'CreateTrafficPolicyResponse' element, which contains information about the new traffic policy.
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request
@@ -76,7 +76,7 @@ createTrafficPolicy pName_ pDocument_ =
     , _ctpDocument = pDocument_
     }
 
--- | Any comments that you want to include about the traffic policy.
+-- | (Optional) Any comments that you want to include about the traffic policy.
 ctpComment :: Lens' CreateTrafficPolicy (Maybe Text)
 ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 
@@ -84,7 +84,7 @@ ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 ctpName :: Lens' CreateTrafficPolicy Text
 ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
 
--- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
+-- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
 ctpDocument :: Lens' CreateTrafficPolicy Text
 ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
 

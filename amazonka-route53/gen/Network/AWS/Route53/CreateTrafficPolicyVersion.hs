@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version.
+-- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you\'ll need to start a new traffic policy.
 --
--- You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
---
--- To create a new version, send a 'POST' request to the '\/Route 53 API version\/trafficpolicy\/' resource. The request body includes a document with a 'CreateTrafficPolicyVersionRequest' element. The response returns the 'CreateTrafficPolicyVersionResponse' element, which contains information about the new version of the traffic policy.
+-- Send a 'POST' request to the '\/Amazon Route 53 version\/trafficpolicy\/' resource. The request body includes a document with a 'CreateTrafficPolicyVersionRequest' element. The response returns the 'CreateTrafficPolicyVersionResponse' element, which contains information about the new version of the traffic policy.
 module Network.AWS.Route53.CreateTrafficPolicyVersion
     (
     -- * Creating a Request
@@ -78,7 +76,7 @@ createTrafficPolicyVersion pId_ pDocument_ =
     , _ctpvDocument = pDocument_
     }
 
--- | Any comments that you want to include about the new traffic policy version.
+-- | The comment that you specified in the 'CreateTrafficPolicyVersion' request, if any.
 ctpvComment :: Lens' CreateTrafficPolicyVersion (Maybe Text)
 ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
 
@@ -86,7 +84,7 @@ ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
 ctpvId :: Lens' CreateTrafficPolicyVersion Text
 ctpvId = lens _ctpvId (\ s a -> s{_ctpvId = a});
 
--- | The definition of a new traffic policy version, in JSON format. You must specify the full definition of the new traffic policy. You cannot specify just the differences between the new version and a previous version. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
+-- | The definition of this version of the traffic policy, in JSON format. You specified the JSON in the 'CreateTrafficPolicyVersion' request. For more information about the JSON format, see < CreateTrafficPolicy>.
 ctpvDocument :: Lens' CreateTrafficPolicyVersion Text
 ctpvDocument = lens _ctpvDocument (\ s a -> s{_ctpvDocument = a});
 

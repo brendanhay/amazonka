@@ -22,15 +22,28 @@
 --
 -- After you submit an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
 --
--- To get information about the traffic policy instances that you created in a specified hosted zone, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource and include the ID of the hosted zone.
+-- Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance' resource and include the ID of the hosted zone.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the 'MaxItems' parameter to list them in groups of up to 100.
 --
 -- The response includes four values that help you navigate from one group of 'MaxItems' traffic policy instances to the next:
 --
 -- -   __IsTruncated__
+--
+--     If the value of ''IsTruncated in the response is 'true', there are more traffic policy instances associated with the current AWS account.
+--
+--     If 'IsTruncated' is 'false', this response includes the last traffic policy instance that is associated with the current account.
+--
 -- -   __MaxItems__
+--
+--     The value that you specified for the 'MaxItems' parameter in the request that produced the current response.
+--
 -- -   __TrafficPolicyInstanceNameMarker__ and __TrafficPolicyInstanceTypeMarker__
+--
+--     If 'IsTruncated' is 'true', these two values in the response represent the first traffic policy instance in the next group of 'MaxItems' traffic policy instances. To list more traffic policy instances, make another call to 'ListTrafficPolicyInstancesByHostedZone', and specify these values in the corresponding request parameters.
+--
+--     If 'IsTruncated' is 'false', all three elements are omitted from the response.
+--
 module Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
     (
     -- * Creating a Request
@@ -223,8 +236,6 @@ ltpibhzrsTrafficPolicyInstances :: Lens' ListTrafficPolicyInstancesByHostedZoneR
 ltpibhzrsTrafficPolicyInstances = lens _ltpibhzrsTrafficPolicyInstances (\ s a -> s{_ltpibhzrsTrafficPolicyInstances = a}) . _Coerce;
 
 -- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of 'MaxItems' traffic policy instances by calling 'ListTrafficPolicyInstancesByHostedZone' again and specifying the values of the 'HostedZoneIdMarker', 'TrafficPolicyInstanceNameMarker', and 'TrafficPolicyInstanceTypeMarker' elements in the corresponding request parameters.
---
--- Valid Values: 'true' | 'false'
 ltpibhzrsIsTruncated :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse Bool
 ltpibhzrsIsTruncated = lens _ltpibhzrsIsTruncated (\ s a -> s{_ltpibhzrsIsTruncated = a});
 

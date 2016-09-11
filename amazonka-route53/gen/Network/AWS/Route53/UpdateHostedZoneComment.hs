@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To update the hosted zone comment, send a 'POST' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The request body must include a document with a 'UpdateHostedZoneCommentRequest' element. The response to this request includes the modified 'HostedZone' element.
---
--- The comment can have a maximum length of 256 characters.
+-- Updates the hosted zone comment. Send a 'POST' request to the '\/2013-04-01\/hostedzone\/hosted zone ID ' resource.
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to update a hosted zone comment.
+-- | A complex type that contains the hosted zone request information.
 --
 -- /See:/ 'updateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
@@ -69,11 +67,11 @@ updateHostedZoneComment pId_ =
     , _uhzcId = pId_
     }
 
--- | A comment about your hosted zone.
+-- | The new comment for the hosted zone. If you don\'t specify a value for 'Comment', Amazon Route 53 deletes the existing value of the 'Comment' element, if any.
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
 uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 
--- | The ID of the hosted zone you want to update.
+-- | The ID for the hosted zone for which you want to update the comment.
 uhzcId :: Lens' UpdateHostedZoneComment Text
 uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
@@ -110,7 +108,7 @@ instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
           = mconcat ["Comment" @= _uhzcComment]
 
--- | A complex type containing information about the specified hosted zone after the update.
+-- | A complex type that contains the response to the UpdateHostedZoneCommentRequest.
 --
 -- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'

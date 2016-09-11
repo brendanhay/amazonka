@@ -18,24 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the resource record sets in a specified hosted zone. Send a GET request to the '2013-04-01\/hostedzone\/hosted zone ID\/rrset' resource.
---
--- 'ListResourceRecordSets' returns up to 100 resource record sets at a time in ASCII order, beginning at a position specified by the name and type elements. The action sorts results first by DNS name with the labels reversed, for example:
---
--- 'com.example.www.'
---
--- Note the trailing dot, which can change the sort order in some circumstances. When multiple records have the same DNS name, the action sorts results by the record type.
---
--- You can use the name and type elements to adjust the beginning position of the list of resource record sets returned:
---
--- -   __If you do not specify 'Name' or 'Type'__: The results begin with the first resource record set that the hosted zone contains.
--- -   __If you specify 'Name' but not 'Type'__: The results begin with the first resource record set in the list whose name is greater than or equal to Name.
--- -   __If you specify 'Type' but not 'Name'__: Amazon Route 53 returns the 'InvalidInput' error.
--- -   __If you specify both 'Name' and 'Type'__: The results begin with the first resource record set in the list whose name is greater than or equal to 'Name', and whose type is greater than or equal to 'Type'.
---
--- This action returns the most current version of the records. This includes records that are 'PENDING', and that are not yet available on all Amazon Route 53 DNS servers.
---
--- To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a 'ChangeResourceRecordSets' request while you are paging through the results of a 'ListResourceRecordSets' request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes.
+-- Undocumented operation.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
@@ -111,15 +94,21 @@ listResourceRecordSets pHostedZoneId_ =
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
--- | The DNS type at which to begin the listing of resource record sets.
+-- | The type of resource record set to begin the record listing from.
 --
--- Valid values: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NS' | 'PTR' | 'SOA' | 'SPF' | 'SRV' | 'TXT'
+-- Valid values for basic resource record sets: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NAPTR' | 'NS' | 'PTR' | 'SOA' | 'SPF' | 'SRV' | 'TXT'
 --
--- Values for Weighted Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
+-- Values for weighted, latency, geo, and failover resource record sets: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NAPTR' | 'PTR' | 'SPF' | 'SRV' | 'TXT'
 --
--- Values for Regional Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
+-- Values for alias resource record sets:
 --
--- Values for Alias Resource Record Sets: 'A' | 'AAAA'
+-- -   __CloudFront distribution__: A
+--
+-- -   __Elastic Beanstalk environment that has a regionalized subdomain__: A
+--
+-- -   __ELB load balancer__: A | AAAA
+--
+-- -   __Amazon S3 bucket__: A
 --
 -- Constraint: Specifying 'type' without specifying 'name' returns an 'InvalidInput' error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
@@ -129,7 +118,7 @@ lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
 
--- | The maximum number of records you want in the response body.
+-- | (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than 'maxitems' resource record sets, the value of the 'IsTruncated' element in the response is 'true', and the values of the 'NextRecordName' and 'NextRecordType' elements in the response identify the first resource record set in the next group of 'maxitems' resource record sets.
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 
@@ -190,7 +179,7 @@ instance ToQuery ListResourceRecordSets where
                "identifier" =: _lrrsStartRecordIdentifier,
                "maxitems" =: _lrrsMaxItems]
 
--- | A complex type that contains information about the resource record sets that are returned by the request and information about the response.
+-- | A complex type that contains list information for the resource record set.
 --
 -- /See:/ 'listResourceRecordSetsResponse' smart constructor.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
@@ -236,15 +225,19 @@ listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lrrsrsMaxItems = pMaxItems_
     }
 
--- | If the results were truncated, the type of the next record in the list. This element is present only if 'IsTruncated' is true.
+-- | If the results were truncated, the type of the next record in the list.
+--
+-- This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrsNextRecordType = lens _lrrsrsNextRecordType (\ s a -> s{_lrrsrsNextRecordType = a});
 
--- | If the results were truncated, the name of the next record in the list. This element is present only if 'IsTruncated' is true.
+-- | If the results were truncated, the name of the next record in the list.
+--
+-- This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordName = a});
 
--- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, the value of 'SetIdentifier' for the next resource record set that has the current DNS name and type.
+-- | /Weighted, latency, geolocation, and failover resource record sets only/: If results were truncated for a given DNS name and type, the value of 'SetIdentifier' for the next resource record set that has the current DNS name and type.
 lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsrsNextRecordIdentifier = a});
 
@@ -252,17 +245,15 @@ lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsr
 lrrsrsResponseStatus :: Lens' ListResourceRecordSetsResponse Int
 lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
 
--- | A complex type that contains information about the resource record sets that are returned by the request.
+-- | Information about multiple resource record sets.
 lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
 lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsResourceRecordSets = a}) . _Coerce;
 
--- | A flag that indicates whether there are more resource record sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the 'NextRecordName' element.
---
--- Valid Values: 'true' | 'false'
+-- | A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the 'NextRecordName' element.
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrsIsTruncated = lens _lrrsrsIsTruncated (\ s a -> s{_lrrsrsIsTruncated = a});
 
--- | The maximum number of records you requested. The maximum value of 'MaxItems' is 100.
+-- | The maximum number of records you requested.
 lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrsMaxItems = lens _lrrsrsMaxItems (\ s a -> s{_lrrsrsMaxItems = a});
 

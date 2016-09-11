@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a single geo location, send a 'GET' request to the '\/Route 53 API version\/geolocation' resource with one of these options: continentcode | countrycode | countrycode and subdivisioncode.
+-- Retrieves a single geo location. Send a 'GET' request to the '\/2013-04-01\/geolocation' resource with one of these options: continentcode | countrycode | countrycode and subdivisioncode.
 module Network.AWS.Route53.GetGeoLocation
     (
     -- * Creating a Request
@@ -71,23 +71,30 @@ getGeoLocation =
     , _gglContinentCode = Nothing
     }
 
--- | The code for a country\'s subdivision (e.g., a province of Canada). A subdivision code is only valid with the appropriate country code.
---
--- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
+-- | Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>. Amazon Route 53 doesn\'t support subdivision codes for all countries. If you specify 'SubdivisionCode', you must also specify 'CountryCode'.
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
--- | The code for a country geo location. The default location uses \'*\' for the country code and will match all locations that are not matched by a geo location.
---
--- The default geo location uses a '*' for the country code. All other country codes follow the ISO 3166 two-character code.
+-- | Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
 gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 
--- | The code for a continent geo location. Note: only continent locations have a continent code.
+-- | Amazon Route 53 supports the following contintent codes:
 --
--- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
+-- -   __AF__: Africa
 --
--- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
+-- -   __AN__: Antarctica
+--
+-- -   __AS__: Asia
+--
+-- -   __EU__: Europe
+--
+-- -   __OC__: Oceania
+--
+-- -   __NA__: North America
+--
+-- -   __SA__: South America
+--
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
@@ -117,7 +124,7 @@ instance ToQuery GetGeoLocation where
                "countrycode" =: _gglCountryCode,
                "continentcode" =: _gglContinentCode]
 
--- | A complex type containing information about the specified geo location.
+-- | A complex type that contains the response information for the specified geolocation code.
 --
 -- /See:/ 'getGeoLocationResponse' smart constructor.
 data GetGeoLocationResponse = GetGeoLocationResponse'
@@ -146,7 +153,7 @@ getGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
 gglrsResponseStatus :: Lens' GetGeoLocationResponse Int
 gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified geo location.
+-- | A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.
 gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});
 

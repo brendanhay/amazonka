@@ -20,9 +20,11 @@
 --
 -- Gets information about a specified traffic policy instance.
 --
--- To get information about the traffic policy instance, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource.
+-- Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance' resource.
 --
 -- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
+--
+-- In the Amazon Route 53 console, traffic policy instances are known as policy records.
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ import           Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specified traffic policy instance.
 --
--- To get information about a traffic policy instance, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance\/Id' resource.
+-- To get information about a traffic policy instance, send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance\/Id ' resource.
 --
 -- /See:/ 'getTrafficPolicyInstance' smart constructor.
 newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'

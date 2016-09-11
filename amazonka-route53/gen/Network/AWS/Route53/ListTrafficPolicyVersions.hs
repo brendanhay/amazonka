@@ -18,15 +18,30 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about all of the versions for a specified traffic policy. 'ListTrafficPolicyVersions' lists only versions that have not been deleted.
+-- Gets information about all of the versions for a specified traffic policy.
+--
+-- Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource and specify the ID of the traffic policy for which you want to list versions.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policies, you can use the 'maxitems' parameter to list them in groups of up to 100.
 --
 -- The response includes three values that help you navigate from one group of 'maxitems'maxitems traffic policies to the next:
 --
 -- -   __IsTruncated__
+--
+--     If the value of 'IsTruncated' in the response is 'true', there are more traffic policy versions associated with the specified traffic policy.
+--
+--     If 'IsTruncated' is 'false', this response includes the last traffic policy version that is associated with the specified traffic policy.
+--
 -- -   __TrafficPolicyVersionMarker__
+--
+--     The ID of the next traffic policy version that is associated with the current AWS account. If you want to list more traffic policies, make another call to 'ListTrafficPolicyVersions', and specify the value of the 'TrafficPolicyVersionMarker' element in the 'TrafficPolicyVersionMarker' request parameter.
+--
+--     If 'IsTruncated' is 'false', Amazon Route 53 omits the 'TrafficPolicyVersionMarker' element from the response.
+--
 -- -   __MaxItems__
+--
+--     The value that you specified for the 'MaxItems' parameter in the request that produced the current response.
+--
 module Network.AWS.Route53.ListTrafficPolicyVersions
     (
     -- * Creating a Request
@@ -181,9 +196,7 @@ ltpvrsResponseStatus = lens _ltpvrsResponseStatus (\ s a -> s{_ltpvrsResponseSta
 ltpvrsTrafficPolicies :: Lens' ListTrafficPolicyVersionsResponse [TrafficPolicy]
 ltpvrsTrafficPolicies = lens _ltpvrsTrafficPolicies (\ s a -> s{_ltpvrsTrafficPolicies = a}) . _Coerce;
 
--- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of 'maxitems' traffic policies by calling 'ListTrafficPolicyVersions' again and specifying the value of the 'NextMarker' element in the marker parameter.
---
--- Valid Values: 'true' | 'false'
+-- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of 'maxitems' traffic policies by calling 'ListTrafficPolicyVersions' again and specifying the value of the 'NextMarker' element in the 'marker' parameter.
 ltpvrsIsTruncated :: Lens' ListTrafficPolicyVersionsResponse Bool
 ltpvrsIsTruncated = lens _ltpvrsIsTruncated (\ s a -> s{_ltpvrsIsTruncated = a});
 

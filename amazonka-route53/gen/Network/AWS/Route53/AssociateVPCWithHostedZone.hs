@@ -18,9 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action associates a VPC with an hosted zone.
+-- Associates an Amazon VPC with a private hosted zone.
 --
--- To associate a VPC with an hosted zone, send a 'POST' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID\/associatevpc' resource. The request body must include a document with a 'AssociateVPCWithHostedZoneRequest' element. The response returns the 'AssociateVPCWithHostedZoneResponse' element that contains 'ChangeInfo' for you to track the progress of the 'AssociateVPCWithHostedZoneRequest' you made. See 'GetChange' operation for how to track the progress of your change.
+-- The VPC and the hosted zone must already exist, and you must have created a private hosted zone. You cannot convert a public hosted zone into a private hosted zone.
+--
+-- Send a 'POST' request to the '\/Amazon Route 53 API version\/hostedzone\/hosted zone ID\/associatevpc' resource. The request body must include an XML document with a 'AssociateVPCWithHostedZoneRequest' element. The response returns the 'AssociateVPCWithHostedZoneResponse' element.
+--
+-- If you used different accounts to create the hosted zone and to create the Amazon VPCs that you want to associate with the hosted zone, we need to update account permissions for you. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html Associating Amazon VPCs and Private Hosted Zones That You Create with Different AWS Accounts> in the Amazon Route 53 Developer Guide.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request
@@ -46,7 +50,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to associate a VPC with an hosted zone.
+-- | A complex type that contains information about the VPC and the hosted zone that you want to associate.
 --
 -- /See:/ 'associateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
@@ -75,7 +79,7 @@ associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
     , _avwhzVPC = pVPC_
     }
 
--- | /Optional:/ Any comments you want to include about a 'AssociateVPCWithHostedZoneRequest'.
+-- | /Optional:/ A comment about the association request.
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
@@ -85,7 +89,7 @@ avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
 avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
 
--- | The VPC that you want your hosted zone to be associated with.
+-- | A complex type containing information about the Amazon VPC that you\'re associating with the specified hosted zone.
 avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
@@ -125,7 +129,7 @@ instance ToXML AssociateVPCWithHostedZone where
           = mconcat
               ["Comment" @= _avwhzComment, "VPC" @= _avwhzVPC]
 
--- | A complex type containing the response information for the request.
+-- | A complex type that contains the response information for the hosted zone.
 --
 -- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
@@ -154,7 +158,7 @@ associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
 avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
 avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponseStatus = a});
 
--- | A complex type that contains the ID, the status, and the date and time of your 'AssociateVPCWithHostedZoneRequest'.
+-- | A complex type that describes the changes made to your hosted zone.
 avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a});
 

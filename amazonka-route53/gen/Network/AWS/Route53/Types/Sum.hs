@@ -78,6 +78,7 @@ instance FromXML ChangeStatus where
 data CloudWatchRegion
     = CWRApNortheast1
     | CWRApNortheast2
+    | CWRApSouth1
     | CWRApSoutheast1
     | CWRApSoutheast2
     | CWREuCentral1
@@ -92,6 +93,7 @@ instance FromText CloudWatchRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure CWRApNortheast1
         "ap-northeast-2" -> pure CWRApNortheast2
+        "ap-south-1" -> pure CWRApSouth1
         "ap-southeast-1" -> pure CWRApSoutheast1
         "ap-southeast-2" -> pure CWRApSoutheast2
         "eu-central-1" -> pure CWREuCentral1
@@ -101,12 +103,13 @@ instance FromText CloudWatchRegion where
         "us-west-1" -> pure CWRUsWest1
         "us-west-2" -> pure CWRUsWest2
         e -> fromTextError $ "Failure parsing CloudWatchRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText CloudWatchRegion where
     toText = \case
         CWRApNortheast1 -> "ap-northeast-1"
         CWRApNortheast2 -> "ap-northeast-2"
+        CWRApSouth1 -> "ap-south-1"
         CWRApSoutheast1 -> "ap-southeast-1"
         CWRApSoutheast2 -> "ap-southeast-2"
         CWREuCentral1 -> "eu-central-1"
@@ -319,6 +322,7 @@ data RecordType
     | Cname
     | MX
     | NS
+    | Naptr
     | Ptr
     | Soa
     | Spf
@@ -333,13 +337,14 @@ instance FromText RecordType where
         "cname" -> pure Cname
         "mx" -> pure MX
         "ns" -> pure NS
+        "naptr" -> pure Naptr
         "ptr" -> pure Ptr
         "soa" -> pure Soa
         "spf" -> pure Spf
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: a, aaaa, cname, mx, ns, ptr, soa, spf, srv, txt"
+           <> "'. Accepted values: a, aaaa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
@@ -348,6 +353,7 @@ instance ToText RecordType where
         Cname -> "CNAME"
         MX -> "MX"
         NS -> "NS"
+        Naptr -> "NAPTR"
         Ptr -> "PTR"
         Soa -> "SOA"
         Spf -> "SPF"

@@ -20,7 +20,7 @@
 --
 -- Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version. In addition, 'CreateTrafficPolicyInstance' associates the resource record sets with a specified domain name (such as example.com) or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets that 'CreateTrafficPolicyInstance' created.
 --
--- To create a traffic policy instance, send a 'POST' request to the '\/Route 53 API version\/trafficpolicyinstance' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response returns the 'CreateTrafficPolicyInstanceResponse' element, which contains information about the traffic policy instance.
+-- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response returns the 'CreateTrafficPolicyInstanceResponse' element, which contains information about the traffic policy instance.
 module Network.AWS.Route53.CreateTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -97,7 +97,7 @@ ctpiHostedZoneId = lens _ctpiHostedZoneId (\ s a -> s{_ctpiHostedZoneId = a});
 ctpiName :: Lens' CreateTrafficPolicyInstance Text
 ctpiName = lens _ctpiName (\ s a -> s{_ctpiName = a});
 
--- | The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
+-- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
 ctpiTTL :: Lens' CreateTrafficPolicyInstance Natural
 ctpiTTL = lens _ctpiTTL (\ s a -> s{_ctpiTTL = a}) . _Nat;
 

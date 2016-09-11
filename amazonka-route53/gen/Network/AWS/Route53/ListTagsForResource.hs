@@ -70,9 +70,10 @@ listTagsForResource pResourceType_ pResourceId_ =
 
 -- | The type of the resource.
 --
--- - The resource type for health checks is 'healthcheck'.
+-- -   The resource type for health checks is 'healthcheck'.
 --
--- - The resource type for hosted zones is 'hostedzone'.
+-- -   The resource type for hosted zones is 'hostedzone'.
+--
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
 
@@ -106,7 +107,7 @@ instance ToPath ListTagsForResource where
 instance ToQuery ListTagsForResource where
         toQuery = const mempty
 
--- | A complex type containing tags for the specified resource.
+-- | A complex type that contains information about the health checks or hosted zones for which you want to list tags.
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'

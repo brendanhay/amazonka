@@ -20,7 +20,7 @@
 --
 -- Updates the comment for a specified traffic policy version.
 --
--- To update the comment, send a 'POST' request to the '\/Route 53 API version\/trafficpolicy\/' resource.
+-- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy\/' resource.
 --
 -- The request body must include a document with an 'UpdateTrafficPolicyCommentRequest' element.
 module Network.AWS.Route53.UpdateTrafficPolicyComment

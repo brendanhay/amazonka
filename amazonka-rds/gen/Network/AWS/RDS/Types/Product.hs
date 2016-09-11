@@ -110,6 +110,7 @@ instance NFData AvailabilityZone
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
     { _cCertificateType       :: !(Maybe Text)
+    , _cCertificateARN        :: !(Maybe Text)
     , _cValidTill             :: !(Maybe ISO8601)
     , _cCertificateIdentifier :: !(Maybe Text)
     , _cThumbprint            :: !(Maybe Text)
@@ -121,6 +122,8 @@ data Certificate = Certificate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCertificateType'
+--
+-- * 'cCertificateARN'
 --
 -- * 'cValidTill'
 --
@@ -134,6 +137,7 @@ certificate
 certificate =
     Certificate'
     { _cCertificateType = Nothing
+    , _cCertificateARN = Nothing
     , _cValidTill = Nothing
     , _cCertificateIdentifier = Nothing
     , _cThumbprint = Nothing
@@ -143,6 +147,10 @@ certificate =
 -- | The type of the certificate.
 cCertificateType :: Lens' Certificate (Maybe Text)
 cCertificateType = lens _cCertificateType (\ s a -> s{_cCertificateType = a});
+
+-- | The Amazon Resource Name (ARN) for the certificate.
+cCertificateARN :: Lens' Certificate (Maybe Text)
+cCertificateARN = lens _cCertificateARN (\ s a -> s{_cCertificateARN = a});
 
 -- | The final date that the certificate continues to be valid.
 cValidTill :: Lens' Certificate (Maybe UTCTime)
@@ -163,8 +171,10 @@ cValidFrom = lens _cValidFrom (\ s a -> s{_cValidFrom = a}) . mapping _Time;
 instance FromXML Certificate where
         parseXML x
           = Certificate' <$>
-              (x .@? "CertificateType") <*> (x .@? "ValidTill") <*>
-                (x .@? "CertificateIdentifier")
+              (x .@? "CertificateType") <*>
+                (x .@? "CertificateArn")
+                <*> (x .@? "ValidTill")
+                <*> (x .@? "CertificateIdentifier")
                 <*> (x .@? "Thumbprint")
                 <*> (x .@? "ValidFrom")
 
@@ -244,6 +254,7 @@ data DBCluster = DBCluster'
     , _dcDBClusterResourceId             :: !(Maybe Text)
     , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
     , _dcEngine                          :: !(Maybe Text)
+    , _dcDBClusterARN                    :: !(Maybe Text)
     , _dcLatestRestorableTime            :: !(Maybe ISO8601)
     , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
     , _dcAvailabilityZones               :: !(Maybe [Text])
@@ -291,6 +302,8 @@ data DBCluster = DBCluster'
 --
 -- * 'dcEngine'
 --
+-- * 'dcDBClusterARN'
+--
 -- * 'dcLatestRestorableTime'
 --
 -- * 'dcPreferredMaintenanceWindow'
@@ -337,6 +350,7 @@ dbCluster =
     , _dcDBClusterResourceId = Nothing
     , _dcEarliestRestorableTime = Nothing
     , _dcEngine = Nothing
+    , _dcDBClusterARN = Nothing
     , _dcLatestRestorableTime = Nothing
     , _dcPreferredMaintenanceWindow = Nothing
     , _dcAvailabilityZones = Nothing
@@ -405,6 +419,10 @@ dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarlies
 -- | Provides the name of the database engine to be used for this DB cluster.
 dcEngine :: Lens' DBCluster (Maybe Text)
 dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a});
+
+-- | The Amazon Resource Name (ARN) for the DB cluster.
+dcDBClusterARN :: Lens' DBCluster (Maybe Text)
+dcDBClusterARN = lens _dcDBClusterARN (\ s a -> s{_dcDBClusterARN = a});
 
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
@@ -485,6 +503,7 @@ instance FromXML DBCluster where
                 <*> (x .@? "DbClusterResourceId")
                 <*> (x .@? "EarliestRestorableTime")
                 <*> (x .@? "Engine")
+                <*> (x .@? "DBClusterArn")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*>
@@ -617,7 +636,8 @@ instance NFData DBClusterOptionGroupStatus
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
-    { _dcpgDBParameterGroupFamily      :: !(Maybe Text)
+    { _dcpgDBClusterParameterGroupARN  :: !(Maybe Text)
+    , _dcpgDBParameterGroupFamily      :: !(Maybe Text)
     , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
     , _dcpgDescription                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -625,6 +645,8 @@ data DBClusterParameterGroup = DBClusterParameterGroup'
 -- | Creates a value of 'DBClusterParameterGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgDBClusterParameterGroupARN'
 --
 -- * 'dcpgDBParameterGroupFamily'
 --
@@ -635,10 +657,15 @@ dbClusterParameterGroup
     :: DBClusterParameterGroup
 dbClusterParameterGroup =
     DBClusterParameterGroup'
-    { _dcpgDBParameterGroupFamily = Nothing
+    { _dcpgDBClusterParameterGroupARN = Nothing
+    , _dcpgDBParameterGroupFamily = Nothing
     , _dcpgDBClusterParameterGroupName = Nothing
     , _dcpgDescription = Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
+dcpgDBClusterParameterGroupARN :: Lens' DBClusterParameterGroup (Maybe Text)
+dcpgDBClusterParameterGroupARN = lens _dcpgDBClusterParameterGroupARN (\ s a -> s{_dcpgDBClusterParameterGroupARN = a});
 
 -- | Provides the name of the DB parameter group family that this DB cluster parameter group is compatible with.
 dcpgDBParameterGroupFamily :: Lens' DBClusterParameterGroup (Maybe Text)
@@ -655,8 +682,9 @@ dcpgDescription = lens _dcpgDescription (\ s a -> s{_dcpgDescription = a});
 instance FromXML DBClusterParameterGroup where
         parseXML x
           = DBClusterParameterGroup' <$>
-              (x .@? "DBParameterGroupFamily") <*>
-                (x .@? "DBClusterParameterGroupName")
+              (x .@? "DBClusterParameterGroupArn") <*>
+                (x .@? "DBParameterGroupFamily")
+                <*> (x .@? "DBClusterParameterGroupName")
                 <*> (x .@? "Description")
 
 instance Hashable DBClusterParameterGroup
@@ -721,6 +749,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     , _dcsStorageEncrypted            :: !(Maybe Bool)
     , _dcsDBClusterIdentifier         :: !(Maybe Text)
     , _dcsMasterUsername              :: !(Maybe Text)
+    , _dcsDBClusterSnapshotARN        :: !(Maybe Text)
     , _dcsVPCId                       :: !(Maybe Text)
     , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
     , _dcsEngine                      :: !(Maybe Text)
@@ -748,6 +777,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- * 'dcsDBClusterIdentifier'
 --
 -- * 'dcsMasterUsername'
+--
+-- * 'dcsDBClusterSnapshotARN'
 --
 -- * 'dcsVPCId'
 --
@@ -781,6 +812,7 @@ dbClusterSnapshot =
     , _dcsStorageEncrypted = Nothing
     , _dcsDBClusterIdentifier = Nothing
     , _dcsMasterUsername = Nothing
+    , _dcsDBClusterSnapshotARN = Nothing
     , _dcsVPCId = Nothing
     , _dcsDBClusterSnapshotIdentifier = Nothing
     , _dcsEngine = Nothing
@@ -814,6 +846,10 @@ dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\ s a -> s{_dcsDBClusterI
 -- | Provides the master username for the DB cluster snapshot.
 dcsMasterUsername :: Lens' DBClusterSnapshot (Maybe Text)
 dcsMasterUsername = lens _dcsMasterUsername (\ s a -> s{_dcsMasterUsername = a});
+
+-- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
+dcsDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
+dcsDBClusterSnapshotARN = lens _dcsDBClusterSnapshotARN (\ s a -> s{_dcsDBClusterSnapshotARN = a});
 
 -- | Provides the VPC ID associated with the DB cluster snapshot.
 dcsVPCId :: Lens' DBClusterSnapshot (Maybe Text)
@@ -870,6 +906,7 @@ instance FromXML DBClusterSnapshot where
                 (x .@? "StorageEncrypted")
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "DBClusterSnapshotArn")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "DBClusterSnapshotIdentifier")
                 <*> (x .@? "Engine")
@@ -1099,6 +1136,7 @@ data DBInstance = DBInstance'
     , _diDBClusterIdentifier                   :: !(Maybe Text)
     , _diPubliclyAccessible                    :: !(Maybe Bool)
     , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
+    , _diDBInstanceARN                         :: !(Maybe Text)
     , _diMasterUsername                        :: !(Maybe Text)
     , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
     , _diMonitoringRoleARN                     :: !(Maybe Text)
@@ -1155,6 +1193,8 @@ data DBInstance = DBInstance'
 -- * 'diPubliclyAccessible'
 --
 -- * 'diAutoMinorVersionUpgrade'
+--
+-- * 'diDBInstanceARN'
 --
 -- * 'diMasterUsername'
 --
@@ -1243,6 +1283,7 @@ dbInstance =
     , _diDBClusterIdentifier = Nothing
     , _diPubliclyAccessible = Nothing
     , _diAutoMinorVersionUpgrade = Nothing
+    , _diDBInstanceARN = Nothing
     , _diMasterUsername = Nothing
     , _diReadReplicaDBInstanceIdentifiers = Nothing
     , _diMonitoringRoleARN = Nothing
@@ -1315,6 +1356,10 @@ diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessi
 -- | Indicates that minor version patches are applied automatically.
 diAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
 diAutoMinorVersionUpgrade = lens _diAutoMinorVersionUpgrade (\ s a -> s{_diAutoMinorVersionUpgrade = a});
+
+-- | The Amazon Resource Name (ARN) for the DB instance.
+diDBInstanceARN :: Lens' DBInstance (Maybe Text)
+diDBInstanceARN = lens _diDBInstanceARN (\ s a -> s{_diDBInstanceARN = a});
 
 -- | Contains the master username for the DB instance.
 diMasterUsername :: Lens' DBInstance (Maybe Text)
@@ -1492,6 +1537,7 @@ instance FromXML DBInstance where
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "AutoMinorVersionUpgrade")
+                <*> (x .@? "DBInstanceArn")
                 <*> (x .@? "MasterUsername")
                 <*>
                 (x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
@@ -1613,7 +1659,8 @@ instance NFData DBInstanceStatusInfo
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-    { _dpgDBParameterGroupFamily :: !(Maybe Text)
+    { _dpgDBParameterGroupARN    :: !(Maybe Text)
+    , _dpgDBParameterGroupFamily :: !(Maybe Text)
     , _dpgDBParameterGroupName   :: !(Maybe Text)
     , _dpgDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1621,6 +1668,8 @@ data DBParameterGroup = DBParameterGroup'
 -- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgDBParameterGroupARN'
 --
 -- * 'dpgDBParameterGroupFamily'
 --
@@ -1631,10 +1680,15 @@ dbParameterGroup
     :: DBParameterGroup
 dbParameterGroup =
     DBParameterGroup'
-    { _dpgDBParameterGroupFamily = Nothing
+    { _dpgDBParameterGroupARN = Nothing
+    , _dpgDBParameterGroupFamily = Nothing
     , _dpgDBParameterGroupName = Nothing
     , _dpgDescription = Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the DB parameter group.
+dpgDBParameterGroupARN :: Lens' DBParameterGroup (Maybe Text)
+dpgDBParameterGroupARN = lens _dpgDBParameterGroupARN (\ s a -> s{_dpgDBParameterGroupARN = a});
 
 -- | Provides the name of the DB parameter group family that this DB parameter group is compatible with.
 dpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
@@ -1651,8 +1705,9 @@ dpgDescription = lens _dpgDescription (\ s a -> s{_dpgDescription = a});
 instance FromXML DBParameterGroup where
         parseXML x
           = DBParameterGroup' <$>
-              (x .@? "DBParameterGroupFamily") <*>
-                (x .@? "DBParameterGroupName")
+              (x .@? "DBParameterGroupArn") <*>
+                (x .@? "DBParameterGroupFamily")
+                <*> (x .@? "DBParameterGroupName")
                 <*> (x .@? "Description")
 
 instance Hashable DBParameterGroup
@@ -1763,6 +1818,7 @@ instance NFData DBParameterGroupStatus
 data DBSecurityGroup = DBSecurityGroup'
     { _dbsgVPCId                      :: !(Maybe Text)
     , _dbsgOwnerId                    :: !(Maybe Text)
+    , _dbsgDBSecurityGroupARN         :: !(Maybe Text)
     , _dbsgIPRanges                   :: !(Maybe [IPRange])
     , _dbsgDBSecurityGroupName        :: !(Maybe Text)
     , _dbsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
@@ -1777,6 +1833,8 @@ data DBSecurityGroup = DBSecurityGroup'
 --
 -- * 'dbsgOwnerId'
 --
+-- * 'dbsgDBSecurityGroupARN'
+--
 -- * 'dbsgIPRanges'
 --
 -- * 'dbsgDBSecurityGroupName'
@@ -1790,6 +1848,7 @@ dbSecurityGroup =
     DBSecurityGroup'
     { _dbsgVPCId = Nothing
     , _dbsgOwnerId = Nothing
+    , _dbsgDBSecurityGroupARN = Nothing
     , _dbsgIPRanges = Nothing
     , _dbsgDBSecurityGroupName = Nothing
     , _dbsgEC2SecurityGroups = Nothing
@@ -1803,6 +1862,10 @@ dbsgVPCId = lens _dbsgVPCId (\ s a -> s{_dbsgVPCId = a});
 -- | Provides the AWS ID of the owner of a specific DB security group.
 dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgOwnerId = lens _dbsgOwnerId (\ s a -> s{_dbsgOwnerId = a});
+
+-- | The Amazon Resource Name (ARN) for the DB security group.
+dbsgDBSecurityGroupARN :: Lens' DBSecurityGroup (Maybe Text)
+dbsgDBSecurityGroupARN = lens _dbsgDBSecurityGroupARN (\ s a -> s{_dbsgDBSecurityGroupARN = a});
 
 -- | Contains a list of < IPRange> elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
@@ -1824,6 +1887,8 @@ instance FromXML DBSecurityGroup where
         parseXML x
           = DBSecurityGroup' <$>
               (x .@? "VpcId") <*> (x .@? "OwnerId") <*>
+                (x .@? "DBSecurityGroupArn")
+                <*>
                 (x .@? "IPRanges" .!@ mempty >>=
                    may (parseXMLList "IPRange"))
                 <*> (x .@? "DBSecurityGroupName")
@@ -1897,6 +1962,7 @@ instance NFData DBSecurityGroupMembership
 data DBSnapshot = DBSnapshot'
     { _dsEngineVersion              :: !(Maybe Text)
     , _dsStatus                     :: !(Maybe Text)
+    , _dsDBSnapshotARN              :: !(Maybe Text)
     , _dsMasterUsername             :: !(Maybe Text)
     , _dsSourceRegion               :: !(Maybe Text)
     , _dsIOPS                       :: !(Maybe Int)
@@ -1927,6 +1993,8 @@ data DBSnapshot = DBSnapshot'
 -- * 'dsEngineVersion'
 --
 -- * 'dsStatus'
+--
+-- * 'dsDBSnapshotARN'
 --
 -- * 'dsMasterUsername'
 --
@@ -1975,6 +2043,7 @@ dbSnapshot =
     DBSnapshot'
     { _dsEngineVersion = Nothing
     , _dsStatus = Nothing
+    , _dsDBSnapshotARN = Nothing
     , _dsMasterUsername = Nothing
     , _dsSourceRegion = Nothing
     , _dsIOPS = Nothing
@@ -2005,6 +2074,10 @@ dsEngineVersion = lens _dsEngineVersion (\ s a -> s{_dsEngineVersion = a});
 -- | Specifies the status of this DB snapshot.
 dsStatus :: Lens' DBSnapshot (Maybe Text)
 dsStatus = lens _dsStatus (\ s a -> s{_dsStatus = a});
+
+-- | The Amazon Resource Name (ARN) for the DB snapshot.
+dsDBSnapshotARN :: Lens' DBSnapshot (Maybe Text)
+dsDBSnapshotARN = lens _dsDBSnapshotARN (\ s a -> s{_dsDBSnapshotARN = a});
 
 -- | Provides the master username for the DB snapshot.
 dsMasterUsername :: Lens' DBSnapshot (Maybe Text)
@@ -2094,7 +2167,8 @@ instance FromXML DBSnapshot where
         parseXML x
           = DBSnapshot' <$>
               (x .@? "EngineVersion") <*> (x .@? "Status") <*>
-                (x .@? "MasterUsername")
+                (x .@? "DBSnapshotArn")
+                <*> (x .@? "MasterUsername")
                 <*> (x .@? "SourceRegion")
                 <*> (x .@? "Iops")
                 <*> (x .@? "VpcId")
@@ -2230,6 +2304,7 @@ data DBSubnetGroup = DBSubnetGroup'
     , _dsgVPCId                    :: !(Maybe Text)
     , _dsgSubnets                  :: !(Maybe [Subnet])
     , _dsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _dsgDBSubnetGroupARN         :: !(Maybe Text)
     , _dsgSubnetGroupStatus        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2245,6 +2320,8 @@ data DBSubnetGroup = DBSubnetGroup'
 --
 -- * 'dsgDBSubnetGroupDescription'
 --
+-- * 'dsgDBSubnetGroupARN'
+--
 -- * 'dsgSubnetGroupStatus'
 dbSubnetGroup
     :: DBSubnetGroup
@@ -2254,6 +2331,7 @@ dbSubnetGroup =
     , _dsgVPCId = Nothing
     , _dsgSubnets = Nothing
     , _dsgDBSubnetGroupDescription = Nothing
+    , _dsgDBSubnetGroupARN = Nothing
     , _dsgSubnetGroupStatus = Nothing
     }
 
@@ -2273,6 +2351,10 @@ dsgSubnets = lens _dsgSubnets (\ s a -> s{_dsgSubnets = a}) . _Default . _Coerce
 dsgDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
 dsgDBSubnetGroupDescription = lens _dsgDBSubnetGroupDescription (\ s a -> s{_dsgDBSubnetGroupDescription = a});
 
+-- | The Amazon Resource Name (ARN) for the DB subnet group.
+dsgDBSubnetGroupARN :: Lens' DBSubnetGroup (Maybe Text)
+dsgDBSubnetGroupARN = lens _dsgDBSubnetGroupARN (\ s a -> s{_dsgDBSubnetGroupARN = a});
+
 -- | Provides the status of the DB subnet group.
 dsgSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
 dsgSubnetGroupStatus = lens _dsgSubnetGroupStatus (\ s a -> s{_dsgSubnetGroupStatus = a});
@@ -2284,6 +2366,7 @@ instance FromXML DBSubnetGroup where
                 (x .@? "Subnets" .!@ mempty >>=
                    may (parseXMLList "Subnet"))
                 <*> (x .@? "DBSubnetGroupDescription")
+                <*> (x .@? "DBSubnetGroupArn")
                 <*> (x .@? "SubnetGroupStatus")
 
 instance Hashable DBSubnetGroup
@@ -2575,6 +2658,7 @@ instance NFData EngineDefaults
 -- /See:/ 'event' smart constructor.
 data Event = Event'
     { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceARN        :: !(Maybe Text)
     , _eSourceIdentifier :: !(Maybe Text)
     , _eDate             :: !(Maybe ISO8601)
     , _eEventCategories  :: !(Maybe [Text])
@@ -2586,6 +2670,8 @@ data Event = Event'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eSourceType'
+--
+-- * 'eSourceARN'
 --
 -- * 'eSourceIdentifier'
 --
@@ -2599,6 +2685,7 @@ event
 event =
     Event'
     { _eSourceType = Nothing
+    , _eSourceARN = Nothing
     , _eSourceIdentifier = Nothing
     , _eDate = Nothing
     , _eEventCategories = Nothing
@@ -2608,6 +2695,10 @@ event =
 -- | Specifies the source type for this event.
 eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
+
+-- | The Amazon Resource Name (ARN) for the event.
+eSourceARN :: Lens' Event (Maybe Text)
+eSourceARN = lens _eSourceARN (\ s a -> s{_eSourceARN = a});
 
 -- | Provides the identifier for the source of the event.
 eSourceIdentifier :: Lens' Event (Maybe Text)
@@ -2628,7 +2719,8 @@ eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 instance FromXML Event where
         parseXML x
           = Event' <$>
-              (x .@? "SourceType") <*> (x .@? "SourceIdentifier")
+              (x .@? "SourceType") <*> (x .@? "SourceArn") <*>
+                (x .@? "SourceIdentifier")
                 <*> (x .@? "Date")
                 <*>
                 (x .@? "EventCategories" .!@ mempty >>=
@@ -2689,6 +2781,7 @@ data EventSubscription = EventSubscription'
     , _esCustomerAWSId            :: !(Maybe Text)
     , _esCustSubscriptionId       :: !(Maybe Text)
     , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEventSubscriptionARN     :: !(Maybe Text)
     , _esEnabled                  :: !(Maybe Bool)
     , _esSourceType               :: !(Maybe Text)
     , _esSubscriptionCreationTime :: !(Maybe Text)
@@ -2708,6 +2801,8 @@ data EventSubscription = EventSubscription'
 --
 -- * 'esSNSTopicARN'
 --
+-- * 'esEventSubscriptionARN'
+--
 -- * 'esEnabled'
 --
 -- * 'esSourceType'
@@ -2725,6 +2820,7 @@ eventSubscription =
     , _esCustomerAWSId = Nothing
     , _esCustSubscriptionId = Nothing
     , _esSNSTopicARN = Nothing
+    , _esEventSubscriptionARN = Nothing
     , _esEnabled = Nothing
     , _esSourceType = Nothing
     , _esSubscriptionCreationTime = Nothing
@@ -2754,6 +2850,10 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
+-- | The Amazon Resource Name (ARN) for the event subscription.
+esEventSubscriptionARN :: Lens' EventSubscription (Maybe Text)
+esEventSubscriptionARN = lens _esEventSubscriptionARN (\ s a -> s{_esEventSubscriptionARN = a});
+
 -- | A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
@@ -2780,6 +2880,7 @@ instance FromXML EventSubscription where
               (x .@? "Status") <*> (x .@? "CustomerAwsId") <*>
                 (x .@? "CustSubscriptionId")
                 <*> (x .@? "SnsTopicArn")
+                <*> (x .@? "EventSubscriptionArn")
                 <*> (x .@? "Enabled")
                 <*> (x .@? "SourceType")
                 <*> (x .@? "SubscriptionCreationTime")
@@ -3077,6 +3178,7 @@ data OptionGroup = OptionGroup'
     , _ogVPCId                                 :: !(Maybe Text)
     , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
     , _ogEngineName                            :: !(Maybe Text)
+    , _ogOptionGroupARN                        :: !(Maybe Text)
     , _ogMajorEngineVersion                    :: !(Maybe Text)
     , _ogOptions                               :: !(Maybe [Option])
     , _ogOptionGroupName                       :: !(Maybe Text)
@@ -3094,6 +3196,8 @@ data OptionGroup = OptionGroup'
 --
 -- * 'ogEngineName'
 --
+-- * 'ogOptionGroupARN'
+--
 -- * 'ogMajorEngineVersion'
 --
 -- * 'ogOptions'
@@ -3107,6 +3211,7 @@ optionGroup =
     , _ogVPCId = Nothing
     , _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing
     , _ogEngineName = Nothing
+    , _ogOptionGroupARN = Nothing
     , _ogMajorEngineVersion = Nothing
     , _ogOptions = Nothing
     , _ogOptionGroupName = Nothing
@@ -3128,6 +3233,10 @@ ogAllowsVPCAndNonVPCInstanceMemberships = lens _ogAllowsVPCAndNonVPCInstanceMemb
 ogEngineName :: Lens' OptionGroup (Maybe Text)
 ogEngineName = lens _ogEngineName (\ s a -> s{_ogEngineName = a});
 
+-- | The Amazon Resource Name (ARN) for the option group.
+ogOptionGroupARN :: Lens' OptionGroup (Maybe Text)
+ogOptionGroupARN = lens _ogOptionGroupARN (\ s a -> s{_ogOptionGroupARN = a});
+
 -- | Indicates the major engine version associated with this option group.
 ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion = lens _ogMajorEngineVersion (\ s a -> s{_ogMajorEngineVersion = a});
@@ -3146,6 +3255,7 @@ instance FromXML OptionGroup where
               (x .@? "OptionGroupDescription") <*> (x .@? "VpcId")
                 <*> (x .@? "AllowsVpcAndNonVpcInstanceMemberships")
                 <*> (x .@? "EngineName")
+                <*> (x .@? "OptionGroupArn")
                 <*> (x .@? "MajorEngineVersion")
                 <*>
                 (x .@? "Options" .!@ mempty >>=
@@ -3201,6 +3311,7 @@ instance NFData OptionGroupMembership
 -- /See:/ 'optionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
     { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+    , _ogoOptionsConflictsWith              :: !(Maybe [Text])
     , _ogoPermanent                         :: !(Maybe Bool)
     , _ogoPersistent                        :: !(Maybe Bool)
     , _ogoOptionGroupOptionVersions         :: !(Maybe [OptionVersion])
@@ -3219,6 +3330,8 @@ data OptionGroupOption = OptionGroupOption'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ogoMinimumRequiredMinorEngineVersion'
+--
+-- * 'ogoOptionsConflictsWith'
 --
 -- * 'ogoPermanent'
 --
@@ -3246,6 +3359,7 @@ optionGroupOption
 optionGroupOption =
     OptionGroupOption'
     { _ogoMinimumRequiredMinorEngineVersion = Nothing
+    , _ogoOptionsConflictsWith = Nothing
     , _ogoPermanent = Nothing
     , _ogoPersistent = Nothing
     , _ogoOptionGroupOptionVersions = Nothing
@@ -3263,15 +3377,19 @@ optionGroupOption =
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMinimumRequiredMinorEngineVersion = lens _ogoMinimumRequiredMinorEngineVersion (\ s a -> s{_ogoMinimumRequiredMinorEngineVersion = a});
 
--- | A permanent option cannot be removed from the option group once the option group is used, and it cannot be removed from the db instance after assigning an option group with this permanent option.
+-- | The options that conflict with this option.
+ogoOptionsConflictsWith :: Lens' OptionGroupOption [Text]
+ogoOptionsConflictsWith = lens _ogoOptionsConflictsWith (\ s a -> s{_ogoOptionsConflictsWith = a}) . _Default . _Coerce;
+
+-- | Permanent options can never be removed from an option group. An option group containing a permanent option can\'t be removed from a DB instance.
 ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPermanent = lens _ogoPermanent (\ s a -> s{_ogoPermanent = a});
 
--- | A persistent option cannot be removed from the option group once the option group is used, but this option can be removed from the db instance while modifying the related data and assigning another option group without this option.
+-- | Persistent options can\'t be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
 ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPersistent = lens _ogoPersistent (\ s a -> s{_ogoPersistent = a});
 
--- | Specifies the versions that are available for the option.
+-- | The versions that are available for the option.
 ogoOptionGroupOptionVersions :: Lens' OptionGroupOption [OptionVersion]
 ogoOptionGroupOptionVersions = lens _ogoOptionGroupOptionVersions (\ s a -> s{_ogoOptionGroupOptionVersions = a}) . _Default . _Coerce;
 
@@ -3291,7 +3409,7 @@ ogoName = lens _ogoName (\ s a -> s{_ogoName = a});
 ogoDefaultPort :: Lens' OptionGroupOption (Maybe Int)
 ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 
--- | Specifies the option settings that are available (and the default value) for each option in an option group.
+-- | The option settings that are available (and the default value) for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
 ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default . _Coerce;
 
@@ -3303,7 +3421,7 @@ ogoPortRequired = lens _ogoPortRequired (\ s a -> s{_ogoPortRequired = a});
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
 ogoDescription = lens _ogoDescription (\ s a -> s{_ogoDescription = a});
 
--- | List of all options that are prerequisites for this option.
+-- | The options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
 ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default . _Coerce;
 
@@ -3311,7 +3429,9 @@ instance FromXML OptionGroupOption where
         parseXML x
           = OptionGroupOption' <$>
               (x .@? "MinimumRequiredMinorEngineVersion") <*>
-                (x .@? "Permanent")
+                (x .@? "OptionsConflictsWith" .!@ mempty >>=
+                   may (parseXMLList "OptionConflictName"))
+                <*> (x .@? "Permanent")
                 <*> (x .@? "Persistent")
                 <*>
                 (x .@? "OptionGroupOptionVersions" .!@ mempty >>=
@@ -4094,6 +4214,7 @@ data ReservedDBInstance = ReservedDBInstance'
     , _rdiStartTime                     :: !(Maybe ISO8601)
     , _rdiProductDescription            :: !(Maybe Text)
     , _rdiReservedDBInstanceId          :: !(Maybe Text)
+    , _rdiReservedDBInstanceARN         :: !(Maybe Text)
     , _rdiDBInstanceClass               :: !(Maybe Text)
     , _rdiMultiAZ                       :: !(Maybe Bool)
     , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
@@ -4120,6 +4241,8 @@ data ReservedDBInstance = ReservedDBInstance'
 --
 -- * 'rdiReservedDBInstanceId'
 --
+-- * 'rdiReservedDBInstanceARN'
+--
 -- * 'rdiDBInstanceClass'
 --
 -- * 'rdiMultiAZ'
@@ -4145,6 +4268,7 @@ reservedDBInstance =
     , _rdiStartTime = Nothing
     , _rdiProductDescription = Nothing
     , _rdiReservedDBInstanceId = Nothing
+    , _rdiReservedDBInstanceARN = Nothing
     , _rdiDBInstanceClass = Nothing
     , _rdiMultiAZ = Nothing
     , _rdiReservedDBInstancesOfferingId = Nothing
@@ -4178,6 +4302,10 @@ rdiProductDescription = lens _rdiProductDescription (\ s a -> s{_rdiProductDescr
 -- | The unique identifier for the reservation.
 rdiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
 rdiReservedDBInstanceId = lens _rdiReservedDBInstanceId (\ s a -> s{_rdiReservedDBInstanceId = a});
+
+-- | The Amazon Resource Name (ARN) for the reserved DB instance.
+rdiReservedDBInstanceARN :: Lens' ReservedDBInstance (Maybe Text)
+rdiReservedDBInstanceARN = lens _rdiReservedDBInstanceARN (\ s a -> s{_rdiReservedDBInstanceARN = a});
 
 -- | The DB instance class for the reserved DB instance.
 rdiDBInstanceClass :: Lens' ReservedDBInstance (Maybe Text)
@@ -4219,6 +4347,7 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "StartTime")
                 <*> (x .@? "ProductDescription")
                 <*> (x .@? "ReservedDBInstanceId")
+                <*> (x .@? "ReservedDBInstanceArn")
                 <*> (x .@? "DBInstanceClass")
                 <*> (x .@? "MultiAZ")
                 <*> (x .@? "ReservedDBInstancesOfferingId")
@@ -4391,6 +4520,55 @@ instance FromXML ResourcePendingMaintenanceActions
 instance Hashable ResourcePendingMaintenanceActions
 
 instance NFData ResourcePendingMaintenanceActions
+
+-- | Contains an AWS Region name as the result of a successful call to the < DescribeSourceRegions> action.
+--
+-- /See:/ 'sourceRegion' smart constructor.
+data SourceRegion = SourceRegion'
+    { _srStatus     :: !(Maybe Text)
+    , _srRegionName :: !(Maybe Text)
+    , _srEndpoint   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SourceRegion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srStatus'
+--
+-- * 'srRegionName'
+--
+-- * 'srEndpoint'
+sourceRegion
+    :: SourceRegion
+sourceRegion =
+    SourceRegion'
+    { _srStatus = Nothing
+    , _srRegionName = Nothing
+    , _srEndpoint = Nothing
+    }
+
+-- | The status of the source region.
+srStatus :: Lens' SourceRegion (Maybe Text)
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+
+-- | The source region name.
+srRegionName :: Lens' SourceRegion (Maybe Text)
+srRegionName = lens _srRegionName (\ s a -> s{_srRegionName = a});
+
+-- | The source region endpoint.
+srEndpoint :: Lens' SourceRegion (Maybe Text)
+srEndpoint = lens _srEndpoint (\ s a -> s{_srEndpoint = a});
+
+instance FromXML SourceRegion where
+        parseXML x
+          = SourceRegion' <$>
+              (x .@? "Status") <*> (x .@? "RegionName") <*>
+                (x .@? "Endpoint")
+
+instance Hashable SourceRegion
+
+instance NFData SourceRegion
 
 -- | This data type is used as a response element in the < DescribeDBSubnetGroups> action.
 --

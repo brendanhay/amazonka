@@ -112,6 +112,7 @@ module Network.AWS.RDS.Types
     , Certificate
     , certificate
     , cCertificateType
+    , cCertificateARN
     , cValidTill
     , cCertificateIdentifier
     , cThumbprint
@@ -139,6 +140,7 @@ module Network.AWS.RDS.Types
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
+    , dcDBClusterARN
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
@@ -172,6 +174,7 @@ module Network.AWS.RDS.Types
     -- * DBClusterParameterGroup
     , DBClusterParameterGroup
     , dbClusterParameterGroup
+    , dcpgDBClusterParameterGroupARN
     , dcpgDBParameterGroupFamily
     , dcpgDBClusterParameterGroupName
     , dcpgDescription
@@ -189,6 +192,7 @@ module Network.AWS.RDS.Types
     , dcsStorageEncrypted
     , dcsDBClusterIdentifier
     , dcsMasterUsername
+    , dcsDBClusterSnapshotARN
     , dcsVPCId
     , dcsDBClusterSnapshotIdentifier
     , dcsEngine
@@ -235,6 +239,7 @@ module Network.AWS.RDS.Types
     , diDBClusterIdentifier
     , diPubliclyAccessible
     , diAutoMinorVersionUpgrade
+    , diDBInstanceARN
     , diMasterUsername
     , diReadReplicaDBInstanceIdentifiers
     , diMonitoringRoleARN
@@ -286,6 +291,7 @@ module Network.AWS.RDS.Types
     -- * DBParameterGroup
     , DBParameterGroup
     , dbParameterGroup
+    , dpgDBParameterGroupARN
     , dpgDBParameterGroupFamily
     , dpgDBParameterGroupName
     , dpgDescription
@@ -306,6 +312,7 @@ module Network.AWS.RDS.Types
     , dbSecurityGroup
     , dbsgVPCId
     , dbsgOwnerId
+    , dbsgDBSecurityGroupARN
     , dbsgIPRanges
     , dbsgDBSecurityGroupName
     , dbsgEC2SecurityGroups
@@ -322,6 +329,7 @@ module Network.AWS.RDS.Types
     , dbSnapshot
     , dsEngineVersion
     , dsStatus
+    , dsDBSnapshotARN
     , dsMasterUsername
     , dsSourceRegion
     , dsIOPS
@@ -363,6 +371,7 @@ module Network.AWS.RDS.Types
     , dsgVPCId
     , dsgSubnets
     , dsgDBSubnetGroupDescription
+    , dsgDBSubnetGroupARN
     , dsgSubnetGroupStatus
 
     -- * DescribeDBLogFilesDetails
@@ -406,6 +415,7 @@ module Network.AWS.RDS.Types
     , Event
     , event
     , eSourceType
+    , eSourceARN
     , eSourceIdentifier
     , eDate
     , eEventCategories
@@ -424,6 +434,7 @@ module Network.AWS.RDS.Types
     , esCustomerAWSId
     , esCustSubscriptionId
     , esSNSTopicARN
+    , esEventSubscriptionARN
     , esEnabled
     , esSourceType
     , esSubscriptionCreationTime
@@ -472,6 +483,7 @@ module Network.AWS.RDS.Types
     , ogVPCId
     , ogAllowsVPCAndNonVPCInstanceMemberships
     , ogEngineName
+    , ogOptionGroupARN
     , ogMajorEngineVersion
     , ogOptions
     , ogOptionGroupName
@@ -486,6 +498,7 @@ module Network.AWS.RDS.Types
     , OptionGroupOption
     , optionGroupOption
     , ogoMinimumRequiredMinorEngineVersion
+    , ogoOptionsConflictsWith
     , ogoPermanent
     , ogoPersistent
     , ogoOptionGroupOptionVersions
@@ -599,6 +612,7 @@ module Network.AWS.RDS.Types
     , rdiStartTime
     , rdiProductDescription
     , rdiReservedDBInstanceId
+    , rdiReservedDBInstanceARN
     , rdiDBInstanceClass
     , rdiMultiAZ
     , rdiReservedDBInstancesOfferingId
@@ -627,6 +641,13 @@ module Network.AWS.RDS.Types
     , resourcePendingMaintenanceActions
     , rpmaPendingMaintenanceActionDetails
     , rpmaResourceIdentifier
+
+    -- * SourceRegion
+    , SourceRegion
+    , sourceRegion
+    , srStatus
+    , srRegionName
+    , srEndpoint
 
     -- * Subnet
     , Subnet

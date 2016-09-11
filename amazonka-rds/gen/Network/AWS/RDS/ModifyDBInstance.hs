@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+-- Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Creating a Request

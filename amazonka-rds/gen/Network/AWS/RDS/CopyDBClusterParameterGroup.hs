@@ -81,7 +81,7 @@ copyDBClusterParameterGroup pSourceDBClusterParameterGroupIdentifier_ pTargetDBC
 cdbcpgTags :: Lens' CopyDBClusterParameterGroup [Tag]
 cdbcpgTags = lens _cdbcpgTags (\ s a -> s{_cdbcpgTags = a}) . _Default . _Coerce;
 
--- | The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
 --
 -- Constraints:
 --

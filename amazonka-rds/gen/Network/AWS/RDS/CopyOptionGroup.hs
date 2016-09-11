@@ -83,7 +83,7 @@ copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTar
 cTags :: Lens' CopyOptionGroup [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
--- | The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
 --
 -- Constraints:
 --

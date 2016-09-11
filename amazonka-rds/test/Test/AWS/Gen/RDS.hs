@@ -124,6 +124,9 @@ import Test.AWS.RDS.Internal
 --         , requestAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngress
 --
+--         , requestDescribeSourceRegions $
+--             describeSourceRegions
+--
 --         , requestRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshot
 --
@@ -375,6 +378,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngressResponse
+--
+--         , responseDescribeSourceRegions $
+--             describeSourceRegionsResponse
 --
 --         , responseRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshotResponse
@@ -693,6 +699,11 @@ requestAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngress -> Tes
 requestAuthorizeDBSecurityGroupIngress = req
     "AuthorizeDBSecurityGroupIngress"
     "fixture/AuthorizeDBSecurityGroupIngress.yaml"
+
+requestDescribeSourceRegions :: DescribeSourceRegions -> TestTree
+requestDescribeSourceRegions = req
+    "DescribeSourceRegions"
+    "fixture/DescribeSourceRegions.yaml"
 
 requestRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshot -> TestTree
 requestRestoreDBClusterFromSnapshot = req
@@ -1174,6 +1185,13 @@ responseAuthorizeDBSecurityGroupIngress = res
     "fixture/AuthorizeDBSecurityGroupIngressResponse.proto"
     rds
     (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
+
+responseDescribeSourceRegions :: DescribeSourceRegionsResponse -> TestTree
+responseDescribeSourceRegions = res
+    "DescribeSourceRegionsResponse"
+    "fixture/DescribeSourceRegionsResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeSourceRegions)
 
 responseRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshotResponse -> TestTree
 responseRestoreDBClusterFromSnapshot = res

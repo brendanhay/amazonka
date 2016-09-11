@@ -21,6 +21,8 @@
 -- Returns information about DB cluster snapshots. This API action supports pagination.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusterSnapshots
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
 import           Network.AWS.RDS.Types.Product
@@ -170,6 +173,13 @@ ddbcsMaxRecords = lens _ddbcsMaxRecords (\ s a -> s{_ddbcsMaxRecords = a});
 -- You can share a manual DB cluster snapshot as public by using the < ModifyDBClusterSnapshotAttribute> API action.
 ddbcsIncludePublic :: Lens' DescribeDBClusterSnapshots (Maybe Bool)
 ddbcsIncludePublic = lens _ddbcsIncludePublic (\ s a -> s{_ddbcsIncludePublic = a});
+
+instance AWSPager DescribeDBClusterSnapshots where
+        page rq rs
+          | stop (rs ^. ddbcsrsMarker) = Nothing
+          | stop (rs ^. ddbcsrsDBClusterSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & ddbcsMarker .~ rs ^. ddbcsrsMarker
 
 instance AWSRequest DescribeDBClusterSnapshots where
         type Rs DescribeDBClusterSnapshots =

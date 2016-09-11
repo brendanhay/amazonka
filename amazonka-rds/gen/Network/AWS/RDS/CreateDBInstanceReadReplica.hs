@@ -255,7 +255,7 @@ cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDB
 --
 -- -   If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.
 --
--- -   If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
+-- -   If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)>.
 --
 cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});

@@ -120,6 +120,7 @@ library
         , Network.AWS.RDS.DescribePendingMaintenanceActions
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
+        , Network.AWS.RDS.DescribeSourceRegions
         , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.FailoverDBCluster
         , Network.AWS.RDS.ListTagsForResource

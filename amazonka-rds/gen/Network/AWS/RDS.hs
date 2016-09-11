@@ -373,6 +373,9 @@ module Network.AWS.RDS
     -- ** AuthorizeDBSecurityGroupIngress
     , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 
+    -- ** DescribeSourceRegions
+    , module Network.AWS.RDS.DescribeSourceRegions
+
     -- ** RestoreDBClusterFromSnapshot
     , module Network.AWS.RDS.RestoreDBClusterFromSnapshot
 
@@ -487,7 +490,7 @@ module Network.AWS.RDS
     -- ** CreateDBSecurityGroup
     , module Network.AWS.RDS.CreateDBSecurityGroup
 
-    -- ** DescribeDBClusterSnapshots
+    -- ** DescribeDBClusterSnapshots (Paginated)
     , module Network.AWS.RDS.DescribeDBClusterSnapshots
 
     -- ** RebootDBInstance
@@ -550,6 +553,7 @@ module Network.AWS.RDS
     , Certificate
     , certificate
     , cCertificateType
+    , cCertificateARN
     , cValidTill
     , cCertificateIdentifier
     , cThumbprint
@@ -577,6 +581,7 @@ module Network.AWS.RDS
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
+    , dcDBClusterARN
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
@@ -610,6 +615,7 @@ module Network.AWS.RDS
     -- ** DBClusterParameterGroup
     , DBClusterParameterGroup
     , dbClusterParameterGroup
+    , dcpgDBClusterParameterGroupARN
     , dcpgDBParameterGroupFamily
     , dcpgDBClusterParameterGroupName
     , dcpgDescription
@@ -627,6 +633,7 @@ module Network.AWS.RDS
     , dcsStorageEncrypted
     , dcsDBClusterIdentifier
     , dcsMasterUsername
+    , dcsDBClusterSnapshotARN
     , dcsVPCId
     , dcsDBClusterSnapshotIdentifier
     , dcsEngine
@@ -673,6 +680,7 @@ module Network.AWS.RDS
     , diDBClusterIdentifier
     , diPubliclyAccessible
     , diAutoMinorVersionUpgrade
+    , diDBInstanceARN
     , diMasterUsername
     , diReadReplicaDBInstanceIdentifiers
     , diMonitoringRoleARN
@@ -724,6 +732,7 @@ module Network.AWS.RDS
     -- ** DBParameterGroup
     , DBParameterGroup
     , dbParameterGroup
+    , dpgDBParameterGroupARN
     , dpgDBParameterGroupFamily
     , dpgDBParameterGroupName
     , dpgDescription
@@ -744,6 +753,7 @@ module Network.AWS.RDS
     , dbSecurityGroup
     , dbsgVPCId
     , dbsgOwnerId
+    , dbsgDBSecurityGroupARN
     , dbsgIPRanges
     , dbsgDBSecurityGroupName
     , dbsgEC2SecurityGroups
@@ -760,6 +770,7 @@ module Network.AWS.RDS
     , dbSnapshot
     , dsEngineVersion
     , dsStatus
+    , dsDBSnapshotARN
     , dsMasterUsername
     , dsSourceRegion
     , dsIOPS
@@ -801,6 +812,7 @@ module Network.AWS.RDS
     , dsgVPCId
     , dsgSubnets
     , dsgDBSubnetGroupDescription
+    , dsgDBSubnetGroupARN
     , dsgSubnetGroupStatus
 
     -- ** DescribeDBLogFilesDetails
@@ -844,6 +856,7 @@ module Network.AWS.RDS
     , Event
     , event
     , eSourceType
+    , eSourceARN
     , eSourceIdentifier
     , eDate
     , eEventCategories
@@ -862,6 +875,7 @@ module Network.AWS.RDS
     , esCustomerAWSId
     , esCustSubscriptionId
     , esSNSTopicARN
+    , esEventSubscriptionARN
     , esEnabled
     , esSourceType
     , esSubscriptionCreationTime
@@ -910,6 +924,7 @@ module Network.AWS.RDS
     , ogVPCId
     , ogAllowsVPCAndNonVPCInstanceMemberships
     , ogEngineName
+    , ogOptionGroupARN
     , ogMajorEngineVersion
     , ogOptions
     , ogOptionGroupName
@@ -924,6 +939,7 @@ module Network.AWS.RDS
     , OptionGroupOption
     , optionGroupOption
     , ogoMinimumRequiredMinorEngineVersion
+    , ogoOptionsConflictsWith
     , ogoPermanent
     , ogoPersistent
     , ogoOptionGroupOptionVersions
@@ -1037,6 +1053,7 @@ module Network.AWS.RDS
     , rdiStartTime
     , rdiProductDescription
     , rdiReservedDBInstanceId
+    , rdiReservedDBInstanceARN
     , rdiDBInstanceClass
     , rdiMultiAZ
     , rdiReservedDBInstancesOfferingId
@@ -1065,6 +1082,13 @@ module Network.AWS.RDS
     , resourcePendingMaintenanceActions
     , rpmaPendingMaintenanceActionDetails
     , rpmaResourceIdentifier
+
+    -- ** SourceRegion
+    , SourceRegion
+    , sourceRegion
+    , srStatus
+    , srRegionName
+    , srEndpoint
 
     -- ** Subnet
     , Subnet
@@ -1152,6 +1176,7 @@ import           Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 import           Network.AWS.RDS.DescribePendingMaintenanceActions
 import           Network.AWS.RDS.DescribeReservedDBInstances
 import           Network.AWS.RDS.DescribeReservedDBInstancesOfferings
+import           Network.AWS.RDS.DescribeSourceRegions
 import           Network.AWS.RDS.DownloadDBLogFilePortion
 import           Network.AWS.RDS.FailoverDBCluster
 import           Network.AWS.RDS.ListTagsForResource

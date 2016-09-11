@@ -291,7 +291,7 @@ csHostnameTheme = lens _csHostnameTheme (\ s a -> s{_csHostnameTheme = a});
 csName :: Lens' CreateStack Text
 csName = lens _csName (\ s a -> s{_csName = a});
 
--- | The stack\'s AWS region, such as \"us-east-1\". For more information about Amazon regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The stack\'s AWS region, such as \"ap-south-1\". For more information about Amazon regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 csRegion :: Lens' CreateStack Text
 csRegion = lens _csRegion (\ s a -> s{_csRegion = a});
 

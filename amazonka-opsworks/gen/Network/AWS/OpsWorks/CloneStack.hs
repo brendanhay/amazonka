@@ -286,7 +286,7 @@ cUseCustomCookbooks = lens _cUseCustomCookbooks (\ s a -> s{_cUseCustomCookbooks
 cDefaultSubnetId :: Lens' CloneStack (Maybe Text)
 cDefaultSubnetId = lens _cDefaultSubnetId (\ s a -> s{_cDefaultSubnetId = a});
 
--- | The cloned stack AWS region, such as \"us-east-1\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The cloned stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 cRegion :: Lens' CloneStack (Maybe Text)
 cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 

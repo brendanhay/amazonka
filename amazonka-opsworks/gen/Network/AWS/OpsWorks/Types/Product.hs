@@ -3212,7 +3212,7 @@ sUseCustomCookbooks = lens _sUseCustomCookbooks (\ s a -> s{_sUseCustomCookbooks
 sDefaultSubnetId :: Lens' Stack (Maybe Text)
 sDefaultSubnetId = lens _sDefaultSubnetId (\ s a -> s{_sDefaultSubnetId = a});
 
--- | The stack AWS region, such as \"us-east-1\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 sRegion :: Lens' Stack (Maybe Text)
 sRegion = lens _sRegion (\ s a -> s{_sRegion = a});
 

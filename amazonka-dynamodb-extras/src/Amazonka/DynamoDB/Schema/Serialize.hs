@@ -53,13 +53,6 @@ class DynamoSerializer a where
                     -> HashMap Text Value
                     -> Either ItemError (Deserialized a)
 
--- instance DynamoSerializer a => DynamoSerializer (Table n a t s is) where
---     type Serialized   (Table n a t s is) = Serialized   a
---     type Deserialized (Table n a t s is) = Deserialized a
-
-    -- getSerializer   _ = getSerializer   (Proxy :: Proxy a)
-    -- getDeserializer _ = getDeserializer (Proxy :: Proxy a)
-
 instance ( DynamoSerializer a
          , KnownSymbol      n
          , DynamoValue      h

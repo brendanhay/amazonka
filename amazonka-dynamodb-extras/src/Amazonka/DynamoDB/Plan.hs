@@ -37,22 +37,13 @@ import Amazonka.DynamoDB.Expression.Internal
 import Amazonka.DynamoDB.Expression.Placeholder
 import Amazonka.DynamoDB.Item.Value             (Value, getValue)
 
-import Control.Lens                     (Getter, Lens, Setter, lens)
-import Control.Lens.Operators           ((.~), (<>~), (?~))
+import Control.Lens                     (Lens, lens)
+import Control.Lens.Operators           ((.~))
 import Control.Monad.Trans.State.Strict (runState)
 
-import Data.Function       (on, (&))
-import Data.HashMap.Strict (HashMap)
-import Data.Proxy
-import Data.Text           (Text)
+import Data.Function ((&))
 
-import Network.AWS.Pager   (AWSPager (..))
-import Network.AWS.Prelude (ToHeaders (..), ToJSON (..), ToPath (..),
-                            ToQuery (..), ToText (..))
-import Network.AWS.Request (coerceRequest)
-import Network.AWS.Types   (AWSRequest (..))
-
-import Numeric.Natural (Natural)
+import Network.AWS.Data.Text (toText)
 
 -- |
 data QueryPlan = QueryPlan
@@ -77,9 +68,9 @@ compileQuery QueryPlan{..} = _query
   where
     ((k, p, f), ps) =
         flip runState placeholders $
-            (,,) <$> compile      keyConditionExpression _queryKey
-                 <*> compileNames projectionExpression   _queryProj
-                 <*> compile      conditionExpression    _queryFilter
+            (,,) <$> compileT      keyConditionExpression _queryKey
+                 <*> compileNamesT projectionExpression   _queryProj
+                 <*> compileT      conditionExpression    _queryFilter
 
 -- |
 data ScanPlan = ScanPlan
@@ -102,8 +93,8 @@ compileScan ScanPlan{..} = _scan
   where
     ((p, f), ps) =
         flip runState placeholders $
-            (,) <$> compileNames projectionExpression _scanProj
-                <*> compile      conditionExpression  _scanFilter
+            (,) <$> compileNamesT projectionExpression _scanProj
+                <*> compileT      conditionExpression  _scanFilter
 
 -- |
 type family Plan a

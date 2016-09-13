@@ -13,39 +13,17 @@ if [ -z "$DOC_TOKEN" ]; then
 fi
 
 DOC_REF=github.com/brendanhay/amazonka-doc.git
-GHCVER=${GHCVER?"GHCVER needs to be set."}
+GHCVER=${GHCVER?"GHCVER needs to bet set."}
 BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
 BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-output=doc
-platform=x86_64-linux
-resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
-
-echo "Using resolver ${resolver}"
-
-databases=( $(stack --stack-yaml stack-$GHCVER.yaml path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
-databases=( "${databases[@]/#/--package-db }" )
-
-echo "Using resolver ${resolver}"
-echo "Using databases ${databases[@]}"
+output=$(stack --no-terminal --skip-ghc-check path --local-doc-root)
 
 $path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml install \
-    standalone-haddock \
-    type-level-sets \
-    amazonka-dynamodb \
-    hscolour
-
-$path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
-    amazonka-core amazonka amazonka-s3-encryption
-
-$path/travis-timeout \
-    standalone-haddock --hyperlink-source -o $output \
-    ${databases[@]} \
-    core amazonka*
+    stack -j1 --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml \
+    haddock --fast amazonka-core amazonka*
 
 {
     cat <<-HTML
@@ -55,7 +33,7 @@ $path/travis-timeout \
     <ul>
 HTML
 
-    for dir in $(ls -d $output/*/); do
+    for dir in $(ls -d $output/amazonka*/); do
         file=$(basename $dir)
         cat <<-HTML
         <li><a href="${file}/index.html">${file}</a></li>

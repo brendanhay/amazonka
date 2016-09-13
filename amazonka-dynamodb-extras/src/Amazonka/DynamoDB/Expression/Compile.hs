@@ -27,6 +27,10 @@ module Amazonka.DynamoDB.Expression.Compile
     , compileValues
     , compile
 
+    , compileNamesT
+    , compileValuesT
+    , compileT
+
     , finalize
 
     -- * Grammar
@@ -51,6 +55,7 @@ import Amazonka.DynamoDB.Item.Value             (Value)
 
 import Control.Monad.Trans.State.Strict (StateT)
 
+import Data.Bifunctor
 import Data.Bitraversable     (Bitraversable (..))
 import Data.Foldable          (foldl', toList)
 import Data.List              (intersperse)
@@ -66,6 +71,45 @@ import qualified Data.Sequence          as Seq
 import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
 
+
+import Control.Monad.Trans.State.Strict
+import Data.Functor.Identity
+import Data.Hashable
+
+-- NOTE: about why compileT vs compile is needed, carrying around Placeholders
+-- state when compiling disparate expressions, which result in a single
+-- attributeNames and attributeValues map for requests.
+
+compileNames :: (Traversable p, Eq b, Hashable b)
+             => (p Builder -> r)
+             -> p Name
+             -> (r, Placeholders Name b)
+compileNames f =
+      first runIdentity
+    . flip runState placeholders
+    . compileNamesT f
+    . pure
+
+compileValues :: (Traversable p, Eq a, Hashable a)
+              => (p Builder -> r)
+              -> p Value
+              -> (r, Placeholders a Value)
+compileValues f =
+      first runIdentity
+    . flip runState placeholders
+    . compileValuesT f
+    . pure
+
+compile :: Bitraversable p
+        => (p Builder Builder -> r) -- ^ An expression grammar.
+        -> p Name Value             -- ^ An expression to perform substitution on.
+        -> (r, Placeholders Name Value)
+compile f =
+      first runIdentity
+    . flip runState placeholders
+    . compileT f
+    . pure
+
 -- | Given an expression evaluator, compile the expression and return
 -- the result along with any substituted placeholders for the 'Traversable'
 -- argument.
@@ -77,12 +121,12 @@ import qualified Data.Text.Lazy.Builder as Build
 --     :: ProjectionExpression Name -> (Identity Builder, Placeholders Name b)
 -- @
 --
-compileNames :: (Monad m, Traversable t, Traversable p)
-             => (p Builder -> r) -- ^ An expression grammar.
-             -> t (p Name)       -- ^ An expression to perform substitution on.
-             -> StateT (Placeholders Name b) m (t r)
-compileNames f = sequenceA . fmap (fmap f . traverse substituteName)
-{-# INLINE compileNames #-}
+compileNamesT :: (Monad m, Traversable t, Traversable p)
+              => (p Builder -> r) -- ^ An expression grammar.
+              -> t (p Name)       -- ^ An expression to perform substitution on.
+              -> StateT (Placeholders Name b) m (t r)
+compileNamesT f = sequenceA . fmap (fmap f . traverse substituteName)
+{-# INLINE compileNamesT #-}
 
 -- |
 --
@@ -90,16 +134,16 @@ compileNames f = sequenceA . fmap (fmap f . traverse substituteName)
 -- and rendering the first argument (such as a 'Name') verbatim:
 --
 -- @
--- flip runState placeholders . compileValues conditionExpression . first name
---     :: ConditionExpression Name Value -> (Builder, Placeholders a Value)
+-- flip runState placeholders . compileValues conditionExpression . pure . first name
+--     :: ConditionExpression Name Value -> (Identity Builder, Placeholders a Value)
 -- @
 --
-compileValues :: (Monad m, Traversable t, Traversable p)
-              => (p Builder -> r) -- ^ An expression grammar.
-              -> t (p Value)      -- ^ An expression to perform substitution on.
-              -> StateT (Placeholders a Value) m (t r)
-compileValues f = sequenceA . fmap (fmap f . traverse substituteValue)
-{-# INLINE compileValues #-}
+compileValuesT :: (Monad m, Traversable t, Traversable p)
+               => (p Builder -> r) -- ^ An expression grammar.
+               -> t (p Value)      -- ^ An expression to perform substitution on.
+               -> StateT (Placeholders a Value) m (t r)
+compileValuesT f = sequenceA . fmap (fmap f . traverse substituteValue)
+{-# INLINE compileValuesT #-}
 
 -- | Given an expression evaluator, compile the expression and return
 -- the result along with the substituted placeholders for the 'Bitraversable's
@@ -112,12 +156,12 @@ compileValues f = sequenceA . fmap (fmap f . traverse substituteValue)
 --     :: ConditionExpression Name Value -> (Identity Builder, Placeholders Name Value)
 -- @
 --
-compile :: (Monad m, Traversable t, Bitraversable p)
-          => (p Builder Builder -> r) -- ^ An expression grammar.
-          -> t (p Name Value)         -- ^ An expression to perform substitution on.
-          -> StateT (Placeholders Name Value) m (t r)
-compile f = sequenceA . fmap (fmap f . bitraverse substituteName substituteValue)
-{-# INLINE compile #-}
+compileT :: (Monad m, Traversable t, Bitraversable p)
+         => (p Builder Builder -> r) -- ^ An expression grammar.
+         -> t (p Name Value)         -- ^ An expression to perform substitution on.
+         -> StateT (Placeholders Name Value) m (t r)
+compileT f = sequenceA . fmap (fmap f . bitraverse substituteName substituteValue)
+{-# INLINE compileT #-}
 
 {-|
 @

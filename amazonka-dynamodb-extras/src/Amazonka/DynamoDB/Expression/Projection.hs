@@ -20,25 +20,23 @@ module Amazonka.DynamoDB.Expression.Projection
 
 import Amazonka.DynamoDB.Expression.Internal
 
--- Query:qProjectionExpression :: ProjectionExpression
--- Query:qFilterExpression :: FilterExpression
--- Query:qKeyConditionExpression :: KeyConditionExpression
-
--- Query:qExpressionAttributeNames
--- Query:qExpressionAttributeValues
-
 -- $setup
--- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
+-- >>> import Data.Bifunctor (first)
 -- >>> import Data.Semigroup ((<>))
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
+-- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . Compile.projectionExpression . fmap Compile.name
+-- >>> import qualified Data.Text.Lazy.Builder as Build
+-- >>> :{
+-- let eval f = Text.putStrLn . Build.toLazyText . fst . Compile.compileNames f
+--     pexpr  = eval Compile.projectionExpression
+-- :}
 
 -- | Project a document path.
 --
 -- The 'Semigroup' instance can be used to project mutliple paths.
 --
--- >>> eval $ project (name "Title") <> project (index "RelatedItems" 2) <> project (name "Product" <> index "Reviews" 0)
+-- >>> pexpr $ project (name "Title") <> project (index "RelatedItems" 2) <> project (name "Product" <> index "Reviews" 0)
 -- Title, RelatedItems[2], Product.Reviews[0]
 --
 project :: Path p -> ProjectionExpression p

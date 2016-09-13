@@ -82,21 +82,22 @@ import Data.Bifunctor     (bimap)
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text          (Text)
 
-
-
 -- $setup
--- >>> :set -XOverloadedStrings
--- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import Data.Bifunctor (first)
--- >>> import Data.Maybe (fromMaybe)
 -- >>> import Data.Semigroup ((<>))
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
+-- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . fst . Compile.compile Compile.conditionExpression . first Compile.name . liftC
+-- >>> import qualified Data.Text.Lazy.Builder as Build
+-- >>> :{
+-- let eval f = Text.putStrLn . Build.toLazyText . fst . Compile.compileValues f . first Compile.name
+--     kexpr  = eval Compile.keyConditionExpression
+--     cexpr  = eval Compile.conditionExpression . liftC
+-- :}
 
 -- | Specify an exact partition key.
 --
--- >>> eval $ partition (name "partition-key" =: "bar")
+-- >>> kexpr $ partition (name "partition-key" =: "bar")
 -- partition-key = :v1
 --
 partition :: Condition Hash p v
@@ -108,7 +109,7 @@ partition = Partition
 -- | Specify an exact partition key, and narrow the scope
 -- by specifying a sort key condition as follows:
 --
--- >>> eval $ partitionFilter (name "partition-key" =: "foo") (name "sort-key" >: 123)
+-- >>> kexpr $ partitionFilter (name "partition-key" =: "foo") (name "sort-key" >: 123)
 -- (partition-key = :v1 AND sort-key > :v2)
 --
 partitionFilter :: (Condition Hash p v)
@@ -133,7 +134,7 @@ infixl 2 `or_`
 
 -- | True if a is equal to b.
 --
--- >>> eval $ equal (name "foo") (name "bar")
+-- >>> cexpr $ equal (name "foo") (name "bar")
 -- foo = bar
 --
 -- /See:/ '#=', '=:'
@@ -143,7 +144,7 @@ equal a b = Equal (liftO a) (liftO b)
 
 -- | True if a is not equal to b.
 --
--- >>> eval $ notEqual (name "foo") (name "bar")
+-- >>> cexpr $ notEqual (name "foo") (name "bar")
 -- foo <> bar
 --
 -- /See:/ '#<>', '<>:'
@@ -153,7 +154,7 @@ notEqual a b = NotEqual (liftO a) (liftO b)
 
 -- | True if a is lessThan than b.
 --
--- >>> eval $ lessThan (name "foo") (name "bar")
+-- >>> cexpr $ lessThan (name "foo") (name "bar")
 -- foo < bar
 --
 -- /See:/ '#<', '<:'
@@ -163,7 +164,7 @@ lessThan a b = Less (liftO a) (liftO b)
 
 -- | True if a is lessThan than or equal to b.
 --
--- >>> eval $ lessThanOrEqual (name "foo") (name "bar")
+-- >>> cexpr $ lessThanOrEqual (name "foo") (name "bar")
 -- foo <= bar
 --
 -- /See:/ '#<=', '<=:'
@@ -176,7 +177,7 @@ lessThanOrEqual a b = LessOrEqual (liftO a) (liftO b)
 
 -- | True if a is greater than b.
 --
--- >>> eval $ greaterThan (name "foo") (name "bar")
+-- >>> cexpr $ greaterThan (name "foo") (name "bar")
 -- foo > bar
 --
 -- /See:/ '#>', '>:'
@@ -189,7 +190,7 @@ greaterThan a b = Greater (liftO a) (liftO b)
 
 -- | True if a is greater than or equal to b.
 --
--- >>> eval $ greaterThanOrEqual (name "foo") (name "bar")
+-- >>> cexpr $ greaterThanOrEqual (name "foo") (name "bar")
 -- foo >= bar
 --
 -- /See:/ '#>=', '>=:'
@@ -266,7 +267,7 @@ greaterThanOrEqual a b = GreaterOrEqual (liftO a) (liftO b)
 -- For example, to check whether an item in the table has
 -- a side view picture:
 --
--- >>> eval $ exists (name "Pictures" <> name "SideView")
+-- >>> cexpr $ exists (name "Pictures" <> name "SideView")
 -- attribute_exists (Pictures.SideView)
 --
 exists :: Path p -> Condition Term p Value
@@ -279,7 +280,7 @@ exists = Exists
 -- does not exist in the item.
 -- For example, to check whether an item has a @Manufacturer@ attribute:
 --
--- >>> eval $ notExists (name "Manufacturer")
+-- >>> cexpr $ notExists (name "Manufacturer")
 -- attribute_not_exists (Manufacturer)
 --
 notExists :: Path p -> Condition Term p Value
@@ -292,7 +293,7 @@ notExists = NotExists
 -- data type. For example, to check whether the @FiveStar@ attribute is
 -- of type @L@ (list):
 --
--- >>> eval $ isType (name "ProductReviews" <> name "FiveStar") L
+-- >>> cexpr $ isType (name "ProductReviews" <> name "FiveStar") L
 -- attribute_type (ProductReviews.FiveStar, :v1)
 --
 isType :: Path p -> NativeType -> Condition Term p Value
@@ -329,7 +330,7 @@ size = Size
 -- For example, to check whether the Brand string attribute contains
 -- the substring Company:
 --
--- >>> eval $ contains (name "Brand") (toValue "Company")
+-- >>> cexpr $ contains (name "Brand") (toValue "Company")
 -- contains (Brand, :v1)
 --
 contains :: IsOperand a => Path Name -> a -> Condition Term Name Value
@@ -341,7 +342,7 @@ contains p = Contains p . liftO
 -- For example, to check whether the first few characters of the front view
 -- picture attribute is URL:
 --
--- >>> eval $ beginsWith (name "Pictures" <> name "FrontView") "http://"
+-- >>> cexpr $ beginsWith (name "Pictures" <> name "FrontView") "http://"
 -- begins_with (Pictures.FrontView, :v1)
 --
 beginsWith :: Path p -> Text -> Condition Range p Value
@@ -352,7 +353,7 @@ beginsWith p = BeginsWith p . toValue
 --
 -- For example:
 --
--- >>> eval $ between (name "Price") (toValue 1, toValue 10)
+-- >>> cexpr $ between (name "Price") (toValue 1, toValue 10)
 -- Price BETWEEN :v1 AND :v2
 --
 -- Which results in true if @Price@ is greater than or equal to @1@, and less than
@@ -369,7 +370,7 @@ between a = Between (liftO a) . bimap liftO liftO
 --
 -- Evalutes to true if the operand is equal to any value in the set. For example:
 --
--- >>> eval $ in_ (name "Price") (pure (toValue 10.99) <> pure (toValue 12.99) <> pure (toValue 14.99))
+-- >>> cexpr $ in_ (name "Price") (pure (toValue 10.99) <> pure (toValue 12.99) <> pure (toValue 14.99))
 -- Price IN (:v1, :v2, :v3)
 --
 in_ :: (IsOperand a, IsOperand b) => a -> NonEmpty b -> Condition Term Name Value
@@ -379,7 +380,7 @@ in_ a = In (liftO a) . fmap liftO
 -- | Logical conjunction, where the resulting expression is true if both
 -- sub-expressions are true.
 --
--- >>> eval $ equal (name "Foo") (toValue "bar") `and_` greaterThan (name "Bar") (name "Foo")
+-- >>> cexpr $ equal (name "Foo") (toValue "bar") `and_` greaterThan (name "Bar") (name "Foo")
 -- (Foo = :v1 AND Bar > Foo)
 --
 -- /See:/ '<>', 'mappend'.
@@ -393,7 +394,7 @@ and_ a b = AndE (liftC a) (liftC b)
 -- | Logical disjunction, where the resulting expression is true if either
 -- sub-expression is true.
 --
--- >>> eval $ equal (name "Foo") (toValue "baz") `or_` equal (name "Bar") (toValue "qux")
+-- >>> cexpr $ equal (name "Foo") (toValue "baz") `or_` equal (name "Bar") (toValue "qux")
 -- (Foo = :v1 OR Bar = :v2)
 --
 or_ :: (IsCondition a, IsCondition b)
@@ -406,7 +407,7 @@ or_ a b = OrE (liftC a) (liftC b)
 -- | Logical negation, where the resulting expression is true if
 -- the sub-expression is false, and false if the sub-expression is true.
 --
--- >>> eval $ not_ (equal (name "Foo") (name "Bar"))
+-- >>> cexpr $ not_ (equal (name "Foo") (name "Bar"))
 -- (NOT Foo = Bar)
 --
 not_ :: IsCondition a => a p v -> ConditionExpression p v

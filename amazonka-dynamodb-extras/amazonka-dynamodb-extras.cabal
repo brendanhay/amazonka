@@ -37,7 +37,7 @@ library
         , Amazonka.DynamoDB.Item.Value
 
           -- amazonka-dynamodb-expression
-        --, Amazonka.DynamoDB.Expression
+        , Amazonka.DynamoDB.Expression
         , Amazonka.DynamoDB.Expression.Compile
         , Amazonka.DynamoDB.Expression.Condition
         , Amazonka.DynamoDB.Expression.Internal

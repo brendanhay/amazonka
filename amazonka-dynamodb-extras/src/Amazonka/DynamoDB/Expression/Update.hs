@@ -21,19 +21,20 @@ module Amazonka.DynamoDB.Expression.Update
     -- * Update Expressions
       UpdateExpression
 
+    -- * Set, Remove, Add, and Delete Actions
     , set
     , remove
     , add
     , delete
 
-    -- * Actions
-    , Update
     , increment
     , decrement
     , prepend
     , append
 
     -- * Sub-expressions
+    , Update
+
     , plus
     , minus
     , (#+)
@@ -42,7 +43,6 @@ module Amazonka.DynamoDB.Expression.Update
     , listAppend
     ) where
 
-import Amazonka.DynamoDB.Expression.Compile
 import Amazonka.DynamoDB.Expression.Internal
 import Amazonka.DynamoDB.Item.Value
 
@@ -51,10 +51,15 @@ import Data.Monoid (mempty)
 import qualified Data.Sequence as Seq
 
 -- $setup
--- >>> import Data.Semigroup ((<>))
+-- >>> import Data.Bifunctor (first)
 -- >>> import Data.Text.Lazy.Builder (toLazyText)
+-- >>> import qualified Amazonka.DynamoDB.Expression.Compile as Compile
 -- >>> import qualified Data.Text.Lazy.IO as Text
--- >>> let eval = Text.putStrLn . toLazyText . fst . compile updateExpression
+-- >>> import qualified Data.Text.Lazy.Builder as Build
+-- >>> :{
+-- let eval f = Text.putStrLn . Build.toLazyText . fst . Compile.compileValues f . first Compile.name
+--     uexpr  = eval Compile.updateExpression
+-- :}
 
 {-| Use the SET action in an update expression to add one or more attributes
 and values to an item. If any of these attribute already exist, they are
@@ -69,19 +74,19 @@ set p u = UnsafeUpdateExpression
     , _unsafeDelete = mempty
     }
 
--- SET Price = Price + :p
+-- | SET Price = Price + :p
 increment :: DynamoNumber a => Path Name -> a -> UpdateExpression Name Value
 increment p = set p . plus p . toValue
 
--- SET Price = Price - :p
+-- | SET Price = Price - :p
 decrement :: DynamoNumber a => Path Name -> a -> UpdateExpression Name Value
 decrement p = set p . minus p . toValue
 
--- SET #pr.FiveStar = list_append(#pr.FiveStar, :r)
+-- | SET #pr.FiveStar = list_append(#pr.FiveStar, :r)
 prepend :: DynamoList a => Path Name -> a -> UpdateExpression Name Value
 prepend p = set p . listAppend p . toValue
 
--- SET #pr.FiveStar = list_append(:r, #pr.FiveStar)
+-- | SET #pr.FiveStar = list_append(:r, #pr.FiveStar)
 append :: DynamoList a => Path Name -> a -> UpdateExpression Name Value
 append p = set p . listAppend p . toValue
 

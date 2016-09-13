@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A shallow DSL embedding of DynamoDB's expression language that can be used
--- to specify @KeyConditionExpression@ or @FilterExpression@ parameters for
+-- to specify projection, key condition, and filter expressions parameters for
 -- 'Scan' and 'Query' operations.
 module Amazonka.DynamoDB.Expression
     (
@@ -20,27 +20,34 @@ module Amazonka.DynamoDB.Expression
     -- * Projection Expressions
     -- $projection_expressions
 
-    -- * Condition Expressions
-    -- $condition_expressions
+      ProjectionExpression
+    , project
 
-      Expression
-    , Condition
-    , Hash
-    , Range
-    , IsExpression (..)
-
-    -- * Update Expressions
-    -- $update_expressions
-
-    -- * Key Expressions
+    -- * Key Condition Expressions
     -- $key_expressions
 
-    , KeyExpression
+    , KeyConditionExpression
     , partition
     , partitionFilter
 
-    -- * Making Comparisons
-    -- $comparators
+    -- * Filter and Condition Expressions
+    -- $condition_expressions
+
+    , ConditionExpression
+
+    -- ** Logical Evaluations
+    , and_
+    , or_
+    , not_
+
+    -- ** Sub-conditions
+    , Hash
+    , Range
+    , Term
+    , Condition
+
+    -- *** Making Comparisons
+    -- $condition_comparators
 
     , equal
     , notEqual
@@ -49,8 +56,8 @@ module Amazonka.DynamoDB.Expression
     , greaterThan
     , greaterThanOrEqual
 
-    -- ** Infix Comparators
-    -- $infix_comparators
+    -- **** Path Comparators
+    -- $condition_path_comparators
 
     , (#=)
     , (#<>)
@@ -59,8 +66,8 @@ module Amazonka.DynamoDB.Expression
     , (#>)
     , (#>=)
 
-    -- *** Serialized Values
-    -- $infix_comparator_values
+    -- **** Value Comparators
+    -- $condition_value_comparators
 
     , (=:)
     , (<>:)
@@ -69,8 +76,8 @@ module Amazonka.DynamoDB.Expression
     , (>:)
     , (>=:)
 
-    -- * Functions
-    -- $functions
+    -- *** Functions
+    -- $condition_functions
 
     , exists
     , notExists
@@ -79,19 +86,40 @@ module Amazonka.DynamoDB.Expression
     , contains
     , beginsWith
 
-    -- * Ranges
-    -- $ranges
+    -- *** Ranges
+    -- $condition_ranges
 
     , between
     , in_
 
-    -- * Logical Evaluations
-    , and_
-    , or_
-    , not_
+    -- *** Precedence
+    -- $condition_precedence
 
-    -- * Precedence
-    -- $precedence
+    -- * Update Expressions
+    -- $update_expressions
+
+    , UpdateExpression
+
+    -- ** Set, Remove, Add, and Delete Actions
+    , set
+    , remove
+    , add
+    , delete
+
+    , increment
+    , decrement
+    , prepend
+    , append
+
+    -- ** Sub-expressions
+    , Update
+
+    , plus
+    , minus
+    , (#+)
+    , (#-)
+    , ifNotExists
+    , listAppend
 
     -- * Operands
     -- $operands
@@ -103,14 +131,33 @@ module Amazonka.DynamoDB.Expression
     -- $document_paths
     , Path         (..)
 
-    -- * Evaluation
+    -- * Compilation
+    , compileNames
+    , compileValues
     , compile
-    , evaluate
+
+    -- ** Placeholders
+    , finalizeNames
+    , finalizeValues
+
+    -- ** Grammars
+    , projectionExpression
+    , keyConditionExpression
+    , conditionExpression
+    , updateExpression
+
+    -- * Values
+    , Value
+    , toValue
     ) where
 
+import Amazonka.DynamoDB.Expression.Compile
 import Amazonka.DynamoDB.Expression.Condition
 import Amazonka.DynamoDB.Expression.Internal
+import Amazonka.DynamoDB.Expression.Placeholder
+import Amazonka.DynamoDB.Expression.Projection
 import Amazonka.DynamoDB.Expression.Update
+import Amazonka.DynamoDB.Item.Value             (Value, toValue)
 
 -- FIXME:
 -- Update Expressions vs Condition Expressions vs Projection Expressions
@@ -121,7 +168,19 @@ import Amazonka.DynamoDB.Expression.Update
 TODO
 -}
 
-{- $expressions
+{- $projection_expressions
+Something about projection expressions.
+-}
+
+{- $key_expressions
+Something about key expressions.
+-}
+
+{- $update_expressions
+Something about key expressions.
+-}
+
+{- $condition_expressions
 An expression represents restrictions to put in place when you read
 and write items in a table. DynamoDB expressions are free-form strings that
 can contain attribute names, document paths, logical operators, and
@@ -129,16 +188,12 @@ functions. For a complete list of elements allowed in an expression, see
 <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html#ConditionExpressionReference Condition Expression Reference>.
 -}
 
-{- $key_expressions
-Something about key expressions.
--}
-
-{- $comparators
+{- $condition_comparators
 Use these comparators to compare an operand against a range of values, or an
 enumerated list of values.
 -}
 
-{- $infix_comparators
+{- $condition_name_comparators
 The @#@ prefix is a mnenomic for attribute name substitution. The infix
 operators prefixed in this way are synonyms for their function variants.
 
@@ -156,7 +211,7 @@ You can use the corresponding @#@ prefixed binary operator:
 "Foo = Bar"
 -}
 
-{- $infix_comparator_values
+{- $condition_value_comparators
 The @:@ prefix is a mnenomic for attribute value substitution. The infix
 operators prefixed in this way take a 'DynamoValue' on the right-hand side,
 omitting the need to wrap the RHS in 'toValue'.
@@ -172,17 +227,17 @@ You can use the corresponding @:@ prefixed binary operator:
 "AttributeName = :v1"
 -}
 
-{- $functions
+{- $condition_functions
 Use the following functions to determine whether an attribute exists within an
 item, or to evaluate the value of an attribute.
 -}
 
-{- $ranges
+{- $condition_ranges
 Use the 'between' and 'in_' to compare an operand against a range of values,
 or an enumerated list of values.
 -}
 
-{- $precedence
+{- $condition_precedence
 
 The infix function precedence follows the order:
 

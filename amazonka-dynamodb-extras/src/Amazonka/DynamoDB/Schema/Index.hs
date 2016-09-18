@@ -1,6 +1,7 @@
 {-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE PolyKinds            #-}
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE TypeOperators        #-}
@@ -16,19 +17,20 @@ module Amazonka.DynamoDB.Schema.Index
     , DynamoIndexes (..)
     ) where
 
+import Amazonka.DynamoDB.Schema.Attribute
 import Amazonka.DynamoDB.Schema.Key
 import Amazonka.DynamoDB.Schema.Throughput
-import Amazonka.DynamoDB.Schema.Attribute
 
 import Control.Lens (view, (?~), (^.))
 
-import Data.Foldable      (toList, find)
-import Data.Function      ((&))
-import Data.List          ((\\), nub)
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.Proxy         (Proxy (..))
-import Data.Semigroup     ((<>))
-import Data.Text          (Text)
+import Data.Foldable         (find, toList)
+import Data.Function         ((&))
+import Data.Functor.Identity (Identity (..))
+import Data.List             (delete, nub, (\\))
+import Data.List.NonEmpty    (NonEmpty (..))
+import Data.Proxy            (Proxy (..))
+import Data.Semigroup        ((<>))
+import Data.Text             (Text)
 
 import GHC.TypeLits
 
@@ -82,8 +84,8 @@ instance ( DynamoIndexes (Schema s i)
 
 instance ( UniqueAttributes    a
          , HasAttributes     s a
-         , PartitionKeyOrder   a
          , DynamoKeys          a
+         , PartitionKeyOrder   a
          , DynamoThroughput  t
          , KnownSymbol       n
          , KnownSymbols        a
@@ -91,33 +93,33 @@ instance ( UniqueAttributes    a
     getGlobalIndexes _ =
         pure $ globalSecondaryIndex
             (symbolToText (Proxy :: Proxy n))
-            (getKeys    (Proxy :: Proxy a))
-            (project (nonKeyAttributes (Proxy :: Proxy a)))
+            (getKeys (Proxy :: Proxy a))
+            (project (nonKeyAttributes (Proxy :: Proxy a)
+                                       (getKeys (Proxy :: Proxy a))))
             (getThroughput (Proxy :: Proxy t))
 
-instance ( UniqueAttributes    a
-         , HasAttributes     s a
-         , SortKeyOrder        a
-         , DynamoKeys        s
-         , DynamoKeys          a
-         , KnownSymbols        a
-         , KnownSymbol       n
+instance ( UniqueAttributes         a
+         , HasAttributes          s a
+         , SortKeyOrder             a
+         , DynamoSortKey Identity   a
+         , DynamoSortKey Maybe    s
+         , KnownSymbols             a
+         , KnownSymbol            n
          ) => DynamoIndexes (Schema s (LocalSecondaryIndex n a)) where
     getLocalIndexes _ =
         pure $ localSecondaryIndex
             (symbolToText (Proxy :: Proxy n))
-            (getKeys    (Proxy :: Proxy a))
+            indexSortKey
             indexProjection
       where
-        -- Project 's' SortKey as a non-key attribute, if it exists.
-        schemaKeys = getKeys (Proxy :: Proxy s)
-        sortKey    =
-            view kseAttributeName
-                <$> find ((== Range) . view kseKeyType) schemaKeys
+        schemaSortKey = getSortKey (Proxy :: Proxy s)
+        indexSortKey  = pure $
+            keySchemaElement (runIdentity $ getSortKey (Proxy :: Proxy a)) Range
 
+        -- Project 's' SortKey as a non-key attribute, if it exists.
         indexProjection =
-            project . nub . maybe id (:) sortKey $
-                nonKeyAttributes (Proxy :: Proxy a)
+            project . nub . maybe id (:) schemaSortKey $
+                nonKeyAttributes (Proxy :: Proxy a) indexSortKey
 
 project :: [Text] -> Projection
 project []     =
@@ -126,10 +128,10 @@ project (x:xs) =
     projection & pProjectionType ?~ Include
         & pNonKeyAttributes ?~ x :| xs
 
-nonKeyAttributes :: forall a. (DynamoKeys a, KnownSymbols a)
+nonKeyAttributes :: forall f a. (Foldable f, KnownSymbols a)
                  => Proxy a
+                 -> f KeySchemaElement
                  -> [Text]
-nonKeyAttributes _ =
-    let attrs = map (^. kseAttributeName) (toList (getKeys (Proxy :: Proxy a)))
-        keys  = symbolsToText (Proxy :: Proxy a)
-     in attrs \\ keys
+nonKeyAttributes _ keys =
+    symbolsToText (Proxy :: Proxy a)
+        \\ map (^. kseAttributeName) (toList keys)

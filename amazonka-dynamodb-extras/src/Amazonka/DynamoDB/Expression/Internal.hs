@@ -10,17 +10,32 @@
 {-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TupleSections              #-}
 
+-- |
+-- Module      : Amazonka.DynamoDB.Expression.Internal
+-- Copyright   : (c) 2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Internal types for building expressions.
+--
+-- /Note:/ While these types endeavour to be correct by construction, it should
+-- be considered unsafe to use the constructors directly, as well as the risk
+-- of the internal representation changing without warning between releases.
 module Amazonka.DynamoDB.Expression.Internal where
 
 import Amazonka.DynamoDB.Item (Value)
 
-import Control.Applicative (liftA2, (<|>))
+import Control.Applicative (liftA2, many, (<|>))
 import Control.Monad       (ap)
 
-import Data.Attoparsec.Text (char, decimal, satisfy, sepBy, takeWhile1)
+import Data.Attoparsec.Text (char, decimal, endOfInput, satisfy, sepBy,
+                             takeWhile1)
 import Data.Bifoldable
 import Data.Bifunctor
 import Data.Bitraversable
+import Data.Foldable        (foldl')
 import Data.Function        (on)
 import Data.Hashable        (Hashable)
 import Data.List.NonEmpty   (NonEmpty (..))
@@ -42,7 +57,7 @@ newtype Name = Name { fromName :: Text }
 -- nested elements within any document type attribute.
 data Path a
     = Attr   a
-    | Index  a        !Natural
+    | Index  (Path a) Natural
     | Nested (Path a) (Path a)
       deriving (Eq, Show, Functor, Foldable, Traversable)
 
@@ -54,7 +69,7 @@ instance Monad Path where
     return = Attr
 
     Attr   x   >>= f = f x
-    Index  x _ >>= f = f x
+    Index  a n >>= f = Index  (a >>= f) n
     Nested a b >>= f = Nested (a >>= f) (b >>= f)
 
 instance Semigroup (Path a) where
@@ -62,31 +77,23 @@ instance Semigroup (Path a) where
 
 -- | Correctly handles attribute dereferencing via @.@ and @[Natural]@.
 instance FromText (Path Name) where
-    parser = do
-        x  <- path
-        xs <- satisfy deref *> sepBy path (satisfy deref)
-        pure $! foldr Nested x xs
+    parser = path0 <* endOfInput
       where
-        path = Index <$> attr <*> (char '[' *> decimal <* char ']')
-           <|> Attr  <$> attr
+        path0 = Nested <$> path1 <*> (char '.' *> path1)
+            <|> path1
 
-        attr = Name <$> takeWhile1 (not . deref)
+        path1 = foldl' Index <$> path2 <*> many (char '[' *> decimal <* char ']')
+
+        path2 = Attr . Name <$> takeWhile1 (not . deref)
 
         deref c = c == '.' || c == '['
-
--- -- | Dereference operators are ignored and considered part of the resulting attribute name.
--- --
--- -- FIXME: Haven't yet decided if this should exist or not, due to principle of
--- -- least surprise.
--- instance IsString (Path Name) where
---     fromString = attr . fromString
 
 name :: Text -> Path Name
 name = Attr . Name
 {-# INLINE name #-}
 
-index :: Text -> Natural -> Path Name
-index x = Index (Name x)
+index :: Path a -> Natural -> Path a
+index = Index
 {-# INLINE index #-}
 
 -- A top-level attribute name, such as Id, Title, Description or ProductCategory

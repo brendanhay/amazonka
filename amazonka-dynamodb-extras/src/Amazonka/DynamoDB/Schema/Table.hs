@@ -1,14 +1,18 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE DataKinds             #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE UndecidableInstances  #-}
 
 -- {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
 module Amazonka.DynamoDB.Schema.Table
     ( diffSchema
     , diffDescription
+
+    , IsTableAttribute
 
     , Table
     , DynamoTable (..)
@@ -25,17 +29,19 @@ module Amazonka.DynamoDB.Schema.Table
 import Amazonka.DynamoDB.Schema.Attribute
 import Amazonka.DynamoDB.Schema.Index
 import Amazonka.DynamoDB.Schema.Key
+import Amazonka.DynamoDB.Schema.Serialize
 import Amazonka.DynamoDB.Schema.Stream
 import Amazonka.DynamoDB.Schema.Throughput
-import Amazonka.DynamoDB.Schema.Serialize
 
 import Control.Lens ((.~), (?~))
 
-import Data.Foldable (toList)
-import Data.Function ((&))
-import Data.Proxy    (Proxy (..))
-import Data.Text     (Text)
+import Data.Foldable         (toList)
+import Data.Function         ((&))
+import Data.Functor.Identity (Identity)
+import Data.Proxy            (Proxy (..))
+import Data.Text             (Text)
 
+import GHC.Exts     (Constraint)
 import GHC.TypeLits
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
@@ -70,15 +76,13 @@ diffSchema :: (DynamoTable a, DynamoTable b)
            => Proxy a
            -> Proxy b
            -> UpdateTable
-diffSchema = undefined
+diffSchema _ _ = undefined
 
--- | Get the differences between a 'TableDescription' and a 'Table' schema
--- as an 'UpdateTable' request.
-diffDescription :: DynamoTable a
-                => TableDescription
-                -> Proxy a
+-- | Get the differences between two 'TableDescription's as an 'UpdateTable' request.
+diffDescription :: TableDescription
+                -> TableDescription
                 -> UpdateTable
-diffDescription = undefined
+diffDescription _ _ = undefined
 
 -- update :: (DynamoTable a, DynamoTable b)
 --        => Proxy a
@@ -92,20 +96,31 @@ diffDescription = undefined
 --     old = getCreateTable a
 --     new = getCreateTable b
 
-class DynamoTable a where
+
+type family IsTableAttribute a (b :: Symbol) :: Constraint where
+    IsTableAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
+
+class ( DynamoAttributes a
+      , DynamoKeys       a
+      , DynamoThroughput a
+      , DynamoStreaming  a
+      , DynamoIndexes    a
+      ) => DynamoTable a where
     -- | Get the DynamoDB table name.
     getTableName   :: Proxy a -> Text
 
     -- | Get the DynamoDB 'CreateTable' configuration.
     getCreateTable :: Proxy a -> CreateTable
 
-instance ( Table n a t s is ~ b
-         , DynamoAttributes b
-         , DynamoKeys       b
-         , DynamoThroughput b
-         , DynamoStreaming  b
-         , DynamoIndexes    b
-         , KnownSymbol      n
+instance ( Table n a t s is ~  b
+         , PartitionKeyOrder a
+         , UniqueAttributes  a
+         , DynamoAttributes    b
+         , DynamoKeys          b
+         , DynamoThroughput    b
+         , DynamoStreaming     b
+         , DynamoIndexes       b
+         , KnownSymbol       n
          ) => DynamoTable (Table n a t s is) where
     getTableName   _ = symbolToText (Proxy :: Proxy n)
     getCreateTable _ =
@@ -123,11 +138,20 @@ instance ( UniqueAttributes a
          ) => DynamoAttributes (Table n a t s i) where
     getAttributes _ = getAttributes (Proxy :: Proxy a)
 
-instance ( UniqueAttributes  a
-         , PartitionKeyOrder a
-         , DynamoKeys        a
-         ) => DynamoKeys (Table n a t s i) where
-    getKeys _ = getKeys (Proxy :: Proxy a)
+instance ( StripValues a ~    k
+         , DynamoPartitionKey k
+         ) => DynamoPartitionKey (Table n a t s i) where
+    getPartitionKey _ = getPartitionKey (Proxy :: Proxy k)
+
+instance ( StripValues a ~        k
+         , DynamoSortKey Identity k
+         ) => DynamoSortKey Identity (Table n a t s i) where
+    getSortKey _ = getSortKey (Proxy :: Proxy k)
+
+instance ( StripValues a ~     k
+         , DynamoSortKey Maybe k
+         ) => DynamoSortKey Maybe (Table n a t s i) where
+    getSortKey _ = getSortKey (Proxy :: Proxy k)
 
 instance DynamoThroughput t => DynamoThroughput (Table n a t s is) where
     getThroughput _ = getThroughput (Proxy :: Proxy t)

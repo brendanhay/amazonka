@@ -131,33 +131,39 @@ module Amazonka.DynamoDB.Expression
     -- $document_paths
     , Path         (..)
 
+    , name
+    , index
+
     -- * Compilation
-    , compileNames
-    , compileValues
-    , compile
+    , Compile.compileNames
+    , Compile.compileValues
+    , Compile.compile
 
     -- ** Placeholders
-    , finalizeNames
-    , finalizeValues
+    , Placeholder.Placeholders
+
+    , Placeholder.finalizeNames
+    , Placeholder.finalizeValues
 
     -- ** Grammars
-    , projectionExpression
-    , keyConditionExpression
-    , conditionExpression
-    , updateExpression
+    , Compile.projectionExpression
+    , Compile.keyConditionExpression
+    , Compile.conditionExpression
+    , Compile.updateExpression
 
     -- * Values
     , Value
     , toValue
     ) where
 
-import Amazonka.DynamoDB.Expression.Compile
 import Amazonka.DynamoDB.Expression.Condition
 import Amazonka.DynamoDB.Expression.Internal
-import Amazonka.DynamoDB.Expression.Placeholder
 import Amazonka.DynamoDB.Expression.Projection
 import Amazonka.DynamoDB.Expression.Update
-import Amazonka.DynamoDB.Item.Value             (Value, toValue)
+import Amazonka.DynamoDB.Item.Value            (Value, toValue)
+
+import qualified Amazonka.DynamoDB.Expression.Compile     as Compile
+import qualified Amazonka.DynamoDB.Expression.Placeholder as Placeholder
 
 -- FIXME:
 -- Update Expressions vs Condition Expressions vs Projection Expressions

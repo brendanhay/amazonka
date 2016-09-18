@@ -95,7 +95,7 @@ import Data.Text          (Text)
 --     cexpr  = eval Compile.conditionExpression . liftC
 -- :}
 
--- | Specify an exact partition key.
+-- | Specify a partition key condition.
 --
 -- >>> kexpr $ partition (name "partition-key" =: "bar")
 -- partition-key = :v1
@@ -106,7 +106,7 @@ partition :: Condition Hash p v
 partition = Partition
 {-# INLINE partition #-}
 
--- | Specify an exact partition key, and narrow the scope
+-- | Specify a partition key condition, and narrow the scope
 -- by specifying a sort key condition as follows:
 --
 -- >>> kexpr $ partitionFilter (name "partition-key" =: "foo") (name "sort-key" >: 123)

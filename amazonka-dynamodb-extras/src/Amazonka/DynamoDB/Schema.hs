@@ -32,18 +32,12 @@ module Amazonka.DynamoDB.Schema
     -- * Working with Indexes
 
     -- * Working with Serializers
-
-    -- * Items
-    , DynamoItem  (..)
-
-    -- * Values
-    , DynamoValue (..)
-    , Value
     ) where
 
-import Amazonka.DynamoDB.Item
 import Amazonka.DynamoDB.Schema.Attribute
+import Amazonka.DynamoDB.Schema.Expression
 import Amazonka.DynamoDB.Schema.Index
+import Amazonka.DynamoDB.Schema.Key
 import Amazonka.DynamoDB.Schema.Stream
 import Amazonka.DynamoDB.Schema.Table
 import Amazonka.DynamoDB.Schema.Throughput

@@ -150,12 +150,14 @@ scan pTableName_ =
     , _sTableName = pTableName_
     }
 
--- | A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
---
--- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
---
+-- | A string that identifies one or more attributes to retrieve from the
+--specified table or index. These attributes can include scalars, sets, or
+--elements of a JSON document. The attributes in the expression must be
+--separated by commas.  If no attribute names are specified, then all
+--attributes will be returned. If any of the requested attributes are not
+--found, they will not appear in the result.  For more information, see
+--<http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html
+--Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
 sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression = lens _sProjectionExpression (\ s a -> s{_sProjectionExpression = a});

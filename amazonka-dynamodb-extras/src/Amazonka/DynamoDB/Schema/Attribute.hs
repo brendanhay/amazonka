@@ -38,6 +38,7 @@ module Amazonka.DynamoDB.Schema.Attribute
     , SortKeyOrder
     , UniqueAttributes
     , HasAttributes
+    , StripValues
 
     -- * Symbol Names
     , KnownSymbols (..)
@@ -130,7 +131,7 @@ instance ( KnownSymbol      n
          ) => DynamoAttributes (PartitionKey n ::: h) where
     getAttributes _ =
         pure $ attributeDefinition
-            (symbolToText    (Proxy :: Proxy n))
+            (symbolToText  (Proxy :: Proxy n))
             (getScalarType (Proxy :: Proxy h))
 
 instance ( KnownSymbol n
@@ -180,8 +181,7 @@ type family SortKeyOrder (a :: AttributeKind) :: Constraint where
         If (SortKeyOrder' (StripValues a))
            (() :: Constraint)
            (TypeError
-               ('Text "SortKey must be specified first,\
-                      \ followed by any non-key Attributes:"
+               ('Text "SortKey must be specified before any non-key Attributes:"
                 ':$$: 'ShowType a))
 
 -- | Test the 'SortKey' precedence invariants.

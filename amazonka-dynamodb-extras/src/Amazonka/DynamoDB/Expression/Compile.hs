@@ -55,26 +55,24 @@ import Amazonka.DynamoDB.Item.Value             (Value)
 
 import Control.Monad.Trans.State.Strict (StateT)
 
+import Control.Monad.Trans.State.Strict (runState)
 import Data.Bifunctor
-import Data.Bitraversable     (Bitraversable (..))
-import Data.Foldable          (foldl', toList)
-import Data.List              (intersperse)
-import Data.Maybe             (catMaybes)
-import Data.Semigroup         ((<>))
-import Data.Sequence          (Seq, ViewL (..))
-import Data.Text              (Text)
-import Data.Text.Lazy.Builder (Builder)
+import Data.Bitraversable               (Bitraversable (..))
+import Data.Foldable                    (foldl', toList)
+import Data.Functor.Identity            (runIdentity)
+import Data.Hashable                    (Hashable)
+import Data.List                        (intersperse)
+import Data.Maybe                       (catMaybes)
+import Data.Semigroup                   ((<>))
+import Data.Sequence                    (Seq, ViewL (..))
+import Data.Text                        (Text)
+import Data.Text.Lazy.Builder           (Builder)
 
 import Network.AWS.Data.Text (ToText (..))
 
 import qualified Data.Sequence          as Seq
 import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
-
-
-import Control.Monad.Trans.State.Strict
-import Data.Functor.Identity
-import Data.Hashable
 
 -- NOTE: about why compileT vs compile is needed, carrying around Placeholders
 -- state when compiling disparate expressions, which result in a single

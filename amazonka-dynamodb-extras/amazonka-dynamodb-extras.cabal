@@ -48,6 +48,7 @@ library
           -- amazonka-dynamodb-schema
         , Amazonka.DynamoDB.Schema
         , Amazonka.DynamoDB.Schema.Attribute
+        , Amazonka.DynamoDB.Schema.Expression
         , Amazonka.DynamoDB.Schema.Index
         , Amazonka.DynamoDB.Schema.Key
         , Amazonka.DynamoDB.Schema.Serialize

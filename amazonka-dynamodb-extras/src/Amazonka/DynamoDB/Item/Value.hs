@@ -125,11 +125,8 @@ import Data.Sequence         (Seq)
 import Data.Set              (Set)
 import Data.Tagged           (Tagged (..))
 import Data.Text             (Text)
-import Data.Time             (Day, LocalTime, NominalDiffTime, TimeOfDay,
-                              UTCTime, ZonedTime)
 import Data.Typeable         (Typeable)
 import Data.Vector           (Vector)
-import Data.Version          (Version)
 import Data.Word             (Word, Word16, Word32, Word64, Word8)
 
 import Foreign.Storable (Storable)

@@ -42,7 +42,7 @@ import Data.Proxy            (Proxy (..))
 import Data.Text             (Text)
 
 import GHC.Exts     (Constraint)
-import GHC.TypeLits
+import GHC.TypeLits (KnownSymbol, Symbol)
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 
@@ -138,20 +138,17 @@ instance ( UniqueAttributes a
          ) => DynamoAttributes (Table n a t s i) where
     getAttributes _ = getAttributes (Proxy :: Proxy a)
 
-instance ( StripValues a ~    k
-         , DynamoPartitionKey k
+instance ( DynamoPartitionKey a
          ) => DynamoPartitionKey (Table n a t s i) where
-    getPartitionKey _ = getPartitionKey (Proxy :: Proxy k)
+    getPartitionKey _ = getPartitionKey (Proxy :: Proxy a)
 
-instance ( StripValues a ~        k
-         , DynamoSortKey Identity k
+instance ( DynamoSortKey Identity a
          ) => DynamoSortKey Identity (Table n a t s i) where
-    getSortKey _ = getSortKey (Proxy :: Proxy k)
+    getSortKey _ = getSortKey (Proxy :: Proxy a)
 
-instance ( StripValues a ~     k
-         , DynamoSortKey Maybe k
+instance ( DynamoSortKey Maybe a
          ) => DynamoSortKey Maybe (Table n a t s i) where
-    getSortKey _ = getSortKey (Proxy :: Proxy k)
+    getSortKey _ = getSortKey (Proxy :: Proxy a)
 
 instance DynamoThroughput t => DynamoThroughput (Table n a t s is) where
     getThroughput _ = getThroughput (Proxy :: Proxy t)

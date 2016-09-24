@@ -17,9 +17,9 @@ module Amazonka.DynamoDB.Schema.Throughput
 
 import Data.Proxy (Proxy (..))
 
-import GHC.TypeLits
+import GHC.TypeLits (KnownNat, Nat, natVal)
 
-import Network.AWS.DynamoDB
+import Network.AWS.DynamoDB (ProvisionedThroughput, provisionedThroughput)
 
 data ReadCapacityKind = ReadCapacity Nat
 

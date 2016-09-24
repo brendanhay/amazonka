@@ -1,6 +1,8 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE LambdaCase          #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 -- |
 -- Module      : Amazonka.DynamoDB.Itema
@@ -22,6 +24,10 @@ module Amazonka.DynamoDB.Item
     , toValue
     , fromValue
 
+    -- * Attributes
+    , DynamoAttributeName
+    , getAttributeName
+
     -- * Items
     , ItemError   (..)
     , DynamoItem  (..)
@@ -31,6 +37,7 @@ module Amazonka.DynamoDB.Item
 
     -- ** Serialization
     , item
+    , attribute
     , value
 
     -- ** Deserialization
@@ -41,6 +48,7 @@ module Amazonka.DynamoDB.Item
     , NativeType (..)
     ) where
 
+import Amazonka.DynamoDB.Item.Attribute
 import Amazonka.DynamoDB.Item.Internal
 import Amazonka.DynamoDB.Item.Value
 
@@ -51,8 +59,11 @@ import Data.Bifunctor      (bimap, first)
 import Data.Coerce         (coerce)
 import Data.HashMap.Strict (HashMap)
 import Data.Map            (Map)
+import Data.Proxy          (Proxy (..))
 import Data.Text           (Text)
 import Data.Typeable       (Typeable)
+
+import GHC.TypeLits (KnownSymbol)
 
 import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
@@ -62,6 +73,15 @@ import qualified Data.Map.Strict     as Map
 item :: [(Text, Value)] -> HashMap Text Value
 item = HashMap.fromList
 {-# INLINE item #-}
+
+attribute :: forall a.
+             ( KnownSymbol (DynamoAttributeName a)
+             , DynamoValue a
+             )
+          => a
+          -> (Text, Value)
+attribute x = (getAttributeName (Proxy :: Proxy a), toValue x)
+{-# INLINE attribute #-}
 
 value :: DynamoValue a => Text -> a -> (Text, Value)
 value k v = (k, toValue v)

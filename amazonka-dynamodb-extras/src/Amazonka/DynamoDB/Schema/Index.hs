@@ -7,8 +7,6 @@
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE UndecidableInstances #-}
 
--- {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
-
 module Amazonka.DynamoDB.Schema.Index
     ( SecondaryIndexKind (..)
     , GlobalSecondaryIndex
@@ -21,18 +19,18 @@ import Amazonka.DynamoDB.Schema.Attribute
 import Amazonka.DynamoDB.Schema.Key
 import Amazonka.DynamoDB.Schema.Throughput
 
-import Control.Lens (view, (?~), (^.))
+import Control.Lens ((?~), (^.))
 
-import Data.Foldable         (find, toList)
+import Data.Foldable         (toList)
 import Data.Function         ((&))
 import Data.Functor.Identity (Identity (..))
-import Data.List             (delete, nub, (\\))
+import Data.List             (nub, (\\))
 import Data.List.NonEmpty    (NonEmpty (..))
 import Data.Proxy            (Proxy (..))
 import Data.Semigroup        ((<>))
 import Data.Text             (Text)
 
-import GHC.TypeLits
+import GHC.TypeLits (KnownSymbol, Symbol)
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 

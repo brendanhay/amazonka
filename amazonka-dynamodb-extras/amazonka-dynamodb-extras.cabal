@@ -33,6 +33,7 @@ library
 
           -- amazonka-dynamodb-item
         , Amazonka.DynamoDB.Item
+        , Amazonka.DynamoDB.Item.Attribute
         , Amazonka.DynamoDB.Item.Internal
         , Amazonka.DynamoDB.Item.Value
 
@@ -72,7 +73,6 @@ library
         , semigroups           >= 0.12
         , tagged               >= 0.8
         , text                 >= 1.1
-        , time                 >= 1.4
         , transformers
         , type-level-sets      >= 0.7
         , unordered-containers >= 0.2.5
@@ -85,6 +85,9 @@ test-suite tests
     main-is:           Main.hs
 
     ghc-options:       -Wall -threaded
+
+    other-modules:
+          Example
 
     build-depends:
           base

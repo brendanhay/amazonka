@@ -13,16 +13,13 @@ module Amazonka.DynamoDB.Schema.Key where
 
 import Amazonka.DynamoDB.Schema.Attribute
 
-import Control.Lens ((^.))
-
 import Data.Functor.Identity
 import Data.List.NonEmpty    (NonEmpty (..))
 import Data.Maybe
 import Data.Proxy            (Proxy (..))
-import Data.Semigroup        ((<>))
 import Data.Text             (Text)
 
-import GHC.TypeLits
+import GHC.TypeLits (KnownSymbol)
 
 import Network.AWS.DynamoDB hiding (GlobalSecondaryIndex, LocalSecondaryIndex)
 

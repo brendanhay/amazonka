@@ -324,7 +324,7 @@ path ::=
 path :: Path Builder -> Builder
 path = \case
     Attr   x   -> x
-    Index  x i -> x <> "[" <> build i <> "]"
+    Index  a i -> path a <> "[" <> build i <> "]"
     Nested a b -> path a <> "." <> path b
 {-# INLINE path #-}
 

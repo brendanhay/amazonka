@@ -16,7 +16,7 @@ import Data.HashMap.Strict (HashMap)
 import Data.Proxy          (Proxy (..))
 import Data.Text           (Text)
 
-import GHC.TypeLits
+import GHC.TypeLits (KnownSymbol)
 
 import qualified Data.HashMap.Strict as HashMap
 
@@ -53,91 +53,67 @@ class DynamoSerializer a where
                     -> HashMap Text Value
                     -> Either ItemError (Deserialized a)
 
-instance ( DynamoSerializer a
-         , KnownSymbol      n
-         , DynamoValue      h
-         ) => DynamoSerializer (PartitionKey n ::: h :# a) where
-    type Serialized (PartitionKey n ::: h :# a) =
-         Serialized (Attribute    n ::: h :# a)
-
-    type Deserialized (PartitionKey n ::: h :# a) =
-         Deserialized (Attribute    n ::: h :# a)
-
-    getSerializer   _ =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: h :# a))
-
-    getDeserializer _ =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: h :# a))
-
-instance ( KnownSymbol n
+instance ( KnownSymbol (DynamoAttributeName h)
          , DynamoValue h
-         ) => DynamoSerializer (PartitionKey n ::: h) where
-    type Serialized (PartitionKey n ::: h) =
-         Serialized (Attribute    n ::: h)
+         , DynamoSerializer a
+         ) => DynamoSerializer (PartitionKey h :# a) where
+    type Serialized   (PartitionKey h :# a) = Serialized   (Attribute h :# a)
+    type Deserialized (PartitionKey h :# a) = Deserialized (Attribute h :# a)
 
-    type Deserialized (PartitionKey n ::: h) =
-         Deserialized (Attribute    n ::: h)
+    getSerializer   _ = getSerializer   (Proxy :: Proxy (Attribute h :# a))
+    getDeserializer _ = getDeserializer (Proxy :: Proxy (Attribute h :# a))
 
-    getSerializer   _ =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: h))
+instance ( KnownSymbol (DynamoAttributeName h)
+         , DynamoValue h
+         ) => DynamoSerializer (PartitionKey h) where
+    type Serialized   (PartitionKey h) = Serialized  (Attribute  h)
+    type Deserialized (PartitionKey h) = Deserialized (Attribute h)
 
-    getDeserializer _ =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: h))
+    getSerializer   _ = getSerializer   (Proxy :: Proxy (Attribute h))
+    getDeserializer _ = getDeserializer (Proxy :: Proxy (Attribute h))
 
-instance ( DynamoSerializer a
-         , KnownSymbol      n
-         , DynamoValue      r
-         ) => DynamoSerializer (SortKey n ::: r :# a) where
-    type Serialized (SortKey   n ::: r :# a) =
-         Serialized (Attribute n ::: r :# a)
-
-    type Deserialized (SortKey   n ::: r :# a) =
-         Deserialized (Attribute n ::: r :# a)
-
-    getSerializer   _ =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: r :# a))
-
-    getDeserializer _ =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: r :# a))
-
-instance ( KnownSymbol n
+instance ( KnownSymbol (DynamoAttributeName r)
          , DynamoValue r
-         ) => DynamoSerializer (SortKey n ::: r) where
-    type Serialized (SortKey   n ::: r) =
-         Serialized (Attribute n ::: r)
+         , DynamoSerializer a
+         ) => DynamoSerializer (SortKey r :# a) where
+    type Serialized   (SortKey r :# a) = Serialized   (Attribute r :# a)
+    type Deserialized (SortKey r :# a) = Deserialized (Attribute r :# a)
 
-    type Deserialized (SortKey   n ::: r) =
-         Deserialized (Attribute n ::: r)
+    getSerializer   _ = getSerializer   (Proxy :: Proxy (Attribute r :# a))
+    getDeserializer _ = getDeserializer (Proxy :: Proxy (Attribute r :# a))
 
-    getSerializer   _ =
-        getSerializer   (Proxy :: Proxy (Attribute n ::: r))
+instance ( KnownSymbol (DynamoAttributeName r)
+         , DynamoValue r
+         ) => DynamoSerializer (SortKey r) where
+    type Serialized   (SortKey r) = Serialized   (Attribute r)
+    type Deserialized (SortKey r) = Deserialized (Attribute r)
 
-    getDeserializer _ =
-        getDeserializer (Proxy :: Proxy (Attribute n ::: r))
+    getSerializer   _ = getSerializer   (Proxy :: Proxy (Attribute r))
+    getDeserializer _ = getDeserializer (Proxy :: Proxy (Attribute r))
 
-instance ( DynamoSerializer a
-         , KnownSymbol      n
-         , DynamoValue      v
-         ) => DynamoSerializer (Attribute n ::: v :# a) where
-    type Serialized   (Attribute n ::: v :# a) = v ->  Serialized   a
-    type Deserialized (Attribute n ::: v :# a) = v :*: Deserialized a
+instance ( KnownSymbol (DynamoAttributeName v)
+         , DynamoValue v
+         , DynamoSerializer a
+         ) => DynamoSerializer (Attribute v :# a) where
+    type Serialized   (Attribute v :# a) = v ->  Serialized   a
+    type Deserialized (Attribute v :# a) = v :*: Deserialized a
 
     getSerializer _ m =
           getSerializer (Proxy :: Proxy a)
-        . getSerializer (Proxy :: Proxy (Attribute n ::: v)) m
+        . getSerializer (Proxy :: Proxy (Attribute v)) m
 
     getDeserializer _ m =
-        (:*:) <$> getDeserializer (Proxy :: Proxy (Attribute n ::: v)) m
+        (:*:) <$> getDeserializer (Proxy :: Proxy (Attribute v)) m
               <*> getDeserializer (Proxy :: Proxy a) m
 
-instance ( KnownSymbol n
+instance ( KnownSymbol (DynamoAttributeName v)
          , DynamoValue v
-         ) => DynamoSerializer (Attribute n ::: v) where
-    type Serialized   (Attribute n ::: v) = v -> HashMap Text Value
-    type Deserialized (Attribute n ::: v) = v
+         ) => DynamoSerializer (Attribute v) where
+    type Serialized   (Attribute v) = v -> HashMap Text Value
+    type Deserialized (Attribute v) = v
 
-    getSerializer _ m v =
-        uncurry HashMap.insert (value (symbolToText (Proxy :: Proxy n)) v) m
+    getSerializer _ m x =
+         HashMap.insert (getAttributeName (Proxy :: Proxy v)) (toValue x) m
 
     getDeserializer _ =
-        parse (symbolToText (Proxy :: Proxy n))
+        parse (getAttributeName (Proxy :: Proxy v))

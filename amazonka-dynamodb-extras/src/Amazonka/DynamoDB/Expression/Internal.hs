@@ -30,8 +30,7 @@ import Amazonka.DynamoDB.Item (Value)
 import Control.Applicative (liftA2, many, (<|>))
 import Control.Monad       (ap)
 
-import Data.Attoparsec.Text (char, decimal, endOfInput, satisfy, sepBy,
-                             takeWhile1)
+import Data.Attoparsec.Text (char, decimal, endOfInput, takeWhile1)
 import Data.Bifoldable
 import Data.Bifunctor
 import Data.Bitraversable

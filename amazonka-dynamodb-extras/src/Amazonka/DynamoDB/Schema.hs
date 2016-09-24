@@ -1,5 +1,7 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE TypeOperators              #-}
 
 -- |
 -- Module      : Amazonka.DynamoDB.Schema
@@ -34,6 +36,7 @@ module Amazonka.DynamoDB.Schema
     -- * Working with Serializers
     ) where
 
+import Amazonka.DynamoDB.Item
 import Amazonka.DynamoDB.Schema.Attribute
 import Amazonka.DynamoDB.Schema.Expression
 import Amazonka.DynamoDB.Schema.Index
@@ -70,30 +73,62 @@ type Example =
              )
         ]
 
-example :: Proxy Example
-example = Proxy
-@
--}
-
 type Example =
     Table "credentials"
-        ( PartitionKey "name"     ::: ByteString
-       :# SortKey      "version"  ::: Text
-       :# Attribute    "revision" ::: Integer
-       :# Attribute    "contents" ::: Integer
+        ( 'PartitionKey Name
+       :# 'SortKey      Version
+       :# 'Attribute    Revision
+       :# 'Attribute    Contents
         )
 
         (Throughput (ReadCapacity 1) (WriteCapacity 1))
         (Streaming 'SVTKeysOnly)
 
        '[ GlobalSecondaryIndex "revision"
-             ( PartitionKey "name"
-            :# SortKey      "revision"
+             ( PartitionKey Name
+            :# SortKey      Revision
              ) (Throughput (ReadCapacity 1) (WriteCapacity 1))
 
         , LocalSecondaryIndex "version"
-             ( SortKey   "contents"
-            :# Attribute "name"
+             ( SortKey   Contents
+            :# Attribute Name
+             )
+        ]
+
+example :: Proxy Example
+example = Proxy
+@
+-}
+
+newtype Name     = Name     Text       deriving (DynamoScalarType)
+newtype Version  = Version  Integer    deriving (DynamoScalarType)
+newtype Revision = Revision Text
+newtype Contents = Contents ByteString
+
+type instance DynamoAttributeName Name     = "name"
+type instance DynamoAttributeName Version  = "version"
+type instance DynamoAttributeName Revision = "revision"
+type instance DynamoAttributeName Contents = "contents"
+
+type Example =
+    Table "credentials"
+        ( PartitionKey Name
+       :# SortKey      Version
+       :# Attribute    Revision
+       :# Attribute    Contents
+        )
+
+        (Throughput (ReadCapacity 1) (WriteCapacity 1))
+        (Streaming 'SVTKeysOnly)
+
+       '[ GlobalSecondaryIndex "revision"
+             ( PartitionKey Name
+            :# SortKey      Revision
+             ) (Throughput (ReadCapacity 1) (WriteCapacity 1))
+
+        , LocalSecondaryIndex "version"
+             ( SortKey   Contents
+            :# Attribute Name
              )
         ]
 

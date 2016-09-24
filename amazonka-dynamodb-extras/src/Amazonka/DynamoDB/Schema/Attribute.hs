@@ -30,7 +30,6 @@ module Amazonka.DynamoDB.Schema.Attribute
     , SortKey
     , Attribute
     , (:#)
-    , (:::)
     , Schema
 
     -- * Invariants
@@ -38,12 +37,13 @@ module Amazonka.DynamoDB.Schema.Attribute
     , SortKeyOrder
     , UniqueAttributes
     , HasAttributes
-    , StripValues
 
     -- * Symbol Names
     , KnownSymbols (..)
     , symbolToText
     ) where
+
+import Amazonka.DynamoDB.Item.Attribute
 
 import Data.ByteString    (ByteString)
 import Data.List.NonEmpty (NonEmpty (..))
@@ -55,7 +55,8 @@ import Data.Type.Equality
 import Data.Type.Set      ((:++), Cmp, Nub, Sort)
 
 import GHC.Exts     (Constraint)
-import GHC.TypeLits
+import GHC.TypeLits (KnownSymbol, symbolVal, Symbol, CmpSymbol,
+                     ErrorMessage(..), TypeError)
 
 import Network.AWS.DynamoDB
 
@@ -67,20 +68,17 @@ import qualified Data.Text as Text
 -- The constructors are promoted to the type-level and unticked aliases are
 -- also exported.
 data AttributeKind
-    = PartitionKey Symbol
-    | SortKey      Symbol
-    | Attribute    Symbol
+    = forall hash.  PartitionKey hash
+    | forall range. SortKey      range
+    | forall value. Attribute    value
     | AttributeKind :# AttributeKind
-    | forall value . AttributeKind ::: value
 
 type PartitionKey = 'PartitionKey
 type SortKey      = 'SortKey
 type Attribute    = 'Attribute
 
 infixr 6 :#
-infixr 7 :::
 
-type a ::: b = a '::: b
 type a :#  b = a ':#  b
 
 -- | A type-level wrapper for passing the table's attribute schema
@@ -121,48 +119,33 @@ instance ( DynamoAttributes a
            getAttributes (Proxy :: Proxy a)
         <> getAttributes (Proxy :: Proxy b)
 
-instance ( KnownSymbol n
-         ) => DynamoAttributes (PartitionKey n) where
-    getAttributes _ =
-        getAttributes (Proxy :: Proxy (PartitionKey n ::: Text))
-
-instance ( KnownSymbol      n
+instance ( KnownSymbol (DynamoAttributeName h)
          , DynamoScalarType h
-         ) => DynamoAttributes (PartitionKey n ::: h) where
+         ) => DynamoAttributes (PartitionKey h) where
     getAttributes _ =
         pure $ attributeDefinition
-            (symbolToText  (Proxy :: Proxy n))
-            (getScalarType (Proxy :: Proxy h))
+            (getAttributeName (Proxy :: Proxy h))
+            (getScalarType    (Proxy :: Proxy h))
 
-instance ( KnownSymbol n
-         ) => DynamoAttributes (SortKey n) where
-    getAttributes _ =
-        getAttributes (Proxy :: Proxy (SortKey n ::: Text))
-
-instance ( KnownSymbol      n
+instance ( KnownSymbol (DynamoAttributeName r)
          , DynamoScalarType r
-         ) => DynamoAttributes (SortKey n ::: r) where
+         ) => DynamoAttributes (SortKey r) where
     getAttributes _ =
         pure $ attributeDefinition
-            (symbolToText    (Proxy :: Proxy n))
-            (getScalarType (Proxy :: Proxy r))
+            (getAttributeName (Proxy :: Proxy r))
+            (getScalarType    (Proxy :: Proxy r))
 
-instance ( KnownSymbol n
-         ) => DynamoAttributes (Attribute n) where
-    getAttributes _ =
-        getAttributes (Proxy :: Proxy (Attribute n ::: Text))
-
-instance ( KnownSymbol      n
+instance ( KnownSymbol (DynamoAttributeName v)
          , DynamoScalarType v
-         ) => DynamoAttributes (Attribute n ::: v) where
+         ) => DynamoAttributes (Attribute v) where
     getAttributes _ =
         pure $ attributeDefinition
-            (symbolToText    (Proxy :: Proxy n))
-            (getScalarType (Proxy :: Proxy v))
+            (getAttributeName (Proxy :: Proxy v))
+            (getScalarType    (Proxy :: Proxy v))
 
 type family PartitionKeyOrder (a :: AttributeKind) :: Constraint where
     PartitionKeyOrder a =
-        If (PartitionKeyOrder' (StripValues a))
+        If (PartitionKeyOrder' a)
            (() :: Constraint)
            (TypeError
                ('Text "PartitionKey must be specified first, then an optional\
@@ -178,7 +161,7 @@ type family PartitionKeyOrder' (a :: AttributeKind) :: Bool where
 
 type family SortKeyOrder (a :: AttributeKind) :: Constraint where
     SortKeyOrder a =
-        If (SortKeyOrder' (StripValues a))
+        If (SortKeyOrder' a)
            (() :: Constraint)
            (TypeError
                ('Text "SortKey must be specified before any non-key Attributes:"
@@ -214,7 +197,6 @@ type family HasAttributes a b :: Constraint where
 type family OnlyAttributes a :: Bool where
     OnlyAttributes (Attribute n) = 'True
     OnlyAttributes (a :# b)      = OnlyAttributes a && OnlyAttributes b
-    OnlyAttributes (a ::: v)     = OnlyAttributes a
     OnlyAttributes a             = 'False
 
 -- | Obtain a list of attribute names, verbatim.
@@ -224,13 +206,7 @@ type family AttributeNames a :: [Symbol] where
     AttributeNames (Attribute    n) = '[n]
     AttributeNames (a :# b)         =
         AttributeNames a :++ AttributeNames b
-    AttributeNames (a ::: v)        = AttributeNames a
     AttributeNames _                = '[]
-
-type family StripValues (a :: AttributeKind) :: AttributeKind where
-    StripValues (a :#  b) = StripValues a :# StripValues b
-    StripValues (a ::: v) = StripValues a
-    StripValues a         = a
 
 type instance Cmp (a :: Symbol) (b :: Symbol) = CmpSymbol a b
 
@@ -281,9 +257,6 @@ instance KnownSymbol n => KnownSymbols (Attribute n) where
 instance (KnownSymbols a, KnownSymbols b) => KnownSymbols (a :# b) where
     symbolsToText _ =
         symbolsToText (Proxy :: Proxy a) ++ symbolsToText (Proxy :: Proxy b)
-
-instance KnownSymbols a => KnownSymbols (a ::: v) where
-    symbolsToText _ = symbolsToText (Proxy :: Proxy a)
 
 symbolToText :: KnownSymbol n => proxy n -> Text
 symbolToText = Text.pack . symbolVal

@@ -16,7 +16,7 @@ module Amazonka.DynamoDB.Schema.Expression
       KeyConditionExpression
 
     , partition
-    , partitionFilter
+    , partitionRange
 
     -- * Document Paths
     , Path
@@ -59,7 +59,7 @@ partitionRange :: (DynamoPartitionKey a, DynamoSortKey Identity a)
                -> (Path Name -> Condition Range Name v)
                   -- ^ A partially applied sort key range condition, such as @(>: 123)@.
                -> KeyConditionExpression Name v
-partitionRange s f g = Expr.partitionFilter (f (partitionKey s)) (g (sortKey s))
+partitionRange s f g = Expr.partitionRange (f (partitionKey s)) (g (sortKey s))
 
 -- | Get a table schema's partition key as a 'Path' for use with the
 -- "Amazonka.DynamoDB.Expression" language.
@@ -80,7 +80,7 @@ sortKey = pure . Name . runIdentity . getSortKey
 -- | Create a document 'Path' for use with the "Amazonka.DynamoDB.Expression"
 -- language, enforcing existence within the given table schema's attributes
 -- for the given type.
-path :: (IsTableAttribute a b, DynamoName b)
+path :: (HasAttribute a b, KnownDynamoName b)
      => Proxy a
         -- ^ A table schema.
      -> Proxy b

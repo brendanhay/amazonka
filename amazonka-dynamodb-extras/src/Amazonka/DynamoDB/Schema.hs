@@ -56,10 +56,10 @@ newtype Version  = Version  Integer    deriving (DynamoScalarType)
 newtype Revision = Revision Text
 newtype Contents = Contents ByteString
 
-type instance DynamoAttributeName Name     = "name"
-type instance DynamoAttributeName Version  = "version"
-type instance DynamoAttributeName Revision = "revision"
-type instance DynamoAttributeName Contents = "contents"
+type instance DynamoName Name     = "name"
+type instance DynamoName Version  = "version"
+type instance DynamoName Revision = "revision"
+type instance DynamoName Contents = "contents"
 
 type Example =
     Table "credentials"
@@ -93,10 +93,10 @@ newtype Version  = Version  Integer    deriving (DynamoScalarType)
 newtype Revision = Revision Text
 newtype Contents = Contents ByteString
 
-type instance DynamoAttributeName Name     = "name"
-type instance DynamoAttributeName Version  = "version"
-type instance DynamoAttributeName Revision = "revision"
-type instance DynamoAttributeName Contents = "contents"
+type instance DynamoName Name     = "name"
+type instance DynamoName Version  = "version"
+type instance DynamoName Revision = "revision"
+type instance DynamoName Contents = "contents"
 
 type Example =
     Table "credentials"

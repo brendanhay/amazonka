@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds             #-}
+{-# LANGUAGE DefaultSignatures     #-}
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -12,8 +13,6 @@ module Amazonka.DynamoDB.Schema.Table
     ( diffSchema
     , diffDescription
 
-    , IsTableAttribute
-
     , Table
     , DynamoTable (..)
 
@@ -26,6 +25,7 @@ module Amazonka.DynamoDB.Schema.Table
 
     ) where
 
+import Amazonka.DynamoDB.Item.Attribute
 import Amazonka.DynamoDB.Schema.Attribute
 import Amazonka.DynamoDB.Schema.Index
 import Amazonka.DynamoDB.Schema.Key
@@ -65,11 +65,17 @@ data Table
 
 -- Note: Think of naming consistency 'get*' vs 'schema*' etc.
 
--- getTableName :: DynamoTable a => Proxy a -> Text
--- getTableName = view ctTableName . getCreateTable
+type instance DynamoName   (Table n a t s is)   = n
+type instance HasAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
 
 -- create :: DynamoTable a => Proxy a -> CreateTable
 -- create = getCreateTable
+
+-- -- | Get the DynamoDB table name.
+-- getTableName :: forall n a t s is. KnownSymbol n
+--              => Proxy (Table n a t s is)
+--              -> Text
+-- getTableName _ = symbolToText (Proxy :: Proxy n)
 
 -- | Get the differences between two 'Table' schemas as an 'UpdateTable' request.
 diffSchema :: (DynamoTable a, DynamoTable b)
@@ -96,9 +102,11 @@ diffDescription _ _ = undefined
 --     old = getCreateTable a
 --     new = getCreateTable b
 
+-- type family IsTableAttribute a (b :: *) :: Constraint where
+--     IsTableAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
 
-type family IsTableAttribute a (b :: *) :: Constraint where
-    IsTableAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
+type instance HasAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
+
 
 class ( DynamoAttributes a
       , DynamoKeys       a
@@ -106,9 +114,6 @@ class ( DynamoAttributes a
       , DynamoStreaming  a
       , DynamoIndexes    a
       ) => DynamoTable a where
-    -- | Get the DynamoDB table name.
-    getTableName   :: Proxy a -> Text
-
     -- | Get the DynamoDB 'CreateTable' configuration.
     getCreateTable :: Proxy a -> CreateTable
 
@@ -122,11 +127,9 @@ instance ( Table n a t s is ~  b
          , DynamoIndexes       b
          , KnownSymbol       n
          ) => DynamoTable (Table n a t s is) where
-    getTableName   _ = symbolToText (Proxy :: Proxy n)
     getCreateTable _ =
         let p = Proxy :: Proxy b in
-        createTable (getTableName p)
-           (getKeys p)
+        createTable (getName p) (getKeys p)
            (getThroughput p)
                 & ctStreamSpecification    ?~ getStreaming     p
                 & ctAttributeDefinitions   .~ toList (getAttributes p)

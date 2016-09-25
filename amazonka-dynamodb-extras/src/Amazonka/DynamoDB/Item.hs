@@ -25,7 +25,7 @@ module Amazonka.DynamoDB.Item
     , fromValue
 
     -- * Attributes
-    , DynamoAttributeName
+    , KnownDynamoName
     , DynamoName
     , getName
 
@@ -64,8 +64,6 @@ import Data.Proxy          (Proxy (..))
 import Data.Text           (Text)
 import Data.Typeable       (Typeable)
 
-import GHC.TypeLits (KnownSymbol)
-
 import Network.AWS.DynamoDB hiding (ScalarAttributeType (..))
 
 import qualified Data.HashMap.Strict as HashMap
@@ -76,8 +74,8 @@ item = HashMap.fromList
 {-# INLINE item #-}
 
 attribute :: forall a.
-             ( DynamoName  a
-             , DynamoValue a
+             ( KnownDynamoName a
+             , DynamoValue     a
              )
           => a
           -> (Text, Value)

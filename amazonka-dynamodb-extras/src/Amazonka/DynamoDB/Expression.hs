@@ -28,7 +28,7 @@ module Amazonka.DynamoDB.Expression
 
     , KeyConditionExpression
     , partition
-    , partitionFilter
+    , partitionRange
 
     -- * Filter and Condition Expressions
     -- $condition_expressions

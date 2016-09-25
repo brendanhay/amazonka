@@ -13,7 +13,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Amazonka.DynamoDB.Item.Attribute
-    ( DynamoAttributeName
+    ( KnownDynamoName
     , DynamoName
     , getName
     ) where
@@ -27,9 +27,9 @@ import GHC.TypeLits (KnownSymbol, Symbol, symbolVal)
 
 import qualified Data.Text as Text
 
-type family DynamoAttributeName a :: Symbol
+type KnownDynamoName a = KnownSymbol (DynamoName a)
 
-type DynamoName a = KnownSymbol (DynamoAttributeName a)
+type family DynamoName a :: Symbol
 
-getName :: forall a. DynamoName a => Proxy a -> Text
-getName _ = Text.pack $ symbolVal (Proxy :: Proxy (DynamoAttributeName a))
+getName :: forall a. KnownDynamoName a => Proxy a -> Text
+getName _ = Text.pack $ symbolVal (Proxy :: Proxy (DynamoName a))

@@ -36,6 +36,7 @@ module Amazonka.DynamoDB.Schema.Attribute
     , PartitionKeyOrder
     , SortKeyOrder
     , UniqueAttributes
+    , HasAttribute
     , HasAttributes
 
     -- * Symbol Names
@@ -55,8 +56,8 @@ import Data.Type.Equality
 import Data.Type.Set      ((:++), Cmp, Nub, Sort)
 
 import GHC.Exts     (Constraint)
-import GHC.TypeLits (KnownSymbol, symbolVal, Symbol, CmpSymbol,
-                     ErrorMessage(..), TypeError)
+import GHC.TypeLits (CmpSymbol, ErrorMessage (..), KnownSymbol, Symbol,
+                     TypeError, symbolVal)
 
 import Network.AWS.DynamoDB
 
@@ -119,7 +120,7 @@ instance ( DynamoAttributes a
            getAttributes (Proxy :: Proxy a)
         <> getAttributes (Proxy :: Proxy b)
 
-instance ( KnownSymbol (DynamoAttributeName h)
+instance ( KnownDynamoName  h
          , DynamoScalarType h
          ) => DynamoAttributes (PartitionKey h) where
     getAttributes _ =
@@ -127,7 +128,7 @@ instance ( KnownSymbol (DynamoAttributeName h)
             (getName (Proxy :: Proxy h))
             (getScalarType    (Proxy :: Proxy h))
 
-instance ( KnownSymbol (DynamoAttributeName r)
+instance ( KnownDynamoName  r
          , DynamoScalarType r
          ) => DynamoAttributes (SortKey r) where
     getAttributes _ =
@@ -135,7 +136,7 @@ instance ( KnownSymbol (DynamoAttributeName r)
             (getName (Proxy :: Proxy r))
             (getScalarType    (Proxy :: Proxy r))
 
-instance ( KnownSymbol (DynamoAttributeName v)
+instance ( KnownDynamoName  v
          , DynamoScalarType v
          ) => DynamoAttributes (Attribute v) where
     getAttributes _ =
@@ -181,6 +182,8 @@ type family UniqueAttributes a :: Constraint where
            (TypeError
                ('Text "All Key and Attribute names must be unique:"
                 ':$$: 'ShowType a))
+
+type family HasAttribute a (b :: *) :: Constraint
 
 -- | Enforce that all 'Attribute's named in 'b', exist in 'a'.
 type family HasAttributes a b :: Constraint where

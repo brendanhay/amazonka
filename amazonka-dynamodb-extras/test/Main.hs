@@ -11,7 +11,7 @@ module Main where
 import Test.DocTest (doctest)
 
 main :: IO ()
-main = doctest $
+main = doctest
     ["-isrc"
     , "-XOverloadedStrings"
     , "src/Amazonka/DynamoDB/Expression/Compile.hs"

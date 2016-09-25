@@ -10,16 +10,18 @@
 -- {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
 module Amazonka.DynamoDB.Schema.Table
-    ( diffSchema
-    , diffDescription
-
-    , Table
+    ( Table
     , DynamoTable (..)
 
+    -- * Creating Tables
     , CreateTable
---    , create
+    , getCreateTable
+
+    -- * Updating Tables
     , UpdateTable
---    , update
+    -- , getUpdateTable
+
+    -- * Deleting Tables
     , DeleteTable
 --    , delete
 
@@ -63,50 +65,64 @@ data Table
     (streaming  :: StreamingKind)
     (indexes    :: [SecondaryIndexKind])
 
+-- FIXME:
 -- Note: Think of naming consistency 'get*' vs 'schema*' etc.
+-- seems that actual usage would seem weird with 'get*':
+--
+--   send $ getCreateTable proxy
+--
+-- vs:
+--
+--   send $ schemaCreateTable proxy
+--
+
 
 type instance DynamoName   (Table n a t s is)   = n
 type instance HasAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
 
--- create :: DynamoTable a => Proxy a -> CreateTable
--- create = getCreateTable
 
--- -- | Get the DynamoDB table name.
--- getTableName :: forall n a t s is. KnownSymbol n
---              => Proxy (Table n a t s is)
---              -> Text
--- getTableName _ = symbolToText (Proxy :: Proxy n)
+-- FIXME: maybe call this converge table
+-- since it takes the description and converges torwards the schema.
+-- consider argument order.
+--
+-- Add warnings about destructive updates to indexes and attribute definitions
+-- Add caveats about table name, and key definitions.
 
--- | Get the differences between two 'Table' schemas as an 'UpdateTable' request.
-diffSchema :: (DynamoTable a, DynamoTable b)
-           => Proxy a
-           -> Proxy b
-           -> UpdateTable
-diffSchema _ _ = undefined
-
--- | Get the differences between two 'TableDescription's as an 'UpdateTable' request.
-diffDescription :: TableDescription
-                -> TableDescription
-                -> UpdateTable
-diffDescription _ _ = undefined
-
--- update :: (DynamoTable a, DynamoTable b)
---        => Proxy a
---        -> Proxy b
--- Get old table description? Actually run operations?
---        -> UpdateTable
--- update a b = convert . getCreateTable
+-- | Get the difference between a table schema and a remote 'TableDescription'
+-- obtained via 'Network.AWS.DynamoDB.DescribeTable.describeTable', as an
+-- 'Network.AWS.DynamoDB.UpdateTable.updateTable' request.
+-- getUpdateTable :: DynamoTable a
+--                => Proxy a
+--                -> TableDescription
+--                -> UpdateTable
+-- getUpdateTable (getCreateTable -> a) (fromTableDescription -> b) =
 --   where
---     convert x =
+--     update =
+--         updateTable
+--             & utTableName .~ b ^. ctTableName
+--             & utAttributeDefinitions
+--             & utProvisionedThroughput
+--             & utStreamSpecification
+--             & utGlobalSecondaryIndexUpdates
 
---     old = getCreateTable a
---     new = getCreateTable b
 
--- type family IsTableAttribute a (b :: *) :: Constraint where
---     IsTableAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
+  -- updates can consist of;
+  --     - attribute definitions
+  --     - provisioned throughput
+  --     - global secondary index updates
+  --     - local secondary index updates
+  --     - stream specificatoin
 
-type instance HasAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
-
+-- fromTableDescription :: TableDescription -> CreateTable
+-- fromTableDescription x =
+--     createTable
+--         & ctTableName              .~ tdTableName              x
+--         & ctKeySchema              .~ tdKeySchema              x
+--         & ctAttributeDefinitions   .~ tdAttributeDefinitions   x
+--         & ctGlobalSecondaryIndexes .~ tdGlobalSecondaryIndexes x
+--         & ctLocalSecondaryIndexes  .~ tdLocalSecondaryIndexes  x
+--         & ctStreamSpecification    .~ tdStreamSpecification    x
+--         & ctProvisionedThroughput  .~ tdProvisionedThroughput  x
 
 class ( DynamoAttributes a
       , DynamoKeys       a
@@ -116,6 +132,8 @@ class ( DynamoAttributes a
       ) => DynamoTable a where
     -- | Get the DynamoDB 'CreateTable' configuration.
     getCreateTable :: Proxy a -> CreateTable
+
+-- FIXME: remove this typeclass in favour of a simple function?
 
 instance ( Table n a t s is ~  b
          , PartitionKeyOrder a

@@ -28,9 +28,13 @@
 --
 -- -   Remove a global secondary index from the table.
 --
--- -   Create a new global secondary index on the table. Once the index begins backfilling, you can use /UpdateTable/ to perform other operations.
+-- -   Create a new global secondary index on the table. Once the index begins
+-- -   backfilling, you can use /UpdateTable/ to perform other operations.aa
 --
--- /UpdateTable/ is an asynchronous operation; while it is executing, the table status changes from 'ACTIVE' to 'UPDATING'. While it is 'UPDATING', you cannot issue another /UpdateTable/ request. When the table returns to the 'ACTIVE' state, the /UpdateTable/ operation is complete.
+-- /UpdateTable/ is an asynchronous operation; while it is executing, the table
+-- status changes from 'ACTIVE' to 'UPDATING'. While it is 'UPDATING', you
+-- cannot issue another /UpdateTable/ request. When the table returns to the
+-- 'ACTIVE' state, the /UpdateTable/ operation is complete.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request
@@ -51,12 +55,12 @@ module Network.AWS.DynamoDB.UpdateTable
     , utrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an /UpdateTable/ operation.
 --

@@ -26,7 +26,8 @@ module Amazonka.DynamoDB.Item
 
     -- * Attributes
     , DynamoAttributeName
-    , getAttributeName
+    , DynamoName
+    , getName
 
     -- * Items
     , ItemError   (..)
@@ -75,12 +76,12 @@ item = HashMap.fromList
 {-# INLINE item #-}
 
 attribute :: forall a.
-             ( KnownSymbol (DynamoAttributeName a)
+             ( DynamoName  a
              , DynamoValue a
              )
           => a
           -> (Text, Value)
-attribute x = (getAttributeName (Proxy :: Proxy a), toValue x)
+attribute x = (getName (Proxy :: Proxy a), toValue x)
 {-# INLINE attribute #-}
 
 value :: DynamoValue a => Text -> a -> (Text, Value)

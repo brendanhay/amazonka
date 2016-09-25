@@ -97,7 +97,7 @@ diffDescription _ _ = undefined
 --     new = getCreateTable b
 
 
-type family IsTableAttribute a (b :: Symbol) :: Constraint where
+type family IsTableAttribute a (b :: *) :: Constraint where
     IsTableAttribute (Table n a t s is) b = HasAttributes a (Attribute b)
 
 class ( DynamoAttributes a

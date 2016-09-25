@@ -113,7 +113,7 @@ instance ( KnownSymbol (DynamoAttributeName v)
     type Deserialized (Attribute v) = v
 
     getSerializer _ m x =
-         HashMap.insert (getAttributeName (Proxy :: Proxy v)) (toValue x) m
+         HashMap.insert (getName (Proxy :: Proxy v)) (toValue x) m
 
     getDeserializer _ =
-        parse (getAttributeName (Proxy :: Proxy v))
+        parse (getName (Proxy :: Proxy v))

@@ -51,34 +51,22 @@ import Data.Text       (Text)
 
 {- $usage
 @
-type Example =
-    Table "credentials"
-        ( PartitionKey "name"     ::: Text
-       :# SortKey      "version"  ::: Integer
-       :# Attribute    "revision" ::: ByteString
-       :# Attribute    "contents" ::: Int
-        )
+newtype Name     = Name     Text       deriving (DynamoScalarType)
+newtype Version  = Version  Integer    deriving (DynamoScalarType)
+newtype Revision = Revision Text
+newtype Contents = Contents ByteString
 
-        (Throughput (ReadCapacity 1) (WriteCapacity 1))
-        (Streaming 'SVTKeysOnly)
-
-       '[ GlobalSecondaryIndex "revision"
-             ( PartitionKey "name"
-            :# IndexSortKey      "revision"
-             ) (Throughput (ReadCapacity 1) (WriteCapacity 1))
-
-        , LocalSecondaryIndex "version"
-             ( SortKey   "contents"
-            :# Attribute "name"
-             )
-        ]
+type instance DynamoAttributeName Name     = "name"
+type instance DynamoAttributeName Version  = "version"
+type instance DynamoAttributeName Revision = "revision"
+type instance DynamoAttributeName Contents = "contents"
 
 type Example =
     Table "credentials"
-        ( 'PartitionKey Name
-       :# 'SortKey      Version
-       :# 'Attribute    Revision
-       :# 'Attribute    Contents
+        ( PartitionKey Name
+       :# SortKey      Version
+       :# Attribute    Revision
+       :# Attribute    Contents
         )
 
         (Throughput (ReadCapacity 1) (WriteCapacity 1))

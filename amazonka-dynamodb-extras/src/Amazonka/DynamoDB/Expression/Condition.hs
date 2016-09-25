@@ -22,7 +22,7 @@ module Amazonka.DynamoDB.Expression.Condition
       KeyConditionExpression
 
     , partition
-    , partitionFilter
+    , partitionRange
 
     -- * Condition Expressions
     , ConditionExpression
@@ -101,24 +101,24 @@ import Data.Text          (Text)
 -- partition-key = :v1
 --
 partition :: Condition Hash p v
-             -- ^ A partition key hash condition, such as @name "partition-key" =: "bar"@.
-          -> KeyConditionExpression p v
+                -- ^ A partition key hash condition, such as @name "partition-key" =: "bar"@.
+                -> KeyConditionExpression p v
 partition = Partition
 {-# INLINE partition #-}
 
 -- | Specify a partition key condition, and narrow the scope
 -- by specifying a sort key condition as follows:
 --
--- >>> kexpr $ partitionFilter (name "partition-key" =: "foo") (name "sort-key" >: 123)
+-- >>> kexpr $ partitionRange (name "partition-key" =: "foo") (name "sort-key" >: 123)
 -- (partition-key = :v1 AND sort-key > :v2)
 --
-partitionFilter :: (Condition Hash p v)
-                   -- ^ A partition key hash condition, such as @name "partition-key" =: "foo"@.
-                -> (Condition Range p v)
-                   -- ^ A sort key range condition, such as @name "sort-key" >: 123@.
-                -> KeyConditionExpression p v
-partitionFilter = Sort
-{-# INLINE partitionFilter #-}
+partitionRange :: (Condition Hash p v)
+                  -- ^ A partition key hash condition, such as @name "partition-key" =: "foo"@.
+               -> (Condition Range p v)
+                  -- ^ A sort key range condition, such as @name "sort-key" >: 123@.
+               -> KeyConditionExpression p v
+partitionRange = Sort
+{-# INLINE partitionRange #-}
 
 -- Precedence
 

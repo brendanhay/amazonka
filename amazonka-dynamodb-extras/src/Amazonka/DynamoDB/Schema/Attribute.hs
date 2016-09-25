@@ -124,7 +124,7 @@ instance ( KnownSymbol (DynamoAttributeName h)
          ) => DynamoAttributes (PartitionKey h) where
     getAttributes _ =
         pure $ attributeDefinition
-            (getAttributeName (Proxy :: Proxy h))
+            (getName (Proxy :: Proxy h))
             (getScalarType    (Proxy :: Proxy h))
 
 instance ( KnownSymbol (DynamoAttributeName r)
@@ -132,7 +132,7 @@ instance ( KnownSymbol (DynamoAttributeName r)
          ) => DynamoAttributes (SortKey r) where
     getAttributes _ =
         pure $ attributeDefinition
-            (getAttributeName (Proxy :: Proxy r))
+            (getName (Proxy :: Proxy r))
             (getScalarType    (Proxy :: Proxy r))
 
 instance ( KnownSymbol (DynamoAttributeName v)
@@ -140,7 +140,7 @@ instance ( KnownSymbol (DynamoAttributeName v)
          ) => DynamoAttributes (Attribute v) where
     getAttributes _ =
         pure $ attributeDefinition
-            (getAttributeName (Proxy :: Proxy v))
+            (getName (Proxy :: Proxy v))
             (getScalarType    (Proxy :: Proxy v))
 
 type family PartitionKeyOrder (a :: AttributeKind) :: Constraint where

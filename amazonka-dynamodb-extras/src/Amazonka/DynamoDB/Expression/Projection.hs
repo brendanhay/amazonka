@@ -28,7 +28,7 @@ import Amazonka.DynamoDB.Expression.Internal
 -- >>> import qualified Data.Text.Lazy.IO as Text
 -- >>> import qualified Data.Text.Lazy.Builder as Build
 -- >>> :{
--- let eval f = Text.putStrLn . Build.toLazyText . fst . Compile.compileNames f
+-- let eval f = Text.putStrLn . Build.toLazyText . Compile.projectionExpression . fmap Compile.name
 --     pexpr  = eval Compile.projectionExpression
 -- :}
 
@@ -36,7 +36,7 @@ import Amazonka.DynamoDB.Expression.Internal
 --
 -- The 'Semigroup' instance can be used to project mutliple paths.
 --
--- >>> pexpr $ project (name "Title") <> project (index "RelatedItems" 2) <> project (name "Product" <> index "Reviews" 0)
+  -- >>> pexpr $ project (name "Title") <> project (index (name "RelatedItems") 2) <> project (name "Product" <> index (name "Reviews") 0)
 -- Title, RelatedItems[2], Product.Reviews[0]
 --
 project :: Path p -> ProjectionExpression p

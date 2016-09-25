@@ -30,24 +30,24 @@ import Amazonka.DynamoDB.Item (Value)
 import Control.Applicative (liftA2, many, (<|>))
 import Control.Monad       (ap)
 
-import Data.Attoparsec.Text (char, decimal, endOfInput, takeWhile1)
 import Data.Bifoldable
 import Data.Bifunctor
 import Data.Bitraversable
-import Data.Foldable        (foldl')
-import Data.Function        (on)
-import Data.Hashable        (Hashable)
-import Data.List.NonEmpty   (NonEmpty (..))
-import Data.Semigroup       (Semigroup (..))
-import Data.Sequence        (Seq, (<|))
-import Data.String          (IsString (..))
-import Data.Text            (Text)
+import Data.Foldable      (foldl')
+import Data.Function      (on)
+import Data.Hashable      (Hashable)
+import Data.List.NonEmpty (NonEmpty (..))
+import Data.Semigroup     (Semigroup (..))
+import Data.Sequence      (Seq, (<|))
+import Data.String        (IsString (..))
+import Data.Text          (Text)
 
 import Network.AWS.Data.Text
 
 import Numeric.Natural (Natural)
 
-import qualified Data.Sequence as Seq
+import qualified Data.Attoparsec.Text as Atto
+import qualified Data.Sequence        as Seq
 
 newtype Name = Name { fromName :: Text }
     deriving (Eq, Show, Ord, Hashable, IsString, ToText, FromText)
@@ -76,14 +76,16 @@ instance Semigroup (Path a) where
 
 -- | Correctly handles attribute dereferencing via @.@ and @[Natural]@.
 instance FromText (Path Name) where
-    parser = path0 <* endOfInput
+    parser = path0 <* Atto.endOfInput
       where
-        path0 = Nested <$> path1 <*> (char '.' *> path1)
+        path0 = Nested <$> path1 <*> (Atto.char '.' *> path1)
             <|> path1
 
-        path1 = foldl' Index <$> path2 <*> many (char '[' *> decimal <* char ']')
+        path1 = foldl' Index <$> path2 <*> many index'
 
-        path2 = Attr . Name <$> takeWhile1 (not . deref)
+        index' = Atto.char '[' *> Atto.decimal <* Atto.char ']'
+
+        path2 = Attr . Name <$> Atto.takeWhile1 (not . deref)
 
         deref c = c == '.' || c == '['
 

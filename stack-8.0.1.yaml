@@ -1,5 +1,5 @@
 compiler:   ghc-8.0.1
-resolver:   nightly-2016-08-11
+resolver:   nightly-2016-09-24
 flags:      {}
 extra-deps:
   - http-conduit-2.2.0

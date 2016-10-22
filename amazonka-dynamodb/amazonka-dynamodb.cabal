@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -117,7 +117,7 @@ library
         , Network.AWS.DynamoDB.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dynamodb-test
@@ -137,9 +137,9 @@ test-suite amazonka-dynamodb-test
         , Test.AWS.DynamoDB.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-dynamodb == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-dynamodb == 1.4.4.*
         , base
         , bytestring
         , tasty

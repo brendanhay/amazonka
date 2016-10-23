@@ -76,12 +76,21 @@ subscribe pTopicARN_ pProtocol_ =
 -- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
 --
 -- -   For the 'http' protocol, the endpoint is an URL beginning with \"http:\/\/\"
+--
 -- -   For the 'https' protocol, the endpoint is a URL beginning with \"https:\/\/\"
+--
 -- -   For the 'email' protocol, the endpoint is an email address
+--
 -- -   For the 'email-json' protocol, the endpoint is an email address
+--
 -- -   For the 'sms' protocol, the endpoint is a phone number of an SMS-enabled device
+--
 -- -   For the 'sqs' protocol, the endpoint is the ARN of an Amazon SQS queue
+--
 -- -   For the 'application' protocol, the endpoint is the EndpointArn of a mobile app and device.
+--
+-- -   For the 'lambda' protocol, the endpoint is the ARN of an AWS Lambda function.
+--
 subEndpoint :: Lens' Subscribe (Maybe Text)
 subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
@@ -92,12 +101,21 @@ subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
 -- | The protocol you want to use. Supported protocols include:
 --
 -- -   'http' -- delivery of JSON-encoded message via HTTP POST
+--
 -- -   'https' -- delivery of JSON-encoded message via HTTPS POST
+--
 -- -   'email' -- delivery of message via SMTP
+--
 -- -   'email-json' -- delivery of JSON-encoded message via SMTP
+--
 -- -   'sms' -- delivery of message via SMS
+--
 -- -   'sqs' -- delivery of JSON-encoded message to an Amazon SQS queue
+--
 -- -   'application' -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
+--
+-- -   'lambda' -- delivery of JSON-encoded message to an AWS Lambda function.
+--
 subProtocol :: Lens' Subscribe Text
 subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 

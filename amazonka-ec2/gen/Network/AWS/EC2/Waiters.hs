@@ -381,14 +381,14 @@ exportTaskCompleted =
                               etState . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 60 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionAvailable :: Wait DescribeVPNConnections
 vpnConnectionAvailable =
     Wait
     { _waitName = "VpnConnectionAvailable"
     , _waitAttempts = 40
-    , _waitDelay = 15
+    , _waitDelay = 60
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess

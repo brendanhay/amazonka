@@ -1,5 +1,5 @@
 name:                  amazonka-config
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Config SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -52,7 +52,9 @@ library
     exposed-modules:
           Network.AWS.Config
         , Network.AWS.Config.DeleteConfigRule
+        , Network.AWS.Config.DeleteConfigurationRecorder
         , Network.AWS.Config.DeleteDeliveryChannel
+        , Network.AWS.Config.DeleteEvaluationResults
         , Network.AWS.Config.DeliverConfigSnapshot
         , Network.AWS.Config.DescribeComplianceByConfigRule
         , Network.AWS.Config.DescribeComplianceByResource
@@ -72,6 +74,7 @@ library
         , Network.AWS.Config.PutConfigurationRecorder
         , Network.AWS.Config.PutDeliveryChannel
         , Network.AWS.Config.PutEvaluations
+        , Network.AWS.Config.StartConfigRulesEvaluation
         , Network.AWS.Config.StartConfigurationRecorder
         , Network.AWS.Config.StopConfigurationRecorder
         , Network.AWS.Config.Types
@@ -82,7 +85,7 @@ library
         , Network.AWS.Config.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-config-test
@@ -102,9 +105,9 @@ test-suite amazonka-config-test
         , Test.AWS.Config.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-config == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-config == 1.4.4.*
         , base
         , bytestring
         , tasty

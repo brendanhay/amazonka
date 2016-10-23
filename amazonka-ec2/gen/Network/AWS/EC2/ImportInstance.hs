@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs, use < ImportImage>. After importing the image, you then upload it using the 'ec2-import-volume' command in the EC2 command line tools. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs, use < ImportImage>. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
 --
 -- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.ImportInstance
@@ -127,7 +127,7 @@ instance ToQuery ImportInstance where
         toQuery ImportInstance'{..}
           = mconcat
               ["Action" =: ("ImportInstance" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "LaunchSpecification" =: _iiLaunchSpecification,
                toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
                "Description" =: _iiDescription,

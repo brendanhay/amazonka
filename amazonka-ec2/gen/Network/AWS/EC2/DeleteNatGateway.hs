@@ -89,7 +89,7 @@ instance ToQuery DeleteNatGateway where
         toQuery DeleteNatGateway'{..}
           = mconcat
               ["Action" =: ("DeleteNatGateway" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "NatGatewayId" =: _dngNatGatewayId]
 
 -- | Contains the output of DeleteNatGateway.

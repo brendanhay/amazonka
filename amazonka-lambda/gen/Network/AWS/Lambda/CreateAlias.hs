@@ -20,9 +20,7 @@
 --
 -- Creates an alias that points to the specified Lambda function version. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
--- Alias names are unique for a given function.
---
--- This requires permission for the lambda:CreateAlias action.
+-- Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.
 module Network.AWS.Lambda.CreateAlias
     (
     -- * Creating a Request

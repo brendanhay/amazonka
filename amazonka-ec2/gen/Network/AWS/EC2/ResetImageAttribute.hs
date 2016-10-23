@@ -104,7 +104,7 @@ instance ToQuery ResetImageAttribute where
         toQuery ResetImageAttribute'{..}
           = mconcat
               ["Action" =: ("ResetImageAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _resDryRun, "ImageId" =: _resImageId,
                "Attribute" =: _resAttribute]
 

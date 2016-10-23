@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTags' smart constructor.
+-- | Contains the parameters for DescribeTags.
+--
+-- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
     { _dtFilters    :: !(Maybe [Filter])
     , _dtNextToken  :: !(Maybe Text)
@@ -128,7 +130,9 @@ instance ToQuery DescribeTags where
                "NextToken" =: _dtNextToken,
                "MaxRecords" =: _dtMaxRecords]
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | Contains the output of DescribeTags.
+--
+-- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsNextToken      :: !(Maybe Text)
     , _dtrsTags           :: !(Maybe [TagDescription])

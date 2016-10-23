@@ -106,6 +106,8 @@ instance ToQuery GetModelTemplate where
 
 -- | Represents a mapping template used to transform a payload.
 --
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
+--
 -- /See:/ 'getModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
     { _gmtrsValue          :: !(Maybe Text)

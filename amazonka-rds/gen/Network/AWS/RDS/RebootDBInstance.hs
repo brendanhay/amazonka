@@ -82,8 +82,11 @@ rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rdiDBInstanceIdentifier :: Lens' RebootDBInstance Text
 rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
 

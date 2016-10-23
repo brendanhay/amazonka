@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified signing certificate associated with the specified user.
+-- Deletes a signing certificate associated with the specified IAM user.
 --
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
+-- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated IAM users.
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Creating a Request
@@ -65,10 +65,14 @@ deleteSigningCertificate pCertificateId_ =
     }
 
 -- | The name of the user the signing certificate belongs to.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
 
 -- | The ID of the signing certificate to delete.
+--
+-- The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 dscCertificateId :: Lens' DeleteSigningCertificate Text
 dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
 

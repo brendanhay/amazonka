@@ -38,6 +38,9 @@ module Network.AWS.EFS.Types
     -- * LifeCycleState
     , LifeCycleState (..)
 
+    -- * PerformanceMode
+    , PerformanceMode (..)
+
     -- * FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
@@ -49,6 +52,7 @@ module Network.AWS.EFS.Types
     , fsdLifeCycleState
     , fsdNumberOfMountTargets
     , fsdSizeInBytes
+    , fsdPerformanceMode
 
     -- * FileSystemSize
     , FileSystemSize
@@ -144,7 +148,7 @@ _FileSystemLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceE
 _FileSystemLimitExceeded =
     _ServiceError . hasStatus 403 . hasCode "FileSystemLimitExceeded"
 
--- | The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, go to <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table).
+-- | The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table).
 _NetworkInterfaceLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _NetworkInterfaceLimitExceeded =
     _ServiceError . hasStatus 409 . hasCode "NetworkInterfaceLimitExceeded"

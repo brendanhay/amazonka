@@ -27,12 +27,17 @@
 -- For example, you could use one of the AWS SDKs to do the following:
 --
 -- 1.  Call /DescribeLimits/ for a particular region to obtain your current account limits on provisioned capacity there.
+--
 -- 2.  Create a variable to hold the aggregate read capacity units provisioned for all your tables in that region, and one to hold the aggregate write capacity units. Zero them both.
+--
 -- 3.  Call /ListTables/ to obtain a list of all your DynamoDB tables.
+--
 -- 4.  For each table name listed by /ListTables/, do the following:
 --
 --     -   Call /DescribeTable/ with the table name.
+--
 --     -   Use the data returned by /DescribeTable/ to add the read capacity units and write capacity units provisioned for the table itself to your variables.
+--
 --     -   If the table has one or more global secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity values to your variables as well.
 --
 -- 5.  Report the account limits for that region returned by /DescribeLimits/, along with the total current provisioned capacity levels you have calculated.

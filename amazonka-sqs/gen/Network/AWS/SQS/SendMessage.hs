@@ -51,7 +51,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'sendMessage' smart constructor.
+-- |
+--
+-- /See:/ 'sendMessage' smart constructor.
 data SendMessage = SendMessage'
     { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
     , _smDelaySeconds      :: !(Maybe Int)
@@ -91,6 +93,8 @@ smDelaySeconds :: Lens' SendMessage (Maybe Int)
 smDelaySeconds = lens _smDelaySeconds (\ s a -> s{_smDelaySeconds = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 smQueueURL :: Lens' SendMessage Text
 smQueueURL = lens _smQueueURL (\ s a -> s{_smQueueURL = a});
 

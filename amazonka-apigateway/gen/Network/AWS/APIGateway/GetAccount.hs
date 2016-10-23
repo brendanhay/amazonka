@@ -29,7 +29,9 @@ module Network.AWS.APIGateway.GetAccount
     , account
     , Account
     -- * Response Lenses
+    , aApiKeyVersion
     , aCloudwatchRoleARN
+    , aFeatures
     , aThrottleSettings
     ) where
 

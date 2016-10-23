@@ -44,6 +44,15 @@ module Network.AWS.Route53Domains.Types
     -- * ReachabilityStatus
     , ReachabilityStatus (..)
 
+    -- * BillingRecord
+    , BillingRecord
+    , billingRecord
+    , brOperation
+    , brInvoiceId
+    , brDomainName
+    , brBillDate
+    , brPrice
+
     -- * ContactDetail
     , ContactDetail
     , contactDetail
@@ -61,6 +70,12 @@ module Network.AWS.Route53Domains.Types
     , cdFirstName
     , cdCountryCode
     , cdContactType
+
+    -- * DomainSuggestion
+    , DomainSuggestion
+    , domainSuggestion
+    , dAvailability
+    , dDomainName
 
     -- * DomainSummary
     , DomainSummary

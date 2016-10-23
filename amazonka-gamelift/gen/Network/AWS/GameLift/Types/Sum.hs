@@ -31,7 +31,7 @@ instance FromText BuildStatus where
         "initialized" -> pure Initialized
         "ready" -> pure Ready
         e -> fromTextError $ "Failure parsing BuildStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, INITIALIZED, READY"
+           <> "'. Accepted values: failed, initialized, ready"
 
 instance ToText BuildStatus where
     toText = \case
@@ -65,7 +65,7 @@ instance FromText ComparisonOperatorType where
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperatorType from value: '" <> e
-           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperatorType where
     toText = \case
@@ -235,7 +235,7 @@ instance FromText EventCode where
         "fleet_validation_timed_out" -> pure FleetValidationTimedOut
         "generic_event" -> pure GenericEvent
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: FLEET_ACTIVATION_FAILED, FLEET_ACTIVATION_FAILED_NO_INSTANCES, FLEET_BINARY_DOWNLOAD_FAILED, FLEET_CREATED, FLEET_DELETED, FLEET_INITIALIZATION_FAILED, FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED, FLEET_SCALING_EVENT, FLEET_STATE_ACTIVATING, FLEET_STATE_ACTIVE, FLEET_STATE_BUILDING, FLEET_STATE_DOWNLOADING, FLEET_STATE_ERROR, FLEET_STATE_VALIDATING, FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE, FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND, FLEET_VALIDATION_TIMED_OUT, GENERIC_EVENT"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, generic_event"
 
 instance ToText EventCode where
     toText = \case
@@ -291,7 +291,7 @@ instance FromText FleetStatus where
         "terminated" -> pure FSTerminated
         "validating" -> pure FSValidating
         e -> fromTextError $ "Failure parsing FleetStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVATING, ACTIVE, BUILDING, DELETING, DOWNLOADING, ERROR, NEW, TERMINATED, VALIDATING"
+           <> "'. Accepted values: activating, active, building, deleting, downloading, error, new, terminated, validating"
 
 instance ToText FleetStatus where
     toText = \case
@@ -328,7 +328,7 @@ instance FromText GameSessionStatus where
         "terminated" -> pure GSSTerminated
         "terminating" -> pure GSSTerminating
         e -> fromTextError $ "Failure parsing GameSessionStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVATING, ACTIVE, TERMINATED, TERMINATING"
+           <> "'. Accepted values: activating, active, terminated, terminating"
 
 instance ToText GameSessionStatus where
     toText = \case
@@ -356,7 +356,7 @@ instance FromText IPProtocol where
         "tcp" -> pure TCP
         "udp" -> pure Udp
         e -> fromTextError $ "Failure parsing IPProtocol from value: '" <> e
-           <> "'. Accepted values: TCP, UDP"
+           <> "'. Accepted values: tcp, udp"
 
 instance ToText IPProtocol where
     toText = \case
@@ -393,7 +393,7 @@ instance FromText MetricName where
         "currentplayersessions" -> pure CurrentPlayerSessions
         "idleinstances" -> pure IdleInstances
         e -> fromTextError $ "Failure parsing MetricName from value: '" <> e
-           <> "'. Accepted values: ActivatingGameSessions, ActiveGameSessions, ActiveInstances, AvailablePlayerSessions, CurrentPlayerSessions, IdleInstances"
+           <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availableplayersessions, currentplayersessions, idleinstances"
 
 instance ToText MetricName where
     toText = \case
@@ -416,6 +416,35 @@ instance ToJSON MetricName where
 instance FromJSON MetricName where
     parseJSON = parseJSONText "MetricName"
 
+data OperatingSystem
+    = AmazonLinux
+    | Windows2012
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OperatingSystem where
+    parser = takeLowerText >>= \case
+        "amazon_linux" -> pure AmazonLinux
+        "windows_2012" -> pure Windows2012
+        e -> fromTextError $ "Failure parsing OperatingSystem from value: '" <> e
+           <> "'. Accepted values: amazon_linux, windows_2012"
+
+instance ToText OperatingSystem where
+    toText = \case
+        AmazonLinux -> "AMAZON_LINUX"
+        Windows2012 -> "WINDOWS_2012"
+
+instance Hashable     OperatingSystem
+instance NFData       OperatingSystem
+instance ToByteString OperatingSystem
+instance ToQuery      OperatingSystem
+instance ToHeader     OperatingSystem
+
+instance ToJSON OperatingSystem where
+    toJSON = toJSONText
+
+instance FromJSON OperatingSystem where
+    parseJSON = parseJSONText "OperatingSystem"
+
 data PlayerSessionCreationPolicy
     = AcceptAll
     | DenyAll
@@ -426,7 +455,7 @@ instance FromText PlayerSessionCreationPolicy where
         "accept_all" -> pure AcceptAll
         "deny_all" -> pure DenyAll
         e -> fromTextError $ "Failure parsing PlayerSessionCreationPolicy from value: '" <> e
-           <> "'. Accepted values: ACCEPT_ALL, DENY_ALL"
+           <> "'. Accepted values: accept_all, deny_all"
 
 instance ToText PlayerSessionCreationPolicy where
     toText = \case
@@ -459,7 +488,7 @@ instance FromText PlayerSessionStatus where
         "reserved" -> pure PSSReserved
         "timedout" -> pure PSSTimedout
         e -> fromTextError $ "Failure parsing PlayerSessionStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, COMPLETED, RESERVED, TIMEDOUT"
+           <> "'. Accepted values: active, completed, reserved, timedout"
 
 instance ToText PlayerSessionStatus where
     toText = \case
@@ -487,7 +516,7 @@ instance FromText ProtectionPolicy where
         "fullprotection" -> pure FullProtection
         "noprotection" -> pure NoProtection
         e -> fromTextError $ "Failure parsing ProtectionPolicy from value: '" <> e
-           <> "'. Accepted values: FullProtection, NoProtection"
+           <> "'. Accepted values: fullprotection, noprotection"
 
 instance ToText ProtectionPolicy where
     toText = \case
@@ -516,7 +545,7 @@ instance FromText RoutingStrategyType where
         "simple" -> pure Simple
         "terminal" -> pure Terminal
         e -> fromTextError $ "Failure parsing RoutingStrategyType from value: '" <> e
-           <> "'. Accepted values: SIMPLE, TERMINAL"
+           <> "'. Accepted values: simple, terminal"
 
 instance ToText RoutingStrategyType where
     toText = \case
@@ -547,7 +576,7 @@ instance FromText ScalingAdjustmentType where
         "exactcapacity" -> pure ExactCapacity
         "percentchangeincapacity" -> pure PercentChangeInCapacity
         e -> fromTextError $ "Failure parsing ScalingAdjustmentType from value: '" <> e
-           <> "'. Accepted values: ChangeInCapacity, ExactCapacity, PercentChangeInCapacity"
+           <> "'. Accepted values: changeincapacity, exactcapacity, percentchangeincapacity"
 
 instance ToText ScalingAdjustmentType where
     toText = \case
@@ -587,7 +616,7 @@ instance FromText ScalingStatusType where
         "update_requested" -> pure UpdateRequested
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing ScalingStatusType from value: '" <> e
-           <> "'. Accepted values: ACTIVE, DELETE_REQUESTED, DELETED, DELETING, ERROR, UPDATE_REQUESTED, UPDATING"
+           <> "'. Accepted values: active, delete_requested, deleted, deleting, error, update_requested, updating"
 
 instance ToText ScalingStatusType where
     toText = \case

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all managed policies that are attached to the specified group.
+-- Lists all managed policies that are attached to the specified IAM group.
 --
--- A group can also have inline policies embedded with it. To list the inline policies for a group, use the < ListGroupPolicies> API. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM group can also have inline policies embedded with it. To list the inline policies for a group, use the < ListGroupPolicies> API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters. You can use the 'PathPrefix' parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the action returns an empty list.
 --
@@ -85,6 +85,8 @@ listAttachedGroupPolicies pGroupName_ =
     }
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all policies.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
@@ -99,6 +101,8 @@ lagpMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
 lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat;
 
 -- | The name (friendly name, not ARN) of the group to list attached policies for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lagpGroupName :: Lens' ListAttachedGroupPolicies Text
 lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 

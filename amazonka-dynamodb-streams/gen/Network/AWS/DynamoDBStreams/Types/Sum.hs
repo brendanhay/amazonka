@@ -29,7 +29,7 @@ instance FromText KeyType where
         "hash" -> pure Hash
         "range" -> pure Range
         e -> fromTextError $ "Failure parsing KeyType from value: '" <> e
-           <> "'. Accepted values: HASH, RANGE"
+           <> "'. Accepted values: hash, range"
 
 instance ToText KeyType where
     toText = \case
@@ -57,7 +57,7 @@ instance FromText OperationType where
         "modify" -> pure Modify
         "remove" -> pure Remove
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: INSERT, MODIFY, REMOVE"
+           <> "'. Accepted values: insert, modify, remove"
 
 instance ToText OperationType where
     toText = \case
@@ -88,7 +88,7 @@ instance FromText ShardIteratorType where
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
-           <> "'. Accepted values: AFTER_SEQUENCE_NUMBER, AT_SEQUENCE_NUMBER, LATEST, TRIM_HORIZON"
+           <> "'. Accepted values: after_sequence_number, at_sequence_number, latest, trim_horizon"
 
 instance ToText ShardIteratorType where
     toText = \case
@@ -120,7 +120,7 @@ instance FromText StreamStatus where
         "enabled" -> pure Enabled
         "enabling" -> pure Enabling
         e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
-           <> "'. Accepted values: DISABLED, DISABLING, ENABLED, ENABLING"
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
 
 instance ToText StreamStatus where
     toText = \case
@@ -152,7 +152,7 @@ instance FromText StreamViewType where
         "new_image" -> pure NewImage
         "old_image" -> pure OldImage
         e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
-           <> "'. Accepted values: KEYS_ONLY, NEW_AND_OLD_IMAGES, NEW_IMAGE, OLD_IMAGE"
+           <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
 
 instance ToText StreamViewType where
     toText = \case

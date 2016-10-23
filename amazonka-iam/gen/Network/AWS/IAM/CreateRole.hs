@@ -71,17 +71,23 @@ createRole pRoleName_ pAssumeRolePolicyDocument_ =
     , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
     }
 
--- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 crPath :: Lens' CreateRole (Maybe Text)
 crPath = lens _crPath (\ s a -> s{_crPath = a});
 
 -- | The name of the role to create.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. Role names are not distinguished by case. For example, you cannot create roles named both \"PRODROLE\" and \"prodrole\".
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 
 -- | The trust relationship policy document that grants an entity permission to assume the role.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
 
@@ -142,7 +148,7 @@ createRoleResponse pResponseStatus_ pRole_ =
 crrsResponseStatus :: Lens' CreateRoleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
--- | Information about the role.
+-- | A structure containing details about the new role.
 crrsRole :: Lens' CreateRoleResponse Role
 crrsRole = lens _crrsRole (\ s a -> s{_crrsRole = a});
 

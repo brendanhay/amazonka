@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about replication instances for your account in the current region.
---
 module Network.AWS.DMS.DescribeReplicationInstances
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReplicationInstances' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
     { _driFilters    :: !(Maybe [Filter])
     , _driMarker     :: !(Maybe Text)
@@ -130,7 +131,9 @@ instance ToPath DescribeReplicationInstances where
 instance ToQuery DescribeReplicationInstances where
         toQuery = const mempty
 
--- | /See:/ 'describeReplicationInstancesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
     { _drisrsMarker               :: !(Maybe Text)
     , _drisrsReplicationInstances :: !(Maybe [ReplicationInstance])

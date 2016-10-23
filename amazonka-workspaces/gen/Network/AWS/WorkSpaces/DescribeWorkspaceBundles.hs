@@ -84,8 +84,10 @@ dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _Lis
 --
 -- This contains one of the following values:
 --
--- -   null - Retrieves the bundles that belong to the account making the call.
--- -   'AMAZON' - Retrieves the bundles that are provided by AWS.
+-- -   null- Retrieves the bundles that belong to the account making the call.
+--
+-- -   'AMAZON'- Retrieves the bundles that are provided by AWS.
+--
 dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 
@@ -164,7 +166,7 @@ describeWorkspaceBundlesResponse pResponseStatus_ =
 dwbrsBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
 dwbrsBundles = lens _dwbrsBundles (\ s a -> s{_dwbrsBundles = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that timeframe.
+-- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwbrsNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 

@@ -86,11 +86,11 @@ getExport pRestAPIId_ pStageName_ pExportType_ =
     , _geExportType = pExportType_
     }
 
--- | A key-value map of query string parameters that specify properties of the export, depending on the requested exportType. For exportType \'swagger\', any combination of the following parameters are supported: \'integrations\' will export x-amazon-apigateway-integration extensions \'authorizers\' will export x-amazon-apigateway-authorizer extensions \'postman\' will export with Postman extensions, allowing for import to the Postman tool
+-- | A key-value map of query string parameters that specify properties of the export, depending on the requested 'exportType'. For 'exportType' 'swagger', any combination of the following parameters are supported: 'integrations' will export the API with x-amazon-apigateway-integration extensions. 'authorizers' will export the API with x-amazon-apigateway-authorizer extensions. 'postman' will export the API with Postman extensions, allowing for import to the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
 geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _Map;
 
--- | The content-type of the export, for example \'application\/json\'. Currently \'application\/json\' and \'application\/yaml\' are supported for exportType \'swagger\'. Should be specifed in the \'Accept\' header for direct API requests.
+-- | The content-type of the export, for example 'application\/json'. Currently 'application\/json' and 'application\/yaml' are supported for 'exportType' of 'swagger'. This should be specified in the 'Accept' header for direct API requests.
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a});
 
@@ -176,7 +176,7 @@ getExportResponse pResponseStatus_ =
 gersBody :: Lens' GetExportResponse (Maybe (HashMap Text Value))
 gersBody = lens _gersBody (\ s a -> s{_gersBody = a});
 
--- | The content-disposition header value in the HTTP reseponse.
+-- | The content-disposition header value in the HTTP response.
 gersContentDisposition :: Lens' GetExportResponse (Maybe Text)
 gersContentDisposition = lens _gersContentDisposition (\ s a -> s{_gersContentDisposition = a});
 

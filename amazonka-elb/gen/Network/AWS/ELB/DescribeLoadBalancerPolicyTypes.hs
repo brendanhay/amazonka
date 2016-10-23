@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified load balancer policy types.
+-- Describes the specified load balancer policy types or all load balancer policy types.
 --
--- You can use these policy types with < CreateLoadBalancerPolicy> to create policy configurations for a load balancer.
+-- The description of each type indicates how it can be used. For example, some policies can be used only with layer 7 listeners, some policies can be used only with layer 4 listeners, and some policies can be used only with your EC2 instances.
+--
+-- You can use < CreateLoadBalancerPolicy> to create a policy configuration for any of these policy types. Then, depending on the policy type, use either < SetLoadBalancerPoliciesOfListener> or < SetLoadBalancerPoliciesForBackendServer> to set the policy.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
+-- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
+--
+-- /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -101,7 +105,9 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
                  toQuery
                    (toQueryList "member" <$> _dlbptPolicyTypeNames)]
 
--- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
+-- | Contains the output of DescribeLoadBalancerPolicyTypes.
+--
+-- /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
     , _dlbptrsResponseStatus         :: !Int

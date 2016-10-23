@@ -237,6 +237,9 @@ module Network.AWS.CodeDeploy
     -- * Waiters
     -- $waiters
 
+    -- ** DeploymentSuccessful
+    , deploymentSuccessful
+
     -- * Operations
     -- $operations
 

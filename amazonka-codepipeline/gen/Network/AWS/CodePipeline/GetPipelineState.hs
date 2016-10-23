@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the state of a pipeline, including the stages, actions, and details about the last run of the pipeline.
+-- Returns information about the state of a pipeline, including the stages and actions.
 module Network.AWS.CodePipeline.GetPipelineState
     (
     -- * Creating a Request

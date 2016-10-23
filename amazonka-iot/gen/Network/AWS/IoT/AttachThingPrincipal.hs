@@ -71,7 +71,7 @@ attachThingPrincipal pThingName_ pPrincipal_ =
 atpThingName :: Lens' AttachThingPrincipal Text
 atpThingName = lens _atpThingName (\ s a -> s{_atpThingName = a});
 
--- | The principal (certificate or other credential).
+-- | The principal, such as a certificate or other credential.
 atpPrincipal :: Lens' AttachThingPrincipal Text
 atpPrincipal = lens _atpPrincipal (\ s a -> s{_atpPrincipal = a});
 

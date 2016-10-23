@@ -124,6 +124,9 @@ module Network.AWS.EC2
     -- ** DeleteKeyPair
     , module Network.AWS.EC2.DeleteKeyPair
 
+    -- ** DescribeSecurityGroupReferences
+    , module Network.AWS.EC2.DescribeSecurityGroupReferences
+
     -- ** DescribeTags (Paginated)
     , module Network.AWS.EC2.DescribeTags
 
@@ -223,6 +226,9 @@ module Network.AWS.EC2
     -- ** DescribeSnapshotAttribute
     , module Network.AWS.EC2.DescribeSnapshotAttribute
 
+    -- ** DescribeIdentityIdFormat
+    , module Network.AWS.EC2.DescribeIdentityIdFormat
+
     -- ** ReplaceRoute
     , module Network.AWS.EC2.ReplaceRoute
 
@@ -264,6 +270,9 @@ module Network.AWS.EC2
 
     -- ** ResetInstanceAttribute
     , module Network.AWS.EC2.ResetInstanceAttribute
+
+    -- ** ModifyIdentityIdFormat
+    , module Network.AWS.EC2.ModifyIdentityIdFormat
 
     -- ** AttachNetworkInterface
     , module Network.AWS.EC2.AttachNetworkInterface
@@ -346,6 +355,9 @@ module Network.AWS.EC2
     -- ** RequestSpotInstances
     , module Network.AWS.EC2.RequestSpotInstances
 
+    -- ** DescribeHostReservationOfferings
+    , module Network.AWS.EC2.DescribeHostReservationOfferings
+
     -- ** DescribeVolumes (Paginated)
     , module Network.AWS.EC2.DescribeVolumes
 
@@ -367,6 +379,9 @@ module Network.AWS.EC2
     -- ** RevokeSecurityGroupIngress
     , module Network.AWS.EC2.RevokeSecurityGroupIngress
 
+    -- ** DescribeHostReservations
+    , module Network.AWS.EC2.DescribeHostReservations
+
     -- ** EnableVPCClassicLinkDNSSupport
     , module Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
 
@@ -379,7 +394,7 @@ module Network.AWS.EC2
     -- ** CreateFlowLogs
     , module Network.AWS.EC2.CreateFlowLogs
 
-    -- ** DescribeSpotFleetRequests
+    -- ** DescribeSpotFleetRequests (Paginated)
     , module Network.AWS.EC2.DescribeSpotFleetRequests
 
     -- ** MoveAddressToVPC
@@ -462,6 +477,9 @@ module Network.AWS.EC2
 
     -- ** DetachVPNGateway
     , module Network.AWS.EC2.DetachVPNGateway
+
+    -- ** GetHostReservationPurchasePreview
+    , module Network.AWS.EC2.GetHostReservationPurchasePreview
 
     -- ** EnableVolumeIO
     , module Network.AWS.EC2.EnableVolumeIO
@@ -568,6 +586,9 @@ module Network.AWS.EC2
     -- ** DisassociateRouteTable
     , module Network.AWS.EC2.DisassociateRouteTable
 
+    -- ** GetConsoleScreenshot
+    , module Network.AWS.EC2.GetConsoleScreenshot
+
     -- ** DeleteSpotDatafeedSubscription
     , module Network.AWS.EC2.DeleteSpotDatafeedSubscription
 
@@ -576,6 +597,9 @@ module Network.AWS.EC2
 
     -- ** DescribePlacementGroups
     , module Network.AWS.EC2.DescribePlacementGroups
+
+    -- ** DescribeStaleSecurityGroups
+    , module Network.AWS.EC2.DescribeStaleSecurityGroups
 
     -- ** PurchaseScheduledInstances
     , module Network.AWS.EC2.PurchaseScheduledInstances
@@ -612,6 +636,9 @@ module Network.AWS.EC2
 
     -- ** RebootInstances
     , module Network.AWS.EC2.RebootInstances
+
+    -- ** PurchaseHostReservation
+    , module Network.AWS.EC2.PurchaseHostReservation
 
     -- ** CreateImage
     , module Network.AWS.EC2.CreateImage
@@ -720,6 +747,9 @@ module Network.AWS.EC2
     -- ** AccountAttributeName
     , AccountAttributeName (..)
 
+    -- ** ActivityStatus
+    , ActivityStatus (..)
+
     -- ** AddressStatus
     , AddressStatus (..)
 
@@ -792,6 +822,9 @@ module Network.AWS.EC2
     -- ** ExportTaskState
     , ExportTaskState (..)
 
+    -- ** FleetType
+    , FleetType (..)
+
     -- ** FlowLogsResourceType
     , FlowLogsResourceType (..)
 
@@ -855,6 +888,9 @@ module Network.AWS.EC2
     -- ** OperationType
     , OperationType (..)
 
+    -- ** PaymentOption
+    , PaymentOption (..)
+
     -- ** PermissionGroup
     , PermissionGroup (..)
 
@@ -881,6 +917,9 @@ module Network.AWS.EC2
 
     -- ** ReportStatusType
     , ReportStatusType (..)
+
+    -- ** ReservationState
+    , ReservationState (..)
 
     -- ** ReservedInstanceState
     , ReservedInstanceState (..)
@@ -1294,6 +1333,17 @@ module Network.AWS.EC2
     , hiInstanceId
     , hiInstanceType
 
+    -- ** HostOffering
+    , HostOffering
+    , hostOffering
+    , hoInstanceFamily
+    , hoCurrencyCode
+    , hoHourlyPrice
+    , hoUpfrontPrice
+    , hoOfferingId
+    , hoDuration
+    , hoPaymentOption
+
     -- ** HostProperties
     , HostProperties
     , hostProperties
@@ -1301,6 +1351,23 @@ module Network.AWS.EC2
     , hpTotalVCPUs
     , hpCores
     , hpSockets
+
+    -- ** HostReservation
+    , HostReservation
+    , hostReservation
+    , hrState
+    , hrInstanceFamily
+    , hrCurrencyCode
+    , hrHostReservationId
+    , hrStart
+    , hrHourlyPrice
+    , hrCount
+    , hrUpfrontPrice
+    , hrEnd
+    , hrHostIdSet
+    , hrOfferingId
+    , hrDuration
+    , hrPaymentOption
 
     -- ** IAMInstanceProfile
     , IAMInstanceProfile
@@ -1346,6 +1413,7 @@ module Network.AWS.EC2
     , Image
     , image
     , iPlatform
+    , iEnaSupport
     , iImageOwnerAlias
     , iRAMDiskId
     , iKernelId
@@ -1451,6 +1519,7 @@ module Network.AWS.EC2
     , insPlatform
     , insSecurityGroups
     , insClientToken
+    , insEnaSupport
     , insSourceDestCheck
     , insVPCId
     , insKeyName
@@ -1695,6 +1764,7 @@ module Network.AWS.EC2
     , ngNatGatewayId
     , ngSubnetId
     , ngDeleteTime
+    , ngProvisionedBandwidth
     , ngNatGatewayAddresses
     , ngCreateTime
 
@@ -1802,12 +1872,14 @@ module Network.AWS.EC2
     , peeringConnectionOptions
     , pcoAllowEgressFromLocalVPCToRemoteClassicLink
     , pcoAllowEgressFromLocalClassicLinkToRemoteVPC
+    , pcoAllowDNSResolutionFromRemoteVPC
 
     -- ** PeeringConnectionOptionsRequest
     , PeeringConnectionOptionsRequest
     , peeringConnectionOptionsRequest
-    , pcorAllowEgressFromLocalClassicLinkToRemoteVPC
     , pcorAllowEgressFromLocalVPCToRemoteClassicLink
+    , pcorAllowEgressFromLocalClassicLinkToRemoteVPC
+    , pcorAllowDNSResolutionFromRemoteVPC
 
     -- ** Placement
     , Placement
@@ -1880,6 +1952,27 @@ module Network.AWS.EC2
     , PropagatingVGW
     , propagatingVGW
     , pvGatewayId
+
+    -- ** ProvisionedBandwidth
+    , ProvisionedBandwidth
+    , provisionedBandwidth
+    , pbStatus
+    , pbRequested
+    , pbProvisioned
+    , pbRequestTime
+    , pbProvisionTime
+
+    -- ** Purchase
+    , Purchase
+    , purchase
+    , pInstanceFamily
+    , pCurrencyCode
+    , pHostReservationId
+    , pHourlyPrice
+    , pUpfrontPrice
+    , pHostIdSet
+    , pDuration
+    , pPaymentOption
 
     -- ** PurchaseRequest
     , PurchaseRequest
@@ -2202,6 +2295,13 @@ module Network.AWS.EC2
     , sgGroupName
     , sgDescription
 
+    -- ** SecurityGroupReference
+    , SecurityGroupReference
+    , securityGroupReference
+    , sgrVPCPeeringConnectionId
+    , sgrGroupId
+    , sgrReferencingVPCId
+
     -- ** SlotDateTimeRangeRequest
     , SlotDateTimeRangeRequest
     , slotDateTimeRangeRequest
@@ -2305,6 +2405,7 @@ module Network.AWS.EC2
     -- ** SpotFleetRequestConfig
     , SpotFleetRequestConfig
     , spotFleetRequestConfig
+    , sfrcActivityStatus
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
     , sfrcSpotFleetRequestConfig
@@ -2317,6 +2418,8 @@ module Network.AWS.EC2
     , sfrcdExcessCapacityTerminationPolicy
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
+    , sfrcdFulfilledCapacity
+    , sfrcdType
     , sfrcdValidFrom
     , sfrcdAllocationStrategy
     , sfrcdSpotPrice
@@ -2373,6 +2476,26 @@ module Network.AWS.EC2
     , sInstanceType
     , sAvailabilityZone
     , sTimestamp
+
+    -- ** StaleIPPermission
+    , StaleIPPermission
+    , staleIPPermission
+    , sipFromPort
+    , sipUserIdGroupPairs
+    , sipPrefixListIds
+    , sipIPProtocol
+    , sipToPort
+    , sipIPRanges
+
+    -- ** StaleSecurityGroup
+    , StaleSecurityGroup
+    , staleSecurityGroup
+    , ssgVPCId
+    , ssgGroupName
+    , ssgStaleIPPermissionsEgress
+    , ssgStaleIPPermissions
+    , ssgDescription
+    , ssgGroupId
 
     -- ** StateReason
     , StateReason
@@ -2510,6 +2633,7 @@ module Network.AWS.EC2
     , vpcPeeringConnectionOptionsDescription
     , vpcodAllowEgressFromLocalVPCToRemoteClassicLink
     , vpcodAllowEgressFromLocalClassicLinkToRemoteVPC
+    , vpcodAllowDNSResolutionFromRemoteVPC
 
     -- ** VPCPeeringConnectionStateReason
     , VPCPeeringConnectionStateReason
@@ -2723,7 +2847,10 @@ import           Network.AWS.EC2.DescribeCustomerGateways
 import           Network.AWS.EC2.DescribeDHCPOptions
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeFlowLogs
+import           Network.AWS.EC2.DescribeHostReservationOfferings
+import           Network.AWS.EC2.DescribeHostReservations
 import           Network.AWS.EC2.DescribeHosts
+import           Network.AWS.EC2.DescribeIdentityIdFormat
 import           Network.AWS.EC2.DescribeIdFormat
 import           Network.AWS.EC2.DescribeImageAttribute
 import           Network.AWS.EC2.DescribeImages
@@ -2749,6 +2876,7 @@ import           Network.AWS.EC2.DescribeReservedInstancesOfferings
 import           Network.AWS.EC2.DescribeRouteTables
 import           Network.AWS.EC2.DescribeScheduledInstanceAvailability
 import           Network.AWS.EC2.DescribeScheduledInstances
+import           Network.AWS.EC2.DescribeSecurityGroupReferences
 import           Network.AWS.EC2.DescribeSecurityGroups
 import           Network.AWS.EC2.DescribeSnapshotAttribute
 import           Network.AWS.EC2.DescribeSnapshots
@@ -2758,6 +2886,7 @@ import           Network.AWS.EC2.DescribeSpotFleetRequestHistory
 import           Network.AWS.EC2.DescribeSpotFleetRequests
 import           Network.AWS.EC2.DescribeSpotInstanceRequests
 import           Network.AWS.EC2.DescribeSpotPriceHistory
+import           Network.AWS.EC2.DescribeStaleSecurityGroups
 import           Network.AWS.EC2.DescribeSubnets
 import           Network.AWS.EC2.DescribeTags
 import           Network.AWS.EC2.DescribeVolumeAttribute
@@ -2787,6 +2916,8 @@ import           Network.AWS.EC2.EnableVolumeIO
 import           Network.AWS.EC2.EnableVPCClassicLink
 import           Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.GetConsoleOutput
+import           Network.AWS.EC2.GetConsoleScreenshot
+import           Network.AWS.EC2.GetHostReservationPurchasePreview
 import           Network.AWS.EC2.GetPasswordData
 import           Network.AWS.EC2.ImportImage
 import           Network.AWS.EC2.ImportInstance
@@ -2795,6 +2926,7 @@ import           Network.AWS.EC2.ImportSnapshot
 import           Network.AWS.EC2.ImportVolume
 import           Network.AWS.EC2.Internal
 import           Network.AWS.EC2.ModifyHosts
+import           Network.AWS.EC2.ModifyIdentityIdFormat
 import           Network.AWS.EC2.ModifyIdFormat
 import           Network.AWS.EC2.ModifyImageAttribute
 import           Network.AWS.EC2.ModifyInstanceAttribute
@@ -2810,6 +2942,7 @@ import           Network.AWS.EC2.ModifyVPCEndpoint
 import           Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
 import           Network.AWS.EC2.MonitorInstances
 import           Network.AWS.EC2.MoveAddressToVPC
+import           Network.AWS.EC2.PurchaseHostReservation
 import           Network.AWS.EC2.PurchaseReservedInstancesOffering
 import           Network.AWS.EC2.PurchaseScheduledInstances
 import           Network.AWS.EC2.RebootInstances

@@ -35,7 +35,7 @@ instance FromText LookupAttributeKey where
         "resourcetype" -> pure ResourceType
         "username" -> pure Username
         e -> fromTextError $ "Failure parsing LookupAttributeKey from value: '" <> e
-           <> "'. Accepted values: EventId, EventName, ResourceName, ResourceType, Username"
+           <> "'. Accepted values: eventid, eventname, resourcename, resourcetype, username"
 
 instance ToText LookupAttributeKey where
     toText = \case

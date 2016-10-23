@@ -13,7 +13,7 @@
 --
 -- Amazon WorkSpaces Service
 --
--- This is the /Amazon WorkSpaces API Reference/. This guide provides detailed information about Amazon WorkSpaces operations, data types, parameters, and errors.
+-- This reference provides detailed information about the Amazon WorkSpaces operations.
 module Network.AWS.WorkSpaces
     (
     -- * Service Configuration
@@ -22,20 +22,41 @@ module Network.AWS.WorkSpaces
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    , _AccessDeniedException
+
     -- ** ResourceUnavailableException
     , _ResourceUnavailableException
 
     -- ** InvalidParameterValuesException
     , _InvalidParameterValuesException
 
+    -- ** OperationInProgressException
+    , _OperationInProgressException
+
     -- ** ResourceLimitExceededException
     , _ResourceLimitExceededException
+
+    -- ** InvalidResourceStateException
+    , _InvalidResourceStateException
+
+    -- ** UnsupportedWorkspaceConfigurationException
+    , _UnsupportedWorkspaceConfigurationException
+
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** ModifyWorkspaceProperties
+    , module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+
+    -- ** DescribeTags
+    , module Network.AWS.WorkSpaces.DescribeTags
 
     -- ** DescribeWorkspaceDirectories
     , module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
@@ -45,6 +66,18 @@ module Network.AWS.WorkSpaces
 
     -- ** RebuildWorkspaces
     , module Network.AWS.WorkSpaces.RebuildWorkspaces
+
+    -- ** CreateTags
+    , module Network.AWS.WorkSpaces.CreateTags
+
+    -- ** DeleteTags
+    , module Network.AWS.WorkSpaces.DeleteTags
+
+    -- ** StopWorkspaces
+    , module Network.AWS.WorkSpaces.StopWorkspaces
+
+    -- ** DescribeWorkspacesConnectionStatus
+    , module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
 
     -- ** RebootWorkspaces
     , module Network.AWS.WorkSpaces.RebootWorkspaces
@@ -58,10 +91,19 @@ module Network.AWS.WorkSpaces
     -- ** DescribeWorkspaces
     , module Network.AWS.WorkSpaces.DescribeWorkspaces
 
+    -- ** StartWorkspaces
+    , module Network.AWS.WorkSpaces.StartWorkspaces
+
     -- * Types
 
     -- ** Compute
     , Compute (..)
+
+    -- ** ConnectionState
+    , ConnectionState (..)
+
+    -- ** RunningMode
+    , RunningMode (..)
 
     -- ** WorkspaceDirectoryState
     , WorkspaceDirectoryState (..)
@@ -110,6 +152,22 @@ module Network.AWS.WorkSpaces
     , rebuildRequest
     , rrWorkspaceId
 
+    -- ** StartRequest
+    , StartRequest
+    , startRequest
+    , sWorkspaceId
+
+    -- ** StopRequest
+    , StopRequest
+    , stopRequest
+    , srWorkspaceId
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
     -- ** TerminateRequest
     , TerminateRequest
     , terminateRequest
@@ -129,6 +187,7 @@ module Network.AWS.WorkSpaces
     , wUserName
     , wSubnetId
     , wBundleId
+    , wWorkspaceProperties
     , wRootVolumeEncryptionEnabled
     , wErrorCode
     , wVolumeEncryptionKey
@@ -147,6 +206,14 @@ module Network.AWS.WorkSpaces
     , wbUserStorage
     , wbDescription
 
+    -- ** WorkspaceConnectionStatus
+    , WorkspaceConnectionStatus
+    , workspaceConnectionStatus
+    , wcsLastKnownUserConnectionTimestamp
+    , wcsConnectionStateCheckTimestamp
+    , wcsWorkspaceId
+    , wcsConnectionState
+
     -- ** WorkspaceDirectory
     , WorkspaceDirectory
     , workspaceDirectory
@@ -163,23 +230,38 @@ module Network.AWS.WorkSpaces
     , wdDNSIPAddresses
     , wdDirectoryName
 
+    -- ** WorkspaceProperties
+    , WorkspaceProperties
+    , workspaceProperties
+    , wpRunningMode
+    , wpRunningModeAutoStopTimeoutInMinutes
+
     -- ** WorkspaceRequest
     , WorkspaceRequest
     , workspaceRequest
+    , wrWorkspaceProperties
     , wrRootVolumeEncryptionEnabled
     , wrVolumeEncryptionKey
     , wrUserVolumeEncryptionEnabled
+    , wrTags
     , wrDirectoryId
     , wrUserName
     , wrBundleId
     ) where
 
+import           Network.AWS.WorkSpaces.CreateTags
 import           Network.AWS.WorkSpaces.CreateWorkspaces
+import           Network.AWS.WorkSpaces.DeleteTags
+import           Network.AWS.WorkSpaces.DescribeTags
 import           Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 import           Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 import           Network.AWS.WorkSpaces.DescribeWorkspaces
+import           Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
+import           Network.AWS.WorkSpaces.ModifyWorkspaceProperties
 import           Network.AWS.WorkSpaces.RebootWorkspaces
 import           Network.AWS.WorkSpaces.RebuildWorkspaces
+import           Network.AWS.WorkSpaces.StartWorkspaces
+import           Network.AWS.WorkSpaces.StopWorkspaces
 import           Network.AWS.WorkSpaces.TerminateWorkspaces
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Waiters

@@ -100,7 +100,7 @@ instance ToQuery AcceptVPCPeeringConnection where
           = mconcat
               ["Action" =:
                  ("AcceptVpcPeeringConnection" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VpcPeeringConnectionId" =:
                  _avpcVPCPeeringConnectionId,
                "DryRun" =: _avpcDryRun]

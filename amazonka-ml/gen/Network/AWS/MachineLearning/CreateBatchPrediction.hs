@@ -103,7 +103,7 @@ cbpMLModelId = lens _cbpMLModelId (\ s a -> s{_cbpMLModelId = a});
 cbpBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
 cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> s{_cbpBatchPredictionDataSourceId = a});
 
--- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the s3 key portion of the \"outputURI\" field: \':\', \'\/\/\', \'\/.\/\', \'\/..\/\'.
+-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the 's3 key' portion of the 'outputURI' field: \':\', \'\/\/\', \'\/.\/\', \'\/..\/\'.
 --
 -- Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 cbpOutputURI :: Lens' CreateBatchPrediction Text
@@ -152,9 +152,9 @@ instance ToPath CreateBatchPrediction where
 instance ToQuery CreateBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a < CreateBatchPrediction> operation, and is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a 'CreateBatchPrediction' operation, and is an acknowledgement that Amazon ML received the request.
 --
--- The < CreateBatchPrediction> operation is asynchronous. You can poll for status updates by using the < GetBatchPrediction> operation and checking the 'Status' parameter of the result.
+-- The 'CreateBatchPrediction' operation is asynchronous. You can poll for status updates by using the '>GetBatchPrediction' operation and checking the 'Status' parameter of the result.
 --
 -- /See:/ 'createBatchPredictionResponse' smart constructor.
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'

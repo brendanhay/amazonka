@@ -40,6 +40,9 @@ module Network.AWS.DirectoryService
     -- ** DirectoryLimitExceededException
     , _DirectoryLimitExceededException
 
+    -- ** IPRouteLimitExceededException
+    , _IPRouteLimitExceededException
+
     -- ** EntityDoesNotExistException
     , _EntityDoesNotExistException
 
@@ -54,6 +57,9 @@ module Network.AWS.DirectoryService
 
     -- ** SnapshotLimitExceededException
     , _SnapshotLimitExceededException
+
+    -- ** TagLimitExceededException
+    , _TagLimitExceededException
 
     -- ** ClientException
     , _ClientException
@@ -82,6 +88,12 @@ module Network.AWS.DirectoryService
     -- ** DescribeDirectories
     , module Network.AWS.DirectoryService.DescribeDirectories
 
+    -- ** AddIPRoutes
+    , module Network.AWS.DirectoryService.AddIPRoutes
+
+    -- ** ListTagsForResource
+    , module Network.AWS.DirectoryService.ListTagsForResource
+
     -- ** DescribeTrusts
     , module Network.AWS.DirectoryService.DescribeTrusts
 
@@ -96,6 +108,9 @@ module Network.AWS.DirectoryService
 
     -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
+
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.DirectoryService.RemoveTagsFromResource
 
     -- ** DescribeEventTopics
     , module Network.AWS.DirectoryService.DescribeEventTopics
@@ -112,6 +127,12 @@ module Network.AWS.DirectoryService
     -- ** EnableRadius
     , module Network.AWS.DirectoryService.EnableRadius
 
+    -- ** ListIPRoutes
+    , module Network.AWS.DirectoryService.ListIPRoutes
+
+    -- ** AddTagsToResource
+    , module Network.AWS.DirectoryService.AddTagsToResource
+
     -- ** DisableRadius
     , module Network.AWS.DirectoryService.DisableRadius
 
@@ -120,6 +141,9 @@ module Network.AWS.DirectoryService
 
     -- ** DescribeSnapshots
     , module Network.AWS.DirectoryService.DescribeSnapshots
+
+    -- ** RemoveIPRoutes
+    , module Network.AWS.DirectoryService.RemoveIPRoutes
 
     -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
@@ -161,6 +185,9 @@ module Network.AWS.DirectoryService
 
     -- ** DirectoryType
     , DirectoryType (..)
+
+    -- ** IPRouteStatusMsg
+    , IPRouteStatusMsg (..)
 
     -- ** RadiusAuthenticationProtocol
     , RadiusAuthenticationProtocol (..)
@@ -285,6 +312,22 @@ module Network.AWS.DirectoryService
     , etTopicARN
     , etCreatedDateTime
 
+    -- ** IPRoute
+    , IPRoute
+    , ipRoute
+    , irCIdRIP
+    , irDescription
+
+    -- ** IPRouteInfo
+    , IPRouteInfo
+    , ipRouteInfo
+    , iriDirectoryId
+    , iriIPRouteStatusReason
+    , iriAddedDateTime
+    , iriCIdRIP
+    , iriIPRouteStatusMsg
+    , iriDescription
+
     -- ** RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -314,6 +357,12 @@ module Network.AWS.DirectoryService
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
 
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- ** Trust
     , Trust
     , trust
@@ -329,6 +378,8 @@ module Network.AWS.DirectoryService
     , tCreatedDateTime
     ) where
 
+import           Network.AWS.DirectoryService.AddIPRoutes
+import           Network.AWS.DirectoryService.AddTagsToResource
 import           Network.AWS.DirectoryService.ConnectDirectory
 import           Network.AWS.DirectoryService.CreateAlias
 import           Network.AWS.DirectoryService.CreateComputer
@@ -353,7 +404,11 @@ import           Network.AWS.DirectoryService.EnableRadius
 import           Network.AWS.DirectoryService.EnableSSO
 import           Network.AWS.DirectoryService.GetDirectoryLimits
 import           Network.AWS.DirectoryService.GetSnapshotLimits
+import           Network.AWS.DirectoryService.ListIPRoutes
+import           Network.AWS.DirectoryService.ListTagsForResource
 import           Network.AWS.DirectoryService.RegisterEventTopic
+import           Network.AWS.DirectoryService.RemoveIPRoutes
+import           Network.AWS.DirectoryService.RemoveTagsFromResource
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.UpdateConditionalForwarder

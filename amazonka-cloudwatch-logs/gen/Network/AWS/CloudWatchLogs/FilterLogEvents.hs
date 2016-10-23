@@ -20,7 +20,7 @@
 --
 -- Retrieves log events, optionally filtered by a filter pattern from the specified log group. You can provide an optional time range to filter the results on the event 'timestamp'. You can limit the streams searched to an explicit list of 'logStreamNames'.
 --
--- By default, this operation returns as much matching log events as can fit in a response size of 1MB, up to 10,000 log events, or all the events found within a time-bounded scan window. If the response includes a 'nextToken', then there is more data to search, and the search can be resumed with a new request providing the nextToken. The response will contain a list of 'searchedLogStreams' that contains information about which streams were searched in the request and whether they have been searched completely or require further pagination. The 'limit' parameter in the request. can be used to specify the maximum number of events to return in a page.
+-- By default, this operation returns as much matching log events as can fit in a response size of 1MB, up to 10,000 log events, or all the events found within a time-bounded scan window. If the response includes a 'nextToken', then there is more data to search, and the search can be resumed with a new request providing the nextToken. The response will contain a list of 'searchedLogStreams' that contains information about which streams were searched in the request and whether they have been searched completely or require further pagination. The 'limit' parameter in the request can be used to specify the maximum number of events to return in a page.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.FilterLogEvents

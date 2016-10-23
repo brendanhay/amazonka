@@ -86,7 +86,9 @@ instance ToQuery ListVerifiedEmailAddresses where
                     ("ListVerifiedEmailAddresses" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+-- | A list of email addresses that you have verified with Amazon SES under your AWS account.
+--
+-- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearsResponseStatus         :: !Int

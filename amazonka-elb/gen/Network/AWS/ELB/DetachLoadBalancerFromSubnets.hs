@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
+-- | Contains the parameters for DetachLoadBalancerFromSubnets.
+--
+-- /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName :: !Text
     , _dlbfsSubnets          :: ![Text]
@@ -109,7 +111,9 @@ instance ToQuery DetachLoadBalancerFromSubnets where
                "LoadBalancerName" =: _dlbfsLoadBalancerName,
                "Subnets" =: toQueryList "member" _dlbfsSubnets]
 
--- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
+-- | Contains the output of DetachLoadBalancerFromSubnets.
+--
+-- /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets        :: !(Maybe [Text])
     , _dlbfsrsResponseStatus :: !Int

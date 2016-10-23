@@ -22,11 +22,13 @@ module Network.AWS.DirectoryService.Types
     , _UnsupportedOperationException
     , _EntityAlreadyExistsException
     , _DirectoryLimitExceededException
+    , _IPRouteLimitExceededException
     , _EntityDoesNotExistException
     , _InsufficientPermissionsException
     , _InvalidNextTokenException
     , _ServiceException
     , _SnapshotLimitExceededException
+    , _TagLimitExceededException
     , _ClientException
 
     -- * DirectorySize
@@ -37,6 +39,9 @@ module Network.AWS.DirectoryService.Types
 
     -- * DirectoryType
     , DirectoryType (..)
+
+    -- * IPRouteStatusMsg
+    , IPRouteStatusMsg (..)
 
     -- * RadiusAuthenticationProtocol
     , RadiusAuthenticationProtocol (..)
@@ -161,6 +166,22 @@ module Network.AWS.DirectoryService.Types
     , etTopicARN
     , etCreatedDateTime
 
+    -- * IPRoute
+    , IPRoute
+    , ipRoute
+    , irCIdRIP
+    , irDescription
+
+    -- * IPRouteInfo
+    , IPRouteInfo
+    , ipRouteInfo
+    , iriDirectoryId
+    , iriIPRouteStatusReason
+    , iriAddedDateTime
+    , iriCIdRIP
+    , iriIPRouteStatusMsg
+    , iriDescription
+
     -- * RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -189,6 +210,12 @@ module Network.AWS.DirectoryService.Types
     , slManualSnapshotsLimitReached
     , slManualSnapshotsCurrentCount
     , slManualSnapshotsLimit
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- * Trust
     , Trust
@@ -275,6 +302,11 @@ _DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a 
 _DirectoryLimitExceededException =
     _ServiceError . hasCode "DirectoryLimitExceededException"
 
+-- | The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
+_IPRouteLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_IPRouteLimitExceededException =
+    _ServiceError . hasCode "IpRouteLimitExceededException"
+
 -- | The specified entity could not be found.
 _EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityDoesNotExistException =
@@ -298,6 +330,11 @@ _ServiceException = _ServiceError . hasCode "ServiceException"
 _SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =
     _ServiceError . hasCode "SnapshotLimitExceededException"
+
+-- | The maximum allowed number of tags was exceeded.
+_TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededException =
+    _ServiceError . hasCode "TagLimitExceededException"
 
 -- | A client exception has occurred.
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError

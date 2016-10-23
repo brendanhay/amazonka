@@ -75,10 +75,14 @@ getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     }
 
 -- | The name of the IAM user associated with the SSH public key.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 gspkUserName :: Lens' GetSSHPublicKey Text
 gspkUserName = lens _gspkUserName (\ s a -> s{_gspkUserName = a});
 
 -- | The unique identifier for the SSH public key.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
 gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
 
@@ -138,7 +142,7 @@ getSSHPublicKeyResponse pResponseStatus_ =
     , _gspkrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the SSH public key.
+-- | A structure containing details about the SSH public key.
 gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
 gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 

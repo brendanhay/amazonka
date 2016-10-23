@@ -70,7 +70,9 @@ removeTags pResourceId_ =
 rtTagsList :: Lens' RemoveTags [Tag]
 rtTagsList = lens _rtTagsList (\ s a -> s{_rtTagsList = a}) . _Default . _Coerce;
 
--- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 rtResourceId :: Lens' RemoveTags Text
 rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 

@@ -28,14 +28,29 @@ import Test.AWS.SSM.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeDocument $
+--         [ requestDescribeActivations $
+--             describeActivations
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
+--         , requestDescribeDocument $
 --             describeDocument
 --
 --         , requestCreateAssociation $
 --             createAssociation
 --
+--         , requestDeleteActivation $
+--             deleteActivation
+--
+--         , requestCreateActivation $
+--             createActivation
+--
 --         , requestCreateDocument $
 --             createDocument
+--
+--         , requestRemoveTagsFromResource $
+--             removeTagsFromResource
 --
 --         , requestListCommandInvocations $
 --             listCommandInvocations
@@ -43,14 +58,26 @@ import Test.AWS.SSM.Internal
 --         , requestListDocuments $
 --             listDocuments
 --
+--         , requestUpdateManagedInstanceRole $
+--             updateManagedInstanceRole
+--
 --         , requestGetDocument $
 --             getDocument
+--
+--         , requestAddTagsToResource $
+--             addTagsToResource
 --
 --         , requestCancelCommand $
 --             cancelCommand
 --
+--         , requestDeregisterManagedInstance $
+--             deregisterManagedInstance
+--
 --         , requestDescribeAssociation $
 --             describeAssociation
+--
+--         , requestModifyDocumentPermission $
+--             modifyDocumentPermission
 --
 --         , requestUpdateAssociationStatus $
 --             updateAssociationStatus
@@ -73,20 +100,38 @@ import Test.AWS.SSM.Internal
 --         , requestDeleteDocument $
 --             deleteDocument
 --
+--         , requestDescribeDocumentPermission $
+--             describeDocumentPermission
+--
 --         , requestCreateAssociationBatch $
 --             createAssociationBatch
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeDocument $
+--         [ responseDescribeActivations $
+--             describeActivationsResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
+--         , responseDescribeDocument $
 --             describeDocumentResponse
 --
 --         , responseCreateAssociation $
 --             createAssociationResponse
 --
+--         , responseDeleteActivation $
+--             deleteActivationResponse
+--
+--         , responseCreateActivation $
+--             createActivationResponse
+--
 --         , responseCreateDocument $
 --             createDocumentResponse
+--
+--         , responseRemoveTagsFromResource $
+--             removeTagsFromResourceResponse
 --
 --         , responseListCommandInvocations $
 --             listCommandInvocationsResponse
@@ -94,14 +139,26 @@ import Test.AWS.SSM.Internal
 --         , responseListDocuments $
 --             listDocumentsResponse
 --
+--         , responseUpdateManagedInstanceRole $
+--             updateManagedInstanceRoleResponse
+--
 --         , responseGetDocument $
 --             getDocumentResponse
+--
+--         , responseAddTagsToResource $
+--             addTagsToResourceResponse
 --
 --         , responseCancelCommand $
 --             cancelCommandResponse
 --
+--         , responseDeregisterManagedInstance $
+--             deregisterManagedInstanceResponse
+--
 --         , responseDescribeAssociation $
 --             describeAssociationResponse
+--
+--         , responseModifyDocumentPermission $
+--             modifyDocumentPermissionResponse
 --
 --         , responseUpdateAssociationStatus $
 --             updateAssociationStatusResponse
@@ -124,6 +181,9 @@ import Test.AWS.SSM.Internal
 --         , responseDeleteDocument $
 --             deleteDocumentResponse
 --
+--         , responseDescribeDocumentPermission $
+--             describeDocumentPermissionResponse
+--
 --         , responseCreateAssociationBatch $
 --             createAssociationBatchResponse
 --
@@ -131,6 +191,16 @@ import Test.AWS.SSM.Internal
 --     ]
 
 -- Requests
+
+requestDescribeActivations :: DescribeActivations -> TestTree
+requestDescribeActivations = req
+    "DescribeActivations"
+    "fixture/DescribeActivations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestDescribeDocument :: DescribeDocument -> TestTree
 requestDescribeDocument = req
@@ -142,10 +212,25 @@ requestCreateAssociation = req
     "CreateAssociation"
     "fixture/CreateAssociation.yaml"
 
+requestDeleteActivation :: DeleteActivation -> TestTree
+requestDeleteActivation = req
+    "DeleteActivation"
+    "fixture/DeleteActivation.yaml"
+
+requestCreateActivation :: CreateActivation -> TestTree
+requestCreateActivation = req
+    "CreateActivation"
+    "fixture/CreateActivation.yaml"
+
 requestCreateDocument :: CreateDocument -> TestTree
 requestCreateDocument = req
     "CreateDocument"
     "fixture/CreateDocument.yaml"
+
+requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+requestRemoveTagsFromResource = req
+    "RemoveTagsFromResource"
+    "fixture/RemoveTagsFromResource.yaml"
 
 requestListCommandInvocations :: ListCommandInvocations -> TestTree
 requestListCommandInvocations = req
@@ -157,20 +242,40 @@ requestListDocuments = req
     "ListDocuments"
     "fixture/ListDocuments.yaml"
 
+requestUpdateManagedInstanceRole :: UpdateManagedInstanceRole -> TestTree
+requestUpdateManagedInstanceRole = req
+    "UpdateManagedInstanceRole"
+    "fixture/UpdateManagedInstanceRole.yaml"
+
 requestGetDocument :: GetDocument -> TestTree
 requestGetDocument = req
     "GetDocument"
     "fixture/GetDocument.yaml"
+
+requestAddTagsToResource :: AddTagsToResource -> TestTree
+requestAddTagsToResource = req
+    "AddTagsToResource"
+    "fixture/AddTagsToResource.yaml"
 
 requestCancelCommand :: CancelCommand -> TestTree
 requestCancelCommand = req
     "CancelCommand"
     "fixture/CancelCommand.yaml"
 
+requestDeregisterManagedInstance :: DeregisterManagedInstance -> TestTree
+requestDeregisterManagedInstance = req
+    "DeregisterManagedInstance"
+    "fixture/DeregisterManagedInstance.yaml"
+
 requestDescribeAssociation :: DescribeAssociation -> TestTree
 requestDescribeAssociation = req
     "DescribeAssociation"
     "fixture/DescribeAssociation.yaml"
+
+requestModifyDocumentPermission :: ModifyDocumentPermission -> TestTree
+requestModifyDocumentPermission = req
+    "ModifyDocumentPermission"
+    "fixture/ModifyDocumentPermission.yaml"
 
 requestUpdateAssociationStatus :: UpdateAssociationStatus -> TestTree
 requestUpdateAssociationStatus = req
@@ -207,12 +312,31 @@ requestDeleteDocument = req
     "DeleteDocument"
     "fixture/DeleteDocument.yaml"
 
+requestDescribeDocumentPermission :: DescribeDocumentPermission -> TestTree
+requestDescribeDocumentPermission = req
+    "DescribeDocumentPermission"
+    "fixture/DescribeDocumentPermission.yaml"
+
 requestCreateAssociationBatch :: CreateAssociationBatch -> TestTree
 requestCreateAssociationBatch = req
     "CreateAssociationBatch"
     "fixture/CreateAssociationBatch.yaml"
 
 -- Responses
+
+responseDescribeActivations :: DescribeActivationsResponse -> TestTree
+responseDescribeActivations = res
+    "DescribeActivationsResponse"
+    "fixture/DescribeActivationsResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeActivations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    ssm
+    (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeDocument :: DescribeDocumentResponse -> TestTree
 responseDescribeDocument = res
@@ -228,12 +352,33 @@ responseCreateAssociation = res
     ssm
     (Proxy :: Proxy CreateAssociation)
 
+responseDeleteActivation :: DeleteActivationResponse -> TestTree
+responseDeleteActivation = res
+    "DeleteActivationResponse"
+    "fixture/DeleteActivationResponse.proto"
+    ssm
+    (Proxy :: Proxy DeleteActivation)
+
+responseCreateActivation :: CreateActivationResponse -> TestTree
+responseCreateActivation = res
+    "CreateActivationResponse"
+    "fixture/CreateActivationResponse.proto"
+    ssm
+    (Proxy :: Proxy CreateActivation)
+
 responseCreateDocument :: CreateDocumentResponse -> TestTree
 responseCreateDocument = res
     "CreateDocumentResponse"
     "fixture/CreateDocumentResponse.proto"
     ssm
     (Proxy :: Proxy CreateDocument)
+
+responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
+responseRemoveTagsFromResource = res
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse.proto"
+    ssm
+    (Proxy :: Proxy RemoveTagsFromResource)
 
 responseListCommandInvocations :: ListCommandInvocationsResponse -> TestTree
 responseListCommandInvocations = res
@@ -249,12 +394,26 @@ responseListDocuments = res
     ssm
     (Proxy :: Proxy ListDocuments)
 
+responseUpdateManagedInstanceRole :: UpdateManagedInstanceRoleResponse -> TestTree
+responseUpdateManagedInstanceRole = res
+    "UpdateManagedInstanceRoleResponse"
+    "fixture/UpdateManagedInstanceRoleResponse.proto"
+    ssm
+    (Proxy :: Proxy UpdateManagedInstanceRole)
+
 responseGetDocument :: GetDocumentResponse -> TestTree
 responseGetDocument = res
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
     ssm
     (Proxy :: Proxy GetDocument)
+
+responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
+responseAddTagsToResource = res
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse.proto"
+    ssm
+    (Proxy :: Proxy AddTagsToResource)
 
 responseCancelCommand :: CancelCommandResponse -> TestTree
 responseCancelCommand = res
@@ -263,12 +422,26 @@ responseCancelCommand = res
     ssm
     (Proxy :: Proxy CancelCommand)
 
+responseDeregisterManagedInstance :: DeregisterManagedInstanceResponse -> TestTree
+responseDeregisterManagedInstance = res
+    "DeregisterManagedInstanceResponse"
+    "fixture/DeregisterManagedInstanceResponse.proto"
+    ssm
+    (Proxy :: Proxy DeregisterManagedInstance)
+
 responseDescribeAssociation :: DescribeAssociationResponse -> TestTree
 responseDescribeAssociation = res
     "DescribeAssociationResponse"
     "fixture/DescribeAssociationResponse.proto"
     ssm
     (Proxy :: Proxy DescribeAssociation)
+
+responseModifyDocumentPermission :: ModifyDocumentPermissionResponse -> TestTree
+responseModifyDocumentPermission = res
+    "ModifyDocumentPermissionResponse"
+    "fixture/ModifyDocumentPermissionResponse.proto"
+    ssm
+    (Proxy :: Proxy ModifyDocumentPermission)
 
 responseUpdateAssociationStatus :: UpdateAssociationStatusResponse -> TestTree
 responseUpdateAssociationStatus = res
@@ -318,6 +491,13 @@ responseDeleteDocument = res
     "fixture/DeleteDocumentResponse.proto"
     ssm
     (Proxy :: Proxy DeleteDocument)
+
+responseDescribeDocumentPermission :: DescribeDocumentPermissionResponse -> TestTree
+responseDescribeDocumentPermission = res
+    "DescribeDocumentPermissionResponse"
+    "fixture/DescribeDocumentPermissionResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeDocumentPermission)
 
 responseCreateAssociationBatch :: CreateAssociationBatchResponse -> TestTree
 responseCreateAssociationBatch = res

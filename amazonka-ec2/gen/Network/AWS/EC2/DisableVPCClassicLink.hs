@@ -99,7 +99,7 @@ instance ToQuery DisableVPCClassicLink where
         toQuery DisableVPCClassicLink'{..}
           = mconcat
               ["Action" =: ("DisableVpcClassicLink" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _dvpcclDryRun, "VpcId" =: _dvpcclVPCId]
 
 -- | Contains the output of DisableVpcClassicLink.

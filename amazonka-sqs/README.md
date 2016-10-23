@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.4.3`
+`1.4.4`
 
 
 ## Description
@@ -20,16 +20,23 @@ Amazon SQS offers reliable and scalable hosted queues for storing messages as th
 Helpful Links:
 
 -   <http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl Current WSDL (2012-11-05)>
+
 -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
+
 -   <http://aws.amazon.com/sqs/ Amazon SQS product page>
+
 -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html Using Amazon SQS Message Attributes>
+
 -   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
+
 -   <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 
 We also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:
 
 -   Cryptographically signing your service requests
+
 -   Retrying requests
+
 -   Handling error responses
 
 For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.

@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a scaling policy for a fleet. An active scaling policy prompts GameLift to track a certain metric for a fleet and automatically change the fleet\'s capacity in specific circumstances. Each scaling policy contains one rule statement. Fleets can have multiple scaling policies in force simultaneously.
+-- Creates or updates a scaling policy for a fleet. An active scaling policy prompts Amazon GameLift to track a certain metric for a fleet and automatically change the fleet\'s capacity in specific circumstances. Each scaling policy contains one rule statement. Fleets can have multiple scaling policies in force simultaneously.
 --
 -- A scaling policy rule statement has the following structure:
 --
--- If /[MetricName]/ is /[ComparisonOperator]/ /[Threshold]/ for /[EvaluationPeriods]/ minutes, then /[ScalingAdjustmentType]/ to\/by /[ScalingAdjustment]/.
+-- If '[MetricName]' is '[ComparisonOperator]' '[Threshold]' for '[EvaluationPeriods]' minutes, then '[ScalingAdjustmentType]' to\/by '[ScalingAdjustment]'.
 --
 -- For example, this policy: \"If the number of idle instances exceeds 20 for more than 15 minutes, then reduce the fleet capacity by 10 instances\" could be implemented as the following rule statement:
 --
@@ -114,7 +114,7 @@ putScalingPolicy pName_ pFleetId_ pScalingAdjustment_ pScalingAdjustmentType_ pT
     , _pspMetricName = pMetricName_
     }
 
--- | Descriptive label associated with this scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
+-- | Descriptive label associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 pspName :: Lens' PutScalingPolicy Text
 pspName = lens _pspName (\ s a -> s{_pspName = a});
 
@@ -128,9 +128,9 @@ pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustm
 
 -- | Type of adjustment to make to a fleet\'s instance count (see < FleetCapacity>):
 --
--- -   ChangeInCapacity: add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
--- -   ExactCapacity: set the instance count to the scaling adjustment value.
--- -   PercentChangeInCapacity: increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of \"-10\" scales the fleet down by 10%.
+-- -   __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+-- -   __ExactCapacity__ – set the instance count to the scaling adjustment value.
+-- -   __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of \"-10\" scales the fleet down by 10%.
 pspScalingAdjustmentType :: Lens' PutScalingPolicy ScalingAdjustmentType
 pspScalingAdjustmentType = lens _pspScalingAdjustmentType (\ s a -> s{_pspScalingAdjustmentType = a});
 
@@ -146,14 +146,14 @@ pspComparisonOperator = lens _pspComparisonOperator (\ s a -> s{_pspComparisonOp
 pspEvaluationPeriods :: Lens' PutScalingPolicy Natural
 pspEvaluationPeriods = lens _pspEvaluationPeriods (\ s a -> s{_pspEvaluationPeriods = a}) . _Nat;
 
--- | Name of the Service-defined metric that is used to trigger an adjustment.
+-- | Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.
 --
--- -   ActivatingGameSessions: number of game sessions in the process of being created (game session status = ACTIVATING).
--- -   ActiveGameSessions: number of game sessions currently running (game session status = ACTIVE).
--- -   CurrentPlayerSessions: number of active or reserved player sessions (player session status = ACTIVE or RESERVED).
--- -   AvailablePlayerSessions: number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session\'s current player session count from its maximum player session count. This number includes game sessions that are not currently accepting players (game session PlayerSessionCreationPolicy = DENY_ALL).
--- -   ActiveInstances: number of instances currently running a game session.
--- -   IdleInstances: number of instances not currently running a game session.
+-- -   __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = 'ACTIVATING').
+-- -   __ActiveGameSessions__ – number of game sessions currently running (game session status = 'ACTIVE').
+-- -   __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = 'ACTIVE' or 'RESERVED').
+-- -   __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session\'s current player session count from its maximum player session count. This number includes game sessions that are not currently accepting players (game session 'PlayerSessionCreationPolicy' = 'DENY_ALL').
+-- -   __ActiveInstances__ – number of instances currently running a game session.
+-- -   __IdleInstances__ – number of instances not currently running a game session.
 pspMetricName :: Lens' PutScalingPolicy MetricName
 pspMetricName = lens _pspMetricName (\ s a -> s{_pspMetricName = a});
 
@@ -225,7 +225,7 @@ putScalingPolicyResponse pResponseStatus_ =
     , _psprsResponseStatus = pResponseStatus_
     }
 
--- | Descriptive label associated with this scaling policy. Policy names do not need to be unique.
+-- | Descriptive label associated with a scaling policy. Policy names do not need to be unique.
 psprsName :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsName = lens _psprsName (\ s a -> s{_psprsName = a});
 

@@ -101,7 +101,9 @@ instance ToPath VerifyTrust where
 instance ToQuery VerifyTrust where
         toQuery = const mempty
 
--- | /See:/ 'verifyTrustResponse' smart constructor.
+-- | Result of a VerifyTrust request.
+--
+-- /See:/ 'verifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
     { _vtrsTrustId        :: !(Maybe Text)
     , _vtrsResponseStatus :: !Int

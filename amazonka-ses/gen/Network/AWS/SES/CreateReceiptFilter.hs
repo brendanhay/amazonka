@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'createReceiptFilter' smart constructor.
+-- | Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'createReceiptFilter' smart constructor.
 newtype CreateReceiptFilter = CreateReceiptFilter'
     { _crfFilter :: ReceiptFilter
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery CreateReceiptFilter where
                "Version" =: ("2010-12-01" :: ByteString),
                "Filter" =: _crfFilter]
 
--- | /See:/ 'createReceiptFilterResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'createReceiptFilterResponse' smart constructor.
 newtype CreateReceiptFilterResponse = CreateReceiptFilterResponse'
     { _crfrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

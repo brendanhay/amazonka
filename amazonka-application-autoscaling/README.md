@@ -8,22 +8,76 @@
 
 ## Version
 
-`1.4.3`
+`1.4.4`
 
 
 ## Description
 
 Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Auto Scaling.
 
-At this time, Application Auto Scaling only supports scaling Amazon ECS services.
+Application Auto Scaling supports scaling the following AWS resources:
 
-For example, you can use Application Auto Scaling to accomplish the following tasks:
+-   Amazon ECS services
 
--   Define scaling policies for automatically adjusting your application’s resources
+-   Amazon EC2 Spot fleet instances
+
+You can use Application Auto Scaling to accomplish the following tasks:
+
+-   Define scaling policies for automatically adjusting your AWS resources
 
 -   Scale your resources in response to CloudWatch alarms
 
 -   View history of your scaling events
+
+Application Auto Scaling is available in the following regions:
+
+-   
+    @
+    us-east-1
+    @
+    
+
+-   
+    @
+    us-west-1
+    @
+    
+
+-   
+    @
+    us-west-2
+    @
+    
+
+-   
+    @
+    ap-southeast-1
+    @
+    
+
+-   
+    @
+    ap-southeast-2
+    @
+    
+
+-   
+    @
+    ap-northeast-1
+    @
+    
+
+-   
+    @
+    eu-central-1
+    @
+    
+
+-   
+    @
+    eu-west-1
+    @
+    
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-application-autoscaling)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

@@ -20,7 +20,7 @@
 --
 -- Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request
@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resumeProcesses' smart constructor.
+-- | Contains the parameters for SuspendProcesses and ResumeProcesses.
+--
+-- /See:/ 'resumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
     { _rpScalingProcesses     :: !(Maybe [Text])
     , _rpAutoScalingGroupName :: !Text
@@ -64,7 +66,7 @@ resumeProcesses pAutoScalingGroupName_ =
     , _rpAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following processes:
+-- | One or more of the following processes. If you omit this parameter, all processes are specified.
 --
 -- -   'Launch'
 --

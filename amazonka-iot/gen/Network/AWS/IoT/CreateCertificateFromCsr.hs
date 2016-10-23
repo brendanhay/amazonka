@@ -26,8 +26,6 @@
 --
 -- Assuming a set of CSRs are located inside of the directory my-csr-directory:
 --
--- >
---
 -- On Linux and OS X, the command is:
 --
 -- > ls my-csr-directory\/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file:\/\/my-csr-directory\/{}

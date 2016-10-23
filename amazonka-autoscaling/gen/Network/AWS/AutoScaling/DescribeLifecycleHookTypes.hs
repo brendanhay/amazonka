@@ -82,7 +82,9 @@ instance ToQuery DescribeLifecycleHookTypes where
                     ("DescribeLifecycleHookTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
+-- | Contains the output of DescribeLifecycleHookTypes.
+--
+-- /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
     , _dlhtrsResponseStatus     :: !Int
@@ -104,12 +106,7 @@ describeLifecycleHookTypesResponse pResponseStatus_ =
     , _dlhtrsResponseStatus = pResponseStatus_
     }
 
--- | One or more of the following notification types:
---
--- -   'autoscaling:EC2_INSTANCE_LAUNCHING'
---
--- -   'autoscaling:EC2_INSTANCE_TERMINATING'
---
+-- | The lifecycle hook types.
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
 

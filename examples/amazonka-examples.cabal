@@ -1,5 +1,5 @@
 name:                  amazonka-examples
-version:               1.4.3
+version:               1.4.4
 synopsis:              Basic examples for various amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -18,20 +18,22 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Example.DynamoDB
+          Example.APIGateway
+        , Example.DynamoDB
         , Example.EC2
         , Example.ExceptionSemantics
         , Example.S3
         , Example.SQS
 
     build-depends:
-          amazonka      == 1.4.3.*
+          amazonka            == 1.4.4.*
+        , amazonka-apigateway
         , amazonka-core
         , amazonka-dynamodb
         , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs
-        , base          >= 4.7
+        , base                >= 4.7
         , bytestring
         , conduit
         , conduit-extra

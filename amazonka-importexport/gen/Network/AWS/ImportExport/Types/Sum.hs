@@ -30,7 +30,7 @@ instance FromText JobType where
         "export" -> pure Export
         "import" -> pure Import
         e -> fromTextError $ "Failure parsing JobType from value: '" <> e
-           <> "'. Accepted values: Export, Import"
+           <> "'. Accepted values: export, import"
 
 instance ToText JobType where
     toText = \case

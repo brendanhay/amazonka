@@ -105,9 +105,9 @@ instance ToPath DeleteBatchPrediction where
 instance ToQuery DeleteBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a < DeleteBatchPrediction> operation.
+-- | Represents the output of a 'DeleteBatchPrediction' operation.
 --
--- You can use the < GetBatchPrediction> operation and check the value of the 'Status' parameter to see whether a 'BatchPrediction' is marked as 'DELETED'.
+-- You can use the 'GetBatchPrediction' operation and check the value of the 'Status' parameter to see whether a 'BatchPrediction' is marked as 'DELETED'.
 --
 -- /See:/ 'deleteBatchPredictionResponse' smart constructor.
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'

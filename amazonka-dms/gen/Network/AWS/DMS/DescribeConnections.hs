@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
---
 module Network.AWS.DMS.DescribeConnections
     (
     -- * Creating a Request
@@ -34,9 +33,9 @@ module Network.AWS.DMS.DescribeConnections
     , describeConnectionsResponse
     , DescribeConnectionsResponse
     -- * Response Lenses
-    , dcrsConnections
-    , dcrsMarker
-    , dcrsResponseStatus
+    , drsConnections
+    , drsMarker
+    , drsResponseStatus
     ) where
 
 import           Network.AWS.DMS.Types
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeConnections' smart constructor.
+-- |
+--
+-- /See:/ 'describeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
     { _dcFilters    :: !(Maybe [Filter])
     , _dcMarker     :: !(Maybe Text)
@@ -128,42 +129,44 @@ instance ToPath DescribeConnections where
 instance ToQuery DescribeConnections where
         toQuery = const mempty
 
--- | /See:/ 'describeConnectionsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
-    { _dcrsConnections    :: !(Maybe [Connection])
-    , _dcrsMarker         :: !(Maybe Text)
-    , _dcrsResponseStatus :: !Int
+    { _drsConnections    :: !(Maybe [Connection])
+    , _drsMarker         :: !(Maybe Text)
+    , _drsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConnectionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsConnections'
+-- * 'drsConnections'
 --
--- * 'dcrsMarker'
+-- * 'drsMarker'
 --
--- * 'dcrsResponseStatus'
+-- * 'drsResponseStatus'
 describeConnectionsResponse
-    :: Int -- ^ 'dcrsResponseStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DescribeConnectionsResponse
 describeConnectionsResponse pResponseStatus_ =
     DescribeConnectionsResponse'
-    { _dcrsConnections = Nothing
-    , _dcrsMarker = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
+    { _drsConnections = Nothing
+    , _drsMarker = Nothing
+    , _drsResponseStatus = pResponseStatus_
     }
 
 -- | A description of the connections.
-dcrsConnections :: Lens' DescribeConnectionsResponse [Connection]
-dcrsConnections = lens _dcrsConnections (\ s a -> s{_dcrsConnections = a}) . _Default . _Coerce;
+drsConnections :: Lens' DescribeConnectionsResponse [Connection]
+drsConnections = lens _drsConnections (\ s a -> s{_drsConnections = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
-dcrsMarker :: Lens' DescribeConnectionsResponse (Maybe Text)
-dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
+drsMarker :: Lens' DescribeConnectionsResponse (Maybe Text)
+drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
 -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeConnectionsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+drsResponseStatus :: Lens' DescribeConnectionsResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DescribeConnectionsResponse

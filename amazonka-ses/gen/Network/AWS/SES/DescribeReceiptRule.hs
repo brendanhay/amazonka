@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'describeReceiptRule' smart constructor.
+-- | Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'describeReceiptRule' smart constructor.
 data DescribeReceiptRule = DescribeReceiptRule'
     { _drrRuleSetName :: !Text
     , _drrRuleName    :: !Text
@@ -106,7 +108,9 @@ instance ToQuery DescribeReceiptRule where
                "RuleSetName" =: _drrRuleSetName,
                "RuleName" =: _drrRuleName]
 
--- | /See:/ 'describeReceiptRuleResponse' smart constructor.
+-- | Represents the details of a receipt rule.
+--
+-- /See:/ 'describeReceiptRuleResponse' smart constructor.
 data DescribeReceiptRuleResponse = DescribeReceiptRuleResponse'
     { _drrrsRule           :: !(Maybe ReceiptRule)
     , _drrrsResponseStatus :: !Int

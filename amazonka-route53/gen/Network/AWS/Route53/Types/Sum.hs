@@ -32,7 +32,7 @@ instance FromText ChangeAction where
         "delete" -> pure Delete
         "upsert" -> pure Upsert
         e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
-           <> "'. Accepted values: CREATE, DELETE, UPSERT"
+           <> "'. Accepted values: create, delete, upsert"
 
 instance ToText ChangeAction where
     toText = \case
@@ -59,7 +59,7 @@ instance FromText ChangeStatus where
         "insync" -> pure Insync
         "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing ChangeStatus from value: '" <> e
-           <> "'. Accepted values: INSYNC, PENDING"
+           <> "'. Accepted values: insync, pending"
 
 instance ToText ChangeStatus where
     toText = \case
@@ -78,6 +78,7 @@ instance FromXML ChangeStatus where
 data CloudWatchRegion
     = CWRApNortheast1
     | CWRApNortheast2
+    | CWRApSouth1
     | CWRApSoutheast1
     | CWRApSoutheast2
     | CWREuCentral1
@@ -92,6 +93,7 @@ instance FromText CloudWatchRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure CWRApNortheast1
         "ap-northeast-2" -> pure CWRApNortheast2
+        "ap-south-1" -> pure CWRApSouth1
         "ap-southeast-1" -> pure CWRApSoutheast1
         "ap-southeast-2" -> pure CWRApSoutheast2
         "eu-central-1" -> pure CWREuCentral1
@@ -101,12 +103,13 @@ instance FromText CloudWatchRegion where
         "us-west-1" -> pure CWRUsWest1
         "us-west-2" -> pure CWRUsWest2
         e -> fromTextError $ "Failure parsing CloudWatchRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText CloudWatchRegion where
     toText = \case
         CWRApNortheast1 -> "ap-northeast-1"
         CWRApNortheast2 -> "ap-northeast-2"
+        CWRApSouth1 -> "ap-south-1"
         CWRApSoutheast1 -> "ap-southeast-1"
         CWRApSoutheast2 -> "ap-southeast-2"
         CWREuCentral1 -> "eu-central-1"
@@ -142,7 +145,7 @@ instance FromText ComparisonOperator where
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -170,7 +173,7 @@ instance FromText Failover where
         "primary" -> pure Primary
         "secondary" -> pure Secondary
         e -> fromTextError $ "Failure parsing Failover from value: '" <> e
-           <> "'. Accepted values: PRIMARY, SECONDARY"
+           <> "'. Accepted values: primary, secondary"
 
 instance ToText Failover where
     toText = \case
@@ -257,7 +260,7 @@ instance FromText HealthCheckType where
         "http_str_match" -> pure HTTPStrMatch
         "tcp" -> pure TCP
         e -> fromTextError $ "Failure parsing HealthCheckType from value: '" <> e
-           <> "'. Accepted values: CALCULATED, CLOUDWATCH_METRIC, HTTP, HTTPS, HTTPS_STR_MATCH, HTTP_STR_MATCH, TCP"
+           <> "'. Accepted values: calculated, cloudwatch_metric, http, https, https_str_match, http_str_match, tcp"
 
 instance ToText HealthCheckType where
     toText = \case
@@ -293,7 +296,7 @@ instance FromText InsufficientDataHealthStatus where
         "lastknownstatus" -> pure LastKnownStatus
         "unhealthy" -> pure Unhealthy
         e -> fromTextError $ "Failure parsing InsufficientDataHealthStatus from value: '" <> e
-           <> "'. Accepted values: Healthy, LastKnownStatus, Unhealthy"
+           <> "'. Accepted values: healthy, lastknownstatus, unhealthy"
 
 instance ToText InsufficientDataHealthStatus where
     toText = \case
@@ -319,6 +322,7 @@ data RecordType
     | Cname
     | MX
     | NS
+    | Naptr
     | Ptr
     | Soa
     | Spf
@@ -333,13 +337,14 @@ instance FromText RecordType where
         "cname" -> pure Cname
         "mx" -> pure MX
         "ns" -> pure NS
+        "naptr" -> pure Naptr
         "ptr" -> pure Ptr
         "soa" -> pure Soa
         "spf" -> pure Spf
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: A, AAAA, CNAME, MX, NS, PTR, SOA, SPF, SRV, TXT"
+           <> "'. Accepted values: a, aaaa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
@@ -348,6 +353,7 @@ instance ToText RecordType where
         Cname -> "CNAME"
         MX -> "MX"
         NS -> "NS"
+        Naptr -> "NAPTR"
         Ptr -> "PTR"
         Soa -> "SOA"
         Spf -> "SPF"
@@ -382,7 +388,7 @@ instance FromText Statistic where
         "samplecount" -> pure SampleCount
         "sum" -> pure Sum
         e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
-           <> "'. Accepted values: Average, Maximum, Minimum, SampleCount, Sum"
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
 
 instance ToText Statistic where
     toText = \case
@@ -433,6 +439,7 @@ instance ToXML TagResourceType where
 data VPCRegion
     = ApNortheast1
     | ApNortheast2
+    | ApSouth1
     | ApSoutheast1
     | ApSoutheast2
     | CnNorth1
@@ -448,6 +455,7 @@ instance FromText VPCRegion where
     parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure ApNortheast1
         "ap-northeast-2" -> pure ApNortheast2
+        "ap-south-1" -> pure ApSouth1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
         "cn-north-1" -> pure CnNorth1
@@ -458,12 +466,13 @@ instance FromText VPCRegion where
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
         ApNortheast1 -> "ap-northeast-1"
         ApNortheast2 -> "ap-northeast-2"
+        ApSouth1 -> "ap-south-1"
         ApSoutheast1 -> "ap-southeast-1"
         ApSoutheast2 -> "ap-southeast-2"
         CnNorth1 -> "cn-north-1"

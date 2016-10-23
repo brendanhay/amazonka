@@ -24,7 +24,9 @@ import           Network.AWS.Prelude
 -- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>. Currently supported values are:
 --
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
+--
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
+--
 -- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition, respectively.
 --
 -- In Amazon EMR releases 4.0 and greater, the only accepted parameter is the application name. To pass arguments to applications, you supply a configuration for each application.
@@ -925,6 +927,57 @@ instance Hashable EC2InstanceAttributes
 
 instance NFData EC2InstanceAttributes
 
+-- | The details of the step failure. The service attempts to detect the root cause for many common failures.
+--
+-- /See:/ 'failureDetails' smart constructor.
+data FailureDetails = FailureDetails'
+    { _fdLogFile :: !(Maybe Text)
+    , _fdReason  :: !(Maybe Text)
+    , _fdMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdLogFile'
+--
+-- * 'fdReason'
+--
+-- * 'fdMessage'
+failureDetails
+    :: FailureDetails
+failureDetails =
+    FailureDetails'
+    { _fdLogFile = Nothing
+    , _fdReason = Nothing
+    , _fdMessage = Nothing
+    }
+
+-- | The path to the log file where the step failure root cause was originally recorded.
+fdLogFile :: Lens' FailureDetails (Maybe Text)
+fdLogFile = lens _fdLogFile (\ s a -> s{_fdLogFile = a});
+
+-- | The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.
+fdReason :: Lens' FailureDetails (Maybe Text)
+fdReason = lens _fdReason (\ s a -> s{_fdReason = a});
+
+-- | The descriptive message including the error the EMR service has identified as the cause of step failure. This is text from an error log that describes the root cause of the failure.
+fdMessage :: Lens' FailureDetails (Maybe Text)
+fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
+
+instance FromJSON FailureDetails where
+        parseJSON
+          = withObject "FailureDetails"
+              (\ x ->
+                 FailureDetails' <$>
+                   (x .:? "LogFile") <*> (x .:? "Reason") <*>
+                     (x .:? "Message"))
+
+instance Hashable FailureDetails
+
+instance NFData FailureDetails
+
 -- | A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
 -- /See:/ 'hadoopJARStepConfig' smart constructor.
@@ -1252,7 +1305,7 @@ igEBSBlockDevices = lens _igEBSBlockDevices (\ s a -> s{_igEBSBlockDevices = a})
 igInstanceType :: Lens' InstanceGroup (Maybe Text)
 igInstanceType = lens _igInstanceType (\ s a -> s{_igInstanceType = a});
 
--- | If the instance group is EBS-optimized. An Amazon EBS–optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I\/O.
+-- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I\/O.
 igEBSOptimized :: Lens' InstanceGroup (Maybe Bool)
 igEBSOptimized = lens _igEBSOptimized (\ s a -> s{_igEBSOptimized = a});
 
@@ -2319,6 +2372,7 @@ instance NFData StepStateChangeReason
 -- /See:/ 'stepStatus' smart constructor.
 data StepStatus = StepStatus'
     { _ssState             :: !(Maybe StepState)
+    , _ssFailureDetails    :: !(Maybe FailureDetails)
     , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
     , _ssTimeline          :: !(Maybe StepTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2329,6 +2383,8 @@ data StepStatus = StepStatus'
 --
 -- * 'ssState'
 --
+-- * 'ssFailureDetails'
+--
 -- * 'ssStateChangeReason'
 --
 -- * 'ssTimeline'
@@ -2337,6 +2393,7 @@ stepStatus
 stepStatus =
     StepStatus'
     { _ssState = Nothing
+    , _ssFailureDetails = Nothing
     , _ssStateChangeReason = Nothing
     , _ssTimeline = Nothing
     }
@@ -2344,6 +2401,10 @@ stepStatus =
 -- | The execution state of the cluster step.
 ssState :: Lens' StepStatus (Maybe StepState)
 ssState = lens _ssState (\ s a -> s{_ssState = a});
+
+-- | The details for the step failure including reason, message, and log file path where the root cause was identified.
+ssFailureDetails :: Lens' StepStatus (Maybe FailureDetails)
+ssFailureDetails = lens _ssFailureDetails (\ s a -> s{_ssFailureDetails = a});
 
 -- | The reason for the step execution status change.
 ssStateChangeReason :: Lens' StepStatus (Maybe StepStateChangeReason)
@@ -2358,8 +2419,9 @@ instance FromJSON StepStatus where
           = withObject "StepStatus"
               (\ x ->
                  StepStatus' <$>
-                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
-                     (x .:? "Timeline"))
+                   (x .:? "State") <*> (x .:? "FailureDetails") <*>
+                     (x .:? "StateChangeReason")
+                     <*> (x .:? "Timeline"))
 
 instance Hashable StepStatus
 
@@ -2609,7 +2671,7 @@ vsIOPS = lens _vsIOPS (\ s a -> s{_vsIOPS = a});
 vsVolumeType :: Lens' VolumeSpecification Text
 vsVolumeType = lens _vsVolumeType (\ s a -> s{_vsVolumeType = a});
 
--- | The volume size, in gibibytes (GiB). This can be a number from 1 – 1024. If the volume type is EBS-optimized, the minimum value is 10.
+-- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
 vsSizeInGB :: Lens' VolumeSpecification Int
 vsSizeInGB = lens _vsSizeInGB (\ s a -> s{_vsSizeInGB = a});
 

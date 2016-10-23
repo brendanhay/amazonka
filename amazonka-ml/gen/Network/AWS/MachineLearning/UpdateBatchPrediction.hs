@@ -20,7 +20,7 @@
 --
 -- Updates the 'BatchPredictionName' of a 'BatchPrediction'.
 --
--- You can use the < GetBatchPrediction> operation to view the contents of the updated data element.
+-- You can use the 'GetBatchPrediction' operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
     -- * Creating a Request
@@ -114,9 +114,9 @@ instance ToPath UpdateBatchPrediction where
 instance ToQuery UpdateBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of an < UpdateBatchPrediction> operation.
+-- | Represents the output of an 'UpdateBatchPrediction' operation.
 --
--- You can see the updated content by using the < GetBatchPrediction> operation.
+-- You can see the updated content by using the 'GetBatchPrediction' operation.
 --
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'

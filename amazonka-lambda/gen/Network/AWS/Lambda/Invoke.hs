@@ -20,7 +20,7 @@
 --
 -- Invokes a specific Lambda function.
 --
--- If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the 'Qualifier' parameter in the request. If you don\'t provide the 'Qualifier' parameter, the '>LATEST' version of the Lambda function is invoked. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the 'Qualifier' parameter in the request. If you don\'t provide the 'Qualifier' parameter, the '>LATEST' version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation requires permission for the 'lambda:InvokeFunction' action.
 module Network.AWS.Lambda.Invoke
@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'invoke' smart constructor.
+-- |
+--
+-- /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
     { _iInvocationType :: !(Maybe InvocationType)
     , _iLogType        :: !(Maybe LogType)
@@ -96,7 +98,7 @@ invoke pFunctionName_ pPayload_ =
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
 
--- | You can set this optional parameter to 'Tail' in the request only if you specify the 'InvocationType' parameter with value 'RequestResponse'. In this case, AWS Lambda returns the base64-encoded last 4 KB of log data produced by your Lambda function in the 'x-amz-log-results' header.
+-- | You can set this optional parameter to 'Tail' in the request only if you specify the 'InvocationType' parameter with value 'RequestResponse'. In this case, AWS Lambda returns the base64-encoded last 4 KB of log data produced by your Lambda function in the 'x-amz-log-result' header.
 iLogType :: Lens' Invoke (Maybe LogType)
 iLogType = lens _iLogType (\ s a -> s{_iLogType = a});
 

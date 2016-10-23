@@ -13,7 +13,7 @@
 --
 -- Amazon API Gateway
 --
--- Amazon API Gateway helps developers deliver robust, secure and scalable mobile and web application backends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
+-- Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
 module Network.AWS.APIGateway
     (
     -- * Service Configuration
@@ -57,6 +57,9 @@ module Network.AWS.APIGateway
 
     -- ** GetDeployment
     , module Network.AWS.APIGateway.GetDeployment
+
+    -- ** CreateUsagePlan
+    , module Network.AWS.APIGateway.CreateUsagePlan
 
     -- ** GetDomainNames (Paginated)
     , module Network.AWS.APIGateway.GetDomainNames
@@ -106,6 +109,9 @@ module Network.AWS.APIGateway
     -- ** UpdateAccount
     , module Network.AWS.APIGateway.UpdateAccount
 
+    -- ** GetUsagePlan
+    , module Network.AWS.APIGateway.GetUsagePlan
+
     -- ** DeleteDeployment
     , module Network.AWS.APIGateway.DeleteDeployment
 
@@ -117,6 +123,9 @@ module Network.AWS.APIGateway
 
     -- ** UpdateResource
     , module Network.AWS.APIGateway.UpdateResource
+
+    -- ** GetUsage
+    , module Network.AWS.APIGateway.GetUsage
 
     -- ** CreateModel
     , module Network.AWS.APIGateway.CreateModel
@@ -163,6 +172,9 @@ module Network.AWS.APIGateway
     -- ** DeleteRestAPI
     , module Network.AWS.APIGateway.DeleteRestAPI
 
+    -- ** ImportAPIKeys
+    , module Network.AWS.APIGateway.ImportAPIKeys
+
     -- ** TestInvokeMethod
     , module Network.AWS.APIGateway.TestInvokeMethod
 
@@ -175,6 +187,9 @@ module Network.AWS.APIGateway
     -- ** PutIntegrationResponse
     , module Network.AWS.APIGateway.PutIntegrationResponse
 
+    -- ** GetUsagePlanKeys
+    , module Network.AWS.APIGateway.GetUsagePlanKeys
+
     -- ** FlushStageCache
     , module Network.AWS.APIGateway.FlushStageCache
 
@@ -186,6 +201,9 @@ module Network.AWS.APIGateway
 
     -- ** UpdateIntegrationResponse
     , module Network.AWS.APIGateway.UpdateIntegrationResponse
+
+    -- ** UpdateUsage
+    , module Network.AWS.APIGateway.UpdateUsage
 
     -- ** DeleteIntegration
     , module Network.AWS.APIGateway.DeleteIntegration
@@ -202,6 +220,9 @@ module Network.AWS.APIGateway
     -- ** GetResources (Paginated)
     , module Network.AWS.APIGateway.GetResources
 
+    -- ** GetUsagePlanKey
+    , module Network.AWS.APIGateway.GetUsagePlanKey
+
     -- ** GetAccount
     , module Network.AWS.APIGateway.GetAccount
 
@@ -210,6 +231,12 @@ module Network.AWS.APIGateway
 
     -- ** GetAuthorizer
     , module Network.AWS.APIGateway.GetAuthorizer
+
+    -- ** DeleteUsagePlan
+    , module Network.AWS.APIGateway.DeleteUsagePlan
+
+    -- ** UpdateUsagePlan
+    , module Network.AWS.APIGateway.UpdateUsagePlan
 
     -- ** GetStage
     , module Network.AWS.APIGateway.GetStage
@@ -235,6 +262,9 @@ module Network.AWS.APIGateway
     -- ** UpdateClientCertificate
     , module Network.AWS.APIGateway.UpdateClientCertificate
 
+    -- ** CreateUsagePlanKey
+    , module Network.AWS.APIGateway.CreateUsagePlanKey
+
     -- ** CreateAuthorizer
     , module Network.AWS.APIGateway.CreateAuthorizer
 
@@ -247,8 +277,14 @@ module Network.AWS.APIGateway
     -- ** CreateStage
     , module Network.AWS.APIGateway.CreateStage
 
+    -- ** DeleteUsagePlanKey
+    , module Network.AWS.APIGateway.DeleteUsagePlanKey
+
     -- ** CreateAPIKey
     , module Network.AWS.APIGateway.CreateAPIKey
+
+    -- ** GetUsagePlans
+    , module Network.AWS.APIGateway.GetUsagePlans
 
     -- ** PutMethod
     , module Network.AWS.APIGateway.PutMethod
@@ -282,6 +318,9 @@ module Network.AWS.APIGateway
 
     -- * Types
 
+    -- ** APIKeysFormat
+    , APIKeysFormat (..)
+
     -- ** AuthorizerType
     , AuthorizerType (..)
 
@@ -300,6 +339,9 @@ module Network.AWS.APIGateway
     -- ** PutMode
     , PutMode (..)
 
+    -- ** QuotaPeriodType
+    , QuotaPeriodType (..)
+
     -- ** UnauthorizedCacheControlHeaderStrategy
     , UnauthorizedCacheControlHeaderStrategy (..)
 
@@ -307,6 +349,7 @@ module Network.AWS.APIGateway
     , APIKey
     , apiKey
     , akEnabled
+    , akValue
     , akCreatedDate
     , akName
     , akId
@@ -314,10 +357,18 @@ module Network.AWS.APIGateway
     , akLastUpdatedDate
     , akDescription
 
+    -- ** APIStage
+    , APIStage
+    , apiStage
+    , asStage
+    , asApiId
+
     -- ** Account
     , Account
     , account
+    , aApiKeyVersion
     , aCloudwatchRoleARN
+    , aFeatures
     , aThrottleSettings
 
     -- ** Authorizer
@@ -325,6 +376,7 @@ module Network.AWS.APIGateway
     , authorizer
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
@@ -372,6 +424,7 @@ module Network.AWS.APIGateway
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
@@ -442,6 +495,13 @@ module Network.AWS.APIGateway
     , poValue
     , poFrom
 
+    -- ** QuotaSettings
+    , QuotaSettings
+    , quotaSettings
+    , qsOffset
+    , qsPeriod
+    , qsLimit
+
     -- ** Resource
     , Resource
     , resource
@@ -486,6 +546,33 @@ module Network.AWS.APIGateway
     , throttleSettings
     , tsBurstLimit
     , tsRateLimit
+
+    -- ** Usage
+    , Usage
+    , usage
+    , uUsagePlanId
+    , uEndDate
+    , uItems
+    , uStartDate
+    , uPosition
+
+    -- ** UsagePlan
+    , UsagePlan
+    , usagePlan
+    , upApiStages
+    , upName
+    , upId
+    , upThrottle
+    , upQuota
+    , upDescription
+
+    -- ** UsagePlanKey
+    , UsagePlanKey
+    , usagePlanKey
+    , upkValue
+    , upkName
+    , upkId
+    , upkType
     ) where
 
 import           Network.AWS.APIGateway.CreateAPIKey
@@ -497,6 +584,8 @@ import           Network.AWS.APIGateway.CreateModel
 import           Network.AWS.APIGateway.CreateResource
 import           Network.AWS.APIGateway.CreateRestAPI
 import           Network.AWS.APIGateway.CreateStage
+import           Network.AWS.APIGateway.CreateUsagePlan
+import           Network.AWS.APIGateway.CreateUsagePlanKey
 import           Network.AWS.APIGateway.DeleteAPIKey
 import           Network.AWS.APIGateway.DeleteAuthorizer
 import           Network.AWS.APIGateway.DeleteBasePathMapping
@@ -511,6 +600,8 @@ import           Network.AWS.APIGateway.DeleteModel
 import           Network.AWS.APIGateway.DeleteResource
 import           Network.AWS.APIGateway.DeleteRestAPI
 import           Network.AWS.APIGateway.DeleteStage
+import           Network.AWS.APIGateway.DeleteUsagePlan
+import           Network.AWS.APIGateway.DeleteUsagePlanKey
 import           Network.AWS.APIGateway.FlushStageAuthorizersCache
 import           Network.AWS.APIGateway.FlushStageCache
 import           Network.AWS.APIGateway.GenerateClientCertificate
@@ -542,6 +633,12 @@ import           Network.AWS.APIGateway.GetRestAPIs
 import           Network.AWS.APIGateway.GetSDK
 import           Network.AWS.APIGateway.GetStage
 import           Network.AWS.APIGateway.GetStages
+import           Network.AWS.APIGateway.GetUsage
+import           Network.AWS.APIGateway.GetUsagePlan
+import           Network.AWS.APIGateway.GetUsagePlanKey
+import           Network.AWS.APIGateway.GetUsagePlanKeys
+import           Network.AWS.APIGateway.GetUsagePlans
+import           Network.AWS.APIGateway.ImportAPIKeys
 import           Network.AWS.APIGateway.ImportRestAPI
 import           Network.AWS.APIGateway.PutIntegration
 import           Network.AWS.APIGateway.PutIntegrationResponse
@@ -566,6 +663,8 @@ import           Network.AWS.APIGateway.UpdateModel
 import           Network.AWS.APIGateway.UpdateResource
 import           Network.AWS.APIGateway.UpdateRestAPI
 import           Network.AWS.APIGateway.UpdateStage
+import           Network.AWS.APIGateway.UpdateUsage
+import           Network.AWS.APIGateway.UpdateUsagePlan
 import           Network.AWS.APIGateway.Waiters
 
 {- $errors

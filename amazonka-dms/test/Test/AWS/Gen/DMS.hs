@@ -61,6 +61,9 @@ import Test.AWS.DMS.Internal
 --         , requestModifyEndpoint $
 --             modifyEndpoint
 --
+--         , requestDescribeCertificates $
+--             describeCertificates
+--
 --         , requestDescribeTableStatistics $
 --             describeTableStatistics
 --
@@ -75,6 +78,9 @@ import Test.AWS.DMS.Internal
 --
 --         , requestCreateReplicationSubnetGroup $
 --             createReplicationSubnetGroup
+--
+--         , requestDeleteCertificate $
+--             deleteCertificate
 --
 --         , requestRefreshSchemas $
 --             refreshSchemas
@@ -93,6 +99,9 @@ import Test.AWS.DMS.Internal
 --
 --         , requestModifyReplicationInstance $
 --             modifyReplicationInstance
+--
+--         , requestImportCertificate $
+--             importCertificate
 --
 --         , requestModifyReplicationSubnetGroup $
 --             modifyReplicationSubnetGroup
@@ -151,6 +160,9 @@ import Test.AWS.DMS.Internal
 --         , responseModifyEndpoint $
 --             modifyEndpointResponse
 --
+--         , responseDescribeCertificates $
+--             describeCertificatesResponse
+--
 --         , responseDescribeTableStatistics $
 --             describeTableStatisticsResponse
 --
@@ -165,6 +177,9 @@ import Test.AWS.DMS.Internal
 --
 --         , responseCreateReplicationSubnetGroup $
 --             createReplicationSubnetGroupResponse
+--
+--         , responseDeleteCertificate $
+--             deleteCertificateResponse
 --
 --         , responseRefreshSchemas $
 --             refreshSchemasResponse
@@ -183,6 +198,9 @@ import Test.AWS.DMS.Internal
 --
 --         , responseModifyReplicationInstance $
 --             modifyReplicationInstanceResponse
+--
+--         , responseImportCertificate $
+--             importCertificateResponse
 --
 --         , responseModifyReplicationSubnetGroup $
 --             modifyReplicationSubnetGroupResponse
@@ -265,6 +283,11 @@ requestModifyEndpoint = req
     "ModifyEndpoint"
     "fixture/ModifyEndpoint.yaml"
 
+requestDescribeCertificates :: DescribeCertificates -> TestTree
+requestDescribeCertificates = req
+    "DescribeCertificates"
+    "fixture/DescribeCertificates.yaml"
+
 requestDescribeTableStatistics :: DescribeTableStatistics -> TestTree
 requestDescribeTableStatistics = req
     "DescribeTableStatistics"
@@ -289,6 +312,11 @@ requestCreateReplicationSubnetGroup :: CreateReplicationSubnetGroup -> TestTree
 requestCreateReplicationSubnetGroup = req
     "CreateReplicationSubnetGroup"
     "fixture/CreateReplicationSubnetGroup.yaml"
+
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate = req
+    "DeleteCertificate"
+    "fixture/DeleteCertificate.yaml"
 
 requestRefreshSchemas :: RefreshSchemas -> TestTree
 requestRefreshSchemas = req
@@ -319,6 +347,11 @@ requestModifyReplicationInstance :: ModifyReplicationInstance -> TestTree
 requestModifyReplicationInstance = req
     "ModifyReplicationInstance"
     "fixture/ModifyReplicationInstance.yaml"
+
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate = req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
 
 requestModifyReplicationSubnetGroup :: ModifyReplicationSubnetGroup -> TestTree
 requestModifyReplicationSubnetGroup = req
@@ -434,6 +467,13 @@ responseModifyEndpoint = res
     dms
     (Proxy :: Proxy ModifyEndpoint)
 
+responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
+responseDescribeCertificates = res
+    "DescribeCertificatesResponse"
+    "fixture/DescribeCertificatesResponse.proto"
+    dms
+    (Proxy :: Proxy DescribeCertificates)
+
 responseDescribeTableStatistics :: DescribeTableStatisticsResponse -> TestTree
 responseDescribeTableStatistics = res
     "DescribeTableStatisticsResponse"
@@ -468,6 +508,13 @@ responseCreateReplicationSubnetGroup = res
     "fixture/CreateReplicationSubnetGroupResponse.proto"
     dms
     (Proxy :: Proxy CreateReplicationSubnetGroup)
+
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate = res
+    "DeleteCertificateResponse"
+    "fixture/DeleteCertificateResponse.proto"
+    dms
+    (Proxy :: Proxy DeleteCertificate)
 
 responseRefreshSchemas :: RefreshSchemasResponse -> TestTree
 responseRefreshSchemas = res
@@ -510,6 +557,13 @@ responseModifyReplicationInstance = res
     "fixture/ModifyReplicationInstanceResponse.proto"
     dms
     (Proxy :: Proxy ModifyReplicationInstance)
+
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate = res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    dms
+    (Proxy :: Proxy ImportCertificate)
 
 responseModifyReplicationSubnetGroup :: ModifyReplicationSubnetGroupResponse -> TestTree
 responseModifyReplicationSubnetGroup = res

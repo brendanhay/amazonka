@@ -88,27 +88,35 @@ uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
     , _uscPrivateKey = _Sensitive # pPrivateKey_
     }
 
--- | The path for the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path for the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
+-- This parameter is optional. If it is not included, it defaults to a slash (\/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the '--path' option. The path must begin with '\/cloudfront' and must include a trailing slash (for example, '\/cloudfront\/test\/').
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\ s a -> s{_uscPath = a});
 
 -- | The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 uscCertificateChain = lens _uscCertificateChain (\ s a -> s{_uscCertificateChain = a});
 
 -- | The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
 
 -- | The contents of the public key certificate in PEM-encoded format.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 uscCertificateBody :: Lens' UploadServerCertificate Text
 uscCertificateBody = lens _uscCertificateBody (\ s a -> s{_uscCertificateBody = a});
 
 -- | The contents of the private key in PEM-encoded format.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 uscPrivateKey :: Lens' UploadServerCertificate Text
 uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitive;
 

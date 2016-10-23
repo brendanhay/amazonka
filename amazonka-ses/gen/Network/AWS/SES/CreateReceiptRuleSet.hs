@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'createReceiptRuleSet' smart constructor.
+-- | Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'createReceiptRuleSet' smart constructor.
 newtype CreateReceiptRuleSet = CreateReceiptRuleSet'
     { _crrsRuleSetName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -66,8 +68,11 @@ createReceiptRuleSet pRuleSetName_ =
 -- | The name of the rule set to create. The name must:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
+--
 -- -   Start and end with a letter or number.
+--
 -- -   Contain less than 64 characters.
+--
 crrsRuleSetName :: Lens' CreateReceiptRuleSet Text
 crrsRuleSetName = lens _crrsRuleSetName (\ s a -> s{_crrsRuleSetName = a});
 
@@ -98,7 +103,9 @@ instance ToQuery CreateReceiptRuleSet where
                "Version" =: ("2010-12-01" :: ByteString),
                "RuleSetName" =: _crrsRuleSetName]
 
--- | /See:/ 'createReceiptRuleSetResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'createReceiptRuleSetResponse' smart constructor.
 newtype CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
     { _crrsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

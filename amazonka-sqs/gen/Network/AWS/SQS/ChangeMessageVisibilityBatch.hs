@@ -24,9 +24,9 @@
 --
 -- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
--- '&Attribute.1=this'
+-- '&amp;Attribute.1=this'
 --
--- '&Attribute.2=that'
+-- '&amp;Attribute.2=that'
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Creating a Request
@@ -52,7 +52,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'changeMessageVisibilityBatch' smart constructor.
+-- |
+--
+-- /See:/ 'changeMessageVisibilityBatch' smart constructor.
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
     { _cmvbQueueURL :: !Text
     , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
@@ -75,6 +77,8 @@ changeMessageVisibilityBatch pQueueURL_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
 

@@ -37,7 +37,7 @@ instance FromText AgentUpdateStatus where
         "updated" -> pure AUSUpdated
         "updating" -> pure AUSUpdating
         e -> fromTextError $ "Failure parsing AgentUpdateStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, PENDING, STAGED, STAGING, UPDATED, UPDATING"
+           <> "'. Accepted values: failed, pending, staged, staging, updated, updating"
 
 instance ToText AgentUpdateStatus where
     toText = \case
@@ -69,7 +69,7 @@ instance FromText DesiredStatus where
         "running" -> pure Running
         "stopped" -> pure Stopped
         e -> fromTextError $ "Failure parsing DesiredStatus from value: '" <> e
-           <> "'. Accepted values: PENDING, RUNNING, STOPPED"
+           <> "'. Accepted values: pending, running, stopped"
 
 instance ToText DesiredStatus where
     toText = \case
@@ -87,29 +87,35 @@ instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
 data LogDriver
-    = Fluentd
+    = AWSlogs
+    | Fluentd
     | Gelf
     | JSONFile
     | Journald
+    | Splunk
     | Syslog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText LogDriver where
     parser = takeLowerText >>= \case
+        "awslogs" -> pure AWSlogs
         "fluentd" -> pure Fluentd
         "gelf" -> pure Gelf
         "json-file" -> pure JSONFile
         "journald" -> pure Journald
+        "splunk" -> pure Splunk
         "syslog" -> pure Syslog
         e -> fromTextError $ "Failure parsing LogDriver from value: '" <> e
-           <> "'. Accepted values: fluentd, gelf, json-file, journald, syslog"
+           <> "'. Accepted values: awslogs, fluentd, gelf, json-file, journald, splunk, syslog"
 
 instance ToText LogDriver where
     toText = \case
+        AWSlogs -> "awslogs"
         Fluentd -> "fluentd"
         Gelf -> "gelf"
         JSONFile -> "json-file"
         Journald -> "journald"
+        Splunk -> "splunk"
         Syslog -> "syslog"
 
 instance Hashable     LogDriver
@@ -124,6 +130,38 @@ instance ToJSON LogDriver where
 instance FromJSON LogDriver where
     parseJSON = parseJSONText "LogDriver"
 
+data NetworkMode
+    = Bridge
+    | Host
+    | None
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NetworkMode where
+    parser = takeLowerText >>= \case
+        "bridge" -> pure Bridge
+        "host" -> pure Host
+        "none" -> pure None
+        e -> fromTextError $ "Failure parsing NetworkMode from value: '" <> e
+           <> "'. Accepted values: bridge, host, none"
+
+instance ToText NetworkMode where
+    toText = \case
+        Bridge -> "bridge"
+        Host -> "host"
+        None -> "none"
+
+instance Hashable     NetworkMode
+instance NFData       NetworkMode
+instance ToByteString NetworkMode
+instance ToQuery      NetworkMode
+instance ToHeader     NetworkMode
+
+instance ToJSON NetworkMode where
+    toJSON = toJSONText
+
+instance FromJSON NetworkMode where
+    parseJSON = parseJSONText "NetworkMode"
+
 data SortOrder
     = Asc
     | Desc
@@ -134,7 +172,7 @@ instance FromText SortOrder where
         "asc" -> pure Asc
         "desc" -> pure Desc
         e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
-           <> "'. Accepted values: ASC, DESC"
+           <> "'. Accepted values: asc, desc"
 
 instance ToText SortOrder where
     toText = \case
@@ -150,22 +188,51 @@ instance ToHeader     SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
-data TaskDefinitionStatus
+data TaskDefinitionFamilyStatus
     = Active
+    | All
     | Inactive
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaskDefinitionFamilyStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "all" -> pure All
+        "inactive" -> pure Inactive
+        e -> fromTextError $ "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
+           <> "'. Accepted values: active, all, inactive"
+
+instance ToText TaskDefinitionFamilyStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        All -> "ALL"
+        Inactive -> "INACTIVE"
+
+instance Hashable     TaskDefinitionFamilyStatus
+instance NFData       TaskDefinitionFamilyStatus
+instance ToByteString TaskDefinitionFamilyStatus
+instance ToQuery      TaskDefinitionFamilyStatus
+instance ToHeader     TaskDefinitionFamilyStatus
+
+instance ToJSON TaskDefinitionFamilyStatus where
+    toJSON = toJSONText
+
+data TaskDefinitionStatus
+    = TDSActive
+    | TDSInactive
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "inactive" -> pure Inactive
+        "active" -> pure TDSActive
+        "inactive" -> pure TDSInactive
         e -> fromTextError $ "Failure parsing TaskDefinitionStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, INACTIVE"
+           <> "'. Accepted values: active, inactive"
 
 instance ToText TaskDefinitionStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Inactive -> "INACTIVE"
+        TDSActive -> "ACTIVE"
+        TDSInactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionStatus
 instance NFData       TaskDefinitionStatus

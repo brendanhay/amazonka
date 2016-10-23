@@ -13,7 +13,7 @@
 --
 -- AWS Database Migration Service
 --
--- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
+-- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
 module Network.AWS.DMS
     (
     -- * Service Configuration
@@ -33,6 +33,9 @@ module Network.AWS.DMS
 
     -- ** InvalidResourceStateFault
     , _InvalidResourceStateFault
+
+    -- ** InvalidCertificateFault
+    , _InvalidCertificateFault
 
     -- ** ResourceAlreadyExistsFault
     , _ResourceAlreadyExistsFault
@@ -97,6 +100,9 @@ module Network.AWS.DMS
     -- ** ModifyEndpoint
     , module Network.AWS.DMS.ModifyEndpoint
 
+    -- ** DescribeCertificates
+    , module Network.AWS.DMS.DescribeCertificates
+
     -- ** DescribeTableStatistics
     , module Network.AWS.DMS.DescribeTableStatistics
 
@@ -111,6 +117,9 @@ module Network.AWS.DMS
 
     -- ** CreateReplicationSubnetGroup
     , module Network.AWS.DMS.CreateReplicationSubnetGroup
+
+    -- ** DeleteCertificate
+    , module Network.AWS.DMS.DeleteCertificate
 
     -- ** RefreshSchemas
     , module Network.AWS.DMS.RefreshSchemas
@@ -129,6 +138,9 @@ module Network.AWS.DMS
 
     -- ** ModifyReplicationInstance
     , module Network.AWS.DMS.ModifyReplicationInstance
+
+    -- ** ImportCertificate
+    , module Network.AWS.DMS.ImportCertificate
 
     -- ** ModifyReplicationSubnetGroup
     , module Network.AWS.DMS.ModifyReplicationSubnetGroup
@@ -152,6 +164,9 @@ module Network.AWS.DMS
     , module Network.AWS.DMS.DeleteReplicationSubnetGroup
 
     -- * Types
+
+    -- ** DmsSSLModeValue
+    , DmsSSLModeValue (..)
 
     -- ** MigrationTypeValue
     , MigrationTypeValue (..)
@@ -177,6 +192,19 @@ module Network.AWS.DMS
     , availabilityZone
     , azName
 
+    -- ** Certificate
+    , Certificate
+    , certificate
+    , cCertificateOwner
+    , cSigningAlgorithm
+    , cValidFromDate
+    , cCertificatePem
+    , cCertificateARN
+    , cCertificateCreationDate
+    , cCertificateIdentifier
+    , cKeyLength
+    , cValidToDate
+
     -- ** Connection
     , Connection
     , connection
@@ -192,11 +220,13 @@ module Network.AWS.DMS
     , endpoint
     , eStatus
     , eServerName
+    , eCertificateARN
     , eExtraConnectionAttributes
     , eEndpointType
     , eUsername
     , eEngineName
     , eKMSKeyId
+    , eSSLMode
     , eDatabaseName
     , eEndpointIdentifier
     , eEndpointARN
@@ -234,13 +264,17 @@ module Network.AWS.DMS
     , riEngineVersion
     , riPubliclyAccessible
     , riAutoMinorVersionUpgrade
+    , riReplicationInstancePublicIPAddresses
     , riReplicationSubnetGroup
     , riInstanceCreateTime
     , riReplicationInstanceStatus
+    , riReplicationInstancePrivateIPAddresses
     , riPreferredMaintenanceWindow
     , riReplicationInstancePrivateIPAddress
     , riKMSKeyId
     , riAvailabilityZone
+    , riVPCSecurityGroups
+    , riMultiAZ
     , riReplicationInstanceARN
     , riAllocatedStorage
     , riReplicationInstancePublicIPAddress
@@ -252,6 +286,7 @@ module Network.AWS.DMS
     , ReplicationPendingModifiedValues
     , replicationPendingModifiedValues
     , rpmvEngineVersion
+    , rpmvMultiAZ
     , rpmvAllocatedStorage
     , rpmvReplicationInstanceClass
 
@@ -323,6 +358,12 @@ module Network.AWS.DMS
     , tag
     , tagValue
     , tagKey
+
+    -- ** VPCSecurityGroupMembership
+    , VPCSecurityGroupMembership
+    , vpcSecurityGroupMembership
+    , vsgmStatus
+    , vsgmVPCSecurityGroupId
     ) where
 
 import           Network.AWS.DMS.AddTagsToResource
@@ -330,11 +371,13 @@ import           Network.AWS.DMS.CreateEndpoint
 import           Network.AWS.DMS.CreateReplicationInstance
 import           Network.AWS.DMS.CreateReplicationSubnetGroup
 import           Network.AWS.DMS.CreateReplicationTask
+import           Network.AWS.DMS.DeleteCertificate
 import           Network.AWS.DMS.DeleteEndpoint
 import           Network.AWS.DMS.DeleteReplicationInstance
 import           Network.AWS.DMS.DeleteReplicationSubnetGroup
 import           Network.AWS.DMS.DeleteReplicationTask
 import           Network.AWS.DMS.DescribeAccountAttributes
+import           Network.AWS.DMS.DescribeCertificates
 import           Network.AWS.DMS.DescribeConnections
 import           Network.AWS.DMS.DescribeEndpoints
 import           Network.AWS.DMS.DescribeEndpointTypes
@@ -345,6 +388,7 @@ import           Network.AWS.DMS.DescribeReplicationSubnetGroups
 import           Network.AWS.DMS.DescribeReplicationTasks
 import           Network.AWS.DMS.DescribeSchemas
 import           Network.AWS.DMS.DescribeTableStatistics
+import           Network.AWS.DMS.ImportCertificate
 import           Network.AWS.DMS.ListTagsForResource
 import           Network.AWS.DMS.ModifyEndpoint
 import           Network.AWS.DMS.ModifyReplicationInstance

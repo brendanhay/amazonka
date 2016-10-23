@@ -80,7 +80,6 @@ prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount
 
 -- | A customer-specified identifier to track this reservation.
 --
--- __Note:__
 -- The Reserved Cache Node ID is an unique customer-specified identifier to track this reservation. If this parameter is not specified, ElastiCache automatically generates an identifier for the reservation.
 --
 -- Example: myreservationID
@@ -89,7 +88,7 @@ prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoRese
 
 -- | The ID of the reserved cache node offering to purchase.
 --
--- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
+-- Example: '438012d3-4052-4cc7-b2e3-8d3372e0e706'
 prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
 prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
 

@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -43,8 +43,10 @@ library
           Network.AWS.CloudFront
         , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.CreateDistribution
+        , Network.AWS.CloudFront.CreateDistributionWithTags
         , Network.AWS.CloudFront.CreateInvalidation
         , Network.AWS.CloudFront.CreateStreamingDistribution
+        , Network.AWS.CloudFront.CreateStreamingDistributionWithTags
         , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.DeleteDistribution
         , Network.AWS.CloudFront.DeleteStreamingDistribution
@@ -60,7 +62,10 @@ library
         , Network.AWS.CloudFront.ListDistributionsByWebACLId
         , Network.AWS.CloudFront.ListInvalidations
         , Network.AWS.CloudFront.ListStreamingDistributions
+        , Network.AWS.CloudFront.ListTagsForResource
+        , Network.AWS.CloudFront.TagResource
         , Network.AWS.CloudFront.Types
+        , Network.AWS.CloudFront.UntagResource
         , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.UpdateDistribution
         , Network.AWS.CloudFront.UpdateStreamingDistribution
@@ -71,7 +76,7 @@ library
         , Network.AWS.CloudFront.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudfront-test
@@ -91,9 +96,9 @@ test-suite amazonka-cloudfront-test
         , Test.AWS.CloudFront.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-cloudfront == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-cloudfront == 1.4.4.*
         , base
         , bytestring
         , tasty

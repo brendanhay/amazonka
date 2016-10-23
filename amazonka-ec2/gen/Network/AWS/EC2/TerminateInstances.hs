@@ -108,7 +108,7 @@ instance ToQuery TerminateInstances where
         toQuery TerminateInstances'{..}
           = mconcat
               ["Action" =: ("TerminateInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _tiDryRun,
                toQueryList "InstanceId" _tiInstanceIds]
 

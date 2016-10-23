@@ -46,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'cloneReceiptRuleSet' smart constructor.
+-- | Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'cloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
     { _cRuleSetName         :: !Text
     , _cOriginalRuleSetName :: !Text
@@ -72,8 +74,11 @@ cloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
 -- | The name of the rule set to create. The name must:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
+--
 -- -   Start and end with a letter or number.
+--
 -- -   Contain less than 64 characters.
+--
 cRuleSetName :: Lens' CloneReceiptRuleSet Text
 cRuleSetName = lens _cRuleSetName (\ s a -> s{_cRuleSetName = a});
 
@@ -108,7 +113,9 @@ instance ToQuery CloneReceiptRuleSet where
                "RuleSetName" =: _cRuleSetName,
                "OriginalRuleSetName" =: _cOriginalRuleSetName]
 
--- | /See:/ 'cloneReceiptRuleSetResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'cloneReceiptRuleSetResponse' smart constructor.
 newtype CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
     { _crsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

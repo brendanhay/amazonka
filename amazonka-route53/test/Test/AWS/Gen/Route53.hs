@@ -136,6 +136,9 @@ import Test.AWS.Route53.Internal
 --         , requestCreateTrafficPolicyVersion $
 --             createTrafficPolicyVersion
 --
+--         , requestTestDNSAnswer $
+--             testDNSAnswer
+--
 --         , requestListHealthChecks $
 --             listHealthChecks
 --
@@ -273,6 +276,9 @@ import Test.AWS.Route53.Internal
 --
 --         , responseCreateTrafficPolicyVersion $
 --             createTrafficPolicyVersionResponse
+--
+--         , responseTestDNSAnswer $
+--             testDNSAnswerResponse
 --
 --         , responseListHealthChecks $
 --             listHealthChecksResponse
@@ -485,6 +491,11 @@ requestCreateTrafficPolicyVersion :: CreateTrafficPolicyVersion -> TestTree
 requestCreateTrafficPolicyVersion = req
     "CreateTrafficPolicyVersion"
     "fixture/CreateTrafficPolicyVersion.yaml"
+
+requestTestDNSAnswer :: TestDNSAnswer -> TestTree
+requestTestDNSAnswer = req
+    "TestDNSAnswer"
+    "fixture/TestDNSAnswer.yaml"
 
 requestListHealthChecks :: ListHealthChecks -> TestTree
 requestListHealthChecks = req
@@ -784,6 +795,13 @@ responseCreateTrafficPolicyVersion = res
     "fixture/CreateTrafficPolicyVersionResponse.proto"
     route53
     (Proxy :: Proxy CreateTrafficPolicyVersion)
+
+responseTestDNSAnswer :: TestDNSAnswerResponse -> TestTree
+responseTestDNSAnswer = res
+    "TestDNSAnswerResponse"
+    "fixture/TestDNSAnswerResponse.proto"
+    route53
+    (Proxy :: Proxy TestDNSAnswer)
 
 responseListHealthChecks :: ListHealthChecksResponse -> TestTree
 responseListHealthChecks = res

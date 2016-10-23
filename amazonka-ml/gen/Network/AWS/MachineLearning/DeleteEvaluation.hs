@@ -20,9 +20,11 @@
 --
 -- Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
 --
--- After invoking the 'DeleteEvaluation' operation, you can use the < GetEvaluation> operation to verify that the status of the 'Evaluation' changed to 'DELETED'.
+-- After invoking the 'DeleteEvaluation' operation, you can use the 'GetEvaluation' operation to verify that the status of the 'Evaluation' changed to 'DELETED'.
 --
--- __Caution:__ The results of the 'DeleteEvaluation' operation are irreversible.
+-- Caution
+--
+-- The results of the 'DeleteEvaluation' operation are irreversible.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
     -- * Creating a Request
@@ -102,9 +104,9 @@ instance ToPath DeleteEvaluation where
 instance ToQuery DeleteEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a < DeleteEvaluation> operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.
+-- | Represents the output of a 'DeleteEvaluation' operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.
 --
--- You can use the < GetEvaluation> operation and check the value of the 'Status' parameter to see whether an 'Evaluation' is marked as 'DELETED'.
+-- You can use the 'GetEvaluation' operation and check the value of the 'Status' parameter to see whether an 'Evaluation' is marked as 'DELETED'.
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'

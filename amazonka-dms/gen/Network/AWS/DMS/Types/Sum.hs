@@ -19,6 +19,41 @@ module Network.AWS.DMS.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data DmsSSLModeValue
+    = None
+    | Require
+    | VerifyCa
+    | VerifyFull
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DmsSSLModeValue where
+    parser = takeLowerText >>= \case
+        "none" -> pure None
+        "require" -> pure Require
+        "verify-ca" -> pure VerifyCa
+        "verify-full" -> pure VerifyFull
+        e -> fromTextError $ "Failure parsing DmsSSLModeValue from value: '" <> e
+           <> "'. Accepted values: none, require, verify-ca, verify-full"
+
+instance ToText DmsSSLModeValue where
+    toText = \case
+        None -> "none"
+        Require -> "require"
+        VerifyCa -> "verify-ca"
+        VerifyFull -> "verify-full"
+
+instance Hashable     DmsSSLModeValue
+instance NFData       DmsSSLModeValue
+instance ToByteString DmsSSLModeValue
+instance ToQuery      DmsSSLModeValue
+instance ToHeader     DmsSSLModeValue
+
+instance ToJSON DmsSSLModeValue where
+    toJSON = toJSONText
+
+instance FromJSON DmsSSLModeValue where
+    parseJSON = parseJSONText "DmsSSLModeValue"
+
 data MigrationTypeValue
     = Cdc
     | FullLoad

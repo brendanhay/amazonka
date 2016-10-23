@@ -43,7 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing information about a request for a list of the tags that are associated with up to 10 specified resources.
+-- | A complex type that contains information about the health checks or hosted zones for which you want to list tags.
 --
 -- /See:/ 'listTagsForResources' smart constructor.
 data ListTagsForResources = ListTagsForResources'
@@ -70,9 +70,10 @@ listTagsForResources pResourceType_ pResourceIds_ =
 
 -- | The type of the resources.
 --
--- - The resource type for health checks is 'healthcheck'.
+-- -   The resource type for health checks is 'healthcheck'.
 --
--- - The resource type for hosted zones is 'hostedzone'.
+-- -   The resource type for hosted zones is 'hostedzone'.
+--
 lResourceType :: Lens' ListTagsForResources TagResourceType
 lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a});
 

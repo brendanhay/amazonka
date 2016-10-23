@@ -1,5 +1,5 @@
 name:                  amazonka-directconnect
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Direct Connect SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -54,8 +54,10 @@ library
         , Network.AWS.DirectConnect.DeleteConnection
         , Network.AWS.DirectConnect.DeleteInterconnect
         , Network.AWS.DirectConnect.DeleteVirtualInterface
+        , Network.AWS.DirectConnect.DescribeConnectionLoa
         , Network.AWS.DirectConnect.DescribeConnections
         , Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+        , Network.AWS.DirectConnect.DescribeInterconnectLoa
         , Network.AWS.DirectConnect.DescribeInterconnects
         , Network.AWS.DirectConnect.DescribeLocations
         , Network.AWS.DirectConnect.DescribeVirtualGateways
@@ -68,7 +70,7 @@ library
         , Network.AWS.DirectConnect.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-directconnect-test
@@ -88,9 +90,9 @@ test-suite amazonka-directconnect-test
         , Test.AWS.DirectConnect.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-directconnect == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-directconnect == 1.4.4.*
         , base
         , bytestring
         , tasty

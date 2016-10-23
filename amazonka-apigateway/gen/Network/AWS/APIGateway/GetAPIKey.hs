@@ -25,6 +25,7 @@ module Network.AWS.APIGateway.GetAPIKey
       getAPIKey
     , GetAPIKey
     -- * Request Lenses
+    , gakIncludeValue
     , gakApiKey
 
     -- * Destructuring the Response
@@ -32,6 +33,7 @@ module Network.AWS.APIGateway.GetAPIKey
     , APIKey
     -- * Response Lenses
     , akEnabled
+    , akValue
     , akCreatedDate
     , akName
     , akId
@@ -50,13 +52,16 @@ import           Network.AWS.Response
 -- | A request to get information about the current < ApiKey> resource.
 --
 -- /See:/ 'getAPIKey' smart constructor.
-newtype GetAPIKey = GetAPIKey'
-    { _gakApiKey :: Text
+data GetAPIKey = GetAPIKey'
+    { _gakIncludeValue :: !(Maybe Bool)
+    , _gakApiKey       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAPIKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gakIncludeValue'
 --
 -- * 'gakApiKey'
 getAPIKey
@@ -64,8 +69,13 @@ getAPIKey
     -> GetAPIKey
 getAPIKey pApiKey_ =
     GetAPIKey'
-    { _gakApiKey = pApiKey_
+    { _gakIncludeValue = Nothing
+    , _gakApiKey = pApiKey_
     }
+
+-- | A boolean flag to specify whether ('true') or not ('false') the result contains the key value.
+gakIncludeValue :: Lens' GetAPIKey (Maybe Bool)
+gakIncludeValue = lens _gakIncludeValue (\ s a -> s{_gakIncludeValue = a});
 
 -- | The identifier of the < ApiKey> resource.
 gakApiKey :: Lens' GetAPIKey Text
@@ -91,4 +101,5 @@ instance ToPath GetAPIKey where
           = mconcat ["/apikeys/", toBS _gakApiKey]
 
 instance ToQuery GetAPIKey where
-        toQuery = const mempty
+        toQuery GetAPIKey'{..}
+          = mconcat ["includeValue" =: _gakIncludeValue]

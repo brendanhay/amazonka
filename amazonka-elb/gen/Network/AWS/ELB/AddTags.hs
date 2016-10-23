@@ -22,7 +22,7 @@
 --
 -- Each tag consists of a key and an optional value. If a tag with the same key is already associated with the load balancer, 'AddTags' updates its value.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.AddTags
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'addTags' smart constructor.
+-- | Contains the parameters for AddTags.
+--
+-- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
     { _atLoadBalancerNames :: ![Text]
     , _atTags              :: !(List1 Tag)
@@ -102,7 +104,9 @@ instance ToQuery AddTags where
                  toQueryList "member" _atLoadBalancerNames,
                "Tags" =: toQueryList "member" _atTags]
 
--- | /See:/ 'addTagsResponse' smart constructor.
+-- | Contains the output of AddTags.
+--
+-- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

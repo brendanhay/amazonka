@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the server certificates that have the specified path prefix. If none exist, the action returns an empty list.
+-- Lists the server certificates stored in IAM that have the specified path prefix. If none exist, the action returns an empty list.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -80,7 +80,7 @@ listServerCertificates =
 
 -- | The path prefix for filtering the results. For example: '\/company\/servercerts' would get all server certificates for which the path starts with '\/company\/servercerts'.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all server certificates.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all server certificates. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 

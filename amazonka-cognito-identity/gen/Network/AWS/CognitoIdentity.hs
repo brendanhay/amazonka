@@ -153,6 +153,7 @@ module Network.AWS.CognitoIdentity
     -- ** IdentityPool
     , IdentityPool
     , identityPool
+    , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

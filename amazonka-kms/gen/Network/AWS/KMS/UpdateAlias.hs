@@ -76,6 +76,7 @@ uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 -- | Unique identifier of the customer master key to be mapped to the alias. This value can be a globally unique identifier or the fully specified ARN of a key.
 --
 -- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 --
 -- You can call < ListAliases> to verify that the alias is mapped to the correct 'TargetKeyId'.

@@ -99,7 +99,7 @@ createDeployment pRestAPIId_ pStageName_ =
 cdStageDescription :: Lens' CreateDeployment (Maybe Text)
 cdStageDescription = lens _cdStageDescription (\ s a -> s{_cdStageDescription = a});
 
--- | A map that defines the stage variables for the < Stage> resource that is associated with the new deployment. Variable names can have alphanumeric characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for the < Stage> resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
 cdVariables :: Lens' CreateDeployment (HashMap Text Text)
 cdVariables = lens _cdVariables (\ s a -> s{_cdVariables = a}) . _Default . _Map;
 

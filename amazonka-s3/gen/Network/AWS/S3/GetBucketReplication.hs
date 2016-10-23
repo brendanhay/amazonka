@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deprecated, see the GetBucketReplicationConfiguration operation.
+-- Returns the replication configuration of a bucket.
 module Network.AWS.S3.GetBucketReplication
     (
     -- * Creating a Request

@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-idp
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Cognito Identity Provider SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,7 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     You can create a user pool in Amazon Cognito Identity to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
 
-    This API reference provides information about user pools in Amazon Cognito Identity, which is a new capability that is available as a beta.
+    This API reference provides information about user pools in Amazon Cognito Identity.
+
+    For more information, see <https://aws.amazon.com/cognito/ Amazon Cognito>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -49,31 +51,52 @@ library
         , Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
         , Network.AWS.CognitoIdentityProvider.AdminDisableUser
         , Network.AWS.CognitoIdentityProvider.AdminEnableUser
+        , Network.AWS.CognitoIdentityProvider.AdminForgetDevice
+        , Network.AWS.CognitoIdentityProvider.AdminGetDevice
         , Network.AWS.CognitoIdentityProvider.AdminGetUser
+        , Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
+        , Network.AWS.CognitoIdentityProvider.AdminListDevices
         , Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
+        , Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
         , Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
+        , Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
+        , Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
         , Network.AWS.CognitoIdentityProvider.ChangePassword
+        , Network.AWS.CognitoIdentityProvider.ConfirmDevice
         , Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
         , Network.AWS.CognitoIdentityProvider.ConfirmSignUp
+        , Network.AWS.CognitoIdentityProvider.CreateUserImportJob
         , Network.AWS.CognitoIdentityProvider.CreateUserPool
         , Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
         , Network.AWS.CognitoIdentityProvider.DeleteUser
         , Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
         , Network.AWS.CognitoIdentityProvider.DeleteUserPool
         , Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
+        , Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
         , Network.AWS.CognitoIdentityProvider.DescribeUserPool
         , Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
+        , Network.AWS.CognitoIdentityProvider.ForgetDevice
         , Network.AWS.CognitoIdentityProvider.ForgotPassword
+        , Network.AWS.CognitoIdentityProvider.GetCSVHeader
+        , Network.AWS.CognitoIdentityProvider.GetDevice
         , Network.AWS.CognitoIdentityProvider.GetUser
         , Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
+        , Network.AWS.CognitoIdentityProvider.GlobalSignOut
+        , Network.AWS.CognitoIdentityProvider.InitiateAuth
+        , Network.AWS.CognitoIdentityProvider.ListDevices
+        , Network.AWS.CognitoIdentityProvider.ListUserImportJobs
         , Network.AWS.CognitoIdentityProvider.ListUserPoolClients
         , Network.AWS.CognitoIdentityProvider.ListUserPools
         , Network.AWS.CognitoIdentityProvider.ListUsers
         , Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
+        , Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
         , Network.AWS.CognitoIdentityProvider.SetUserSettings
         , Network.AWS.CognitoIdentityProvider.SignUp
+        , Network.AWS.CognitoIdentityProvider.StartUserImportJob
+        , Network.AWS.CognitoIdentityProvider.StopUserImportJob
         , Network.AWS.CognitoIdentityProvider.Types
+        , Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
         , Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
         , Network.AWS.CognitoIdentityProvider.UpdateUserPool
         , Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
@@ -85,7 +108,7 @@ library
         , Network.AWS.CognitoIdentityProvider.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cognito-idp-test
@@ -105,9 +128,9 @@ test-suite amazonka-cognito-idp-test
         , Test.AWS.CognitoIdentityProvider.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-cognito-idp == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-cognito-idp == 1.4.4.*
         , base
         , bytestring
         , tasty

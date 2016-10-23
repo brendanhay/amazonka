@@ -404,6 +404,7 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
     , _edcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfigStatus)
     , _edcSnapshotOptions            :: !(Maybe SnapshotOptionsStatus)
     , _edcAdvancedOptions            :: !(Maybe AdvancedOptionsStatus)
+    , _edcElasticsearchVersion       :: !(Maybe ElasticsearchVersionStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ElasticsearchDomainConfig' with the minimum fields required to make a request.
@@ -419,6 +420,8 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 -- * 'edcSnapshotOptions'
 --
 -- * 'edcAdvancedOptions'
+--
+-- * 'edcElasticsearchVersion'
 elasticsearchDomainConfig
     :: ElasticsearchDomainConfig
 elasticsearchDomainConfig =
@@ -428,6 +431,7 @@ elasticsearchDomainConfig =
     , _edcElasticsearchClusterConfig = Nothing
     , _edcSnapshotOptions = Nothing
     , _edcAdvancedOptions = Nothing
+    , _edcElasticsearchVersion = Nothing
     }
 
 -- | Specifies the 'EBSOptions' for the Elasticsearch domain.
@@ -450,6 +454,10 @@ edcSnapshotOptions = lens _edcSnapshotOptions (\ s a -> s{_edcSnapshotOptions = 
 edcAdvancedOptions :: Lens' ElasticsearchDomainConfig (Maybe AdvancedOptionsStatus)
 edcAdvancedOptions = lens _edcAdvancedOptions (\ s a -> s{_edcAdvancedOptions = a});
 
+-- | String of format X.Y to specify version for the Elasticsearch domain.
+edcElasticsearchVersion :: Lens' ElasticsearchDomainConfig (Maybe ElasticsearchVersionStatus)
+edcElasticsearchVersion = lens _edcElasticsearchVersion (\ s a -> s{_edcElasticsearchVersion = a});
+
 instance FromJSON ElasticsearchDomainConfig where
         parseJSON
           = withObject "ElasticsearchDomainConfig"
@@ -458,7 +466,8 @@ instance FromJSON ElasticsearchDomainConfig where
                    (x .:? "EBSOptions") <*> (x .:? "AccessPolicies") <*>
                      (x .:? "ElasticsearchClusterConfig")
                      <*> (x .:? "SnapshotOptions")
-                     <*> (x .:? "AdvancedOptions"))
+                     <*> (x .:? "AdvancedOptions")
+                     <*> (x .:? "ElasticsearchVersion"))
 
 instance Hashable ElasticsearchDomainConfig
 
@@ -476,6 +485,7 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
     , _edsProcessing                 :: !(Maybe Bool)
     , _edsEndpoint                   :: !(Maybe Text)
     , _edsAdvancedOptions            :: !(Maybe (Map Text Text))
+    , _edsElasticsearchVersion       :: !(Maybe Text)
     , _edsDomainId                   :: !Text
     , _edsDomainName                 :: !Text
     , _edsARN                        :: !Text
@@ -502,6 +512,8 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 --
 -- * 'edsAdvancedOptions'
 --
+-- * 'edsElasticsearchVersion'
+--
 -- * 'edsDomainId'
 --
 -- * 'edsDomainName'
@@ -525,6 +537,7 @@ elasticsearchDomainStatus pDomainId_ pDomainName_ pARN_ pElasticsearchClusterCon
     , _edsProcessing = Nothing
     , _edsEndpoint = Nothing
     , _edsAdvancedOptions = Nothing
+    , _edsElasticsearchVersion = Nothing
     , _edsDomainId = pDomainId_
     , _edsDomainName = pDomainName_
     , _edsARN = pARN_
@@ -563,6 +576,10 @@ edsEndpoint = lens _edsEndpoint (\ s a -> s{_edsEndpoint = a});
 edsAdvancedOptions :: Lens' ElasticsearchDomainStatus (HashMap Text Text)
 edsAdvancedOptions = lens _edsAdvancedOptions (\ s a -> s{_edsAdvancedOptions = a}) . _Default . _Map;
 
+-- | Undocumented member.
+edsElasticsearchVersion :: Lens' ElasticsearchDomainStatus (Maybe Text)
+edsElasticsearchVersion = lens _edsElasticsearchVersion (\ s a -> s{_edsElasticsearchVersion = a});
+
 -- | The unique identifier for the specified Elasticsearch domain.
 edsDomainId :: Lens' ElasticsearchDomainStatus Text
 edsDomainId = lens _edsDomainId (\ s a -> s{_edsDomainId = a});
@@ -591,6 +608,7 @@ instance FromJSON ElasticsearchDomainStatus where
                      <*> (x .:? "Processing")
                      <*> (x .:? "Endpoint")
                      <*> (x .:? "AdvancedOptions" .!= mempty)
+                     <*> (x .:? "ElasticsearchVersion")
                      <*> (x .: "DomainId")
                      <*> (x .: "DomainName")
                      <*> (x .: "ARN")
@@ -599,6 +617,50 @@ instance FromJSON ElasticsearchDomainStatus where
 instance Hashable ElasticsearchDomainStatus
 
 instance NFData ElasticsearchDomainStatus
+
+-- | Status of the Elasticsearch version options for the specified Elasticsearch domain.
+--
+-- /See:/ 'elasticsearchVersionStatus' smart constructor.
+data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
+    { _evsOptions :: !Text
+    , _evsStatus  :: !OptionStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticsearchVersionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evsOptions'
+--
+-- * 'evsStatus'
+elasticsearchVersionStatus
+    :: Text -- ^ 'evsOptions'
+    -> OptionStatus -- ^ 'evsStatus'
+    -> ElasticsearchVersionStatus
+elasticsearchVersionStatus pOptions_ pStatus_ =
+    ElasticsearchVersionStatus'
+    { _evsOptions = pOptions_
+    , _evsStatus = pStatus_
+    }
+
+-- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
+evsOptions :: Lens' ElasticsearchVersionStatus Text
+evsOptions = lens _evsOptions (\ s a -> s{_evsOptions = a});
+
+-- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+evsStatus :: Lens' ElasticsearchVersionStatus OptionStatus
+evsStatus = lens _evsStatus (\ s a -> s{_evsStatus = a});
+
+instance FromJSON ElasticsearchVersionStatus where
+        parseJSON
+          = withObject "ElasticsearchVersionStatus"
+              (\ x ->
+                 ElasticsearchVersionStatus' <$>
+                   (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable ElasticsearchVersionStatus
+
+instance NFData ElasticsearchVersionStatus
 
 -- | Provides the current status of the entity.
 --

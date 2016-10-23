@@ -34,6 +34,9 @@ import Test.AWS.MachineLearning.Internal
 --         , requestDeleteDataSource $
 --             deleteDataSource
 --
+--         , requestDescribeTags $
+--             describeTags
+--
 --         , requestCreateDataSourceFromRedshift $
 --             createDataSourceFromRedshift
 --
@@ -42,6 +45,9 @@ import Test.AWS.MachineLearning.Internal
 --
 --         , requestCreateMLModel $
 --             createMLModel
+--
+--         , requestDeleteTags $
+--             deleteTags
 --
 --         , requestDeleteBatchPrediction $
 --             deleteBatchPrediction
@@ -97,6 +103,9 @@ import Test.AWS.MachineLearning.Internal
 --         , requestCreateRealtimeEndpoint $
 --             createRealtimeEndpoint
 --
+--         , requestAddTags $
+--             addTags
+--
 --         , requestDescribeMLModels $
 --             describeMLModels
 --
@@ -112,6 +121,9 @@ import Test.AWS.MachineLearning.Internal
 --         , responseDeleteDataSource $
 --             deleteDataSourceResponse
 --
+--         , responseDescribeTags $
+--             describeTagsResponse
+--
 --         , responseCreateDataSourceFromRedshift $
 --             createDataSourceFromRedshiftResponse
 --
@@ -120,6 +132,9 @@ import Test.AWS.MachineLearning.Internal
 --
 --         , responseCreateMLModel $
 --             createMLModelResponse
+--
+--         , responseDeleteTags $
+--             deleteTagsResponse
 --
 --         , responseDeleteBatchPrediction $
 --             deleteBatchPredictionResponse
@@ -175,6 +190,9 @@ import Test.AWS.MachineLearning.Internal
 --         , responseCreateRealtimeEndpoint $
 --             createRealtimeEndpointResponse
 --
+--         , responseAddTags $
+--             addTagsResponse
+--
 --         , responseDescribeMLModels $
 --             describeMLModelsResponse
 --
@@ -196,6 +214,11 @@ requestDeleteDataSource = req
     "DeleteDataSource"
     "fixture/DeleteDataSource.yaml"
 
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
+
 requestCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
 requestCreateDataSourceFromRedshift = req
     "CreateDataSourceFromRedshift"
@@ -210,6 +233,11 @@ requestCreateMLModel :: CreateMLModel -> TestTree
 requestCreateMLModel = req
     "CreateMLModel"
     "fixture/CreateMLModel.yaml"
+
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
 
 requestDeleteBatchPrediction :: DeleteBatchPrediction -> TestTree
 requestDeleteBatchPrediction = req
@@ -301,6 +329,11 @@ requestCreateRealtimeEndpoint = req
     "CreateRealtimeEndpoint"
     "fixture/CreateRealtimeEndpoint.yaml"
 
+requestAddTags :: AddTags -> TestTree
+requestAddTags = req
+    "AddTags"
+    "fixture/AddTags.yaml"
+
 requestDescribeMLModels :: DescribeMLModels -> TestTree
 requestDescribeMLModels = req
     "DescribeMLModels"
@@ -327,6 +360,13 @@ responseDeleteDataSource = res
     machineLearning
     (Proxy :: Proxy DeleteDataSource)
 
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags = res
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
+    machineLearning
+    (Proxy :: Proxy DescribeTags)
+
 responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
 responseCreateDataSourceFromRedshift = res
     "CreateDataSourceFromRedshiftResponse"
@@ -347,6 +387,13 @@ responseCreateMLModel = res
     "fixture/CreateMLModelResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateMLModel)
+
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags = res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    machineLearning
+    (Proxy :: Proxy DeleteTags)
 
 responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
 responseDeleteBatchPrediction = res
@@ -473,6 +520,13 @@ responseCreateRealtimeEndpoint = res
     "fixture/CreateRealtimeEndpointResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateRealtimeEndpoint)
+
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags = res
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
+    machineLearning
+    (Proxy :: Proxy AddTags)
 
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
 responseDescribeMLModels = res

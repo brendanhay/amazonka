@@ -17,6 +17,7 @@ module Network.AWS.CloudFront.Types
 
     -- * Errors
     , _TooManyOriginCustomHeaders
+    , _InvalidTagging
     , _InvalidErrorCode
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
@@ -27,6 +28,7 @@ module Network.AWS.CloudFront.Types
     , _InvalidArgument
     , _TooManyInvalidationsInProgress
     , _InvalidWebACLId
+    , _TooManyQueryStringParameters
     , _TooManyDistributionCNAMEs
     , _NoSuchCloudFrontOriginAccessIdentity
     , _CloudFrontOriginAccessIdentityInUse
@@ -41,11 +43,13 @@ module Network.AWS.CloudFront.Types
     , _InvalidTTLOrder
     , _StreamingDistributionNotDisabled
     , _TooManyHeadersInForwardedValues
+    , _NoSuchResource
     , _TooManyStreamingDistributionCNAMEs
     , _InvalidRequiredProtocol
     , _TooManyDistributions
     , _TooManyCertificates
     , _DistributionAlreadyExists
+    , _InvalidQueryStringParameters
     , _MissingBody
     , _IllegalUpdate
     , _InvalidIfMatchVersion
@@ -72,6 +76,9 @@ module Network.AWS.CloudFront.Types
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
+
+    -- * HTTPVersion
+    , HTTPVersion (..)
 
     -- * ItemSelection
     , ItemSelection (..)
@@ -232,6 +239,7 @@ module Network.AWS.CloudFront.Types
     , Distribution
     , distribution
     , dId
+    , dARN
     , dStatus
     , dLastModifiedTime
     , dInProgressInvalidationBatches
@@ -242,6 +250,7 @@ module Network.AWS.CloudFront.Types
     -- * DistributionConfig
     , DistributionConfig
     , distributionConfig
+    , dcHTTPVersion
     , dcAliases
     , dcDefaultRootObject
     , dcPriceClass
@@ -257,6 +266,12 @@ module Network.AWS.CloudFront.Types
     , dcComment
     , dcEnabled
 
+    -- * DistributionConfigWithTags
+    , DistributionConfigWithTags
+    , distributionConfigWithTags
+    , dcwtDistributionConfig
+    , dcwtTags
+
     -- * DistributionList
     , DistributionList
     , distributionList
@@ -271,6 +286,7 @@ module Network.AWS.CloudFront.Types
     , DistributionSummary
     , distributionSummary
     , dsId
+    , dsARN
     , dsStatus
     , dsLastModifiedTime
     , dsDomainName
@@ -285,10 +301,12 @@ module Network.AWS.CloudFront.Types
     , dsViewerCertificate
     , dsRestrictions
     , dsWebACLId
+    , dsHTTPVersion
 
     -- * ForwardedValues
     , ForwardedValues
     , forwardedValues
+    , fvQueryStringCacheKeys
     , fvHeaders
     , fvQueryString
     , fvCookies
@@ -385,6 +403,12 @@ module Network.AWS.CloudFront.Types
     , pItems
     , pQuantity
 
+    -- * QueryStringCacheKeys
+    , QueryStringCacheKeys
+    , queryStringCacheKeys
+    , qsckItems
+    , qsckQuantity
+
     -- * Restrictions
     , Restrictions
     , restrictions
@@ -412,6 +436,7 @@ module Network.AWS.CloudFront.Types
     , streamingDistribution
     , sdLastModifiedTime
     , sdId
+    , sdARN
     , sdStatus
     , sdDomainName
     , sdActiveTrustedSigners
@@ -429,6 +454,12 @@ module Network.AWS.CloudFront.Types
     , sdcTrustedSigners
     , sdcEnabled
 
+    -- * StreamingDistributionConfigWithTags
+    , StreamingDistributionConfigWithTags
+    , streamingDistributionConfigWithTags
+    , sdcwtStreamingDistributionConfig
+    , sdcwtTags
+
     -- * StreamingDistributionList
     , StreamingDistributionList
     , streamingDistributionList
@@ -443,6 +474,7 @@ module Network.AWS.CloudFront.Types
     , StreamingDistributionSummary
     , streamingDistributionSummary
     , sdsId
+    , sdsARN
     , sdsStatus
     , sdsLastModifiedTime
     , sdsDomainName
@@ -459,6 +491,22 @@ module Network.AWS.CloudFront.Types
     , slcEnabled
     , slcBucket
     , slcPrefix
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- * TagKeys
+    , TagKeys
+    , tagKeys
+    , tkItems
+
+    -- * Tags
+    , Tags
+    , tags
+    , tItems
 
     -- * TrustedSigners
     , TrustedSigners
@@ -485,14 +533,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2016-01-28' of the Amazon CloudFront SDK configuration.
+-- | API version '2016-09-07' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-01-28"
+    , _svcVersion = "2016-09-07"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -523,6 +571,10 @@ cloudFront =
 _TooManyOriginCustomHeaders :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyOriginCustomHeaders =
     _ServiceError . hasStatus 400 . hasCode "TooManyOriginCustomHeaders"
+
+-- | The specified tagging for a CloudFront resource is invalid. For more information, see the error text.
+_InvalidTagging :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTagging = _ServiceError . hasStatus 400 . hasCode "InvalidTagging"
 
 -- | Prism for InvalidErrorCode' errors.
 _InvalidErrorCode :: AsError a => Getting (First ServiceError) a ServiceError
@@ -571,6 +623,11 @@ _TooManyInvalidationsInProgress =
 -- | Prism for InvalidWebACLId' errors.
 _InvalidWebACLId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidWebACLId = _ServiceError . hasStatus 400 . hasCode "InvalidWebACLId"
+
+-- | Prism for TooManyQueryStringParameters' errors.
+_TooManyQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyQueryStringParameters =
+    _ServiceError . hasStatus 400 . hasCode "TooManyQueryStringParameters"
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
 _TooManyDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
@@ -640,6 +697,10 @@ _TooManyHeadersInForwardedValues :: AsError a => Getting (First ServiceError) a 
 _TooManyHeadersInForwardedValues =
     _ServiceError . hasStatus 400 . hasCode "TooManyHeadersInForwardedValues"
 
+-- | The specified CloudFront resource does not exist.
+_NoSuchResource :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchResource = _ServiceError . hasStatus 404 . hasCode "NoSuchResource"
+
 -- | Prism for TooManyStreamingDistributionCNAMEs' errors.
 _TooManyStreamingDistributionCNAMEs :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyStreamingDistributionCNAMEs =
@@ -665,6 +726,11 @@ _TooManyCertificates =
 _DistributionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DistributionAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "DistributionAlreadyExists"
+
+-- | Prism for InvalidQueryStringParameters' errors.
+_InvalidQueryStringParameters :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryStringParameters =
+    _ServiceError . hasStatus 400 . hasCode "InvalidQueryStringParameters"
 
 -- | This operation requires a body. Ensure that the body is present and the Content-Type header is set.
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError

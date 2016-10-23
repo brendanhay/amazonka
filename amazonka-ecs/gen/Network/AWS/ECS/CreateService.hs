@@ -20,6 +20,8 @@
 --
 -- Runs and maintains a desired number of tasks from a specified task definition. If the number of tasks running in a service drops below 'desiredCount', Amazon ECS spawns another instantiation of the task in the specified cluster. To update an existing service, see < UpdateService>.
 --
+-- In addition to maintaining the desired count of tasks in your service, you can optionally run your service behind a load balancer. The load balancer distributes traffic across the tasks that are associated with the service. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing> in the /Amazon EC2 Container Service Developer Guide/.
+--
 -- You can optionally specify a deployment configuration for your service. During a deployment (which is triggered by changing the task definition of a service with an < UpdateService> operation), the service scheduler uses the 'minimumHealthyPercent' and 'maximumPercent' parameters to determine the deployment strategy.
 --
 -- If the 'minimumHealthyPercent' is below 100%, the scheduler can ignore the 'desiredCount' temporarily during a deployment. For example, if your service has a 'desiredCount' of four tasks, a 'minimumHealthyPercent' of 50% allows the scheduler to stop two existing tasks before starting two new tasks. Tasks for services that /do not/ use a load balancer are considered healthy if they are in the 'RUNNING' state; tasks for services that /do/ use a load balancer are considered healthy if they are in the 'RUNNING' state and the container instance it is hosted on is reported as healthy by the load balancer. The default value for 'minimumHealthyPercent' is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
@@ -120,11 +122,17 @@ cCluster = lens _cCluster (\ s a -> s{_cCluster = a});
 cClientToken :: Lens' CreateService (Maybe Text)
 cClientToken = lens _cClientToken (\ s a -> s{_cClientToken = a});
 
--- | A list of load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+-- | A load balancer object representing the load balancer to use with your service. Currently, you are limited to one load balancer per service. After you create a service, the load balancer name, container name, and container port specified in the service definition are immutable.
+--
+-- For Elastic Load Balancing Classic load balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here.
+--
+-- For Elastic Load Balancing Application load balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
 cLoadBalancers :: Lens' CreateService [LoadBalancer]
 cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Default . _Coerce;
 
--- | The name or full Amazon Resource Name (ARN) of the IAM role that allows your Amazon ECS container agent to make calls to your load balancer on your behalf. This parameter is only required if you are using a load balancer with your service.
+-- | The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service. If you specify the 'role' parameter, you must also specify a load balancer object with the 'loadBalancers' parameter.
+--
+-- If your specified role has a path other than '\/', then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name 'bar' has a path of '\/foo\/' then you would specify '\/foo\/bar' as the role name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/.
 cRole :: Lens' CreateService (Maybe Text)
 cRole = lens _cRole (\ s a -> s{_cRole = a});
 

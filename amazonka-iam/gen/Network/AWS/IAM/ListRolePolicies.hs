@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the names of the inline policies that are embedded in the specified role.
+-- Lists the names of the inline policies that are embedded in the specified IAM role.
 --
--- A role can also have managed policies attached to it. To list the managed policies that are attached to a role, use < ListAttachedRolePolicies>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- An IAM role can also have managed policies attached to it. To list the managed policies that are attached to a role, use < ListAttachedRolePolicies>. For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If there are no inline policies embedded with the specified role, the action returns an empty list.
 --
@@ -90,6 +90,8 @@ lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\ s a -> s{_lrpMaxItems = a}) . mapping _Nat;
 
 -- | The name of the role to list policies for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 

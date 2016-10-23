@@ -120,45 +120,44 @@ module Network.AWS.Types
     , _Default
     ) where
 
-import           Control.Applicative
-import           Control.Concurrent           (ThreadId)
-import           Control.DeepSeq
-import           Control.Exception
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Resource
-import           Data.Aeson                   hiding (Error)
-import qualified Data.ByteString              as BS
-import           Data.ByteString.Builder      (Builder)
-import           Data.Coerce
-import           Data.Conduit
-import           Data.Data                    (Data, Typeable)
-import           Data.Hashable
-import           Data.IORef
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Proxy
-import           Data.String
-import qualified Data.Text                    as Text
-import qualified Data.Text.Encoding           as Text
-import           Data.Time
-import           GHC.Generics                 (Generic)
-import           Network.AWS.Data.Body
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.JSON
-import           Network.AWS.Data.Log
-import           Network.AWS.Data.Path
-import           Network.AWS.Data.Query
-import           Network.AWS.Data.Text
-import           Network.AWS.Data.XML
-import           Network.AWS.Lens             (Iso', Lens', Prism', Setter')
-import           Network.AWS.Lens             (exception, iso, lens, prism,
-                                               sets)
-import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
-import qualified Network.HTTP.Conduit         as Client
-import           Network.HTTP.Types.Header
-import           Network.HTTP.Types.Method
-import           Network.HTTP.Types.Status    (Status)
-import           Text.XML                     (def)
+import Control.Applicative
+import Control.Concurrent           (ThreadId)
+import Control.DeepSeq
+import Control.Exception
+import Control.Monad.IO.Class
+import Control.Monad.Trans.Resource
+import Data.Aeson                   hiding (Error)
+import Data.ByteString.Builder      (Builder)
+import Data.Coerce
+import Data.Conduit
+import Data.Data                    (Data, Typeable)
+import Data.Hashable
+import Data.IORef
+import Data.Maybe
+import Data.Monoid
+import Data.Proxy
+import Data.String
+import Data.Time
+import GHC.Generics                 (Generic)
+import Network.AWS.Data.Body
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.JSON
+import Network.AWS.Data.Log
+import Network.AWS.Data.Path
+import Network.AWS.Data.Query
+import Network.AWS.Data.Text
+import Network.AWS.Data.XML
+import Network.AWS.Lens             (Iso', Lens', Prism', Setter')
+import Network.AWS.Lens             (exception, iso, lens, prism, sets)
+import Network.HTTP.Conduit         hiding (Proxy, Request, Response)
+import Network.HTTP.Types.Header
+import Network.HTTP.Types.Method
+import Network.HTTP.Types.Status    (Status)
+
+import qualified Data.ByteString      as BS
+import qualified Data.Text            as Text
+import qualified Data.Text.Encoding   as Text
+import qualified Network.HTTP.Conduit as Client
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -443,13 +442,15 @@ serviceRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
 clientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
-clientRequest e t = def
+clientRequest e t = Client.defaultRequest
     { Client.secure          = _endpointSecure e
     , Client.host            = _endpointHost   e
     , Client.port            = _endpointPort   e
     , Client.redirectCount   = 0
-    , Client.checkStatus     = \_ _ _ -> Nothing
-    , Client.responseTimeout = microseconds <$> t
+    , Client.responseTimeout =
+        case t of
+            Nothing -> Client.responseTimeoutNone
+            Just x  -> Client.responseTimeoutMicro (microseconds x)
     }
 
 -- | An unsigned request.
@@ -566,6 +567,7 @@ data Region
     | Tokyo           -- ^ Asia Pacific / ap-northeast-1
     | Singapore       -- ^ Asia Pacific / ap-southeast-1
     | Sydney          -- ^ Asia Pacific / ap-southeast-2
+    | Bombay          -- ^ Asia Pacific / ap-south-1
     | Beijing         -- ^ China / cn-north-1
     | NorthVirginia   -- ^ US / us-east-1
     | NorthCalifornia -- ^ US / us-west-1
@@ -585,6 +587,7 @@ instance FromText Region where
         "ap-northeast-1"     -> pure Tokyo
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
+        "ap-south-1"         -> pure Bombay
         "cn-north-1"         -> pure Beijing
         "us-east-1"          -> pure NorthVirginia
         "us-west-2"          -> pure Oregon
@@ -601,6 +604,7 @@ instance ToText Region where
         Tokyo           -> "ap-northeast-1"
         Singapore       -> "ap-southeast-1"
         Sydney          -> "ap-southeast-2"
+        Bombay          -> "ap-south-1"
         Beijing         -> "cn-north-1"
         NorthVirginia   -> "us-east-1"
         NorthCalifornia -> "us-west-1"
@@ -614,8 +618,10 @@ instance ToByteString Region
 instance ToLog Region where
     build = build . toBS
 
-instance FromXML Region where parseXML = parseXMLText "Region"
-instance ToXML   Region where toXML    = toXMLText
+instance FromXML  Region where parseXML  = parseXMLText "Region"
+instance ToXML    Region where toXML     = toXMLText
+instance FromJSON Region where parseJSON = parseJSONText "Region"
+instance ToJSON   Region where toJSON    = toJSONText
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int

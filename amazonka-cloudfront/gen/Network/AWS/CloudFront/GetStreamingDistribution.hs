@@ -88,7 +88,7 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2016-01-28/streaming-distribution/", toBS _gsdId]
+              ["/2016-09-07/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty

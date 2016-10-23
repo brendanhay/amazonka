@@ -31,12 +31,12 @@ exceptions :: Region -- ^ Region to operate in.
            -> IO ()
 exceptions r n = do
     lgr <- newLogger Info stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr
 
     let scan' = scan n & sAttributesToGet ?~ "foo" :| []
 
     runResourceT $ do
-        runAWST env $ do
+        runAWST env . within r $ do
             sayLn $ "Listing all tables in region " <> toText r
             paginate listTables
                 =$= CL.concatMap (view ltrsTableNames)

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the user name and password-creation date for the specified user. If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
+-- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Creating a Request
@@ -61,6 +61,8 @@ getLoginProfile pUserName_ =
     }
 
 -- | The name of the user whose login profile you want to retrieve.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 
@@ -119,7 +121,7 @@ getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
 glprsResponseStatus :: Lens' GetLoginProfileResponse Int
 glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a});
 
--- | The user name and password create date for the user.
+-- | A structure containing the user name and password create date for the user.
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprsLoginProfile = lens _glprsLoginProfile (\ s a -> s{_glprsLoginProfile = a});
 

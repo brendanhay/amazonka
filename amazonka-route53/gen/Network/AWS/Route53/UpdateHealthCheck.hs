@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action updates an existing health check.
+-- Updates an existing health check.
 --
--- To update a health check, send a 'POST' request to the '\/Route 53 API version\/healthcheck\/health check ID' resource. The request body must include a document with an 'UpdateHealthCheckRequest' element. The response returns an 'UpdateHealthCheckResponse' element, which contains metadata about the health check.
+-- Send a 'POST' request to the '\/Amazon Route 53 API version\/healthcheck\/health check ID ' resource. The request body must include an XML document with an 'UpdateHealthCheckRequest' element. For more information about updating health checks, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html Creating, Updating, and Deleting Health Checks> in the Amazon Route 53 Developer Guide.
 module Network.AWS.Route53.UpdateHealthCheck
     (
     -- * Creating a Request
@@ -58,7 +58,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | >A complex type that contains information about the request to update a health check.
+-- | A complex type that contains the health check request information.
 --
 -- /See:/ 'updateHealthCheck' smart constructor.
 data UpdateHealthCheck = UpdateHealthCheck'
@@ -134,43 +134,44 @@ updateHealthCheck pHealthCheckId_ =
     , _uhcHealthCheckId = pHealthCheckId_
     }
 
--- | The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
---
--- Valid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.
---
--- Specify this value only if you want to change it.
+-- | The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Amazon Route 53 Determines Whether an Endpoint Is Healthy> in the /Amazon Route 53 Developer Guide/.
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold = lens _uhcFailureThreshold (\ s a -> s{_uhcFailureThreshold = a}) . mapping _Nat;
 
--- | The IP address of the resource that you want to check.
+-- | The IPv4 IP address of the endpoint on which you want Amazon Route 53 to perform health checks. If you don\'t specify a value for 'IPAddress', Amazon Route 53 sends a DNS request to resolve the domain name that you specify in 'FullyQualifiedDomainName' at the interval you specify in 'RequestInterval'. Using an IP address that DNS returns, Amazon Route 53 then checks the health of the endpoint.
 --
--- Specify this value only if you want to change it.
+-- f the endpoint is an Amazon EC2 instance, we recommend that you create an Elastic IP address, associate it with your Amazon EC2 instance, and specify the Elastic IP address for 'IPAddress'. This ensures that the IP address of your instance never changes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses (EIP)> in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- If a health check already has a value for 'IPAddress', you can change the value. However, you can\'t update an existing health check to add or remove the value of 'IPAddress'.
+--
+-- For more information, see < UpdateHealthCheckRequest>FullyQualifiedDomainName>.
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 
--- | Specify whether you want Amazon Route 53 to send the value of 'FullyQualifiedDomainName' to the endpoint in the 'client_hello' message during TLS negotiation. If you don\'t specify a value for 'EnableSNI', Amazon Route 53 defaults to 'true' when 'Type' is 'HTTPS' or 'HTTPS_STR_MATCH' and defaults to 'false' when 'Type' is any other value.
+-- | Specify whether you want Amazon Route 53 to send the value of 'FullyQualifiedDomainName' to the endpoint in the 'client_hello' message during 'TLS' negotiation. This allows the endpoint to respond to 'HTTPS' health check requests with the applicable SSL\/TLS certificate.
 --
--- Specify this value only if you want to change it.
+-- Some endpoints require that HTTPS requests include the host name in the 'client_hello' message. If you don\'t enable SNI, the status of the health check will be SSL alert 'handshake_failure'. A health check can also have that status for other reasons. If SNI is enabled and you\'re still getting the error, check the SSL\/TLS configuration on your endpoint and confirm that your certificate is valid.
+--
+-- The SSL\/TLS certificate on your endpoint includes a domain name in the 'Common Name' field and possibly several more in the 'Subject Alternative Names' field. One of the domain names in the certificate should match the value that you specify for 'FullyQualifiedDomainName'. If the endpoint responds to the 'client_hello' message with a certificate that does not include the domain name that you specified in 'FullyQualifiedDomainName', a health checker will retry the handshake. In the second attempt, the health checker will omit 'FullyQualifiedDomainName' from the 'client_hello' message.
 uhcEnableSNI :: Lens' UpdateHealthCheck (Maybe Bool)
 uhcEnableSNI = lens _uhcEnableSNI (\ s a -> s{_uhcEnableSNI = a});
 
--- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Amazon Route 53 considers the resource healthy. Amazon Route 53 considers case when searching for 'SearchString' in the response body.
---
--- Specify this value only if you want to change it.
+-- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Amazon Route 53 considers the resource healthy. (You can\'t change the value of 'Type' when you update a health check.)
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\ s a -> s{_uhcSearchString = a});
 
--- | The minimum number of child health checks that must be healthy for Amazon Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive.
+-- | The number of child health checks that are associated with a 'CALCULATED' health that Amazon Route 53 must consider healthy for the 'CALCULATED' health check to be considered healthy. To specify the child health checks that you want to associate with a 'CALCULATED' health check, use the 'ChildHealthChecks' and 'ChildHealthCheck' elements.
 --
--- Specify this value only if you want to change it.
+-- Note the following:
+--
+-- -   If you specify a number greater than the number of child health checks, Amazon Route 53 always considers this health check to be unhealthy.
+--
+-- -   If you specify '0', Amazon Route 53 always considers this health check to be healthy.
+--
 uhcHealthThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthThreshold = lens _uhcHealthThreshold (\ s a -> s{_uhcHealthThreshold = a}) . mapping _Nat;
 
--- | A list of 'HealthCheckRegion' values that specify the Amazon EC2 regions that you want Amazon Route 53 to use to perform health checks. You must specify at least three regions.
---
--- When you remove a region from the list, Amazon Route 53 will briefly continue to check your endpoint from that region.
---
--- Specify this value only if you want to change it.
+-- | A complex type that contains one Region element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
 uhcRegions :: Lens' UpdateHealthCheck (Maybe (NonEmpty HealthCheckRegion))
 uhcRegions = lens _uhcRegions (\ s a -> s{_uhcRegions = a}) . mapping _List1;
 
@@ -184,7 +185,14 @@ uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 uhcInsufficientDataHealthStatus :: Lens' UpdateHealthCheck (Maybe InsufficientDataHealthStatus)
 uhcInsufficientDataHealthStatus = lens _uhcInsufficientDataHealthStatus (\ s a -> s{_uhcInsufficientDataHealthStatus = a});
 
--- | Optional. When you specify a health check version, Amazon Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don\'t match. Using 'HealthCheckVersion' lets you prevent overwriting another change to the health check.
+-- | A sequential counter that Amazon Route 53 sets to '1' when you create a health check and increments by '1' each time you update settings for the health check.
+--
+-- We recommend that you use 'GetHealthCheck' or 'ListHealthChecks' to get the current value of 'HealthCheckVersion' for the health check that you want to update, and that you include that value in your 'UpdateHealthCheck' request. This prevents Amazon Route 53 from overwriting an intervening update:
+--
+-- -   f the value in the 'UpdateHealthCheck' request matches the value of 'HealthCheckVersion' in the health check, Amazon Route 53 updates the health check with the new settings.
+--
+-- -   If the value of 'HealthCheckVersion' in the health check is greater, the health check was changed after you got the version number. Amazon Route 53 does not update the health check, and it returns a 'HealthCheckVersionMismatch' error.
+--
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . mapping _Nat;
 
@@ -192,31 +200,47 @@ uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckV
 uhcAlarmIdentifier :: Lens' UpdateHealthCheck (Maybe AlarmIdentifier)
 uhcAlarmIdentifier = lens _uhcAlarmIdentifier (\ s a -> s{_uhcAlarmIdentifier = a});
 
--- | A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but 'Inverted' is 'True', then Amazon Route 53 considers the health check to be unhealthy.
---
--- Specify this value only if you want to change it.
+-- | Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.
 uhcInverted :: Lens' UpdateHealthCheck (Maybe Bool)
 uhcInverted = lens _uhcInverted (\ s a -> s{_uhcInverted = a});
 
--- | Fully qualified domain name of the instance to be health checked.
+-- | Amazon Route 53 behavior depends on whether you specify a value for 'IPAddress'.
 --
--- Specify this value only if you want to change it.
+-- If a health check already has a value for 'IPAddress', you can change the value. However, you can\'t update an existing health check to add or remove the value of 'IPAddress'.
+--
+-- __If you specify__ 'IPAddress':
+--
+-- The value that you want Amazon Route 53 to pass in the 'Host' header in all health checks except TCP health checks. This is typically the fully qualified DNS name of the endpoint on which you want Amazon Route 53 to perform health checks. When Amazon Route 53 checks the health of an endpoint, here is how it constructs the 'Host' header:
+--
+-- -   If you specify a value of '80' for 'Port' and 'HTTP' or 'HTTP_STR_MATCH' for 'Type', Amazon Route 53 passes the value of 'FullyQualifiedDomainName' to the endpoint in the 'Host' header.
+--
+-- -   If you specify a value of '443' for 'Port' and 'HTTPS' or 'HTTPS_STR_MATCH' for 'Type', Amazon Route 53 passes the value of 'FullyQualifiedDomainName' to the endpoint in the Host header.
+--
+-- -   If you specify another value for 'Port' and any value except 'TCP' for 'Type', Amazon Route 53 passes /'FullyQualifiedDomainName':'Port'/ to the endpoint in the Host header.
+--
+-- If you don\'t specify a value for 'FullyQualifiedDomainName', Amazon Route 53 substitutes the value of 'IPAddress' in the 'Host' header in each of the above cases.
+--
+-- __If you don\'t specify__ 'IPAddress':
+--
+-- If you don\'t specify a value for 'IPAddress', Amazon Route 53 sends a DNS request to the domain that you specify in 'FullyQualifiedDomainName' at the interval you specify in 'RequestInterval'. Using an IP address that DNS returns, Amazon Route 53 then checks the health of the endpoint.
+--
+-- If you want to check the health of weighted, latency, or failover resource record sets and you choose to specify the endpoint only by 'FullyQualifiedDomainName', we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of 'FullyQualifiedDomainName', specify the domain name of the server (such as 'us-east-1-www.example.com'), not the name of the resource record sets (www.example.com).
+--
+-- In this configuration, if the value of 'FullyQualifiedDomainName' matches the name of the resource record sets and you then associate the health check with those resource record sets, health check results will be unpredictable.
+--
+-- In addition, if the value of 'Type' is 'HTTP', 'HTTPS', 'HTTP_STR_MATCH', or 'HTTPS_STR_MATCH', Amazon Route 53 passes the value of 'FullyQualifiedDomainName' in the 'Host' header, as it does when you specify a value for 'IPAddress'. If the value of 'Type' is 'TCP', Amazon Route 53 doesn\'t pass a 'Host' header.
 uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName = lens _uhcFullyQualifiedDomainName (\ s a -> s{_uhcFullyQualifiedDomainName = a});
 
--- | For a specified parent health check, a list of 'HealthCheckId' values for the associated child health checks.
---
--- Specify this value only if you want to change it.
+-- | A complex type that contains one 'ChildHealthCheck' element for each health check that you want to associate with a 'CALCULATED' health check.
 uhcChildHealthChecks :: Lens' UpdateHealthCheck [Text]
 uhcChildHealthChecks = lens _uhcChildHealthChecks (\ s a -> s{_uhcChildHealthChecks = a}) . _Default . _Coerce;
 
--- | The port on which you want Amazon Route 53 to open a connection to perform health checks.
---
--- Specify this value only if you want to change it.
+-- | The port on the endpoint on which you want Amazon Route 53 to perform health checks.
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\ s a -> s{_uhcPort = a}) . mapping _Nat;
 
--- | The ID of the health check to update.
+-- | The ID for the health check for which you want detailed information. When you created the health check, 'CreateHealthCheck' returned the ID in the response, in the 'HealthCheckId' element.
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
 uhcHealthCheckId = lens _uhcHealthCheckId (\ s a -> s{_uhcHealthCheckId = a});
 

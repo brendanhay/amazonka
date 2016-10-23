@@ -70,7 +70,7 @@ module Network.AWS.CertificateManager
     -- ** RequestCertificate
     , module Network.AWS.CertificateManager.RequestCertificate
 
-    -- ** ListCertificates
+    -- ** ListCertificates (Paginated)
     , module Network.AWS.CertificateManager.ListCertificates
 
     -- ** DeleteCertificate
@@ -87,6 +87,9 @@ module Network.AWS.CertificateManager
     -- ** CertificateStatus
     , CertificateStatus (..)
 
+    -- ** FailureReason
+    , FailureReason (..)
+
     -- ** KeyAlgorithm
     , KeyAlgorithm (..)
 
@@ -98,6 +101,7 @@ module Network.AWS.CertificateManager
     , certificateDetail
     , cdSubject
     , cdStatus
+    , cdFailureReason
     , cdSubjectAlternativeNames
     , cdInUseBy
     , cdCreatedAt

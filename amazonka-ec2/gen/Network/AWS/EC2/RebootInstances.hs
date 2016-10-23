@@ -94,7 +94,7 @@ instance ToQuery RebootInstances where
         toQuery RebootInstances'{..}
           = mconcat
               ["Action" =: ("RebootInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _rebDryRun,
                toQueryList "InstanceId" _rebInstanceIds]
 

@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getPolicy' smart constructor.
+-- |
+--
+-- /See:/ 'getPolicy' smart constructor.
 data GetPolicy = GetPolicy'
     { _gpQualifier    :: !(Maybe Text)
     , _gpFunctionName :: !Text
@@ -107,7 +109,9 @@ instance ToQuery GetPolicy where
         toQuery GetPolicy'{..}
           = mconcat ["Qualifier" =: _gpQualifier]
 
--- | /See:/ 'getPolicyResponse' smart constructor.
+-- |
+--
+-- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
     { _gprsPolicy         :: !(Maybe Text)
     , _gprsResponseStatus :: !Int

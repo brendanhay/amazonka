@@ -86,8 +86,11 @@ dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
 dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertificateIdentifier = a});
 

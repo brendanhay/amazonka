@@ -130,7 +130,7 @@ instance ToQuery CreateReservedInstancesListing where
           = mconcat
               ["Action" =:
                  ("CreateReservedInstancesListing" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "ReservedInstancesId" =: _crilReservedInstancesId,
                "InstanceCount" =: _crilInstanceCount,
                toQueryList "PriceSchedules" _crilPriceSchedules,

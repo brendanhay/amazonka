@@ -20,9 +20,9 @@
 --
 -- Creates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.
 --
--- -   'domain-name-servers' - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas.
+-- -   'domain-name-servers' - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. If you want your instance to receive a custom DNS hostname as specified in 'domain-name', you must set 'domain-name-servers' to a custom DNS server.
 --
--- -   'domain-name' - If you\'re using AmazonProvidedDNS in \"us-east-1\", specify \"ec2.internal\". If you\'re using AmazonProvidedDNS in another region, specify \"region.compute.internal\" (for example, \"ap-northeast-1.compute.internal\"). Otherwise, specify a domain name (for example, \"MyCompany.com\"). __Important__: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.
+-- -   'domain-name' - If you\'re using AmazonProvidedDNS in \"us-east-1\", specify \"ec2.internal\". If you\'re using AmazonProvidedDNS in another region, specify \"region.compute.internal\" (for example, \"ap-northeast-1.compute.internal\"). Otherwise, specify a domain name (for example, \"MyCompany.com\"). This value is used to complete unqualified DNS hostnames. __Important__: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.
 --
 -- -   'ntp-servers' - The IP addresses of up to four Network Time Protocol (NTP) servers.
 --
@@ -109,7 +109,7 @@ instance ToQuery CreateDHCPOptions where
         toQuery CreateDHCPOptions'{..}
           = mconcat
               ["Action" =: ("CreateDhcpOptions" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _cdoDryRun,
                toQueryList "DhcpConfiguration"
                  _cdoDHCPConfigurations]

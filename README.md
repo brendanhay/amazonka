@@ -1,14 +1,15 @@
 # Amazonka
 
-[![Build Status](https://travis-ci.org/brendanhay/amazonka.svg?branch=develop)](https://travis-ci.org/brendanhay/amazonka)
+[![Build Status](https://img.shields.io/travis/brendanhay/amazonka/develop.svg?maxAge=2592000)](https://travis-ci.org/brendanhay/amazonka)
 [![Hackage Version](https://img.shields.io/hackage/v/amazonka.svg)](http://hackage.haskell.org/package/amazonka)
-[![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/brendanhay/amazonka)
+[![Gitter Chat](https://img.shields.io/gitter/room/brendanhay/amazonka.js.svg?maxAge=2592000)](https://gitter.im/brendanhay/amazonka)
 
 * [Description](#description)
 * [Documentation](#documentation)
 * [Organisation](#organisation)
 * [Change Log](#change-log)
 * [Contribute](#contribute)
+    - [Package Names](#package-names)
 * [Licence](#licence)
 
 
@@ -55,6 +56,16 @@ A change log for the entire project can be found under [`amazonka/CHANGELOG.md`]
 ## Contribute
 
 For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
+
+### Package Names
+
+It is often desirable to provide supplemental functionality to `amazonka` as
+an additional library, for example providing S3 encryption via a package such
+as `amazonka-s3-encryption`.
+
+I ask that authors of these packages carefully consider package naming
+and preferrably do not prefix the package with `amazonka-*` to avoid potential
+collesions with generated package names.
 
 
 ## Licence

@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'deleteReceiptFilter' smart constructor.
+-- | Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'deleteReceiptFilter' smart constructor.
 newtype DeleteReceiptFilter = DeleteReceiptFilter'
     { _drfFilterName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery DeleteReceiptFilter where
                "Version" =: ("2010-12-01" :: ByteString),
                "FilterName" =: _drfFilterName]
 
--- | /See:/ 'deleteReceiptFilterResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'deleteReceiptFilterResponse' smart constructor.
 newtype DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
     { _drfrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

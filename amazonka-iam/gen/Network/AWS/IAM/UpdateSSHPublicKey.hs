@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the status of the specified SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This action can be used to disable a user\'s SSH public key as part of a key rotation work flow.
+-- Sets the status of an IAM user\'s SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This action can be used to disable a user\'s SSH public key as part of a key rotation work flow.
 --
 -- The SSH public key affected by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
 module Network.AWS.IAM.UpdateSSHPublicKey
@@ -72,10 +72,14 @@ updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     }
 
 -- | The name of the IAM user associated with the SSH public key.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 uspkUserName :: Lens' UpdateSSHPublicKey Text
 uspkUserName = lens _uspkUserName (\ s a -> s{_uspkUserName = a});
 
 -- | The unique identifier for the SSH public key.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 uspkSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
 uspkSSHPublicKeyId = lens _uspkSSHPublicKeyId (\ s a -> s{_uspkSSHPublicKeyId = a});
 

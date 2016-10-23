@@ -151,7 +151,7 @@ failedCreateWorkspaceRequest =
     , _fcwrErrorMessage = Nothing
     }
 
--- | A < WorkspaceRequest> object that contains the information about the WorkSpace that could not be created.
+-- | A < FailedCreateWorkspaceRequest>WorkspaceRequest> object that contains the information about the WorkSpace that could not be created.
 fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
 fcwrWorkspaceRequest = lens _fcwrWorkspaceRequest (\ s a -> s{_fcwrWorkspaceRequest = a});
 
@@ -175,7 +175,7 @@ instance Hashable FailedCreateWorkspaceRequest
 
 instance NFData FailedCreateWorkspaceRequest
 
--- | Contains information about a WorkSpace that could not be rebooted (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), or terminated (< TerminateWorkspaces>).
+-- | Contains information about a WorkSpace that could not be rebooted (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), terminated (< TerminateWorkspaces>), started (< StartWorkspaces>), or stopped (< StopWorkspaces>).
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
@@ -292,6 +292,118 @@ instance ToJSON RebuildRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
 
+-- | Describes the start request.
+--
+-- /See:/ 'startRequest' smart constructor.
+newtype StartRequest = StartRequest'
+    { _sWorkspaceId :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StartRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sWorkspaceId'
+startRequest
+    :: StartRequest
+startRequest =
+    StartRequest'
+    { _sWorkspaceId = Nothing
+    }
+
+-- | The ID of the WorkSpace.
+sWorkspaceId :: Lens' StartRequest (Maybe Text)
+sWorkspaceId = lens _sWorkspaceId (\ s a -> s{_sWorkspaceId = a});
+
+instance Hashable StartRequest
+
+instance NFData StartRequest
+
+instance ToJSON StartRequest where
+        toJSON StartRequest'{..}
+          = object
+              (catMaybes [("WorkspaceId" .=) <$> _sWorkspaceId])
+
+-- | Describes the stop request.
+--
+-- /See:/ 'stopRequest' smart constructor.
+newtype StopRequest = StopRequest'
+    { _srWorkspaceId :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StopRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srWorkspaceId'
+stopRequest
+    :: StopRequest
+stopRequest =
+    StopRequest'
+    { _srWorkspaceId = Nothing
+    }
+
+-- | The ID of the WorkSpace.
+srWorkspaceId :: Lens' StopRequest (Maybe Text)
+srWorkspaceId = lens _srWorkspaceId (\ s a -> s{_srWorkspaceId = a});
+
+instance Hashable StopRequest
+
+instance NFData StopRequest
+
+instance ToJSON StopRequest where
+        toJSON StopRequest'{..}
+          = object
+              (catMaybes [("WorkspaceId" .=) <$> _srWorkspaceId])
+
+-- | Describes the tag of the WorkSpace.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | The value of the tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | The key of the tag.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue,
+                  Just ("Key" .= _tagKey)])
+
 -- | Contains information used with the < TerminateWorkspaces> operation to terminate a WorkSpace.
 --
 -- /See:/ 'terminateRequest' smart constructor.
@@ -367,6 +479,7 @@ data Workspace = Workspace'
     , _wUserName                    :: !(Maybe Text)
     , _wSubnetId                    :: !(Maybe Text)
     , _wBundleId                    :: !(Maybe Text)
+    , _wWorkspaceProperties         :: !(Maybe WorkspaceProperties)
     , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
     , _wErrorCode                   :: !(Maybe Text)
     , _wVolumeEncryptionKey         :: !(Maybe Text)
@@ -392,6 +505,8 @@ data Workspace = Workspace'
 --
 -- * 'wBundleId'
 --
+-- * 'wWorkspaceProperties'
+--
 -- * 'wRootVolumeEncryptionEnabled'
 --
 -- * 'wErrorCode'
@@ -415,6 +530,7 @@ workspace =
     , _wUserName = Nothing
     , _wSubnetId = Nothing
     , _wBundleId = Nothing
+    , _wWorkspaceProperties = Nothing
     , _wRootVolumeEncryptionEnabled = Nothing
     , _wErrorCode = Nothing
     , _wVolumeEncryptionKey = Nothing
@@ -447,6 +563,10 @@ wSubnetId = lens _wSubnetId (\ s a -> s{_wSubnetId = a});
 -- | The identifier of the bundle that the WorkSpace was created from.
 wBundleId :: Lens' Workspace (Maybe Text)
 wBundleId = lens _wBundleId (\ s a -> s{_wBundleId = a});
+
+-- | Undocumented member.
+wWorkspaceProperties :: Lens' Workspace (Maybe WorkspaceProperties)
+wWorkspaceProperties = lens _wWorkspaceProperties (\ s a -> s{_wWorkspaceProperties = a});
 
 -- | Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 wRootVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
@@ -486,6 +606,7 @@ instance FromJSON Workspace where
                      <*> (x .:? "UserName")
                      <*> (x .:? "SubnetId")
                      <*> (x .:? "BundleId")
+                     <*> (x .:? "WorkspaceProperties")
                      <*> (x .:? "RootVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorCode")
                      <*> (x .:? "VolumeEncryptionKey")
@@ -575,6 +696,67 @@ instance FromJSON WorkspaceBundle where
 instance Hashable WorkspaceBundle
 
 instance NFData WorkspaceBundle
+
+-- | Describes the connection status of a WorkSpace.
+--
+-- /See:/ 'workspaceConnectionStatus' smart constructor.
+data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
+    { _wcsLastKnownUserConnectionTimestamp :: !(Maybe POSIX)
+    , _wcsConnectionStateCheckTimestamp    :: !(Maybe POSIX)
+    , _wcsWorkspaceId                      :: !(Maybe Text)
+    , _wcsConnectionState                  :: !(Maybe ConnectionState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WorkspaceConnectionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wcsLastKnownUserConnectionTimestamp'
+--
+-- * 'wcsConnectionStateCheckTimestamp'
+--
+-- * 'wcsWorkspaceId'
+--
+-- * 'wcsConnectionState'
+workspaceConnectionStatus
+    :: WorkspaceConnectionStatus
+workspaceConnectionStatus =
+    WorkspaceConnectionStatus'
+    { _wcsLastKnownUserConnectionTimestamp = Nothing
+    , _wcsConnectionStateCheckTimestamp = Nothing
+    , _wcsWorkspaceId = Nothing
+    , _wcsConnectionState = Nothing
+    }
+
+-- | The timestamp of the last known user connection.
+wcsLastKnownUserConnectionTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
+wcsLastKnownUserConnectionTimestamp = lens _wcsLastKnownUserConnectionTimestamp (\ s a -> s{_wcsLastKnownUserConnectionTimestamp = a}) . mapping _Time;
+
+-- | The timestamp of the connection state check.
+wcsConnectionStateCheckTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
+wcsConnectionStateCheckTimestamp = lens _wcsConnectionStateCheckTimestamp (\ s a -> s{_wcsConnectionStateCheckTimestamp = a}) . mapping _Time;
+
+-- | The ID of the WorkSpace.
+wcsWorkspaceId :: Lens' WorkspaceConnectionStatus (Maybe Text)
+wcsWorkspaceId = lens _wcsWorkspaceId (\ s a -> s{_wcsWorkspaceId = a});
+
+-- | The connection state of the WorkSpace. Returns UNKOWN if the WorkSpace is in a Stopped state.
+wcsConnectionState :: Lens' WorkspaceConnectionStatus (Maybe ConnectionState)
+wcsConnectionState = lens _wcsConnectionState (\ s a -> s{_wcsConnectionState = a});
+
+instance FromJSON WorkspaceConnectionStatus where
+        parseJSON
+          = withObject "WorkspaceConnectionStatus"
+              (\ x ->
+                 WorkspaceConnectionStatus' <$>
+                   (x .:? "LastKnownUserConnectionTimestamp") <*>
+                     (x .:? "ConnectionStateCheckTimestamp")
+                     <*> (x .:? "WorkspaceId")
+                     <*> (x .:? "ConnectionState"))
+
+instance Hashable WorkspaceConnectionStatus
+
+instance NFData WorkspaceConnectionStatus
 
 -- | Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.
 --
@@ -708,13 +890,66 @@ instance Hashable WorkspaceDirectory
 
 instance NFData WorkspaceDirectory
 
+-- | Describes the properties of a WorkSpace.
+--
+-- /See:/ 'workspaceProperties' smart constructor.
+data WorkspaceProperties = WorkspaceProperties'
+    { _wpRunningMode                         :: !(Maybe RunningMode)
+    , _wpRunningModeAutoStopTimeoutInMinutes :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WorkspaceProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wpRunningMode'
+--
+-- * 'wpRunningModeAutoStopTimeoutInMinutes'
+workspaceProperties
+    :: WorkspaceProperties
+workspaceProperties =
+    WorkspaceProperties'
+    { _wpRunningMode = Nothing
+    , _wpRunningModeAutoStopTimeoutInMinutes = Nothing
+    }
+
+-- | The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop WorkSpaces are billed by the hour and stopped when no longer being used in order to save on costs.
+wpRunningMode :: Lens' WorkspaceProperties (Maybe RunningMode)
+wpRunningMode = lens _wpRunningMode (\ s a -> s{_wpRunningMode = a});
+
+-- | The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
+wpRunningModeAutoStopTimeoutInMinutes :: Lens' WorkspaceProperties (Maybe Int)
+wpRunningModeAutoStopTimeoutInMinutes = lens _wpRunningModeAutoStopTimeoutInMinutes (\ s a -> s{_wpRunningModeAutoStopTimeoutInMinutes = a});
+
+instance FromJSON WorkspaceProperties where
+        parseJSON
+          = withObject "WorkspaceProperties"
+              (\ x ->
+                 WorkspaceProperties' <$>
+                   (x .:? "RunningMode") <*>
+                     (x .:? "RunningModeAutoStopTimeoutInMinutes"))
+
+instance Hashable WorkspaceProperties
+
+instance NFData WorkspaceProperties
+
+instance ToJSON WorkspaceProperties where
+        toJSON WorkspaceProperties'{..}
+          = object
+              (catMaybes
+                 [("RunningMode" .=) <$> _wpRunningMode,
+                  ("RunningModeAutoStopTimeoutInMinutes" .=) <$>
+                    _wpRunningModeAutoStopTimeoutInMinutes])
+
 -- | Contains information about a WorkSpace creation request.
 --
 -- /See:/ 'workspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-    { _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
+    { _wrWorkspaceProperties         :: !(Maybe WorkspaceProperties)
+    , _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
     , _wrVolumeEncryptionKey         :: !(Maybe Text)
     , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
+    , _wrTags                        :: !(Maybe [Tag])
     , _wrDirectoryId                 :: !Text
     , _wrUserName                    :: !Text
     , _wrBundleId                    :: !Text
@@ -724,11 +959,15 @@ data WorkspaceRequest = WorkspaceRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'wrWorkspaceProperties'
+--
 -- * 'wrRootVolumeEncryptionEnabled'
 --
 -- * 'wrVolumeEncryptionKey'
 --
 -- * 'wrUserVolumeEncryptionEnabled'
+--
+-- * 'wrTags'
 --
 -- * 'wrDirectoryId'
 --
@@ -742,13 +981,19 @@ workspaceRequest
     -> WorkspaceRequest
 workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     WorkspaceRequest'
-    { _wrRootVolumeEncryptionEnabled = Nothing
+    { _wrWorkspaceProperties = Nothing
+    , _wrRootVolumeEncryptionEnabled = Nothing
     , _wrVolumeEncryptionKey = Nothing
     , _wrUserVolumeEncryptionEnabled = Nothing
+    , _wrTags = Nothing
     , _wrDirectoryId = pDirectoryId_
     , _wrUserName = pUserName_
     , _wrBundleId = pBundleId_
     }
+
+-- | Undocumented member.
+wrWorkspaceProperties :: Lens' WorkspaceRequest (Maybe WorkspaceProperties)
+wrWorkspaceProperties = lens _wrWorkspaceProperties (\ s a -> s{_wrWorkspaceProperties = a});
 
 -- | Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 wrRootVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
@@ -761,6 +1006,10 @@ wrVolumeEncryptionKey = lens _wrVolumeEncryptionKey (\ s a -> s{_wrVolumeEncrypt
 -- | Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 wrUserVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
 wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\ s a -> s{_wrUserVolumeEncryptionEnabled = a});
+
+-- | The tags of the WorkSpace request.
+wrTags :: Lens' WorkspaceRequest [Tag]
+wrTags = lens _wrTags (\ s a -> s{_wrTags = a}) . _Default . _Coerce;
 
 -- | The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the < DescribeWorkspaceDirectories> operation to obtain a list of the directories that are available.
 wrDirectoryId :: Lens' WorkspaceRequest Text
@@ -779,9 +1028,11 @@ instance FromJSON WorkspaceRequest where
           = withObject "WorkspaceRequest"
               (\ x ->
                  WorkspaceRequest' <$>
-                   (x .:? "RootVolumeEncryptionEnabled") <*>
-                     (x .:? "VolumeEncryptionKey")
+                   (x .:? "WorkspaceProperties") <*>
+                     (x .:? "RootVolumeEncryptionEnabled")
+                     <*> (x .:? "VolumeEncryptionKey")
                      <*> (x .:? "UserVolumeEncryptionEnabled")
+                     <*> (x .:? "Tags" .!= mempty)
                      <*> (x .: "DirectoryId")
                      <*> (x .: "UserName")
                      <*> (x .: "BundleId"))
@@ -794,12 +1045,15 @@ instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}
           = object
               (catMaybes
-                 [("RootVolumeEncryptionEnabled" .=) <$>
+                 [("WorkspaceProperties" .=) <$>
+                    _wrWorkspaceProperties,
+                  ("RootVolumeEncryptionEnabled" .=) <$>
                     _wrRootVolumeEncryptionEnabled,
                   ("VolumeEncryptionKey" .=) <$>
                     _wrVolumeEncryptionKey,
                   ("UserVolumeEncryptionEnabled" .=) <$>
                     _wrUserVolumeEncryptionEnabled,
+                  ("Tags" .=) <$> _wrTags,
                   Just ("DirectoryId" .= _wrDirectoryId),
                   Just ("UserName" .= _wrUserName),
                   Just ("BundleId" .= _wrBundleId)])

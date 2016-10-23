@@ -32,7 +32,9 @@ module Network.AWS.IoT.DescribeThing
     , DescribeThingResponse
     -- * Response Lenses
     , dtrsDefaultClientId
+    , dtrsThingTypeName
     , dtrsAttributes
+    , dtrsVersion
     , dtrsThingName
     , dtrsResponseStatus
     ) where
@@ -75,8 +77,9 @@ instance AWSRequest DescribeThing where
           = receiveJSON
               (\ s h x ->
                  DescribeThingResponse' <$>
-                   (x .?> "defaultClientId") <*>
-                     (x .?> "attributes" .!@ mempty)
+                   (x .?> "defaultClientId") <*> (x .?> "thingTypeName")
+                     <*> (x .?> "attributes" .!@ mempty)
+                     <*> (x .?> "version")
                      <*> (x .?> "thingName")
                      <*> (pure (fromEnum s)))
 
@@ -99,7 +102,9 @@ instance ToQuery DescribeThing where
 -- /See:/ 'describeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
     { _dtrsDefaultClientId :: !(Maybe Text)
+    , _dtrsThingTypeName   :: !(Maybe Text)
     , _dtrsAttributes      :: !(Maybe (Map Text Text))
+    , _dtrsVersion         :: !(Maybe Integer)
     , _dtrsThingName       :: !(Maybe Text)
     , _dtrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -110,7 +115,11 @@ data DescribeThingResponse = DescribeThingResponse'
 --
 -- * 'dtrsDefaultClientId'
 --
+-- * 'dtrsThingTypeName'
+--
 -- * 'dtrsAttributes'
+--
+-- * 'dtrsVersion'
 --
 -- * 'dtrsThingName'
 --
@@ -121,7 +130,9 @@ describeThingResponse
 describeThingResponse pResponseStatus_ =
     DescribeThingResponse'
     { _dtrsDefaultClientId = Nothing
+    , _dtrsThingTypeName = Nothing
     , _dtrsAttributes = Nothing
+    , _dtrsVersion = Nothing
     , _dtrsThingName = Nothing
     , _dtrsResponseStatus = pResponseStatus_
     }
@@ -130,9 +141,19 @@ describeThingResponse pResponseStatus_ =
 dtrsDefaultClientId :: Lens' DescribeThingResponse (Maybe Text)
 dtrsDefaultClientId = lens _dtrsDefaultClientId (\ s a -> s{_dtrsDefaultClientId = a});
 
--- | The attributes, which are name\/value pairs in JSON format (for example: {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\\"}, {\\\"some-name2\\\":\\\"some-value2\\\"}, {\\\"some-name3\\\":\\\"some-value3\\\"}})
+-- | The thing type name.
+dtrsThingTypeName :: Lens' DescribeThingResponse (Maybe Text)
+dtrsThingTypeName = lens _dtrsThingTypeName (\ s a -> s{_dtrsThingTypeName = a});
+
+-- | The thing attributes.
 dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text Text)
 dtrsAttributes = lens _dtrsAttributes (\ s a -> s{_dtrsAttributes = a}) . _Default . _Map;
+
+-- | The current version of the thing record in the registry.
+--
+-- To avoid unintentional changes to the information in the registry, you can pass the version information in the 'expectedVersion' parameter of the 'UpdateThing' and 'DeleteThing' calls.
+dtrsVersion :: Lens' DescribeThingResponse (Maybe Integer)
+dtrsVersion = lens _dtrsVersion (\ s a -> s{_dtrsVersion = a});
 
 -- | The name of the thing.
 dtrsThingName :: Lens' DescribeThingResponse (Maybe Text)

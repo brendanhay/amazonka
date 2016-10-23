@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the health check status, send a 'GET' request to the '\/Route 53 API version\/healthcheck\/health check ID\/status' resource. You can use this call to get a health check\'s current status.
+-- Gets status of a specified health check. Send a 'GET' request to the '\/2013-04-01\/healthcheck\/health check ID\/status' resource. You can use this call to get a health check\'s current status.
 module Network.AWS.Route53.GetHealthCheckStatus
     (
     -- * Creating a Request
@@ -69,7 +69,8 @@ getHealthCheckStatus pHealthCheckId_ =
 -- The 'HealthCheckId' element is only useful when Amazon Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Amazon Route 53 to base the choice in part on the status of a health check. Configuring health checks only makes sense in the following configurations:
 --
 -- -   You\'re checking the health of the resource record sets in a weighted, latency, geolocation, or failover resource record set, and you specify health check IDs for all of the resource record sets. If the health check for one resource record set specifies an endpoint that is not healthy, Amazon Route 53 stops responding to queries using the value for that resource record set.
--- -   You set 'EvaluateTargetHealth' to 'true' for the resource record sets in an alias, weighted alias, latency alias, geolocation alias, or failover alias resource record set, and you specify health check IDs for all of the resource record sets that are referenced by the alias resource record sets. For more information about this configuration, see < EvaluateTargetHealth>.
+--
+-- -   You set 'EvaluateTargetHealth' to 'true' for the resource record sets in an alias, weighted alias, latency alias, geolocation alias, or failover alias resource record set, and you specify health check IDs for all of the resource record sets that are referenced by the alias resource record sets. For more information about this configuration, see 'EvaluateTargetHealth'.
 --
 --     Amazon Route 53 doesn\'t check the health of the endpoint specified in the resource record set, for example, the endpoint specified by the IP address in the 'Value' element. When you add a 'HealthCheckId' element to a resource record set, Amazon Route 53 checks the health of the endpoint that you specified in the health check.
 --
@@ -109,7 +110,7 @@ instance ToPath GetHealthCheckStatus where
 instance ToQuery GetHealthCheckStatus where
         toQuery = const mempty
 
--- | A complex type that contains information about the status of the specified health check.
+-- | A complex type that contains the response to a 'GetHealthCheck' request.
 --
 -- /See:/ 'getHealthCheckStatusResponse' smart constructor.
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
@@ -137,7 +138,7 @@ getHealthCheckStatusResponse pResponseStatus_ =
 ghcsrsResponseStatus :: Lens' GetHealthCheckStatusResponse Int
 ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseStatus = a});
 
--- | A list that contains one 'HealthCheckObservation' element for each Amazon Route 53 health checker.
+-- | A list that contains one 'HealthCheckObservation' element for each Amazon Route 53 health checker that is reporting a status about the health check endpoint.
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;
 

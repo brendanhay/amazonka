@@ -113,7 +113,9 @@ instance ToQuery GetRestAPIs where
           = mconcat
               ["limit" =: _graLimit, "position" =: _graPosition]
 
--- | Contains references to your APIs and links that guide you in ways to interact with your collection. A collection offers a paginated view of your APIs.
+-- | Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'

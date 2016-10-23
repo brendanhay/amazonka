@@ -93,7 +93,7 @@ instance FromText TableRestoreStatusType where
         "pending" -> pure Pending
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing TableRestoreStatusType from value: '" <> e
-           <> "'. Accepted values: CANCELED, FAILED, IN_PROGRESS, PENDING, SUCCEEDED"
+           <> "'. Accepted values: canceled, failed, in_progress, pending, succeeded"
 
 instance ToText TableRestoreStatusType where
     toText = \case

@@ -23,19 +23,28 @@ module Network.AWS.KMS.Types
     , _UnsupportedOperationException
     , _DisabledException
     , _KeyUnavailableException
+    , _IncorrectKeyMaterialException
     , _KMSInternalException
+    , _InvalidImportTokenException
     , _NotFoundException
     , _InvalidAliasNameException
     , _InvalidGrantIdException
     , _InvalidGrantTokenException
     , _InvalidARNException
     , _DependencyTimeoutException
+    , _ExpiredImportTokenException
     , _InvalidCiphertextException
     , _AlreadyExistsException
     , _LimitExceededException
 
+    -- * AlgorithmSpec
+    , AlgorithmSpec (..)
+
     -- * DataKeySpec
     , DataKeySpec (..)
+
+    -- * ExpirationModelType
+    , ExpirationModelType (..)
 
     -- * GrantOperation
     , GrantOperation (..)
@@ -45,6 +54,12 @@ module Network.AWS.KMS.Types
 
     -- * KeyUsageType
     , KeyUsageType (..)
+
+    -- * OriginType
+    , OriginType (..)
+
+    -- * WrappingKeySpec
+    , WrappingKeySpec (..)
 
     -- * AliasListEntry
     , AliasListEntry
@@ -81,7 +96,10 @@ module Network.AWS.KMS.Types
     -- * KeyMetadata
     , KeyMetadata
     , keyMetadata
+    , kmOrigin
+    , kmExpirationModel
     , kmEnabled
+    , kmValidTo
     , kmARN
     , kmKeyState
     , kmAWSAccountId
@@ -145,7 +163,7 @@ _InvalidMarkerException = _ServiceError . hasCode "InvalidMarkerException"
 
 -- | The request was rejected because the state of the specified resource is not valid for this request.
 --
--- For more information about how key state affects the use of a customer master key (CMK), go to <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
+-- For more information about how key state affects the use of a customer master key (CMK), see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
 _KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInvalidStateException = _ServiceError . hasCode "KMSInvalidStateException"
 
@@ -158,7 +176,7 @@ _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a
 _MalformedPolicyDocumentException =
     _ServiceError . hasCode "MalformedPolicyDocumentException"
 
--- | The request was rejected because a specified parameter is not supported.
+-- | The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
     _ServiceError . hasCode "UnsupportedOperationException"
@@ -171,9 +189,19 @@ _DisabledException = _ServiceError . hasCode "DisabledException"
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _KeyUnavailableException = _ServiceError . hasCode "KeyUnavailableException"
 
+-- | The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).
+_IncorrectKeyMaterialException :: AsError a => Getting (First ServiceError) a ServiceError
+_IncorrectKeyMaterialException =
+    _ServiceError . hasCode "IncorrectKeyMaterialException"
+
 -- | The request was rejected because an internal exception occurred. The request can be retried.
 _KMSInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInternalException = _ServiceError . hasCode "KMSInternalException"
+
+-- | The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).
+_InvalidImportTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidImportTokenException =
+    _ServiceError . hasCode "InvalidImportTokenException"
 
 -- | The request was rejected because the specified entity or resource could not be found.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -201,6 +229,11 @@ _InvalidARNException = _ServiceError . hasCode "InvalidArnException"
 _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyTimeoutException =
     _ServiceError . hasCode "DependencyTimeoutException"
+
+-- | The request was rejected because the provided import token is expired. Use < GetParametersForImport> to retrieve a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
+_ExpiredImportTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredImportTokenException =
+    _ServiceError . hasCode "ExpiredImportTokenException"
 
 -- | The request was rejected because the specified ciphertext has been corrupted or is otherwise invalid.
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError

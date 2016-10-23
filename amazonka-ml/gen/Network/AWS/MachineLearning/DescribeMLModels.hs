@@ -155,7 +155,7 @@ dmlmNextToken = lens _dmlmNextToken (\ s a -> s{_dmlmNextToken = a});
 dmlmSortOrder :: Lens' DescribeMLModels (Maybe SortOrder)
 dmlmSortOrder = lens _dmlmSortOrder (\ s a -> s{_dmlmSortOrder = a});
 
--- | The number of pages of information to include in the result. The range of acceptable values is 1 through 100. The default value is 100.
+-- | The number of pages of information to include in the result. The range of acceptable values is '1' through '100'. The default value is '100'.
 dmlmLimit :: Lens' DescribeMLModels (Maybe Natural)
 dmlmLimit = lens _dmlmLimit (\ s a -> s{_dmlmLimit = a}) . mapping _Nat;
 
@@ -230,7 +230,7 @@ instance ToPath DescribeMLModels where
 instance ToQuery DescribeMLModels where
         toQuery = const mempty
 
--- | Represents the output of a < DescribeMLModels> operation. The content is essentially a list of 'MLModel'.
+-- | Represents the output of a 'DescribeMLModels' operation. The content is essentially a list of 'MLModel'.
 --
 -- /See:/ 'describeMLModelsResponse' smart constructor.
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
@@ -258,7 +258,7 @@ describeMLModelsResponse pResponseStatus_ =
     , _dmlmsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of < MLModel> that meet the search criteria.
+-- | A list of 'MLModel' that meet the search criteria.
 dmlmsrsResults :: Lens' DescribeMLModelsResponse [MLModel]
 dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Default . _Coerce;
 

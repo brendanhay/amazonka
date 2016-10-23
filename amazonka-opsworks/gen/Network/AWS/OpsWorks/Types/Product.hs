@@ -140,7 +140,7 @@ appSSLConfiguration = lens _appSSLConfiguration (\ s a -> s{_appSSLConfiguration
 
 -- | An array of 'EnvironmentVariable' objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables\' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an \"Environment: is too large (maximum is 10KB)\" message.
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an \"Environment: is too large (maximum is 10KB)\" message.
 appEnvironment :: Lens' App [EnvironmentVariable]
 appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default . _Coerce;
 
@@ -503,9 +503,13 @@ cInstanceId = lens _cInstanceId (\ s a -> s{_cInstanceId = a});
 -- | The command status:
 --
 -- -   failed
+--
 -- -   successful
+--
 -- -   skipped
+--
 -- -   pending
+--
 cStatus :: Lens' Command (Maybe Text)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
@@ -528,15 +532,25 @@ cExitCode = lens _cExitCode (\ s a -> s{_cExitCode = a});
 -- | The command type:
 --
 -- -   'deploy'
+--
 -- -   'rollback'
+--
 -- -   'start'
+--
 -- -   'stop'
+--
 -- -   'restart'
+--
 -- -   'undeploy'
+--
 -- -   'update_dependencies'
+--
 -- -   'install_dependencies'
+--
 -- -   'update_custom_cookbooks'
+--
 -- -   'execute_recipes'
+--
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\ s a -> s{_cType = a});
 
@@ -696,8 +710,11 @@ dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 -- | The deployment status:
 --
 -- -   running
+--
 -- -   successful
+--
 -- -   failed
+--
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
@@ -797,6 +814,7 @@ deploymentCommand pName_ =
 -- The 'update_dependencies' command takes two arguments:
 --
 -- -   'upgrade_os_to' - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set the 'allow_reboot' argument to true.
+--
 -- -   'allow_reboot' - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either 'true' or 'false'. The default value is 'false'.
 --
 -- For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.
@@ -810,8 +828,11 @@ dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 -- For stacks, the following commands are available:
 --
 -- -   'execute_recipes': Execute one or more recipes. To specify the recipes, set an 'Args' parameter named 'recipes' to the list of recipes to be executed. For example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.
+--
 -- -   'install_dependencies': Install the stack\'s dependencies.
+--
 -- -   'update_custom_cookbooks': Update the stack\'s custom cookbooks.
+--
 -- -   'update_dependencies': Update the stack\'s dependencies.
 --
 -- The update_dependencies and install_dependencies commands are supported only for Linux instances. You can run the commands successfully on Windows instances, but they do nothing.
@@ -819,11 +840,17 @@ dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 -- For apps, the following commands are available:
 --
 -- -   'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.
+--
 -- -   'rollback' Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.
+--
 -- -   'start': Start the app\'s web or application server.
+--
 -- -   'stop': Stop the app\'s web or application server.
+--
 -- -   'restart': Restart the app\'s web or application server.
+--
 -- -   'undeploy': Undeploy the app.
+--
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -1408,19 +1435,35 @@ iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 -- | The instance status:
 --
 -- -   'booting'
+--
 -- -   'connection_lost'
+--
 -- -   'online'
+--
 -- -   'pending'
+--
 -- -   'rebooting'
+--
 -- -   'requested'
+--
 -- -   'running_setup'
+--
 -- -   'setup_failed'
+--
 -- -   'shutting_down'
+--
 -- -   'start_failed'
+--
+-- -   'stop_failed'
+--
 -- -   'stopped'
+--
 -- -   'stopping'
+--
 -- -   'terminated'
+--
 -- -   'terminating'
+--
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
@@ -2226,9 +2269,13 @@ pStackId = lens _pStackId (\ s a -> s{_pStackId = a});
 -- | The user\'s permission level, which must be the following:
 --
 -- -   'deny'
+--
 -- -   'show'
+--
 -- -   'deploy'
+--
 -- -   'manage'
+--
 -- -   'iam_only'
 --
 -- For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
@@ -2928,7 +2975,9 @@ sURL = lens _sURL (\ s a -> s{_sURL = a});
 -- | This parameter depends on the repository type.
 --
 -- -   For Amazon S3 bundles, set 'Username' to the appropriate IAM access key ID.
+--
 -- -   For HTTP bundles, Git repositories, and Subversion repositories, set 'Username' to the user name.
+--
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\ s a -> s{_sUsername = a});
 
@@ -2941,9 +2990,10 @@ sSSHKey = lens _sSSHKey (\ s a -> s{_sSSHKey = a});
 -- | When included in a request, the parameter depends on the repository type.
 --
 -- -   For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access key.
+--
 -- -   For HTTP bundles and Subversion repositories, set 'Password' to the password.
 --
--- For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html >.
+-- For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html>.
 --
 -- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
 sPassword :: Lens' Source (Maybe Text)
@@ -3162,7 +3212,7 @@ sUseCustomCookbooks = lens _sUseCustomCookbooks (\ s a -> s{_sUseCustomCookbooks
 sDefaultSubnetId :: Lens' Stack (Maybe Text)
 sDefaultSubnetId = lens _sDefaultSubnetId (\ s a -> s{_sDefaultSubnetId = a});
 
--- | The stack AWS region, such as \"us-east-1\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 sRegion :: Lens' Stack (Maybe Text)
 sRegion = lens _sRegion (\ s a -> s{_sRegion = a});
 
@@ -3705,8 +3755,11 @@ vcRAIdLevel = lens _vcRAIdLevel (\ s a -> s{_vcRAIdLevel = a});
 -- | The volume type:
 --
 -- -   'standard' - Magnetic
+--
 -- -   'io1' - Provisioned IOPS (SSD)
+--
 -- -   'gp2' - General Purpose (SSD)
+--
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\ s a -> s{_vcVolumeType = a});
 
@@ -3751,6 +3804,7 @@ instance ToJSON VolumeConfiguration where
 -- | Describes a time-based instance\'s auto scaling schedule. The schedule consists of a set of key-value pairs.
 --
 -- -   The key is the time period (a UTC hour) and must be an integer from 0 - 23.
+--
 -- -   The value indicates whether the instance should be online or offline for the specified period, and must be set to \"on\" or \"off\"
 --
 -- The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don\'t have to explicitly specify offline periods unless you want to change an online period to an offline period.

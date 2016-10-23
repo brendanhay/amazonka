@@ -112,7 +112,7 @@ instance ToQuery ConfirmProductInstance where
           = mconcat
               ["Action" =:
                  ("ConfirmProductInstance" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _cpiDryRun,
                "ProductCode" =: _cpiProductCode,
                "InstanceId" =: _cpiInstanceId]

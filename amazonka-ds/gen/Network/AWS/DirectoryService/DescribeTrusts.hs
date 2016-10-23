@@ -136,7 +136,9 @@ instance ToPath DescribeTrusts where
 instance ToQuery DescribeTrusts where
         toQuery = const mempty
 
--- | /See:/ 'describeTrustsResponse' smart constructor.
+-- | The result of a DescribeTrust request.
+--
+-- /See:/ 'describeTrustsResponse' smart constructor.
 data DescribeTrustsResponse = DescribeTrustsResponse'
     { _dtrsNextToken      :: !(Maybe Text)
     , _dtrsTrusts         :: !(Maybe [Trust])

@@ -47,7 +47,9 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < DeleteChapCredentialsInput>InitiatorName>
+--
 -- -   < DeleteChapCredentialsInput>TargetARN>
+--
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'

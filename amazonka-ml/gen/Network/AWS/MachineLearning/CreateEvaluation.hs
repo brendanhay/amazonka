@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new 'Evaluation' of an 'MLModel'. An 'MLModel' is evaluated on a set of observations associated to a 'DataSource'. Like a 'DataSource' for an 'MLModel', the 'DataSource' for an 'Evaluation' contains values for the Target Variable. The 'Evaluation' compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the 'MLModel' functions on the test data. Evaluation generates a relevant performance metric such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding 'MLModelType': 'BINARY', 'REGRESSION' or 'MULTICLASS'.
+-- Creates a new 'Evaluation' of an 'MLModel'. An 'MLModel' is evaluated on a set of observations associated to a 'DataSource'. Like a 'DataSource' for an 'MLModel', the 'DataSource' for an 'Evaluation' contains values for the 'Target Variable'. The 'Evaluation' compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the 'MLModel' functions on the test data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding 'MLModelType': 'BINARY', 'REGRESSION' or 'MULTICLASS'.
 --
 -- 'CreateEvaluation' is an asynchronous operation. In response to 'CreateEvaluation', Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation status to 'PENDING'. After the 'Evaluation' is created and ready for use, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can use the < GetEvaluation> operation to check progress of the evaluation during the creation operation.
+-- You can use the 'GetEvaluation' operation to check progress of the evaluation during the creation operation.
 module Network.AWS.MachineLearning.CreateEvaluation
     (
     -- * Creating a Request
@@ -138,9 +138,9 @@ instance ToPath CreateEvaluation where
 instance ToQuery CreateEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a < CreateEvaluation> operation, and is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a 'CreateEvaluation' operation, and is an acknowledgement that Amazon ML received the request.
 --
--- < CreateEvaluation> operation is asynchronous. You can poll for status updates by using the < GetEvaluation> operation and checking the 'Status' parameter.
+-- 'CreateEvaluation' operation is asynchronous. You can poll for status updates by using the 'GetEvcaluation' operation and checking the 'Status' parameter.
 --
 -- /See:/ 'createEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'

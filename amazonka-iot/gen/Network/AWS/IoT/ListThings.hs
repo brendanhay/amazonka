@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your things. You can pass an AttributeName or AttributeValue to filter your things (for example, \"ListThings where AttributeName=Color and AttributeValue=Red\").
+-- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling 'ListThings' with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__.
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request
@@ -26,6 +26,7 @@ module Network.AWS.IoT.ListThings
     , ListThings
     -- * Request Lenses
     , ltAttributeValue
+    , ltThingTypeName
     , ltNextToken
     , ltAttributeName
     , ltMaxResults
@@ -51,6 +52,7 @@ import           Network.AWS.Response
 -- /See:/ 'listThings' smart constructor.
 data ListThings = ListThings'
     { _ltAttributeValue :: !(Maybe Text)
+    , _ltThingTypeName  :: !(Maybe Text)
     , _ltNextToken      :: !(Maybe Text)
     , _ltAttributeName  :: !(Maybe Text)
     , _ltMaxResults     :: !(Maybe Nat)
@@ -62,6 +64,8 @@ data ListThings = ListThings'
 --
 -- * 'ltAttributeValue'
 --
+-- * 'ltThingTypeName'
+--
 -- * 'ltNextToken'
 --
 -- * 'ltAttributeName'
@@ -72,24 +76,29 @@ listThings
 listThings =
     ListThings'
     { _ltAttributeValue = Nothing
+    , _ltThingTypeName = Nothing
     , _ltNextToken = Nothing
     , _ltAttributeName = Nothing
     , _ltMaxResults = Nothing
     }
 
--- | The attribute value.
+-- | The attribute value used to search for things.
 ltAttributeValue :: Lens' ListThings (Maybe Text)
 ltAttributeValue = lens _ltAttributeValue (\ s a -> s{_ltAttributeValue = a});
 
--- | The token for the next value.
+-- | The name of the thing type used to search for things.
+ltThingTypeName :: Lens' ListThings (Maybe Text)
+ltThingTypeName = lens _ltThingTypeName (\ s a -> s{_ltThingTypeName = a});
+
+-- | The token for the next set of results, or __null__ if there are no additional results.
 ltNextToken :: Lens' ListThings (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | The attribute name.
+-- | The attribute name used to search for things.
 ltAttributeName :: Lens' ListThings (Maybe Text)
 ltAttributeName = lens _ltAttributeName (\ s a -> s{_ltAttributeName = a});
 
--- | The maximum number of results.
+-- | The maximum number of results to return in this operation.
 ltMaxResults :: Lens' ListThings (Maybe Natural)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat;
 
@@ -117,6 +126,7 @@ instance ToQuery ListThings where
         toQuery ListThings'{..}
           = mconcat
               ["attributeValue" =: _ltAttributeValue,
+               "thingTypeName" =: _ltThingTypeName,
                "nextToken" =: _ltNextToken,
                "attributeName" =: _ltAttributeName,
                "maxResults" =: _ltMaxResults]
@@ -149,7 +159,7 @@ listThingsResponse pResponseStatus_ =
     , _ltrsResponseStatus = pResponseStatus_
     }
 
--- | A token used to retrieve the next value.
+-- | The token for the next set of results, or __null__ if there are no additional results.
 ltrsNextToken :: Lens' ListThingsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 

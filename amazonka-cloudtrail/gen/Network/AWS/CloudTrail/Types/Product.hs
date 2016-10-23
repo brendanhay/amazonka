@@ -349,6 +349,7 @@ data Trail = Trail'
     { _tLogFileValidationEnabled   :: !(Maybe Bool)
     , _tTrailARN                   :: !(Maybe Text)
     , _tS3KeyPrefix                :: !(Maybe Text)
+    , _tSNSTopicARN                :: !(Maybe Text)
     , _tSNSTopicName               :: !(Maybe Text)
     , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _tKMSKeyId                   :: !(Maybe Text)
@@ -369,6 +370,8 @@ data Trail = Trail'
 -- * 'tTrailARN'
 --
 -- * 'tS3KeyPrefix'
+--
+-- * 'tSNSTopicARN'
 --
 -- * 'tSNSTopicName'
 --
@@ -394,6 +397,7 @@ trail =
     { _tLogFileValidationEnabled = Nothing
     , _tTrailARN = Nothing
     , _tS3KeyPrefix = Nothing
+    , _tSNSTopicARN = Nothing
     , _tSNSTopicName = Nothing
     , _tCloudWatchLogsLogGroupARN = Nothing
     , _tKMSKeyId = Nothing
@@ -409,7 +413,9 @@ trail =
 tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
 tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\ s a -> s{_tLogFileValidationEnabled = a});
 
--- | The Amazon Resource Name of the trail. The 'TrailARN' format is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies the ARN of the trail. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 tTrailARN :: Lens' Trail (Maybe Text)
 tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a});
 
@@ -417,7 +423,13 @@ tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a});
 tS3KeyPrefix :: Lens' Trail (Maybe Text)
 tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a});
 
--- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the account owner when new CloudTrail log files have been delivered. The maximum length is 256 characters.
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
+--
+-- 'arn:aws:sns:us-east-1:123456789012:MyTopic'
+tSNSTopicARN :: Lens' Trail (Maybe Text)
+tSNSTopicARN = lens _tSNSTopicARN (\ s a -> s{_tSNSTopicARN = a});
+
+-- | This field is deprecated. Use SnsTopicARN.
 tSNSTopicName :: Lens' Trail (Maybe Text)
 tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
 
@@ -463,6 +475,7 @@ instance FromJSON Trail where
                    (x .:? "LogFileValidationEnabled") <*>
                      (x .:? "TrailARN")
                      <*> (x .:? "S3KeyPrefix")
+                     <*> (x .:? "SnsTopicARN")
                      <*> (x .:? "SnsTopicName")
                      <*> (x .:? "CloudWatchLogsLogGroupArn")
                      <*> (x .:? "KmsKeyId")

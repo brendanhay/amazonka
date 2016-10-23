@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.
+-- Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.
 --
 -- This action is throttled at one request per second.
 --
@@ -50,7 +50,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'listIdentities' smart constructor.
+-- | Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.
+--
+-- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
     , _liNextToken    :: !(Maybe Text)
@@ -124,7 +126,9 @@ instance ToQuery ListIdentities where
                "NextToken" =: _liNextToken,
                "MaxItems" =: _liMaxItems]
 
--- | /See:/ 'listIdentitiesResponse' smart constructor.
+-- | A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.
+--
+-- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsNextToken      :: !(Maybe Text)
     , _lirsResponseStatus :: !Int

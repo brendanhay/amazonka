@@ -88,7 +88,9 @@ instance ToQuery DescribeAutoScalingNotificationTypes
                        ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
+-- | Contains the output of DescribeAutoScalingNotificationTypes.
+--
+-- /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
     , _dasntrsResponseStatus               :: !Int
@@ -110,18 +112,7 @@ describeAutoScalingNotificationTypesResponse pResponseStatus_ =
     , _dasntrsResponseStatus = pResponseStatus_
     }
 
--- | One or more of the following notification types:
---
--- -   'autoscaling:EC2_INSTANCE_LAUNCH'
---
--- -   'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'
---
--- -   'autoscaling:EC2_INSTANCE_TERMINATE'
---
--- -   'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'
---
--- -   'autoscaling:TEST_NOTIFICATION'
---
+-- | The notification types.
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 

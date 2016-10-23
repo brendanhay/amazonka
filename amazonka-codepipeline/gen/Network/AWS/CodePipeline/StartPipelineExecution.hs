@@ -125,7 +125,7 @@ startPipelineExecutionResponse pResponseStatus_ =
     , _spersResponseStatus = pResponseStatus_
     }
 
--- | The unique system-generated ID of the pipeline that was started.
+-- | The unique system-generated ID of the pipeline execution that was started.
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 

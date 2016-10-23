@@ -164,7 +164,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
           = mconcat
               ["Action" =:
                  ("AuthorizeSecurityGroupEgress" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "FromPort" =: _asgeFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _asgeIPPermissions),

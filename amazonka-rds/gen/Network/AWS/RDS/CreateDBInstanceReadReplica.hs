@@ -140,6 +140,7 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
 -- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__true
+--
 -- -   __VPC:__false
 --
 -- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
@@ -157,9 +158,13 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 -- Constraints:
 --
 -- -   Can only be specified if the source DB instance identifier specifies a DB instance in another region.
+--
 -- -   The specified DB subnet group must be in the same region in which the operation is running.
--- -   All Read Replicas in one region that are created from the same source DB instance must either:
+--
+-- -   All Read Replicas in one region that are created from the same source DB instance must either:>
+--
 --     -   Specify DB subnet groups from the same VPC. All these Read Replicas will be created in the same VPC.
+--
 --     -   Not specify a DB subnet group. All these Read Replicas will be created outside of any VPC.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
@@ -178,7 +183,7 @@ cdirrMonitoringRoleARN = lens _cdirrMonitoringRoleARN (\ s a -> s{_cdirrMonitori
 cdirrIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 
--- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 60.
+-- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
 --
 -- If 'MonitoringRoleArn' is specified, then you must also set 'MonitoringInterval' to a value other than 0.
 --
@@ -241,11 +246,17 @@ cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDB
 -- Constraints:
 --
 -- -   Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.
+--
 -- -   Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.
+--
 -- -   Can specify a DB instance that is a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5.
+--
 -- -   The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.
+--
 -- -   If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.
--- -   If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
+--
+-- -   If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)>.
+--
 cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 

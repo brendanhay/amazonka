@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the password policy for the AWS account.
+-- Deletes the password policy for the AWS account. There are no parameters.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Creating a Request

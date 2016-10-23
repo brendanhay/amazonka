@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you will not be able to access any contents of the deleted file system.
+-- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can\'t access any contents of the deleted file system.
 --
--- You cannot delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see < DescribeMountTargets> and < DeleteMountTarget>.
+-- You can\'t delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
--- The 'DeleteFileSystem' call returns while the file system state is still \"deleting\". You can check the file system deletion status by calling the < DescribeFileSystems> API, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the < DescribeFileSystems> will return a 404 \"FileSystemNotFound\" error.
+-- The 'DeleteFileSystem' call returns while the file system state is still 'deleting'. You can check the file system deletion status by calling the < DescribeFileSystems> operation, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the < DescribeFileSystems> returns a '404 FileSystemNotFound' error.
 --
--- This operation requires permission for the 'elasticfilesystem:DeleteFileSystem' action.
+-- This operation requires permissions for the 'elasticfilesystem:DeleteFileSystem' action.
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteFileSystem' smart constructor.
+-- |
+--
+-- /See:/ 'deleteFileSystem' smart constructor.
 newtype DeleteFileSystem = DeleteFileSystem'
     { _delFileSystemId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -63,7 +65,7 @@ deleteFileSystem pFileSystemId_ =
     { _delFileSystemId = pFileSystemId_
     }
 
--- | The ID of the file system you want to delete.
+-- | ID of the file system you want to delete.
 delFileSystemId :: Lens' DeleteFileSystem Text
 delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
 

@@ -95,7 +95,7 @@ instance ToQuery EnableVGWRoutePropagation where
           = mconcat
               ["Action" =:
                  ("EnableVgwRoutePropagation" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "RouteTableId" =: _evrpRouteTableId,
                "GatewayId" =: _evrpGatewayId]
 

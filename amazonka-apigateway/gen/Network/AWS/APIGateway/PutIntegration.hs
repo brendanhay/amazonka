@@ -28,6 +28,7 @@ module Network.AWS.APIGateway.PutIntegration
     , pRequestTemplates
     , pCredentials
     , pRequestParameters
+    , pPassthroughBehavior
     , pUri
     , pCacheNamespace
     , pIntegrationHTTPMethod
@@ -45,6 +46,7 @@ module Network.AWS.APIGateway.PutIntegration
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
@@ -66,6 +68,7 @@ data PutIntegration = PutIntegration'
     { _pRequestTemplates      :: !(Maybe (Map Text Text))
     , _pCredentials           :: !(Maybe Text)
     , _pRequestParameters     :: !(Maybe (Map Text Text))
+    , _pPassthroughBehavior   :: !(Maybe Text)
     , _pUri                   :: !(Maybe Text)
     , _pCacheNamespace        :: !(Maybe Text)
     , _pIntegrationHTTPMethod :: !(Maybe Text)
@@ -85,6 +88,8 @@ data PutIntegration = PutIntegration'
 -- * 'pCredentials'
 --
 -- * 'pRequestParameters'
+--
+-- * 'pPassthroughBehavior'
 --
 -- * 'pUri'
 --
@@ -112,6 +117,7 @@ putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     { _pRequestTemplates = Nothing
     , _pCredentials = Nothing
     , _pRequestParameters = Nothing
+    , _pPassthroughBehavior = Nothing
     , _pUri = Nothing
     , _pCacheNamespace = Nothing
     , _pIntegrationHTTPMethod = Nothing
@@ -122,7 +128,7 @@ putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     , _pType = pType_
     }
 
--- | Specifies the templates used to transform the method request body. Request templates are represented as a key\/value map, with a content-type as the key and a template as the value.
+-- | Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 pRequestTemplates :: Lens' PutIntegration (HashMap Text Text)
 pRequestTemplates = lens _pRequestTemplates (\ s a -> s{_pRequestTemplates = a}) . _Default . _Map;
 
@@ -130,9 +136,20 @@ pRequestTemplates = lens _pRequestTemplates (\ s a -> s{_pRequestTemplates = a})
 pCredentials :: Lens' PutIntegration (Maybe Text)
 pCredentials = lens _pCredentials (\ s a -> s{_pCredentials = a});
 
--- | Represents request parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
+-- | A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' must be a valid and unique method request parameter name.
 pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
+
+-- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the 'requestTemplates' property on the Integration resource. There are three valid values: 'WHEN_NO_MATCH', 'WHEN_NO_TEMPLATES', and 'NEVER'.
+--
+-- -   'WHEN_NO_MATCH' passes the request body for unmapped content types through to the integration back end without transformation.
+--
+-- -   'NEVER' rejects unmapped content types with an HTTP 415 \'Unsupported Media Type\' response.
+--
+-- -   'WHEN_NO_TEMPLATES' allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
+--
+pPassthroughBehavior :: Lens' PutIntegration (Maybe Text)
+pPassthroughBehavior = lens _pPassthroughBehavior (\ s a -> s{_pPassthroughBehavior = a});
 
 -- | Specifies a put integration input\'s Uniform Resource Identifier (URI). When the integration type is HTTP or AWS, this field is required. For integration with Lambda as an AWS service proxy, this value is of the \'arn:aws:apigateway:\<region>:lambda:path\/2015-03-31\/functions\/\<functionArn>\/invocations\' format.
 pUri :: Lens' PutIntegration (Maybe Text)
@@ -188,6 +205,7 @@ instance ToJSON PutIntegration where
                  [("requestTemplates" .=) <$> _pRequestTemplates,
                   ("credentials" .=) <$> _pCredentials,
                   ("requestParameters" .=) <$> _pRequestParameters,
+                  ("passthroughBehavior" .=) <$> _pPassthroughBehavior,
                   ("uri" .=) <$> _pUri,
                   ("cacheNamespace" .=) <$> _pCacheNamespace,
                   ("httpMethod" .=) <$> _pIntegrationHTTPMethod,

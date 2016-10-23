@@ -111,7 +111,7 @@ cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . 
 cveVPCId :: Lens' CreateVPCEndpoint Text
 cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
--- | The AWS service name, in the form 'com.amazonaws.region.service'. To get a list of available services, use the < DescribeVpcEndpointServices> request.
+-- | The AWS service name, in the form 'com.amazonaws.region.service '. To get a list of available services, use the < DescribeVpcEndpointServices> request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
 
@@ -139,7 +139,7 @@ instance ToQuery CreateVPCEndpoint where
         toQuery CreateVPCEndpoint'{..}
           = mconcat
               ["Action" =: ("CreateVpcEndpoint" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "PolicyDocument" =: _cvePolicyDocument,
                "ClientToken" =: _cveClientToken,
                "DryRun" =: _cveDryRun,

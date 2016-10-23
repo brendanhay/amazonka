@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAlarms' smart constructor.
+-- | Describes the inputs for DescribeAlarms.
+--
+-- /See:/ 'describeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
     { _daAlarmNamePrefix :: !(Maybe Text)
     , _daActionPrefix    :: !(Maybe Text)
@@ -154,7 +156,7 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for the < DescribeAlarms> action.
+-- | The output for < DescribeAlarms>.
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'

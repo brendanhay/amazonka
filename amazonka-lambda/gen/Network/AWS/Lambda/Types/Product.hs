@@ -217,7 +217,7 @@ fcS3ObjectVersion = lens _fcS3ObjectVersion (\ s a -> s{_fcS3ObjectVersion = a})
 fcS3Key :: Lens' FunctionCode (Maybe Text)
 fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
--- | A zip file containing your deployment package. If you are using the API directly, the zip file must be base64-encoded (if you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you). For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
+-- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -358,6 +358,8 @@ fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\ s a -> s{_fcMemorySize = a}) . mapping _Nat;
 
 -- | The runtime environment for the Lambda function.
+--
+-- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
 fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
 fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified user, including the user\'s creation date, path, unique ID, and ARN.
+-- Retrieves information about the specified IAM user, including the user\'s creation date, path, unique ID, and ARN.
 --
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request.
+-- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request to this API.
 module Network.AWS.IAM.GetUser
     (
     -- * Creating a Request
@@ -63,7 +63,7 @@ getUser =
 
 -- | The name of the user to get information about.
 --
--- This parameter is optional. If it is not included, it defaults to the user making the request.
+-- This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
@@ -122,7 +122,7 @@ getUserResponse pResponseStatus_ pUser_ =
 gursResponseStatus :: Lens' GetUserResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 
--- | Information about the user.
+-- | A structure containing details about the IAM user.
 gursUser :: Lens' GetUserResponse User
 gursUser = lens _gursUser (\ s a -> s{_gursUser = a});
 

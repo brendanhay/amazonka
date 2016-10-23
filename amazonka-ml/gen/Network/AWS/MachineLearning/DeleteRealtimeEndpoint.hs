@@ -102,7 +102,7 @@ instance ToPath DeleteRealtimeEndpoint where
 instance ToQuery DeleteRealtimeEndpoint where
         toQuery = const mempty
 
--- | Represents the output of an < DeleteRealtimeEndpoint> operation.
+-- | Represents the output of an 'DeleteRealtimeEndpoint' operation.
 --
 -- The result contains the 'MLModelId' and the endpoint information for the 'MLModel'.
 --

@@ -18,8 +18,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags for the specified trail or trails in the current region.
---
 -- Lists the tags for the trail in the current region.
 module Network.AWS.CloudTrail.ListTags
     (
@@ -73,7 +71,9 @@ listTags =
 ltNextToken :: Lens' ListTags (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 ltResourceIdList :: Lens' ListTags [Text]
 ltResourceIdList = lens _ltResourceIdList (\ s a -> s{_ltResourceIdList = a}) . _Coerce;
 

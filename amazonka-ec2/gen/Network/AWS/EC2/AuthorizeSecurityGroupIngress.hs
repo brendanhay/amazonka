@@ -121,7 +121,7 @@ asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
 asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). (VPC only) Use '-1' to specify all.
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). (VPC only) Use '-1' to specify all traffic. If you specify '-1', traffic on all ports is allowed, regardless of any ports you specify.
 asgiIPProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIPProtocol = lens _asgiIPProtocol (\ s a -> s{_asgiIPProtocol = a});
 
@@ -177,7 +177,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
           = mconcat
               ["Action" =:
                  ("AuthorizeSecurityGroupIngress" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "FromPort" =: _asgiFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _asgiIPPermissions),

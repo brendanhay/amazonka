@@ -32,6 +32,7 @@ module Network.AWS.RDS.FailoverDBCluster
     , FailoverDBCluster
     -- * Request Lenses
     , fdcDBClusterIdentifier
+    , fdcTargetDBInstanceIdentifier
 
     -- * Destructuring the Response
     , failoverDBClusterResponse
@@ -51,8 +52,9 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'failoverDBCluster' smart constructor.
-newtype FailoverDBCluster = FailoverDBCluster'
-    { _fdcDBClusterIdentifier :: Maybe Text
+data FailoverDBCluster = FailoverDBCluster'
+    { _fdcDBClusterIdentifier        :: !(Maybe Text)
+    , _fdcTargetDBInstanceIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FailoverDBCluster' with the minimum fields required to make a request.
@@ -60,11 +62,14 @@ newtype FailoverDBCluster = FailoverDBCluster'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'fdcDBClusterIdentifier'
+--
+-- * 'fdcTargetDBInstanceIdentifier'
 failoverDBCluster
     :: FailoverDBCluster
 failoverDBCluster =
     FailoverDBCluster'
     { _fdcDBClusterIdentifier = Nothing
+    , _fdcTargetDBInstanceIdentifier = Nothing
     }
 
 -- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
@@ -72,10 +77,19 @@ failoverDBCluster =
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 fdcDBClusterIdentifier :: Lens' FailoverDBCluster (Maybe Text)
 fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a});
+
+-- | The name of the instance to promote to the primary instance.
+--
+-- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, 'mydbcluster-replica1'.
+fdcTargetDBInstanceIdentifier :: Lens' FailoverDBCluster (Maybe Text)
+fdcTargetDBInstanceIdentifier = lens _fdcTargetDBInstanceIdentifier (\ s a -> s{_fdcTargetDBInstanceIdentifier = a});
 
 instance AWSRequest FailoverDBCluster where
         type Rs FailoverDBCluster = FailoverDBClusterResponse
@@ -101,7 +115,9 @@ instance ToQuery FailoverDBCluster where
           = mconcat
               ["Action" =: ("FailoverDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBClusterIdentifier" =: _fdcDBClusterIdentifier]
+               "DBClusterIdentifier" =: _fdcDBClusterIdentifier,
+               "TargetDBInstanceIdentifier" =:
+                 _fdcTargetDBInstanceIdentifier]
 
 -- | /See:/ 'failoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'

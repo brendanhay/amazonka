@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the replication instance types that can be created in the specified region.
---
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
     (
     -- * Creating a Request
@@ -45,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeOrderableReplicationInstances' smart constructor.
+-- |
+--
+-- /See:/ 'describeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
     { _doriMarker     :: !(Maybe Text)
     , _doriMaxRecords :: !(Maybe Int)
@@ -123,7 +124,9 @@ instance ToQuery
          DescribeOrderableReplicationInstances where
         toQuery = const mempty
 
--- | /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
     { _dorirsMarker                        :: !(Maybe Text)
     , _dorirsOrderableReplicationInstances :: !(Maybe [OrderableReplicationInstance])

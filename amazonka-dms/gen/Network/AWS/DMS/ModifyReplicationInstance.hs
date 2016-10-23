@@ -32,6 +32,8 @@ module Network.AWS.DMS.ModifyReplicationInstance
     , mriAutoMinorVersionUpgrade
     , mriAllowMajorVersionUpgrade
     , mriPreferredMaintenanceWindow
+    , mriVPCSecurityGroupIds
+    , mriMultiAZ
     , mriAllocatedStorage
     , mriApplyImmediately
     , mriReplicationInstanceClass
@@ -53,12 +55,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyReplicationInstance' smart constructor.
+-- |
+--
+-- /See:/ 'modifyReplicationInstance' smart constructor.
 data ModifyReplicationInstance = ModifyReplicationInstance'
     { _mriEngineVersion                 :: !(Maybe Text)
     , _mriAutoMinorVersionUpgrade       :: !(Maybe Bool)
     , _mriAllowMajorVersionUpgrade      :: !(Maybe Bool)
     , _mriPreferredMaintenanceWindow    :: !(Maybe Text)
+    , _mriVPCSecurityGroupIds           :: !(Maybe [Text])
+    , _mriMultiAZ                       :: !(Maybe Bool)
     , _mriAllocatedStorage              :: !(Maybe Int)
     , _mriApplyImmediately              :: !(Maybe Bool)
     , _mriReplicationInstanceClass      :: !(Maybe Text)
@@ -78,6 +84,10 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --
 -- * 'mriPreferredMaintenanceWindow'
 --
+-- * 'mriVPCSecurityGroupIds'
+--
+-- * 'mriMultiAZ'
+--
 -- * 'mriAllocatedStorage'
 --
 -- * 'mriApplyImmediately'
@@ -96,6 +106,8 @@ modifyReplicationInstance pReplicationInstanceARN_ =
     , _mriAutoMinorVersionUpgrade = Nothing
     , _mriAllowMajorVersionUpgrade = Nothing
     , _mriPreferredMaintenanceWindow = Nothing
+    , _mriVPCSecurityGroupIds = Nothing
+    , _mriMultiAZ = Nothing
     , _mriAllocatedStorage = Nothing
     , _mriApplyImmediately = Nothing
     , _mriReplicationInstanceClass = Nothing
@@ -128,6 +140,14 @@ mriAllowMajorVersionUpgrade = lens _mriAllowMajorVersionUpgrade (\ s a -> s{_mri
 -- Constraints: Must be at least 30 minutes
 mriPreferredMaintenanceWindow :: Lens' ModifyReplicationInstance (Maybe Text)
 mriPreferredMaintenanceWindow = lens _mriPreferredMaintenanceWindow (\ s a -> s{_mriPreferredMaintenanceWindow = a});
+
+-- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
+mriVPCSecurityGroupIds :: Lens' ModifyReplicationInstance [Text]
+mriVPCSecurityGroupIds = lens _mriVPCSecurityGroupIds (\ s a -> s{_mriVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+mriMultiAZ :: Lens' ModifyReplicationInstance (Maybe Bool)
+mriMultiAZ = lens _mriMultiAZ (\ s a -> s{_mriMultiAZ = a});
 
 -- | The amount of storage (in gigabytes) to be allocated for the replication instance.
 mriAllocatedStorage :: Lens' ModifyReplicationInstance (Maybe Int)
@@ -187,6 +207,9 @@ instance ToJSON ModifyReplicationInstance where
                     _mriAllowMajorVersionUpgrade,
                   ("PreferredMaintenanceWindow" .=) <$>
                     _mriPreferredMaintenanceWindow,
+                  ("VpcSecurityGroupIds" .=) <$>
+                    _mriVPCSecurityGroupIds,
+                  ("MultiAZ" .=) <$> _mriMultiAZ,
                   ("AllocatedStorage" .=) <$> _mriAllocatedStorage,
                   ("ApplyImmediately" .=) <$> _mriApplyImmediately,
                   ("ReplicationInstanceClass" .=) <$>
@@ -203,7 +226,9 @@ instance ToPath ModifyReplicationInstance where
 instance ToQuery ModifyReplicationInstance where
         toQuery = const mempty
 
--- | /See:/ 'modifyReplicationInstanceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'modifyReplicationInstanceResponse' smart constructor.
 data ModifyReplicationInstanceResponse = ModifyReplicationInstanceResponse'
     { _mrirsReplicationInstance :: !(Maybe ReplicationInstance)
     , _mrirsResponseStatus      :: !Int

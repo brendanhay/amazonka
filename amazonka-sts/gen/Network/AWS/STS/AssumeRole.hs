@@ -20,7 +20,7 @@
 --
 -- Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) that you can use to access AWS resources that you might not normally have access to. Typically, you use 'AssumeRole' for cross-account access or federation. For a comparison of 'AssumeRole' with the other APIs that produce temporary credentials, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs> in the /IAM User Guide/.
 --
--- __Important:__ You cannot call 'AssumeRole' by using AWS root account credentials; access is denied. You must use IAM user credentials or temporary security credentials to call 'AssumeRole'.
+-- __Important:__ You cannot call 'AssumeRole' by using AWS root account credentials; access is denied. You must use credentials for an IAM user or an IAM role to call 'AssumeRole'.
 --
 -- For cross-account access, imagine that you own multiple accounts and need to access resources in each account. You could create long-term credentials in each account to access those resources. However, managing all those credentials and remembering which one can access which account can be time consuming. Instead, you can create one set of long-term credentials in one account and then use temporary security credentials to access all the other accounts by assuming roles in those accounts. For more information about roles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html IAM Roles (Delegation and Federation)> in the /IAM User Guide/.
 --
@@ -126,6 +126,8 @@ arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\ s a -> s{_arTokenCode = a});
 
 -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.
+--
+-- This is separate from the duration of a console session that you might request using the returned credentials. The request to the federation endpoint for a console sign-in token takes a 'SessionDuration' parameter that specifies the maximum length of the console session, separately from the 'DurationSeconds' parameter on this API. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console> in the /IAM User Guide/.
 arDurationSeconds :: Lens' AssumeRole (Maybe Natural)
 arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a}) . mapping _Nat;
 
@@ -141,13 +143,13 @@ arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 
 -- | A unique identifier that is used by third parties when assuming roles in their customers\' accounts. For each role that the third party can assume, they should instruct their customers to ensure the role\'s trust policy checks for the external ID that the third party generated. Each time the third party assumes the role, they should pass the customer\'s external ID. The external ID is useful in order to help third parties bind a role to the customer who created it. For more information about the external ID, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party> in the /IAM User Guide/.
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\':\\\/-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\':\\\/-
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 
 -- | The identification number of the MFA device that is associated with the user who is making the 'AssumeRole' call. Specify this value if the trust policy of the role being assumed includes a condition that requires MFA authentication. The value is either the serial number for a hardware device (such as 'GAHT12345678') or an Amazon Resource Name (ARN) for a virtual device (such as 'arn:aws:iam::123456789012:mfa\/user').
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\'-
 arSerialNumber :: Lens' AssumeRole (Maybe Text)
 arSerialNumber = lens _arSerialNumber (\ s a -> s{_arSerialNumber = a});
 
@@ -159,7 +161,7 @@ arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
 --
 -- Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests using the temporary security credentials will expose the role session name to the external account in their CloudTrail logs.
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\'-
 arRoleSessionName :: Lens' AssumeRole Text
 arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a});
 

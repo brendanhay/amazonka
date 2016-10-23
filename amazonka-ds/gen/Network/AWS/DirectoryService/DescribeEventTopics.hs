@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeEventTopics' smart constructor.
+-- | Describes event topics.
+--
+-- /See:/ 'describeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
     { _dDirectoryId :: !(Maybe Text)
     , _dTopicNames  :: !(Maybe [Text])
@@ -114,7 +116,9 @@ instance ToPath DescribeEventTopics where
 instance ToQuery DescribeEventTopics where
         toQuery = const mempty
 
--- | /See:/ 'describeEventTopicsResponse' smart constructor.
+-- | The result of a DescribeEventTopic request.
+--
+-- /See:/ 'describeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
     { _detrsEventTopics    :: !(Maybe [EventTopic])
     , _detrsResponseStatus :: !Int

@@ -27,6 +27,8 @@
 -- Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. You can use the 'Condition' element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use < GetContextKeysForCustomPolicy>.
 --
 -- If the output is long, you can use 'MaxItems' and 'Marker' parameters to paginate the results.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.SimulateCustomPolicy
     (
     -- * Creating a Request
@@ -56,6 +58,7 @@ module Network.AWS.IAM.SimulateCustomPolicy
 import           Network.AWS.IAM.Types
 import           Network.AWS.IAM.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -114,10 +117,12 @@ simulateCustomPolicy =
     }
 
 -- | A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 scpResourcePolicy :: Lens' SimulateCustomPolicy (Maybe Text)
 scpResourcePolicy = lens _scpResourcePolicy (\ s a -> s{_scpResourcePolicy = a});
 
--- | The ARN of the user that you want to use as the simulated caller of the APIs. 'CallerArn' is required if you include a 'ResourcePolicy' so that the policy\'s 'Principal' element has a value to use in evaluating the policy.
+-- | The ARN of the IAM user that you want to use as the simulated caller of the APIs. 'CallerArn' is required if you include a 'ResourcePolicy' so that the policy\'s 'Principal' element has a value to use in evaluating the policy.
 --
 -- You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
 scpCallerARN :: Lens' SimulateCustomPolicy (Maybe Text)
@@ -159,6 +164,8 @@ scpResourceHandlingOption = lens _scpResourceHandlingOption (\ s a -> s{_scpReso
 -- The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the 'ResourcePolicy' parameter.
 --
 -- If you include a 'ResourcePolicy', then it must be applicable to all of the resources included in the simulation or you receive an invalid input error.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 scpResourceARNs :: Lens' SimulateCustomPolicy [Text]
 scpResourceARNs = lens _scpResourceARNs (\ s a -> s{_scpResourceARNs = a}) . _Default . _Coerce;
 
@@ -172,7 +179,7 @@ scpMarker = lens _scpMarker (\ s a -> s{_scpMarker = a});
 scpMaxItems :: Lens' SimulateCustomPolicy (Maybe Natural)
 scpMaxItems = lens _scpMaxItems (\ s a -> s{_scpMaxItems = a}) . mapping _Nat;
 
--- | A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated by a 'Condition' element in one of the simulated IAM permission policies, the corresponding value is supplied.
+-- | A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
 scpContextEntries :: Lens' SimulateCustomPolicy [ContextEntry]
 scpContextEntries = lens _scpContextEntries (\ s a -> s{_scpContextEntries = a}) . _Default . _Coerce;
 
@@ -181,12 +188,20 @@ scpResourceOwner :: Lens' SimulateCustomPolicy (Maybe Text)
 scpResourceOwner = lens _scpResourceOwner (\ s a -> s{_scpResourceOwner = a});
 
 -- | A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the 'ResourcePolicy' parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html GetFederationToken> or one of the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html AssumeRole> APIs to restrict what a user can do while using the temporary credentials.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 scpPolicyInputList :: Lens' SimulateCustomPolicy [Text]
 scpPolicyInputList = lens _scpPolicyInputList (\ s a -> s{_scpPolicyInputList = a}) . _Coerce;
 
 -- | A list of names of API actions to evaluate in the simulation. Each action is evaluated against each resource. Each action must include the service identifier, such as 'iam:CreateUser'.
 scpActionNames :: Lens' SimulateCustomPolicy [Text]
 scpActionNames = lens _scpActionNames (\ s a -> s{_scpActionNames = a}) . _Coerce;
+
+instance AWSPager SimulateCustomPolicy where
+        page rq rs
+          | stop (rs ^. spIsTruncated) = Nothing
+          | isNothing (rs ^. spMarker) = Nothing
+          | otherwise = Just $ rq & scpMarker .~ rs ^. spMarker
 
 instance AWSRequest SimulateCustomPolicy where
         type Rs SimulateCustomPolicy = SimulatePolicyResponse

@@ -3,6 +3,9 @@ resolver:   lts-6.1
 flags:      {}
 extra-deps:
   - unordered-containers-0.2.7.0
+  - http-conduit-2.2.0
+  - http-client-0.5.0.1
+  - http-client-tls-0.3.0
 packages:
   - core
   - test
@@ -45,6 +48,7 @@ packages:
   - amazonka-elasticsearch
   - amazonka-elastictranscoder
   - amazonka-elb
+  - amazonka-elbv2
   - amazonka-emr
   - amazonka-gamelift
   - amazonka-glacier
@@ -54,6 +58,7 @@ packages:
   - amazonka-iot
   - amazonka-iot-dataplane
   - amazonka-kinesis
+  - amazonka-kinesis-analytics
   - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
@@ -68,7 +73,9 @@ packages:
   - amazonka-s3
   - amazonka-s3-encryption
   - amazonka-sdb
+  - amazonka-servicecatalog
   - amazonka-ses
+  - amazonka-snowball
   - amazonka-sns
   - amazonka-sqs
   - amazonka-ssm

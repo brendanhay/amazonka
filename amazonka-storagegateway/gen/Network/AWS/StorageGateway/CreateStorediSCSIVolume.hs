@@ -56,10 +56,15 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < CreateStorediSCSIVolumeInput>DiskId>
+--
 -- -   < CreateStorediSCSIVolumeInput>NetworkInterfaceId>
+--
 -- -   < CreateStorediSCSIVolumeInput>PreserveExistingData>
+--
 -- -   < CreateStorediSCSIVolumeInput>SnapshotId>
+--
 -- -   < CreateStorediSCSIVolumeInput>TargetName>
+--
 --
 -- /See:/ 'createStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
@@ -117,7 +122,7 @@ csscsivDiskId = lens _csscsivDiskId (\ s a -> s{_csscsivDiskId = a});
 
 -- | Specify this field as true if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 --
--- /Valid Values/: true, false
+-- Valid Values: true, false
 csscsivPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
 csscsivPreserveExistingData = lens _csscsivPreserveExistingData (\ s a -> s{_csscsivPreserveExistingData = a});
 
@@ -127,7 +132,7 @@ csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a})
 
 -- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use < DescribeGatewayInformation> to get a list of the network interfaces available on a gateway.
 --
--- /Valid Values/: A valid IP address.
+-- Valid Values: A valid IP address.
 csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
 csscsivNetworkInterfaceId = lens _csscsivNetworkInterfaceId (\ s a -> s{_csscsivNetworkInterfaceId = a});
 

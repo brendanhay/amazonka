@@ -62,7 +62,7 @@ describeBuild pBuildId_ =
     { _dBuildId = pBuildId_
     }
 
--- | Unique identifier for the build you want to retrieve properties for.
+-- | Unique identifier of the build that you want to retrieve properties for.
 dBuildId :: Lens' DescribeBuild Text
 dBuildId = lens _dBuildId (\ s a -> s{_dBuildId = a});
 

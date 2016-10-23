@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new 'MLModel' using the data files and the recipe as information sources.
+-- Creates a new 'MLModel' using the 'DataSource' and the recipe as information sources.
 --
--- An 'MLModel' is nearly immutable. Users can only update the 'MLModelName' and the 'ScoreThreshold' in an 'MLModel' without creating a new 'MLModel'.
+-- An 'MLModel' is nearly immutable. Users can update only the 'MLModelName' and the 'ScoreThreshold' in an 'MLModel' without creating a new 'MLModel'.
 --
--- 'CreateMLModel' is an asynchronous operation. In response to 'CreateMLModel', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'MLModel' status to 'PENDING'. After the 'MLModel' is created and ready for use, Amazon ML sets the status to 'COMPLETED'.
+-- 'CreateMLModel' is an asynchronous operation. In response to 'CreateMLModel', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'MLModel' status to 'PENDING'. After the 'MLModel' has been created and ready is for use, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can use the < GetMLModel> operation to check progress of the 'MLModel' during the creation operation.
+-- You can use the 'GetMLModel' operation to check the progress of the 'MLModel' during the creation operation.
 --
--- < CreateMLModel> requires a 'DataSource' with computed statistics, which can be created by setting 'ComputeStatistics' to 'true' in < CreateDataSourceFromRDS>, < CreateDataSourceFromS3>, or < CreateDataSourceFromRedshift> operations.
+-- 'CreateMLModel' requires a 'DataSource' with computed statistics, which can be created by setting 'ComputeStatistics' to 'true' in 'CreateDataSourceFromRDS', 'CreateDataSourceFromS3', or 'CreateDataSourceFromRedshift' operations.
 module Network.AWS.MachineLearning.CreateMLModel
     (
     -- * Creating a Request
@@ -100,11 +100,11 @@ createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ =
     , _cmlmTrainingDataSourceId = pTrainingDataSourceId_
     }
 
--- | The data recipe for creating 'MLModel'. You must specify either the recipe or its URI. If you don’t specify a recipe or its URI, Amazon ML creates a default.
+-- | The data recipe for creating the 'MLModel'. You must specify either the recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates a default.
 cmlmRecipe :: Lens' CreateMLModel (Maybe Text)
 cmlmRecipe = lens _cmlmRecipe (\ s a -> s{_cmlmRecipe = a});
 
--- | The Amazon Simple Storage Service (Amazon S3) location and file name that contains the 'MLModel' recipe. You must specify either the recipe or its URI. If you don’t specify a recipe or its URI, Amazon ML creates a default.
+-- | The Amazon Simple Storage Service (Amazon S3) location and file name that contains the 'MLModel' recipe. You must specify either the recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates a default.
 cmlmRecipeURI :: Lens' CreateMLModel (Maybe Text)
 cmlmRecipeURI = lens _cmlmRecipeURI (\ s a -> s{_cmlmRecipeURI = a});
 
@@ -112,23 +112,25 @@ cmlmRecipeURI = lens _cmlmRecipeURI (\ s a -> s{_cmlmRecipeURI = a});
 cmlmMLModelName :: Lens' CreateMLModel (Maybe Text)
 cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
 
--- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key\/value pairs.
+-- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key-value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value such as 1.0E-08.
+-- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L1 normalization. The parameter cannot be used when 'L2' is specified. Use this parameter sparingly.
+--     The value is an integer that ranges from '100000' to '2147483648'. The default value is '33554432'.
 --
--- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value such as 1.0E-08.
+-- -   'sgd.maxPasses' - The number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from '1' to '10000'. The default value is '10'.
 --
---     The valuseis a double that ranges from 0 to MAX_DOUBLE. The default is not to use L2 normalization. This cannot be used when 'L1' is specified. Use this parameter sparingly.
+-- -   'sgd.shuffleType' - Whether Amazon ML shuffles the training data. Shuffling the data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are 'auto' and 'none'. The default value is 'none'. We strongly recommend that you shuffle your data.
 --
--- -   'sgd.maxPasses' - Number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from 1 to 10000. The default value is 10.
+-- -   'sgd.l1RegularizationAmount' - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
 --
--- -   'sgd.maxMLModelSizeInBytes' - Maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L1 normalization. This parameter can\'t be used when 'L2' is specified. Use this parameter sparingly.
 --
---     The value is an integer that ranges from 100000 to 2147483648. The default value is 33554432.
+-- -   'sgd.l2RegularizationAmount' - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
+--
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L2 normalization. This parameter can\'t be used when 'L1' is specified. Use this parameter sparingly.
 --
 cmlmParameters :: Lens' CreateMLModel (HashMap Text Text)
 cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map;
@@ -193,9 +195,9 @@ instance ToPath CreateMLModel where
 instance ToQuery CreateMLModel where
         toQuery = const mempty
 
--- | Represents the output of a < CreateMLModel> operation, and is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a 'CreateMLModel' operation, and is an acknowledgement that Amazon ML received the request.
 --
--- The < CreateMLModel> operation is asynchronous. You can poll for status updates by using the < GetMLModel> operation and checking the 'Status' parameter.
+-- The 'CreateMLModel' operation is asynchronous. You can poll for status updates by using the 'GetMLModel' operation and checking the 'Status' parameter.
 --
 -- /See:/ 'createMLModelResponse' smart constructor.
 data CreateMLModelResponse = CreateMLModelResponse'

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the groups that have the specified path prefix.
+-- Lists the IAM groups that have the specified path prefix.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -78,7 +78,7 @@ listGroups =
 
 -- | The path prefix for filtering the results. For example, the prefix '\/division_abc\/subdivision_xyz\/' gets all groups whose path starts with '\/division_abc\/subdivision_xyz\/'.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all groups.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all groups. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\ s a -> s{_lgPathPrefix = a});
 

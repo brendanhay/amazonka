@@ -1,5 +1,5 @@
 name:                  amazonka-rds
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -67,6 +67,7 @@ library
         , Network.AWS.RDS.AddTagsToResource
         , Network.AWS.RDS.ApplyPendingMaintenanceAction
         , Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+        , Network.AWS.RDS.CopyDBClusterParameterGroup
         , Network.AWS.RDS.CopyDBClusterSnapshot
         , Network.AWS.RDS.CopyDBParameterGroup
         , Network.AWS.RDS.CopyDBSnapshot
@@ -96,6 +97,7 @@ library
         , Network.AWS.RDS.DescribeCertificates
         , Network.AWS.RDS.DescribeDBClusterParameterGroups
         , Network.AWS.RDS.DescribeDBClusterParameters
+        , Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
         , Network.AWS.RDS.DescribeDBClusterSnapshots
         , Network.AWS.RDS.DescribeDBClusters
         , Network.AWS.RDS.DescribeDBEngineVersions
@@ -118,11 +120,13 @@ library
         , Network.AWS.RDS.DescribePendingMaintenanceActions
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
+        , Network.AWS.RDS.DescribeSourceRegions
         , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.FailoverDBCluster
         , Network.AWS.RDS.ListTagsForResource
         , Network.AWS.RDS.ModifyDBCluster
         , Network.AWS.RDS.ModifyDBClusterParameterGroup
+        , Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
         , Network.AWS.RDS.ModifyDBInstance
         , Network.AWS.RDS.ModifyDBParameterGroup
         , Network.AWS.RDS.ModifyDBSnapshotAttribute
@@ -130,12 +134,14 @@ library
         , Network.AWS.RDS.ModifyEventSubscription
         , Network.AWS.RDS.ModifyOptionGroup
         , Network.AWS.RDS.PromoteReadReplica
+        , Network.AWS.RDS.PromoteReadReplicaDBCluster
         , Network.AWS.RDS.PurchaseReservedDBInstancesOffering
         , Network.AWS.RDS.RebootDBInstance
         , Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
         , Network.AWS.RDS.RemoveTagsFromResource
         , Network.AWS.RDS.ResetDBClusterParameterGroup
         , Network.AWS.RDS.ResetDBParameterGroup
+        , Network.AWS.RDS.RestoreDBClusterFromS3
         , Network.AWS.RDS.RestoreDBClusterFromSnapshot
         , Network.AWS.RDS.RestoreDBClusterToPointInTime
         , Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
@@ -149,7 +155,7 @@ library
         , Network.AWS.RDS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-rds-test
@@ -169,9 +175,9 @@ test-suite amazonka-rds-test
         , Test.AWS.RDS.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-rds == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-rds == 1.4.4.*
         , base
         , bytestring
         , tasty

@@ -78,7 +78,7 @@ listInstanceProfiles =
 
 -- | The path prefix for filtering the results. For example, the prefix '\/application_abc\/component_xyz\/' gets all instance profiles whose path starts with '\/application_abc\/component_xyz\/'.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all instance profiles.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all instance profiles. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
 

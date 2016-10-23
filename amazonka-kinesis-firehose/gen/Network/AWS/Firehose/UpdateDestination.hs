@@ -96,11 +96,11 @@ updateDestination pDeliveryStreamName_ pCurrentDeliveryStreamVersionId_ pDestina
     , _udDestinationId = pDestinationId_
     }
 
--- | Undocumented member.
+-- | Describes an update for a destination in Amazon S3.
 udS3DestinationUpdate :: Lens' UpdateDestination (Maybe S3DestinationUpdate)
 udS3DestinationUpdate = lens _udS3DestinationUpdate (\ s a -> s{_udS3DestinationUpdate = a});
 
--- | Undocumented member.
+-- | Describes an update for a destination in Amazon Redshift.
 udRedshiftDestinationUpdate :: Lens' UpdateDestination (Maybe RedshiftDestinationUpdate)
 udRedshiftDestinationUpdate = lens _udRedshiftDestinationUpdate (\ s a -> s{_udRedshiftDestinationUpdate = a});
 

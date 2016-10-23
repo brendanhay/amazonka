@@ -37,7 +37,7 @@ instance FromText AgentStatus where
         "unhealthy" -> pure Unhealthy
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing AgentStatus from value: '" <> e
-           <> "'. Accepted values: BLACKLISTED, HEALTHY, RUNNING, SHUTDOWN, UNHEALTHY, UNKNOWN"
+           <> "'. Accepted values: blacklisted, healthy, running, shutdown, unhealthy, unknown"
 
 instance ToText AgentStatus where
     toText = \case
@@ -69,7 +69,7 @@ instance FromText ConfigurationItemType where
         "process" -> pure Process
         "server" -> pure Server
         e -> fromTextError $ "Failure parsing ConfigurationItemType from value: '" <> e
-           <> "'. Accepted values: CONNECTION, PROCESS, SERVER"
+           <> "'. Accepted values: connection, process, server"
 
 instance ToText ConfigurationItemType where
     toText = \case
@@ -101,7 +101,7 @@ instance FromText ExportStatus where
         "in_progress" -> pure InProgress
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing ExportStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, IN_PROGRESS, SUCCEEDED"
+           <> "'. Accepted values: failed, in_progress, succeeded"
 
 instance ToText ExportStatus where
     toText = \case

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified group. The group must not contain any users or have any attached policies.
+-- Deletes the specified IAM group. The group must not contain any users or have any attached policies.
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Creating a Request
@@ -57,7 +57,9 @@ deleteGroup pGroupName_ =
     { _dgGroupName = pGroupName_
     }
 
--- | The name of the group to delete.
+-- | The name of the IAM group to delete.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 

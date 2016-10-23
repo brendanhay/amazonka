@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as 'http:\/\/&#x3C;alias&#x3E;.awsapps.com'.
+-- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as 'http:\/\/\<alias>.awsapps.com'.
 --
 -- After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
 module Network.AWS.DirectoryService.CreateAlias

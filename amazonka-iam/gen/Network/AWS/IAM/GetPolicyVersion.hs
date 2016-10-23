@@ -20,11 +20,15 @@
 --
 -- Retrieves information about the specified version of the specified managed policy, including the policy document.
 --
+-- Policies returned by this API are URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the 'decode' method of the 'java.net.URLDecoder' utility class in the Java SDK. Other languages and SDKs provide similar functionality.
+--
 -- To list the available versions for a policy, use < ListPolicyVersions>.
 --
 -- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded in a user, group, or role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy> API.
 --
--- For more information about the types of policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about the types of policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--
+-- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.GetPolicyVersion
     (
     -- * Creating a Request
@@ -72,11 +76,15 @@ getPolicyVersion pPolicyARN_ pVersionId_ =
     , _gpvVersionId = pVersionId_
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 gpvPolicyARN :: Lens' GetPolicyVersion Text
 gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a});
 
 -- | Identifies the policy version to retrieve.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that consists of the lowercase letter \'v\' followed by one or two digits, and optionally followed by a period \'.\' and a string of letters and digits.
 gpvVersionId :: Lens' GetPolicyVersion Text
 gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a});
 
@@ -131,9 +139,7 @@ getPolicyVersionResponse pResponseStatus_ =
     , _gpvrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the policy version.
---
--- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
+-- | A structure containing details about the policy version.
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 

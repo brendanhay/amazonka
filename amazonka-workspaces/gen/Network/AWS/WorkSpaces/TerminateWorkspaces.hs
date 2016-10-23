@@ -24,7 +24,7 @@
 --
 -- You can terminate a WorkSpace that is in any state except 'SUSPENDED'.
 --
--- This operation is asynchronous and will return before the WorkSpaces have been completely terminated.
+-- This operation is asynchronous and returns before the WorkSpaces have been completely terminated.
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request
@@ -135,7 +135,7 @@ terminateWorkspacesResponse pResponseStatus_ =
     , _twrsResponseStatus = pResponseStatus_
     }
 
--- | An array of structures that represent any WorkSpaces that could not be terminated.
+-- | An array of structures representing any WorkSpaces that could not be terminated.
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 

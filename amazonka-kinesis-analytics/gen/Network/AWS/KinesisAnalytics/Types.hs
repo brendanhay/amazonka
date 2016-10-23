@@ -1,0 +1,391 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.KinesisAnalytics.Types
+-- Copyright   : (c) 2013-2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.KinesisAnalytics.Types
+    (
+    -- * Service Configuration
+      kinesisAnalytics
+
+    -- * Errors
+    , _InvalidApplicationConfigurationException
+    , _ResourceProvisionedThroughputExceededException
+    , _InvalidArgumentException
+    , _CodeValidationException
+    , _ConcurrentModificationException
+    , _UnableToDetectSchemaException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+    , _ResourceInUseException
+
+    -- * ApplicationStatus
+    , ApplicationStatus (..)
+
+    -- * InputStartingPosition
+    , InputStartingPosition (..)
+
+    -- * RecordFormatType
+    , RecordFormatType (..)
+
+    -- * ApplicationDetail
+    , ApplicationDetail
+    , applicationDetail
+    , adApplicationDescription
+    , adOutputDescriptions
+    , adReferenceDataSourceDescriptions
+    , adInputDescriptions
+    , adApplicationCode
+    , adCreateTimestamp
+    , adLastUpdateTimestamp
+    , adApplicationName
+    , adApplicationARN
+    , adApplicationStatus
+    , adApplicationVersionId
+
+    -- * ApplicationSummary
+    , ApplicationSummary
+    , applicationSummary
+    , asApplicationName
+    , asApplicationARN
+    , asApplicationStatus
+
+    -- * ApplicationUpdate
+    , ApplicationUpdate
+    , applicationUpdate
+    , auReferenceDataSourceUpdates
+    , auInputUpdates
+    , auOutputUpdates
+    , auApplicationCodeUpdate
+
+    -- * CSVMappingParameters
+    , CSVMappingParameters
+    , csvMappingParameters
+    , cmpRecordRowDelimiter
+    , cmpRecordColumnDelimiter
+
+    -- * DestinationSchema
+    , DestinationSchema
+    , destinationSchema
+    , dsRecordFormatType
+
+    -- * Input
+    , Input
+    , input
+    , iInputParallelism
+    , iKinesisStreamsInput
+    , iKinesisFirehoseInput
+    , iInputSchema
+    , iNamePrefix
+
+    -- * InputConfiguration
+    , InputConfiguration
+    , inputConfiguration
+    , icId
+    , icInputStartingPositionConfiguration
+
+    -- * InputDescription
+    , InputDescription
+    , inputDescription
+    , idInputStartingPositionConfiguration
+    , idInputParallelism
+    , idInputId
+    , idInAppStreamNames
+    , idKinesisFirehoseInputDescription
+    , idInputSchema
+    , idKinesisStreamsInputDescription
+    , idNamePrefix
+
+    -- * InputParallelism
+    , InputParallelism
+    , inputParallelism
+    , ipCount
+
+    -- * InputParallelismUpdate
+    , InputParallelismUpdate
+    , inputParallelismUpdate
+    , ipuCountUpdate
+
+    -- * InputSchemaUpdate
+    , InputSchemaUpdate
+    , inputSchemaUpdate
+    , isuRecordFormatUpdate
+    , isuRecordEncodingUpdate
+    , isuRecordColumnUpdates
+
+    -- * InputStartingPositionConfiguration
+    , InputStartingPositionConfiguration
+    , inputStartingPositionConfiguration
+    , ispcInputStartingPosition
+
+    -- * InputUpdate
+    , InputUpdate
+    , inputUpdate
+    , iuKinesisStreamsInputUpdate
+    , iuInputParallelismUpdate
+    , iuNamePrefixUpdate
+    , iuInputSchemaUpdate
+    , iuKinesisFirehoseInputUpdate
+    , iuInputId
+
+    -- * JSONMappingParameters
+    , JSONMappingParameters
+    , jsonMappingParameters
+    , jmpRecordRowPath
+
+    -- * KinesisFirehoseInput
+    , KinesisFirehoseInput
+    , kinesisFirehoseInput
+    , kfiResourceARN
+    , kfiRoleARN
+
+    -- * KinesisFirehoseInputDescription
+    , KinesisFirehoseInputDescription
+    , kinesisFirehoseInputDescription
+    , kfidResourceARN
+    , kfidRoleARN
+
+    -- * KinesisFirehoseInputUpdate
+    , KinesisFirehoseInputUpdate
+    , kinesisFirehoseInputUpdate
+    , kfiuRoleARNUpdate
+    , kfiuResourceARNUpdate
+
+    -- * KinesisFirehoseOutput
+    , KinesisFirehoseOutput
+    , kinesisFirehoseOutput
+    , kfoResourceARN
+    , kfoRoleARN
+
+    -- * KinesisFirehoseOutputDescription
+    , KinesisFirehoseOutputDescription
+    , kinesisFirehoseOutputDescription
+    , kfodResourceARN
+    , kfodRoleARN
+
+    -- * KinesisFirehoseOutputUpdate
+    , KinesisFirehoseOutputUpdate
+    , kinesisFirehoseOutputUpdate
+    , kfouRoleARNUpdate
+    , kfouResourceARNUpdate
+
+    -- * KinesisStreamsInput
+    , KinesisStreamsInput
+    , kinesisStreamsInput
+    , ksiResourceARN
+    , ksiRoleARN
+
+    -- * KinesisStreamsInputDescription
+    , KinesisStreamsInputDescription
+    , kinesisStreamsInputDescription
+    , ksidResourceARN
+    , ksidRoleARN
+
+    -- * KinesisStreamsInputUpdate
+    , KinesisStreamsInputUpdate
+    , kinesisStreamsInputUpdate
+    , ksiuRoleARNUpdate
+    , ksiuResourceARNUpdate
+
+    -- * KinesisStreamsOutput
+    , KinesisStreamsOutput
+    , kinesisStreamsOutput
+    , ksoResourceARN
+    , ksoRoleARN
+
+    -- * KinesisStreamsOutputDescription
+    , KinesisStreamsOutputDescription
+    , kinesisStreamsOutputDescription
+    , ksodResourceARN
+    , ksodRoleARN
+
+    -- * KinesisStreamsOutputUpdate
+    , KinesisStreamsOutputUpdate
+    , kinesisStreamsOutputUpdate
+    , ksouRoleARNUpdate
+    , ksouResourceARNUpdate
+
+    -- * MappingParameters
+    , MappingParameters
+    , mappingParameters
+    , mpCSVMappingParameters
+    , mpJSONMappingParameters
+
+    -- * Output
+    , Output
+    , output
+    , oKinesisStreamsOutput
+    , oKinesisFirehoseOutput
+    , oName
+    , oDestinationSchema
+
+    -- * OutputDescription
+    , OutputDescription
+    , outputDescription
+    , odOutputId
+    , odDestinationSchema
+    , odKinesisFirehoseOutputDescription
+    , odKinesisStreamsOutputDescription
+    , odName
+
+    -- * OutputUpdate
+    , OutputUpdate
+    , outputUpdate
+    , ouKinesisStreamsOutputUpdate
+    , ouDestinationSchemaUpdate
+    , ouKinesisFirehoseOutputUpdate
+    , ouNameUpdate
+    , ouOutputId
+
+    -- * RecordColumn
+    , RecordColumn
+    , recordColumn
+    , rcMapping
+    , rcName
+    , rcSqlType
+
+    -- * RecordFormat
+    , RecordFormat
+    , recordFormat
+    , rfMappingParameters
+    , rfRecordFormatType
+
+    -- * ReferenceDataSource
+    , ReferenceDataSource
+    , referenceDataSource
+    , rdsS3ReferenceDataSource
+    , rdsTableName
+    , rdsReferenceSchema
+
+    -- * ReferenceDataSourceDescription
+    , ReferenceDataSourceDescription
+    , referenceDataSourceDescription
+    , rdsdReferenceSchema
+    , rdsdReferenceId
+    , rdsdTableName
+    , rdsdS3ReferenceDataSourceDescription
+
+    -- * ReferenceDataSourceUpdate
+    , ReferenceDataSourceUpdate
+    , referenceDataSourceUpdate
+    , rdsuTableNameUpdate
+    , rdsuS3ReferenceDataSourceUpdate
+    , rdsuReferenceSchemaUpdate
+    , rdsuReferenceId
+
+    -- * S3ReferenceDataSource
+    , S3ReferenceDataSource
+    , s3ReferenceDataSource
+    , srdsBucketARN
+    , srdsFileKey
+    , srdsReferenceRoleARN
+
+    -- * S3ReferenceDataSourceDescription
+    , S3ReferenceDataSourceDescription
+    , s3ReferenceDataSourceDescription
+    , srdsdBucketARN
+    , srdsdFileKey
+    , srdsdReferenceRoleARN
+
+    -- * S3ReferenceDataSourceUpdate
+    , S3ReferenceDataSourceUpdate
+    , s3ReferenceDataSourceUpdate
+    , srdsuBucketARNUpdate
+    , srdsuFileKeyUpdate
+    , srdsuReferenceRoleARNUpdate
+
+    -- * SourceSchema
+    , SourceSchema
+    , sourceSchema
+    , ssRecordEncoding
+    , ssRecordFormat
+    , ssRecordColumns
+    ) where
+
+import           Network.AWS.KinesisAnalytics.Types.Product
+import           Network.AWS.KinesisAnalytics.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
+
+-- | API version '2015-08-14' of the Amazon Kinesis Analytics SDK configuration.
+kinesisAnalytics :: Service
+kinesisAnalytics =
+    Service
+    { _svcAbbrev = "KinesisAnalytics"
+    , _svcSigner = v4
+    , _svcPrefix = "kinesisanalytics"
+    , _svcVersion = "2015-08-14"
+    , _svcEndpoint = defaultEndpoint kinesisAnalytics
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "KinesisAnalytics"
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasStatus 429) e = Just "too_many_requests"
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
+
+-- | User-provided application configuration is not valid.
+_InvalidApplicationConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidApplicationConfigurationException =
+    _ServiceError . hasCode "InvalidApplicationConfigurationException"
+
+-- | Discovery failed to get a record from the streaming source because of the Kinesis Streams ProvisionedThroughputExceededException.
+_ResourceProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceProvisionedThroughputExceededException =
+    _ServiceError . hasCode "ResourceProvisionedThroughputExceededException"
+
+-- | Specified input parameter value is invalid.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
+
+-- | User-provided application code (query) is invalid. This can be a simple syntax error.
+_CodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_CodeValidationException = _ServiceError . hasCode "CodeValidationException"
+
+-- | Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasCode "ConcurrentModificationException"
+
+-- | Data format is not valid, Kinesis Analytics is not able to detect schema for the given streaming source.
+_UnableToDetectSchemaException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnableToDetectSchemaException =
+    _ServiceError . hasCode "UnableToDetectSchemaException"
+
+-- | Specified application can\'t be found.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasCode "ResourceNotFoundException"
+
+-- | Exceeded the number of applications allowed.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | Application is not available for this operation.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

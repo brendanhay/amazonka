@@ -350,13 +350,15 @@ instance ToJSON ActionDeclaration where
                   Just ("name" .= _adName),
                   Just ("actionTypeId" .= _adActionTypeId)])
 
--- | Represents information about how an action runs.
+-- | Represents information about the run of an action.
 --
 -- /See:/ 'actionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-    { _aeSummary              :: !(Maybe Text)
+    { _aeLastUpdatedBy        :: !(Maybe Text)
+    , _aeSummary              :: !(Maybe Text)
     , _aeStatus               :: !(Maybe ActionExecutionStatus)
     , _aeLastStatusChange     :: !(Maybe POSIX)
+    , _aeToken                :: !(Maybe Text)
     , _aeExternalExecutionURL :: !(Maybe Text)
     , _aeExternalExecutionId  :: !(Maybe Text)
     , _aeErrorDetails         :: !(Maybe ErrorDetails)
@@ -367,11 +369,15 @@ data ActionExecution = ActionExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aeLastUpdatedBy'
+--
 -- * 'aeSummary'
 --
 -- * 'aeStatus'
 --
 -- * 'aeLastStatusChange'
+--
+-- * 'aeToken'
 --
 -- * 'aeExternalExecutionURL'
 --
@@ -384,14 +390,20 @@ actionExecution
     :: ActionExecution
 actionExecution =
     ActionExecution'
-    { _aeSummary = Nothing
+    { _aeLastUpdatedBy = Nothing
+    , _aeSummary = Nothing
     , _aeStatus = Nothing
     , _aeLastStatusChange = Nothing
+    , _aeToken = Nothing
     , _aeExternalExecutionURL = Nothing
     , _aeExternalExecutionId = Nothing
     , _aeErrorDetails = Nothing
     , _aePercentComplete = Nothing
     }
+
+-- | The ARN of the user who last changed the pipeline.
+aeLastUpdatedBy :: Lens' ActionExecution (Maybe Text)
+aeLastUpdatedBy = lens _aeLastUpdatedBy (\ s a -> s{_aeLastUpdatedBy = a});
 
 -- | A summary of the run of the action.
 aeSummary :: Lens' ActionExecution (Maybe Text)
@@ -404,6 +416,10 @@ aeStatus = lens _aeStatus (\ s a -> s{_aeStatus = a});
 -- | The last status change of the action.
 aeLastStatusChange :: Lens' ActionExecution (Maybe UTCTime)
 aeLastStatusChange = lens _aeLastStatusChange (\ s a -> s{_aeLastStatusChange = a}) . mapping _Time;
+
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid.
+aeToken :: Lens' ActionExecution (Maybe Text)
+aeToken = lens _aeToken (\ s a -> s{_aeToken = a});
 
 -- | The URL of a resource external to AWS that will be used when running the action, for example an external repository URL.
 aeExternalExecutionURL :: Lens' ActionExecution (Maybe Text)
@@ -426,8 +442,10 @@ instance FromJSON ActionExecution where
           = withObject "ActionExecution"
               (\ x ->
                  ActionExecution' <$>
-                   (x .:? "summary") <*> (x .:? "status") <*>
-                     (x .:? "lastStatusChange")
+                   (x .:? "lastUpdatedBy") <*> (x .:? "summary") <*>
+                     (x .:? "status")
+                     <*> (x .:? "lastStatusChange")
+                     <*> (x .:? "token")
                      <*> (x .:? "externalExecutionUrl")
                      <*> (x .:? "externalExecutionId")
                      <*> (x .:? "errorDetails")
@@ -441,43 +459,43 @@ instance NFData ActionExecution
 --
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-    { _arRevisionId       :: !Text
-    , _arRevisionChangeId :: !Text
-    , _arCreated          :: !POSIX
+    { _aRevisionId       :: !Text
+    , _aRevisionChangeId :: !Text
+    , _aCreated          :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ActionRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arRevisionId'
+-- * 'aRevisionId'
 --
--- * 'arRevisionChangeId'
+-- * 'aRevisionChangeId'
 --
--- * 'arCreated'
+-- * 'aCreated'
 actionRevision
-    :: Text -- ^ 'arRevisionId'
-    -> Text -- ^ 'arRevisionChangeId'
-    -> UTCTime -- ^ 'arCreated'
+    :: Text -- ^ 'aRevisionId'
+    -> Text -- ^ 'aRevisionChangeId'
+    -> UTCTime -- ^ 'aCreated'
     -> ActionRevision
 actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
     ActionRevision'
-    { _arRevisionId = pRevisionId_
-    , _arRevisionChangeId = pRevisionChangeId_
-    , _arCreated = _Time # pCreated_
+    { _aRevisionId = pRevisionId_
+    , _aRevisionChangeId = pRevisionChangeId_
+    , _aCreated = _Time # pCreated_
     }
 
 -- | The system-generated unique ID that identifies the revision number of the action.
-arRevisionId :: Lens' ActionRevision Text
-arRevisionId = lens _arRevisionId (\ s a -> s{_arRevisionId = a});
+aRevisionId :: Lens' ActionRevision Text
+aRevisionId = lens _aRevisionId (\ s a -> s{_aRevisionId = a});
 
 -- | The unique identifier of the change that set the state to this revision, for example a deployment ID or timestamp.
-arRevisionChangeId :: Lens' ActionRevision Text
-arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
+aRevisionChangeId :: Lens' ActionRevision Text
+aRevisionChangeId = lens _aRevisionChangeId (\ s a -> s{_aRevisionChangeId = a});
 
 -- | The date and time when the most recent version of the action was created, in timestamp format.
-arCreated :: Lens' ActionRevision UTCTime
-arCreated = lens _arCreated (\ s a -> s{_arCreated = a}) . _Time;
+aCreated :: Lens' ActionRevision UTCTime
+aCreated = lens _aCreated (\ s a -> s{_aCreated = a}) . _Time;
 
 instance FromJSON ActionRevision where
         parseJSON
@@ -495,9 +513,9 @@ instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
           = object
               (catMaybes
-                 [Just ("revisionId" .= _arRevisionId),
-                  Just ("revisionChangeId" .= _arRevisionChangeId),
-                  Just ("created" .= _arCreated)])
+                 [Just ("revisionId" .= _aRevisionId),
+                  Just ("revisionChangeId" .= _aRevisionChangeId),
+                  Just ("created" .= _aCreated)])
 
 -- | Represents information about the state of an action.
 --
@@ -787,6 +805,50 @@ instance ToJSON ActionTypeSettings where
                     _atsRevisionURLTemplate,
                   ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate])
 
+-- | Represents information about the result of an approval request.
+--
+-- /See:/ 'approvalResult' smart constructor.
+data ApprovalResult = ApprovalResult'
+    { _arSummary :: !Text
+    , _arStatus  :: !ApprovalStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApprovalResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arSummary'
+--
+-- * 'arStatus'
+approvalResult
+    :: Text -- ^ 'arSummary'
+    -> ApprovalStatus -- ^ 'arStatus'
+    -> ApprovalResult
+approvalResult pSummary_ pStatus_ =
+    ApprovalResult'
+    { _arSummary = pSummary_
+    , _arStatus = pStatus_
+    }
+
+-- | The summary of the current status of the approval request.
+arSummary :: Lens' ApprovalResult Text
+arSummary = lens _arSummary (\ s a -> s{_arSummary = a});
+
+-- | The response submitted by a reviewer assigned to an approval action request.
+arStatus :: Lens' ApprovalResult ApprovalStatus
+arStatus = lens _arStatus (\ s a -> s{_arStatus = a});
+
+instance Hashable ApprovalResult
+
+instance NFData ApprovalResult
+
+instance ToJSON ApprovalResult where
+        toJSON ApprovalResult'{..}
+          = object
+              (catMaybes
+                 [Just ("summary" .= _arSummary),
+                  Just ("status" .= _arStatus)])
+
 -- | Represents information about an artifact that will be worked upon by actions in the pipeline.
 --
 -- /See:/ 'artifact' smart constructor.
@@ -931,6 +993,84 @@ instance Hashable ArtifactLocation
 
 instance NFData ArtifactLocation
 
+-- | Represents revision details of an artifact.
+--
+-- /See:/ 'artifactRevision' smart constructor.
+data ArtifactRevision = ArtifactRevision'
+    { _arRevisionSummary          :: !(Maybe Text)
+    , _arRevisionURL              :: !(Maybe Text)
+    , _arCreated                  :: !(Maybe POSIX)
+    , _arName                     :: !(Maybe Text)
+    , _arRevisionId               :: !(Maybe Text)
+    , _arRevisionChangeIdentifier :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ArtifactRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arRevisionSummary'
+--
+-- * 'arRevisionURL'
+--
+-- * 'arCreated'
+--
+-- * 'arName'
+--
+-- * 'arRevisionId'
+--
+-- * 'arRevisionChangeIdentifier'
+artifactRevision
+    :: ArtifactRevision
+artifactRevision =
+    ArtifactRevision'
+    { _arRevisionSummary = Nothing
+    , _arRevisionURL = Nothing
+    , _arCreated = Nothing
+    , _arName = Nothing
+    , _arRevisionId = Nothing
+    , _arRevisionChangeIdentifier = Nothing
+    }
+
+-- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a 'codepipeline-artifact-revision-summary' key specified in the object metadata.
+arRevisionSummary :: Lens' ArtifactRevision (Maybe Text)
+arRevisionSummary = lens _arRevisionSummary (\ s a -> s{_arRevisionSummary = a});
+
+-- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
+arRevisionURL :: Lens' ArtifactRevision (Maybe Text)
+arRevisionURL = lens _arRevisionURL (\ s a -> s{_arRevisionURL = a});
+
+-- | The date and time when the most recent revision of the artifact was created, in timestamp format.
+arCreated :: Lens' ArtifactRevision (Maybe UTCTime)
+arCreated = lens _arCreated (\ s a -> s{_arCreated = a}) . mapping _Time;
+
+-- | The name of an artifact. This name might be system-generated, such as \"MyApp\", or might be defined by the user when an action is created.
+arName :: Lens' ArtifactRevision (Maybe Text)
+arName = lens _arName (\ s a -> s{_arName = a});
+
+-- | The revision ID of the artifact.
+arRevisionId :: Lens' ArtifactRevision (Maybe Text)
+arRevisionId = lens _arRevisionId (\ s a -> s{_arRevisionId = a});
+
+-- | An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
+arRevisionChangeIdentifier :: Lens' ArtifactRevision (Maybe Text)
+arRevisionChangeIdentifier = lens _arRevisionChangeIdentifier (\ s a -> s{_arRevisionChangeIdentifier = a});
+
+instance FromJSON ArtifactRevision where
+        parseJSON
+          = withObject "ArtifactRevision"
+              (\ x ->
+                 ArtifactRevision' <$>
+                   (x .:? "revisionSummary") <*> (x .:? "revisionUrl")
+                     <*> (x .:? "created")
+                     <*> (x .:? "name")
+                     <*> (x .:? "revisionId")
+                     <*> (x .:? "revisionChangeIdentifier"))
+
+instance Hashable ArtifactRevision
+
+instance NFData ArtifactRevision
+
 -- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
 --
 -- /See:/ 'artifactStore' smart constructor.
@@ -1046,13 +1186,19 @@ instance ToJSON BlockerDeclaration where
 --
 -- /See:/ 'currentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
-    { _crRevision         :: !Text
+    { _crRevisionSummary  :: !(Maybe Text)
+    , _crCreated          :: !(Maybe POSIX)
+    , _crRevision         :: !Text
     , _crChangeIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CurrentRevision' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crRevisionSummary'
+--
+-- * 'crCreated'
 --
 -- * 'crRevision'
 --
@@ -1063,9 +1209,19 @@ currentRevision
     -> CurrentRevision
 currentRevision pRevision_ pChangeIdentifier_ =
     CurrentRevision'
-    { _crRevision = pRevision_
+    { _crRevisionSummary = Nothing
+    , _crCreated = Nothing
+    , _crRevision = pRevision_
     , _crChangeIdentifier = pChangeIdentifier_
     }
+
+-- | The summary of the most recent revision of the artifact.
+crRevisionSummary :: Lens' CurrentRevision (Maybe Text)
+crRevisionSummary = lens _crRevisionSummary (\ s a -> s{_crRevisionSummary = a});
+
+-- | The date and time when the most recent revision of the artifact was created, in timestamp format.
+crCreated :: Lens' CurrentRevision (Maybe UTCTime)
+crCreated = lens _crCreated (\ s a -> s{_crCreated = a}) . mapping _Time;
 
 -- | The revision ID of the current version of an artifact.
 crRevision :: Lens' CurrentRevision Text
@@ -1083,7 +1239,9 @@ instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
           = object
               (catMaybes
-                 [Just ("revision" .= _crRevision),
+                 [("revisionSummary" .=) <$> _crRevisionSummary,
+                  ("created" .=) <$> _crCreated,
+                  Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
 
 -- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
@@ -1704,6 +1862,84 @@ instance ToJSON PipelineDeclaration where
                   Just ("artifactStore" .= _pdArtifactStore),
                   Just ("stages" .= _pdStages)])
 
+-- | Represents information about an execution of a pipeline.
+--
+-- /See:/ 'pipelineExecution' smart constructor.
+data PipelineExecution = PipelineExecution'
+    { _peStatus              :: !(Maybe PipelineExecutionStatus)
+    , _pePipelineName        :: !(Maybe Text)
+    , _pePipelineVersion     :: !(Maybe Nat)
+    , _pePipelineExecutionId :: !(Maybe Text)
+    , _peArtifactRevisions   :: !(Maybe [ArtifactRevision])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PipelineExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'peStatus'
+--
+-- * 'pePipelineName'
+--
+-- * 'pePipelineVersion'
+--
+-- * 'pePipelineExecutionId'
+--
+-- * 'peArtifactRevisions'
+pipelineExecution
+    :: PipelineExecution
+pipelineExecution =
+    PipelineExecution'
+    { _peStatus = Nothing
+    , _pePipelineName = Nothing
+    , _pePipelineVersion = Nothing
+    , _pePipelineExecutionId = Nothing
+    , _peArtifactRevisions = Nothing
+    }
+
+-- | The status of the pipeline execution.
+--
+-- -   InProgress: The pipeline execution is currently running.
+--
+-- -   Succeeded: The pipeline execution completed successfully.
+--
+-- -   Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.
+--
+-- -   Failed: The pipeline did not complete successfully.
+--
+peStatus :: Lens' PipelineExecution (Maybe PipelineExecutionStatus)
+peStatus = lens _peStatus (\ s a -> s{_peStatus = a});
+
+-- | The name of the pipeline that was executed.
+pePipelineName :: Lens' PipelineExecution (Maybe Text)
+pePipelineName = lens _pePipelineName (\ s a -> s{_pePipelineName = a});
+
+-- | The version number of the pipeline that was executed.
+pePipelineVersion :: Lens' PipelineExecution (Maybe Natural)
+pePipelineVersion = lens _pePipelineVersion (\ s a -> s{_pePipelineVersion = a}) . mapping _Nat;
+
+-- | The ID of the pipeline execution.
+pePipelineExecutionId :: Lens' PipelineExecution (Maybe Text)
+pePipelineExecutionId = lens _pePipelineExecutionId (\ s a -> s{_pePipelineExecutionId = a});
+
+-- | A list of ArtifactRevision objects included in a pipeline execution.
+peArtifactRevisions :: Lens' PipelineExecution [ArtifactRevision]
+peArtifactRevisions = lens _peArtifactRevisions (\ s a -> s{_peArtifactRevisions = a}) . _Default . _Coerce;
+
+instance FromJSON PipelineExecution where
+        parseJSON
+          = withObject "PipelineExecution"
+              (\ x ->
+                 PipelineExecution' <$>
+                   (x .:? "status") <*> (x .:? "pipelineName") <*>
+                     (x .:? "pipelineVersion")
+                     <*> (x .:? "pipelineExecutionId")
+                     <*> (x .:? "artifactRevisions" .!= mempty))
+
+instance Hashable PipelineExecution
+
+instance NFData PipelineExecution
+
 -- | Returns a summary of a pipeline.
 --
 -- /See:/ 'pipelineSummary' smart constructor.
@@ -1900,6 +2136,50 @@ instance ToJSON StageDeclaration where
                   Just ("name" .= _sdName),
                   Just ("actions" .= _sdActions)])
 
+-- | Represents information about the run of a stage.
+--
+-- /See:/ 'stageExecution' smart constructor.
+data StageExecution = StageExecution'
+    { _sePipelineExecutionId :: !Text
+    , _seStatus              :: !StageExecutionStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StageExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sePipelineExecutionId'
+--
+-- * 'seStatus'
+stageExecution
+    :: Text -- ^ 'sePipelineExecutionId'
+    -> StageExecutionStatus -- ^ 'seStatus'
+    -> StageExecution
+stageExecution pPipelineExecutionId_ pStatus_ =
+    StageExecution'
+    { _sePipelineExecutionId = pPipelineExecutionId_
+    , _seStatus = pStatus_
+    }
+
+-- | The ID of the pipeline execution associated with the stage.
+sePipelineExecutionId :: Lens' StageExecution Text
+sePipelineExecutionId = lens _sePipelineExecutionId (\ s a -> s{_sePipelineExecutionId = a});
+
+-- | The status of the stage, or for a completed stage, the last status of the stage.
+seStatus :: Lens' StageExecution StageExecutionStatus
+seStatus = lens _seStatus (\ s a -> s{_seStatus = a});
+
+instance FromJSON StageExecution where
+        parseJSON
+          = withObject "StageExecution"
+              (\ x ->
+                 StageExecution' <$>
+                   (x .: "pipelineExecutionId") <*> (x .: "status"))
+
+instance Hashable StageExecution
+
+instance NFData StageExecution
+
 -- | Represents information about the state of the stage.
 --
 -- /See:/ 'stageState' smart constructor.
@@ -1907,6 +2187,7 @@ data StageState = StageState'
     { _ssInboundTransitionState :: !(Maybe TransitionState)
     , _ssActionStates           :: !(Maybe [ActionState])
     , _ssStageName              :: !(Maybe Text)
+    , _ssLatestExecution        :: !(Maybe StageExecution)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StageState' with the minimum fields required to make a request.
@@ -1918,6 +2199,8 @@ data StageState = StageState'
 -- * 'ssActionStates'
 --
 -- * 'ssStageName'
+--
+-- * 'ssLatestExecution'
 stageState
     :: StageState
 stageState =
@@ -1925,6 +2208,7 @@ stageState =
     { _ssInboundTransitionState = Nothing
     , _ssActionStates = Nothing
     , _ssStageName = Nothing
+    , _ssLatestExecution = Nothing
     }
 
 -- | The state of the inbound transition, which is either enabled or disabled.
@@ -1939,6 +2223,10 @@ ssActionStates = lens _ssActionStates (\ s a -> s{_ssActionStates = a}) . _Defau
 ssStageName :: Lens' StageState (Maybe Text)
 ssStageName = lens _ssStageName (\ s a -> s{_ssStageName = a});
 
+-- | Information about the latest execution in the stage, including its ID and status.
+ssLatestExecution :: Lens' StageState (Maybe StageExecution)
+ssLatestExecution = lens _ssLatestExecution (\ s a -> s{_ssLatestExecution = a});
+
 instance FromJSON StageState where
         parseJSON
           = withObject "StageState"
@@ -1946,7 +2234,8 @@ instance FromJSON StageState where
                  StageState' <$>
                    (x .:? "inboundTransitionState") <*>
                      (x .:? "actionStates" .!= mempty)
-                     <*> (x .:? "stageName"))
+                     <*> (x .:? "stageName")
+                     <*> (x .:? "latestExecution"))
 
 instance Hashable StageState
 

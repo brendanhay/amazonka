@@ -82,6 +82,7 @@ describePendingMaintenanceActions =
 -- Supported filters:
 --
 -- -   'db-instance-id' - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
+--
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 

@@ -89,6 +89,7 @@ module Network.AWS.ElasticSearch.Types
     , edcElasticsearchClusterConfig
     , edcSnapshotOptions
     , edcAdvancedOptions
+    , edcElasticsearchVersion
 
     -- * ElasticsearchDomainStatus
     , ElasticsearchDomainStatus
@@ -101,10 +102,17 @@ module Network.AWS.ElasticSearch.Types
     , edsProcessing
     , edsEndpoint
     , edsAdvancedOptions
+    , edsElasticsearchVersion
     , edsDomainId
     , edsDomainName
     , edsARN
     , edsElasticsearchClusterConfig
+
+    -- * ElasticsearchVersionStatus
+    , ElasticsearchVersionStatus
+    , elasticsearchVersionStatus
+    , evsOptions
+    , evsStatus
 
     -- * OptionStatus
     , OptionStatus

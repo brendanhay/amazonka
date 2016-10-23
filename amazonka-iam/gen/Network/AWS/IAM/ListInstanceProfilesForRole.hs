@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instance profiles that have the specified associated role. If there are none, the action returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Lists the instance profiles that have the specified associated IAM role. If there are none, the action returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -88,6 +88,8 @@ lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
 -- | The name of the role to list instance profiles for.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 

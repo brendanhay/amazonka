@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the tags associated with a file system. The order of tags returned in the response of one 'DescribeTags' call, and the order of tags returned across the responses of a multi-call iteration (when using pagination), is unspecified.
+-- Returns the tags associated with a file system. The order of tags returned in the response of one 'DescribeTags' call and the order of tags returned across the responses of a multi-call iteration (when using pagination) is unspecified.
 --
--- This operation requires permission for the 'elasticfilesystem:DescribeTags' action.
+-- This operation requires permissions for the 'elasticfilesystem:DescribeTags' action.
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTags' smart constructor.
+-- |
+--
+-- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
     { _dtMarker       :: !(Maybe Text)
     , _dtMaxItems     :: !(Maybe Nat)
@@ -74,15 +76,15 @@ describeTags pFileSystemId_ =
     , _dtFileSystemId = pFileSystemId_
     }
 
--- | Optional. String. Opaque pagination token returned from a previous 'DescribeTags' operation. If present, it specifies to continue the list from where the previous call left off.
+-- | (Optional) Opaque pagination token returned from a previous 'DescribeTags' operation (String). If present, it specifies to continue the list from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
--- | Optional. Maximum number of file system tags to return in the response. It must be an integer with a value greater than zero.
+-- | (Optional) Maximum number of file system tags to return in the response. It must be an integer with a value greater than zero.
 dtMaxItems :: Lens' DescribeTags (Maybe Natural)
 dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
--- | The ID of the file system whose tag set you want to retrieve.
+-- | ID of the file system whose tag set you want to retrieve.
 dtFileSystemId :: Lens' DescribeTags Text
 dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
 
@@ -114,7 +116,9 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Marker" =: _dtMarker, "MaxItems" =: _dtMaxItems]
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsMarker         :: !(Maybe Text)
     , _dtrsNextMarker     :: !(Maybe Text)

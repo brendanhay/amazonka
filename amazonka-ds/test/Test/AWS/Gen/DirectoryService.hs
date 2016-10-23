@@ -46,6 +46,12 @@ import Test.AWS.DirectoryService.Internal
 --         , requestDescribeDirectories $
 --             describeDirectories
 --
+--         , requestAddIPRoutes $
+--             addIPRoutes
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestDescribeTrusts $
 --             describeTrusts
 --
@@ -60,6 +66,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , requestCreateDirectory $
 --             createDirectory
+--
+--         , requestRemoveTagsFromResource $
+--             removeTagsFromResource
 --
 --         , requestDescribeEventTopics $
 --             describeEventTopics
@@ -76,6 +85,12 @@ import Test.AWS.DirectoryService.Internal
 --         , requestEnableRadius $
 --             enableRadius
 --
+--         , requestListIPRoutes $
+--             listIPRoutes
+--
+--         , requestAddTagsToResource $
+--             addTagsToResource
+--
 --         , requestDisableRadius $
 --             disableRadius
 --
@@ -84,6 +99,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , requestDescribeSnapshots $
 --             describeSnapshots
+--
+--         , requestRemoveIPRoutes $
+--             removeIPRoutes
 --
 --         , requestDeleteSnapshot $
 --             deleteSnapshot
@@ -136,6 +154,12 @@ import Test.AWS.DirectoryService.Internal
 --         , responseDescribeDirectories $
 --             describeDirectoriesResponse
 --
+--         , responseAddIPRoutes $
+--             addIPRoutesResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseDescribeTrusts $
 --             describeTrustsResponse
 --
@@ -150,6 +174,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , responseCreateDirectory $
 --             createDirectoryResponse
+--
+--         , responseRemoveTagsFromResource $
+--             removeTagsFromResourceResponse
 --
 --         , responseDescribeEventTopics $
 --             describeEventTopicsResponse
@@ -166,6 +193,12 @@ import Test.AWS.DirectoryService.Internal
 --         , responseEnableRadius $
 --             enableRadiusResponse
 --
+--         , responseListIPRoutes $
+--             listIPRoutesResponse
+--
+--         , responseAddTagsToResource $
+--             addTagsToResourceResponse
+--
 --         , responseDisableRadius $
 --             disableRadiusResponse
 --
@@ -174,6 +207,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
+--
+--         , responseRemoveIPRoutes $
+--             removeIPRoutesResponse
 --
 --         , responseDeleteSnapshot $
 --             deleteSnapshotResponse
@@ -240,6 +276,16 @@ requestDescribeDirectories = req
     "DescribeDirectories"
     "fixture/DescribeDirectories.yaml"
 
+requestAddIPRoutes :: AddIPRoutes -> TestTree
+requestAddIPRoutes = req
+    "AddIPRoutes"
+    "fixture/AddIPRoutes.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestDescribeTrusts :: DescribeTrusts -> TestTree
 requestDescribeTrusts = req
     "DescribeTrusts"
@@ -264,6 +310,11 @@ requestCreateDirectory :: CreateDirectory -> TestTree
 requestCreateDirectory = req
     "CreateDirectory"
     "fixture/CreateDirectory.yaml"
+
+requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+requestRemoveTagsFromResource = req
+    "RemoveTagsFromResource"
+    "fixture/RemoveTagsFromResource.yaml"
 
 requestDescribeEventTopics :: DescribeEventTopics -> TestTree
 requestDescribeEventTopics = req
@@ -290,6 +341,16 @@ requestEnableRadius = req
     "EnableRadius"
     "fixture/EnableRadius.yaml"
 
+requestListIPRoutes :: ListIPRoutes -> TestTree
+requestListIPRoutes = req
+    "ListIPRoutes"
+    "fixture/ListIPRoutes.yaml"
+
+requestAddTagsToResource :: AddTagsToResource -> TestTree
+requestAddTagsToResource = req
+    "AddTagsToResource"
+    "fixture/AddTagsToResource.yaml"
+
 requestDisableRadius :: DisableRadius -> TestTree
 requestDisableRadius = req
     "DisableRadius"
@@ -304,6 +365,11 @@ requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots = req
     "DescribeSnapshots"
     "fixture/DescribeSnapshots.yaml"
+
+requestRemoveIPRoutes :: RemoveIPRoutes -> TestTree
+requestRemoveIPRoutes = req
+    "RemoveIPRoutes"
+    "fixture/RemoveIPRoutes.yaml"
 
 requestDeleteSnapshot :: DeleteSnapshot -> TestTree
 requestDeleteSnapshot = req
@@ -399,6 +465,20 @@ responseDescribeDirectories = res
     directoryService
     (Proxy :: Proxy DescribeDirectories)
 
+responseAddIPRoutes :: AddIPRoutesResponse -> TestTree
+responseAddIPRoutes = res
+    "AddIPRoutesResponse"
+    "fixture/AddIPRoutesResponse.proto"
+    directoryService
+    (Proxy :: Proxy AddIPRoutes)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    directoryService
+    (Proxy :: Proxy ListTagsForResource)
+
 responseDescribeTrusts :: DescribeTrustsResponse -> TestTree
 responseDescribeTrusts = res
     "DescribeTrustsResponse"
@@ -433,6 +513,13 @@ responseCreateDirectory = res
     "fixture/CreateDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy CreateDirectory)
+
+responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
+responseRemoveTagsFromResource = res
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse.proto"
+    directoryService
+    (Proxy :: Proxy RemoveTagsFromResource)
 
 responseDescribeEventTopics :: DescribeEventTopicsResponse -> TestTree
 responseDescribeEventTopics = res
@@ -469,6 +556,20 @@ responseEnableRadius = res
     directoryService
     (Proxy :: Proxy EnableRadius)
 
+responseListIPRoutes :: ListIPRoutesResponse -> TestTree
+responseListIPRoutes = res
+    "ListIPRoutesResponse"
+    "fixture/ListIPRoutesResponse.proto"
+    directoryService
+    (Proxy :: Proxy ListIPRoutes)
+
+responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
+responseAddTagsToResource = res
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse.proto"
+    directoryService
+    (Proxy :: Proxy AddTagsToResource)
+
 responseDisableRadius :: DisableRadiusResponse -> TestTree
 responseDisableRadius = res
     "DisableRadiusResponse"
@@ -489,6 +590,13 @@ responseDescribeSnapshots = res
     "fixture/DescribeSnapshotsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeSnapshots)
+
+responseRemoveIPRoutes :: RemoveIPRoutesResponse -> TestTree
+responseRemoveIPRoutes = res
+    "RemoveIPRoutesResponse"
+    "fixture/RemoveIPRoutesResponse.proto"
+    directoryService
+    (Proxy :: Proxy RemoveIPRoutes)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
 responseDeleteSnapshot = res

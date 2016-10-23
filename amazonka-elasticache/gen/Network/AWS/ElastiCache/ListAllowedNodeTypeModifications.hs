@@ -70,14 +70,12 @@ listAllowedNodeTypeModifications =
 
 -- | The name of the cache cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to to create a list of node types you can scale up to.
 --
--- __Important:__
 -- You must provide a value for either the /CacheClusterId/ or the /ReplicationGroupId/.
 lantmCacheClusterId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
 lantmCacheClusterId = lens _lantmCacheClusterId (\ s a -> s{_lantmCacheClusterId = a});
 
 -- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
 --
--- __Important:__
 -- You must provide a value for either the /CacheClusterId/ or the /ReplicationGroupId/.
 lantmReplicationGroupId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
 lantmReplicationGroupId = lens _lantmReplicationGroupId (\ s a -> s{_lantmReplicationGroupId = a});

@@ -100,7 +100,7 @@ instance ToQuery UnmonitorInstances where
         toQuery UnmonitorInstances'{..}
           = mconcat
               ["Action" =: ("UnmonitorInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _uiDryRun,
                toQueryList "InstanceId" _uiInstanceIds]
 

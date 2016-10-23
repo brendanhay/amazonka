@@ -203,6 +203,7 @@ module Network.AWS.Firehose
     , RedshiftDestinationConfiguration
     , redshiftDestinationConfiguration
     , rdcCloudWatchLoggingOptions
+    , rdcRetryOptions
     , rdcRoleARN
     , rdcClusterJDBCURL
     , rdcCopyCommand
@@ -214,6 +215,7 @@ module Network.AWS.Firehose
     , RedshiftDestinationDescription
     , redshiftDestinationDescription
     , rddCloudWatchLoggingOptions
+    , rddRetryOptions
     , rddRoleARN
     , rddClusterJDBCURL
     , rddCopyCommand
@@ -228,8 +230,14 @@ module Network.AWS.Firehose
     , rduS3Update
     , rduPassword
     , rduCopyCommand
+    , rduRetryOptions
     , rduClusterJDBCURL
     , rduRoleARN
+
+    -- ** RedshiftRetryOptions
+    , RedshiftRetryOptions
+    , redshiftRetryOptions
+    , rroDurationInSeconds
 
     -- ** S3DestinationConfiguration
     , S3DestinationConfiguration

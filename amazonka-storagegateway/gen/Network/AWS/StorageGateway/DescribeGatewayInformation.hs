@@ -197,7 +197,7 @@ dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\ s a -> s{_dgirsLastSo
 dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayName = lens _dgirsGatewayName (\ s a -> s{_dgirsGatewayName = a});
 
--- | The unique identifier assigned to your gateway during activation. This id becomes part of the gateway Amazon Resources Name (ARN) which you use as input for other operations.
+-- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayId = lens _dgirsGatewayId (\ s a -> s{_dgirsGatewayId = a});
 

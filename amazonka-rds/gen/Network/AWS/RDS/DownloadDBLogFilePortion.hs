@@ -107,8 +107,11 @@ ddlfpMarker = lens _ddlfpMarker (\ s a -> s{_ddlfpMarker = a});
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddlfpDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
 ddlfpDBInstanceIdentifier = lens _ddlfpDBInstanceIdentifier (\ s a -> s{_ddlfpDBInstanceIdentifier = a});
 

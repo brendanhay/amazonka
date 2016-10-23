@@ -82,8 +82,11 @@ cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Cannot be null, empty, or blank
+--
 -- -   Must contain from 1 to 255 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: 'my-snapshot-id'
@@ -95,8 +98,11 @@ cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSna
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 cdbsDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a});
 

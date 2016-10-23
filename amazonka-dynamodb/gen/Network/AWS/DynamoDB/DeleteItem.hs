@@ -147,6 +147,7 @@ diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExp
 --
 -- -   'ALL_OLD' - The content of the old item is returned.
 --
+-- The /ReturnValues/ parameter is used by several DynamoDB operations; however, /DeleteItem/ does not recognize any values other than 'NONE' or 'ALL_OLD'.
 diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 

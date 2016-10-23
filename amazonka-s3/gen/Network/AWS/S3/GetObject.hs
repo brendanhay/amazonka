@@ -325,7 +325,7 @@ data GetObjectResponse = GetObjectResponse'
     { _gorsRequestCharged          :: !(Maybe RequestCharged)
     , _gorsETag                    :: !(Maybe ETag)
     , _gorsVersionId               :: !(Maybe ObjectVersionId)
-    , _gorsContentLength           :: !(Maybe Int)
+    , _gorsContentLength           :: !(Maybe Integer)
     , _gorsExpires                 :: !(Maybe RFC822)
     , _gorsRestore                 :: !(Maybe Text)
     , _gorsExpiration              :: !(Maybe Text)
@@ -456,7 +456,7 @@ gorsVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
 gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a});
 
 -- | Size of the body in bytes.
-gorsContentLength :: Lens' GetObjectResponse (Maybe Int)
+gorsContentLength :: Lens' GetObjectResponse (Maybe Integer)
 gorsContentLength = lens _gorsContentLength (\ s a -> s{_gorsContentLength = a});
 
 -- | The date and time at which the object is no longer cacheable.

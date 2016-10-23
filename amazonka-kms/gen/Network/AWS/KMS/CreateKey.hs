@@ -18,14 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a customer master key. Customer master keys can be used to encrypt small amounts of data (less than 4K) directly, but they are most commonly used to encrypt or envelope data keys that are then used to encrypt customer data. For more information about data keys, see < GenerateDataKey> and < GenerateDataKeyWithoutPlaintext>.
+-- Creates a customer master key (CMK).
+--
+-- You can use a CMK to encrypt small amounts of data (4 KiB or less) directly, but CMKs are more commonly used to encrypt data encryption keys (DEKs), which are used to encrypt raw data. For more information about DEKs and the difference between CMKs and DEKs, see the following:
+--
+-- -   The < GenerateDataKey> operation
+--
+-- -   <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service Concepts> in the /AWS Key Management Service Developer Guide/
+--
 module Network.AWS.KMS.CreateKey
     (
     -- * Creating a Request
       createKey
     , CreateKey
     -- * Request Lenses
+    , ckOrigin
     , ckKeyUsage
+    , ckBypassPolicyLockoutSafetyCheck
     , ckPolicy
     , ckDescription
 
@@ -46,16 +55,22 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
 data CreateKey = CreateKey'
-    { _ckKeyUsage    :: !(Maybe KeyUsageType)
-    , _ckPolicy      :: !(Maybe Text)
-    , _ckDescription :: !(Maybe Text)
+    { _ckOrigin                         :: !(Maybe OriginType)
+    , _ckKeyUsage                       :: !(Maybe KeyUsageType)
+    , _ckBypassPolicyLockoutSafetyCheck :: !(Maybe Bool)
+    , _ckPolicy                         :: !(Maybe Text)
+    , _ckDescription                    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateKey' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ckOrigin'
+--
 -- * 'ckKeyUsage'
+--
+-- * 'ckBypassPolicyLockoutSafetyCheck'
 --
 -- * 'ckPolicy'
 --
@@ -64,20 +79,56 @@ createKey
     :: CreateKey
 createKey =
     CreateKey'
-    { _ckKeyUsage = Nothing
+    { _ckOrigin = Nothing
+    , _ckKeyUsage = Nothing
+    , _ckBypassPolicyLockoutSafetyCheck = Nothing
     , _ckPolicy = Nothing
     , _ckDescription = Nothing
     }
 
--- | Specifies the intended use of the key. Currently this defaults to ENCRYPT\/DECRYPT, and only symmetric encryption and decryption are supported.
+-- | The source of the CMK\'s key material.
+--
+-- The default is 'AWS_KMS', which means AWS KMS creates the key material. When this parameter is set to 'EXTERNAL', the request creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/.
+--
+-- The CMK\'s 'Origin' is immutable and is set when the CMK is created.
+ckOrigin :: Lens' CreateKey (Maybe OriginType)
+ckOrigin = lens _ckOrigin (\ s a -> s{_ckOrigin = a});
+
+-- | The intended use of the CMK.
+--
+-- You can use CMKs only for symmetric encryption and decryption.
 ckKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
 ckKeyUsage = lens _ckKeyUsage (\ s a -> s{_ckKeyUsage = a});
 
--- | Policy to attach to the key. This is required and delegates back to the account. The key is the root of trust. The policy size limit is 32 KiB (32768 bytes).
+-- | A flag to indicate whether to bypass the key policy lockout safety check.
+--
+-- Setting this value to true increases the likelihood that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+--
+-- For more information, refer to the scenario in the <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/.
+--
+-- Use this parameter only when you include a policy in the request and you intend to prevent the principal making the request from making a subsequent < PutKeyPolicy> request on the CMK.
+--
+-- The default value is false.
+ckBypassPolicyLockoutSafetyCheck :: Lens' CreateKey (Maybe Bool)
+ckBypassPolicyLockoutSafetyCheck = lens _ckBypassPolicyLockoutSafetyCheck (\ s a -> s{_ckBypassPolicyLockoutSafetyCheck = a});
+
+-- | The key policy to attach to the CMK.
+--
+-- If you specify a policy and do not set 'BypassPolicyLockoutSafetyCheck' to true, the policy must meet the following criteria:
+--
+-- -   It must allow the principal making the 'CreateKey' request to make a subsequent < PutKeyPolicy> request on the CMK. This reduces the likelihood that the CMK becomes unmanageable. For more information, refer to the scenario in the <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/.
+--
+-- -   The principal(s) specified in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before specifying the new principal in a key policy because the new principal might not immediately be visible to AWS KMS. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible> in the /IAM User Guide/.
+--
+-- If you do not specify a policy, AWS KMS attaches a default key policy to the CMK. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy> in the /AWS Key Management Service Developer Guide/.
+--
+-- The policy size limit is 32 KiB (32768 bytes).
 ckPolicy :: Lens' CreateKey (Maybe Text)
 ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
 
--- | Description of the key. We recommend that you choose a description that helps your customer decide whether the key is appropriate for a task.
+-- | A description of the CMK.
+--
+-- Use a description that helps you decide whether the CMK is appropriate for a task.
 ckDescription :: Lens' CreateKey (Maybe Text)
 ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
@@ -107,7 +158,10 @@ instance ToJSON CreateKey where
         toJSON CreateKey'{..}
           = object
               (catMaybes
-                 [("KeyUsage" .=) <$> _ckKeyUsage,
+                 [("Origin" .=) <$> _ckOrigin,
+                  ("KeyUsage" .=) <$> _ckKeyUsage,
+                  ("BypassPolicyLockoutSafetyCheck" .=) <$>
+                    _ckBypassPolicyLockoutSafetyCheck,
                   ("Policy" .=) <$> _ckPolicy,
                   ("Description" .=) <$> _ckDescription])
 
@@ -139,7 +193,7 @@ createKeyResponse pResponseStatus_ =
     , _ckrsResponseStatus = pResponseStatus_
     }
 
--- | Metadata associated with the key.
+-- | Metadata associated with the CMK.
 ckrsKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 

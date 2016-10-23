@@ -20,6 +20,7 @@ module Network.AWS.DMS.Types
     , _KMSKeyNotAccessibleFault
     , _ReplicationSubnetGroupDoesNotCoverEnoughAZs
     , _InvalidResourceStateFault
+    , _InvalidCertificateFault
     , _ResourceAlreadyExistsFault
     , _InsufficientResourceCapacityFault
     , _ResourceQuotaExceededFault
@@ -28,6 +29,9 @@ module Network.AWS.DMS.Types
     , _StorageQuotaExceededFault
     , _AccessDeniedFault
     , _SubnetAlreadyInUse
+
+    -- * DmsSSLModeValue
+    , DmsSSLModeValue (..)
 
     -- * MigrationTypeValue
     , MigrationTypeValue (..)
@@ -53,6 +57,19 @@ module Network.AWS.DMS.Types
     , availabilityZone
     , azName
 
+    -- * Certificate
+    , Certificate
+    , certificate
+    , cCertificateOwner
+    , cSigningAlgorithm
+    , cValidFromDate
+    , cCertificatePem
+    , cCertificateARN
+    , cCertificateCreationDate
+    , cCertificateIdentifier
+    , cKeyLength
+    , cValidToDate
+
     -- * Connection
     , Connection
     , connection
@@ -68,11 +85,13 @@ module Network.AWS.DMS.Types
     , endpoint
     , eStatus
     , eServerName
+    , eCertificateARN
     , eExtraConnectionAttributes
     , eEndpointType
     , eUsername
     , eEngineName
     , eKMSKeyId
+    , eSSLMode
     , eDatabaseName
     , eEndpointIdentifier
     , eEndpointARN
@@ -110,13 +129,17 @@ module Network.AWS.DMS.Types
     , riEngineVersion
     , riPubliclyAccessible
     , riAutoMinorVersionUpgrade
+    , riReplicationInstancePublicIPAddresses
     , riReplicationSubnetGroup
     , riInstanceCreateTime
     , riReplicationInstanceStatus
+    , riReplicationInstancePrivateIPAddresses
     , riPreferredMaintenanceWindow
     , riReplicationInstancePrivateIPAddress
     , riKMSKeyId
     , riAvailabilityZone
+    , riVPCSecurityGroups
+    , riMultiAZ
     , riReplicationInstanceARN
     , riAllocatedStorage
     , riReplicationInstancePublicIPAddress
@@ -128,6 +151,7 @@ module Network.AWS.DMS.Types
     , ReplicationPendingModifiedValues
     , replicationPendingModifiedValues
     , rpmvEngineVersion
+    , rpmvMultiAZ
     , rpmvAllocatedStorage
     , rpmvReplicationInstanceClass
 
@@ -199,6 +223,12 @@ module Network.AWS.DMS.Types
     , tag
     , tagValue
     , tagKey
+
+    -- * VPCSecurityGroupMembership
+    , VPCSecurityGroupMembership
+    , vpcSecurityGroupMembership
+    , vsgmStatus
+    , vsgmVPCSecurityGroupId
     ) where
 
 import           Network.AWS.DMS.Types.Product
@@ -258,6 +288,10 @@ _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
 _InvalidResourceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateFault =
     _ServiceError . hasCode "InvalidResourceStateFault"
+
+-- | The certificate was not valid.
+_InvalidCertificateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCertificateFault = _ServiceError . hasCode "InvalidCertificateFault"
 
 -- | The resource you are attempting to create already exists.
 _ResourceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError

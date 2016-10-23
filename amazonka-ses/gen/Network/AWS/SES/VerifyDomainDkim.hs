@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'verifyDomainDkim' smart constructor.
+-- | Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'verifyDomainDkim' smart constructor.
 newtype VerifyDomainDkim = VerifyDomainDkim'
     { _vddDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -98,7 +100,9 @@ instance ToQuery VerifyDomainDkim where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vddDomain]
 
--- | /See:/ 'verifyDomainDkimResponse' smart constructor.
+-- | Returns CNAME records that you must publish to the DNS server of your domain to set up Easy DKIM with Amazon SES.
+--
+-- /See:/ 'verifyDomainDkimResponse' smart constructor.
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrsResponseStatus :: !Int
     , _vddrsDkimTokens     :: ![Text]

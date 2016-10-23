@@ -58,7 +58,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for < UpdateStack> action.
+-- | The input for an < UpdateStack> action.
 --
 -- /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
@@ -174,9 +174,13 @@ usTemplateBody = lens _usTemplateBody (\ s a -> s{_usTemplateBody = a});
 usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 
--- | A list of capabilities that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.
+-- | A list of values that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.
 --
--- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary. If your template contains any of the listed resources and you don\'t specify this parameter, this action returns an 'InsufficientCapabilities' error.
+-- The only valid values are 'CAPABILITY_IAM' and 'CAPABILITY_NAMED_IAM'. The following resources require you to specify this parameter: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
+--
+-- If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify 'CAPABILITY_NAMED_IAM'. If you don\'t specify this parameter, this action returns an 'InsufficientCapabilities' error.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default . _Coerce;
 
@@ -241,7 +245,7 @@ instance ToQuery UpdateStack where
                "Tags" =: toQuery (toQueryList "member" <$> _usTags),
                "StackName" =: _usStackName]
 
--- | The output for a < UpdateStack> action.
+-- | The output for an < UpdateStack> action.
 --
 -- /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'

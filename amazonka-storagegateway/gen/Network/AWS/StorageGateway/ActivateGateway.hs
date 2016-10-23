@@ -53,12 +53,19 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < ActivateGatewayInput>ActivationKey>
+--
 -- -   < ActivateGatewayInput>GatewayName>
+--
 -- -   < ActivateGatewayInput>GatewayRegion>
+--
 -- -   < ActivateGatewayInput>GatewayTimezone>
+--
 -- -   < ActivateGatewayInput>GatewayType>
+--
 -- -   < ActivateGatewayInput>TapeDriveType>
+--
 -- -   < ActivateGatewayInput>MediumChangerType>
+--
 --
 -- /See:/ 'activateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
@@ -107,13 +114,13 @@ activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ 
 
 -- | The value that indicates the type of medium changer to use for gateway-VTL. This field is optional.
 --
--- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
+-- Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
 agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
 agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType = a});
 
 -- | The value that indicates the type of tape drive to use for gateway-VTL. This field is optional.
 --
--- /Valid Values/: \"IBM-ULT3580-TD5\"
+-- Valid Values: \"IBM-ULT3580-TD5\"
 agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
 agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a});
 
@@ -135,7 +142,7 @@ agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
 
 -- | A value that indicates the region where you want to store the snapshot backups. The gateway region specified must be the same region as the region in your 'Host' header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/.
 --
--- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\", \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\", \"sa-east-1\"
+-- Valid Values: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\", \"eu-central-1\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"sa-east-1\"
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
 

@@ -150,7 +150,7 @@ instance ToQuery DescribeNetworkACLs where
         toQuery DescribeNetworkACLs'{..}
           = mconcat
               ["Action" =: ("DescribeNetworkAcls" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dnaclFilters),
                toQuery
                  (toQueryList "NetworkAclId" <$> _dnaclNetworkACLIds),

@@ -62,7 +62,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateFunctionCode' smart constructor.
+-- |
+--
+-- /See:/ 'updateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
     { _uS3ObjectVersion :: !(Maybe Text)
     , _uS3Key           :: !(Maybe Text)
@@ -108,7 +110,7 @@ uS3ObjectVersion = lens _uS3ObjectVersion (\ s a -> s{_uS3ObjectVersion = a});
 uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
--- | Based64-encoded .zip file containing your packaged source code.
+-- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.

@@ -20,7 +20,7 @@
 --
 -- Creates an SSM document.
 --
--- After you create an SSM document, you can use < CreateAssociation> to associate it with one or more running instances.
+-- After you create an SSM document, you can use CreateAssociation to associate it with one or more running instances.
 module Network.AWS.SSM.CreateDocument
     (
     -- * Creating a Request
@@ -68,7 +68,7 @@ createDocument pContent_ pName_ =
     , _cdName = pName_
     }
 
--- | A valid JSON string. For more information about the contents of this string, see <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html SSM Document>.
+-- | A valid JSON string.
 cdContent :: Lens' CreateDocument Text
 cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 

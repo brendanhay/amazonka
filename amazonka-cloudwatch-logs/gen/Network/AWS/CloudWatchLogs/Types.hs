@@ -122,6 +122,7 @@ module Network.AWS.CloudWatchLogs.Types
     -- * MetricTransformation
     , MetricTransformation
     , metricTransformation
+    , mtDefaultValue
     , mtMetricName
     , mtMetricNamespace
     , mtMetricValue

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified identity (email address or domain) from the list of verified identities.
+-- Deletes the specified identity (an email address or a domain) from the list of verified identities.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.DeleteIdentity
@@ -43,7 +43,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'deleteIdentity' smart constructor.
+-- | Represents a request to delete one of your Amazon SES identities (an email address or domain).
+--
+-- /See:/ 'deleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -90,7 +92,9 @@ instance ToQuery DeleteIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _diIdentity]
 
--- | /See:/ 'deleteIdentityResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

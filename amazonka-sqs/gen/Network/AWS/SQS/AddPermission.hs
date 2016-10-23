@@ -26,9 +26,9 @@
 --
 -- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
--- '&Attribute.1=this'
+-- '&amp;Attribute.1=this'
 --
--- '&Attribute.2=that'
+-- '&amp;Attribute.2=that'
 module Network.AWS.SQS.AddPermission
     (
     -- * Creating a Request
@@ -52,7 +52,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'addPermission' smart constructor.
+-- |
+--
+-- /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
     { _apQueueURL      :: !Text
     , _apLabel         :: !Text
@@ -84,6 +86,8 @@ addPermission pQueueURL_ pLabel_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 apQueueURL :: Lens' AddPermission Text
 apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a});
 

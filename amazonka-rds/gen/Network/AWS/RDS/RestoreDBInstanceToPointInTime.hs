@@ -188,6 +188,7 @@ rditpitUseLatestRestorableTime = lens _rditpitUseLatestRestorableTime (\ s a -> 
 -- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__true
+--
 -- -   __VPC:__false
 --
 -- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
@@ -213,6 +214,7 @@ rditpitDBSubnetGroupName = lens _rditpitDBSubnetGroupName (\ s a -> s{_rditpitDB
 -- Constraints:
 --
 -- -   Must be before the latest restorable time for the DB instance
+--
 -- -   Cannot be specified if UseLatestRestorableTime parameter is true
 --
 -- Example: '2009-09-07T23:45:00Z'
@@ -330,9 +332,13 @@ rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 -- Constraints:
 --
 -- -   Must be the identifier of an existing database instance
+--
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rditpitSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
 rditpitSourceDBInstanceIdentifier = lens _rditpitSourceDBInstanceIdentifier (\ s a -> s{_rditpitSourceDBInstanceIdentifier = a});
 
@@ -341,8 +347,11 @@ rditpitSourceDBInstanceIdentifier = lens _rditpitSourceDBInstanceIdentifier (\ s
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rditpitTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
 rditpitTargetDBInstanceIdentifier = lens _rditpitTargetDBInstanceIdentifier (\ s a -> s{_rditpitTargetDBInstanceIdentifier = a});
 

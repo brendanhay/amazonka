@@ -66,7 +66,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createFunction' smart constructor.
+-- |
+--
+-- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
     { _cfMemorySize   :: !(Maybe Nat)
     , _cfVPCConfig    :: !(Maybe VPCConfig)
@@ -149,6 +151,8 @@ cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
 -- | The runtime environment for the Lambda function you are uploading.
+--
+-- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 

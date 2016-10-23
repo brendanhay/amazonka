@@ -29,7 +29,7 @@ instance FromText BehaviorOnMXFailure where
         "rejectmessage" -> pure RejectMessage
         "usedefaultvalue" -> pure UseDefaultValue
         e -> fromTextError $ "Failure parsing BehaviorOnMXFailure from value: '" <> e
-           <> "'. Accepted values: RejectMessage, UseDefaultValue"
+           <> "'. Accepted values: rejectmessage, usedefaultvalue"
 
 instance ToText BehaviorOnMXFailure where
     toText = \case
@@ -63,7 +63,7 @@ instance FromText BounceType where
         "temporaryfailure" -> pure BTTemporaryFailure
         "undefined" -> pure BTUndefined
         e -> fromTextError $ "Failure parsing BounceType from value: '" <> e
-           <> "'. Accepted values: ContentRejected, DoesNotExist, ExceededQuota, MessageTooLarge, TemporaryFailure, Undefined"
+           <> "'. Accepted values: contentrejected, doesnotexist, exceededquota, messagetoolarge, temporaryfailure, undefined"
 
 instance ToText BounceType where
     toText = \case
@@ -94,7 +94,7 @@ instance FromText CustomMailFromStatus where
         "success" -> pure CMFSSuccess
         "temporaryfailure" -> pure CMFSTemporaryFailure
         e -> fromTextError $ "Failure parsing CustomMailFromStatus from value: '" <> e
-           <> "'. Accepted values: Failed, Pending, Success, TemporaryFailure"
+           <> "'. Accepted values: failed, pending, success, temporaryfailure"
 
 instance ToText CustomMailFromStatus where
     toText = \case
@@ -154,7 +154,7 @@ instance FromText IdentityType where
         "domain" -> pure Domain
         "emailaddress" -> pure EmailAddress
         e -> fromTextError $ "Failure parsing IdentityType from value: '" <> e
-           <> "'. Accepted values: Domain, EmailAddress"
+           <> "'. Accepted values: domain, emailaddress"
 
 instance ToText IdentityType where
     toText = \case
@@ -177,7 +177,7 @@ instance FromText InvocationType where
         "event" -> pure Event
         "requestresponse" -> pure RequestResponse
         e -> fromTextError $ "Failure parsing InvocationType from value: '" <> e
-           <> "'. Accepted values: Event, RequestResponse"
+           <> "'. Accepted values: event, requestresponse"
 
 instance ToText InvocationType where
     toText = \case
@@ -205,7 +205,7 @@ instance FromText NotificationType where
         "complaint" -> pure Complaint
         "delivery" -> pure Delivery
         e -> fromTextError $ "Failure parsing NotificationType from value: '" <> e
-           <> "'. Accepted values: Bounce, Complaint, Delivery"
+           <> "'. Accepted values: bounce, complaint, delivery"
 
 instance ToText NotificationType where
     toText = \case
@@ -229,7 +229,7 @@ instance FromText ReceiptFilterPolicy where
         "allow" -> pure Allow
         "block" -> pure Block
         e -> fromTextError $ "Failure parsing ReceiptFilterPolicy from value: '" <> e
-           <> "'. Accepted values: Allow, Block"
+           <> "'. Accepted values: allow, block"
 
 instance ToText ReceiptFilterPolicy where
     toText = \case
@@ -255,7 +255,7 @@ instance FromText SNSActionEncoding where
         "base64" -> pure BASE64
         "utf-8" -> pure Utf8
         e -> fromTextError $ "Failure parsing SNSActionEncoding from value: '" <> e
-           <> "'. Accepted values: Base64, UTF-8"
+           <> "'. Accepted values: base64, utf-8"
 
 instance ToText SNSActionEncoding where
     toText = \case
@@ -279,7 +279,7 @@ instance FromText StopScope where
     parser = takeLowerText >>= \case
         "ruleset" -> pure RuleSet
         e -> fromTextError $ "Failure parsing StopScope from value: '" <> e
-           <> "'. Accepted values: RuleSet"
+           <> "'. Accepted values: ruleset"
 
 instance ToText StopScope where
     toText = \case
@@ -304,7 +304,7 @@ instance FromText TLSPolicy where
         "optional" -> pure Optional
         "require" -> pure Require
         e -> fromTextError $ "Failure parsing TLSPolicy from value: '" <> e
-           <> "'. Accepted values: Optional, Require"
+           <> "'. Accepted values: optional, require"
 
 instance ToText TLSPolicy where
     toText = \case
@@ -336,7 +336,7 @@ instance FromText VerificationStatus where
         "success" -> pure Success
         "temporaryfailure" -> pure TemporaryFailure
         e -> fromTextError $ "Failure parsing VerificationStatus from value: '" <> e
-           <> "'. Accepted values: Failed, NotStarted, Pending, Success, TemporaryFailure"
+           <> "'. Accepted values: failed, notstarted, pending, success, temporaryfailure"
 
 instance ToText VerificationStatus where
     toText = \case

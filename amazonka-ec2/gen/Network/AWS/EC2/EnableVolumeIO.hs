@@ -91,7 +91,7 @@ instance ToQuery EnableVolumeIO where
         toQuery EnableVolumeIO'{..}
           = mconcat
               ["Action" =: ("EnableVolumeIO" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _evioDryRun, "VolumeId" =: _evioVolumeId]
 
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.

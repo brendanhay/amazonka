@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAlarmHistory' smart constructor.
+-- | Describes the inputs for DescribeAlarmHistory.
+--
+-- /See:/ 'describeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
     { _dahAlarmName       :: !(Maybe Text)
     , _dahHistoryItemType :: !(Maybe HistoryItemType)
@@ -156,7 +158,7 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for the < DescribeAlarmHistory> action.
+-- | The output for < DescribeAlarmHistory>.
 --
 -- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'

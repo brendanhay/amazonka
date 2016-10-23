@@ -22,7 +22,7 @@
 --
 -- Deleting a CMK is a destructive and potentially dangerous operation. When a CMK is deleted, all data that was encrypted under the CMK is rendered unrecoverable. To restrict the use of a CMK without deleting it, use < DisableKey>.
 --
--- For more information about scheduling a CMK for deletion, go to <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys> in the /AWS Key Management Service Developer Guide/.
+-- For more information about scheduling a CMK for deletion, see <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys> in the /AWS Key Management Service Developer Guide/.
 module Network.AWS.KMS.ScheduleKeyDeletion
     (
     -- * Creating a Request
@@ -81,6 +81,7 @@ skdPendingWindowInDays = lens _skdPendingWindowInDays (\ s a -> s{_skdPendingWin
 -- To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:
 --
 -- -   Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+--
 -- -   Key ARN: arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
 --
 -- To obtain the unique key ID and key ARN for a given CMK, use < ListKeys> or < DescribeKey>.

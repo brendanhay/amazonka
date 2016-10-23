@@ -62,6 +62,8 @@ deleteServerCertificate pServerCertificateName_ =
     }
 
 -- | The name of the server certificate you want to delete.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a});
 

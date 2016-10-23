@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the replication subnet groups.
---
 module Network.AWS.DMS.DescribeReplicationSubnetGroups
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReplicationSubnetGroups' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationSubnetGroups' smart constructor.
 data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
     { _drsgFilters    :: !(Maybe [Filter])
     , _drsgMarker     :: !(Maybe Text)
@@ -130,7 +131,9 @@ instance ToQuery DescribeReplicationSubnetGroups
          where
         toQuery = const mempty
 
--- | /See:/ 'describeReplicationSubnetGroupsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationSubnetGroupsResponse' smart constructor.
 data DescribeReplicationSubnetGroupsResponse = DescribeReplicationSubnetGroupsResponse'
     { _drsgsrsMarker                  :: !(Maybe Text)
     , _drsgsrsReplicationSubnetGroups :: !(Maybe [ReplicationSubnetGroup])

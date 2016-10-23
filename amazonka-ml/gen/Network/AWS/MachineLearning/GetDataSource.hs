@@ -38,10 +38,13 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrsNumberOfFiles
     , gdsrsLastUpdatedAt
     , gdsrsCreatedAt
+    , gdsrsComputeTime
     , gdsrsDataSourceId
     , gdsrsRDSMetadata
     , gdsrsDataSizeInBytes
     , gdsrsDataSourceSchema
+    , gdsrsStartedAt
+    , gdsrsFinishedAt
     , gdsrsCreatedByIAMUser
     , gdsrsName
     , gdsrsLogURI
@@ -105,10 +108,13 @@ instance AWSRequest GetDataSource where
                    (x .?> "Status") <*> (x .?> "NumberOfFiles") <*>
                      (x .?> "LastUpdatedAt")
                      <*> (x .?> "CreatedAt")
+                     <*> (x .?> "ComputeTime")
                      <*> (x .?> "DataSourceId")
                      <*> (x .?> "RDSMetadata")
                      <*> (x .?> "DataSizeInBytes")
                      <*> (x .?> "DataSourceSchema")
+                     <*> (x .?> "StartedAt")
+                     <*> (x .?> "FinishedAt")
                      <*> (x .?> "CreatedByIamUser")
                      <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
@@ -146,7 +152,7 @@ instance ToPath GetDataSource where
 instance ToQuery GetDataSource where
         toQuery = const mempty
 
--- | Represents the output of a < GetDataSource> operation and describes a 'DataSource'.
+-- | Represents the output of a 'GetDataSource' operation and describes a 'DataSource'.
 --
 -- /See:/ 'getDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
@@ -154,10 +160,13 @@ data GetDataSourceResponse = GetDataSourceResponse'
     , _gdsrsNumberOfFiles     :: !(Maybe Integer)
     , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
     , _gdsrsCreatedAt         :: !(Maybe POSIX)
+    , _gdsrsComputeTime       :: !(Maybe Integer)
     , _gdsrsDataSourceId      :: !(Maybe Text)
     , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
     , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
     , _gdsrsDataSourceSchema  :: !(Maybe Text)
+    , _gdsrsStartedAt         :: !(Maybe POSIX)
+    , _gdsrsFinishedAt        :: !(Maybe POSIX)
     , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
     , _gdsrsName              :: !(Maybe Text)
     , _gdsrsLogURI            :: !(Maybe Text)
@@ -182,6 +191,8 @@ data GetDataSourceResponse = GetDataSourceResponse'
 --
 -- * 'gdsrsCreatedAt'
 --
+-- * 'gdsrsComputeTime'
+--
 -- * 'gdsrsDataSourceId'
 --
 -- * 'gdsrsRDSMetadata'
@@ -189,6 +200,10 @@ data GetDataSourceResponse = GetDataSourceResponse'
 -- * 'gdsrsDataSizeInBytes'
 --
 -- * 'gdsrsDataSourceSchema'
+--
+-- * 'gdsrsStartedAt'
+--
+-- * 'gdsrsFinishedAt'
 --
 -- * 'gdsrsCreatedByIAMUser'
 --
@@ -218,10 +233,13 @@ getDataSourceResponse pResponseStatus_ =
     , _gdsrsNumberOfFiles = Nothing
     , _gdsrsLastUpdatedAt = Nothing
     , _gdsrsCreatedAt = Nothing
+    , _gdsrsComputeTime = Nothing
     , _gdsrsDataSourceId = Nothing
     , _gdsrsRDSMetadata = Nothing
     , _gdsrsDataSizeInBytes = Nothing
     , _gdsrsDataSourceSchema = Nothing
+    , _gdsrsStartedAt = Nothing
+    , _gdsrsFinishedAt = Nothing
     , _gdsrsCreatedByIAMUser = Nothing
     , _gdsrsName = Nothing
     , _gdsrsLogURI = Nothing
@@ -236,7 +254,7 @@ getDataSourceResponse pResponseStatus_ =
 
 -- | The current status of the 'DataSource'. This element can have one of the following values:
 --
--- -   'PENDING' - Amazon Machine Language (Amazon ML) submitted a request to create a 'DataSource'.
+-- -   'PENDING' - Amazon ML submitted a request to create a 'DataSource'.
 -- -   'INPROGRESS' - The creation process is underway.
 -- -   'FAILED' - The request to create a 'DataSource' did not run to completion. It is not usable.
 -- -   'COMPLETED' - The creation process completed successfully.
@@ -255,6 +273,10 @@ gdsrsLastUpdatedAt = lens _gdsrsLastUpdatedAt (\ s a -> s{_gdsrsLastUpdatedAt = 
 -- | The time that the 'DataSource' was created. The time is expressed in epoch time.
 gdsrsCreatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
 gdsrsCreatedAt = lens _gdsrsCreatedAt (\ s a -> s{_gdsrsCreatedAt = a}) . mapping _Time;
+
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the 'DataSource', normalized and scaled on computation resources. 'ComputeTime' is only available if the 'DataSource' is in the 'COMPLETED' state and the 'ComputeStatistics' is set to true.
+gdsrsComputeTime :: Lens' GetDataSourceResponse (Maybe Integer)
+gdsrsComputeTime = lens _gdsrsComputeTime (\ s a -> s{_gdsrsComputeTime = a});
 
 -- | The ID assigned to the 'DataSource' at creation. This value should be identical to the value of the 'DataSourceId' in the request.
 gdsrsDataSourceId :: Lens' GetDataSourceResponse (Maybe Text)
@@ -276,6 +298,14 @@ gdsrsDataSizeInBytes = lens _gdsrsDataSizeInBytes (\ s a -> s{_gdsrsDataSizeInBy
 gdsrsDataSourceSchema :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataSourceSchema = lens _gdsrsDataSourceSchema (\ s a -> s{_gdsrsDataSourceSchema = a});
 
+-- | The epoch time when Amazon Machine Learning marked the 'DataSource' as 'INPROGRESS'. 'StartedAt' isn\'t available if the 'DataSource' is in the 'PENDING' state.
+gdsrsStartedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
+gdsrsStartedAt = lens _gdsrsStartedAt (\ s a -> s{_gdsrsStartedAt = a}) . mapping _Time;
+
+-- | The epoch time when Amazon Machine Learning marked the 'DataSource' as 'COMPLETED' or 'FAILED'. 'FinishedAt' is only available when the 'DataSource' is in the 'COMPLETED' or 'FAILED' state.
+gdsrsFinishedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
+gdsrsFinishedAt = lens _gdsrsFinishedAt (\ s a -> s{_gdsrsFinishedAt = a}) . mapping _Time;
+
 -- | The AWS user account from which the 'DataSource' was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gdsrsCreatedByIAMUser :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsCreatedByIAMUser = lens _gdsrsCreatedByIAMUser (\ s a -> s{_gdsrsCreatedByIAMUser = a});
@@ -284,7 +314,7 @@ gdsrsCreatedByIAMUser = lens _gdsrsCreatedByIAMUser (\ s a -> s{_gdsrsCreatedByI
 gdsrsName :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsName = lens _gdsrsName (\ s a -> s{_gdsrsName = a});
 
--- | A link to the file containining logs of either create 'DataSource' operation.
+-- | A link to the file containing logs of 'CreateDataSourceFrom*' operations.
 gdsrsLogURI :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsLogURI = lens _gdsrsLogURI (\ s a -> s{_gdsrsLogURI = a});
 
@@ -296,7 +326,7 @@ gdsrsDataLocationS3 = lens _gdsrsDataLocationS3 (\ s a -> s{_gdsrsDataLocationS3
 gdsrsComputeStatistics :: Lens' GetDataSourceResponse (Maybe Bool)
 gdsrsComputeStatistics = lens _gdsrsComputeStatistics (\ s a -> s{_gdsrsComputeStatistics = a});
 
--- | The description of the most recent details about creating the 'DataSource'.
+-- | The user-supplied description of the most recent details about creating the 'DataSource'.
 gdsrsMessage :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsMessage = lens _gdsrsMessage (\ s a -> s{_gdsrsMessage = a});
 
@@ -304,7 +334,7 @@ gdsrsMessage = lens _gdsrsMessage (\ s a -> s{_gdsrsMessage = a});
 gdsrsRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
 gdsrsRedshiftMetadata = lens _gdsrsRedshiftMetadata (\ s a -> s{_gdsrsRedshiftMetadata = a});
 
--- | A JSON string that captures the splitting rearrangement requirement of the 'DataSource'.
+-- | A JSON string that represents the splitting and rearrangement requirement used when this 'DataSource' was created.
 gdsrsDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataRearrangement = lens _gdsrsDataRearrangement (\ s a -> s{_gdsrsDataRearrangement = a});
 

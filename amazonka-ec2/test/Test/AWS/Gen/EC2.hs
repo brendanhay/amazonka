@@ -43,6 +43,9 @@ import Test.AWS.EC2.Internal
 --         , requestDeleteKeyPair $
 --             deleteKeyPair
 --
+--         , requestDescribeSecurityGroupReferences $
+--             describeSecurityGroupReferences
+--
 --         , requestDescribeTags $
 --             describeTags
 --
@@ -142,6 +145,9 @@ import Test.AWS.EC2.Internal
 --         , requestDescribeSnapshotAttribute $
 --             describeSnapshotAttribute
 --
+--         , requestDescribeIdentityIdFormat $
+--             describeIdentityIdFormat
+--
 --         , requestReplaceRoute $
 --             replaceRoute
 --
@@ -183,6 +189,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestResetInstanceAttribute $
 --             resetInstanceAttribute
+--
+--         , requestModifyIdentityIdFormat $
+--             modifyIdentityIdFormat
 --
 --         , requestAttachNetworkInterface $
 --             attachNetworkInterface
@@ -265,6 +274,9 @@ import Test.AWS.EC2.Internal
 --         , requestRequestSpotInstances $
 --             requestSpotInstances
 --
+--         , requestDescribeHostReservationOfferings $
+--             describeHostReservationOfferings
+--
 --         , requestDescribeVolumes $
 --             describeVolumes
 --
@@ -285,6 +297,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestRevokeSecurityGroupIngress $
 --             revokeSecurityGroupIngress
+--
+--         , requestDescribeHostReservations $
+--             describeHostReservations
 --
 --         , requestEnableVPCClassicLinkDNSSupport $
 --             enableVPCClassicLinkDNSSupport
@@ -381,6 +396,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestDetachVPNGateway $
 --             detachVPNGateway
+--
+--         , requestGetHostReservationPurchasePreview $
+--             getHostReservationPurchasePreview
 --
 --         , requestEnableVolumeIO $
 --             enableVolumeIO
@@ -487,6 +505,9 @@ import Test.AWS.EC2.Internal
 --         , requestDisassociateRouteTable $
 --             disassociateRouteTable
 --
+--         , requestGetConsoleScreenshot $
+--             getConsoleScreenshot
+--
 --         , requestDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscription
 --
@@ -495,6 +516,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestDescribePlacementGroups $
 --             describePlacementGroups
+--
+--         , requestDescribeStaleSecurityGroups $
+--             describeStaleSecurityGroups
 --
 --         , requestPurchaseScheduledInstances $
 --             purchaseScheduledInstances
@@ -531,6 +555,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestRebootInstances $
 --             rebootInstances
+--
+--         , requestPurchaseHostReservation $
+--             purchaseHostReservation
 --
 --         , requestCreateImage $
 --             createImage
@@ -649,6 +676,9 @@ import Test.AWS.EC2.Internal
 --         , responseDeleteKeyPair $
 --             deleteKeyPairResponse
 --
+--         , responseDescribeSecurityGroupReferences $
+--             describeSecurityGroupReferencesResponse
+--
 --         , responseDescribeTags $
 --             describeTagsResponse
 --
@@ -748,6 +778,9 @@ import Test.AWS.EC2.Internal
 --         , responseDescribeSnapshotAttribute $
 --             describeSnapshotAttributeResponse
 --
+--         , responseDescribeIdentityIdFormat $
+--             describeIdentityIdFormatResponse
+--
 --         , responseReplaceRoute $
 --             replaceRouteResponse
 --
@@ -789,6 +822,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseResetInstanceAttribute $
 --             resetInstanceAttributeResponse
+--
+--         , responseModifyIdentityIdFormat $
+--             modifyIdentityIdFormatResponse
 --
 --         , responseAttachNetworkInterface $
 --             attachNetworkInterfaceResponse
@@ -871,6 +907,9 @@ import Test.AWS.EC2.Internal
 --         , responseRequestSpotInstances $
 --             requestSpotInstancesResponse
 --
+--         , responseDescribeHostReservationOfferings $
+--             describeHostReservationOfferingsResponse
+--
 --         , responseDescribeVolumes $
 --             describeVolumesResponse
 --
@@ -891,6 +930,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseRevokeSecurityGroupIngress $
 --             revokeSecurityGroupIngressResponse
+--
+--         , responseDescribeHostReservations $
+--             describeHostReservationsResponse
 --
 --         , responseEnableVPCClassicLinkDNSSupport $
 --             enableVPCClassicLinkDNSSupportResponse
@@ -987,6 +1029,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseDetachVPNGateway $
 --             detachVPNGatewayResponse
+--
+--         , responseGetHostReservationPurchasePreview $
+--             getHostReservationPurchasePreviewResponse
 --
 --         , responseEnableVolumeIO $
 --             enableVolumeIOResponse
@@ -1093,6 +1138,9 @@ import Test.AWS.EC2.Internal
 --         , responseDisassociateRouteTable $
 --             disassociateRouteTableResponse
 --
+--         , responseGetConsoleScreenshot $
+--             getConsoleScreenshotResponse
+--
 --         , responseDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscriptionResponse
 --
@@ -1101,6 +1149,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseDescribePlacementGroups $
 --             describePlacementGroupsResponse
+--
+--         , responseDescribeStaleSecurityGroups $
+--             describeStaleSecurityGroupsResponse
 --
 --         , responsePurchaseScheduledInstances $
 --             purchaseScheduledInstancesResponse
@@ -1137,6 +1188,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseRebootInstances $
 --             rebootInstancesResponse
+--
+--         , responsePurchaseHostReservation $
+--             purchaseHostReservationResponse
 --
 --         , responseCreateImage $
 --             createImageResponse
@@ -1266,6 +1320,11 @@ requestDeleteKeyPair :: DeleteKeyPair -> TestTree
 requestDeleteKeyPair = req
     "DeleteKeyPair"
     "fixture/DeleteKeyPair.yaml"
+
+requestDescribeSecurityGroupReferences :: DescribeSecurityGroupReferences -> TestTree
+requestDescribeSecurityGroupReferences = req
+    "DescribeSecurityGroupReferences"
+    "fixture/DescribeSecurityGroupReferences.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
 requestDescribeTags = req
@@ -1432,6 +1491,11 @@ requestDescribeSnapshotAttribute = req
     "DescribeSnapshotAttribute"
     "fixture/DescribeSnapshotAttribute.yaml"
 
+requestDescribeIdentityIdFormat :: DescribeIdentityIdFormat -> TestTree
+requestDescribeIdentityIdFormat = req
+    "DescribeIdentityIdFormat"
+    "fixture/DescribeIdentityIdFormat.yaml"
+
 requestReplaceRoute :: ReplaceRoute -> TestTree
 requestReplaceRoute = req
     "ReplaceRoute"
@@ -1501,6 +1565,11 @@ requestResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
 requestResetInstanceAttribute = req
     "ResetInstanceAttribute"
     "fixture/ResetInstanceAttribute.yaml"
+
+requestModifyIdentityIdFormat :: ModifyIdentityIdFormat -> TestTree
+requestModifyIdentityIdFormat = req
+    "ModifyIdentityIdFormat"
+    "fixture/ModifyIdentityIdFormat.yaml"
 
 requestAttachNetworkInterface :: AttachNetworkInterface -> TestTree
 requestAttachNetworkInterface = req
@@ -1637,6 +1706,11 @@ requestRequestSpotInstances = req
     "RequestSpotInstances"
     "fixture/RequestSpotInstances.yaml"
 
+requestDescribeHostReservationOfferings :: DescribeHostReservationOfferings -> TestTree
+requestDescribeHostReservationOfferings = req
+    "DescribeHostReservationOfferings"
+    "fixture/DescribeHostReservationOfferings.yaml"
+
 requestDescribeVolumes :: DescribeVolumes -> TestTree
 requestDescribeVolumes = req
     "DescribeVolumes"
@@ -1671,6 +1745,11 @@ requestRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
 requestRevokeSecurityGroupIngress = req
     "RevokeSecurityGroupIngress"
     "fixture/RevokeSecurityGroupIngress.yaml"
+
+requestDescribeHostReservations :: DescribeHostReservations -> TestTree
+requestDescribeHostReservations = req
+    "DescribeHostReservations"
+    "fixture/DescribeHostReservations.yaml"
 
 requestEnableVPCClassicLinkDNSSupport :: EnableVPCClassicLinkDNSSupport -> TestTree
 requestEnableVPCClassicLinkDNSSupport = req
@@ -1831,6 +1910,11 @@ requestDetachVPNGateway :: DetachVPNGateway -> TestTree
 requestDetachVPNGateway = req
     "DetachVPNGateway"
     "fixture/DetachVPNGateway.yaml"
+
+requestGetHostReservationPurchasePreview :: GetHostReservationPurchasePreview -> TestTree
+requestGetHostReservationPurchasePreview = req
+    "GetHostReservationPurchasePreview"
+    "fixture/GetHostReservationPurchasePreview.yaml"
 
 requestEnableVolumeIO :: EnableVolumeIO -> TestTree
 requestEnableVolumeIO = req
@@ -2007,6 +2091,11 @@ requestDisassociateRouteTable = req
     "DisassociateRouteTable"
     "fixture/DisassociateRouteTable.yaml"
 
+requestGetConsoleScreenshot :: GetConsoleScreenshot -> TestTree
+requestGetConsoleScreenshot = req
+    "GetConsoleScreenshot"
+    "fixture/GetConsoleScreenshot.yaml"
+
 requestDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
 requestDeleteSpotDatafeedSubscription = req
     "DeleteSpotDatafeedSubscription"
@@ -2021,6 +2110,11 @@ requestDescribePlacementGroups :: DescribePlacementGroups -> TestTree
 requestDescribePlacementGroups = req
     "DescribePlacementGroups"
     "fixture/DescribePlacementGroups.yaml"
+
+requestDescribeStaleSecurityGroups :: DescribeStaleSecurityGroups -> TestTree
+requestDescribeStaleSecurityGroups = req
+    "DescribeStaleSecurityGroups"
+    "fixture/DescribeStaleSecurityGroups.yaml"
 
 requestPurchaseScheduledInstances :: PurchaseScheduledInstances -> TestTree
 requestPurchaseScheduledInstances = req
@@ -2081,6 +2175,11 @@ requestRebootInstances :: RebootInstances -> TestTree
 requestRebootInstances = req
     "RebootInstances"
     "fixture/RebootInstances.yaml"
+
+requestPurchaseHostReservation :: PurchaseHostReservation -> TestTree
+requestPurchaseHostReservation = req
+    "PurchaseHostReservation"
+    "fixture/PurchaseHostReservation.yaml"
 
 requestCreateImage :: CreateImage -> TestTree
 requestCreateImage = req
@@ -2283,6 +2382,13 @@ responseDeleteKeyPair = res
     "fixture/DeleteKeyPairResponse.proto"
     ec2
     (Proxy :: Proxy DeleteKeyPair)
+
+responseDescribeSecurityGroupReferences :: DescribeSecurityGroupReferencesResponse -> TestTree
+responseDescribeSecurityGroupReferences = res
+    "DescribeSecurityGroupReferencesResponse"
+    "fixture/DescribeSecurityGroupReferencesResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeSecurityGroupReferences)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags = res
@@ -2515,6 +2621,13 @@ responseDescribeSnapshotAttribute = res
     ec2
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
+responseDescribeIdentityIdFormat :: DescribeIdentityIdFormatResponse -> TestTree
+responseDescribeIdentityIdFormat = res
+    "DescribeIdentityIdFormatResponse"
+    "fixture/DescribeIdentityIdFormatResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeIdentityIdFormat)
+
 responseReplaceRoute :: ReplaceRouteResponse -> TestTree
 responseReplaceRoute = res
     "ReplaceRouteResponse"
@@ -2612,6 +2725,13 @@ responseResetInstanceAttribute = res
     "fixture/ResetInstanceAttributeResponse.proto"
     ec2
     (Proxy :: Proxy ResetInstanceAttribute)
+
+responseModifyIdentityIdFormat :: ModifyIdentityIdFormatResponse -> TestTree
+responseModifyIdentityIdFormat = res
+    "ModifyIdentityIdFormatResponse"
+    "fixture/ModifyIdentityIdFormatResponse.proto"
+    ec2
+    (Proxy :: Proxy ModifyIdentityIdFormat)
 
 responseAttachNetworkInterface :: AttachNetworkInterfaceResponse -> TestTree
 responseAttachNetworkInterface = res
@@ -2802,6 +2922,13 @@ responseRequestSpotInstances = res
     ec2
     (Proxy :: Proxy RequestSpotInstances)
 
+responseDescribeHostReservationOfferings :: DescribeHostReservationOfferingsResponse -> TestTree
+responseDescribeHostReservationOfferings = res
+    "DescribeHostReservationOfferingsResponse"
+    "fixture/DescribeHostReservationOfferingsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeHostReservationOfferings)
+
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
 responseDescribeVolumes = res
     "DescribeVolumesResponse"
@@ -2850,6 +2977,13 @@ responseRevokeSecurityGroupIngress = res
     "fixture/RevokeSecurityGroupIngressResponse.proto"
     ec2
     (Proxy :: Proxy RevokeSecurityGroupIngress)
+
+responseDescribeHostReservations :: DescribeHostReservationsResponse -> TestTree
+responseDescribeHostReservations = res
+    "DescribeHostReservationsResponse"
+    "fixture/DescribeHostReservationsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeHostReservations)
 
 responseEnableVPCClassicLinkDNSSupport :: EnableVPCClassicLinkDNSSupportResponse -> TestTree
 responseEnableVPCClassicLinkDNSSupport = res
@@ -3074,6 +3208,13 @@ responseDetachVPNGateway = res
     "fixture/DetachVPNGatewayResponse.proto"
     ec2
     (Proxy :: Proxy DetachVPNGateway)
+
+responseGetHostReservationPurchasePreview :: GetHostReservationPurchasePreviewResponse -> TestTree
+responseGetHostReservationPurchasePreview = res
+    "GetHostReservationPurchasePreviewResponse"
+    "fixture/GetHostReservationPurchasePreviewResponse.proto"
+    ec2
+    (Proxy :: Proxy GetHostReservationPurchasePreview)
 
 responseEnableVolumeIO :: EnableVolumeIOResponse -> TestTree
 responseEnableVolumeIO = res
@@ -3320,6 +3461,13 @@ responseDisassociateRouteTable = res
     ec2
     (Proxy :: Proxy DisassociateRouteTable)
 
+responseGetConsoleScreenshot :: GetConsoleScreenshotResponse -> TestTree
+responseGetConsoleScreenshot = res
+    "GetConsoleScreenshotResponse"
+    "fixture/GetConsoleScreenshotResponse.proto"
+    ec2
+    (Proxy :: Proxy GetConsoleScreenshot)
+
 responseDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 responseDeleteSpotDatafeedSubscription = res
     "DeleteSpotDatafeedSubscriptionResponse"
@@ -3340,6 +3488,13 @@ responseDescribePlacementGroups = res
     "fixture/DescribePlacementGroupsResponse.proto"
     ec2
     (Proxy :: Proxy DescribePlacementGroups)
+
+responseDescribeStaleSecurityGroups :: DescribeStaleSecurityGroupsResponse -> TestTree
+responseDescribeStaleSecurityGroups = res
+    "DescribeStaleSecurityGroupsResponse"
+    "fixture/DescribeStaleSecurityGroupsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeStaleSecurityGroups)
 
 responsePurchaseScheduledInstances :: PurchaseScheduledInstancesResponse -> TestTree
 responsePurchaseScheduledInstances = res
@@ -3424,6 +3579,13 @@ responseRebootInstances = res
     "fixture/RebootInstancesResponse.proto"
     ec2
     (Proxy :: Proxy RebootInstances)
+
+responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
+responsePurchaseHostReservation = res
+    "PurchaseHostReservationResponse"
+    "fixture/PurchaseHostReservationResponse.proto"
+    ec2
+    (Proxy :: Proxy PurchaseHostReservation)
 
 responseCreateImage :: CreateImageResponse -> TestTree
 responseCreateImage = res

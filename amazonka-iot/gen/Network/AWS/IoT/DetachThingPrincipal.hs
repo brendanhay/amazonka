@@ -71,7 +71,7 @@ detachThingPrincipal pThingName_ pPrincipal_ =
 dtpThingName :: Lens' DetachThingPrincipal Text
 dtpThingName = lens _dtpThingName (\ s a -> s{_dtpThingName = a});
 
--- | The principal.
+-- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 dtpPrincipal :: Lens' DetachThingPrincipal Text
 dtpPrincipal = lens _dtpPrincipal (\ s a -> s{_dtpPrincipal = a});
 

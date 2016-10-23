@@ -44,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'deleteMessage' smart constructor.
+-- |
+--
+-- /See:/ 'deleteMessage' smart constructor.
 data DeleteMessage = DeleteMessage'
     { _dmQueueURL      :: !Text
     , _dmReceiptHandle :: !Text
@@ -68,6 +70,8 @@ deleteMessage pQueueURL_ pReceiptHandle_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 dmQueueURL :: Lens' DeleteMessage Text
 dmQueueURL = lens _dmQueueURL (\ s a -> s{_dmQueueURL = a});
 

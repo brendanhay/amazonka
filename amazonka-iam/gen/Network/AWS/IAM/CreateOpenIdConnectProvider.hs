@@ -159,7 +159,7 @@ createOpenIdConnectProviderResponse pResponseStatus_ =
     , _coicprsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that was created. For more information, see < OpenIDConnectProviderListEntry>.
+-- | The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created. For more information, see < OpenIDConnectProviderListEntry>.
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 

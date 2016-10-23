@@ -21,6 +21,111 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SSM.Types.Sum
 
+-- | An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.
+--
+-- /See:/ 'activation' smart constructor.
+data Activation = Activation'
+    { _aExpired             :: !(Maybe Bool)
+    , _aDefaultInstanceName :: !(Maybe Text)
+    , _aActivationId        :: !(Maybe Text)
+    , _aCreatedDate         :: !(Maybe POSIX)
+    , _aRegistrationLimit   :: !(Maybe Nat)
+    , _aExpirationDate      :: !(Maybe POSIX)
+    , _aDescription         :: !(Maybe Text)
+    , _aRegistrationsCount  :: !(Maybe Nat)
+    , _aIAMRole             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Activation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aExpired'
+--
+-- * 'aDefaultInstanceName'
+--
+-- * 'aActivationId'
+--
+-- * 'aCreatedDate'
+--
+-- * 'aRegistrationLimit'
+--
+-- * 'aExpirationDate'
+--
+-- * 'aDescription'
+--
+-- * 'aRegistrationsCount'
+--
+-- * 'aIAMRole'
+activation
+    :: Activation
+activation =
+    Activation'
+    { _aExpired = Nothing
+    , _aDefaultInstanceName = Nothing
+    , _aActivationId = Nothing
+    , _aCreatedDate = Nothing
+    , _aRegistrationLimit = Nothing
+    , _aExpirationDate = Nothing
+    , _aDescription = Nothing
+    , _aRegistrationsCount = Nothing
+    , _aIAMRole = Nothing
+    }
+
+-- | Whether or not the activation is expired.
+aExpired :: Lens' Activation (Maybe Bool)
+aExpired = lens _aExpired (\ s a -> s{_aExpired = a});
+
+-- | A name for the managed instance when it is created.
+aDefaultInstanceName :: Lens' Activation (Maybe Text)
+aDefaultInstanceName = lens _aDefaultInstanceName (\ s a -> s{_aDefaultInstanceName = a});
+
+-- | The ID created by SSM when you submitted the activation.
+aActivationId :: Lens' Activation (Maybe Text)
+aActivationId = lens _aActivationId (\ s a -> s{_aActivationId = a});
+
+-- | The date the activation was created.
+aCreatedDate :: Lens' Activation (Maybe UTCTime)
+aCreatedDate = lens _aCreatedDate (\ s a -> s{_aCreatedDate = a}) . mapping _Time;
+
+-- | The maximum number of managed instances that can be registered using this activation.
+aRegistrationLimit :: Lens' Activation (Maybe Natural)
+aRegistrationLimit = lens _aRegistrationLimit (\ s a -> s{_aRegistrationLimit = a}) . mapping _Nat;
+
+-- | The date when this activation can no longer be used to register managed instances.
+aExpirationDate :: Lens' Activation (Maybe UTCTime)
+aExpirationDate = lens _aExpirationDate (\ s a -> s{_aExpirationDate = a}) . mapping _Time;
+
+-- | A user defined description of the activation.
+aDescription :: Lens' Activation (Maybe Text)
+aDescription = lens _aDescription (\ s a -> s{_aDescription = a});
+
+-- | The number of managed instances already registered with this activation.
+aRegistrationsCount :: Lens' Activation (Maybe Natural)
+aRegistrationsCount = lens _aRegistrationsCount (\ s a -> s{_aRegistrationsCount = a}) . mapping _Nat;
+
+-- | The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
+aIAMRole :: Lens' Activation (Maybe Text)
+aIAMRole = lens _aIAMRole (\ s a -> s{_aIAMRole = a});
+
+instance FromJSON Activation where
+        parseJSON
+          = withObject "Activation"
+              (\ x ->
+                 Activation' <$>
+                   (x .:? "Expired") <*> (x .:? "DefaultInstanceName")
+                     <*> (x .:? "ActivationId")
+                     <*> (x .:? "CreatedDate")
+                     <*> (x .:? "RegistrationLimit")
+                     <*> (x .:? "ExpirationDate")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "RegistrationsCount")
+                     <*> (x .:? "IamRole"))
+
+instance Hashable Activation
+
+instance NFData Activation
+
 -- | Describes an association of an SSM document and an instance.
 --
 -- /See:/ 'association' smart constructor.
@@ -252,6 +357,7 @@ instance ToJSON AssociationStatus where
 data Command = Command'
     { _cStatus             :: !(Maybe CommandStatus)
     , _cExpiresAfter       :: !(Maybe POSIX)
+    , _cNotificationConfig :: !(Maybe NotificationConfig)
     , _cOutputS3KeyPrefix  :: !(Maybe Text)
     , _cDocumentName       :: !(Maybe Text)
     , _cInstanceIds        :: !(Maybe (List1 Text))
@@ -260,6 +366,7 @@ data Command = Command'
     , _cComment            :: !(Maybe Text)
     , _cOutputS3BucketName :: !(Maybe Text)
     , _cRequestedDateTime  :: !(Maybe POSIX)
+    , _cServiceRole        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
@@ -269,6 +376,8 @@ data Command = Command'
 -- * 'cStatus'
 --
 -- * 'cExpiresAfter'
+--
+-- * 'cNotificationConfig'
 --
 -- * 'cOutputS3KeyPrefix'
 --
@@ -285,12 +394,15 @@ data Command = Command'
 -- * 'cOutputS3BucketName'
 --
 -- * 'cRequestedDateTime'
+--
+-- * 'cServiceRole'
 command
     :: Command
 command =
     Command'
     { _cStatus = Nothing
     , _cExpiresAfter = Nothing
+    , _cNotificationConfig = Nothing
     , _cOutputS3KeyPrefix = Nothing
     , _cDocumentName = Nothing
     , _cInstanceIds = Nothing
@@ -299,6 +411,7 @@ command =
     , _cComment = Nothing
     , _cOutputS3BucketName = Nothing
     , _cRequestedDateTime = Nothing
+    , _cServiceRole = Nothing
     }
 
 -- | The status of the command.
@@ -308,6 +421,10 @@ cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 -- | If this time is reached and the command has not already started executing, it will not execute. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
 cExpiresAfter :: Lens' Command (Maybe UTCTime)
 cExpiresAfter = lens _cExpiresAfter (\ s a -> s{_cExpiresAfter = a}) . mapping _Time;
+
+-- | Configurations for sending notifications about command status changes.
+cNotificationConfig :: Lens' Command (Maybe NotificationConfig)
+cNotificationConfig = lens _cNotificationConfig (\ s a -> s{_cNotificationConfig = a});
 
 -- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cOutputS3KeyPrefix :: Lens' Command (Maybe Text)
@@ -341,20 +458,26 @@ cOutputS3BucketName = lens _cOutputS3BucketName (\ s a -> s{_cOutputS3BucketName
 cRequestedDateTime :: Lens' Command (Maybe UTCTime)
 cRequestedDateTime = lens _cRequestedDateTime (\ s a -> s{_cRequestedDateTime = a}) . mapping _Time;
 
+-- | The IAM service role that SSM uses to act on your behalf when sending notifications about command status changes.
+cServiceRole :: Lens' Command (Maybe Text)
+cServiceRole = lens _cServiceRole (\ s a -> s{_cServiceRole = a});
+
 instance FromJSON Command where
         parseJSON
           = withObject "Command"
               (\ x ->
                  Command' <$>
                    (x .:? "Status") <*> (x .:? "ExpiresAfter") <*>
-                     (x .:? "OutputS3KeyPrefix")
+                     (x .:? "NotificationConfig")
+                     <*> (x .:? "OutputS3KeyPrefix")
                      <*> (x .:? "DocumentName")
                      <*> (x .:? "InstanceIds")
                      <*> (x .:? "CommandId")
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "Comment")
                      <*> (x .:? "OutputS3BucketName")
-                     <*> (x .:? "RequestedDateTime"))
+                     <*> (x .:? "RequestedDateTime")
+                     <*> (x .:? "ServiceRole"))
 
 instance Hashable Command
 
@@ -407,14 +530,16 @@ instance ToJSON CommandFilter where
 --
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
-    { _ciInstanceId        :: !(Maybe Text)
-    , _ciStatus            :: !(Maybe CommandInvocationStatus)
-    , _ciCommandPlugins    :: !(Maybe [CommandPlugin])
-    , _ciDocumentName      :: !(Maybe Text)
-    , _ciCommandId         :: !(Maybe Text)
-    , _ciComment           :: !(Maybe Text)
-    , _ciTraceOutput       :: !(Maybe Text)
-    , _ciRequestedDateTime :: !(Maybe POSIX)
+    { _ciInstanceId         :: !(Maybe Text)
+    , _ciStatus             :: !(Maybe CommandInvocationStatus)
+    , _ciNotificationConfig :: !(Maybe NotificationConfig)
+    , _ciCommandPlugins     :: !(Maybe [CommandPlugin])
+    , _ciDocumentName       :: !(Maybe Text)
+    , _ciCommandId          :: !(Maybe Text)
+    , _ciComment            :: !(Maybe Text)
+    , _ciTraceOutput        :: !(Maybe Text)
+    , _ciRequestedDateTime  :: !(Maybe POSIX)
+    , _ciServiceRole        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CommandInvocation' with the minimum fields required to make a request.
@@ -424,6 +549,8 @@ data CommandInvocation = CommandInvocation'
 -- * 'ciInstanceId'
 --
 -- * 'ciStatus'
+--
+-- * 'ciNotificationConfig'
 --
 -- * 'ciCommandPlugins'
 --
@@ -436,18 +563,22 @@ data CommandInvocation = CommandInvocation'
 -- * 'ciTraceOutput'
 --
 -- * 'ciRequestedDateTime'
+--
+-- * 'ciServiceRole'
 commandInvocation
     :: CommandInvocation
 commandInvocation =
     CommandInvocation'
     { _ciInstanceId = Nothing
     , _ciStatus = Nothing
+    , _ciNotificationConfig = Nothing
     , _ciCommandPlugins = Nothing
     , _ciDocumentName = Nothing
     , _ciCommandId = Nothing
     , _ciComment = Nothing
     , _ciTraceOutput = Nothing
     , _ciRequestedDateTime = Nothing
+    , _ciServiceRole = Nothing
     }
 
 -- | The instance ID in which this invocation was requested.
@@ -457,6 +588,10 @@ ciInstanceId = lens _ciInstanceId (\ s a -> s{_ciInstanceId = a});
 -- | Whether or not the invocation succeeded, failed, or is pending.
 ciStatus :: Lens' CommandInvocation (Maybe CommandInvocationStatus)
 ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
+
+-- | Configurations for sending notifications about command status changes on a per instance basis.
+ciNotificationConfig :: Lens' CommandInvocation (Maybe NotificationConfig)
+ciNotificationConfig = lens _ciNotificationConfig (\ s a -> s{_ciNotificationConfig = a});
 
 -- | Undocumented member.
 ciCommandPlugins :: Lens' CommandInvocation [CommandPlugin]
@@ -482,18 +617,24 @@ ciTraceOutput = lens _ciTraceOutput (\ s a -> s{_ciTraceOutput = a});
 ciRequestedDateTime :: Lens' CommandInvocation (Maybe UTCTime)
 ciRequestedDateTime = lens _ciRequestedDateTime (\ s a -> s{_ciRequestedDateTime = a}) . mapping _Time;
 
+-- | The IAM service role that SSM uses to act on your behalf when sending notifications about command status changes on a per instance basis.
+ciServiceRole :: Lens' CommandInvocation (Maybe Text)
+ciServiceRole = lens _ciServiceRole (\ s a -> s{_ciServiceRole = a});
+
 instance FromJSON CommandInvocation where
         parseJSON
           = withObject "CommandInvocation"
               (\ x ->
                  CommandInvocation' <$>
                    (x .:? "InstanceId") <*> (x .:? "Status") <*>
-                     (x .:? "CommandPlugins" .!= mempty)
+                     (x .:? "NotificationConfig")
+                     <*> (x .:? "CommandPlugins" .!= mempty)
                      <*> (x .:? "DocumentName")
                      <*> (x .:? "CommandId")
                      <*> (x .:? "Comment")
                      <*> (x .:? "TraceOutput")
-                     <*> (x .:? "RequestedDateTime"))
+                     <*> (x .:? "RequestedDateTime")
+                     <*> (x .:? "ServiceRole"))
 
 instance Hashable CommandInvocation
 
@@ -656,15 +797,60 @@ instance ToJSON CreateAssociationBatchRequestEntry
                   ("Name" .=) <$> _cabreName,
                   ("Parameters" .=) <$> _cabreParameters])
 
+-- | Filter for the DescribeActivation API.
+--
+-- /See:/ 'describeActivationsFilter' smart constructor.
+data DescribeActivationsFilter = DescribeActivationsFilter'
+    { _dafFilterKey    :: !(Maybe DescribeActivationsFilterKeys)
+    , _dafFilterValues :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeActivationsFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dafFilterKey'
+--
+-- * 'dafFilterValues'
+describeActivationsFilter
+    :: DescribeActivationsFilter
+describeActivationsFilter =
+    DescribeActivationsFilter'
+    { _dafFilterKey = Nothing
+    , _dafFilterValues = Nothing
+    }
+
+-- | The name of the filter.
+dafFilterKey :: Lens' DescribeActivationsFilter (Maybe DescribeActivationsFilterKeys)
+dafFilterKey = lens _dafFilterKey (\ s a -> s{_dafFilterKey = a});
+
+-- | The filter values.
+dafFilterValues :: Lens' DescribeActivationsFilter [Text]
+dafFilterValues = lens _dafFilterValues (\ s a -> s{_dafFilterValues = a}) . _Default . _Coerce;
+
+instance Hashable DescribeActivationsFilter
+
+instance NFData DescribeActivationsFilter
+
+instance ToJSON DescribeActivationsFilter where
+        toJSON DescribeActivationsFilter'{..}
+          = object
+              (catMaybes
+                 [("FilterKey" .=) <$> _dafFilterKey,
+                  ("FilterValues" .=) <$> _dafFilterValues])
+
 -- | Describes an SSM document.
 --
 -- /See:/ 'documentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
     { _dStatus        :: !(Maybe DocumentStatus)
+    , _dHash          :: !(Maybe Text)
     , _dSha1          :: !(Maybe Text)
+    , _dOwner         :: !(Maybe Text)
     , _dPlatformTypes :: !(Maybe [PlatformType])
     , _dCreatedDate   :: !(Maybe POSIX)
     , _dName          :: !(Maybe Text)
+    , _dHashType      :: !(Maybe DocumentHashType)
     , _dParameters    :: !(Maybe [DocumentParameter])
     , _dDescription   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -675,13 +861,19 @@ data DocumentDescription = DocumentDescription'
 --
 -- * 'dStatus'
 --
+-- * 'dHash'
+--
 -- * 'dSha1'
+--
+-- * 'dOwner'
 --
 -- * 'dPlatformTypes'
 --
 -- * 'dCreatedDate'
 --
 -- * 'dName'
+--
+-- * 'dHashType'
 --
 -- * 'dParameters'
 --
@@ -691,10 +883,13 @@ documentDescription
 documentDescription =
     DocumentDescription'
     { _dStatus = Nothing
+    , _dHash = Nothing
     , _dSha1 = Nothing
+    , _dOwner = Nothing
     , _dPlatformTypes = Nothing
     , _dCreatedDate = Nothing
     , _dName = Nothing
+    , _dHashType = Nothing
     , _dParameters = Nothing
     , _dDescription = Nothing
     }
@@ -703,9 +898,19 @@ documentDescription =
 dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
+-- | The Sha256 or Sha1 hash created by the system when the document was created.
+--
+-- Sha1 hashes have been deprecated.
+dHash :: Lens' DocumentDescription (Maybe Text)
+dHash = lens _dHash (\ s a -> s{_dHash = a});
+
 -- | The SHA1 hash of the document, which you can use for verification purposes.
 dSha1 :: Lens' DocumentDescription (Maybe Text)
 dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a});
+
+-- | The AWS user account of the person who created the document.
+dOwner :: Lens' DocumentDescription (Maybe Text)
+dOwner = lens _dOwner (\ s a -> s{_dOwner = a});
 
 -- | The list of OS platforms compatible with this SSM document.
 dPlatformTypes :: Lens' DocumentDescription [PlatformType]
@@ -718,6 +923,12 @@ dCreatedDate = lens _dCreatedDate (\ s a -> s{_dCreatedDate = a}) . mapping _Tim
 -- | The name of the SSM document.
 dName :: Lens' DocumentDescription (Maybe Text)
 dName = lens _dName (\ s a -> s{_dName = a});
+
+-- | Sha256 or Sha1.
+--
+-- Sha1 hashes have been deprecated.
+dHashType :: Lens' DocumentDescription (Maybe DocumentHashType)
+dHashType = lens _dHashType (\ s a -> s{_dHashType = a});
 
 -- | A description of the parameters for a document.
 dParameters :: Lens' DocumentDescription [DocumentParameter]
@@ -732,10 +943,13 @@ instance FromJSON DocumentDescription where
           = withObject "DocumentDescription"
               (\ x ->
                  DocumentDescription' <$>
-                   (x .:? "Status") <*> (x .:? "Sha1") <*>
-                     (x .:? "PlatformTypes" .!= mempty)
+                   (x .:? "Status") <*> (x .:? "Hash") <*>
+                     (x .:? "Sha1")
+                     <*> (x .:? "Owner")
+                     <*> (x .:? "PlatformTypes" .!= mempty)
                      <*> (x .:? "CreatedDate")
                      <*> (x .:? "Name")
+                     <*> (x .:? "HashType")
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "Description"))
 
@@ -790,13 +1004,16 @@ instance ToJSON DocumentFilter where
 --
 -- /See:/ 'documentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
-    { _diPlatformTypes :: !(Maybe [PlatformType])
+    { _diOwner         :: !(Maybe Text)
+    , _diPlatformTypes :: !(Maybe [PlatformType])
     , _diName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DocumentIdentifier' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diOwner'
 --
 -- * 'diPlatformTypes'
 --
@@ -805,9 +1022,14 @@ documentIdentifier
     :: DocumentIdentifier
 documentIdentifier =
     DocumentIdentifier'
-    { _diPlatformTypes = Nothing
+    { _diOwner = Nothing
+    , _diPlatformTypes = Nothing
     , _diName = Nothing
     }
+
+-- | The AWS user account of the person who created the document.
+diOwner :: Lens' DocumentIdentifier (Maybe Text)
+diOwner = lens _diOwner (\ s a -> s{_diOwner = a});
 
 -- | The operating system platform.
 diPlatformTypes :: Lens' DocumentIdentifier [PlatformType]
@@ -822,14 +1044,17 @@ instance FromJSON DocumentIdentifier where
           = withObject "DocumentIdentifier"
               (\ x ->
                  DocumentIdentifier' <$>
-                   (x .:? "PlatformTypes" .!= mempty) <*>
-                     (x .:? "Name"))
+                   (x .:? "Owner") <*>
+                     (x .:? "PlatformTypes" .!= mempty)
+                     <*> (x .:? "Name"))
 
 instance Hashable DocumentIdentifier
 
 instance NFData DocumentIdentifier
 
--- | /See:/ 'documentParameter' smart constructor.
+-- | Parameters specified in the SSM document that execute on the server when the command is run.
+--
+-- /See:/ 'documentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
     { _dpName         :: !(Maybe Text)
     , _dpDefaultValue :: !(Maybe Text)
@@ -944,12 +1169,19 @@ instance NFData FailedCreateAssociation
 data InstanceInformation = InstanceInformation'
     { _iiInstanceId       :: !(Maybe Text)
     , _iiPingStatus       :: !(Maybe PingStatus)
+    , _iiIPAddress        :: !(Maybe Text)
+    , _iiResourceType     :: !(Maybe ResourceType)
+    , _iiRegistrationDate :: !(Maybe POSIX)
     , _iiPlatformVersion  :: !(Maybe Text)
     , _iiIsLatestVersion  :: !(Maybe Bool)
     , _iiAgentVersion     :: !(Maybe Text)
     , _iiLastPingDateTime :: !(Maybe POSIX)
+    , _iiActivationId     :: !(Maybe Text)
+    , _iiName             :: !(Maybe Text)
     , _iiPlatformType     :: !(Maybe PlatformType)
     , _iiPlatformName     :: !(Maybe Text)
+    , _iiComputerName     :: !(Maybe Text)
+    , _iiIAMRole          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceInformation' with the minimum fields required to make a request.
@@ -960,6 +1192,12 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiPingStatus'
 --
+-- * 'iiIPAddress'
+--
+-- * 'iiResourceType'
+--
+-- * 'iiRegistrationDate'
+--
 -- * 'iiPlatformVersion'
 --
 -- * 'iiIsLatestVersion'
@@ -968,21 +1206,36 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiLastPingDateTime'
 --
+-- * 'iiActivationId'
+--
+-- * 'iiName'
+--
 -- * 'iiPlatformType'
 --
 -- * 'iiPlatformName'
+--
+-- * 'iiComputerName'
+--
+-- * 'iiIAMRole'
 instanceInformation
     :: InstanceInformation
 instanceInformation =
     InstanceInformation'
     { _iiInstanceId = Nothing
     , _iiPingStatus = Nothing
+    , _iiIPAddress = Nothing
+    , _iiResourceType = Nothing
+    , _iiRegistrationDate = Nothing
     , _iiPlatformVersion = Nothing
     , _iiIsLatestVersion = Nothing
     , _iiAgentVersion = Nothing
     , _iiLastPingDateTime = Nothing
+    , _iiActivationId = Nothing
+    , _iiName = Nothing
     , _iiPlatformType = Nothing
     , _iiPlatformName = Nothing
+    , _iiComputerName = Nothing
+    , _iiIAMRole = Nothing
     }
 
 -- | The instance ID.
@@ -993,6 +1246,18 @@ iiInstanceId = lens _iiInstanceId (\ s a -> s{_iiInstanceId = a});
 iiPingStatus :: Lens' InstanceInformation (Maybe PingStatus)
 iiPingStatus = lens _iiPingStatus (\ s a -> s{_iiPingStatus = a});
 
+-- | The IP address of the managed instance.
+iiIPAddress :: Lens' InstanceInformation (Maybe Text)
+iiIPAddress = lens _iiIPAddress (\ s a -> s{_iiIPAddress = a});
+
+-- | The type of instance. Instances are either EC2 instances or managed instances.
+iiResourceType :: Lens' InstanceInformation (Maybe ResourceType)
+iiResourceType = lens _iiResourceType (\ s a -> s{_iiResourceType = a});
+
+-- | The date the server or VM was registered with AWS as a managed instance.
+iiRegistrationDate :: Lens' InstanceInformation (Maybe UTCTime)
+iiRegistrationDate = lens _iiRegistrationDate (\ s a -> s{_iiRegistrationDate = a}) . mapping _Time;
+
 -- | The version of the OS platform running on your instance.
 iiPlatformVersion :: Lens' InstanceInformation (Maybe Text)
 iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a});
@@ -1001,13 +1266,21 @@ iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a})
 iiIsLatestVersion :: Lens' InstanceInformation (Maybe Bool)
 iiIsLatestVersion = lens _iiIsLatestVersion (\ s a -> s{_iiIsLatestVersion = a});
 
--- | The version of the SSM agent running on your instance.
+-- | The version of the SSM agent running on your Linux instance.
 iiAgentVersion :: Lens' InstanceInformation (Maybe Text)
 iiAgentVersion = lens _iiAgentVersion (\ s a -> s{_iiAgentVersion = a});
 
 -- | The date and time when agent last pinged SSM service.
 iiLastPingDateTime :: Lens' InstanceInformation (Maybe UTCTime)
 iiLastPingDateTime = lens _iiLastPingDateTime (\ s a -> s{_iiLastPingDateTime = a}) . mapping _Time;
+
+-- | The activation ID created by SSM when the server or VM was registered.
+iiActivationId :: Lens' InstanceInformation (Maybe Text)
+iiActivationId = lens _iiActivationId (\ s a -> s{_iiActivationId = a});
+
+-- | The name of the managed instance.
+iiName :: Lens' InstanceInformation (Maybe Text)
+iiName = lens _iiName (\ s a -> s{_iiName = a});
 
 -- | The operating system platform type.
 iiPlatformType :: Lens' InstanceInformation (Maybe PlatformType)
@@ -1017,18 +1290,33 @@ iiPlatformType = lens _iiPlatformType (\ s a -> s{_iiPlatformType = a});
 iiPlatformName :: Lens' InstanceInformation (Maybe Text)
 iiPlatformName = lens _iiPlatformName (\ s a -> s{_iiPlatformName = a});
 
+-- | The fully qualified host name of the managed instance.
+iiComputerName :: Lens' InstanceInformation (Maybe Text)
+iiComputerName = lens _iiComputerName (\ s a -> s{_iiComputerName = a});
+
+-- | The Amazon Identity and Access Management (IAM) role assigned to EC2 instances or managed instances.
+iiIAMRole :: Lens' InstanceInformation (Maybe Text)
+iiIAMRole = lens _iiIAMRole (\ s a -> s{_iiIAMRole = a});
+
 instance FromJSON InstanceInformation where
         parseJSON
           = withObject "InstanceInformation"
               (\ x ->
                  InstanceInformation' <$>
                    (x .:? "InstanceId") <*> (x .:? "PingStatus") <*>
-                     (x .:? "PlatformVersion")
+                     (x .:? "IPAddress")
+                     <*> (x .:? "ResourceType")
+                     <*> (x .:? "RegistrationDate")
+                     <*> (x .:? "PlatformVersion")
                      <*> (x .:? "IsLatestVersion")
                      <*> (x .:? "AgentVersion")
                      <*> (x .:? "LastPingDateTime")
+                     <*> (x .:? "ActivationId")
+                     <*> (x .:? "Name")
                      <*> (x .:? "PlatformType")
-                     <*> (x .:? "PlatformName"))
+                     <*> (x .:? "PlatformName")
+                     <*> (x .:? "ComputerName")
+                     <*> (x .:? "IamRole"))
 
 instance Hashable InstanceInformation
 
@@ -1077,3 +1365,112 @@ instance ToJSON InstanceInformationFilter where
               (catMaybes
                  [Just ("key" .= _iifKey),
                   Just ("valueSet" .= _iifValueSet)])
+
+-- | Configurations for sending notifications.
+--
+-- /See:/ 'notificationConfig' smart constructor.
+data NotificationConfig = NotificationConfig'
+    { _ncNotificationEvents :: !(Maybe [NotificationEvent])
+    , _ncNotificationType   :: !(Maybe NotificationType)
+    , _ncNotificationARN    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NotificationConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncNotificationEvents'
+--
+-- * 'ncNotificationType'
+--
+-- * 'ncNotificationARN'
+notificationConfig
+    :: NotificationConfig
+notificationConfig =
+    NotificationConfig'
+    { _ncNotificationEvents = Nothing
+    , _ncNotificationType = Nothing
+    , _ncNotificationARN = Nothing
+    }
+
+-- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide/ .
+ncNotificationEvents :: Lens' NotificationConfig [NotificationEvent]
+ncNotificationEvents = lens _ncNotificationEvents (\ s a -> s{_ncNotificationEvents = a}) . _Default . _Coerce;
+
+-- | Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
+ncNotificationType :: Lens' NotificationConfig (Maybe NotificationType)
+ncNotificationType = lens _ncNotificationType (\ s a -> s{_ncNotificationType = a});
+
+-- | An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. SSM pushes notifications about command status changes to this topic.
+ncNotificationARN :: Lens' NotificationConfig (Maybe Text)
+ncNotificationARN = lens _ncNotificationARN (\ s a -> s{_ncNotificationARN = a});
+
+instance FromJSON NotificationConfig where
+        parseJSON
+          = withObject "NotificationConfig"
+              (\ x ->
+                 NotificationConfig' <$>
+                   (x .:? "NotificationEvents" .!= mempty) <*>
+                     (x .:? "NotificationType")
+                     <*> (x .:? "NotificationArn"))
+
+instance Hashable NotificationConfig
+
+instance NFData NotificationConfig
+
+instance ToJSON NotificationConfig where
+        toJSON NotificationConfig'{..}
+          = object
+              (catMaybes
+                 [("NotificationEvents" .=) <$> _ncNotificationEvents,
+                  ("NotificationType" .=) <$> _ncNotificationType,
+                  ("NotificationArn" .=) <$> _ncNotificationARN])
+
+-- | Metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ =
+    Tag'
+    { _tagKey = pKey_
+    , _tagValue = pValue_
+    }
+
+-- | The name of the tag.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+-- | The value of the tag.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _tagKey),
+                  Just ("Value" .= _tagValue)])

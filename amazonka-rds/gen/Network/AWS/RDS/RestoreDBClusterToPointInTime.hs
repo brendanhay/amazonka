@@ -136,7 +136,7 @@ rdctpitDBSubnetGroupName = lens _rdctpitDBSubnetGroupName (\ s a -> s{_rdctpitDB
 --
 -- -   If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.
 --
--- If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.
+-- -   If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.
 --
 -- If 'DBClusterIdentifier' refers to a DB cluster that is note encrypted, then the restore request is rejected.
 rdctpitKMSKeyId :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
@@ -157,6 +157,7 @@ rdctpitOptionGroupName = lens _rdctpitOptionGroupName (\ s a -> s{_rdctpitOption
 -- Constraints:
 --
 -- -   Must be before the latest restorable time for the DB instance
+--
 -- -   Cannot be specified if 'UseLatestRestorableTime' parameter is true
 --
 -- Example: '2015-03-07T23:45:00Z'
@@ -180,8 +181,11 @@ rdctpitPort = lens _rdctpitPort (\ s a -> s{_rdctpitPort = a});
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rdctpitDBClusterIdentifier :: Lens' RestoreDBClusterToPointInTime Text
 rdctpitDBClusterIdentifier = lens _rdctpitDBClusterIdentifier (\ s a -> s{_rdctpitDBClusterIdentifier = a});
 
@@ -190,9 +194,13 @@ rdctpitDBClusterIdentifier = lens _rdctpitDBClusterIdentifier (\ s a -> s{_rdctp
 -- Constraints:
 --
 -- -   Must be the identifier of an existing database instance
+--
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 rdctpitSourceDBClusterIdentifier :: Lens' RestoreDBClusterToPointInTime Text
 rdctpitSourceDBClusterIdentifier = lens _rdctpitSourceDBClusterIdentifier (\ s a -> s{_rdctpitSourceDBClusterIdentifier = a});
 

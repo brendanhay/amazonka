@@ -24,7 +24,9 @@
 --
 -- -   Enable\/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that\'s linked to the peer VPC.
 --
--- If the peered VPCs are in different accounts, each owner must initiate a separate request to enable or disable communication in either direction, depending on whether their VPC was the requester or accepter for the VPC peering connection. If the peered VPCs are in the same account, you can modify the requester and accepter options in the same request. To confirm which VPC is the accepter and requester for a VPC peering connection, use the < DescribeVpcPeeringConnections> command.
+-- -   Enable\/disable a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+--
+-- If the peered VPCs are in different accounts, each owner must initiate a separate request to modify the peering connection options, depending on whether their VPC was the requester or accepter for the VPC peering connection. If the peered VPCs are in the same account, you can modify the requester and accepter options in the same request. To confirm which VPC is the accepter and requester for a VPC peering connection, use the < DescribeVpcPeeringConnections> command.
 module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
     (
     -- * Creating a Request
@@ -129,7 +131,7 @@ instance ToQuery ModifyVPCPeeringConnectionOptions
           = mconcat
               ["Action" =:
                  ("ModifyVpcPeeringConnectionOptions" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "RequesterPeeringConnectionOptions" =:
                  _mvpcoRequesterPeeringConnectionOptions,
                "AccepterPeeringConnectionOptions" =:

@@ -93,7 +93,7 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
           = mconcat
               ["Action" =:
                  ("DisableVpcClassicLinkDnsSupport" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VpcId" =: _dvcldsVPCId]
 
 -- | Contains the output of DisableVpcClassicLinkDnsSupport.

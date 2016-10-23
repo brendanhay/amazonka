@@ -20,9 +20,9 @@
 --
 -- Gets information about the traffic policy instances that you created by using a specify traffic policy version.
 --
--- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the < State> response element.
+-- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
 --
--- To get information about the traffic policy instances that you created by using a specify traffic policy version, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource and include the ID and version of the traffic policy.
+-- Send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstance' resource and include the ID and version of the traffic policy.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the 'MaxItems' parameter to list them in groups of up to 100.
 --
@@ -271,8 +271,6 @@ ltpibprsTrafficPolicyInstances :: Lens' ListTrafficPolicyInstancesByPolicyRespon
 ltpibprsTrafficPolicyInstances = lens _ltpibprsTrafficPolicyInstances (\ s a -> s{_ltpibprsTrafficPolicyInstances = a}) . _Coerce;
 
 -- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of 'MaxItems' traffic policy instances by calling 'ListTrafficPolicyInstancesByPolicy' again and specifying the values of the 'HostedZoneIdMarker', 'TrafficPolicyInstanceNameMarker', and 'TrafficPolicyInstanceTypeMarker' elements in the corresponding request parameters.
---
--- Valid Values: 'true' | 'false'
 ltpibprsIsTruncated :: Lens' ListTrafficPolicyInstancesByPolicyResponse Bool
 ltpibprsIsTruncated = lens _ltpibprsIsTruncated (\ s a -> s{_ltpibprsIsTruncated = a});
 

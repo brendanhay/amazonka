@@ -75,11 +75,11 @@ createAlias pName_ pRoutingStrategy_ =
     , _caRoutingStrategy = pRoutingStrategy_
     }
 
--- | Human-readable description of the alias.
+-- | Human-readable description of an alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
--- | Descriptive label associated with this alias. Alias names do not need to be unique.
+-- | Descriptive label associated with an alias. Alias names do not need to be unique.
 caName :: Lens' CreateAlias Text
 caName = lens _caName (\ s a -> s{_caName = a});
 

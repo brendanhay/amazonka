@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the DELETED status to an 'MLModel', rendering it unusable.
+-- Assigns the 'DELETED' status to an 'MLModel', rendering it unusable.
 --
--- After using the 'DeleteMLModel' operation, you can use the < GetMLModel> operation to verify that the status of the 'MLModel' changed to DELETED.
+-- After using the 'DeleteMLModel' operation, you can use the 'GetMLModel' operation to verify that the status of the 'MLModel' changed to DELETED.
 --
 -- __Caution:__ The result of the 'DeleteMLModel' operation is irreversible.
 module Network.AWS.MachineLearning.DeleteMLModel
@@ -101,9 +101,9 @@ instance ToPath DeleteMLModel where
 instance ToQuery DeleteMLModel where
         toQuery = const mempty
 
--- | Represents the output of a < DeleteMLModel> operation.
+-- | Represents the output of a 'DeleteMLModel' operation.
 --
--- You can use the < GetMLModel> operation and check the value of the 'Status' parameter to see whether an 'MLModel' is marked as 'DELETED'.
+-- You can use the 'GetMLModel' operation and check the value of the 'Status' parameter to see whether an 'MLModel' is marked as 'DELETED'.
 --
 -- /See:/ 'deleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'

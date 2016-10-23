@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleContexts   #-}
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
@@ -27,13 +28,32 @@ module Network.AWS.EC2.Metadata
     , dynamic
     , metadata
     , userdata
+    , identity
 
     -- ** Path Constructors
-    , Dynamic   (..)
-    , Metadata  (..)
-    , Mapping   (..)
-    , Info      (..)
-    , Interface (..)
+    , Dynamic          (..)
+    , Metadata         (..)
+    , Mapping          (..)
+    , Info             (..)
+    , Interface        (..)
+
+    -- ** Identity Document
+    , IdentityDocument (..)
+
+    -- *** Lenses
+    , devpayProductCodes
+    , billingProducts
+    , version
+    , privateIP
+    , availabilityZone
+    , region
+    , instanceID
+    , instanceType
+    , accountID
+    , imageID
+    , kernelID
+    , ramdiskID
+    , architecture
     ) where
 
 import           Control.Monad
@@ -43,6 +63,8 @@ import qualified Data.ByteString.Char8  as BS8
 import qualified Data.ByteString.Lazy   as LBS
 import           Data.Monoid
 import qualified Data.Text              as Text
+import           Network.AWS.Data.JSON
+import           Network.AWS.Lens       (Lens', lens)
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
 
@@ -55,6 +77,7 @@ data Dynamic
     | Document
     -- ^ JSON containing instance attributes, such as instance-id,
     -- private IP address, etc.
+    -- /See:/ 'identity', 'InstanceDocument'.
     | PKCS7
     -- ^ Used to verify the document's authenticity and content against the
     -- signature.
@@ -305,10 +328,114 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
     x <- try $ get m (latest <> "user-data")
     case x of
-        Right b                 -> return (Just b)
-        Left (StatusCodeException s _ _)
-            | fromEnum s == 404 -> return Nothing
-        Left e                  -> throwM e
+        Left (HttpExceptionRequest _ (StatusCodeException rs _))
+            | fromEnum (responseStatus rs) == 404
+                -> return Nothing
+        Left  e -> throwM e
+        Right b -> return (Just b)
+
+-- | Represents an instance's identity document.
+--
+-- /Note:/ Fields such as '_instanceType' are represented as unparsed 'Text' and
+-- will need to be manually parsed using 'fromText' when the relevant types
+-- from a library such as "Network.AWS.EC2" are brought into scope.
+data IdentityDocument = IdentityDocument
+    { _devpayProductCodes :: Maybe Text
+    , _billingProducts    :: Maybe Text
+    , _version            :: Text
+    , _privateIP          :: Text
+    , _availabilityZone   :: Text
+    , _region             :: !Region
+    , _instanceID         :: Text
+    , _instanceType       :: Text
+    , _accountID          :: Text
+    , _imageID            :: Text
+    , _kernelID           :: Text
+    , _ramdiskID          :: Maybe Text
+    , _architecture       :: Text
+    } deriving (Eq, Show)
+
+devpayProductCodes :: Lens' IdentityDocument (Maybe Text)
+devpayProductCodes = lens _devpayProductCodes (\s a -> s { _devpayProductCodes = a })
+
+billingProducts :: Lens' IdentityDocument (Maybe Text)
+billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
+
+version :: Lens' IdentityDocument Text
+version = lens _version (\s a -> s { _version = a })
+
+privateIP :: Lens' IdentityDocument Text
+privateIP = lens _privateIP (\s a -> s { _privateIP = a })
+
+availabilityZone :: Lens' IdentityDocument Text
+availabilityZone = lens _availabilityZone (\s a -> s { _availabilityZone = a })
+
+region :: Lens' IdentityDocument Region
+region = lens _region (\s a -> s { _region = a })
+
+instanceID :: Lens' IdentityDocument Text
+instanceID = lens _instanceID (\s a -> s { _instanceID = a })
+
+instanceType :: Lens' IdentityDocument Text
+instanceType = lens _instanceType (\s a -> s { _instanceType = a })
+
+accountID :: Lens' IdentityDocument Text
+accountID = lens _accountID (\s a -> s { _accountID = a })
+
+imageID :: Lens' IdentityDocument Text
+imageID = lens _imageID (\s a -> s { _imageID = a })
+
+kernelID :: Lens' IdentityDocument Text
+kernelID = lens _kernelID (\s a -> s { _kernelID = a })
+
+ramdiskID :: Lens' IdentityDocument (Maybe Text)
+ramdiskID = lens _ramdiskID (\s a -> s { _ramdiskID = a })
+
+architecture :: Lens' IdentityDocument Text
+architecture = lens _architecture (\s a -> s { _architecture = a })
+
+instance FromJSON IdentityDocument where
+    parseJSON = withObject "dynamic/instance-identity/document" $ \o ->
+        IdentityDocument
+            <$> o .:? "devpayProductCodes"
+            <*> o .:? "availabilityZone"
+            <*> o .:  "privateIp"
+            <*> o .:  "version"
+            <*> o .:  "region"
+            <*> o .:  "instanceId"
+            <*> o .:  "billingProducts"
+            <*> o .:  "instanceType"
+            <*> o .:  "accountId"
+            <*> o .:  "imageId"
+            <*> o .:  "kernelId"
+            <*> o .:? "ramdiskId"
+            <*> o .:  "architecture"
+
+instance ToJSON IdentityDocument where
+    toJSON IdentityDocument{..} =
+        object
+            [ "devpayProductCodes" .= _devpayProductCodes
+            , "availabilityZone"   .= _availabilityZone
+            , "privateIp"          .= _privateIP
+            , "version"            .= _version
+            , "region"             .= _region
+            , "instanceId"         .= _instanceID
+            , "billingProducts"    .= _billingProducts
+            , "instanceType"       .= _instanceType
+            , "accountId"          .= _accountID
+            , "imageId"            .= _imageID
+            , "kernelId"           .= _kernelID
+            , "ramdiskId"          .= _ramdiskID
+            , "architecture"       .= _architecture
+            ]
+
+-- | Retrieve the instance's identity document, detailing various EC2 metadata.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
+identity :: (MonadIO m, MonadThrow m)
+         => Manager
+         -> m (Either String IdentityDocument)
+identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
 get m url = liftIO (strip `liftM` request m url)
@@ -319,6 +446,6 @@ get m url = liftIO (strip `liftM` request m url)
 
 request :: Manager -> Text -> IO ByteString
 request m url = do
-    rq <- parseUrl (Text.unpack url)
+    rq <- parseUrlThrow (Text.unpack url)
     rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

@@ -20,7 +20,7 @@
 --
 -- Sets the health status of the specified instance.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setInstanceHealth' smart constructor.
+-- | Contains the parameters for SetInstanceHealth.
+--
+-- /See:/ 'setInstanceHealth' smart constructor.
 data SetInstanceHealth = SetInstanceHealth'
     { _sihShouldRespectGracePeriod :: !(Maybe Bool)
     , _sihInstanceId               :: !Text

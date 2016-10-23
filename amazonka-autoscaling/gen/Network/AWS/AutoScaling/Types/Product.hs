@@ -140,7 +140,7 @@ instance NFData Activity
 
 -- | Describes a policy adjustment type.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/.
 --
 -- /See:/ 'adjustmentType' smart constructor.
 newtype AdjustmentType = AdjustmentType'
@@ -220,6 +220,7 @@ data AutoScalingGroup = AutoScalingGroup'
     , _asgHealthCheckGracePeriod           :: !(Maybe Int)
     , _asgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
     , _asgVPCZoneIdentifier                :: !(Maybe Text)
+    , _asgTargetGroupARNs                  :: !(Maybe [Text])
     , _asgEnabledMetrics                   :: !(Maybe [EnabledMetric])
     , _asgLaunchConfigurationName          :: !(Maybe Text)
     , _asgInstances                        :: !(Maybe [Instance])
@@ -251,6 +252,8 @@ data AutoScalingGroup = AutoScalingGroup'
 -- * 'asgNewInstancesProtectedFromScaleIn'
 --
 -- * 'asgVPCZoneIdentifier'
+--
+-- * 'asgTargetGroupARNs'
 --
 -- * 'asgEnabledMetrics'
 --
@@ -300,6 +303,7 @@ autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pD
     , _asgHealthCheckGracePeriod = Nothing
     , _asgNewInstancesProtectedFromScaleIn = Nothing
     , _asgVPCZoneIdentifier = Nothing
+    , _asgTargetGroupARNs = Nothing
     , _asgEnabledMetrics = Nothing
     , _asgLaunchConfigurationName = Nothing
     , _asgInstances = Nothing
@@ -339,6 +343,10 @@ asgNewInstancesProtectedFromScaleIn = lens _asgNewInstancesProtectedFromScaleIn 
 -- If you specify 'VPCZoneIdentifier' and 'AvailabilityZones', ensure that the Availability Zones of the subnets match the values for 'AvailabilityZones'.
 asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
 asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentifier = a});
+
+-- | The Amazon Resource Names (ARN) of the target groups for your load balancer.
+asgTargetGroupARNs :: Lens' AutoScalingGroup [Text]
+asgTargetGroupARNs = lens _asgTargetGroupARNs (\ s a -> s{_asgTargetGroupARNs = a}) . _Default . _Coerce;
 
 -- | The metrics enabled for the group.
 asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
@@ -413,6 +421,9 @@ instance FromXML AutoScalingGroup where
                 <*> (x .@? "HealthCheckGracePeriod")
                 <*> (x .@? "NewInstancesProtectedFromScaleIn")
                 <*> (x .@? "VPCZoneIdentifier")
+                <*>
+                (x .@? "TargetGroupARNs" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "EnabledMetrics" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -511,11 +522,11 @@ asidAutoScalingGroupName = lens _asidAutoScalingGroupName (\ s a -> s{_asidAutoS
 asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
 asidAvailabilityZone = lens _asidAvailabilityZone (\ s a -> s{_asidAvailabilityZone = a});
 
--- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
 asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = a});
 
--- | The health status of this instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
+-- | The last reported health status of this instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
 asidHealthStatus :: Lens' AutoScalingInstanceDetails Text
 asidHealthStatus = lens _asidHealthStatus (\ s a -> s{_asidHealthStatus = a});
 
@@ -862,7 +873,7 @@ iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a})
 iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 
--- | The health status of the instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
+-- | The last reported health status of the instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
 iHealthStatus :: Lens' Instance Text
 iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
@@ -1026,7 +1037,7 @@ lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . 
 lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
 lcSpotPrice = lens _lcSpotPrice (\ s a -> s{_lcSpotPrice = a});
 
--- | Controls whether instances in this group are launched with detailed monitoring.
+-- | Controls whether instances in this group are launched with detailed ('true') or basic ('false') monitoring.
 lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
 lcInstanceMonitoring = lens _lcInstanceMonitoring (\ s a -> s{_lcInstanceMonitoring = a});
 
@@ -1125,9 +1136,10 @@ instance NFData LaunchConfiguration
 -- | Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action when an instance launches or terminates. When you have a lifecycle hook in place, the Auto Scaling group will either:
 --
 -- -   Pause the instance after it launches, but before it is put into service
+--
 -- -   Pause the instance as it terminates, but before it is fully terminated
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
 --
 -- /See:/ 'lifecycleHook' smart constructor.
 data LifecycleHook = LifecycleHook'
@@ -1205,12 +1217,19 @@ lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 -- | The ARN of the notification target that Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. The notification message sent to the target includes the following:
 --
 -- -   Lifecycle action token
+--
 -- -   User account ID
+--
 -- -   Name of the Auto Scaling group
+--
 -- -   Lifecycle hook name
+--
 -- -   EC2 instance ID
+--
 -- -   Lifecycle transition
+--
 -- -   Notification metadata
+--
 lhNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
 lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificationTargetARN = a});
 
@@ -1239,7 +1258,11 @@ instance Hashable LifecycleHook
 
 instance NFData LifecycleHook
 
--- | Describes the state of a load balancer.
+-- | Describes the state of a Classic load balancer.
+--
+-- If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is 'InService'.
+--
+-- If you attach a load balancer to an existing Auto Scaling group, the initial state is 'Adding'. The state transitions to 'Added' after all instances in the group are registered with the load balancer. If ELB health checks are enabled for the load balancer, the state transitions to 'InService' after at least one instance in the group passes the health check. If EC2 health checks are enabled instead, the load balancer remains in the 'Added' state.
 --
 -- /See:/ 'loadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
@@ -1270,7 +1293,9 @@ loadBalancerState =
 --
 -- -   'InService' - At least one instance in the group passed an ELB health check.
 --
--- -   'Removing' - The instances are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.
+-- -   'Removing' - The instances in the group are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.
+--
+-- -   'Removed' - All instances in the group are deregistered from the load balancer.
 --
 lbsState :: Lens' LoadBalancerState (Maybe Text)
 lbsState = lens _lbsState (\ s a -> s{_lbsState = a});
@@ -1287,6 +1312,60 @@ instance FromXML LoadBalancerState where
 instance Hashable LoadBalancerState
 
 instance NFData LoadBalancerState
+
+-- | Describes the state of a target group.
+--
+-- If you attach a target group to an existing Auto Scaling group, the initial state is 'Adding'. The state transitions to 'Added' after all Auto Scaling instances are registered with the target group. If ELB health checks are enabled, the state transitions to 'InService' after at least one Auto Scaling instance passes the health check. If EC2 health checks are enabled instead, the target group remains in the 'Added' state.
+--
+-- /See:/ 'loadBalancerTargetGroupState' smart constructor.
+data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
+    { _lbtgsState                      :: !(Maybe Text)
+    , _lbtgsLoadBalancerTargetGroupARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoadBalancerTargetGroupState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbtgsState'
+--
+-- * 'lbtgsLoadBalancerTargetGroupARN'
+loadBalancerTargetGroupState
+    :: LoadBalancerTargetGroupState
+loadBalancerTargetGroupState =
+    LoadBalancerTargetGroupState'
+    { _lbtgsState = Nothing
+    , _lbtgsLoadBalancerTargetGroupARN = Nothing
+    }
+
+-- | The state of the target group.
+--
+-- -   'Adding' - The Auto Scaling instances are being registered with the target group.
+--
+-- -   'Added' - All Auto Scaling instances are registered with the target group.
+--
+-- -   'InService' - At least one Auto Scaling instance passed an ELB health check.
+--
+-- -   'Removing' - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.
+--
+-- -   'Removed' - All Auto Scaling instances are deregistered from the target group.
+--
+lbtgsState :: Lens' LoadBalancerTargetGroupState (Maybe Text)
+lbtgsState = lens _lbtgsState (\ s a -> s{_lbtgsState = a});
+
+-- | The Amazon Resource Name (ARN) of the target group.
+lbtgsLoadBalancerTargetGroupARN :: Lens' LoadBalancerTargetGroupState (Maybe Text)
+lbtgsLoadBalancerTargetGroupARN = lens _lbtgsLoadBalancerTargetGroupARN (\ s a -> s{_lbtgsLoadBalancerTargetGroupARN = a});
+
+instance FromXML LoadBalancerTargetGroupState where
+        parseXML x
+          = LoadBalancerTargetGroupState' <$>
+              (x .@? "State") <*>
+                (x .@? "LoadBalancerTargetGroupARN")
+
+instance Hashable LoadBalancerTargetGroupState
+
+instance NFData LoadBalancerTargetGroupState
 
 -- | Describes a metric.
 --
@@ -1429,7 +1508,7 @@ instance NFData NotificationConfiguration
 
 -- | Describes a process type.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html#process-types Auto Scaling Processes> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html#process-types Auto Scaling Processes> in the /Auto Scaling User Guide/.
 --
 -- /See:/ 'processType' smart constructor.
 newtype ProcessType = ProcessType'
@@ -1621,7 +1700,9 @@ instance Hashable ScalingPolicy
 
 instance NFData ScalingPolicy
 
--- | /See:/ 'scalingProcessQuery' smart constructor.
+-- | Contains the parameters for SuspendProcesses and ResumeProcesses.
+--
+-- /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
     , _spqAutoScalingGroupName :: !Text
@@ -1643,7 +1724,7 @@ scalingProcessQuery pAutoScalingGroupName_ =
     , _spqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following processes:
+-- | One or more of the following processes. If you omit this parameter, all processes are specified.
 --
 -- -   'Launch'
 --

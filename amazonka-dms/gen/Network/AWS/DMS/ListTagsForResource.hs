@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags for an AWS DMS resource.
---
 module Network.AWS.DMS.ListTagsForResource
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- |
+--
+-- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
     { _ltfrResourceARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -101,7 +102,9 @@ instance ToPath ListTagsForResource where
 instance ToQuery ListTagsForResource where
         toQuery = const mempty
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsTagList        :: !(Maybe [Tag])
     , _ltfrrsResponseStatus :: !Int

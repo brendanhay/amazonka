@@ -24,7 +24,7 @@
 --
 -- If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Creating a Request
@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createAppCookieStickinessPolicy' smart constructor.
+-- | Contains the parameters for CreateAppCookieStickinessPolicy.
+--
+-- /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName :: !Text
     , _cacspPolicyName       :: !Text
@@ -123,7 +125,9 @@ instance ToQuery CreateAppCookieStickinessPolicy
                "PolicyName" =: _cacspPolicyName,
                "CookieName" =: _cacspCookieName]
 
--- | /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
+-- | Contains the output for CreateAppCookieStickinessPolicy.
+--
+-- /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
     { _cacsprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

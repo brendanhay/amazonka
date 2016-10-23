@@ -29,7 +29,7 @@ instance FromText AgentHealth where
         "healthy" -> pure AHHealthy
         "unhealthy" -> pure AHUnhealthy
         e -> fromTextError $ "Failure parsing AgentHealth from value: '" <> e
-           <> "'. Accepted values: HEALTHY, UNHEALTHY"
+           <> "'. Accepted values: healthy, unhealthy"
 
 instance ToText AgentHealth where
     toText = \case
@@ -66,7 +66,7 @@ instance FromText AgentHealthCode where
         "unhealthy" -> pure Unhealthy
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing AgentHealthCode from value: '" <> e
-           <> "'. Accepted values: IDLE, RUNNING, SHUTDOWN, THROTTLED, UNHEALTHY, UNKNOWN"
+           <> "'. Accepted values: idle, running, shutdown, throttled, unhealthy, unknown"
 
 instance ToText AgentHealthCode where
     toText = \case
@@ -103,7 +103,7 @@ instance FromText AssessmentRunNotificationSNSStatusCode where
         "success" -> pure Success
         "topic_does_not_exist" -> pure TopicDoesNotExist
         e -> fromTextError $ "Failure parsing AssessmentRunNotificationSNSStatusCode from value: '" <> e
-           <> "'. Accepted values: ACCESS_DENIED, INTERNAL_ERROR, SUCCESS, TOPIC_DOES_NOT_EXIST"
+           <> "'. Accepted values: access_denied, internal_error, success, topic_does_not_exist"
 
 instance ToText AssessmentRunNotificationSNSStatusCode where
     toText = \case
@@ -147,7 +147,7 @@ instance FromText AssessmentRunState where
         "start_data_collection_pending" -> pure StartDataCollectionPending
         "stop_data_collection_pending" -> pure StopDataCollectionPending
         e -> fromTextError $ "Failure parsing AssessmentRunState from value: '" <> e
-           <> "'. Accepted values: COLLECTING_DATA, COMPLETED, COMPLETED_WITH_ERRORS, CREATED, DATA_COLLECTED, EVALUATING_RULES, FAILED, START_DATA_COLLECTION_IN_PROGRESS, START_DATA_COLLECTION_PENDING, STOP_DATA_COLLECTION_PENDING"
+           <> "'. Accepted values: collecting_data, completed, completed_with_errors, created, data_collected, evaluating_rules, failed, start_data_collection_in_progress, start_data_collection_pending, stop_data_collection_pending"
 
 instance ToText AssessmentRunState where
     toText = \case
@@ -215,7 +215,7 @@ instance FromText FailedItemErrorCode where
         "item_does_not_exist" -> pure FIECItemDoesNotExist
         "limit_exceeded" -> pure FIECLimitExceeded
         e -> fromTextError $ "Failure parsing FailedItemErrorCode from value: '" <> e
-           <> "'. Accepted values: ACCESS_DENIED, DUPLICATE_ARN, INTERNAL_ERROR, INVALID_ARN, ITEM_DOES_NOT_EXIST, LIMIT_EXCEEDED"
+           <> "'. Accepted values: access_denied, duplicate_arn, internal_error, invalid_arn, item_does_not_exist, limit_exceeded"
 
 instance ToText FailedItemErrorCode where
     toText = \case
@@ -251,7 +251,7 @@ instance FromText InspectorEvent where
         "finding_reported" -> pure FindingReported
         "other" -> pure Other
         e -> fromTextError $ "Failure parsing InspectorEvent from value: '" <> e
-           <> "'. Accepted values: ASSESSMENT_RUN_COMPLETED, ASSESSMENT_RUN_STARTED, ASSESSMENT_RUN_STATE_CHANGED, FINDING_REPORTED, OTHER"
+           <> "'. Accepted values: assessment_run_completed, assessment_run_started, assessment_run_state_changed, finding_reported, other"
 
 instance ToText InspectorEvent where
     toText = \case
@@ -281,7 +281,7 @@ instance FromText Locale where
     parser = takeLowerText >>= \case
         "en_us" -> pure EnUs
         e -> fromTextError $ "Failure parsing Locale from value: '" <> e
-           <> "'. Accepted values: EN_US"
+           <> "'. Accepted values: en_us"
 
 instance ToText Locale where
     toText = \case
@@ -312,7 +312,7 @@ instance FromText Severity where
         "medium" -> pure Medium
         "undefined" -> pure Undefined
         e -> fromTextError $ "Failure parsing Severity from value: '" <> e
-           <> "'. Accepted values: High, Informational, Low, Medium, Undefined"
+           <> "'. Accepted values: high, informational, low, medium, undefined"
 
 instance ToText Severity where
     toText = \case

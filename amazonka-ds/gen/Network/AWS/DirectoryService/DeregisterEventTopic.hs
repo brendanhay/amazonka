@@ -112,7 +112,9 @@ instance ToPath DeregisterEventTopic where
 instance ToQuery DeregisterEventTopic where
         toQuery = const mempty
 
--- | /See:/ 'deregisterEventTopicResponse' smart constructor.
+-- | The result of a DeregisterEventTopic request.
+--
+-- /See:/ 'deregisterEventTopicResponse' smart constructor.
 newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
     { _derrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

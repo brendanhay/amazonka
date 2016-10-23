@@ -16,9 +16,11 @@ module Network.AWS.MachineLearning.Types
       machineLearning
 
     -- * Errors
+    , _InvalidTagException
     , _InternalServerException
     , _InvalidInputException
     , _IdempotentParameterMismatchException
+    , _TagLimitExceededException
     , _PredictorNotMountedException
     , _ResourceNotFoundException
     , _LimitExceededException
@@ -53,16 +55,24 @@ module Network.AWS.MachineLearning.Types
     -- * SortOrder
     , SortOrder (..)
 
+    -- * TaggableResourceType
+    , TaggableResourceType (..)
+
     -- * BatchPrediction
     , BatchPrediction
     , batchPrediction
     , bpStatus
     , bpLastUpdatedAt
     , bpCreatedAt
+    , bpComputeTime
     , bpInputDataLocationS3
     , bpMLModelId
     , bpBatchPredictionDataSourceId
+    , bpTotalRecordCount
+    , bpStartedAt
     , bpBatchPredictionId
+    , bpFinishedAt
+    , bpInvalidRecordCount
     , bpCreatedByIAMUser
     , bpName
     , bpMessage
@@ -75,9 +85,12 @@ module Network.AWS.MachineLearning.Types
     , dsNumberOfFiles
     , dsLastUpdatedAt
     , dsCreatedAt
+    , dsComputeTime
     , dsDataSourceId
     , dsRDSMetadata
     , dsDataSizeInBytes
+    , dsStartedAt
+    , dsFinishedAt
     , dsCreatedByIAMUser
     , dsName
     , dsDataLocationS3
@@ -94,8 +107,11 @@ module Network.AWS.MachineLearning.Types
     , ePerformanceMetrics
     , eLastUpdatedAt
     , eCreatedAt
+    , eComputeTime
     , eInputDataLocationS3
     , eMLModelId
+    , eStartedAt
+    , eFinishedAt
     , eCreatedByIAMUser
     , eName
     , eEvaluationId
@@ -110,10 +126,13 @@ module Network.AWS.MachineLearning.Types
     , mlmTrainingParameters
     , mlmScoreThresholdLastUpdatedAt
     , mlmCreatedAt
+    , mlmComputeTime
     , mlmInputDataLocationS3
     , mlmMLModelId
     , mlmSizeInBytes
+    , mlmStartedAt
     , mlmScoreThreshold
+    , mlmFinishedAt
     , mlmAlgorithm
     , mlmCreatedByIAMUser
     , mlmName
@@ -217,6 +236,12 @@ module Network.AWS.MachineLearning.Types
     , sdsDataSchemaLocationS3
     , sdsDataRearrangement
     , sdsDataLocationS3
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import           Network.AWS.Lens
@@ -259,6 +284,10 @@ machineLearning =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Prism for InvalidTagException' errors.
+_InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTagException = _ServiceError . hasCode "InvalidTagException"
+
 -- | An error on the server occurred when trying to process a request.
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException =
@@ -274,6 +303,11 @@ _IdempotentParameterMismatchException :: AsError a => Getting (First ServiceErro
 _IdempotentParameterMismatchException =
     _ServiceError .
     hasStatus 400 . hasCode "IdempotentParameterMismatchException"
+
+-- | Prism for TagLimitExceededException' errors.
+_TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededException =
+    _ServiceError . hasCode "TagLimitExceededException"
 
 -- | The exception is thrown when a predict request is made to an unmounted 'MLModel'.
 _PredictorNotMountedException :: AsError a => Getting (First ServiceError) a ServiceError

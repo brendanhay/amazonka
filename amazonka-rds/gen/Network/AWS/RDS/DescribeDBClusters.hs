@@ -84,8 +84,11 @@ describeDBClusters =
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddcDBClusterIdentifier :: Lens' DescribeDBClusters (Maybe Text)
 ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\ s a -> s{_ddcDBClusterIdentifier = a});
 

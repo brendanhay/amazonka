@@ -39,7 +39,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableAlarmActions' smart constructor.
+-- | Describes the inputs for EnableAlarmActions.
+--
+-- /See:/ 'enableAlarmActions' smart constructor.
 newtype EnableAlarmActions = EnableAlarmActions'
     { _eaaAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

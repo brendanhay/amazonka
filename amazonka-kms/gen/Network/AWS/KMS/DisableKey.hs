@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the state of a master key to disabled, thereby preventing its use for cryptographic operations. For more information about how key state affects the use of a master key, go to <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
+-- Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for cryptographic operations. For more information about how key state affects the use of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
 module Network.AWS.KMS.DisableKey
     (
     -- * Creating a Request
@@ -57,10 +57,14 @@ disableKey pKeyId_ =
     { _dkKeyId = pKeyId_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
+-- | A unique identifier for the CMK.
 --
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- Use the CMK\'s unique identifier or its Amazon Resource Name (ARN). For example:
+--
+-- -   Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+--
+-- -   ARN: arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
+--
 dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 

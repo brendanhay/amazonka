@@ -99,6 +99,8 @@ cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
 cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
 
 -- | One or more subnet, network interface, or VPC IDs.
+--
+-- Constraints: Maximum of 1000 resources
 cflResourceIds :: Lens' CreateFlowLogs [Text]
 cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a}) . _Coerce;
 
@@ -147,7 +149,7 @@ instance ToQuery CreateFlowLogs where
         toQuery CreateFlowLogs'{..}
           = mconcat
               ["Action" =: ("CreateFlowLogs" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "ClientToken" =: _cflClientToken,
                toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,

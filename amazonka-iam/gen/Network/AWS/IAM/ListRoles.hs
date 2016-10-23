@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the roles that have the specified path prefix. If there are none, the action returns an empty list. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Lists the IAM roles that have the specified path prefix. If there are none, the action returns an empty list. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
@@ -78,7 +78,7 @@ listRoles =
 
 -- | The path prefix for filtering the results. For example, the prefix '\/application_abc\/component_xyz\/' gets all roles whose path starts with '\/application_abc\/component_xyz\/'.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all roles.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all roles. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 

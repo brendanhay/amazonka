@@ -22,7 +22,7 @@
 --
 -- This action affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the < ListEntitiesForPolicy> API.
 --
--- For information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -67,7 +67,9 @@ setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
     , _sdpvVersionId = pVersionId_
     }
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
 sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
 

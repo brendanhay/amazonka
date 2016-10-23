@@ -129,6 +129,9 @@ module Network.AWS.SES.Types
     -- * IdentityNotificationAttributes
     , IdentityNotificationAttributes
     , identityNotificationAttributes
+    , inaHeadersInDeliveryNotificationsEnabled
+    , inaHeadersInComplaintNotificationsEnabled
+    , inaHeadersInBounceNotificationsEnabled
     , inaBounceTopic
     , inaComplaintTopic
     , inaDeliveryTopic

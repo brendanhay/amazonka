@@ -78,7 +78,7 @@ listUsers =
 
 -- | The path prefix for filtering the results. For example: '\/division_abc\/subdivision_xyz\/', which would get all user names whose path starts with '\/division_abc\/subdivision_xyz\/'.
 --
--- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all user names.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all user names. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 

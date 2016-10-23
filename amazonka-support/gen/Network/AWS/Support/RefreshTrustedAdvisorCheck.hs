@@ -20,11 +20,16 @@
 --
 -- Requests a refresh of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
 --
+-- Some checks are refreshed automatically, and they cannot be refreshed by using this operation. Use of the 'RefreshTrustedAdvisorCheck' operation for these checks causes an 'InvalidParameterValue' error.
+--
 -- The response contains a < TrustedAdvisorCheckRefreshStatus> object, which contains these fields:
 --
--- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
--- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds, until the check is eligible for refresh.
--- -   __CheckId.__ The unique identifier for the check.
+-- -   __status.__ The refresh status of the check: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
+--
+-- -   __millisUntilNextRefreshable.__ The amount of time, in milliseconds, until the check is eligible for refresh.
+--
+-- -   __checkId.__ The unique identifier for the check.
+--
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Creating a Request
@@ -48,7 +53,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
+-- |
+--
+-- /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
     { _rtacCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -66,7 +73,7 @@ refreshTrustedAdvisorCheck pCheckId_ =
     { _rtacCheckId = pCheckId_
     }
 
--- | The unique identifier for the Trusted Advisor check.
+-- | The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an 'InvalidParameterValue' error.
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
 

@@ -20,9 +20,9 @@
 --
 -- Attaches the specified managed policy to the specified user.
 --
--- You use this API to attach a managed policy to a user. To embed an inline policy in a user, use < PutUserPolicy>.
+-- You use this API to attach a /managed/ policy to a user. To embed an inline policy in a user, use < PutUserPolicy>.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.AttachUserPolicy
     (
     -- * Creating a Request
@@ -67,11 +67,15 @@ attachUserPolicy pUserName_ pPolicyARN_ =
     , _aupPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the user to attach the policy to.
+-- | The name (friendly name, not ARN) of the IAM user to attach the policy to.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 aupUserName :: Lens' AttachUserPolicy Text
 aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 aupPolicyARN :: Lens' AttachUserPolicy Text
 aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
 

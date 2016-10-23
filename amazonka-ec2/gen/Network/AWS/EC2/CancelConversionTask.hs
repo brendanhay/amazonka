@@ -20,7 +20,7 @@
 --
 -- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
@@ -103,7 +103,7 @@ instance ToQuery CancelConversionTask where
         toQuery CancelConversionTask'{..}
           = mconcat
               ["Action" =: ("CancelConversionTask" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "ReasonMessage" =: _cctReasonMessage,
                "DryRun" =: _cctDryRun,
                "ConversionTaskId" =: _cctConversionTaskId]

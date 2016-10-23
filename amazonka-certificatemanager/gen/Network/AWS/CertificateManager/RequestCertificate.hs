@@ -45,9 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
--- /See:/ 'requestCertificate' smart constructor.
+-- | /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
     { _rcIdempotencyToken        :: !(Maybe Text)
     , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
@@ -145,9 +143,7 @@ instance ToPath RequestCertificate where
 instance ToQuery RequestCertificate where
         toQuery = const mempty
 
--- |
---
--- /See:/ 'requestCertificateResponse' smart constructor.
+-- | /See:/ 'requestCertificateResponse' smart constructor.
 data RequestCertificateResponse = RequestCertificateResponse'
     { _rcrsCertificateARN :: !(Maybe Text)
     , _rcrsResponseStatus :: !Int

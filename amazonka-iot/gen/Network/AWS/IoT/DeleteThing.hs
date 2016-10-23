@@ -18,20 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified thing from the Thing Registry.
+-- Deletes the specified thing.
 module Network.AWS.IoT.DeleteThing
     (
     -- * Creating a Request
       deleteThing
     , DeleteThing
     -- * Request Lenses
+    , dtExpectedVersion
     , dtThingName
 
     -- * Destructuring the Response
     , deleteThingResponse
     , DeleteThingResponse
     -- * Response Lenses
-    , drsResponseStatus
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.IoT.Types
@@ -44,13 +45,16 @@ import           Network.AWS.Response
 -- | The input for the DeleteThing operation.
 --
 -- /See:/ 'deleteThing' smart constructor.
-newtype DeleteThing = DeleteThing'
-    { _dtThingName :: Text
+data DeleteThing = DeleteThing'
+    { _dtExpectedVersion :: !(Maybe Integer)
+    , _dtThingName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteThing' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtExpectedVersion'
 --
 -- * 'dtThingName'
 deleteThing
@@ -58,10 +62,15 @@ deleteThing
     -> DeleteThing
 deleteThing pThingName_ =
     DeleteThing'
-    { _dtThingName = pThingName_
+    { _dtExpectedVersion = Nothing
+    , _dtThingName = pThingName_
     }
 
--- | The thing name.
+-- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the 'DeleteThing' request is rejected with a 'VersionConflictException'.
+dtExpectedVersion :: Lens' DeleteThing (Maybe Integer)
+dtExpectedVersion = lens _dtExpectedVersion (\ s a -> s{_dtExpectedVersion = a});
+
+-- | The name of the thing to delete.
 dtThingName :: Lens' DeleteThing Text
 dtThingName = lens _dtThingName (\ s a -> s{_dtThingName = a});
 
@@ -85,30 +94,31 @@ instance ToPath DeleteThing where
           = mconcat ["/things/", toBS _dtThingName]
 
 instance ToQuery DeleteThing where
-        toQuery = const mempty
+        toQuery DeleteThing'{..}
+          = mconcat ["expectedVersion" =: _dtExpectedVersion]
 
 -- | The output of the DeleteThing operation.
 --
 -- /See:/ 'deleteThingResponse' smart constructor.
 newtype DeleteThingResponse = DeleteThingResponse'
-    { _drsResponseStatus :: Int
+    { _delrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteThingResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'delrsResponseStatus'
 deleteThingResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteThingResponse
 deleteThingResponse pResponseStatus_ =
     DeleteThingResponse'
-    { _drsResponseStatus = pResponseStatus_
+    { _delrsResponseStatus = pResponseStatus_
     }
 
 -- | The response status code.
-drsResponseStatus :: Lens' DeleteThingResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+delrsResponseStatus :: Lens' DeleteThingResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteThingResponse

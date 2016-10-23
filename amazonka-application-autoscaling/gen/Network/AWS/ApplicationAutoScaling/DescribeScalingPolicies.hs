@@ -94,11 +94,11 @@ describeScalingPolicies pServiceNamespace_ =
 dPolicyNames :: Lens' DescribeScalingPolicies [Text]
 dPolicyNames = lens _dPolicyNames (\ s a -> s{_dPolicyNames = a}) . _Default . _Coerce;
 
--- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 dScalableDimension :: Lens' DescribeScalingPolicies (Maybe ScalableDimension)
 dScalableDimension = lens _dScalableDimension (\ s a -> s{_dScalableDimension = a});
 
--- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'. If you specify a scalable dimension, you must also specify a resource ID.
 dResourceId :: Lens' DescribeScalingPolicies (Maybe Text)
 dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
 

@@ -36,7 +36,7 @@
 --
 -- In order to minimize response latency, /BatchGetItem/ retrieves items in parallel.
 --
--- When designing your application, keep in mind that DynamoDB does not return attributes in any particular order. To help parse the response by item, include the primary key values for the items in your request in the /AttributesToGet/ parameter.
+-- When designing your application, keep in mind that DynamoDB does not return items in any particular order. To help parse the response by item, include the primary key values for the items in your request in the /AttributesToGet/ parameter.
 --
 -- If a requested item does not exist, it is not returned in the result. Requests for nonexistent items consume the minimum read capacity units according to the type of read. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations Capacity Units Calculations> in the /Amazon DynamoDB Developer Guide/.
 module Network.AWS.DynamoDB.BatchGetItem

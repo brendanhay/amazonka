@@ -1,5 +1,5 @@
 name:                  amazonka-ds
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Directory Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -43,6 +43,8 @@ library
 
     exposed-modules:
           Network.AWS.DirectoryService
+        , Network.AWS.DirectoryService.AddIPRoutes
+        , Network.AWS.DirectoryService.AddTagsToResource
         , Network.AWS.DirectoryService.ConnectDirectory
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
@@ -67,7 +69,11 @@ library
         , Network.AWS.DirectoryService.EnableSSO
         , Network.AWS.DirectoryService.GetDirectoryLimits
         , Network.AWS.DirectoryService.GetSnapshotLimits
+        , Network.AWS.DirectoryService.ListIPRoutes
+        , Network.AWS.DirectoryService.ListTagsForResource
         , Network.AWS.DirectoryService.RegisterEventTopic
+        , Network.AWS.DirectoryService.RemoveIPRoutes
+        , Network.AWS.DirectoryService.RemoveTagsFromResource
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateConditionalForwarder
@@ -80,7 +86,7 @@ library
         , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ds-test
@@ -100,9 +106,9 @@ test-suite amazonka-ds-test
         , Test.AWS.DirectoryService.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-ds == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-ds == 1.4.4.*
         , base
         , bytestring
         , tasty

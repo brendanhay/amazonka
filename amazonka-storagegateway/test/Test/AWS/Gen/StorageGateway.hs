@@ -157,6 +157,9 @@ import Test.AWS.StorageGateway.Internal
 --         , requestListVolumeRecoveryPoints $
 --             listVolumeRecoveryPoints
 --
+--         , requestListTapes $
+--             listTapes
+--
 --         , requestResetCache $
 --             resetCache
 --
@@ -324,6 +327,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , responseListVolumeRecoveryPoints $
 --             listVolumeRecoveryPointsResponse
+--
+--         , responseListTapes $
+--             listTapesResponse
 --
 --         , responseResetCache $
 --             resetCacheResponse
@@ -580,6 +586,11 @@ requestListVolumeRecoveryPoints :: ListVolumeRecoveryPoints -> TestTree
 requestListVolumeRecoveryPoints = req
     "ListVolumeRecoveryPoints"
     "fixture/ListVolumeRecoveryPoints.yaml"
+
+requestListTapes :: ListTapes -> TestTree
+requestListTapes = req
+    "ListTapes"
+    "fixture/ListTapes.yaml"
 
 requestResetCache :: ResetCache -> TestTree
 requestResetCache = req
@@ -943,6 +954,13 @@ responseListVolumeRecoveryPoints = res
     "fixture/ListVolumeRecoveryPointsResponse.proto"
     storageGateway
     (Proxy :: Proxy ListVolumeRecoveryPoints)
+
+responseListTapes :: ListTapesResponse -> TestTree
+responseListTapes = res
+    "ListTapesResponse"
+    "fixture/ListTapesResponse.proto"
+    storageGateway
+    (Proxy :: Proxy ListTapes)
 
 responseResetCache :: ResetCacheResponse -> TestTree
 responseResetCache = res

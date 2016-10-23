@@ -25,6 +25,9 @@ module Network.AWS.DirectConnect.Types
     -- * InterconnectState
     , InterconnectState (..)
 
+    -- * LoaContentType
+    , LoaContentType (..)
+
     -- * VirtualInterfaceState
     , VirtualInterfaceState (..)
 
@@ -34,6 +37,7 @@ module Network.AWS.DirectConnect.Types
     , cVlan
     , cLocation
     , cConnectionId
+    , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
@@ -52,9 +56,16 @@ module Network.AWS.DirectConnect.Types
     , iInterconnectId
     , iLocation
     , iInterconnectName
+    , iLoaIssueTime
     , iBandwidth
     , iInterconnectState
     , iRegion
+
+    -- * Loa
+    , Loa
+    , loa
+    , loaLoaContent
+    , loaLoaContentType
 
     -- * Location
     , Location

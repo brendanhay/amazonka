@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the name and\/or the path of the specified group.
+-- Updates the name and\/or the path of the specified IAM group.
 --
 -- You should understand the implications of changing a group\'s path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups> in the /IAM User Guide/.
 --
--- To change a group name the requester must have appropriate permissions on both the source object and the target object. For example, to change Managers to MGRs, the entity making the request must have permission on Managers and MGRs, or must have permission on all (*). For more information about permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
+-- To change an IAM group name the requester must have appropriate permissions on both the source object and the target object. For example, to change \"Managers\" to \"MGRs\", the entity making the request must have permission on both \"Managers\" and \"MGRs\", or must have permission on all (*). For more information about permissions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Creating a Request
@@ -71,15 +71,21 @@ updateGroup pGroupName_ =
     , _ugGroupName = pGroupName_
     }
 
--- | New name for the group. Only include this if changing the group\'s name.
+-- | New name for the IAM group. Only include this if changing the group\'s name.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
 ugNewGroupName = lens _ugNewGroupName (\ s a -> s{_ugNewGroupName = a});
 
--- | New path for the group. Only include this if changing the group\'s path.
+-- | New path for the IAM group. Only include this if changing the group\'s path.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a});
 
--- | Name of the group to update. If you\'re changing the name of the group, this is the original name.
+-- | Name of the IAM group to update. If you\'re changing the name of the group, this is the original name.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ugGroupName :: Lens' UpdateGroup Text
 ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
 

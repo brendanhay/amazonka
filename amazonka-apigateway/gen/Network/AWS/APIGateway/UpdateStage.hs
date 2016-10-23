@@ -82,7 +82,7 @@ updateStage pRestAPIId_ pStageName_ =
     , _usStageName = pStageName_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 usPatchOperations :: Lens' UpdateStage [PatchOperation]
 usPatchOperations = lens _usPatchOperations (\ s a -> s{_usPatchOperations = a}) . _Default . _Coerce;
 

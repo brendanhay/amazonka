@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeInstanceHealth' smart constructor.
+-- | Contains the parameters for DescribeInstanceHealth.
+--
+-- /See:/ 'describeInstanceHealth' smart constructor.
 data DescribeInstanceHealth = DescribeInstanceHealth'
     { _dihInstances        :: !(Maybe [Instance])
     , _dihLoadBalancerName :: !Text
@@ -105,7 +107,9 @@ instance ToQuery DescribeInstanceHealth where
                  toQuery (toQueryList "member" <$> _dihInstances),
                "LoadBalancerName" =: _dihLoadBalancerName]
 
--- | /See:/ 'describeInstanceHealthResponse' smart constructor.
+-- | Contains the output for DescribeInstanceHealth.
+--
+-- /See:/ 'describeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrsInstanceStates :: !(Maybe [InstanceState])
     , _dihrsResponseStatus :: !Int

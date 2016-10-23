@@ -12,22 +12,22 @@
 --
 module Network.AWS.Error where
 
-import           Control.Applicative
-import           Control.Monad
-import           Data.Aeson
-import           Data.Aeson.Types            (parseEither)
-import qualified Data.ByteString.Lazy        as LBS
-import           Data.Maybe
-import           Data.Monoid
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Headers
-import           Network.AWS.Data.Text
-import           Network.AWS.Data.XML
-import           Network.AWS.Lens            (Choice, Getting, Optic', filtered)
-import           Network.AWS.Lens            ((<&>))
-import           Network.AWS.Types
-import           Network.HTTP.Conduit
-import           Network.HTTP.Types.Status   (Status (..))
+import Control.Applicative
+import Control.Monad
+import Data.Aeson
+import Data.Aeson.Types            (parseEither)
+import Data.Maybe
+import Data.Monoid
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.Headers
+import Network.AWS.Data.Text
+import Network.AWS.Data.XML
+import Network.AWS.Lens            (Choice, Getting, Optic', filtered)
+import Network.AWS.Types
+import Network.HTTP.Conduit
+import Network.HTTP.Types.Status   (Status (..))
+
+import qualified Data.ByteString.Lazy as LBS
 
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300
@@ -36,14 +36,19 @@ httpStatus :: AsError a => Getting (First Status) a Status
 httpStatus = _Error . f
   where
     f g = \case
-        TransportError (StatusCodeException s h c)
-            -> TransportError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
+        TransportError (HttpExceptionRequest rq (StatusCodeException rs b))
+            -> (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs { responseStatus = x }) b)))
+               <$> g (responseStatus rs)
+
         TransportError e
             -> pure (TransportError e)
+
         SerializeError (SerializeError' a s b e)
-            -> g s <&> \x -> SerializeError (SerializeError' a x b e)
+            -> (\x -> SerializeError (SerializeError' a x b e)) <$> g s
+
         ServiceError e
-            -> g (_serviceStatus e) <&> \x -> ServiceError (e { _serviceStatus = x })
+            -> (\x -> ServiceError (e { _serviceStatus = x }))
+               <$> g (_serviceStatus e)
 
 hasStatus :: (Applicative f, Choice p)
           => Int

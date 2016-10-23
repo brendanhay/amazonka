@@ -42,6 +42,9 @@ module Network.AWS.SNS
     -- ** InternalErrorException
     , _InternalErrorException
 
+    -- ** ThrottledException
+    , _ThrottledException
+
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
 
@@ -57,6 +60,9 @@ module Network.AWS.SNS
     -- * Operations
     -- $operations
 
+    -- ** ListPhoneNumbersOptedOut
+    , module Network.AWS.SNS.ListPhoneNumbersOptedOut
+
     -- ** DeleteEndpoint
     , module Network.AWS.SNS.DeleteEndpoint
 
@@ -65,6 +71,9 @@ module Network.AWS.SNS
 
     -- ** DeleteTopic
     , module Network.AWS.SNS.DeleteTopic
+
+    -- ** SetSMSAttributes
+    , module Network.AWS.SNS.SetSMSAttributes
 
     -- ** ListTopics (Paginated)
     , module Network.AWS.SNS.ListTopics
@@ -81,6 +90,9 @@ module Network.AWS.SNS
     -- ** GetTopicAttributes
     , module Network.AWS.SNS.GetTopicAttributes
 
+    -- ** OptInPhoneNumber
+    , module Network.AWS.SNS.OptInPhoneNumber
+
     -- ** CreatePlatformApplication
     , module Network.AWS.SNS.CreatePlatformApplication
 
@@ -95,6 +107,9 @@ module Network.AWS.SNS
 
     -- ** DeletePlatformApplication
     , module Network.AWS.SNS.DeletePlatformApplication
+
+    -- ** GetSMSAttributes
+    , module Network.AWS.SNS.GetSMSAttributes
 
     -- ** ListPlatformApplications (Paginated)
     , module Network.AWS.SNS.ListPlatformApplications
@@ -113,6 +128,9 @@ module Network.AWS.SNS
 
     -- ** CreateTopic
     , module Network.AWS.SNS.CreateTopic
+
+    -- ** CheckIfPhoneNumberIsOptedOut
+    , module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
 
     -- ** Subscribe
     , module Network.AWS.SNS.Subscribe
@@ -169,6 +187,7 @@ module Network.AWS.SNS
     ) where
 
 import           Network.AWS.SNS.AddPermission
+import           Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
 import           Network.AWS.SNS.ConfirmSubscription
 import           Network.AWS.SNS.CreatePlatformApplication
 import           Network.AWS.SNS.CreatePlatformEndpoint
@@ -178,17 +197,21 @@ import           Network.AWS.SNS.DeletePlatformApplication
 import           Network.AWS.SNS.DeleteTopic
 import           Network.AWS.SNS.GetEndpointAttributes
 import           Network.AWS.SNS.GetPlatformApplicationAttributes
+import           Network.AWS.SNS.GetSMSAttributes
 import           Network.AWS.SNS.GetSubscriptionAttributes
 import           Network.AWS.SNS.GetTopicAttributes
 import           Network.AWS.SNS.ListEndpointsByPlatformApplication
+import           Network.AWS.SNS.ListPhoneNumbersOptedOut
 import           Network.AWS.SNS.ListPlatformApplications
 import           Network.AWS.SNS.ListSubscriptions
 import           Network.AWS.SNS.ListSubscriptionsByTopic
 import           Network.AWS.SNS.ListTopics
+import           Network.AWS.SNS.OptInPhoneNumber
 import           Network.AWS.SNS.Publish
 import           Network.AWS.SNS.RemovePermission
 import           Network.AWS.SNS.SetEndpointAttributes
 import           Network.AWS.SNS.SetPlatformApplicationAttributes
+import           Network.AWS.SNS.SetSMSAttributes
 import           Network.AWS.SNS.SetSubscriptionAttributes
 import           Network.AWS.SNS.SetTopicAttributes
 import           Network.AWS.SNS.Subscribe

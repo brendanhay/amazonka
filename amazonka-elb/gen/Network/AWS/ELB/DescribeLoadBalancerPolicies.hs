@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeLoadBalancerPolicies' smart constructor.
+-- | Contains the parameters for DescribeLoadBalancerPolicies.
+--
+-- /See:/ 'describeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
     { _dlbpPolicyNames      :: !(Maybe [Text])
     , _dlbpLoadBalancerName :: !(Maybe Text)
@@ -108,7 +110,9 @@ instance ToQuery DescribeLoadBalancerPolicies where
                  toQuery (toQueryList "member" <$> _dlbpPolicyNames),
                "LoadBalancerName" =: _dlbpLoadBalancerName]
 
--- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
+-- | Contains the output of DescribeLoadBalancerPolicies.
+--
+-- /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
     , _dlbprsResponseStatus     :: !Int

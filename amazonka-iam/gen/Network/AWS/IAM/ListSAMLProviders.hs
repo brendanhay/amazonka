@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the SAML providers in the account.
+-- Lists the SAML provider resource objects defined in IAM in the account.
 --
 -- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 module Network.AWS.IAM.ListSAMLProviders
@@ -105,7 +105,7 @@ listSAMLProvidersResponse pResponseStatus_ =
     , _lsamlprsResponseStatus = pResponseStatus_
     }
 
--- | The list of SAML providers for this account.
+-- | The list of SAML provider resource objects defined in IAM for this AWS account.
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 

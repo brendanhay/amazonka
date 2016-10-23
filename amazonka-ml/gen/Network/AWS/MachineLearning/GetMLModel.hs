@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an 'MLModel' that includes detailed metadata, and data source information as well as the current status of the 'MLModel'.
+-- Returns an 'MLModel' that includes detailed metadata, data source information, and the current status of the 'MLModel'.
 --
 -- 'GetMLModel' provides results in normal or verbose format.
 module Network.AWS.MachineLearning.GetMLModel
@@ -39,12 +39,15 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrsTrainingParameters
     , gmlmrsScoreThresholdLastUpdatedAt
     , gmlmrsCreatedAt
+    , gmlmrsComputeTime
     , gmlmrsRecipe
     , gmlmrsInputDataLocationS3
     , gmlmrsMLModelId
     , gmlmrsSizeInBytes
     , gmlmrsSchema
+    , gmlmrsStartedAt
     , gmlmrsScoreThreshold
+    , gmlmrsFinishedAt
     , gmlmrsCreatedByIAMUser
     , gmlmrsName
     , gmlmrsLogURI
@@ -107,12 +110,15 @@ instance AWSRequest GetMLModel where
                      (x .?> "TrainingParameters" .!@ mempty)
                      <*> (x .?> "ScoreThresholdLastUpdatedAt")
                      <*> (x .?> "CreatedAt")
+                     <*> (x .?> "ComputeTime")
                      <*> (x .?> "Recipe")
                      <*> (x .?> "InputDataLocationS3")
                      <*> (x .?> "MLModelId")
                      <*> (x .?> "SizeInBytes")
                      <*> (x .?> "Schema")
+                     <*> (x .?> "StartedAt")
                      <*> (x .?> "ScoreThreshold")
+                     <*> (x .?> "FinishedAt")
                      <*> (x .?> "CreatedByIamUser")
                      <*> (x .?> "Name")
                      <*> (x .?> "LogUri")
@@ -148,7 +154,7 @@ instance ToPath GetMLModel where
 instance ToQuery GetMLModel where
         toQuery = const mempty
 
--- | Represents the output of a < GetMLModel> operation, and provides detailed information about a 'MLModel'.
+-- | Represents the output of a 'GetMLModel' operation, and provides detailed information about a 'MLModel'.
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
@@ -157,12 +163,15 @@ data GetMLModelResponse = GetMLModelResponse'
     , _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
     , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
     , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
+    , _gmlmrsComputeTime                 :: !(Maybe Integer)
     , _gmlmrsRecipe                      :: !(Maybe Text)
     , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
     , _gmlmrsMLModelId                   :: !(Maybe Text)
     , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
     , _gmlmrsSchema                      :: !(Maybe Text)
+    , _gmlmrsStartedAt                   :: !(Maybe POSIX)
     , _gmlmrsScoreThreshold              :: !(Maybe Double)
+    , _gmlmrsFinishedAt                  :: !(Maybe POSIX)
     , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
     , _gmlmrsName                        :: !(Maybe Text)
     , _gmlmrsLogURI                      :: !(Maybe Text)
@@ -187,6 +196,8 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- * 'gmlmrsCreatedAt'
 --
+-- * 'gmlmrsComputeTime'
+--
 -- * 'gmlmrsRecipe'
 --
 -- * 'gmlmrsInputDataLocationS3'
@@ -197,7 +208,11 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- * 'gmlmrsSchema'
 --
+-- * 'gmlmrsStartedAt'
+--
 -- * 'gmlmrsScoreThreshold'
+--
+-- * 'gmlmrsFinishedAt'
 --
 -- * 'gmlmrsCreatedByIAMUser'
 --
@@ -224,12 +239,15 @@ getMLModelResponse pResponseStatus_ =
     , _gmlmrsTrainingParameters = Nothing
     , _gmlmrsScoreThresholdLastUpdatedAt = Nothing
     , _gmlmrsCreatedAt = Nothing
+    , _gmlmrsComputeTime = Nothing
     , _gmlmrsRecipe = Nothing
     , _gmlmrsInputDataLocationS3 = Nothing
     , _gmlmrsMLModelId = Nothing
     , _gmlmrsSizeInBytes = Nothing
     , _gmlmrsSchema = Nothing
+    , _gmlmrsStartedAt = Nothing
     , _gmlmrsScoreThreshold = Nothing
+    , _gmlmrsFinishedAt = Nothing
     , _gmlmrsCreatedByIAMUser = Nothing
     , _gmlmrsName = Nothing
     , _gmlmrsLogURI = Nothing
@@ -244,9 +262,9 @@ getMLModelResponse pResponseStatus_ =
 --
 -- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request to describe a 'MLModel'.
 -- -   'INPROGRESS' - The request is processing.
--- -   'FAILED' - The request did not run to completion. It is not usable.
+-- -   'FAILED' - The request did not run to completion. The ML model isn\'t usable.
 -- -   'COMPLETED' - The request completed successfully.
--- -   'DELETED' - The 'MLModel' is marked as deleted. It is not usable.
+-- -   'DELETED' - The 'MLModel' is marked as deleted. It isn\'t usable.
 gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
 gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
 
@@ -254,23 +272,25 @@ gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});
 gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\ s a -> s{_gmlmrsLastUpdatedAt = a}) . mapping _Time;
 
--- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key\/value pairs.
+-- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key-value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
+-- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L1 normalization. The parameter cannot be used when 'L2' is specified. Use this parameter sparingly.
+--     The value is an integer that ranges from '100000' to '2147483648'. The default value is '33554432'.
 --
--- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
+-- -   'sgd.maxPasses' - The number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from '1' to '10000'. The default value is '10'.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L2 normalization. This parameter cannot be used when 'L1' is specified. Use this parameter sparingly.
+-- -   'sgd.shuffleType' - Whether Amazon ML shuffles the training data. Shuffling data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are 'auto' and 'none'. The default value is 'none'. We strongly recommend that you shuffle your data.
 --
--- -   'sgd.maxPasses' - The number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from 1 to 10000. The default value is 10.
+-- -   'sgd.l1RegularizationAmount' - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
 --
--- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model. Depending on the input data, the model size might affect performance.
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L1 normalization. This parameter can\'t be used when 'L2' is specified. Use this parameter sparingly.
 --
---     The value is an integer that ranges from 100000 to 2147483648. The default value is 33554432.
+-- -   'sgd.l2RegularizationAmount' - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
+--
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L2 normalization. This parameter can\'t be used when 'L1' is specified. Use this parameter sparingly.
 --
 gmlmrsTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
 gmlmrsTrainingParameters = lens _gmlmrsTrainingParameters (\ s a -> s{_gmlmrsTrainingParameters = a}) . _Default . _Map;
@@ -283,7 +303,11 @@ gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\ s
 gmlmrsCreatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\ s a -> s{_gmlmrsCreatedAt = a}) . mapping _Time;
 
--- | The recipe to use when training the 'MLModel'. The 'Recipe' provides detailed information about the observation data to use during training, as well as manipulations to perform on the observation data during training.
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the 'MLModel', normalized and scaled on computation resources. 'ComputeTime' is only available if the 'MLModel' is in the 'COMPLETED' state.
+gmlmrsComputeTime :: Lens' GetMLModelResponse (Maybe Integer)
+gmlmrsComputeTime = lens _gmlmrsComputeTime (\ s a -> s{_gmlmrsComputeTime = a});
+
+-- | The recipe to use when training the 'MLModel'. The 'Recipe' provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
 --
 -- Note
 --
@@ -295,7 +319,7 @@ gmlmrsRecipe = lens _gmlmrsRecipe (\ s a -> s{_gmlmrsRecipe = a});
 gmlmrsInputDataLocationS3 :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\ s a -> s{_gmlmrsInputDataLocationS3 = a});
 
--- | The MLModel ID which is same as the 'MLModelId' in the request.
+-- | The MLModel ID, which is same as the 'MLModelId' in the request.
 gmlmrsMLModelId :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMLModelId = lens _gmlmrsMLModelId (\ s a -> s{_gmlmrsMLModelId = a});
 
@@ -311,11 +335,19 @@ gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a})
 gmlmrsSchema :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsSchema = lens _gmlmrsSchema (\ s a -> s{_gmlmrsSchema = a});
 
--- | The scoring threshold is used in binary classification 'MLModel's, and marks the boundary between a positive prediction and a negative prediction.
+-- | The epoch time when Amazon Machine Learning marked the 'MLModel' as 'INPROGRESS'. 'StartedAt' isn\'t available if the 'MLModel' is in the 'PENDING' state.
+gmlmrsStartedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
+gmlmrsStartedAt = lens _gmlmrsStartedAt (\ s a -> s{_gmlmrsStartedAt = a}) . mapping _Time;
+
+-- | The scoring threshold is used in binary classification 'MLModel' models. It marks the boundary between a positive prediction and a negative prediction.
 --
 -- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as 'true'. Output values less than the threshold receive a negative response from the MLModel, such as 'false'.
 gmlmrsScoreThreshold :: Lens' GetMLModelResponse (Maybe Double)
 gmlmrsScoreThreshold = lens _gmlmrsScoreThreshold (\ s a -> s{_gmlmrsScoreThreshold = a});
+
+-- | The epoch time when Amazon Machine Learning marked the 'MLModel' as 'COMPLETED' or 'FAILED'. 'FinishedAt' is only available when the 'MLModel' is in the 'COMPLETED' or 'FAILED' state.
+gmlmrsFinishedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
+gmlmrsFinishedAt = lens _gmlmrsFinishedAt (\ s a -> s{_gmlmrsFinishedAt = a}) . mapping _Time;
 
 -- | The AWS user account from which the 'MLModel' was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 gmlmrsCreatedByIAMUser :: Lens' GetMLModelResponse (Maybe Text)
@@ -337,15 +369,15 @@ gmlmrsEndpointInfo = lens _gmlmrsEndpointInfo (\ s a -> s{_gmlmrsEndpointInfo = 
 gmlmrsTrainingDataSourceId :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsTrainingDataSourceId = lens _gmlmrsTrainingDataSourceId (\ s a -> s{_gmlmrsTrainingDataSourceId = a});
 
--- | Description of the most recent details about accessing the 'MLModel'.
+-- | A description of the most recent details about accessing the 'MLModel'.
 gmlmrsMessage :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMessage = lens _gmlmrsMessage (\ s a -> s{_gmlmrsMessage = a});
 
 -- | Identifies the 'MLModel' category. The following are the available types:
 --
--- -   REGRESSION -- Produces a numeric result. For example, \"What listing price should a house have?\"
+-- -   REGRESSION -- Produces a numeric result. For example, \"What price should a house be listed at?\"
 -- -   BINARY -- Produces one of two possible results. For example, \"Is this an e-commerce website?\"
--- -   MULTICLASS -- Produces more than two possible results. For example, \"Is this a HIGH, LOW or MEDIUM risk trade?\"
+-- -   MULTICLASS -- Produces one of several possible results. For example, \"Is this a HIGH, LOW or MEDIUM risk trade?\"
 gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 

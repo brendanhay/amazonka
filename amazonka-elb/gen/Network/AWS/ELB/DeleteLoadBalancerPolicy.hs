@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | =
+-- | Contains the parameters for DeleteLoadBalancerPolicy.
 --
 -- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
@@ -104,7 +104,9 @@ instance ToQuery DeleteLoadBalancerPolicy where
                "LoadBalancerName" =: _dLoadBalancerName,
                "PolicyName" =: _dPolicyName]
 
--- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
+-- | Contains the output of DeleteLoadBalancerPolicy.
+--
+-- /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
     { _delrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

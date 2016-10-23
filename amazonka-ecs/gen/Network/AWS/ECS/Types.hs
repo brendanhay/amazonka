@@ -37,8 +37,14 @@ module Network.AWS.ECS.Types
     -- * LogDriver
     , LogDriver (..)
 
+    -- * NetworkMode
+    , NetworkMode (..)
+
     -- * SortOrder
     , SortOrder (..)
+
+    -- * TaskDefinitionFamilyStatus
+    , TaskDefinitionFamilyStatus (..)
 
     -- * TaskDefinitionStatus
     , TaskDefinitionStatus (..)
@@ -105,6 +111,7 @@ module Network.AWS.ECS.Types
     , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
+    , cdMemoryReservation
 
     -- * ContainerInstance
     , ContainerInstance
@@ -134,6 +141,7 @@ module Network.AWS.ECS.Types
     , csRunningCount
     , csStatus
     , csClusterARN
+    , csCreatedAt
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
@@ -191,6 +199,7 @@ module Network.AWS.ECS.Types
     , loadBalancer
     , lbLoadBalancerName
     , lbContainerName
+    , lbTargetGroupARN
     , lbContainerPort
 
     -- * LogConfiguration
@@ -261,6 +270,8 @@ module Network.AWS.ECS.Types
     , tdStatus
     , tdFamily
     , tdContainerDefinitions
+    , tdTaskRoleARN
+    , tdNetworkMode
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
@@ -270,6 +281,7 @@ module Network.AWS.ECS.Types
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+    , toTaskRoleARN
 
     -- * Ulimit
     , Ulimit

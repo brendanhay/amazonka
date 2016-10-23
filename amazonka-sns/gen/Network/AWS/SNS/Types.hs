@@ -22,6 +22,7 @@ module Network.AWS.SNS.Types
     , _SubscriptionLimitExceededException
     , _PlatformApplicationDisabledException
     , _InternalErrorException
+    , _ThrottledException
     , _InvalidParameterValueException
     , _NotFoundException
     , _TopicLimitExceededException
@@ -129,6 +130,10 @@ _PlatformApplicationDisabledException =
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException =
     _ServiceError . hasStatus 500 . hasCode "InternalError"
+
+-- | Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.
+_ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
+_ThrottledException = _ServiceError . hasStatus 429 . hasCode "Throttled"
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError

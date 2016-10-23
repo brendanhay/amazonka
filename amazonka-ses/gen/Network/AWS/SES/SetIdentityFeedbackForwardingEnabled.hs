@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.
+-- Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.
 --
 -- Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.
 --
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
+-- | Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
     { _siffeIdentity          :: !Text
     , _siffeForwardingEnabled :: !Bool
@@ -115,7 +117,9 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                "Identity" =: _siffeIdentity,
                "ForwardingEnabled" =: _siffeForwardingEnabled]
 
--- | /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _siffersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -100,7 +100,7 @@ instance ToQuery DeleteVPCPeeringConnection where
           = mconcat
               ["Action" =:
                  ("DeleteVpcPeeringConnection" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _dvpcDryRun,
                "VpcPeeringConnectionId" =:
                  _dvpcVPCPeeringConnectionId]

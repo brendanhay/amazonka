@@ -507,15 +507,24 @@ instance NFData IdentityMailFromDomainAttributes
 --
 -- /See:/ 'identityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
-    { _inaBounceTopic       :: !Text
-    , _inaComplaintTopic    :: !Text
-    , _inaDeliveryTopic     :: !Text
-    , _inaForwardingEnabled :: !Bool
+    { _inaHeadersInDeliveryNotificationsEnabled  :: !(Maybe Bool)
+    , _inaHeadersInComplaintNotificationsEnabled :: !(Maybe Bool)
+    , _inaHeadersInBounceNotificationsEnabled    :: !(Maybe Bool)
+    , _inaBounceTopic                            :: !Text
+    , _inaComplaintTopic                         :: !Text
+    , _inaDeliveryTopic                          :: !Text
+    , _inaForwardingEnabled                      :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'IdentityNotificationAttributes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'inaHeadersInDeliveryNotificationsEnabled'
+--
+-- * 'inaHeadersInComplaintNotificationsEnabled'
+--
+-- * 'inaHeadersInBounceNotificationsEnabled'
 --
 -- * 'inaBounceTopic'
 --
@@ -532,11 +541,26 @@ identityNotificationAttributes
     -> IdentityNotificationAttributes
 identityNotificationAttributes pBounceTopic_ pComplaintTopic_ pDeliveryTopic_ pForwardingEnabled_ =
     IdentityNotificationAttributes'
-    { _inaBounceTopic = pBounceTopic_
+    { _inaHeadersInDeliveryNotificationsEnabled = Nothing
+    , _inaHeadersInComplaintNotificationsEnabled = Nothing
+    , _inaHeadersInBounceNotificationsEnabled = Nothing
+    , _inaBounceTopic = pBounceTopic_
     , _inaComplaintTopic = pComplaintTopic_
     , _inaDeliveryTopic = pDeliveryTopic_
     , _inaForwardingEnabled = pForwardingEnabled_
     }
+
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Delivery'. A value of 'true' specifies that Amazon SES will include headers in delivery notifications, and a value of 'false' specifies that Amazon SES will not include headers in delivery notifications.
+inaHeadersInDeliveryNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
+inaHeadersInDeliveryNotificationsEnabled = lens _inaHeadersInDeliveryNotificationsEnabled (\ s a -> s{_inaHeadersInDeliveryNotificationsEnabled = a});
+
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Complaint'. A value of 'true' specifies that Amazon SES will include headers in complaint notifications, and a value of 'false' specifies that Amazon SES will not include headers in complaint notifications.
+inaHeadersInComplaintNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
+inaHeadersInComplaintNotificationsEnabled = lens _inaHeadersInComplaintNotificationsEnabled (\ s a -> s{_inaHeadersInComplaintNotificationsEnabled = a});
+
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Bounce'. A value of 'true' specifies that Amazon SES will include headers in bounce notifications, and a value of 'false' specifies that Amazon SES will not include headers in bounce notifications.
+inaHeadersInBounceNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
+inaHeadersInBounceNotificationsEnabled = lens _inaHeadersInBounceNotificationsEnabled (\ s a -> s{_inaHeadersInBounceNotificationsEnabled = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.
 inaBounceTopic :: Lens' IdentityNotificationAttributes Text
@@ -557,8 +581,12 @@ inaForwardingEnabled = lens _inaForwardingEnabled (\ s a -> s{_inaForwardingEnab
 instance FromXML IdentityNotificationAttributes where
         parseXML x
           = IdentityNotificationAttributes' <$>
-              (x .@ "BounceTopic") <*> (x .@ "ComplaintTopic") <*>
-                (x .@ "DeliveryTopic")
+              (x .@? "HeadersInDeliveryNotificationsEnabled") <*>
+                (x .@? "HeadersInComplaintNotificationsEnabled")
+                <*> (x .@? "HeadersInBounceNotificationsEnabled")
+                <*> (x .@ "BounceTopic")
+                <*> (x .@ "ComplaintTopic")
+                <*> (x .@ "DeliveryTopic")
                 <*> (x .@ "ForwardingEnabled")
 
 instance Hashable IdentityNotificationAttributes
@@ -786,7 +814,7 @@ rawMessage pData_ =
     { _rmData = _Base64 # pData_
     }
 
--- | The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding (if necessary).
+-- | The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding.
 --
 -- The To:, CC:, and BCC: headers in the raw message can contain a group list.
 --
@@ -939,8 +967,11 @@ receiptFilter pName_ pIPFilter_ =
 -- | The name of the IP address filter. The name must:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
+--
 -- -   Start and end with a letter or number.
+--
 -- -   Contain less than 64 characters.
+--
 rfName :: Lens' ReceiptFilter Text
 rfName = lens _rfName (\ s a -> s{_rfName = a});
 
@@ -1078,8 +1109,11 @@ rrTLSPolicy = lens _rrTLSPolicy (\ s a -> s{_rrTLSPolicy = a});
 -- | The name of the receipt rule. The name must:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
+--
 -- -   Start and end with a letter or number.
+--
 -- -   Contain less than 64 characters.
+--
 rrName :: Lens' ReceiptRule Text
 rrName = lens _rrName (\ s a -> s{_rrName = a});
 
@@ -1140,8 +1174,11 @@ receiptRuleSetMetadata =
 -- | The name of the receipt rule set. The name must:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
+--
 -- -   Start and end with a letter or number.
+--
 -- -   Contain less than 64 characters.
+--
 rrsmName :: Lens' ReceiptRuleSetMetadata (Maybe Text)
 rrsmName = lens _rrsmName (\ s a -> s{_rrsmName = a});
 
@@ -1292,11 +1329,12 @@ s3Action pBucketName_ =
 -- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
 --
 -- -   To use the default master key, provide an ARN in the form of 'arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias\/aws\/ses'. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be 'arn:aws:kms:us-west-2:123456789012:alias\/aws\/ses'. If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key.
+--
 -- -   To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 --
 -- For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide>. If you do not specify a master key, Amazon SES will not encrypt your emails.
 --
--- Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <https://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <https://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide>.
+-- Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide>.
 s3KMSKeyARN :: Lens' S3Action (Maybe Text)
 s3KMSKeyARN = lens _s3KMSKeyARN (\ s a -> s{_s3KMSKeyARN = a});
 

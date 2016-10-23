@@ -24,7 +24,7 @@
 --
 -- Deregistering a container instance removes the instance from a cluster, but it does not terminate the EC2 instance; if you are finished using the instance, be sure to terminate it in the Amazon EC2 console to stop billing.
 --
--- When you terminate a container instance, it is automatically deregistered from your cluster.
+-- If you terminate a running container instance with a connected Amazon ECS container agent, the agent automatically deregisters the instance from your cluster (stopped container instances or instances with disconnected agents are not automatically deregistered when terminated).
 module Network.AWS.ECS.DeregisterContainerInstance
     (
     -- * Creating a Request
@@ -84,7 +84,7 @@ derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
 derForce :: Lens' DeregisterContainerInstance (Maybe Bool)
 derForce = lens _derForce (\ s a -> s{_derForce = a});
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the container instance to deregister. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_ID/.
+-- | The container instance ID or full Amazon Resource Name (ARN) of the container instance to deregister. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, 'arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID '.
 derContainerInstance :: Lens' DeregisterContainerInstance Text
 derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
 

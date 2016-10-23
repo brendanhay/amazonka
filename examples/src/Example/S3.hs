@@ -34,7 +34,7 @@ getPresignedURL :: Region     -- ^ Region to operate in.
                 -> IO ByteString
 getPresignedURL r b k = do
     lgr <- newLogger Trace stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
     ts  <- getCurrentTime
     runResourceT . runAWST env $
         presignURL ts 60 (getObject b k)
@@ -43,7 +43,7 @@ listAll :: Region -- ^ Region to operate in.
         -> IO ()
 listAll r = do
     lgr <- newLogger Debug stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
     let val :: ToText a => Maybe a -> Text
         val   = maybe "Nothing" toText
@@ -69,7 +69,7 @@ getFile :: Region     -- ^ Region to operate in.
         -> IO ()
 getFile r b k f = do
     lgr <- newLogger Debug stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
     runResourceT . runAWST env $ do
         rs <- send (getObject b k)
@@ -85,7 +85,7 @@ putChunkedFile :: Region     -- ^ Region to operate in.
                -> IO ()
 putChunkedFile r b k c f = do
     lgr <- newLogger Debug stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
     runResourceT . runAWST env $ do
         bdy <- chunkedFile c f
@@ -93,12 +93,13 @@ putChunkedFile r b k c f = do
         say $ "Successfully Uploaded: "
            <> toText f <> " to " <> toText b <> " - " <> toText k
 
-tagBucket :: BucketName          -- ^ Name of the bucket to tag.
+tagBucket :: Region              -- ^ Region to operate in.
+          -> BucketName          -- ^ Name of the bucket to tag.
           -> [(ObjectKey, Text)] -- ^ List of K/V pairs to apply as tags.
           -> IO ()
-tagBucket bkt xs = do
+tagBucket r  bkt xs = do
     lgr <- newLogger Debug stdout
-    env <- newEnv Ireland Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr . set envRegion r
 
     let tags = map (uncurry tag) xs
         kv t = toText (t ^. tagKey) <> "=" <> (t ^. tagValue)

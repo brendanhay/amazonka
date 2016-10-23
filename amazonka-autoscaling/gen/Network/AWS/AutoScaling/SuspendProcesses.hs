@@ -24,7 +24,7 @@
 --
 -- To resume processes that have been suspended, use < ResumeProcesses>.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.SuspendProcesses
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'suspendProcesses' smart constructor.
+-- | Contains the parameters for SuspendProcesses and ResumeProcesses.
+--
+-- /See:/ 'suspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'
     { _spScalingProcesses     :: !(Maybe [Text])
     , _spAutoScalingGroupName :: !Text
@@ -68,7 +70,7 @@ suspendProcesses pAutoScalingGroupName_ =
     , _spAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following processes:
+-- | One or more of the following processes. If you omit this parameter, all processes are specified.
 --
 -- -   'Launch'
 --

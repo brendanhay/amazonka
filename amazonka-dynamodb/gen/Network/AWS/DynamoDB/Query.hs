@@ -24,7 +24,7 @@
 --
 -- Queries that do not return results consume the minimum number of read capacity units for that type of read operation.
 --
--- If the total number of items meeting the query criteria exceeds the result set size limit of 1 MB, the query stops and results are returned to the user with the /LastEvaluatedKey/ element to continue the query in a subsequent operation. Unlike a /Scan/ operation, a /Query/ operation never returns both an empty result set and a /LastEvaluatedKey/ value. /LastEvaluatedKey/ is only provided if the results exceed 1 MB, or if you have used the /Limit/ parameter.
+-- If the total number of items meeting the query criteria exceeds the result set size limit of 1 MB, the query stops and results are returned to the user with the /LastEvaluatedKey/ element to continue the query in a subsequent operation. Unlike a /Scan/ operation, a /Query/ operation never returns both an empty result set and a /LastEvaluatedKey/ value. /LastEvaluatedKey/ is only provided if you have used the /Limit/ parameter, or if the result set exceeds 1 MB (prior to applying a filter).
 --
 -- You can query a table, a local secondary index, or a global secondary index. For a query on a table or on a local secondary index, you can set the /ConsistentRead/ parameter to 'true' and obtain a strongly consistent result. Global secondary indexes support eventually consistent reads only, so do not specify /ConsistentRead/ when querying a global secondary index.
 --
@@ -388,17 +388,17 @@ qSelect = lens _qSelect (\ s a -> s{_qSelect = a});
 --
 -- -   'sortKeyName' /=/ ':sortkeyval' - true if the sort key value is equal to ':sortkeyval'.
 --
--- -   'sortKeyName' /&#x3C;/ ':sortkeyval' - true if the sort key value is less than ':sortkeyval'.
+-- -   'sortKeyName' /\</ ':sortkeyval' - true if the sort key value is less than ':sortkeyval'.
 --
--- -   'sortKeyName' /&#x3C;=/ ':sortkeyval' - true if the sort key value is less than or equal to ':sortkeyval'.
+-- -   'sortKeyName' /\<=/ ':sortkeyval' - true if the sort key value is less than or equal to ':sortkeyval'.
 --
--- -   'sortKeyName' /&#x3E;/ ':sortkeyval' - true if the sort key value is greater than ':sortkeyval'.
+-- -   'sortKeyName' />/ ':sortkeyval' - true if the sort key value is greater than ':sortkeyval'.
 --
--- -   'sortKeyName' /&#x3E;=/ ':sortkeyval' - true if the sort key value is greater than or equal to ':sortkeyval'.
+-- -   'sortKeyName' />=/ ':sortkeyval' - true if the sort key value is greater than or equal to ':sortkeyval'.
 --
 -- -   'sortKeyName' /BETWEEN/ ':sortkeyval1' /AND/ ':sortkeyval2' - true if the sort key value is greater than or equal to ':sortkeyval1', and less than or equal to ':sortkeyval2'.
 --
--- -   /begins_with (/'sortKeyName', ':sortkeyval'/)/ - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name 'begins_with' is case-sensitive.
+-- -   /begins_with (/ 'sortKeyName', ':sortkeyval' /)/ - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name 'begins_with' is case-sensitive.
 --
 -- Use the /ExpressionAttributeValues/ parameter to replace tokens such as ':partitionval' and ':sortval' with actual values at runtime.
 --

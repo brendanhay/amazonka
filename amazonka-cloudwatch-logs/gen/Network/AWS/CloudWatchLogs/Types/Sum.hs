@@ -37,7 +37,7 @@ instance FromText ExportTaskStatusCode where
         "pending_cancel" -> pure PendingCancel
         "running" -> pure Running
         e -> fromTextError $ "Failure parsing ExportTaskStatusCode from value: '" <> e
-           <> "'. Accepted values: CANCELLED, COMPLETED, FAILED, PENDING, PENDING_CANCEL, RUNNING"
+           <> "'. Accepted values: cancelled, completed, failed, pending, pending_cancel, running"
 
 instance ToText ExportTaskStatusCode where
     toText = \case
@@ -70,7 +70,7 @@ instance FromText OrderBy where
         "lasteventtime" -> pure LastEventTime
         "logstreamname" -> pure LogStreamName
         e -> fromTextError $ "Failure parsing OrderBy from value: '" <> e
-           <> "'. Accepted values: LastEventTime, LogStreamName"
+           <> "'. Accepted values: lasteventtime, logstreamname"
 
 instance ToText OrderBy where
     toText = \case

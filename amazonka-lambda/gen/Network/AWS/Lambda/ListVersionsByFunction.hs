@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listVersionsByFunction' smart constructor.
+-- |
+--
+-- /See:/ 'listVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
     { _lvbfMarker       :: !(Maybe Text)
     , _lvbfMaxItems     :: !(Maybe Nat)
@@ -114,7 +116,9 @@ instance ToQuery ListVersionsByFunction where
               ["Marker" =: _lvbfMarker,
                "MaxItems" =: _lvbfMaxItems]
 
--- | /See:/ 'listVersionsByFunctionResponse' smart constructor.
+-- |
+--
+-- /See:/ 'listVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
     { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
     , _lvbfrsNextMarker     :: !(Maybe Text)

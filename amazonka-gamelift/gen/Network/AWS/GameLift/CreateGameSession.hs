@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a multiplayer game session for players. This action creates a game session record and assigns the new session to an instance in the specified fleet, which activates the server initialization process in your game server. A fleet must be in an ACTIVE state before a game session can be created for it.
+-- Creates a multiplayer game session for players. This action creates a game session record and assigns the new session to an instance in the specified fleet, which initializes a new server process to host the game session. A fleet must be in an 'ACTIVE' status before a game session can be created in it.
 --
 -- To create a game session, specify either a fleet ID or an alias ID and indicate the maximum number of players the game session allows. You can also provide a name and a set of properties for your game (optional). If successful, a < GameSession> object is returned containing session properties, including an IP address. By default, newly created game sessions are set to accept adding any new players to the game session. Use < UpdateGameSession> to change the creation policy.
 module Network.AWS.GameLift.CreateGameSession
@@ -84,7 +84,7 @@ createGameSession pMaximumPlayerSessionCount_ =
     , _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
     }
 
--- | Set of properties used to administer a game session. These properties are passed to your game server.
+-- | Set of properties used to administer a game session. These properties are passed to the server process hosting it.
 cgsGameProperties :: Lens' CreateGameSession [GameProperty]
 cgsGameProperties = lens _cgsGameProperties (\ s a -> s{_cgsGameProperties = a}) . _Default . _Coerce;
 
@@ -92,7 +92,7 @@ cgsGameProperties = lens _cgsGameProperties (\ s a -> s{_cgsGameProperties = a})
 cgsAliasId :: Lens' CreateGameSession (Maybe Text)
 cgsAliasId = lens _cgsAliasId (\ s a -> s{_cgsAliasId = a});
 
--- | Descriptive label associated with this game session. Session names do not need to be unique.
+-- | Descriptive label associated with a game session. Session names do not need to be unique.
 cgsName :: Lens' CreateGameSession (Maybe Text)
 cgsName = lens _cgsName (\ s a -> s{_cgsName = a});
 

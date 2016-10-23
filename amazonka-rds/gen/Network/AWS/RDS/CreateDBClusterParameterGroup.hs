@@ -42,8 +42,8 @@ module Network.AWS.RDS.CreateDBClusterParameterGroup
     , createDBClusterParameterGroupResponse
     , CreateDBClusterParameterGroupResponse
     -- * Response Lenses
-    , cdcpgrsDBClusterParameterGroup
-    , cdcpgrsResponseStatus
+    , cdbcpgrsDBClusterParameterGroup
+    , cdbcpgrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -96,7 +96,9 @@ cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lowercase string.
@@ -150,32 +152,32 @@ instance ToQuery CreateDBClusterParameterGroup where
 
 -- | /See:/ 'createDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
-    { _cdcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
-    , _cdcpgrsResponseStatus          :: !Int
+    { _cdbcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
+    , _cdbcpgrsResponseStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcpgrsDBClusterParameterGroup'
+-- * 'cdbcpgrsDBClusterParameterGroup'
 --
--- * 'cdcpgrsResponseStatus'
+-- * 'cdbcpgrsResponseStatus'
 createDBClusterParameterGroupResponse
-    :: Int -- ^ 'cdcpgrsResponseStatus'
+    :: Int -- ^ 'cdbcpgrsResponseStatus'
     -> CreateDBClusterParameterGroupResponse
 createDBClusterParameterGroupResponse pResponseStatus_ =
     CreateDBClusterParameterGroupResponse'
-    { _cdcpgrsDBClusterParameterGroup = Nothing
-    , _cdcpgrsResponseStatus = pResponseStatus_
+    { _cdbcpgrsDBClusterParameterGroup = Nothing
+    , _cdbcpgrsResponseStatus = pResponseStatus_
     }
 
 -- | Undocumented member.
-cdcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
-cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
+cdbcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
+cdbcpgrsDBClusterParameterGroup = lens _cdbcpgrsDBClusterParameterGroup (\ s a -> s{_cdbcpgrsDBClusterParameterGroup = a});
 
 -- | The response status code.
-cdcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
-cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
+cdbcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
+cdbcpgrsResponseStatus = lens _cdbcpgrsResponseStatus (\ s a -> s{_cdbcpgrsResponseStatus = a});
 
 instance NFData CreateDBClusterParameterGroupResponse

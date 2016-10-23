@@ -69,7 +69,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'receiveMessage' smart constructor.
+-- |
+--
+-- /See:/ 'receiveMessage' smart constructor.
 data ReceiveMessage = ReceiveMessage'
     { _rmVisibilityTimeout     :: !(Maybe Int)
     , _rmMessageAttributeNames :: !(Maybe [Text])
@@ -113,7 +115,7 @@ rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout
 
 -- | The name of the message attribute, where /N/ is the index. The message attribute name can contain the following characters: A-Z, a-z, 0-9, underscore (_), hyphen (-), and period (.). The name must not start or end with a period, and it should not have successive periods. The name is case sensitive and must be unique among all attribute names for the message. The name can be up to 256 characters long. The name cannot start with \"AWS.\" or \"Amazon.\" (or any variations in casing), because these prefixes are reserved for use by Amazon Web Services.
 --
--- When using 'ReceiveMessage', you can send a list of attribute names to receive, or you can return all of the attributes by specifying \"All\" or \".*\" in your request. You can also use \"foo.*\" to return all message attributes starting with the \"foo\" prefix.
+-- When using 'ReceiveMessage', you can send a list of attribute names to receive, or you can return all of the attributes by specifying \"All\" or \".*\" in your request. You can also use \"bar.*\" to return all message attributes starting with the \"bar\" prefix.
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a}) . _Default . _Coerce;
 
@@ -121,15 +123,19 @@ rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAt
 rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a});
 
--- | A list of attributes that need to be returned along with each message.
---
--- The following lists the names and descriptions of the attributes that can be returned:
+-- | A list of attributes that need to be returned along with each message. These attributes include:
 --
 -- -   'All' - returns all values.
+--
 -- -   'ApproximateFirstReceiveTimestamp' - returns the time when the message was first received from the queue (epoch time in milliseconds).
+--
 -- -   'ApproximateReceiveCount' - returns the number of times a message has been received from the queue but not deleted.
+--
 -- -   'SenderId' - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.
+--
 -- -   'SentTimestamp' - returns the time when the message was sent to the queue (epoch time in milliseconds).
+--
+-- Any other valid special request parameters that are specified (such as 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'CreatedTimestamp', 'DelaySeconds', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedrivePolicy', and 'VisibilityTimeout') will be ignored.
 rmAttributeNames :: Lens' ReceiveMessage [MessageAttribute]
 rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default . _Coerce;
 
@@ -140,6 +146,8 @@ rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
 rmMaxNumberOfMessages = lens _rmMaxNumberOfMessages (\ s a -> s{_rmMaxNumberOfMessages = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 rmQueueURL :: Lens' ReceiveMessage Text
 rmQueueURL = lens _rmQueueURL (\ s a -> s{_rmQueueURL = a});
 

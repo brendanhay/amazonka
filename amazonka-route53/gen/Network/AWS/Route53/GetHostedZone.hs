@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the delegation set for a hosted zone, send a 'GET' request to the '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The delegation set is the four Amazon Route 53 name servers that were assigned to the hosted zone when you created it.
+-- Retrieves the delegation set for a hosted zone, including the four name servers assigned to the hosted zone. Send a 'GET' request to the '\/Amazon Route 53 API version\/hostedzone\/hosted zone ID ' resource.
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Creating a Request
@@ -95,7 +95,7 @@ instance ToPath GetHostedZone where
 instance ToQuery GetHostedZone where
         toQuery = const mempty
 
--- | A complex type containing information about the specified hosted zone.
+-- | A complex type containing the response information for the hosted zone.
 --
 -- /See:/ 'getHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
@@ -132,7 +132,7 @@ getHostedZoneResponse pResponseStatus_ pHostedZone_ =
 ghzrsVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
 ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 
--- | A complex type that contains information about the name servers for the specified hosted zone.
+-- | A complex type that describes the name servers for this hosted zone.
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
@@ -140,7 +140,7 @@ ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = 
 ghzrsResponseStatus :: Lens' GetHostedZoneResponse Int
 ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a});
 
--- | A complex type that contains the information about the specified hosted zone.
+-- | A complex type that contains general information about the hosted zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});
 

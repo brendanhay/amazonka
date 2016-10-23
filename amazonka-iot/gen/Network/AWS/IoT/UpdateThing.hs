@@ -25,8 +25,11 @@ module Network.AWS.IoT.UpdateThing
       updateThing
     , UpdateThing
     -- * Request Lenses
-    , utThingName
+    , utRemoveThingType
+    , utThingTypeName
+    , utExpectedVersion
     , utAttributePayload
+    , utThingName
 
     -- * Destructuring the Response
     , updateThingResponse
@@ -46,34 +49,61 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateThing' smart constructor.
 data UpdateThing = UpdateThing'
-    { _utThingName        :: !Text
-    , _utAttributePayload :: !AttributePayload
+    { _utRemoveThingType  :: !(Maybe Bool)
+    , _utThingTypeName    :: !(Maybe Text)
+    , _utExpectedVersion  :: !(Maybe Integer)
+    , _utAttributePayload :: !(Maybe AttributePayload)
+    , _utThingName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateThing' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utThingName'
+-- * 'utRemoveThingType'
+--
+-- * 'utThingTypeName'
+--
+-- * 'utExpectedVersion'
 --
 -- * 'utAttributePayload'
+--
+-- * 'utThingName'
 updateThing
     :: Text -- ^ 'utThingName'
-    -> AttributePayload -- ^ 'utAttributePayload'
     -> UpdateThing
-updateThing pThingName_ pAttributePayload_ =
+updateThing pThingName_ =
     UpdateThing'
-    { _utThingName = pThingName_
-    , _utAttributePayload = pAttributePayload_
+    { _utRemoveThingType = Nothing
+    , _utThingTypeName = Nothing
+    , _utExpectedVersion = Nothing
+    , _utAttributePayload = Nothing
+    , _utThingName = pThingName_
     }
 
--- | The thing name.
+-- | Remove a thing type association. If __true__, the assocation is removed.
+utRemoveThingType :: Lens' UpdateThing (Maybe Bool)
+utRemoveThingType = lens _utRemoveThingType (\ s a -> s{_utRemoveThingType = a});
+
+-- | The name of the thing type.
+utThingTypeName :: Lens' UpdateThing (Maybe Text)
+utThingTypeName = lens _utThingTypeName (\ s a -> s{_utThingTypeName = a});
+
+-- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the 'UpdateThing' request is rejected with a 'VersionConflictException'.
+utExpectedVersion :: Lens' UpdateThing (Maybe Integer)
+utExpectedVersion = lens _utExpectedVersion (\ s a -> s{_utExpectedVersion = a});
+
+-- | A list of thing attributes, a JSON string containing name-value pairs. For example:
+--
+-- '{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}})'
+--
+-- This data is used to add new attributes or update existing attributes.
+utAttributePayload :: Lens' UpdateThing (Maybe AttributePayload)
+utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
+
+-- | The name of the thing to update.
 utThingName :: Lens' UpdateThing Text
 utThingName = lens _utThingName (\ s a -> s{_utThingName = a});
-
--- | The attribute payload, a JSON string containing up to three key-value pairs (for example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
-utAttributePayload :: Lens' UpdateThing AttributePayload
-utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
 
 instance AWSRequest UpdateThing where
         type Rs UpdateThing = UpdateThingResponse
@@ -94,7 +124,10 @@ instance ToJSON UpdateThing where
         toJSON UpdateThing'{..}
           = object
               (catMaybes
-                 [Just ("attributePayload" .= _utAttributePayload)])
+                 [("removeThingType" .=) <$> _utRemoveThingType,
+                  ("thingTypeName" .=) <$> _utThingTypeName,
+                  ("expectedVersion" .=) <$> _utExpectedVersion,
+                  ("attributePayload" .=) <$> _utAttributePayload])
 
 instance ToPath UpdateThing where
         toPath UpdateThing'{..}

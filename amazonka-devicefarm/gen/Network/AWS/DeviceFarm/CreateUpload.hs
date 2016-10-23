@@ -87,7 +87,7 @@ cuContentType = lens _cuContentType (\ s a -> s{_cuContentType = a});
 cuProjectARN :: Lens' CreateUpload Text
 cuProjectARN = lens _cuProjectARN (\ s a -> s{_cuProjectARN = a});
 
--- | The upload\'s file name.
+-- | The upload\'s file name. The name should not contain the \'\/\' character.
 cuName :: Lens' CreateUpload Text
 cuName = lens _cuName (\ s a -> s{_cuName = a});
 

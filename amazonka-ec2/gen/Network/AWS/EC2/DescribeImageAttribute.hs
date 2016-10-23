@@ -132,7 +132,7 @@ instance ToQuery DescribeImageAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeImageAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _diaiDryRun, "ImageId" =: _diaiImageId,
                "Attribute" =: _diaiAttribute]
 
@@ -200,7 +200,7 @@ diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
 diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
 
--- | Undocumented member.
+-- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
 

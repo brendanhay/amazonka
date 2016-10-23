@@ -102,7 +102,7 @@ ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
 -- | The configuration properties for the custom action.
 --
--- You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:/name/}, as long as the configuration property is both required and not secret. For more information, see <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
+-- You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
 ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a group of players to a game session. Similar to < CreatePlayerSession>, this action allows you to add multiple players in a single call, which is useful for games that provide party and\/or matchmaking features. A game session must be in an ACTIVE state, have a creation policy of ALLOW_ALL, and have an open player slot before players can be added to the session.
+-- Adds a group of players to a game session. Similar to < CreatePlayerSession>, this action allows you to add multiple players in a single call, which is useful for games that provide party and\/or matchmaking features. A game session must be in an 'ACTIVE' status, have a creation policy of 'ALLOW_ALL', and have an open player slot before players can be added to the session.
 --
 -- To create player sessions, specify a game session ID and a list of player IDs. If successful, the players are added to the game session and a set of new < PlayerSession> objects is returned.
 module Network.AWS.GameLift.CreatePlayerSessions

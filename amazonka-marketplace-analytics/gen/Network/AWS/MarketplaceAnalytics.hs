@@ -29,6 +29,9 @@ module Network.AWS.MarketplaceAnalytics
     -- * Operations
     -- $operations
 
+    -- ** StartSupportDataExport
+    , module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
+
     -- ** GenerateDataSet
     , module Network.AWS.MarketplaceAnalytics.GenerateDataSet
 
@@ -36,9 +39,13 @@ module Network.AWS.MarketplaceAnalytics
 
     -- ** DataSetType
     , DataSetType (..)
+
+    -- ** SupportDataSetType
+    , SupportDataSetType (..)
     ) where
 
 import           Network.AWS.MarketplaceAnalytics.GenerateDataSet
+import           Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 import           Network.AWS.MarketplaceAnalytics.Types
 import           Network.AWS.MarketplaceAnalytics.Waiters
 

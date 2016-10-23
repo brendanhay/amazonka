@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a count of all your hosted zones, send a 'GET' request to the '\/Route 53 API version\/hostedzonecount' resource.
+-- Retrieves a count of all your hosted zones. Send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
@@ -40,7 +40,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your hosted zones, send a 'GET' request to the '\/Route 53 API version\/hostedzonecount' resource.
+-- | To retrieve a count of all your hosted zones, send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
@@ -76,7 +76,7 @@ instance ToPath GetHostedZoneCount where
 instance ToQuery GetHostedZoneCount where
         toQuery = const mempty
 
--- | A complex type that contains the count of hosted zones associated with the current AWS account.
+-- | A complex type that contains the response to a 'hostedzonecount' request.
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
@@ -105,7 +105,7 @@ getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
 ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseStatus = a});
 
--- | The number of hosted zones associated with the current AWS account.
+-- | The total number of public and private hosted zones associated with the current AWS account.
 ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});
 

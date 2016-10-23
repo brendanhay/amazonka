@@ -20,7 +20,7 @@
 --
 -- Returns the descriptions of all the current mount targets, or a specific mount target, for a file system. When requesting all of the current mount targets, the order of mount targets returned in the response is unspecified.
 --
--- This operation requires permission for the 'elasticfilesystem:DescribeMountTargets' action, on either the file system id that you specify in 'FileSystemId', or on the file system of the mount target that you specify in 'MountTargetId'.
+-- This operation requires permissions for the 'elasticfilesystem:DescribeMountTargets' action, on either the file system ID that you specify in 'FileSystemId', or on the file system of the mount target that you specify in 'MountTargetId'.
 module Network.AWS.EFS.DescribeMountTargets
     (
     -- * Creating a Request
@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeMountTargets' smart constructor.
+-- |
+--
+-- /See:/ 'describeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
     { _dmtFileSystemId  :: !(Maybe Text)
     , _dmtMarker        :: !(Maybe Text)
@@ -78,19 +80,19 @@ describeMountTargets =
     , _dmtMountTargetId = Nothing
     }
 
--- | Optional. String. The ID of the file system whose mount targets you want to list. It must be included in your request if 'MountTargetId' is not included.
+-- | (Optional) ID of the file system whose mount targets you want to list (String). It must be included in your request if 'MountTargetId' is not included.
 dmtFileSystemId :: Lens' DescribeMountTargets (Maybe Text)
 dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
--- | Optional. String. Opaque pagination token returned from a previous 'DescribeMountTargets' operation. If present, it specifies to continue the list from where the previous returning call left off.
+-- | (Optional) Opaque pagination token returned from a previous 'DescribeMountTargets' operation (String). If present, it specifies to continue the list from where the previous returning call left off.
 dmtMarker :: Lens' DescribeMountTargets (Maybe Text)
 dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 
--- | Optional. Maximum number of mount targets to return in the response. It must be an integer with a value greater than zero.
+-- | (Optional) Maximum number of mount targets to return in the response. It must be an integer with a value greater than zero.
 dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
 dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
--- | Optional. String. The ID of the mount target that you want to have described. It must be included in your request if 'FileSystemId' is not included.
+-- | (Optional) ID of the mount target that you want to have described (String). It must be included in your request if 'FileSystemId' is not included.
 dmtMountTargetId :: Lens' DescribeMountTargets (Maybe Text)
 dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 
@@ -124,7 +126,9 @@ instance ToQuery DescribeMountTargets where
                "Marker" =: _dmtMarker, "MaxItems" =: _dmtMaxItems,
                "MountTargetId" =: _dmtMountTargetId]
 
--- | /See:/ 'describeMountTargetsResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
     { _dmtrsMountTargets   :: !(Maybe [MountTargetDescription])
     , _dmtrsMarker         :: !(Maybe Text)

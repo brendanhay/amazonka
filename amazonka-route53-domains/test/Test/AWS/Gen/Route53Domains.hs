@@ -49,6 +49,12 @@ import Test.AWS.Route53Domains.Internal
 --         , requestDisableDomainAutoRenew $
 --             disableDomainAutoRenew
 --
+--         , requestRenewDomain $
+--             renewDomain
+--
+--         , requestViewBilling $
+--             viewBilling
+--
 --         , requestUpdateDomainContact $
 --             updateDomainContact
 --
@@ -57,6 +63,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , requestRegisterDomain $
 --             registerDomain
+--
+--         , requestGetDomainSuggestions $
+--             getDomainSuggestions
 --
 --         , requestDisableDomainTransferLock $
 --             disableDomainTransferLock
@@ -112,6 +121,12 @@ import Test.AWS.Route53Domains.Internal
 --         , responseDisableDomainAutoRenew $
 --             disableDomainAutoRenewResponse
 --
+--         , responseRenewDomain $
+--             renewDomainResponse
+--
+--         , responseViewBilling $
+--             viewBillingResponse
+--
 --         , responseUpdateDomainContact $
 --             updateDomainContactResponse
 --
@@ -120,6 +135,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , responseRegisterDomain $
 --             registerDomainResponse
+--
+--         , responseGetDomainSuggestions $
+--             getDomainSuggestionsResponse
 --
 --         , responseDisableDomainTransferLock $
 --             disableDomainTransferLockResponse
@@ -191,6 +209,16 @@ requestDisableDomainAutoRenew = req
     "DisableDomainAutoRenew"
     "fixture/DisableDomainAutoRenew.yaml"
 
+requestRenewDomain :: RenewDomain -> TestTree
+requestRenewDomain = req
+    "RenewDomain"
+    "fixture/RenewDomain.yaml"
+
+requestViewBilling :: ViewBilling -> TestTree
+requestViewBilling = req
+    "ViewBilling"
+    "fixture/ViewBilling.yaml"
+
 requestUpdateDomainContact :: UpdateDomainContact -> TestTree
 requestUpdateDomainContact = req
     "UpdateDomainContact"
@@ -205,6 +233,11 @@ requestRegisterDomain :: RegisterDomain -> TestTree
 requestRegisterDomain = req
     "RegisterDomain"
     "fixture/RegisterDomain.yaml"
+
+requestGetDomainSuggestions :: GetDomainSuggestions -> TestTree
+requestGetDomainSuggestions = req
+    "GetDomainSuggestions"
+    "fixture/GetDomainSuggestions.yaml"
 
 requestDisableDomainTransferLock :: DisableDomainTransferLock -> TestTree
 requestDisableDomainTransferLock = req
@@ -307,6 +340,20 @@ responseDisableDomainAutoRenew = res
     route53Domains
     (Proxy :: Proxy DisableDomainAutoRenew)
 
+responseRenewDomain :: RenewDomainResponse -> TestTree
+responseRenewDomain = res
+    "RenewDomainResponse"
+    "fixture/RenewDomainResponse.proto"
+    route53Domains
+    (Proxy :: Proxy RenewDomain)
+
+responseViewBilling :: ViewBillingResponse -> TestTree
+responseViewBilling = res
+    "ViewBillingResponse"
+    "fixture/ViewBillingResponse.proto"
+    route53Domains
+    (Proxy :: Proxy ViewBilling)
+
 responseUpdateDomainContact :: UpdateDomainContactResponse -> TestTree
 responseUpdateDomainContact = res
     "UpdateDomainContactResponse"
@@ -327,6 +374,13 @@ responseRegisterDomain = res
     "fixture/RegisterDomainResponse.proto"
     route53Domains
     (Proxy :: Proxy RegisterDomain)
+
+responseGetDomainSuggestions :: GetDomainSuggestionsResponse -> TestTree
+responseGetDomainSuggestions = res
+    "GetDomainSuggestionsResponse"
+    "fixture/GetDomainSuggestionsResponse.proto"
+    route53Domains
+    (Proxy :: Proxy GetDomainSuggestions)
 
 responseDisableDomainTransferLock :: DisableDomainTransferLockResponse -> TestTree
 responseDisableDomainTransferLock = res

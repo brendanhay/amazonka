@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'deleteReceiptRuleSet' smart constructor.
+-- | Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'deleteReceiptRuleSet' smart constructor.
 newtype DeleteReceiptRuleSet = DeleteReceiptRuleSet'
     { _dRuleSetName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -96,7 +98,9 @@ instance ToQuery DeleteReceiptRuleSet where
                "Version" =: ("2010-12-01" :: ByteString),
                "RuleSetName" =: _dRuleSetName]
 
--- | /See:/ 'deleteReceiptRuleSetResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'deleteReceiptRuleSetResponse' smart constructor.
 newtype DeleteReceiptRuleSetResponse = DeleteReceiptRuleSetResponse'
     { _drrsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -51,9 +51,13 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < UpdateChapCredentialsInput>InitiatorName>
+--
 -- -   < UpdateChapCredentialsInput>SecretToAuthenticateInitiator>
+--
 -- -   < UpdateChapCredentialsInput>SecretToAuthenticateTarget>
+--
 -- -   < UpdateChapCredentialsInput>TargetARN>
+--
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'

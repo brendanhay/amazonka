@@ -34,6 +34,9 @@ import Test.AWS.CodePipeline.Internal
 --         , requestPutJobFailureResult $
 --             putJobFailureResult
 --
+--         , requestPutApprovalResult $
+--             putApprovalResult
+--
 --         , requestAcknowledgeThirdPartyJob $
 --             acknowledgeThirdPartyJob
 --
@@ -63,6 +66,12 @@ import Test.AWS.CodePipeline.Internal
 --
 --         , requestListPipelines $
 --             listPipelines
+--
+--         , requestRetryStageExecution $
+--             retryStageExecution
+--
+--         , requestGetPipelineExecution $
+--             getPipelineExecution
 --
 --         , requestPutJobSuccessResult $
 --             putJobSuccessResult
@@ -106,6 +115,9 @@ import Test.AWS.CodePipeline.Internal
 --         , responsePutJobFailureResult $
 --             putJobFailureResultResponse
 --
+--         , responsePutApprovalResult $
+--             putApprovalResultResponse
+--
 --         , responseAcknowledgeThirdPartyJob $
 --             acknowledgeThirdPartyJobResponse
 --
@@ -135,6 +147,12 @@ import Test.AWS.CodePipeline.Internal
 --
 --         , responseListPipelines $
 --             listPipelinesResponse
+--
+--         , responseRetryStageExecution $
+--             retryStageExecutionResponse
+--
+--         , responseGetPipelineExecution $
+--             getPipelineExecutionResponse
 --
 --         , responsePutJobSuccessResult $
 --             putJobSuccessResultResponse
@@ -183,6 +201,11 @@ requestPutJobFailureResult :: PutJobFailureResult -> TestTree
 requestPutJobFailureResult = req
     "PutJobFailureResult"
     "fixture/PutJobFailureResult.yaml"
+
+requestPutApprovalResult :: PutApprovalResult -> TestTree
+requestPutApprovalResult = req
+    "PutApprovalResult"
+    "fixture/PutApprovalResult.yaml"
 
 requestAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJob -> TestTree
 requestAcknowledgeThirdPartyJob = req
@@ -233,6 +256,16 @@ requestListPipelines :: ListPipelines -> TestTree
 requestListPipelines = req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
+
+requestRetryStageExecution :: RetryStageExecution -> TestTree
+requestRetryStageExecution = req
+    "RetryStageExecution"
+    "fixture/RetryStageExecution.yaml"
+
+requestGetPipelineExecution :: GetPipelineExecution -> TestTree
+requestGetPipelineExecution = req
+    "GetPipelineExecution"
+    "fixture/GetPipelineExecution.yaml"
 
 requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
 requestPutJobSuccessResult = req
@@ -305,6 +338,13 @@ responsePutJobFailureResult = res
     codePipeline
     (Proxy :: Proxy PutJobFailureResult)
 
+responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
+responsePutApprovalResult = res
+    "PutApprovalResultResponse"
+    "fixture/PutApprovalResultResponse.proto"
+    codePipeline
+    (Proxy :: Proxy PutApprovalResult)
+
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
 responseAcknowledgeThirdPartyJob = res
     "AcknowledgeThirdPartyJobResponse"
@@ -374,6 +414,20 @@ responseListPipelines = res
     "fixture/ListPipelinesResponse.proto"
     codePipeline
     (Proxy :: Proxy ListPipelines)
+
+responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
+responseRetryStageExecution = res
+    "RetryStageExecutionResponse"
+    "fixture/RetryStageExecutionResponse.proto"
+    codePipeline
+    (Proxy :: Proxy RetryStageExecution)
+
+responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
+responseGetPipelineExecution = res
+    "GetPipelineExecutionResponse"
+    "fixture/GetPipelineExecutionResponse.proto"
+    codePipeline
+    (Proxy :: Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
 responsePutJobSuccessResult = res

@@ -75,9 +75,13 @@ modifyDBParameterGroup pDBParameterGroupName_ =
 -- Constraints:
 --
 -- -   Must be the name of an existing DB parameter group
+--
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
 mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBParameterGroupName = a});
 

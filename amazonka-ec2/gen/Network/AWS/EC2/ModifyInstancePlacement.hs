@@ -20,7 +20,7 @@
 --
 -- Set the instance affinity value for a specific stopped instance and modify the instance tenancy setting.
 --
--- Instance affinity is disabled by default. When instance affinity is 'host' and it is not associated with a specific Dedicated host, the next time it is launched it will automatically be associated with the host it lands on. This relationship will persist if the instance is stopped\/started, or rebooted.
+-- Instance affinity is disabled by default. When instance affinity is 'host' and it is not associated with a specific Dedicated Host, the next time it is launched it will automatically be associated with the host it lands on. This relationship will persist if the instance is stopped\/started, or rebooted.
 --
 -- You can modify the host ID associated with a stopped instance. If a stopped instance has a new host ID association, the instance will target that host when restarted.
 --
@@ -89,7 +89,7 @@ modifyInstancePlacement pInstanceId_ =
 mipAffinity :: Lens' ModifyInstancePlacement (Maybe Affinity)
 mipAffinity = lens _mipAffinity (\ s a -> s{_mipAffinity = a});
 
--- | The ID of the Dedicated host that the instance will have affinity with.
+-- | The ID of the Dedicated Host that the instance will have affinity with.
 mipHostId :: Lens' ModifyInstancePlacement (Maybe Text)
 mipHostId = lens _mipHostId (\ s a -> s{_mipHostId = a});
 
@@ -126,7 +126,7 @@ instance ToQuery ModifyInstancePlacement where
           = mconcat
               ["Action" =:
                  ("ModifyInstancePlacement" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "Affinity" =: _mipAffinity, "HostId" =: _mipHostId,
                "Tenancy" =: _mipTenancy,
                "InstanceId" =: _mipInstanceId]

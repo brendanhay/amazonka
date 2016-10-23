@@ -28,6 +28,7 @@ data Connection = Connection'
     { _cVlan            :: !(Maybe Int)
     , _cLocation        :: !(Maybe Text)
     , _cConnectionId    :: !(Maybe Text)
+    , _cLoaIssueTime    :: !(Maybe POSIX)
     , _cPartnerName     :: !(Maybe Text)
     , _cConnectionName  :: !(Maybe Text)
     , _cBandwidth       :: !(Maybe Text)
@@ -45,6 +46,8 @@ data Connection = Connection'
 -- * 'cLocation'
 --
 -- * 'cConnectionId'
+--
+-- * 'cLoaIssueTime'
 --
 -- * 'cPartnerName'
 --
@@ -64,6 +67,7 @@ connection =
     { _cVlan = Nothing
     , _cLocation = Nothing
     , _cConnectionId = Nothing
+    , _cLoaIssueTime = Nothing
     , _cPartnerName = Nothing
     , _cConnectionName = Nothing
     , _cBandwidth = Nothing
@@ -84,7 +88,11 @@ cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
 cConnectionId :: Lens' Connection (Maybe Text)
 cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
 
--- | Undocumented member.
+-- | The time of the most recent call to DescribeConnectionLoa for this Connection.
+cLoaIssueTime :: Lens' Connection (Maybe UTCTime)
+cLoaIssueTime = lens _cLoaIssueTime (\ s a -> s{_cLoaIssueTime = a}) . mapping _Time;
+
+-- | The name of the AWS Direct Connect service provider associated with the connection.
 cPartnerName :: Lens' Connection (Maybe Text)
 cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
 
@@ -100,7 +108,7 @@ cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
 
--- | Undocumented member.
+-- | The AWS account that will own the new connection.
 cOwnerAccount :: Lens' Connection (Maybe Text)
 cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a});
 
@@ -119,6 +127,7 @@ instance FromJSON Connection where
                  Connection' <$>
                    (x .:? "vlan") <*> (x .:? "location") <*>
                      (x .:? "connectionId")
+                     <*> (x .:? "loaIssueTime")
                      <*> (x .:? "partnerName")
                      <*> (x .:? "connectionName")
                      <*> (x .:? "bandwidth")
@@ -174,6 +183,7 @@ data Interconnect = Interconnect'
     { _iInterconnectId    :: !(Maybe Text)
     , _iLocation          :: !(Maybe Text)
     , _iInterconnectName  :: !(Maybe Text)
+    , _iLoaIssueTime      :: !(Maybe POSIX)
     , _iBandwidth         :: !(Maybe Text)
     , _iInterconnectState :: !(Maybe InterconnectState)
     , _iRegion            :: !(Maybe Text)
@@ -189,6 +199,8 @@ data Interconnect = Interconnect'
 --
 -- * 'iInterconnectName'
 --
+-- * 'iLoaIssueTime'
+--
 -- * 'iBandwidth'
 --
 -- * 'iInterconnectState'
@@ -201,6 +213,7 @@ interconnect =
     { _iInterconnectId = Nothing
     , _iLocation = Nothing
     , _iInterconnectName = Nothing
+    , _iLoaIssueTime = Nothing
     , _iBandwidth = Nothing
     , _iInterconnectState = Nothing
     , _iRegion = Nothing
@@ -217,6 +230,10 @@ iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
 -- | Undocumented member.
 iInterconnectName :: Lens' Interconnect (Maybe Text)
 iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
+
+-- | The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
+iLoaIssueTime :: Lens' Interconnect (Maybe UTCTime)
+iLoaIssueTime = lens _iLoaIssueTime (\ s a -> s{_iLoaIssueTime = a}) . mapping _Time;
 
 -- | Undocumented member.
 iBandwidth :: Lens' Interconnect (Maybe Text)
@@ -237,6 +254,7 @@ instance FromJSON Interconnect where
                  Interconnect' <$>
                    (x .:? "interconnectId") <*> (x .:? "location") <*>
                      (x .:? "interconnectName")
+                     <*> (x .:? "loaIssueTime")
                      <*> (x .:? "bandwidth")
                      <*> (x .:? "interconnectState")
                      <*> (x .:? "region"))
@@ -244,6 +262,54 @@ instance FromJSON Interconnect where
 instance Hashable Interconnect
 
 instance NFData Interconnect
+
+-- | A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
+--
+-- /See:/ 'loa' smart constructor.
+data Loa = Loa'
+    { _loaLoaContent     :: !(Maybe Base64)
+    , _loaLoaContentType :: !(Maybe LoaContentType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Loa' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'loaLoaContent'
+--
+-- * 'loaLoaContentType'
+loa
+    :: Loa
+loa =
+    Loa'
+    { _loaLoaContent = Nothing
+    , _loaLoaContentType = Nothing
+    }
+
+-- | Undocumented member.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+loaLoaContent :: Lens' Loa (Maybe ByteString)
+loaLoaContent = lens _loaLoaContent (\ s a -> s{_loaLoaContent = a}) . mapping _Base64;
+
+-- | Undocumented member.
+loaLoaContentType :: Lens' Loa (Maybe LoaContentType)
+loaLoaContentType = lens _loaLoaContentType (\ s a -> s{_loaLoaContentType = a});
+
+instance FromJSON Loa where
+        parseJSON
+          = withObject "Loa"
+              (\ x ->
+                 Loa' <$>
+                   (x .:? "loaContent") <*> (x .:? "loaContentType"))
+
+instance Hashable Loa
+
+instance NFData Loa
 
 -- | An AWS Direct Connect location where connections and interconnects can be requested.
 --
@@ -857,7 +923,7 @@ viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a});
 viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
 viCustomerRouterConfig = lens _viCustomerRouterConfig (\ s a -> s{_viCustomerRouterConfig = a});
 
--- | Undocumented member.
+-- | The AWS account that will own the new virtual interface.
 viOwnerAccount :: Lens' VirtualInterface (Maybe Text)
 viOwnerAccount = lens _viOwnerAccount (\ s a -> s{_viOwnerAccount = a});
 

@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the type of endpoints available.
---
 module Network.AWS.DMS.DescribeEndpointTypes
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeEndpointTypes' smart constructor.
+-- |
+--
+-- /See:/ 'describeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
     { _detFilters    :: !(Maybe [Filter])
     , _detMarker     :: !(Maybe Text)
@@ -129,7 +130,9 @@ instance ToPath DescribeEndpointTypes where
 instance ToQuery DescribeEndpointTypes where
         toQuery = const mempty
 
--- | /See:/ 'describeEndpointTypesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
     { _detrsSupportedEndpointTypes :: !(Maybe [SupportedEndpointType])
     , _detrsMarker                 :: !(Maybe Text)

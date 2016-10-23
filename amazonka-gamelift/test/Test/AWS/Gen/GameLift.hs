@@ -58,6 +58,12 @@ import Test.AWS.GameLift.Internal
 --         , requestListAliases $
 --             listAliases
 --
+--         , requestUpdateRuntimeConfiguration $
+--             updateRuntimeConfiguration
+--
+--         , requestSearchGameSessions $
+--             searchGameSessions
+--
 --         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
 --
@@ -66,6 +72,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestDescribeFleetUtilization $
 --             describeFleetUtilization
+--
+--         , requestDescribeRuntimeConfiguration $
+--             describeRuntimeConfiguration
 --
 --         , requestGetGameSessionLogURL $
 --             getGameSessionLogURL
@@ -166,6 +175,12 @@ import Test.AWS.GameLift.Internal
 --         , responseListAliases $
 --             listAliasesResponse
 --
+--         , responseUpdateRuntimeConfiguration $
+--             updateRuntimeConfigurationResponse
+--
+--         , responseSearchGameSessions $
+--             searchGameSessionsResponse
+--
 --         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
 --
@@ -174,6 +189,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseDescribeFleetUtilization $
 --             describeFleetUtilizationResponse
+--
+--         , responseDescribeRuntimeConfiguration $
+--             describeRuntimeConfigurationResponse
 --
 --         , responseGetGameSessionLogURL $
 --             getGameSessionLogURLResponse
@@ -296,6 +314,16 @@ requestListAliases = req
     "ListAliases"
     "fixture/ListAliases.yaml"
 
+requestUpdateRuntimeConfiguration :: UpdateRuntimeConfiguration -> TestTree
+requestUpdateRuntimeConfiguration = req
+    "UpdateRuntimeConfiguration"
+    "fixture/UpdateRuntimeConfiguration.yaml"
+
+requestSearchGameSessions :: SearchGameSessions -> TestTree
+requestSearchGameSessions = req
+    "SearchGameSessions"
+    "fixture/SearchGameSessions.yaml"
+
 requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
 requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
@@ -310,6 +338,11 @@ requestDescribeFleetUtilization :: DescribeFleetUtilization -> TestTree
 requestDescribeFleetUtilization = req
     "DescribeFleetUtilization"
     "fixture/DescribeFleetUtilization.yaml"
+
+requestDescribeRuntimeConfiguration :: DescribeRuntimeConfiguration -> TestTree
+requestDescribeRuntimeConfiguration = req
+    "DescribeRuntimeConfiguration"
+    "fixture/DescribeRuntimeConfiguration.yaml"
 
 requestGetGameSessionLogURL :: GetGameSessionLogURL -> TestTree
 requestGetGameSessionLogURL = req
@@ -493,6 +526,20 @@ responseListAliases = res
     gameLift
     (Proxy :: Proxy ListAliases)
 
+responseUpdateRuntimeConfiguration :: UpdateRuntimeConfigurationResponse -> TestTree
+responseUpdateRuntimeConfiguration = res
+    "UpdateRuntimeConfigurationResponse"
+    "fixture/UpdateRuntimeConfigurationResponse.proto"
+    gameLift
+    (Proxy :: Proxy UpdateRuntimeConfiguration)
+
+responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
+responseSearchGameSessions = res
+    "SearchGameSessionsResponse"
+    "fixture/SearchGameSessionsResponse.proto"
+    gameLift
+    (Proxy :: Proxy SearchGameSessions)
+
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
 responseDescribeScalingPolicies = res
     "DescribeScalingPoliciesResponse"
@@ -513,6 +560,13 @@ responseDescribeFleetUtilization = res
     "fixture/DescribeFleetUtilizationResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetUtilization)
+
+responseDescribeRuntimeConfiguration :: DescribeRuntimeConfigurationResponse -> TestTree
+responseDescribeRuntimeConfiguration = res
+    "DescribeRuntimeConfigurationResponse"
+    "fixture/DescribeRuntimeConfigurationResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeRuntimeConfiguration)
 
 responseGetGameSessionLogURL :: GetGameSessionLogURLResponse -> TestTree
 responseGetGameSessionLogURL = res

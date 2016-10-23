@@ -83,7 +83,9 @@ instance ToQuery GetSendQuota where
                  ["Action" =: ("GetSendQuota" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'getSendQuotaResponse' smart constructor.
+-- | Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.
+--
+-- /See:/ 'getSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrsMaxSendRate     :: !(Maybe Double)
     , _gsqrsSentLast24Hours :: !(Maybe Double)

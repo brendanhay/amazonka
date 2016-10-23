@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all stack related events for a specified stack. For more information about a stack\'s event history, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks> in the AWS CloudFormation User Guide.
+-- Returns all stack related events for a specified stack in reverse chronological order. For more information about a stack\'s event history, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks> in the AWS CloudFormation User Guide.
 --
 -- You can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).
 --
@@ -79,6 +79,7 @@ dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
+--
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.

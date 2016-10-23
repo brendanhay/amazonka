@@ -43,6 +43,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsLogFileValidationEnabled
     , utrsTrailARN
     , utrsS3KeyPrefix
+    , utrsSNSTopicARN
     , utrsSNSTopicName
     , utrsCloudWatchLogsLogGroupARN
     , utrsKMSKeyId
@@ -140,9 +141,13 @@ utCloudWatchLogsLogGroupARN = lens _utCloudWatchLogsLogGroupARN (\ s a -> s{_utC
 -- Examples:
 --
 -- -   alias\/MyAliasName
+--
 -- -   arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+--
 -- -   arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+--
 -- -   12345678-1234-1234-1234-123456789012
+--
 utKMSKeyId :: Lens' UpdateTrail (Maybe Text)
 utKMSKeyId = lens _utKMSKeyId (\ s a -> s{_utKMSKeyId = a});
 
@@ -165,12 +170,18 @@ utIsMultiRegionTrail = lens _utIsMultiRegionTrail (\ s a -> s{_utIsMultiRegionTr
 -- | Specifies the name of the trail or trail ARN. If 'Name' is a trail name, the string must meet the following requirements:
 --
 -- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+--
 -- -   Start with a letter or number, and end with a letter or number
+--
 -- -   Be between 3 and 128 characters
+--
 -- -   Have no adjacent periods, underscores or dashes. Names like 'my-_namespace' and 'my--namespace' are invalid.
+--
 -- -   Not be in IP address format (for example, 192.168.5.4)
 --
--- If 'Name' is a trail ARN, it must be in the format 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- If 'Name' is a trail ARN, it must be in the format:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 utName :: Lens' UpdateTrail Text
 utName = lens _utName (\ s a -> s{_utName = a});
 
@@ -184,6 +195,7 @@ instance AWSRequest UpdateTrail where
                    (x .?> "LogFileValidationEnabled") <*>
                      (x .?> "TrailARN")
                      <*> (x .?> "S3KeyPrefix")
+                     <*> (x .?> "SnsTopicARN")
                      <*> (x .?> "SnsTopicName")
                      <*> (x .?> "CloudWatchLogsLogGroupArn")
                      <*> (x .?> "KmsKeyId")
@@ -240,6 +252,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     { _utrsLogFileValidationEnabled   :: !(Maybe Bool)
     , _utrsTrailARN                   :: !(Maybe Text)
     , _utrsS3KeyPrefix                :: !(Maybe Text)
+    , _utrsSNSTopicARN                :: !(Maybe Text)
     , _utrsSNSTopicName               :: !(Maybe Text)
     , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _utrsKMSKeyId                   :: !(Maybe Text)
@@ -260,6 +273,8 @@ data UpdateTrailResponse = UpdateTrailResponse'
 -- * 'utrsTrailARN'
 --
 -- * 'utrsS3KeyPrefix'
+--
+-- * 'utrsSNSTopicARN'
 --
 -- * 'utrsSNSTopicName'
 --
@@ -286,6 +301,7 @@ updateTrailResponse pResponseStatus_ =
     { _utrsLogFileValidationEnabled = Nothing
     , _utrsTrailARN = Nothing
     , _utrsS3KeyPrefix = Nothing
+    , _utrsSNSTopicARN = Nothing
     , _utrsSNSTopicName = Nothing
     , _utrsCloudWatchLogsLogGroupARN = Nothing
     , _utrsKMSKeyId = Nothing
@@ -301,7 +317,9 @@ updateTrailResponse pResponseStatus_ =
 utrsLogFileValidationEnabled :: Lens' UpdateTrailResponse (Maybe Bool)
 utrsLogFileValidationEnabled = lens _utrsLogFileValidationEnabled (\ s a -> s{_utrsLogFileValidationEnabled = a});
 
--- | Specifies the ARN of the trail that was updated.
+-- | Specifies the ARN of the trail that was updated. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 utrsTrailARN :: Lens' UpdateTrailResponse (Maybe Text)
 utrsTrailARN = lens _utrsTrailARN (\ s a -> s{_utrsTrailARN = a});
 
@@ -309,7 +327,13 @@ utrsTrailARN = lens _utrsTrailARN (\ s a -> s{_utrsTrailARN = a});
 utrsS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3KeyPrefix = lens _utrsS3KeyPrefix (\ s a -> s{_utrsS3KeyPrefix = a});
 
--- | Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
+--
+-- 'arn:aws:sns:us-east-1:123456789012:MyTopic'
+utrsSNSTopicARN :: Lens' UpdateTrailResponse (Maybe Text)
+utrsSNSTopicARN = lens _utrsSNSTopicARN (\ s a -> s{_utrsSNSTopicARN = a});
+
+-- | This field is deprecated. Use SnsTopicARN.
 utrsSNSTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsSNSTopicName = lens _utrsSNSTopicName (\ s a -> s{_utrsSNSTopicName = a});
 

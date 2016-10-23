@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about replication tasks for your account in the current region.
---
 module Network.AWS.DMS.DescribeReplicationTasks
     (
     -- * Creating a Request
@@ -46,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReplicationTasks' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationTasks' smart constructor.
 data DescribeReplicationTasks = DescribeReplicationTasks'
     { _drtFilters    :: !(Maybe [Filter])
     , _drtMarker     :: !(Maybe Text)
@@ -129,7 +130,9 @@ instance ToPath DescribeReplicationTasks where
 instance ToQuery DescribeReplicationTasks where
         toQuery = const mempty
 
--- | /See:/ 'describeReplicationTasksResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeReplicationTasksResponse' smart constructor.
 data DescribeReplicationTasksResponse = DescribeReplicationTasksResponse'
     { _drtsrsReplicationTasks :: !(Maybe [ReplicationTask])
     , _drtsrsMarker           :: !(Maybe Text)

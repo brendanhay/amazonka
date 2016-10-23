@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'registerEventTopic' smart constructor.
+-- | Registers a new event topic.
+--
+-- /See:/ 'registerEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
     { _retDirectoryId :: !Text
     , _retTopicName   :: !Text
@@ -109,7 +111,9 @@ instance ToPath RegisterEventTopic where
 instance ToQuery RegisterEventTopic where
         toQuery = const mempty
 
--- | /See:/ 'registerEventTopicResponse' smart constructor.
+-- | The result of a RegisterEventTopic request.
+--
+-- /See:/ 'registerEventTopicResponse' smart constructor.
 newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
     { _retrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

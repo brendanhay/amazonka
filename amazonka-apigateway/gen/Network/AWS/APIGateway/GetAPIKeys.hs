@@ -27,6 +27,8 @@ module Network.AWS.APIGateway.GetAPIKeys
       getAPIKeys
     , GetAPIKeys
     -- * Request Lenses
+    , gakIncludeValues
+    , gakNameQuery
     , gakLimit
     , gakPosition
 
@@ -35,6 +37,7 @@ module Network.AWS.APIGateway.GetAPIKeys
     , GetAPIKeysResponse
     -- * Response Lenses
     , gakrsItems
+    , gakrsWarnings
     , gakrsPosition
     , gakrsResponseStatus
     ) where
@@ -51,13 +54,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-    { _gakLimit    :: !(Maybe Int)
-    , _gakPosition :: !(Maybe Text)
+    { _gakIncludeValues :: !(Maybe Bool)
+    , _gakNameQuery     :: !(Maybe Text)
+    , _gakLimit         :: !(Maybe Int)
+    , _gakPosition      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gakIncludeValues'
+--
+-- * 'gakNameQuery'
 --
 -- * 'gakLimit'
 --
@@ -66,9 +75,19 @@ getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
     GetAPIKeys'
-    { _gakLimit = Nothing
+    { _gakIncludeValues = Nothing
+    , _gakNameQuery = Nothing
+    , _gakLimit = Nothing
     , _gakPosition = Nothing
     }
+
+-- | A boolean flag to specify whether ('true') or not ('false') the result contains key values.
+gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
+gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
+
+-- | The name of queried API keys.
+gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
+gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a});
 
 -- | The maximum number of < ApiKeys> to get information about.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
@@ -92,8 +111,10 @@ instance AWSRequest GetAPIKeys where
           = receiveJSON
               (\ s h x ->
                  GetAPIKeysResponse' <$>
-                   (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "item" .!@ mempty) <*>
+                     (x .?> "warnings" .!@ mempty)
+                     <*> (x .?> "position")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetAPIKeys
 
@@ -111,13 +132,18 @@ instance ToPath GetAPIKeys where
 instance ToQuery GetAPIKeys where
         toQuery GetAPIKeys'{..}
           = mconcat
-              ["limit" =: _gakLimit, "position" =: _gakPosition]
+              ["includeValues" =: _gakIncludeValues,
+               "name" =: _gakNameQuery, "limit" =: _gakLimit,
+               "position" =: _gakPosition]
 
--- | Represents a collection of < ApiKey> resources.
+-- | Represents a collection of API keys as represented by an < ApiKeys> resource.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
     { _gakrsItems          :: !(Maybe [APIKey])
+    , _gakrsWarnings       :: !(Maybe [Text])
     , _gakrsPosition       :: !(Maybe Text)
     , _gakrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -128,6 +154,8 @@ data GetAPIKeysResponse = GetAPIKeysResponse'
 --
 -- * 'gakrsItems'
 --
+-- * 'gakrsWarnings'
+--
 -- * 'gakrsPosition'
 --
 -- * 'gakrsResponseStatus'
@@ -137,6 +165,7 @@ getAPIKeysResponse
 getAPIKeysResponse pResponseStatus_ =
     GetAPIKeysResponse'
     { _gakrsItems = Nothing
+    , _gakrsWarnings = Nothing
     , _gakrsPosition = Nothing
     , _gakrsResponseStatus = pResponseStatus_
     }
@@ -144,6 +173,10 @@ getAPIKeysResponse pResponseStatus_ =
 -- | The current page of any < ApiKey> resources in the collection of < ApiKey> resources.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
+
+-- | A list of warning messages logged during the import of API keys when the 'failOnWarnings' option is set to true.
+gakrsWarnings :: Lens' GetAPIKeysResponse [Text]
+gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
 gakrsPosition :: Lens' GetAPIKeysResponse (Maybe Text)

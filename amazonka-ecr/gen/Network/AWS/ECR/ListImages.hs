@@ -19,6 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the image IDs for a given repository.
+--
+-- You can filter images based on whether or not they are tagged by setting the 'tagStatus' parameter to 'TAGGED' or 'UNTAGGED'. For example, you can filter your results to return only 'UNTAGGED' images and then pipe that result to a < BatchDeleteImage> operation to delete them. Or, you can filter your results to return only 'TAGGED' images to list all of the tags in your repository.
+--
+-- This operation returns paginated results.
 module Network.AWS.ECR.ListImages
     (
     -- * Creating a Request
@@ -27,6 +31,7 @@ module Network.AWS.ECR.ListImages
     -- * Request Lenses
     , liRegistryId
     , liNextToken
+    , liFilter
     , liMaxResults
     , liRepositoryName
 
@@ -42,6 +47,7 @@ module Network.AWS.ECR.ListImages
 import           Network.AWS.ECR.Types
 import           Network.AWS.ECR.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -50,6 +56,7 @@ import           Network.AWS.Response
 data ListImages = ListImages'
     { _liRegistryId     :: !(Maybe Text)
     , _liNextToken      :: !(Maybe Text)
+    , _liFilter         :: !(Maybe ListImagesFilter)
     , _liMaxResults     :: !(Maybe Nat)
     , _liRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -62,6 +69,8 @@ data ListImages = ListImages'
 --
 -- * 'liNextToken'
 --
+-- * 'liFilter'
+--
 -- * 'liMaxResults'
 --
 -- * 'liRepositoryName'
@@ -72,6 +81,7 @@ listImages pRepositoryName_ =
     ListImages'
     { _liRegistryId = Nothing
     , _liNextToken = Nothing
+    , _liFilter = Nothing
     , _liMaxResults = Nothing
     , _liRepositoryName = pRepositoryName_
     }
@@ -81,8 +91,14 @@ liRegistryId :: Lens' ListImages (Maybe Text)
 liRegistryId = lens _liRegistryId (\ s a -> s{_liRegistryId = a});
 
 -- | The 'nextToken' value returned from a previous paginated 'ListImages' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
 liNextToken :: Lens' ListImages (Maybe Text)
 liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+
+-- | The filter key and value with which to filter your 'ListImages' results.
+liFilter :: Lens' ListImages (Maybe ListImagesFilter)
+liFilter = lens _liFilter (\ s a -> s{_liFilter = a});
 
 -- | The maximum number of image results returned by 'ListImages' in paginated output. When this parameter is used, 'ListImages' only returns 'maxResults' results in a single page along with a 'nextToken' response element. The remaining results of the initial request can be seen by sending another 'ListImages' request with the returned 'nextToken' value. This value can be between 1 and 100. If this parameter is not used, then 'ListImages' returns up to 100 results and a 'nextToken' value, if applicable.
 liMaxResults :: Lens' ListImages (Maybe Natural)
@@ -92,6 +108,13 @@ liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
 liRepositoryName :: Lens' ListImages Text
 liRepositoryName = lens _liRepositoryName (\ s a -> s{_liRepositoryName = a});
 
+instance AWSPager ListImages where
+        page rq rs
+          | stop (rs ^. lirsNextToken) = Nothing
+          | stop (rs ^. lirsImageIds) = Nothing
+          | otherwise =
+            Just $ rq & liNextToken .~ rs ^. lirsNextToken
+
 instance AWSRequest ListImages where
         type Rs ListImages = ListImagesResponse
         request = postJSON ecr
@@ -99,8 +122,8 @@ instance AWSRequest ListImages where
           = receiveJSON
               (\ s h x ->
                  ListImagesResponse' <$>
-                   (x .?> "imageIds") <*> (x .?> "nextToken") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "imageIds" .!@ mempty) <*> (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable ListImages
 
@@ -122,6 +145,7 @@ instance ToJSON ListImages where
               (catMaybes
                  [("registryId" .=) <$> _liRegistryId,
                   ("nextToken" .=) <$> _liNextToken,
+                  ("filter" .=) <$> _liFilter,
                   ("maxResults" .=) <$> _liMaxResults,
                   Just ("repositoryName" .= _liRepositoryName)])
 
@@ -133,7 +157,7 @@ instance ToQuery ListImages where
 
 -- | /See:/ 'listImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-    { _lirsImageIds       :: !(Maybe (List1 ImageIdentifier))
+    { _lirsImageIds       :: !(Maybe [ImageIdentifier])
     , _lirsNextToken      :: !(Maybe Text)
     , _lirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -158,8 +182,8 @@ listImagesResponse pResponseStatus_ =
     }
 
 -- | The list of image IDs for the requested repository.
-lirsImageIds :: Lens' ListImagesResponse (Maybe (NonEmpty ImageIdentifier))
-lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . mapping _List1;
+lirsImageIds :: Lens' ListImagesResponse [ImageIdentifier]
+lirsImageIds = lens _lirsImageIds (\ s a -> s{_lirsImageIds = a}) . _Default . _Coerce;
 
 -- | The 'nextToken' value to include in a future 'ListImages' request. When the results of a 'ListImages' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
 lirsNextToken :: Lens' ListImagesResponse (Maybe Text)

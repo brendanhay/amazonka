@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createEventSourceMapping' smart constructor.
+-- |
+--
+-- /See:/ 'createEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
     { _cesmEnabled          :: !(Maybe Bool)
     , _cesmBatchSize        :: !(Maybe Nat)

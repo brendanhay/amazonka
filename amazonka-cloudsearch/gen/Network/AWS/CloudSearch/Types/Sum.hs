@@ -128,7 +128,7 @@ instance FromText AnalysisSchemeLanguage where
         "zh-hans" -> pure ZhHans
         "zh-hant" -> pure ZhHant
         e -> fromTextError $ "Failure parsing AnalysisSchemeLanguage from value: '" <> e
-           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-Hans, zh-Hant"
+           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
 
 instance ToText AnalysisSchemeLanguage where
     toText = \case
@@ -251,7 +251,7 @@ instance FromText OptionState where
         "processing" -> pure Processing
         "requiresindexdocuments" -> pure RequiresIndexDocuments
         e -> fromTextError $ "Failure parsing OptionState from value: '" <> e
-           <> "'. Accepted values: Active, FailedToValidate, Processing, RequiresIndexDocuments"
+           <> "'. Accepted values: active, failedtovalidate, processing, requiresindexdocuments"
 
 instance ToText OptionState where
     toText = \case

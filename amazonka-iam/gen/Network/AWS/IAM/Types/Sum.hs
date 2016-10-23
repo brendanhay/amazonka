@@ -31,7 +31,7 @@ instance FromText AssignmentStatusType where
         "assigned" -> pure Assigned
         "unassigned" -> pure Unassigned
         e -> fromTextError $ "Failure parsing AssignmentStatusType from value: '" <> e
-           <> "'. Accepted values: Any, Assigned, Unassigned"
+           <> "'. Accepted values: any, assigned, unassigned"
 
 instance ToText AssignmentStatusType where
     toText = \case
@@ -75,7 +75,7 @@ instance FromText ContextKeyTypeEnum where
         "string" -> pure String
         "stringlist" -> pure StringList
         e -> fromTextError $ "Failure parsing ContextKeyTypeEnum from value: '" <> e
-           <> "'. Accepted values: binary, binaryList, boolean, booleanList, date, dateList, ip, ipList, numeric, numericList, string, stringList"
+           <> "'. Accepted values: binary, binarylist, boolean, booleanlist, date, datelist, ip, iplist, numeric, numericlist, string, stringlist"
 
 instance ToText ContextKeyTypeEnum where
     toText = \case
@@ -108,7 +108,7 @@ instance FromText EncodingType where
         "pem" -> pure Pem
         "ssh" -> pure SSH
         e -> fromTextError $ "Failure parsing EncodingType from value: '" <> e
-           <> "'. Accepted values: PEM, SSH"
+           <> "'. Accepted values: pem, ssh"
 
 instance ToText EncodingType where
     toText = \case
@@ -137,7 +137,7 @@ instance FromText EntityType where
         "role" -> pure ETRole
         "user" -> pure ETUser
         e -> fromTextError $ "Failure parsing EntityType from value: '" <> e
-           <> "'. Accepted values: AWSManagedPolicy, Group, LocalManagedPolicy, Role, User"
+           <> "'. Accepted values: awsmanagedpolicy, group, localmanagedpolicy, role, user"
 
 instance ToText EntityType where
     toText = \case
@@ -165,7 +165,7 @@ instance FromText PolicyEvaluationDecisionType where
         "explicitdeny" -> pure ExplicitDeny
         "implicitdeny" -> pure ImplicitDeny
         e -> fromTextError $ "Failure parsing PolicyEvaluationDecisionType from value: '" <> e
-           <> "'. Accepted values: allowed, explicitDeny, implicitDeny"
+           <> "'. Accepted values: allowed, explicitdeny, implicitdeny"
 
 instance ToText PolicyEvaluationDecisionType where
     toText = \case
@@ -194,7 +194,7 @@ instance FromText PolicyScopeType where
         "all" -> pure All
         "local" -> pure Local
         e -> fromTextError $ "Failure parsing PolicyScopeType from value: '" <> e
-           <> "'. Accepted values: AWS, All, Local"
+           <> "'. Accepted values: aws, all, local"
 
 instance ToText PolicyScopeType where
     toText = \case
@@ -284,7 +284,7 @@ instance FromText ReportStateType where
         "inprogress" -> pure Inprogress
         "started" -> pure Started
         e -> fromTextError $ "Failure parsing ReportStateType from value: '" <> e
-           <> "'. Accepted values: COMPLETE, INPROGRESS, STARTED"
+           <> "'. Accepted values: complete, inprogress, started"
 
 instance ToText ReportStateType where
     toText = \case
@@ -311,7 +311,7 @@ instance FromText StatusType where
         "active" -> pure Active
         "inactive" -> pure Inactive
         e -> fromTextError $ "Failure parsing StatusType from value: '" <> e
-           <> "'. Accepted values: Active, Inactive"
+           <> "'. Accepted values: active, inactive"
 
 instance ToText StatusType where
     toText = \case
@@ -383,7 +383,7 @@ instance FromText SummaryKeyType where
         "usersquota" -> pure UsersQuota
         "versionsperpolicyquota" -> pure VersionsPerPolicyQuota
         e -> fromTextError $ "Failure parsing SummaryKeyType from value: '" <> e
-           <> "'. Accepted values: AccessKeysPerUserQuota, AccountAccessKeysPresent, AccountMFAEnabled, AccountSigningCertificatesPresent, AttachedPoliciesPerGroupQuota, AttachedPoliciesPerRoleQuota, AttachedPoliciesPerUserQuota, GroupPolicySizeQuota, Groups, GroupsPerUserQuota, GroupsQuota, MFADevices, MFADevicesInUse, Policies, PoliciesQuota, PolicySizeQuota, PolicyVersionsInUse, PolicyVersionsInUseQuota, ServerCertificates, ServerCertificatesQuota, SigningCertificatesPerUserQuota, UserPolicySizeQuota, Users, UsersQuota, VersionsPerPolicyQuota"
+           <> "'. Accepted values: accesskeysperuserquota, accountaccesskeyspresent, accountmfaenabled, accountsigningcertificatespresent, attachedpoliciespergroupquota, attachedpoliciesperrolequota, attachedpoliciesperuserquota, grouppolicysizequota, groups, groupsperuserquota, groupsquota, mfadevices, mfadevicesinuse, policies, policiesquota, policysizequota, policyversionsinuse, policyversionsinusequota, servercertificates, servercertificatesquota, signingcertificatesperuserquota, userpolicysizequota, users, usersquota, versionsperpolicyquota"
 
 instance ToText SummaryKeyType where
     toText = \case

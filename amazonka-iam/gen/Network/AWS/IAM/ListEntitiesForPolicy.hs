@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all users, groups, and roles that the specified managed policy is attached to.
+-- Lists all IAM users, groups, and roles that the specified managed policy is attached to.
 --
 -- You can use the optional 'EntityFilter' parameter to limit the results to a particular type of entity (users, groups, or roles). For example, to list only the roles that are attached to the specified policy, set 'EntityFilter' to 'Role'.
 --
@@ -92,12 +92,14 @@ listEntitiesForPolicy pPolicyARN_ =
     }
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all entities.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lefpPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
 lefpPathPrefix = lens _lefpPathPrefix (\ s a -> s{_lefpPathPrefix = a});
 
 -- | The entity type to use for filtering the results.
 --
--- For example, when 'EntityFilter' is 'Role', only the roles that are attached to the specified policy are returned. This parameter is optional. If it is not included, all attached entities (users, groups, and roles) are returned.
+-- For example, when 'EntityFilter' is 'Role', only the roles that are attached to the specified policy are returned. This parameter is optional. If it is not included, all attached entities (users, groups, and roles) are returned. The argument for this parameter must be one of the valid values listed below.
 lefpEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
 lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 
@@ -111,7 +113,9 @@ lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
 lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
 lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
 
@@ -202,11 +206,11 @@ listEntitiesForPolicyResponse pResponseStatus_ =
     , _lefprsResponseStatus = pResponseStatus_
     }
 
--- | A list of groups that the policy is attached to.
+-- | A list of IAM groups that the policy is attached to.
 lefprsPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
 lefprsPolicyGroups = lens _lefprsPolicyGroups (\ s a -> s{_lefprsPolicyGroups = a}) . _Default . _Coerce;
 
--- | A list of roles that the policy is attached to.
+-- | A list of IAM roles that the policy is attached to.
 lefprsPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
 lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a}) . _Default . _Coerce;
 
@@ -214,7 +218,7 @@ lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a})
 lefprsMarker :: Lens' ListEntitiesForPolicyResponse (Maybe Text)
 lefprsMarker = lens _lefprsMarker (\ s a -> s{_lefprsMarker = a});
 
--- | A list of users that the policy is attached to.
+-- | A list of IAM users that the policy is attached to.
 lefprsPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
 lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default . _Coerce;
 

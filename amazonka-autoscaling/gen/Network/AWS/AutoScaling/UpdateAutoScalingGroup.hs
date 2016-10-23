@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateAutoScalingGroup' smart constructor.
+-- | Contains the parameters for UpdateAutoScalingGroup.
+--
+-- /See:/ 'updateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     { _uasgTerminationPolicies              :: !(Maybe [Text])
     , _uasgHealthCheckGracePeriod           :: !(Maybe Int)
@@ -132,13 +134,13 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
 
 -- | A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/.
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce;
 
--- | The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default is 300.
+-- | The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default is 0.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
 
@@ -150,13 +152,13 @@ uasgNewInstancesProtectedFromScaleIn = lens _uasgNewInstancesProtectedFromScaleI
 --
 -- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the subnets\' Availability Zones match the values you specify for 'AvailabilityZones'.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a});
 

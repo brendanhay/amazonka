@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=475f54403cd083ff13fd7ba62954a5af97c7d706246c4da9631af8ca6ff763b8
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=4147fd530af8dd5e89743523e077f60fcc101620e44cb9c0220bc2cafa3c202a
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  8446b307aaad90c0400a32a0e0f4d7839726c86af985d3284f5e9ee1c041c4ba
+  X-Amz-Content-SHA256:  d0ba373064877624eb8db3f772ea5ccac7a65f498eda10103d4a8fe984fb64bc
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=DescribeInstances&Filter.1.Name=instance-type&Filter.1.Value.1=m1.small&Filter.1.Value.2=m1.large&Filter.2.Name=block-device-mapping.status&Filter.2.Value.1=attached&InstanceId.1=i-foo&InstanceId.2=i-bar&InstanceId.3=i-baz&Version=2015-10-01
+  Action=DescribeInstances&Filter.1.Name=instance-type&Filter.1.Value.1=m1.small&Filter.1.Value.2=m1.large&Filter.2.Name=block-device-mapping.status&Filter.2.Value.1=attached&InstanceId.1=i-foo&InstanceId.2=i-bar&InstanceId.3=i-baz&Version=2016-04-01

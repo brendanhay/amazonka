@@ -42,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeSeverityLevels' smart constructor.
+-- |
+--
+-- /See:/ 'describeSeverityLevels' smart constructor.
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
     { _dslLanguage :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

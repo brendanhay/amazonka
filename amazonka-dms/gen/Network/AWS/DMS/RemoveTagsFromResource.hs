@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes metadata tags from a DMS resource.
---
 module Network.AWS.DMS.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'removeTagsFromResource' smart constructor.
+-- |
+--
+-- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
     { _rtfrResourceARN :: !Text
     , _rtfrTagKeys     :: ![Text]
@@ -110,7 +111,9 @@ instance ToPath RemoveTagsFromResource where
 instance ToQuery RemoveTagsFromResource where
         toQuery = const mempty
 
--- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
+-- |
+--
+-- /See:/ 'removeTagsFromResourceResponse' smart constructor.
 newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
     { _rtfrrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

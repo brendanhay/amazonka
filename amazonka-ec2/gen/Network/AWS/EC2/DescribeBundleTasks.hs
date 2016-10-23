@@ -134,7 +134,7 @@ instance ToQuery DescribeBundleTasks where
         toQuery DescribeBundleTasks'{..}
           = mconcat
               ["Action" =: ("DescribeBundleTasks" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "BundleId" <$> _dbtBundleIds),
                toQuery (toQueryList "Filter" <$> _dbtFilters),
                "DryRun" =: _dbtDryRun]

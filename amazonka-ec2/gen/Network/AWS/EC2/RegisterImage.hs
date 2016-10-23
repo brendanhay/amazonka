@@ -41,6 +41,7 @@ module Network.AWS.EC2.RegisterImage
     -- * Request Lenses
     , riVirtualizationType
     , riImageLocation
+    , riEnaSupport
     , riRAMDiskId
     , riKernelId
     , riRootDeviceName
@@ -72,6 +73,7 @@ import           Network.AWS.Response
 data RegisterImage = RegisterImage'
     { _riVirtualizationType  :: !(Maybe Text)
     , _riImageLocation       :: !(Maybe Text)
+    , _riEnaSupport          :: !(Maybe Bool)
     , _riRAMDiskId           :: !(Maybe Text)
     , _riKernelId            :: !(Maybe Text)
     , _riRootDeviceName      :: !(Maybe Text)
@@ -90,6 +92,8 @@ data RegisterImage = RegisterImage'
 -- * 'riVirtualizationType'
 --
 -- * 'riImageLocation'
+--
+-- * 'riEnaSupport'
 --
 -- * 'riRAMDiskId'
 --
@@ -115,6 +119,7 @@ registerImage pName_ =
     RegisterImage'
     { _riVirtualizationType = Nothing
     , _riImageLocation = Nothing
+    , _riEnaSupport = Nothing
     , _riRAMDiskId = Nothing
     , _riKernelId = Nothing
     , _riRootDeviceName = Nothing
@@ -136,6 +141,12 @@ riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationT
 riImageLocation :: Lens' RegisterImage (Maybe Text)
 riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
 
+-- | Set to 'true' to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
+--
+-- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
+riEnaSupport :: Lens' RegisterImage (Maybe Bool)
+riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a});
+
 -- | The ID of the RAM disk.
 riRAMDiskId :: Lens' RegisterImage (Maybe Text)
 riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
@@ -148,9 +159,9 @@ riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
 riRootDeviceName :: Lens' RegisterImage (Maybe Text)
 riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
 
--- | Set to 'simple' to enable enhanced networking for the AMI and any instances that you launch from the AMI.
+-- | Set to 'simple' to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
 --
--- There is no way to disable enhanced networking at this time.
+-- There is no way to disable 'sriovNetSupport' at this time.
 --
 -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
@@ -203,9 +214,10 @@ instance ToQuery RegisterImage where
         toQuery RegisterImage'{..}
           = mconcat
               ["Action" =: ("RegisterImage" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "VirtualizationType" =: _riVirtualizationType,
                "ImageLocation" =: _riImageLocation,
+               "EnaSupport" =: _riEnaSupport,
                "RamdiskId" =: _riRAMDiskId,
                "KernelId" =: _riKernelId,
                "RootDeviceName" =: _riRootDeviceName,

@@ -149,7 +149,7 @@ instance ToQuery CreateNetworkInterface where
           = mconcat
               ["Action" =:
                  ("CreateNetworkInterface" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery
                  (toQueryList "SecurityGroupId" <$> _cniGroups),
                toQuery

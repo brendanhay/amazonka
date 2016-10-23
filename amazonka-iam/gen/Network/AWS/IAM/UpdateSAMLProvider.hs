@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the metadata document for an existing SAML provider.
+-- Updates the metadata document for an existing SAML provider resource object.
 --
 -- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 module Network.AWS.IAM.UpdateSAMLProvider
@@ -73,6 +73,8 @@ usamlpSAMLMetadataDocument :: Lens' UpdateSAMLProvider Text
 usamlpSAMLMetadataDocument = lens _usamlpSAMLMetadataDocument (\ s a -> s{_usamlpSAMLMetadataDocument = a});
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to update.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 usamlpSAMLProviderARN :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderARN = lens _usamlpSAMLProviderARN (\ s a -> s{_usamlpSAMLProviderARN = a});
 

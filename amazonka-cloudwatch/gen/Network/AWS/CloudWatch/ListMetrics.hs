@@ -22,7 +22,7 @@
 --
 -- Up to 500 results are returned for any one call. To retrieve further results, use returned 'NextToken' values with subsequent 'ListMetrics' operations.
 --
--- If you create a metric with the < PutMetricData> action, allow up to fifteen minutes for the metric to appear in calls to the 'ListMetrics' action. Statistics about the metric, however, are available sooner using < GetMetricStatistics>.
+-- If you create a metric with < PutMetricData>, allow up to fifteen minutes for the metric to appear in calls to 'ListMetrics'. Statistics about the metric, however, are available sooner using < GetMetricStatistics>.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listMetrics' smart constructor.
+-- | Describes the inputs for ListMetrics.
+--
+-- /See:/ 'listMetrics' smart constructor.
 data ListMetrics = ListMetrics'
     { _lmMetricName :: !(Maybe Text)
     , _lmNamespace  :: !(Maybe Text)
@@ -138,7 +140,7 @@ instance ToQuery ListMetrics where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _lmDimensions)]
 
--- | The output for the < ListMetrics> action.
+-- | The output for < ListMetrics>.
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'

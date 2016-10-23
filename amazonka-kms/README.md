@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.4.3`
+`1.4.4`
 
 
 ## Description
@@ -25,7 +25,7 @@ Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. C
 
 __Signing Requests__
 
-Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you /do not/ use your AWS account access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user, or you can use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.
+Requests must be signed by using an access key ID and a secret access key. We strongly recommend that you /do not/ use your AWS account (root) access key ID and secret key for everyday work with AWS KMS. Instead, use the access key ID and secret access key for an IAM user, or you can use the AWS Security Token Service to generate temporary security credentials that you can use to sign requests.
 
 All AWS KMS operations require <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 
@@ -38,16 +38,21 @@ __Additional Resources__
 For more information about credentials and request signing, see the following:
 
 -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials> - This topic provides general information about the types of credentials used for accessing AWS.
--   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service> - This guide describes how to create and use temporary security credentials.
--   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.
+
+-   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials> - This section of the /IAM User Guide/ describes how to create and use temporary security credentials.
+
+-   <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.
 
 __Commonly Used APIs__
 
 Of the APIs discussed in this guide, the following will prove the most useful for most applications. You will likely perform actions other than these, such as creating keys and assigning policies, by using the console.
 
 -   < Encrypt>
+
 -   < Decrypt>
+
 -   < GenerateDataKey>
+
 -   < GenerateDataKeyWithoutPlaintext>
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kms)

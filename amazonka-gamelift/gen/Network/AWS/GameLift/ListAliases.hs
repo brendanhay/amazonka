@@ -79,10 +79,12 @@ listAliases =
     , _laLimit = Nothing
     }
 
--- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include:
+-- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty.
 --
--- -   SIMPLE: The alias resolves to one specific fleet. Use this type when routing to active fleets.
--- -   TERMINAL: The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the < RoutingStrategy> message embedded.
+-- Possible routing types include the following:
+--
+-- -   __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.
+-- -   __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the < RoutingStrategy> message embedded.
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
 laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrategyType = a});
 
@@ -90,11 +92,11 @@ laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrate
 laNextToken :: Lens' ListAliases (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
--- | Descriptive label associated with this alias. Alias names do not need to be unique.
+-- | Descriptive label associated with an alias. Alias names do not need to be unique.
 laName :: Lens' ListAliases (Maybe Text)
 laName = lens _laName (\ s a -> s{_laName = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 

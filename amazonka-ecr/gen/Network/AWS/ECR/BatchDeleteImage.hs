@@ -51,7 +51,7 @@ import           Network.AWS.Response
 data BatchDeleteImage = BatchDeleteImage'
     { _bdiRegistryId     :: !(Maybe Text)
     , _bdiRepositoryName :: !Text
-    , _bdiImageIds       :: !(List1 ImageIdentifier)
+    , _bdiImageIds       :: ![ImageIdentifier]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchDeleteImage' with the minimum fields required to make a request.
@@ -65,13 +65,12 @@ data BatchDeleteImage = BatchDeleteImage'
 -- * 'bdiImageIds'
 batchDeleteImage
     :: Text -- ^ 'bdiRepositoryName'
-    -> NonEmpty ImageIdentifier -- ^ 'bdiImageIds'
     -> BatchDeleteImage
-batchDeleteImage pRepositoryName_ pImageIds_ =
+batchDeleteImage pRepositoryName_ =
     BatchDeleteImage'
     { _bdiRegistryId = Nothing
     , _bdiRepositoryName = pRepositoryName_
-    , _bdiImageIds = _List1 # pImageIds_
+    , _bdiImageIds = mempty
     }
 
 -- | The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
@@ -83,8 +82,8 @@ bdiRepositoryName :: Lens' BatchDeleteImage Text
 bdiRepositoryName = lens _bdiRepositoryName (\ s a -> s{_bdiRepositoryName = a});
 
 -- | A list of image ID references that correspond to images to delete. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
-bdiImageIds :: Lens' BatchDeleteImage (NonEmpty ImageIdentifier)
-bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _List1;
+bdiImageIds :: Lens' BatchDeleteImage [ImageIdentifier]
+bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _Coerce;
 
 instance AWSRequest BatchDeleteImage where
         type Rs BatchDeleteImage = BatchDeleteImageResponse
@@ -93,7 +92,8 @@ instance AWSRequest BatchDeleteImage where
           = receiveJSON
               (\ s h x ->
                  BatchDeleteImageResponse' <$>
-                   (x .?> "failures" .!@ mempty) <*> (x .?> "imageIds")
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "imageIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable BatchDeleteImage
@@ -127,7 +127,7 @@ instance ToQuery BatchDeleteImage where
 -- | /See:/ 'batchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
     { _bdirsFailures       :: !(Maybe [ImageFailure])
-    , _bdirsImageIds       :: !(Maybe (List1 ImageIdentifier))
+    , _bdirsImageIds       :: !(Maybe [ImageIdentifier])
     , _bdirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -155,8 +155,8 @@ bdirsFailures :: Lens' BatchDeleteImageResponse [ImageFailure]
 bdirsFailures = lens _bdirsFailures (\ s a -> s{_bdirsFailures = a}) . _Default . _Coerce;
 
 -- | The image IDs of the deleted images.
-bdirsImageIds :: Lens' BatchDeleteImageResponse (Maybe (NonEmpty ImageIdentifier))
-bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . mapping _List1;
+bdirsImageIds :: Lens' BatchDeleteImageResponse [ImageIdentifier]
+bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . _Default . _Coerce;
 
 -- | The response status code.
 bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int

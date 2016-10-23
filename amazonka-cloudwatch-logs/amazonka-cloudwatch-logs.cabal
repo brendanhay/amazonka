@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-logs
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon CloudWatch Logs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -13,8 +13,6 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    Amazon CloudWatch Logs API Reference
-
     You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the Amazon CloudWatch console, the CloudWatch Logs commands in the AWS CLI, the CloudWatch Logs API, or the CloudWatch Logs SDK.
 
     You can use CloudWatch Logs to:
@@ -84,7 +82,7 @@ library
         , Network.AWS.CloudWatchLogs.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudwatch-logs-test
@@ -104,9 +102,9 @@ test-suite amazonka-cloudwatch-logs-test
         , Test.AWS.CloudWatchLogs.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-cloudwatch-logs == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-cloudwatch-logs == 1.4.4.*
         , base
         , bytestring
         , tasty

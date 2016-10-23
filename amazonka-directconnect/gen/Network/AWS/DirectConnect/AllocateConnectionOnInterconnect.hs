@@ -21,6 +21,8 @@
 -- Creates a hosted connection on an interconnect.
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect.
+--
+-- This is intended for use by AWS Direct Connect partners only.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , cVlan
     , cLocation
     , cConnectionId
+    , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
@@ -100,6 +103,8 @@ allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pIn
 -- Example: \"/500Mbps/\"
 --
 -- Default: None
+--
+-- Values: 50M, 100M, 200M, 300M, 400M, or 500M
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\ s a -> s{_acoiBandwidth = a});
 

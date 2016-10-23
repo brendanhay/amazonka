@@ -102,7 +102,7 @@ instance ToPath DeleteDataSource where
 instance ToQuery DeleteDataSource where
         toQuery = const mempty
 
--- | Represents the output of a < DeleteDataSource> operation.
+-- | Represents the output of a 'DeleteDataSource' operation.
 --
 -- /See:/ 'deleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'

@@ -41,7 +41,7 @@ instance FromText MetricsName where
         "readprovisionedthroughputexceeded" -> pure ReadProvisionedThroughputExceeded
         "writeprovisionedthroughputexceeded" -> pure WriteProvisionedThroughputExceeded
         e -> fromTextError $ "Failure parsing MetricsName from value: '" <> e
-           <> "'. Accepted values: ALL, IncomingBytes, IncomingRecords, IteratorAgeMilliseconds, OutgoingBytes, OutgoingRecords, ReadProvisionedThroughputExceeded, WriteProvisionedThroughputExceeded"
+           <> "'. Accepted values: all, incomingbytes, incomingrecords, iteratoragemilliseconds, outgoingbytes, outgoingrecords, readprovisionedthroughputexceeded, writeprovisionedthroughputexceeded"
 
 instance ToText MetricsName where
     toText = \case
@@ -82,7 +82,7 @@ instance FromText ShardIteratorType where
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
-           <> "'. Accepted values: AFTER_SEQUENCE_NUMBER, AT_SEQUENCE_NUMBER, AT_TIMESTAMP, LATEST, TRIM_HORIZON"
+           <> "'. Accepted values: after_sequence_number, at_sequence_number, at_timestamp, latest, trim_horizon"
 
 instance ToText ShardIteratorType where
     toText = \case
@@ -115,7 +115,7 @@ instance FromText StreamStatus where
         "deleting" -> pure Deleting
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText StreamStatus where
     toText = \case

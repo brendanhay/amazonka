@@ -19,15 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an endpoint using the provided settings.
---
 module Network.AWS.DMS.CreateEndpoint
     (
     -- * Creating a Request
       createEndpoint
     , CreateEndpoint
     -- * Request Lenses
+    , ceCertificateARN
     , ceExtraConnectionAttributes
     , ceKMSKeyId
+    , ceSSLMode
     , ceDatabaseName
     , ceTags
     , ceEndpointIdentifier
@@ -53,10 +54,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createEndpoint' smart constructor.
+-- |
+--
+-- /See:/ 'createEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-    { _ceExtraConnectionAttributes :: !(Maybe Text)
+    { _ceCertificateARN            :: !(Maybe Text)
+    , _ceExtraConnectionAttributes :: !(Maybe Text)
     , _ceKMSKeyId                  :: !(Maybe Text)
+    , _ceSSLMode                   :: !(Maybe DmsSSLModeValue)
     , _ceDatabaseName              :: !(Maybe Text)
     , _ceTags                      :: !(Maybe [Tag])
     , _ceEndpointIdentifier        :: !Text
@@ -72,9 +77,13 @@ data CreateEndpoint = CreateEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ceCertificateARN'
+--
 -- * 'ceExtraConnectionAttributes'
 --
 -- * 'ceKMSKeyId'
+--
+-- * 'ceSSLMode'
 --
 -- * 'ceDatabaseName'
 --
@@ -104,8 +113,10 @@ createEndpoint
     -> CreateEndpoint
 createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ pUsername_ pPassword_ pServerName_ pPort_ =
     CreateEndpoint'
-    { _ceExtraConnectionAttributes = Nothing
+    { _ceCertificateARN = Nothing
+    , _ceExtraConnectionAttributes = Nothing
     , _ceKMSKeyId = Nothing
+    , _ceSSLMode = Nothing
     , _ceDatabaseName = Nothing
     , _ceTags = Nothing
     , _ceEndpointIdentifier = pEndpointIdentifier_
@@ -117,6 +128,10 @@ createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ pUsername_ pPass
     , _cePort = pPort_
     }
 
+-- | The Amazon Resource Number (ARN) for the certificate.
+ceCertificateARN :: Lens' CreateEndpoint (Maybe Text)
+ceCertificateARN = lens _ceCertificateARN (\ s a -> s{_ceCertificateARN = a});
+
 -- | Additional attributes associated with the connection.
 ceExtraConnectionAttributes :: Lens' CreateEndpoint (Maybe Text)
 ceExtraConnectionAttributes = lens _ceExtraConnectionAttributes (\ s a -> s{_ceExtraConnectionAttributes = a});
@@ -124,6 +139,14 @@ ceExtraConnectionAttributes = lens _ceExtraConnectionAttributes (\ s a -> s{_ceE
 -- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 ceKMSKeyId :: Lens' CreateEndpoint (Maybe Text)
 ceKMSKeyId = lens _ceKMSKeyId (\ s a -> s{_ceKMSKeyId = a});
+
+-- | The SSL mode to use for the SSL connection.
+--
+-- SSL mode can be one of four values: none, require, verify-ca, verify-full.
+--
+-- The default value is none.
+ceSSLMode :: Lens' CreateEndpoint (Maybe DmsSSLModeValue)
+ceSSLMode = lens _ceSSLMode (\ s a -> s{_ceSSLMode = a});
 
 -- | The name of the endpoint database.
 ceDatabaseName :: Lens' CreateEndpoint (Maybe Text)
@@ -141,7 +164,7 @@ ceEndpointIdentifier = lens _ceEndpointIdentifier (\ s a -> s{_ceEndpointIdentif
 ceEndpointType :: Lens' CreateEndpoint ReplicationEndpointTypeValue
 ceEndpointType = lens _ceEndpointType (\ s a -> s{_ceEndpointType = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, SQLSERVER.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
 ceEngineName :: Lens' CreateEndpoint Text
 ceEngineName = lens _ceEngineName (\ s a -> s{_ceEngineName = a});
 
@@ -187,9 +210,11 @@ instance ToJSON CreateEndpoint where
         toJSON CreateEndpoint'{..}
           = object
               (catMaybes
-                 [("ExtraConnectionAttributes" .=) <$>
+                 [("CertificateArn" .=) <$> _ceCertificateARN,
+                  ("ExtraConnectionAttributes" .=) <$>
                     _ceExtraConnectionAttributes,
                   ("KmsKeyId" .=) <$> _ceKMSKeyId,
+                  ("SslMode" .=) <$> _ceSSLMode,
                   ("DatabaseName" .=) <$> _ceDatabaseName,
                   ("Tags" .=) <$> _ceTags,
                   Just ("EndpointIdentifier" .= _ceEndpointIdentifier),
@@ -206,7 +231,9 @@ instance ToPath CreateEndpoint where
 instance ToQuery CreateEndpoint where
         toQuery = const mempty
 
--- | /See:/ 'createEndpointResponse' smart constructor.
+-- |
+--
+-- /See:/ 'createEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
     { _cersEndpoint       :: !(Maybe Endpoint)
     , _cersResponseStatus :: !Int

@@ -52,9 +52,13 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < UpdateSnapshotScheduleInput>Description>
+--
 -- -   < UpdateSnapshotScheduleInput>RecurrenceInHours>
+--
 -- -   < UpdateSnapshotScheduleInput>StartAt>
+--
 -- -   < UpdateSnapshotScheduleInput>VolumeARN>
+--
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
@@ -167,7 +171,7 @@ updateSnapshotScheduleResponse pResponseStatus_ =
     , _ussrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- |
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 

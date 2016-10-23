@@ -131,6 +131,7 @@ uiSSHKeyName = lens _uiSSHKeyName (\ s a -> s{_uiSSHKeyName = a});
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
 -- -   'INHERIT' - Use the stack\'s default agent version setting.
+--
 -- -   /version_number/ - Use the specified agent version. This value overrides the stack\'s default setting. To update the agent version, you must edit the instance configuration and specify a new version. AWS OpsWorks then automatically installs that version on the instance.
 --
 -- The default setting is 'INHERIT'. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call < DescribeAgentVersions>.
@@ -147,8 +148,16 @@ uiEBSOptimized = lens _uiEBSOptimized (\ s a -> s{_uiEBSOptimized = a});
 
 -- | The instance\'s operating system, which must be set to one of the following.
 --
--- -   A supported Linux operating system: An Amazon Linux version, such as 'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
--- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A supported Linux operating system: An Amazon Linux version, such as 'Amazon Linux 2016.03', 'Amazon Linux 2015.09', or 'Amazon Linux 2015.03'.
+--
+-- -   A supported Ubuntu operating system, such as 'Ubuntu 16.04 LTS', 'Ubuntu 14.04 LTS', or 'Ubuntu 12.04 LTS'.
+--
+-- -   'CentOS 7'
+--
+-- -   'Red Hat Enterprise Linux 7'
+--
+-- -   A supported Windows operating system, such as 'Microsoft Windows Server 2012 R2 Base', 'Microsoft Windows Server 2012 R2 with SQL Server Express', 'Microsoft Windows Server 2012 R2 with SQL Server Standard', or 'Microsoft Windows Server 2012 R2 with SQL Server Web'.
+--
 -- -   A custom AMI: 'Custom'.
 --
 -- For more information on the supported operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.

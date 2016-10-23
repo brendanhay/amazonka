@@ -76,6 +76,7 @@ instance NFData AccountQuota
 --
 -- -   < OrderableDBInstanceOption>
 --
+--
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
@@ -109,6 +110,7 @@ instance NFData AvailabilityZone
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
     { _cCertificateType       :: !(Maybe Text)
+    , _cCertificateARN        :: !(Maybe Text)
     , _cValidTill             :: !(Maybe ISO8601)
     , _cCertificateIdentifier :: !(Maybe Text)
     , _cThumbprint            :: !(Maybe Text)
@@ -120,6 +122,8 @@ data Certificate = Certificate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCertificateType'
+--
+-- * 'cCertificateARN'
 --
 -- * 'cValidTill'
 --
@@ -133,6 +137,7 @@ certificate
 certificate =
     Certificate'
     { _cCertificateType = Nothing
+    , _cCertificateARN = Nothing
     , _cValidTill = Nothing
     , _cCertificateIdentifier = Nothing
     , _cThumbprint = Nothing
@@ -142,6 +147,10 @@ certificate =
 -- | The type of the certificate.
 cCertificateType :: Lens' Certificate (Maybe Text)
 cCertificateType = lens _cCertificateType (\ s a -> s{_cCertificateType = a});
+
+-- | The Amazon Resource Name (ARN) for the certificate.
+cCertificateARN :: Lens' Certificate (Maybe Text)
+cCertificateARN = lens _cCertificateARN (\ s a -> s{_cCertificateARN = a});
 
 -- | The final date that the certificate continues to be valid.
 cValidTill :: Lens' Certificate (Maybe UTCTime)
@@ -162,8 +171,10 @@ cValidFrom = lens _cValidFrom (\ s a -> s{_cValidFrom = a}) . mapping _Time;
 instance FromXML Certificate where
         parseXML x
           = Certificate' <$>
-              (x .@? "CertificateType") <*> (x .@? "ValidTill") <*>
-                (x .@? "CertificateIdentifier")
+              (x .@? "CertificateType") <*>
+                (x .@? "CertificateArn")
+                <*> (x .@? "ValidTill")
+                <*> (x .@? "CertificateIdentifier")
                 <*> (x .@? "Thumbprint")
                 <*> (x .@? "ValidFrom")
 
@@ -215,10 +226,16 @@ instance NFData CharacterSet
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBCluster>
+--
 -- -   < DeleteDBCluster>
+--
 -- -   < FailoverDBCluster>
+--
 -- -   < ModifyDBCluster>
+--
 -- -   < RestoreDBClusterFromSnapshot>
+--
+-- -   < RestoreDBClusterToPointInTime>
 --
 -- This data type is used as a response element in the < DescribeDBClusters> action.
 --
@@ -229,12 +246,15 @@ data DBCluster = DBCluster'
     , _dcStorageEncrypted                :: !(Maybe Bool)
     , _dcDBClusterIdentifier             :: !(Maybe Text)
     , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
+    , _dcReadReplicaIdentifiers          :: !(Maybe [Text])
+    , _dcReplicationSourceIdentifier     :: !(Maybe Text)
     , _dcHostedZoneId                    :: !(Maybe Text)
     , _dcDBClusterParameterGroup         :: !(Maybe Text)
     , _dcMasterUsername                  :: !(Maybe Text)
     , _dcDBClusterResourceId             :: !(Maybe Text)
     , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
     , _dcEngine                          :: !(Maybe Text)
+    , _dcDBClusterARN                    :: !(Maybe Text)
     , _dcLatestRestorableTime            :: !(Maybe ISO8601)
     , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
     , _dcAvailabilityZones               :: !(Maybe [Text])
@@ -266,6 +286,10 @@ data DBCluster = DBCluster'
 --
 -- * 'dcDBClusterMembers'
 --
+-- * 'dcReadReplicaIdentifiers'
+--
+-- * 'dcReplicationSourceIdentifier'
+--
 -- * 'dcHostedZoneId'
 --
 -- * 'dcDBClusterParameterGroup'
@@ -277,6 +301,8 @@ data DBCluster = DBCluster'
 -- * 'dcEarliestRestorableTime'
 --
 -- * 'dcEngine'
+--
+-- * 'dcDBClusterARN'
 --
 -- * 'dcLatestRestorableTime'
 --
@@ -316,12 +342,15 @@ dbCluster =
     , _dcStorageEncrypted = Nothing
     , _dcDBClusterIdentifier = Nothing
     , _dcDBClusterMembers = Nothing
+    , _dcReadReplicaIdentifiers = Nothing
+    , _dcReplicationSourceIdentifier = Nothing
     , _dcHostedZoneId = Nothing
     , _dcDBClusterParameterGroup = Nothing
     , _dcMasterUsername = Nothing
     , _dcDBClusterResourceId = Nothing
     , _dcEarliestRestorableTime = Nothing
     , _dcEngine = Nothing
+    , _dcDBClusterARN = Nothing
     , _dcLatestRestorableTime = Nothing
     , _dcPreferredMaintenanceWindow = Nothing
     , _dcAvailabilityZones = Nothing
@@ -359,6 +388,14 @@ dcDBClusterIdentifier = lens _dcDBClusterIdentifier (\ s a -> s{_dcDBClusterIden
 dcDBClusterMembers :: Lens' DBCluster [DBClusterMember]
 dcDBClusterMembers = lens _dcDBClusterMembers (\ s a -> s{_dcDBClusterMembers = a}) . _Default . _Coerce;
 
+-- | Contains one or more identifiers of the Read Replicas associated with this DB cluster.
+dcReadReplicaIdentifiers :: Lens' DBCluster [Text]
+dcReadReplicaIdentifiers = lens _dcReadReplicaIdentifiers (\ s a -> s{_dcReadReplicaIdentifiers = a}) . _Default . _Coerce;
+
+-- | Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+dcReplicationSourceIdentifier :: Lens' DBCluster (Maybe Text)
+dcReplicationSourceIdentifier = lens _dcReplicationSourceIdentifier (\ s a -> s{_dcReplicationSourceIdentifier = a});
+
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 dcHostedZoneId :: Lens' DBCluster (Maybe Text)
 dcHostedZoneId = lens _dcHostedZoneId (\ s a -> s{_dcHostedZoneId = a});
@@ -382,6 +419,10 @@ dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarlies
 -- | Provides the name of the database engine to be used for this DB cluster.
 dcEngine :: Lens' DBCluster (Maybe Text)
 dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a});
+
+-- | The Amazon Resource Name (ARN) for the DB cluster.
+dcDBClusterARN :: Lens' DBCluster (Maybe Text)
+dcDBClusterARN = lens _dcDBClusterARN (\ s a -> s{_dcDBClusterARN = a});
 
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
@@ -452,12 +493,17 @@ instance FromXML DBCluster where
                 <*>
                 (x .@? "DBClusterMembers" .!@ mempty >>=
                    may (parseXMLList "DBClusterMember"))
+                <*>
+                (x .@? "ReadReplicaIdentifiers" .!@ mempty >>=
+                   may (parseXMLList "ReadReplicaIdentifier"))
+                <*> (x .@? "ReplicationSourceIdentifier")
                 <*> (x .@? "HostedZoneId")
                 <*> (x .@? "DBClusterParameterGroup")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "DbClusterResourceId")
                 <*> (x .@? "EarliestRestorableTime")
                 <*> (x .@? "Engine")
+                <*> (x .@? "DBClusterArn")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*>
@@ -584,13 +630,14 @@ instance Hashable DBClusterOptionGroupStatus
 
 instance NFData DBClusterOptionGroupStatus
 
--- | Contains the result of a successful invocation of the < CreateDBClusterParameterGroup> action.
+-- | Contains the result of a successful invocation of the < CreateDBClusterParameterGroup> or < CopyDBClusterParameterGroup> action.
 --
 -- This data type is used as a request parameter in the < DeleteDBClusterParameterGroup> action, and as a response element in the < DescribeDBClusterParameterGroups> action.
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
-    { _dcpgDBParameterGroupFamily      :: !(Maybe Text)
+    { _dcpgDBClusterParameterGroupARN  :: !(Maybe Text)
+    , _dcpgDBParameterGroupFamily      :: !(Maybe Text)
     , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
     , _dcpgDescription                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -598,6 +645,8 @@ data DBClusterParameterGroup = DBClusterParameterGroup'
 -- | Creates a value of 'DBClusterParameterGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgDBClusterParameterGroupARN'
 --
 -- * 'dcpgDBParameterGroupFamily'
 --
@@ -608,10 +657,15 @@ dbClusterParameterGroup
     :: DBClusterParameterGroup
 dbClusterParameterGroup =
     DBClusterParameterGroup'
-    { _dcpgDBParameterGroupFamily = Nothing
+    { _dcpgDBClusterParameterGroupARN = Nothing
+    , _dcpgDBParameterGroupFamily = Nothing
     , _dcpgDBClusterParameterGroupName = Nothing
     , _dcpgDescription = Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
+dcpgDBClusterParameterGroupARN :: Lens' DBClusterParameterGroup (Maybe Text)
+dcpgDBClusterParameterGroupARN = lens _dcpgDBClusterParameterGroupARN (\ s a -> s{_dcpgDBClusterParameterGroupARN = a});
 
 -- | Provides the name of the DB parameter group family that this DB cluster parameter group is compatible with.
 dcpgDBParameterGroupFamily :: Lens' DBClusterParameterGroup (Maybe Text)
@@ -628,8 +682,9 @@ dcpgDescription = lens _dcpgDescription (\ s a -> s{_dcpgDescription = a});
 instance FromXML DBClusterParameterGroup where
         parseXML x
           = DBClusterParameterGroup' <$>
-              (x .@? "DBParameterGroupFamily") <*>
-                (x .@? "DBClusterParameterGroupName")
+              (x .@? "DBClusterParameterGroupArn") <*>
+                (x .@? "DBParameterGroupFamily")
+                <*> (x .@? "DBClusterParameterGroupName")
                 <*> (x .@? "Description")
 
 instance Hashable DBClusterParameterGroup
@@ -660,7 +715,9 @@ dbClusterParameterGroupNameMessage =
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lowercase string.
@@ -680,6 +737,7 @@ instance NFData DBClusterParameterGroupNameMessage
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBClusterSnapshot>
+--
 -- -   < DeleteDBClusterSnapshot>
 --
 -- This data type is used as a response element in the < DescribeDBClusterSnapshots> action.
@@ -691,6 +749,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     , _dcsStorageEncrypted            :: !(Maybe Bool)
     , _dcsDBClusterIdentifier         :: !(Maybe Text)
     , _dcsMasterUsername              :: !(Maybe Text)
+    , _dcsDBClusterSnapshotARN        :: !(Maybe Text)
     , _dcsVPCId                       :: !(Maybe Text)
     , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
     , _dcsEngine                      :: !(Maybe Text)
@@ -718,6 +777,8 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- * 'dcsDBClusterIdentifier'
 --
 -- * 'dcsMasterUsername'
+--
+-- * 'dcsDBClusterSnapshotARN'
 --
 -- * 'dcsVPCId'
 --
@@ -751,6 +812,7 @@ dbClusterSnapshot =
     , _dcsStorageEncrypted = Nothing
     , _dcsDBClusterIdentifier = Nothing
     , _dcsMasterUsername = Nothing
+    , _dcsDBClusterSnapshotARN = Nothing
     , _dcsVPCId = Nothing
     , _dcsDBClusterSnapshotIdentifier = Nothing
     , _dcsEngine = Nothing
@@ -784,6 +846,10 @@ dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\ s a -> s{_dcsDBClusterI
 -- | Provides the master username for the DB cluster snapshot.
 dcsMasterUsername :: Lens' DBClusterSnapshot (Maybe Text)
 dcsMasterUsername = lens _dcsMasterUsername (\ s a -> s{_dcsMasterUsername = a});
+
+-- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
+dcsDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
+dcsDBClusterSnapshotARN = lens _dcsDBClusterSnapshotARN (\ s a -> s{_dcsDBClusterSnapshotARN = a});
 
 -- | Provides the VPC ID associated with the DB cluster snapshot.
 dcsVPCId :: Lens' DBClusterSnapshot (Maybe Text)
@@ -840,6 +906,7 @@ instance FromXML DBClusterSnapshot where
                 (x .@? "StorageEncrypted")
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "DBClusterSnapshotArn")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "DBClusterSnapshotIdentifier")
                 <*> (x .@? "Engine")
@@ -858,6 +925,99 @@ instance FromXML DBClusterSnapshot where
 instance Hashable DBClusterSnapshot
 
 instance NFData DBClusterSnapshot
+
+-- | Contains the name and values of a manual DB cluster snapshot attribute.
+--
+-- Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore a manual DB cluster snapshot. For more information, see the < ModifyDBClusterSnapshotAttribute> API action.
+--
+-- /See:/ 'dbClusterSnapshotAttribute' smart constructor.
+data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
+    { _dcsaAttributeValues :: !(Maybe [Text])
+    , _dcsaAttributeName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBClusterSnapshotAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsaAttributeValues'
+--
+-- * 'dcsaAttributeName'
+dbClusterSnapshotAttribute
+    :: DBClusterSnapshotAttribute
+dbClusterSnapshotAttribute =
+    DBClusterSnapshotAttribute'
+    { _dcsaAttributeValues = Nothing
+    , _dcsaAttributeName = Nothing
+    }
+
+-- | The value(s) for the manual DB cluster snapshot attribute.
+--
+-- If the 'AttributeName' field is set to 'restore', then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of 'all' is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
+dcsaAttributeValues :: Lens' DBClusterSnapshotAttribute [Text]
+dcsaAttributeValues = lens _dcsaAttributeValues (\ s a -> s{_dcsaAttributeValues = a}) . _Default . _Coerce;
+
+-- | The name of the manual DB cluster snapshot attribute.
+--
+-- The attribute named 'restore' refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the < ModifyDBClusterSnapshotAttribute> API action.
+dcsaAttributeName :: Lens' DBClusterSnapshotAttribute (Maybe Text)
+dcsaAttributeName = lens _dcsaAttributeName (\ s a -> s{_dcsaAttributeName = a});
+
+instance FromXML DBClusterSnapshotAttribute where
+        parseXML x
+          = DBClusterSnapshotAttribute' <$>
+              (x .@? "AttributeValues" .!@ mempty >>=
+                 may (parseXMLList "AttributeValue"))
+                <*> (x .@? "AttributeName")
+
+instance Hashable DBClusterSnapshotAttribute
+
+instance NFData DBClusterSnapshotAttribute
+
+-- | Contains the results of a successful call to the < DescribeDBClusterSnapshotAttributes> API action.
+--
+-- Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB cluster snapshot. For more information, see the < ModifyDBClusterSnapshotAttribute> API action.
+--
+-- /See:/ 'dbClusterSnapshotAttributesResult' smart constructor.
+data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
+    { _dcsarDBClusterSnapshotIdentifier :: !(Maybe Text)
+    , _dcsarDBClusterSnapshotAttributes :: !(Maybe [DBClusterSnapshotAttribute])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBClusterSnapshotAttributesResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsarDBClusterSnapshotIdentifier'
+--
+-- * 'dcsarDBClusterSnapshotAttributes'
+dbClusterSnapshotAttributesResult
+    :: DBClusterSnapshotAttributesResult
+dbClusterSnapshotAttributesResult =
+    DBClusterSnapshotAttributesResult'
+    { _dcsarDBClusterSnapshotIdentifier = Nothing
+    , _dcsarDBClusterSnapshotAttributes = Nothing
+    }
+
+-- | The identifier of the manual DB cluster snapshot that the attributes apply to.
+dcsarDBClusterSnapshotIdentifier :: Lens' DBClusterSnapshotAttributesResult (Maybe Text)
+dcsarDBClusterSnapshotIdentifier = lens _dcsarDBClusterSnapshotIdentifier (\ s a -> s{_dcsarDBClusterSnapshotIdentifier = a});
+
+-- | The list of attributes and values for the manual DB cluster snapshot.
+dcsarDBClusterSnapshotAttributes :: Lens' DBClusterSnapshotAttributesResult [DBClusterSnapshotAttribute]
+dcsarDBClusterSnapshotAttributes = lens _dcsarDBClusterSnapshotAttributes (\ s a -> s{_dcsarDBClusterSnapshotAttributes = a}) . _Default . _Coerce;
+
+instance FromXML DBClusterSnapshotAttributesResult
+         where
+        parseXML x
+          = DBClusterSnapshotAttributesResult' <$>
+              (x .@? "DBClusterSnapshotIdentifier") <*>
+                (x .@? "DBClusterSnapshotAttributes" .!@ mempty >>=
+                   may (parseXMLList "DBClusterSnapshotAttribute"))
+
+instance Hashable DBClusterSnapshotAttributesResult
+
+instance NFData DBClusterSnapshotAttributesResult
 
 -- | This data type is used as a response element in the action < DescribeDBEngineVersions>.
 --
@@ -961,7 +1121,9 @@ instance NFData DBEngineVersion
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBInstance>
+--
 -- -   < DeleteDBInstance>
+--
 -- -   < ModifyDBInstance>
 --
 -- This data type is used as a response element in the < DescribeDBInstances> action.
@@ -974,6 +1136,7 @@ data DBInstance = DBInstance'
     , _diDBClusterIdentifier                   :: !(Maybe Text)
     , _diPubliclyAccessible                    :: !(Maybe Bool)
     , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
+    , _diDBInstanceARN                         :: !(Maybe Text)
     , _diMasterUsername                        :: !(Maybe Text)
     , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
     , _diMonitoringRoleARN                     :: !(Maybe Text)
@@ -1030,6 +1193,8 @@ data DBInstance = DBInstance'
 -- * 'diPubliclyAccessible'
 --
 -- * 'diAutoMinorVersionUpgrade'
+--
+-- * 'diDBInstanceARN'
 --
 -- * 'diMasterUsername'
 --
@@ -1118,6 +1283,7 @@ dbInstance =
     , _diDBClusterIdentifier = Nothing
     , _diPubliclyAccessible = Nothing
     , _diAutoMinorVersionUpgrade = Nothing
+    , _diDBInstanceARN = Nothing
     , _diMasterUsername = Nothing
     , _diReadReplicaDBInstanceIdentifiers = Nothing
     , _diMonitoringRoleARN = Nothing
@@ -1180,6 +1346,7 @@ diDBClusterIdentifier = lens _diDBClusterIdentifier (\ s a -> s{_diDBClusterIden
 -- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__true
+--
 -- -   __VPC:__false
 --
 -- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
@@ -1189,6 +1356,10 @@ diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessi
 -- | Indicates that minor version patches are applied automatically.
 diAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
 diAutoMinorVersionUpgrade = lens _diAutoMinorVersionUpgrade (\ s a -> s{_diAutoMinorVersionUpgrade = a});
+
+-- | The Amazon Resource Name (ARN) for the DB instance.
+diDBInstanceARN :: Lens' DBInstance (Maybe Text)
+diDBInstanceARN = lens _diDBInstanceARN (\ s a -> s{_diDBInstanceARN = a});
 
 -- | Contains the master username for the DB instance.
 diMasterUsername :: Lens' DBInstance (Maybe Text)
@@ -1366,6 +1537,7 @@ instance FromXML DBInstance where
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "AutoMinorVersionUpgrade")
+                <*> (x .@? "DBInstanceArn")
                 <*> (x .@? "MasterUsername")
                 <*>
                 (x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
@@ -1487,7 +1659,8 @@ instance NFData DBInstanceStatusInfo
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-    { _dpgDBParameterGroupFamily :: !(Maybe Text)
+    { _dpgDBParameterGroupARN    :: !(Maybe Text)
+    , _dpgDBParameterGroupFamily :: !(Maybe Text)
     , _dpgDBParameterGroupName   :: !(Maybe Text)
     , _dpgDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1495,6 +1668,8 @@ data DBParameterGroup = DBParameterGroup'
 -- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgDBParameterGroupARN'
 --
 -- * 'dpgDBParameterGroupFamily'
 --
@@ -1505,10 +1680,15 @@ dbParameterGroup
     :: DBParameterGroup
 dbParameterGroup =
     DBParameterGroup'
-    { _dpgDBParameterGroupFamily = Nothing
+    { _dpgDBParameterGroupARN = Nothing
+    , _dpgDBParameterGroupFamily = Nothing
     , _dpgDBParameterGroupName = Nothing
     , _dpgDescription = Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the DB parameter group.
+dpgDBParameterGroupARN :: Lens' DBParameterGroup (Maybe Text)
+dpgDBParameterGroupARN = lens _dpgDBParameterGroupARN (\ s a -> s{_dpgDBParameterGroupARN = a});
 
 -- | Provides the name of the DB parameter group family that this DB parameter group is compatible with.
 dpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
@@ -1525,8 +1705,9 @@ dpgDescription = lens _dpgDescription (\ s a -> s{_dpgDescription = a});
 instance FromXML DBParameterGroup where
         parseXML x
           = DBParameterGroup' <$>
-              (x .@? "DBParameterGroupFamily") <*>
-                (x .@? "DBParameterGroupName")
+              (x .@? "DBParameterGroupArn") <*>
+                (x .@? "DBParameterGroupFamily")
+                <*> (x .@? "DBParameterGroupName")
                 <*> (x .@? "Description")
 
 instance Hashable DBParameterGroup
@@ -1570,11 +1751,17 @@ instance NFData DBParameterGroupNameMessage
 -- This data type is used as a response element in the following actions:
 --
 -- -   < CreateDBInstance>
+--
 -- -   < CreateDBInstanceReadReplica>
+--
 -- -   < DeleteDBInstance>
+--
 -- -   < ModifyDBInstance>
+--
 -- -   < RebootDBInstance>
+--
 -- -   < RestoreDBInstanceFromDBSnapshot>
+--
 --
 -- /See:/ 'dbParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
@@ -1618,8 +1805,11 @@ instance NFData DBParameterGroupStatus
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < DescribeDBSecurityGroups>
+--
 -- -   < AuthorizeDBSecurityGroupIngress>
+--
 -- -   < CreateDBSecurityGroup>
+--
 -- -   < RevokeDBSecurityGroupIngress>
 --
 -- This data type is used as a response element in the < DescribeDBSecurityGroups> action.
@@ -1628,6 +1818,7 @@ instance NFData DBParameterGroupStatus
 data DBSecurityGroup = DBSecurityGroup'
     { _dbsgVPCId                      :: !(Maybe Text)
     , _dbsgOwnerId                    :: !(Maybe Text)
+    , _dbsgDBSecurityGroupARN         :: !(Maybe Text)
     , _dbsgIPRanges                   :: !(Maybe [IPRange])
     , _dbsgDBSecurityGroupName        :: !(Maybe Text)
     , _dbsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
@@ -1642,6 +1833,8 @@ data DBSecurityGroup = DBSecurityGroup'
 --
 -- * 'dbsgOwnerId'
 --
+-- * 'dbsgDBSecurityGroupARN'
+--
 -- * 'dbsgIPRanges'
 --
 -- * 'dbsgDBSecurityGroupName'
@@ -1655,6 +1848,7 @@ dbSecurityGroup =
     DBSecurityGroup'
     { _dbsgVPCId = Nothing
     , _dbsgOwnerId = Nothing
+    , _dbsgDBSecurityGroupARN = Nothing
     , _dbsgIPRanges = Nothing
     , _dbsgDBSecurityGroupName = Nothing
     , _dbsgEC2SecurityGroups = Nothing
@@ -1668,6 +1862,10 @@ dbsgVPCId = lens _dbsgVPCId (\ s a -> s{_dbsgVPCId = a});
 -- | Provides the AWS ID of the owner of a specific DB security group.
 dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgOwnerId = lens _dbsgOwnerId (\ s a -> s{_dbsgOwnerId = a});
+
+-- | The Amazon Resource Name (ARN) for the DB security group.
+dbsgDBSecurityGroupARN :: Lens' DBSecurityGroup (Maybe Text)
+dbsgDBSecurityGroupARN = lens _dbsgDBSecurityGroupARN (\ s a -> s{_dbsgDBSecurityGroupARN = a});
 
 -- | Contains a list of < IPRange> elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
@@ -1689,6 +1887,8 @@ instance FromXML DBSecurityGroup where
         parseXML x
           = DBSecurityGroup' <$>
               (x .@? "VpcId") <*> (x .@? "OwnerId") <*>
+                (x .@? "DBSecurityGroupArn")
+                <*>
                 (x .@? "IPRanges" .!@ mempty >>=
                    may (parseXMLList "IPRange"))
                 <*> (x .@? "DBSecurityGroupName")
@@ -1704,9 +1904,13 @@ instance NFData DBSecurityGroup
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < ModifyDBInstance>
+--
 -- -   < RebootDBInstance>
+--
 -- -   < RestoreDBInstanceFromDBSnapshot>
+--
 -- -   < RestoreDBInstanceToPointInTime>
+--
 --
 -- /See:/ 'dbSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
@@ -1749,6 +1953,7 @@ instance NFData DBSecurityGroupMembership
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBSnapshot>
+--
 -- -   < DeleteDBSnapshot>
 --
 -- This data type is used as a response element in the < DescribeDBSnapshots> action.
@@ -1757,6 +1962,7 @@ instance NFData DBSecurityGroupMembership
 data DBSnapshot = DBSnapshot'
     { _dsEngineVersion              :: !(Maybe Text)
     , _dsStatus                     :: !(Maybe Text)
+    , _dsDBSnapshotARN              :: !(Maybe Text)
     , _dsMasterUsername             :: !(Maybe Text)
     , _dsSourceRegion               :: !(Maybe Text)
     , _dsIOPS                       :: !(Maybe Int)
@@ -1787,6 +1993,8 @@ data DBSnapshot = DBSnapshot'
 -- * 'dsEngineVersion'
 --
 -- * 'dsStatus'
+--
+-- * 'dsDBSnapshotARN'
 --
 -- * 'dsMasterUsername'
 --
@@ -1835,6 +2043,7 @@ dbSnapshot =
     DBSnapshot'
     { _dsEngineVersion = Nothing
     , _dsStatus = Nothing
+    , _dsDBSnapshotARN = Nothing
     , _dsMasterUsername = Nothing
     , _dsSourceRegion = Nothing
     , _dsIOPS = Nothing
@@ -1865,6 +2074,10 @@ dsEngineVersion = lens _dsEngineVersion (\ s a -> s{_dsEngineVersion = a});
 -- | Specifies the status of this DB snapshot.
 dsStatus :: Lens' DBSnapshot (Maybe Text)
 dsStatus = lens _dsStatus (\ s a -> s{_dsStatus = a});
+
+-- | The Amazon Resource Name (ARN) for the DB snapshot.
+dsDBSnapshotARN :: Lens' DBSnapshot (Maybe Text)
+dsDBSnapshotARN = lens _dsDBSnapshotARN (\ s a -> s{_dsDBSnapshotARN = a});
 
 -- | Provides the master username for the DB snapshot.
 dsMasterUsername :: Lens' DBSnapshot (Maybe Text)
@@ -1954,7 +2167,8 @@ instance FromXML DBSnapshot where
         parseXML x
           = DBSnapshot' <$>
               (x .@? "EngineVersion") <*> (x .@? "Status") <*>
-                (x .@? "MasterUsername")
+                (x .@? "DBSnapshotArn")
+                <*> (x .@? "MasterUsername")
                 <*> (x .@? "SourceRegion")
                 <*> (x .@? "Iops")
                 <*> (x .@? "VpcId")
@@ -2005,15 +2219,15 @@ dbSnapshotAttribute =
     , _dsaAttributeName = Nothing
     }
 
--- | The value(s) for the manual DB snapshot attribute.
+-- | The value or values for the manual DB snapshot attribute.
 --
--- If the 'AttributeName' field is 'restore', then this field returns a list of AWS account ids that are authorized to copy or restore the manual DB snapshot. If a value of 'all' is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
+-- If the 'AttributeName' field is set to 'restore', then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB snapshot. If a value of 'all' is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
 dsaAttributeValues :: Lens' DBSnapshotAttribute [Text]
 dsaAttributeValues = lens _dsaAttributeValues (\ s a -> s{_dsaAttributeValues = a}) . _Default . _Coerce;
 
 -- | The name of the manual DB snapshot attribute.
 --
--- An attribute name of 'restore' applies to the list of AWS accounts that have permission to copy or restore the manual DB snapshot.
+-- The attribute named 'restore' refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the < ModifyDBSnapshotAttribute> API action.
 dsaAttributeName :: Lens' DBSnapshotAttribute (Maybe Text)
 dsaAttributeName = lens _dsaAttributeName (\ s a -> s{_dsaAttributeName = a});
 
@@ -2028,9 +2242,9 @@ instance Hashable DBSnapshotAttribute
 
 instance NFData DBSnapshotAttribute
 
--- | Contains the results of a successful call to the < DescribeDBSnapshotAttributes> API.
+-- | Contains the results of a successful call to the < DescribeDBSnapshotAttributes> API action.
 --
--- Manual DB snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB snapshot. For more information, see the < ModifyDBSnapshotAttribute> API.
+-- Manual DB snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB snapshot. For more information, see the < ModifyDBSnapshotAttribute> API action.
 --
 -- /See:/ 'dbSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
@@ -2075,8 +2289,11 @@ instance NFData DBSnapshotAttributesResult
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBSubnetGroup>
+--
 -- -   < ModifyDBSubnetGroup>
+--
 -- -   < DescribeDBSubnetGroups>
+--
 -- -   < DeleteDBSubnetGroup>
 --
 -- This data type is used as a response element in the < DescribeDBSubnetGroups> action.
@@ -2087,6 +2304,7 @@ data DBSubnetGroup = DBSubnetGroup'
     , _dsgVPCId                    :: !(Maybe Text)
     , _dsgSubnets                  :: !(Maybe [Subnet])
     , _dsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _dsgDBSubnetGroupARN         :: !(Maybe Text)
     , _dsgSubnetGroupStatus        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2102,6 +2320,8 @@ data DBSubnetGroup = DBSubnetGroup'
 --
 -- * 'dsgDBSubnetGroupDescription'
 --
+-- * 'dsgDBSubnetGroupARN'
+--
 -- * 'dsgSubnetGroupStatus'
 dbSubnetGroup
     :: DBSubnetGroup
@@ -2111,6 +2331,7 @@ dbSubnetGroup =
     , _dsgVPCId = Nothing
     , _dsgSubnets = Nothing
     , _dsgDBSubnetGroupDescription = Nothing
+    , _dsgDBSubnetGroupARN = Nothing
     , _dsgSubnetGroupStatus = Nothing
     }
 
@@ -2130,6 +2351,10 @@ dsgSubnets = lens _dsgSubnets (\ s a -> s{_dsgSubnets = a}) . _Default . _Coerce
 dsgDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
 dsgDBSubnetGroupDescription = lens _dsgDBSubnetGroupDescription (\ s a -> s{_dsgDBSubnetGroupDescription = a});
 
+-- | The Amazon Resource Name (ARN) for the DB subnet group.
+dsgDBSubnetGroupARN :: Lens' DBSubnetGroup (Maybe Text)
+dsgDBSubnetGroupARN = lens _dsgDBSubnetGroupARN (\ s a -> s{_dsgDBSubnetGroupARN = a});
+
 -- | Provides the status of the DB subnet group.
 dsgSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
 dsgSubnetGroupStatus = lens _dsgSubnetGroupStatus (\ s a -> s{_dsgSubnetGroupStatus = a});
@@ -2141,6 +2366,7 @@ instance FromXML DBSubnetGroup where
                 (x .@? "Subnets" .!@ mempty >>=
                    may (parseXMLList "Subnet"))
                 <*> (x .@? "DBSubnetGroupDescription")
+                <*> (x .@? "DBSubnetGroupArn")
                 <*> (x .@? "SubnetGroupStatus")
 
 instance Hashable DBSubnetGroup
@@ -2257,8 +2483,11 @@ instance NFData DomainMembership
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < AuthorizeDBSecurityGroupIngress>
+--
 -- -   < DescribeDBSecurityGroups>
+--
 -- -   < RevokeDBSecurityGroupIngress>
+--
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
@@ -2320,8 +2549,11 @@ instance NFData EC2SecurityGroup
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < CreateDBInstance>
+--
 -- -   < DescribeDBInstances>
+--
 -- -   < DeleteDBInstance>
+--
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
@@ -2426,6 +2658,7 @@ instance NFData EngineDefaults
 -- /See:/ 'event' smart constructor.
 data Event = Event'
     { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceARN        :: !(Maybe Text)
     , _eSourceIdentifier :: !(Maybe Text)
     , _eDate             :: !(Maybe ISO8601)
     , _eEventCategories  :: !(Maybe [Text])
@@ -2437,6 +2670,8 @@ data Event = Event'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eSourceType'
+--
+-- * 'eSourceARN'
 --
 -- * 'eSourceIdentifier'
 --
@@ -2450,6 +2685,7 @@ event
 event =
     Event'
     { _eSourceType = Nothing
+    , _eSourceARN = Nothing
     , _eSourceIdentifier = Nothing
     , _eDate = Nothing
     , _eEventCategories = Nothing
@@ -2459,6 +2695,10 @@ event =
 -- | Specifies the source type for this event.
 eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
+
+-- | The Amazon Resource Name (ARN) for the event.
+eSourceARN :: Lens' Event (Maybe Text)
+eSourceARN = lens _eSourceARN (\ s a -> s{_eSourceARN = a});
 
 -- | Provides the identifier for the source of the event.
 eSourceIdentifier :: Lens' Event (Maybe Text)
@@ -2479,7 +2719,8 @@ eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 instance FromXML Event where
         parseXML x
           = Event' <$>
-              (x .@? "SourceType") <*> (x .@? "SourceIdentifier")
+              (x .@? "SourceType") <*> (x .@? "SourceArn") <*>
+                (x .@? "SourceIdentifier")
                 <*> (x .@? "Date")
                 <*>
                 (x .@? "EventCategories" .!@ mempty >>=
@@ -2540,6 +2781,7 @@ data EventSubscription = EventSubscription'
     , _esCustomerAWSId            :: !(Maybe Text)
     , _esCustSubscriptionId       :: !(Maybe Text)
     , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEventSubscriptionARN     :: !(Maybe Text)
     , _esEnabled                  :: !(Maybe Bool)
     , _esSourceType               :: !(Maybe Text)
     , _esSubscriptionCreationTime :: !(Maybe Text)
@@ -2559,6 +2801,8 @@ data EventSubscription = EventSubscription'
 --
 -- * 'esSNSTopicARN'
 --
+-- * 'esEventSubscriptionARN'
+--
 -- * 'esEnabled'
 --
 -- * 'esSourceType'
@@ -2576,6 +2820,7 @@ eventSubscription =
     , _esCustomerAWSId = Nothing
     , _esCustSubscriptionId = Nothing
     , _esSNSTopicARN = Nothing
+    , _esEventSubscriptionARN = Nothing
     , _esEnabled = Nothing
     , _esSourceType = Nothing
     , _esSubscriptionCreationTime = Nothing
@@ -2605,6 +2850,10 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
+-- | The Amazon Resource Name (ARN) for the event subscription.
+esEventSubscriptionARN :: Lens' EventSubscription (Maybe Text)
+esEventSubscriptionARN = lens _esEventSubscriptionARN (\ s a -> s{_esEventSubscriptionARN = a});
+
 -- | A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
@@ -2631,6 +2880,7 @@ instance FromXML EventSubscription where
               (x .@? "Status") <*> (x .@? "CustomerAwsId") <*>
                 (x .@? "CustSubscriptionId")
                 <*> (x .@? "SnsTopicArn")
+                <*> (x .@? "EventSubscriptionArn")
                 <*> (x .@? "Enabled")
                 <*> (x .@? "SourceType")
                 <*> (x .@? "SubscriptionCreationTime")
@@ -2645,7 +2895,9 @@ instance Hashable EventSubscription
 
 instance NFData EventSubscription
 
--- | /See:/ 'filter'' smart constructor.
+-- | This type is not currently supported.
+--
+-- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
     , _fValues :: ![Text]
@@ -2735,6 +2987,7 @@ data Option = Option'
     , _oOptionSettings              :: !(Maybe [OptionSetting])
     , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
     , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
+    , _oOptionVersion               :: !(Maybe Text)
     , _oPort                        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2756,6 +3009,8 @@ data Option = Option'
 --
 -- * 'oDBSecurityGroupMemberships'
 --
+-- * 'oOptionVersion'
+--
 -- * 'oPort'
 option
     :: Option
@@ -2768,6 +3023,7 @@ option =
     , _oOptionSettings = Nothing
     , _oVPCSecurityGroupMemberships = Nothing
     , _oDBSecurityGroupMemberships = Nothing
+    , _oOptionVersion = Nothing
     , _oPort = Nothing
     }
 
@@ -2799,6 +3055,10 @@ oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\ s a -> s{_o
 oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
 oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\ s a -> s{_oDBSecurityGroupMemberships = a}) . _Default . _Coerce;
 
+-- | The version of the option.
+oOptionVersion :: Lens' Option (Maybe Text)
+oOptionVersion = lens _oOptionVersion (\ s a -> s{_oOptionVersion = a});
+
 -- | If required, the port configured for this option to use.
 oPort :: Lens' Option (Maybe Int)
 oPort = lens _oPort (\ s a -> s{_oPort = a});
@@ -2818,6 +3078,7 @@ instance FromXML Option where
                 <*>
                 (x .@? "DBSecurityGroupMemberships" .!@ mempty >>=
                    may (parseXMLList "DBSecurityGroup"))
+                <*> (x .@? "OptionVersion")
                 <*> (x .@? "Port")
 
 instance Hashable Option
@@ -2831,6 +3092,7 @@ data OptionConfiguration = OptionConfiguration'
     { _ocOptionSettings              :: !(Maybe [OptionSetting])
     , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
     , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
+    , _ocOptionVersion               :: !(Maybe Text)
     , _ocPort                        :: !(Maybe Int)
     , _ocOptionName                  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2845,6 +3107,8 @@ data OptionConfiguration = OptionConfiguration'
 --
 -- * 'ocDBSecurityGroupMemberships'
 --
+-- * 'ocOptionVersion'
+--
 -- * 'ocPort'
 --
 -- * 'ocOptionName'
@@ -2856,6 +3120,7 @@ optionConfiguration pOptionName_ =
     { _ocOptionSettings = Nothing
     , _ocVPCSecurityGroupMemberships = Nothing
     , _ocDBSecurityGroupMemberships = Nothing
+    , _ocOptionVersion = Nothing
     , _ocPort = Nothing
     , _ocOptionName = pOptionName_
     }
@@ -2871,6 +3136,10 @@ ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
 ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
 ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a}) . _Default . _Coerce;
+
+-- | The version for the option.
+ocOptionVersion :: Lens' OptionConfiguration (Maybe Text)
+ocOptionVersion = lens _ocOptionVersion (\ s a -> s{_ocOptionVersion = a});
 
 -- | The optional port for the option.
 ocPort :: Lens' OptionConfiguration (Maybe Int)
@@ -2898,6 +3167,7 @@ instance ToQuery OptionConfiguration where
                  toQuery
                    (toQueryList "DBSecurityGroupName" <$>
                       _ocDBSecurityGroupMemberships),
+               "OptionVersion" =: _ocOptionVersion,
                "Port" =: _ocPort, "OptionName" =: _ocOptionName]
 
 -- |
@@ -2908,6 +3178,7 @@ data OptionGroup = OptionGroup'
     , _ogVPCId                                 :: !(Maybe Text)
     , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
     , _ogEngineName                            :: !(Maybe Text)
+    , _ogOptionGroupARN                        :: !(Maybe Text)
     , _ogMajorEngineVersion                    :: !(Maybe Text)
     , _ogOptions                               :: !(Maybe [Option])
     , _ogOptionGroupName                       :: !(Maybe Text)
@@ -2925,6 +3196,8 @@ data OptionGroup = OptionGroup'
 --
 -- * 'ogEngineName'
 --
+-- * 'ogOptionGroupARN'
+--
 -- * 'ogMajorEngineVersion'
 --
 -- * 'ogOptions'
@@ -2938,6 +3211,7 @@ optionGroup =
     , _ogVPCId = Nothing
     , _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing
     , _ogEngineName = Nothing
+    , _ogOptionGroupARN = Nothing
     , _ogMajorEngineVersion = Nothing
     , _ogOptions = Nothing
     , _ogOptionGroupName = Nothing
@@ -2959,6 +3233,10 @@ ogAllowsVPCAndNonVPCInstanceMemberships = lens _ogAllowsVPCAndNonVPCInstanceMemb
 ogEngineName :: Lens' OptionGroup (Maybe Text)
 ogEngineName = lens _ogEngineName (\ s a -> s{_ogEngineName = a});
 
+-- | The Amazon Resource Name (ARN) for the option group.
+ogOptionGroupARN :: Lens' OptionGroup (Maybe Text)
+ogOptionGroupARN = lens _ogOptionGroupARN (\ s a -> s{_ogOptionGroupARN = a});
+
 -- | Indicates the major engine version associated with this option group.
 ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion = lens _ogMajorEngineVersion (\ s a -> s{_ogMajorEngineVersion = a});
@@ -2977,6 +3255,7 @@ instance FromXML OptionGroup where
               (x .@? "OptionGroupDescription") <*> (x .@? "VpcId")
                 <*> (x .@? "AllowsVpcAndNonVpcInstanceMemberships")
                 <*> (x .@? "EngineName")
+                <*> (x .@? "OptionGroupArn")
                 <*> (x .@? "MajorEngineVersion")
                 <*>
                 (x .@? "Options" .!@ mempty >>=
@@ -3032,8 +3311,10 @@ instance NFData OptionGroupMembership
 -- /See:/ 'optionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
     { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+    , _ogoOptionsConflictsWith              :: !(Maybe [Text])
     , _ogoPermanent                         :: !(Maybe Bool)
     , _ogoPersistent                        :: !(Maybe Bool)
+    , _ogoOptionGroupOptionVersions         :: !(Maybe [OptionVersion])
     , _ogoEngineName                        :: !(Maybe Text)
     , _ogoMajorEngineVersion                :: !(Maybe Text)
     , _ogoName                              :: !(Maybe Text)
@@ -3050,9 +3331,13 @@ data OptionGroupOption = OptionGroupOption'
 --
 -- * 'ogoMinimumRequiredMinorEngineVersion'
 --
+-- * 'ogoOptionsConflictsWith'
+--
 -- * 'ogoPermanent'
 --
 -- * 'ogoPersistent'
+--
+-- * 'ogoOptionGroupOptionVersions'
 --
 -- * 'ogoEngineName'
 --
@@ -3074,8 +3359,10 @@ optionGroupOption
 optionGroupOption =
     OptionGroupOption'
     { _ogoMinimumRequiredMinorEngineVersion = Nothing
+    , _ogoOptionsConflictsWith = Nothing
     , _ogoPermanent = Nothing
     , _ogoPersistent = Nothing
+    , _ogoOptionGroupOptionVersions = Nothing
     , _ogoEngineName = Nothing
     , _ogoMajorEngineVersion = Nothing
     , _ogoName = Nothing
@@ -3090,13 +3377,21 @@ optionGroupOption =
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMinimumRequiredMinorEngineVersion = lens _ogoMinimumRequiredMinorEngineVersion (\ s a -> s{_ogoMinimumRequiredMinorEngineVersion = a});
 
--- | A permanent option cannot be removed from the option group once the option group is used, and it cannot be removed from the db instance after assigning an option group with this permanent option.
+-- | The options that conflict with this option.
+ogoOptionsConflictsWith :: Lens' OptionGroupOption [Text]
+ogoOptionsConflictsWith = lens _ogoOptionsConflictsWith (\ s a -> s{_ogoOptionsConflictsWith = a}) . _Default . _Coerce;
+
+-- | Permanent options can never be removed from an option group. An option group containing a permanent option can\'t be removed from a DB instance.
 ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPermanent = lens _ogoPermanent (\ s a -> s{_ogoPermanent = a});
 
--- | A persistent option cannot be removed from the option group once the option group is used, but this option can be removed from the db instance while modifying the related data and assigning another option group without this option.
+-- | Persistent options can\'t be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
 ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPersistent = lens _ogoPersistent (\ s a -> s{_ogoPersistent = a});
+
+-- | The versions that are available for the option.
+ogoOptionGroupOptionVersions :: Lens' OptionGroupOption [OptionVersion]
+ogoOptionGroupOptionVersions = lens _ogoOptionGroupOptionVersions (\ s a -> s{_ogoOptionGroupOptionVersions = a}) . _Default . _Coerce;
 
 -- | The name of the engine that this option can be applied to.
 ogoEngineName :: Lens' OptionGroupOption (Maybe Text)
@@ -3114,7 +3409,7 @@ ogoName = lens _ogoName (\ s a -> s{_ogoName = a});
 ogoDefaultPort :: Lens' OptionGroupOption (Maybe Int)
 ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 
--- | Specifies the option settings that are available (and the default value) for each option in an option group.
+-- | The option settings that are available (and the default value) for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
 ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default . _Coerce;
 
@@ -3126,7 +3421,7 @@ ogoPortRequired = lens _ogoPortRequired (\ s a -> s{_ogoPortRequired = a});
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
 ogoDescription = lens _ogoDescription (\ s a -> s{_ogoDescription = a});
 
--- | List of all options that are prerequisites for this option.
+-- | The options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
 ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default . _Coerce;
 
@@ -3134,8 +3429,13 @@ instance FromXML OptionGroupOption where
         parseXML x
           = OptionGroupOption' <$>
               (x .@? "MinimumRequiredMinorEngineVersion") <*>
-                (x .@? "Permanent")
+                (x .@? "OptionsConflictsWith" .!@ mempty >>=
+                   may (parseXMLList "OptionConflictName"))
+                <*> (x .@? "Permanent")
                 <*> (x .@? "Persistent")
+                <*>
+                (x .@? "OptionGroupOptionVersions" .!@ mempty >>=
+                   may (parseXMLList "OptionVersion"))
                 <*> (x .@? "EngineName")
                 <*> (x .@? "MajorEngineVersion")
                 <*> (x .@? "Name")
@@ -3342,6 +3642,46 @@ instance ToQuery OptionSetting where
                "DataType" =: _osDataType,
                "AllowedValues" =: _osAllowedValues,
                "Description" =: _osDescription]
+
+-- | The version for an option. Option group option versions are returned by the < DescribeOptionGroupOptions> action.
+--
+-- /See:/ 'optionVersion' smart constructor.
+data OptionVersion = OptionVersion'
+    { _ovVersion   :: !(Maybe Text)
+    , _ovIsDefault :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ovVersion'
+--
+-- * 'ovIsDefault'
+optionVersion
+    :: OptionVersion
+optionVersion =
+    OptionVersion'
+    { _ovVersion = Nothing
+    , _ovIsDefault = Nothing
+    }
+
+-- | The version of the option.
+ovVersion :: Lens' OptionVersion (Maybe Text)
+ovVersion = lens _ovVersion (\ s a -> s{_ovVersion = a});
+
+-- | True if the version is the default version of the option; otherwise, false.
+ovIsDefault :: Lens' OptionVersion (Maybe Bool)
+ovIsDefault = lens _ovIsDefault (\ s a -> s{_ovIsDefault = a});
+
+instance FromXML OptionVersion where
+        parseXML x
+          = OptionVersion' <$>
+              (x .@? "Version") <*> (x .@? "IsDefault")
+
+instance Hashable OptionVersion
+
+instance NFData OptionVersion
 
 -- | Contains a list of available options for a DB instance
 --
@@ -3687,8 +4027,10 @@ instance NFData PendingMaintenanceAction
 data PendingModifiedValues = PendingModifiedValues'
     { _pmvEngineVersion           :: !(Maybe Text)
     , _pmvMasterUserPassword      :: !(Maybe Text)
+    , _pmvDBSubnetGroupName       :: !(Maybe Text)
     , _pmvIOPS                    :: !(Maybe Int)
     , _pmvDBInstanceClass         :: !(Maybe Text)
+    , _pmvLicenseModel            :: !(Maybe Text)
     , _pmvCACertificateIdentifier :: !(Maybe Text)
     , _pmvDBInstanceIdentifier    :: !(Maybe Text)
     , _pmvBackupRetentionPeriod   :: !(Maybe Int)
@@ -3706,9 +4048,13 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- * 'pmvMasterUserPassword'
 --
+-- * 'pmvDBSubnetGroupName'
+--
 -- * 'pmvIOPS'
 --
 -- * 'pmvDBInstanceClass'
+--
+-- * 'pmvLicenseModel'
 --
 -- * 'pmvCACertificateIdentifier'
 --
@@ -3729,8 +4075,10 @@ pendingModifiedValues =
     PendingModifiedValues'
     { _pmvEngineVersion = Nothing
     , _pmvMasterUserPassword = Nothing
+    , _pmvDBSubnetGroupName = Nothing
     , _pmvIOPS = Nothing
     , _pmvDBInstanceClass = Nothing
+    , _pmvLicenseModel = Nothing
     , _pmvCACertificateIdentifier = Nothing
     , _pmvDBInstanceIdentifier = Nothing
     , _pmvBackupRetentionPeriod = Nothing
@@ -3748,6 +4096,10 @@ pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPassword = a});
 
+-- | The new DB subnet group for the DB instance.
+pmvDBSubnetGroupName :: Lens' PendingModifiedValues (Maybe Text)
+pmvDBSubnetGroupName = lens _pmvDBSubnetGroupName (\ s a -> s{_pmvDBSubnetGroupName = a});
+
 -- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is being applied.
 pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
 pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a});
@@ -3755,6 +4107,12 @@ pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a});
 -- | Contains the new 'DBInstanceClass' for the DB instance that will be applied or is in progress.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass = lens _pmvDBInstanceClass (\ s a -> s{_pmvDBInstanceClass = a});
+
+-- | The license model for the DB instance.
+--
+-- Valid values: 'license-included' | 'bring-your-own-license' | 'general-public-license'
+pmvLicenseModel :: Lens' PendingModifiedValues (Maybe Text)
+pmvLicenseModel = lens _pmvLicenseModel (\ s a -> s{_pmvLicenseModel = a});
 
 -- | Specifies the identifier of the CA certificate for the DB instance.
 pmvCACertificateIdentifier :: Lens' PendingModifiedValues (Maybe Text)
@@ -3789,8 +4147,10 @@ instance FromXML PendingModifiedValues where
           = PendingModifiedValues' <$>
               (x .@? "EngineVersion") <*>
                 (x .@? "MasterUserPassword")
+                <*> (x .@? "DBSubnetGroupName")
                 <*> (x .@? "Iops")
                 <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "LicenseModel")
                 <*> (x .@? "CACertificateIdentifier")
                 <*> (x .@? "DBInstanceIdentifier")
                 <*> (x .@? "BackupRetentionPeriod")
@@ -3854,6 +4214,7 @@ data ReservedDBInstance = ReservedDBInstance'
     , _rdiStartTime                     :: !(Maybe ISO8601)
     , _rdiProductDescription            :: !(Maybe Text)
     , _rdiReservedDBInstanceId          :: !(Maybe Text)
+    , _rdiReservedDBInstanceARN         :: !(Maybe Text)
     , _rdiDBInstanceClass               :: !(Maybe Text)
     , _rdiMultiAZ                       :: !(Maybe Bool)
     , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
@@ -3880,6 +4241,8 @@ data ReservedDBInstance = ReservedDBInstance'
 --
 -- * 'rdiReservedDBInstanceId'
 --
+-- * 'rdiReservedDBInstanceARN'
+--
 -- * 'rdiDBInstanceClass'
 --
 -- * 'rdiMultiAZ'
@@ -3905,6 +4268,7 @@ reservedDBInstance =
     , _rdiStartTime = Nothing
     , _rdiProductDescription = Nothing
     , _rdiReservedDBInstanceId = Nothing
+    , _rdiReservedDBInstanceARN = Nothing
     , _rdiDBInstanceClass = Nothing
     , _rdiMultiAZ = Nothing
     , _rdiReservedDBInstancesOfferingId = Nothing
@@ -3938,6 +4302,10 @@ rdiProductDescription = lens _rdiProductDescription (\ s a -> s{_rdiProductDescr
 -- | The unique identifier for the reservation.
 rdiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
 rdiReservedDBInstanceId = lens _rdiReservedDBInstanceId (\ s a -> s{_rdiReservedDBInstanceId = a});
+
+-- | The Amazon Resource Name (ARN) for the reserved DB instance.
+rdiReservedDBInstanceARN :: Lens' ReservedDBInstance (Maybe Text)
+rdiReservedDBInstanceARN = lens _rdiReservedDBInstanceARN (\ s a -> s{_rdiReservedDBInstanceARN = a});
 
 -- | The DB instance class for the reserved DB instance.
 rdiDBInstanceClass :: Lens' ReservedDBInstance (Maybe Text)
@@ -3979,6 +4347,7 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "StartTime")
                 <*> (x .@? "ProductDescription")
                 <*> (x .@? "ReservedDBInstanceId")
+                <*> (x .@? "ReservedDBInstanceArn")
                 <*> (x .@? "DBInstanceClass")
                 <*> (x .@? "MultiAZ")
                 <*> (x .@? "ReservedDBInstancesOfferingId")
@@ -4151,6 +4520,55 @@ instance FromXML ResourcePendingMaintenanceActions
 instance Hashable ResourcePendingMaintenanceActions
 
 instance NFData ResourcePendingMaintenanceActions
+
+-- | Contains an AWS Region name as the result of a successful call to the < DescribeSourceRegions> action.
+--
+-- /See:/ 'sourceRegion' smart constructor.
+data SourceRegion = SourceRegion'
+    { _srStatus     :: !(Maybe Text)
+    , _srRegionName :: !(Maybe Text)
+    , _srEndpoint   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SourceRegion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srStatus'
+--
+-- * 'srRegionName'
+--
+-- * 'srEndpoint'
+sourceRegion
+    :: SourceRegion
+sourceRegion =
+    SourceRegion'
+    { _srStatus = Nothing
+    , _srRegionName = Nothing
+    , _srEndpoint = Nothing
+    }
+
+-- | The status of the source region.
+srStatus :: Lens' SourceRegion (Maybe Text)
+srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+
+-- | The source region name.
+srRegionName :: Lens' SourceRegion (Maybe Text)
+srRegionName = lens _srRegionName (\ s a -> s{_srRegionName = a});
+
+-- | The source region endpoint.
+srEndpoint :: Lens' SourceRegion (Maybe Text)
+srEndpoint = lens _srEndpoint (\ s a -> s{_srEndpoint = a});
+
+instance FromXML SourceRegion where
+        parseXML x
+          = SourceRegion' <$>
+              (x .@? "Status") <*> (x .@? "RegionName") <*>
+                (x .@? "Endpoint")
+
+instance Hashable SourceRegion
+
+instance NFData SourceRegion
 
 -- | This data type is used as a response element in the < DescribeDBSubnetGroups> action.
 --

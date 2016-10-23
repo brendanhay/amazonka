@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -130,8 +130,11 @@ library
         , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeHostReservationOfferings
+        , Network.AWS.EC2.DescribeHostReservations
         , Network.AWS.EC2.DescribeHosts
         , Network.AWS.EC2.DescribeIdFormat
+        , Network.AWS.EC2.DescribeIdentityIdFormat
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
         , Network.AWS.EC2.DescribeImportImageTasks
@@ -156,6 +159,7 @@ library
         , Network.AWS.EC2.DescribeRouteTables
         , Network.AWS.EC2.DescribeScheduledInstanceAvailability
         , Network.AWS.EC2.DescribeScheduledInstances
+        , Network.AWS.EC2.DescribeSecurityGroupReferences
         , Network.AWS.EC2.DescribeSecurityGroups
         , Network.AWS.EC2.DescribeSnapshotAttribute
         , Network.AWS.EC2.DescribeSnapshots
@@ -165,6 +169,7 @@ library
         , Network.AWS.EC2.DescribeSpotFleetRequests
         , Network.AWS.EC2.DescribeSpotInstanceRequests
         , Network.AWS.EC2.DescribeSpotPriceHistory
+        , Network.AWS.EC2.DescribeStaleSecurityGroups
         , Network.AWS.EC2.DescribeSubnets
         , Network.AWS.EC2.DescribeTags
         , Network.AWS.EC2.DescribeVPCAttribute
@@ -194,6 +199,8 @@ library
         , Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
         , Network.AWS.EC2.EnableVolumeIO
         , Network.AWS.EC2.GetConsoleOutput
+        , Network.AWS.EC2.GetConsoleScreenshot
+        , Network.AWS.EC2.GetHostReservationPurchasePreview
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.ImportImage
         , Network.AWS.EC2.ImportInstance
@@ -202,6 +209,7 @@ library
         , Network.AWS.EC2.ImportVolume
         , Network.AWS.EC2.ModifyHosts
         , Network.AWS.EC2.ModifyIdFormat
+        , Network.AWS.EC2.ModifyIdentityIdFormat
         , Network.AWS.EC2.ModifyImageAttribute
         , Network.AWS.EC2.ModifyInstanceAttribute
         , Network.AWS.EC2.ModifyInstancePlacement
@@ -216,6 +224,7 @@ library
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC
+        , Network.AWS.EC2.PurchaseHostReservation
         , Network.AWS.EC2.PurchaseReservedInstancesOffering
         , Network.AWS.EC2.PurchaseScheduledInstances
         , Network.AWS.EC2.RebootInstances
@@ -253,7 +262,7 @@ library
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -273,9 +282,9 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-ec2 == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-ec2 == 1.4.4.*
         , base
         , bytestring
         , tasty

@@ -31,7 +31,7 @@ instance FromText ActionHistoryStatus where
         "failed" -> pure Failed
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing ActionHistoryStatus from value: '" <> e
-           <> "'. Accepted values: Completed, Failed, Unknown"
+           <> "'. Accepted values: completed, failed, unknown"
 
 instance ToText ActionHistoryStatus where
     toText = \case
@@ -62,7 +62,7 @@ instance FromText ActionStatus where
         "scheduled" -> pure ASScheduled
         "unknown" -> pure ASUnknown
         e -> fromTextError $ "Failure parsing ActionStatus from value: '" <> e
-           <> "'. Accepted values: Pending, Running, Scheduled, Unknown"
+           <> "'. Accepted values: pending, running, scheduled, unknown"
 
 instance ToText ActionStatus where
     toText = \case
@@ -92,7 +92,7 @@ instance FromText ActionType where
         "platformupdate" -> pure ATPlatformUpdate
         "unknown" -> pure ATUnknown
         e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
-           <> "'. Accepted values: InstanceRefresh, PlatformUpdate, Unknown"
+           <> "'. Accepted values: instancerefresh, platformupdate, unknown"
 
 instance ToText ActionType where
     toText = \case
@@ -123,7 +123,7 @@ instance FromText ApplicationVersionStatus where
         "processing" -> pure AVSProcessing
         "unprocessed" -> pure AVSUnprocessed
         e -> fromTextError $ "Failure parsing ApplicationVersionStatus from value: '" <> e
-           <> "'. Accepted values: Failed, Processed, Processing, Unprocessed"
+           <> "'. Accepted values: failed, processed, processing, unprocessed"
 
 instance ToText ApplicationVersionStatus where
     toText = \case
@@ -180,7 +180,7 @@ instance FromText ConfigurationOptionValueType where
         "list" -> pure List
         "scalar" -> pure Scalar
         e -> fromTextError $ "Failure parsing ConfigurationOptionValueType from value: '" <> e
-           <> "'. Accepted values: List, Scalar"
+           <> "'. Accepted values: list, scalar"
 
 instance ToText ConfigurationOptionValueType where
     toText = \case
@@ -210,7 +210,7 @@ instance FromText EnvironmentHealth where
         "red" -> pure Red
         "yellow" -> pure Yellow
         e -> fromTextError $ "Failure parsing EnvironmentHealth from value: '" <> e
-           <> "'. Accepted values: Green, Grey, Red, Yellow"
+           <> "'. Accepted values: green, grey, red, yellow"
 
 instance ToText EnvironmentHealth where
     toText = \case
@@ -250,7 +250,7 @@ instance FromText EnvironmentHealthAttribute where
         "refreshedat" -> pure EHARefreshedAt
         "status" -> pure EHAStatus
         e -> fromTextError $ "Failure parsing EnvironmentHealthAttribute from value: '" <> e
-           <> "'. Accepted values: All, ApplicationMetrics, Causes, Color, HealthStatus, InstancesHealth, RefreshedAt, Status"
+           <> "'. Accepted values: all, applicationmetrics, causes, color, healthstatus, instanceshealth, refreshedat, status"
 
 instance ToText EnvironmentHealthAttribute where
     toText = \case
@@ -291,7 +291,7 @@ instance FromText EnvironmentHealthStatus where
         "unknown" -> pure EHSUnknown
         "warning" -> pure EHSWarning
         e -> fromTextError $ "Failure parsing EnvironmentHealthStatus from value: '" <> e
-           <> "'. Accepted values: Degraded, Info, NoData, Ok, Pending, Severe, Unknown, Warning"
+           <> "'. Accepted values: degraded, info, nodata, ok, pending, severe, unknown, warning"
 
 instance ToText EnvironmentHealthStatus where
     toText = \case
@@ -355,7 +355,7 @@ instance FromText EnvironmentStatus where
         "terminating" -> pure Terminating
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
-           <> "'. Accepted values: Launching, Ready, Terminated, Terminating, Updating"
+           <> "'. Accepted values: launching, ready, terminated, terminating, updating"
 
 instance ToText EnvironmentStatus where
     toText = \case
@@ -392,7 +392,7 @@ instance FromText EventSeverity where
         "trace" -> pure LevelTrace
         "warn" -> pure LevelWarn
         e -> fromTextError $ "Failure parsing EventSeverity from value: '" <> e
-           <> "'. Accepted values: DEBUG, ERROR, FATAL, INFO, TRACE, WARN"
+           <> "'. Accepted values: debug, error, fatal, info, trace, warn"
 
 instance ToText EventSeverity where
     toText = \case
@@ -432,7 +432,7 @@ instance FromText FailureType where
         "rollbacksuccessful" -> pure RollbackSuccessful
         "updatecancelled" -> pure UpdateCancelled
         e -> fromTextError $ "Failure parsing FailureType from value: '" <> e
-           <> "'. Accepted values: CancellationFailed, InternalFailure, InvalidEnvironmentState, PermissionsError, RollbackFailed, RollbackSuccessful, UpdateCancelled"
+           <> "'. Accepted values: cancellationfailed, internalfailure, invalidenvironmentstate, permissionserror, rollbackfailed, rollbacksuccessful, updatecancelled"
 
 instance ToText FailureType where
     toText = \case
@@ -481,7 +481,7 @@ instance FromText InstancesHealthAttribute where
         "refreshedat" -> pure RefreshedAt
         "system" -> pure System
         e -> fromTextError $ "Failure parsing InstancesHealthAttribute from value: '" <> e
-           <> "'. Accepted values: All, ApplicationMetrics, AvailabilityZone, Causes, Color, Deployment, HealthStatus, InstanceType, LaunchedAt, RefreshedAt, System"
+           <> "'. Accepted values: all, applicationmetrics, availabilityzone, causes, color, deployment, healthstatus, instancetype, launchedat, refreshedat, system"
 
 instance ToText InstancesHealthAttribute where
     toText = \case

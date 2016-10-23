@@ -33,7 +33,7 @@ instance FromText ComparisonOperator where
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -63,7 +63,7 @@ instance FromText HistoryItemType where
         "configurationupdate" -> pure ConfigurationUpdate
         "stateupdate" -> pure StateUpdate
         e -> fromTextError $ "Failure parsing HistoryItemType from value: '" <> e
-           <> "'. Accepted values: Action, ConfigurationUpdate, StateUpdate"
+           <> "'. Accepted values: action, configurationupdate, stateupdate"
 
 instance ToText HistoryItemType where
     toText = \case
@@ -140,7 +140,7 @@ instance FromText StandardUnit where
         "terabytes" -> pure Terabytes
         "terabytes/second" -> pure TerabytesSecond
         e -> fromTextError $ "Failure parsing StandardUnit from value: '" <> e
-           <> "'. Accepted values: Bits, Bits/Second, Bytes, Bytes/Second, Count, Count/Second, Gigabits, Gigabits/Second, Gigabytes, Gigabytes/Second, Kilobits, Kilobits/Second, Kilobytes, Kilobytes/Second, Megabits, Megabits/Second, Megabytes, Megabytes/Second, Microseconds, Milliseconds, None, Percent, Seconds, Terabits, Terabits/Second, Terabytes, Terabytes/Second"
+           <> "'. Accepted values: bits, bits/second, bytes, bytes/second, count, count/second, gigabits, gigabits/second, gigabytes, gigabytes/second, kilobits, kilobits/second, kilobytes, kilobytes/second, megabits, megabits/second, megabytes, megabytes/second, microseconds, milliseconds, none, percent, seconds, terabits, terabits/second, terabytes, terabytes/second"
 
 instance ToText StandardUnit where
     toText = \case
@@ -193,7 +193,7 @@ instance FromText StateValue where
         "insufficient_data" -> pure InsufficientData
         "ok" -> pure OK
         e -> fromTextError $ "Failure parsing StateValue from value: '" <> e
-           <> "'. Accepted values: ALARM, INSUFFICIENT_DATA, OK"
+           <> "'. Accepted values: alarm, insufficient_data, ok"
 
 instance ToText StateValue where
     toText = \case
@@ -226,7 +226,7 @@ instance FromText Statistic where
         "samplecount" -> pure SampleCount
         "sum" -> pure Sum
         e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
-           <> "'. Accepted values: Average, Maximum, Minimum, SampleCount, Sum"
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
 
 instance ToText Statistic where
     toText = \case

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources, send a 'GET' request to the '\/Route 53 API version\/checkeripranges' resource. You can use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.
+-- Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources. Send a 'GET' request to the '\/Amazon Route 53 API version\/checkeripranges' resource. Use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.
 module Network.AWS.Route53.GetCheckerIPRanges
     (
     -- * Creating a Request

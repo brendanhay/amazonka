@@ -25,6 +25,8 @@
 -- In the CreateSnapshot request you identify the volume by providing its Amazon Resource Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway takes the snapshot of specified volume, the snapshot and description appears in the AWS Storage Gateway Console. In response, AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot.
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see DescribeSnapshots or DeleteSnapshot in the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
+--
+-- Volume and snapshot IDs are changing to a longer length ID format. For more information, see the important note on the <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html Welcome> page.
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Creating a Request
@@ -53,7 +55,9 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing one or more of the following fields:
 --
 -- -   < CreateSnapshotInput>SnapshotDescription>
+--
 -- -   < CreateSnapshotInput>VolumeARN>
+--
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'

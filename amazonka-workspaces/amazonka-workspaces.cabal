@@ -1,5 +1,5 @@
 name:                  amazonka-workspaces
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon WorkSpaces SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,7 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon WorkSpaces Service
 
-    This is the /Amazon WorkSpaces API Reference/. This guide provides detailed information about Amazon WorkSpaces operations, data types, parameters, and errors.
+    This reference provides detailed information about the Amazon WorkSpaces operations.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -43,12 +43,19 @@ library
 
     exposed-modules:
           Network.AWS.WorkSpaces
+        , Network.AWS.WorkSpaces.CreateTags
         , Network.AWS.WorkSpaces.CreateWorkspaces
+        , Network.AWS.WorkSpaces.DeleteTags
+        , Network.AWS.WorkSpaces.DescribeTags
         , Network.AWS.WorkSpaces.DescribeWorkspaceBundles
         , Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
         , Network.AWS.WorkSpaces.DescribeWorkspaces
+        , Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
+        , Network.AWS.WorkSpaces.ModifyWorkspaceProperties
         , Network.AWS.WorkSpaces.RebootWorkspaces
         , Network.AWS.WorkSpaces.RebuildWorkspaces
+        , Network.AWS.WorkSpaces.StartWorkspaces
+        , Network.AWS.WorkSpaces.StopWorkspaces
         , Network.AWS.WorkSpaces.TerminateWorkspaces
         , Network.AWS.WorkSpaces.Types
         , Network.AWS.WorkSpaces.Waiters
@@ -58,7 +65,7 @@ library
         , Network.AWS.WorkSpaces.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-workspaces-test
@@ -78,9 +85,9 @@ test-suite amazonka-workspaces-test
         , Test.AWS.WorkSpaces.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-workspaces == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-workspaces == 1.4.4.*
         , base
         , bytestring
         , tasty

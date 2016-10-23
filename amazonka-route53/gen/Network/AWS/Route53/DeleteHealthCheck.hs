@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action deletes a health check. To delete a health check, send a 'DELETE' request to the '\/Route 53 API version\/healthcheck\/health check ID' resource.
+-- Deletes a health check. Send a 'DELETE' request to the '\/2013-04-01\/healthcheck\/health check ID ' resource.
 --
--- You can delete a health check only if there are no resource record sets associated with this health check. If resource record sets are associated with this health check, you must disassociate them before you can delete your health check. If you try to delete a health check that is associated with resource record sets, Amazon Route 53 will deny your request with a 'HealthCheckInUse' error. For information about disassociating the records from your health check, see < ChangeResourceRecordSets>.
+-- Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don\'t update the associated resource record sets, the future status of the health check cannot be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html Replacing and Deleting Health Checks> in the Amazon Route 53 Developer Guide.
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request
@@ -43,7 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing the request information for delete health check.
+-- | This action deletes a health check. Send a 'DELETE' request to the '\/2013-04-01\/DeleteHealthCheckRequest' resource.
 --
 -- /See:/ 'deleteHealthCheck' smart constructor.
 newtype DeleteHealthCheck = DeleteHealthCheck'
@@ -63,7 +63,7 @@ deleteHealthCheck pHealthCheckId_ =
     { _dhcHealthCheckId = pHealthCheckId_
     }
 
--- | The ID of the health check to delete.
+-- | Undocumented member.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
 
@@ -90,7 +90,7 @@ instance ToPath DeleteHealthCheck where
 instance ToQuery DeleteHealthCheck where
         toQuery = const mempty
 
--- | Empty response for the request.
+-- | An empty element.
 --
 -- /See:/ 'deleteHealthCheckResponse' smart constructor.
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'

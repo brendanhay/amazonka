@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the specified MFA device and associates it with the specified user name. When enabled, the MFA device is required for every subsequent login by the user name associated with the device.
+-- Enables the specified MFA device and associates it with the specified IAM user. When enabled, the MFA device is required for every subsequent login by the IAM user associated with the device.
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Creating a Request
@@ -75,19 +75,27 @@ enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationC
     , _emdAuthenticationCode2 = pAuthenticationCode2_
     }
 
--- | The name of the user for whom you want to enable the MFA device.
+-- | The name of the IAM user for whom you want to enable the MFA device.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 emdUserName :: Lens' EnableMFADevice Text
 emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a});
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =\/:,.\'-
 emdSerialNumber :: Lens' EnableMFADevice Text
 emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a});
 
 -- | An authentication code emitted by the device.
+--
+-- The format for this parameter is a string of 6 digits.
 emdAuthenticationCode1 :: Lens' EnableMFADevice Text
 emdAuthenticationCode1 = lens _emdAuthenticationCode1 (\ s a -> s{_emdAuthenticationCode1 = a});
 
 -- | A subsequent authentication code emitted by the device.
+--
+-- The format for this parameter is a string of 6 digits.
 emdAuthenticationCode2 :: Lens' EnableMFADevice Text
 emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a});
 

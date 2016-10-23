@@ -278,7 +278,7 @@ instance NFData AttachedPolicy
 
 -- | Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the 'Condition' elements of the input policies.
 --
--- This data type is used as an input parameter to 'SimulatePolicy'.
+-- This data type is used as an input parameter to ' SimulateCustomPolicy ' and ' SimulateCustomPolicy '.
 --
 -- /See:/ 'contextEntry' smart constructor.
 data ContextEntry = ContextEntry'
@@ -332,7 +332,7 @@ instance ToQuery ContextEntry where
 
 -- | Contains the results of a simulation.
 --
--- This data type is used by the return parameter of 'SimulatePolicy'.
+-- This data type is used by the return parameter of ' SimulateCustomPolicy ' and ' SimulatePrincipalPolicy '.
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
@@ -394,8 +394,6 @@ erEvalResourceName :: Lens' EvaluationResult (Maybe Text)
 erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
 
 -- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the 'ResourceArns' parameter blank. If you include a list of resources, then any missing context values are instead included under the 'ResourceSpecificResults' section. To discover the context keys used by a set of policies, you can call < GetContextKeysForCustomPolicy> or < GetContextKeysForPrincipalPolicy>.
---
--- If the response includes any keys in this list, then the reported results might be untrustworthy because the simulation could not completely evaluate all of the conditions specified in the policies that would occur in a real world request.
 erMissingContextValues :: Lens' EvaluationResult [Text]
 erMissingContextValues = lens _erMissingContextValues (\ s a -> s{_erMissingContextValues = a}) . _Default . _Coerce;
 
@@ -448,7 +446,7 @@ getContextKeysForPolicyResponse =
     { _gckfpContextKeyNames = Nothing
     }
 
--- | The list of context keys that are used in the 'Condition' elements of the input policies.
+-- | The list of context keys that are referenced in the input policies.
 gckfpContextKeyNames :: Lens' GetContextKeysForPolicyResponse [Text]
 gckfpContextKeyNames = lens _gckfpContextKeyNames (\ s a -> s{_gckfpContextKeyNames = a}) . _Default . _Coerce;
 
@@ -468,8 +466,11 @@ instance NFData GetContextKeysForPolicyResponse
 -- This data type is used as a response element in the following actions:
 --
 -- -   < CreateGroup>
+--
 -- -   < GetGroup>
+--
 -- -   < ListGroups>
+--
 --
 -- /See:/ 'group'' smart constructor.
 data Group = Group'
@@ -1479,7 +1480,7 @@ instance NFData PolicyVersion
 
 -- | Contains the row and column of a location of a 'Statement' element in a policy document.
 --
--- This data type is used as a member of the 'Statement' type.
+-- This data type is used as a member of the ' Statement ' type.
 --
 -- /See:/ 'position' smart constructor.
 data Position = Position'
@@ -2254,7 +2255,7 @@ instance NFData SimulatePolicyResponse
 
 -- | Contains a reference to a 'Statement' element in a policy document that determines the result of the simulation.
 --
--- This data type is used by the 'MatchedStatements' member of the 'EvaluationResult' type.
+-- This data type is used by the 'MatchedStatements' member of the ' EvaluationResult ' type.
 --
 -- /See:/ 'statement' smart constructor.
 data Statement = Statement'

@@ -20,15 +20,23 @@
 --
 -- Creates a new case in the AWS Support Center. This operation is modeled on the behavior of the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page. Its parameters require you to specify the following information:
 --
--- 1.  __IssueType.__ The type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\"
--- 2.  __ServiceCode.__ The code for an AWS service. You obtain the 'ServiceCode' by calling < DescribeServices>.
--- 3.  __CategoryCode.__ The category for the service defined for the 'ServiceCode' value. You also obtain the category code for a service by calling < DescribeServices>. Each AWS service defines its own set of category codes.
--- 4.  __SeverityCode.__ A value that indicates the urgency of the case, which in turn determines the response time according to your service level agreement with AWS Support. You obtain the SeverityCode by calling < DescribeSeverityLevels>.
--- 5.  __Subject.__ The __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
--- 6.  __CommunicationBody.__ The __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
--- 7.  __AttachmentSetId.__ The ID of a set of attachments that has been created by using < AddAttachmentsToSet>.
--- 8.  __Language.__ The human language in which AWS Support handles the case. English and Japanese are currently supported.
--- 9.  __CcEmailAddresses.__ The AWS Support Center __CC__ field on the <https://console.aws.amazon.com/support/home#/case/create Create Case> page. You can list email addresses to be copied on any correspondence about the case. The account that opens the case is already identified by passing the AWS Credentials in the HTTP POST method or in a method or function call from one of the programming languages supported by an <http://aws.amazon.com/tools/ AWS SDK>.
+-- -   __issueType.__ The type of issue for the case. You can specify either \"customer-service\" or \"technical.\" If you do not indicate a value, the default is \"technical.\"
+--
+-- -   __serviceCode.__ The code for an AWS service. You obtain the 'serviceCode' by calling < DescribeServices>.
+--
+-- -   __categoryCode.__ The category for the service defined for the 'serviceCode' value. You also obtain the category code for a service by calling < DescribeServices>. Each AWS service defines its own set of category codes.
+--
+-- -   __severityCode.__ A value that indicates the urgency of the case, which in turn determines the response time according to your service level agreement with AWS Support. You obtain the SeverityCode by calling < DescribeSeverityLevels>.
+--
+-- -   __subject.__ The __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+--
+-- -   __communicationBody.__ The __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+--
+-- -   __attachmentSetId.__ The ID of a set of attachments that has been created by using < AddAttachmentsToSet>.
+--
+-- -   __language.__ The human language in which AWS Support handles the case. English and Japanese are currently supported.
+--
+-- -   __ccEmailAddresses.__ The AWS Support Center __CC__ field on the <https://console.aws.amazon.com/support/home#/case/create Create Case> page. You can list email addresses to be copied on any correspondence about the case. The account that opens the case is already identified by passing the AWS Credentials in the HTTP POST method or in a method or function call from one of the programming languages supported by an <http://aws.amazon.com/tools/ AWS SDK>.
 --
 -- To add additional communication or attachments to an existing case, use < AddCommunicationToCase>.
 --
@@ -64,7 +72,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'createCase' smart constructor.
+-- |
+--
+-- /See:/ 'createCase' smart constructor.
 data CreateCase = CreateCase'
     { _ccSeverityCode      :: !(Maybe Text)
     , _ccIssueType         :: !(Maybe Text)

@@ -1,5 +1,5 @@
 name:                  amazonka-sns
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Simple Notification Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.SNS
         , Network.AWS.SNS.AddPermission
+        , Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
         , Network.AWS.SNS.ConfirmSubscription
         , Network.AWS.SNS.CreatePlatformApplication
         , Network.AWS.SNS.CreatePlatformEndpoint
@@ -55,17 +56,21 @@ library
         , Network.AWS.SNS.DeleteTopic
         , Network.AWS.SNS.GetEndpointAttributes
         , Network.AWS.SNS.GetPlatformApplicationAttributes
+        , Network.AWS.SNS.GetSMSAttributes
         , Network.AWS.SNS.GetSubscriptionAttributes
         , Network.AWS.SNS.GetTopicAttributes
         , Network.AWS.SNS.ListEndpointsByPlatformApplication
+        , Network.AWS.SNS.ListPhoneNumbersOptedOut
         , Network.AWS.SNS.ListPlatformApplications
         , Network.AWS.SNS.ListSubscriptions
         , Network.AWS.SNS.ListSubscriptionsByTopic
         , Network.AWS.SNS.ListTopics
+        , Network.AWS.SNS.OptInPhoneNumber
         , Network.AWS.SNS.Publish
         , Network.AWS.SNS.RemovePermission
         , Network.AWS.SNS.SetEndpointAttributes
         , Network.AWS.SNS.SetPlatformApplicationAttributes
+        , Network.AWS.SNS.SetSMSAttributes
         , Network.AWS.SNS.SetSubscriptionAttributes
         , Network.AWS.SNS.SetTopicAttributes
         , Network.AWS.SNS.Subscribe
@@ -78,7 +83,7 @@ library
         , Network.AWS.SNS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-sns-test
@@ -98,9 +103,9 @@ test-suite amazonka-sns-test
         , Test.AWS.SNS.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-sns == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-sns == 1.4.4.*
         , base
         , bytestring
         , tasty

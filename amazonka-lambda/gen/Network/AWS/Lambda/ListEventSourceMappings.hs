@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listEventSourceMappings' smart constructor.
+-- |
+--
+-- /See:/ 'listEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
     { _lesmEventSourceARN :: !(Maybe Text)
     , _lesmMarker         :: !(Maybe Text)
@@ -84,7 +86,7 @@ listEventSourceMappings =
     , _lesmFunctionName = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream.
+-- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
 lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a});
 
@@ -138,7 +140,7 @@ instance ToQuery ListEventSourceMappings where
                "Marker" =: _lesmMarker, "MaxItems" =: _lesmMaxItems,
                "FunctionName" =: _lesmFunctionName]
 
--- | Contains a list of event sources (see < API_EventSourceMappingConfiguration>)
+-- | Contains a list of event sources (see )
 --
 -- /See:/ 'listEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'

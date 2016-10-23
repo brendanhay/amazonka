@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeConditionalForwarders' smart constructor.
+-- | Describes a conditional forwarder.
+--
+-- /See:/ 'describeConditionalForwarders' smart constructor.
 data DescribeConditionalForwarders = DescribeConditionalForwarders'
     { _dcfRemoteDomainNames :: !(Maybe [Text])
     , _dcfDirectoryId       :: !Text
@@ -115,7 +117,9 @@ instance ToPath DescribeConditionalForwarders where
 instance ToQuery DescribeConditionalForwarders where
         toQuery = const mempty
 
--- | /See:/ 'describeConditionalForwardersResponse' smart constructor.
+-- | The result of a DescribeConditionalForwarder request.
+--
+-- /See:/ 'describeConditionalForwardersResponse' smart constructor.
 data DescribeConditionalForwardersResponse = DescribeConditionalForwardersResponse'
     { _dcfrsConditionalForwarders :: !(Maybe [ConditionalForwarder])
     , _dcfrsResponseStatus        :: !Int

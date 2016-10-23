@@ -24,9 +24,9 @@
 --
 -- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
--- '&Attribute.1=this'
+-- '&amp;Attribute.1=this'
 --
--- '&Attribute.2=that'
+-- '&amp;Attribute.2=that'
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Creating a Request
@@ -52,7 +52,9 @@ import           Network.AWS.Response
 import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
--- | /See:/ 'deleteMessageBatch' smart constructor.
+-- |
+--
+-- /See:/ 'deleteMessageBatch' smart constructor.
 data DeleteMessageBatch = DeleteMessageBatch'
     { _dmbQueueURL :: !Text
     , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
@@ -75,6 +77,8 @@ deleteMessageBatch pQueueURL_ =
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
+-- Queue URLs are case-sensitive.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
 dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
 

@@ -97,7 +97,7 @@ instance ToQuery DeleteSnapshot where
         toQuery DeleteSnapshot'{..}
           = mconcat
               ["Action" =: ("DeleteSnapshot" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _deleDryRun,
                "SnapshotId" =: _deleSnapshotId]
 

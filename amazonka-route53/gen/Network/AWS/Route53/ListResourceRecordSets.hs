@@ -18,22 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imagine all the resource record sets in a zone listed out in front of you. Imagine them sorted lexicographically first by DNS name (with the labels reversed, like \"com.amazon.www\" for example), and secondarily, lexicographically by record type. This operation retrieves at most MaxItems resource record sets from this list, in order, starting at a position specified by the Name and Type arguments:
---
--- -   If both Name and Type are omitted, this means start the results at the first RRSET in the HostedZone.
--- -   If Name is specified but Type is omitted, this means start the results at the first RRSET in the list whose name is greater than or equal to Name.
--- -   If both Name and Type are specified, this means start the results at the first RRSET in the list whose name is greater than or equal to Name and whose type is greater than or equal to Type.
--- -   It is an error to specify the Type but not the Name.
---
--- Use ListResourceRecordSets to retrieve a single known record set by specifying the record set\'s name and type, and setting MaxItems = 1
---
--- To retrieve all the records in a HostedZone, first pause any processes making calls to ChangeResourceRecordSets. Initially call ListResourceRecordSets without a Name and Type to get the first page of record sets. For subsequent calls, set Name and Type to the NextName and NextType values returned by the previous response.
---
--- In the presence of concurrent ChangeResourceRecordSets calls, there is no consistency of results across calls to ListResourceRecordSets. The only way to get a consistent multi-page snapshot of all RRSETs in a zone is to stop making changes while pagination is in progress.
---
--- However, the results from ListResourceRecordSets are consistent within a page. If MakeChange calls are taking place concurrently, the result of each one will either be completely visible in your results or not at all. You will not see partial changes, or changes that do not ultimately succeed. (This follows from the fact that MakeChange is atomic)
---
--- The results from ListResourceRecordSets are strongly consistent with ChangeResourceRecordSets. To be precise, if a single process makes a call to ChangeResourceRecordSets and receives a successful response, the effects of that change will be visible in a subsequent call to ListResourceRecordSets by that process.
+-- Undocumented operation.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
@@ -109,25 +94,31 @@ listResourceRecordSets pHostedZoneId_ =
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
--- | The DNS type at which to begin the listing of resource record sets.
+-- | The type of resource record set to begin the record listing from.
 --
--- Valid values: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NS' | 'PTR' | 'SOA' | 'SPF' | 'SRV' | 'TXT'
+-- Valid values for basic resource record sets: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NAPTR' | 'NS' | 'PTR' | 'SOA' | 'SPF' | 'SRV' | 'TXT'
 --
--- Values for Weighted Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
+-- Values for weighted, latency, geo, and failover resource record sets: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NAPTR' | 'PTR' | 'SPF' | 'SRV' | 'TXT'
 --
--- Values for Regional Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
+-- Values for alias resource record sets:
 --
--- Values for Alias Resource Record Sets: 'A' | 'AAAA'
+-- -   __CloudFront distribution__: A
 --
--- Constraint: Specifying 'type' without specifying 'name' returns an < InvalidInput> error.
+-- -   __Elastic Beanstalk environment that has a regionalized subdomain__: A
+--
+-- -   __ELB load balancer__: A | AAAA
+--
+-- -   __Amazon S3 bucket__: A
+--
+-- Constraint: Specifying 'type' without specifying 'name' returns an 'InvalidInput' error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
--- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, specify the value of 'ListResourceRecordSetsResponse>NextRecordIdentifier' from the previous response to get the next resource record set that has the current DNS name and type.
+-- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, specify the value of 'NextRecordIdentifier' from the previous response to get the next resource record set that has the current DNS name and type.
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
 
--- | The maximum number of records you want in the response body.
+-- | (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than 'maxitems' resource record sets, the value of the 'IsTruncated' element in the response is 'true', and the values of the 'NextRecordName' and 'NextRecordType' elements in the response identify the first resource record set in the next group of 'maxitems' resource record sets.
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 
@@ -188,7 +179,7 @@ instance ToQuery ListResourceRecordSets where
                "identifier" =: _lrrsStartRecordIdentifier,
                "maxitems" =: _lrrsMaxItems]
 
--- | A complex type that contains information about the resource record sets that are returned by the request and information about the response.
+-- | A complex type that contains list information for the resource record set.
 --
 -- /See:/ 'listResourceRecordSetsResponse' smart constructor.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
@@ -234,15 +225,19 @@ listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lrrsrsMaxItems = pMaxItems_
     }
 
--- | If the results were truncated, the type of the next record in the list. This element is present only if < ListResourceRecordSetsResponse>IsTruncated> is true.
+-- | If the results were truncated, the type of the next record in the list.
+--
+-- This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrsNextRecordType = lens _lrrsrsNextRecordType (\ s a -> s{_lrrsrsNextRecordType = a});
 
--- | If the results were truncated, the name of the next record in the list. This element is present only if < ListResourceRecordSetsResponse>IsTruncated> is true.
+-- | If the results were truncated, the name of the next record in the list.
+--
+-- This element is present only if 'IsTruncated' is true.
 lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordName = a});
 
--- | /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, the value of 'SetIdentifier' for the next resource record set that has the current DNS name and type.
+-- | /Weighted, latency, geolocation, and failover resource record sets only/: If results were truncated for a given DNS name and type, the value of 'SetIdentifier' for the next resource record set that has the current DNS name and type.
 lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsrsNextRecordIdentifier = a});
 
@@ -250,17 +245,15 @@ lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsr
 lrrsrsResponseStatus :: Lens' ListResourceRecordSetsResponse Int
 lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
 
--- | A complex type that contains information about the resource record sets that are returned by the request.
+-- | Information about multiple resource record sets.
 lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
 lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsResourceRecordSets = a}) . _Coerce;
 
--- | A flag that indicates whether there are more resource record sets to be listed. If your results were truncated, you can make a follow-up request for the next page of results by using the < ListResourceRecordSetsResponse>NextRecordName> element.
---
--- Valid Values: 'true' | 'false'
+-- | A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the 'NextRecordName' element.
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrsIsTruncated = lens _lrrsrsIsTruncated (\ s a -> s{_lrrsrsIsTruncated = a});
 
--- | The maximum number of records you requested. The maximum value of 'MaxItems' is 100.
+-- | The maximum number of records you requested.
 lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrsMaxItems = lens _lrrsrsMaxItems (\ s a -> s{_lrrsrsMaxItems = a});
 

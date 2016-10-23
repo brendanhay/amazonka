@@ -25,7 +25,11 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
       createUserPoolClient
     , CreateUserPoolClient
     -- * Request Lenses
+    , cupcRefreshTokenValidity
+    , cupcExplicitAuthFlows
     , cupcGenerateSecret
+    , cupcWriteAttributes
+    , cupcReadAttributes
     , cupcUserPoolId
     , cupcClientName
 
@@ -48,16 +52,28 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
-    { _cupcGenerateSecret :: !(Maybe Bool)
-    , _cupcUserPoolId     :: !Text
-    , _cupcClientName     :: !Text
+    { _cupcRefreshTokenValidity :: !(Maybe Nat)
+    , _cupcExplicitAuthFlows    :: !(Maybe [ExplicitAuthFlowsType])
+    , _cupcGenerateSecret       :: !(Maybe Bool)
+    , _cupcWriteAttributes      :: !(Maybe [Text])
+    , _cupcReadAttributes       :: !(Maybe [Text])
+    , _cupcUserPoolId           :: !Text
+    , _cupcClientName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserPoolClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cupcRefreshTokenValidity'
+--
+-- * 'cupcExplicitAuthFlows'
+--
 -- * 'cupcGenerateSecret'
+--
+-- * 'cupcWriteAttributes'
+--
+-- * 'cupcReadAttributes'
 --
 -- * 'cupcUserPoolId'
 --
@@ -68,14 +84,34 @@ createUserPoolClient
     -> CreateUserPoolClient
 createUserPoolClient pUserPoolId_ pClientName_ =
     CreateUserPoolClient'
-    { _cupcGenerateSecret = Nothing
+    { _cupcRefreshTokenValidity = Nothing
+    , _cupcExplicitAuthFlows = Nothing
+    , _cupcGenerateSecret = Nothing
+    , _cupcWriteAttributes = Nothing
+    , _cupcReadAttributes = Nothing
     , _cupcUserPoolId = pUserPoolId_
     , _cupcClientName = pClientName_
     }
 
+-- | Refreshes the token validity.
+cupcRefreshTokenValidity :: Lens' CreateUserPoolClient (Maybe Natural)
+cupcRefreshTokenValidity = lens _cupcRefreshTokenValidity (\ s a -> s{_cupcRefreshTokenValidity = a}) . mapping _Nat;
+
+-- | The explicit authentication flows.
+cupcExplicitAuthFlows :: Lens' CreateUserPoolClient [ExplicitAuthFlowsType]
+cupcExplicitAuthFlows = lens _cupcExplicitAuthFlows (\ s a -> s{_cupcExplicitAuthFlows = a}) . _Default . _Coerce;
+
 -- | Boolean to specify whether you want to generate a secret for the user pool client being created.
 cupcGenerateSecret :: Lens' CreateUserPoolClient (Maybe Bool)
 cupcGenerateSecret = lens _cupcGenerateSecret (\ s a -> s{_cupcGenerateSecret = a});
+
+-- | The write attributes.
+cupcWriteAttributes :: Lens' CreateUserPoolClient [Text]
+cupcWriteAttributes = lens _cupcWriteAttributes (\ s a -> s{_cupcWriteAttributes = a}) . _Default . _Coerce;
+
+-- | The read attributes.
+cupcReadAttributes :: Lens' CreateUserPoolClient [Text]
+cupcReadAttributes = lens _cupcReadAttributes (\ s a -> s{_cupcReadAttributes = a}) . _Default . _Coerce;
 
 -- | The user pool ID for the user pool where you want to create a user pool client.
 cupcUserPoolId :: Lens' CreateUserPoolClient Text
@@ -113,7 +149,12 @@ instance ToJSON CreateUserPoolClient where
         toJSON CreateUserPoolClient'{..}
           = object
               (catMaybes
-                 [("GenerateSecret" .=) <$> _cupcGenerateSecret,
+                 [("RefreshTokenValidity" .=) <$>
+                    _cupcRefreshTokenValidity,
+                  ("ExplicitAuthFlows" .=) <$> _cupcExplicitAuthFlows,
+                  ("GenerateSecret" .=) <$> _cupcGenerateSecret,
+                  ("WriteAttributes" .=) <$> _cupcWriteAttributes,
+                  ("ReadAttributes" .=) <$> _cupcReadAttributes,
                   Just ("UserPoolId" .= _cupcUserPoolId),
                   Just ("ClientName" .= _cupcClientName)])
 

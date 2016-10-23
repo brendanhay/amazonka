@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the replication task.
---
 module Network.AWS.DMS.StartReplicationTask
     (
     -- * Creating a Request
@@ -45,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'startReplicationTask' smart constructor.
+-- |
+--
+-- /See:/ 'startReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
     { _srtCdcStartTime             :: !(Maybe POSIX)
     , _srtReplicationTaskARN       :: !Text
@@ -125,7 +126,9 @@ instance ToPath StartReplicationTask where
 instance ToQuery StartReplicationTask where
         toQuery = const mempty
 
--- | /See:/ 'startReplicationTaskResponse' smart constructor.
+-- |
+--
+-- /See:/ 'startReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
     { _srtrsReplicationTask :: !(Maybe ReplicationTask)
     , _srtrsResponseStatus  :: !Int

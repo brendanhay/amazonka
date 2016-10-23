@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your Dedicated hosts.
+-- Describes one or more of your Dedicated Hosts.
 --
--- The results describe only the Dedicated hosts in the region you\'re currently using. All listed instances consume capacity on your Dedicated host. Dedicated hosts that have recently been released will be listed with the state 'released'.
+-- The results describe only the Dedicated Hosts in the region you\'re currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released will be listed with the state 'released'.
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request
@@ -85,22 +85,22 @@ dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a});
 
 -- | One or more filters.
 --
--- -   'instance-type' - The instance type size that the Dedicated host is configured to support.
+-- -   'instance-type' - The instance type size that the Dedicated Host is configured to support.
 --
 -- -   'auto-placement' - Whether auto-placement is enabled or disabled ('on' | 'off').
 --
--- -   'host-reservation-id' - The ID of the reservation associated with this host.
+-- -   'host-reservation-id' - The ID of the reservation assigned to this host.
 --
 -- -   'client-token' - The idempotency token you provided when you launched the instance
 --
--- -   'state'- The allocation state of the Dedicated host ('available' | 'under-assessment' | 'permanent-failure' | 'released' | 'released-permanent-failure').
+-- -   'state'- The allocation state of the Dedicated Host ('available' | 'under-assessment' | 'permanent-failure' | 'released' | 'released-permanent-failure').
 --
 -- -   'availability-zone' - The Availability Zone of the host.
 --
 dhFilter :: Lens' DescribeHosts [Filter]
 dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce;
 
--- | The IDs of the Dedicated hosts. The IDs are used for targeted instance launches.
+-- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
 dhHostIds :: Lens' DescribeHosts [Text]
 dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce;
 
@@ -134,7 +134,7 @@ instance ToQuery DescribeHosts where
         toQuery DescribeHosts'{..}
           = mconcat
               ["Action" =: ("DescribeHosts" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "NextToken" =: _dhNextToken,
                toQuery (toQueryList "Filter" <$> _dhFilter),
                toQuery (toQueryList "HostId" <$> _dhHostIds),
@@ -168,7 +168,7 @@ describeHostsResponse pResponseStatus_ =
     , _dhrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the Dedicated hosts.
+-- | Information about the Dedicated Hosts.
 dhrsHosts :: Lens' DescribeHostsResponse [Host]
 dhrsHosts = lens _dhrsHosts (\ s a -> s{_dhrsHosts = a}) . _Default . _Coerce;
 

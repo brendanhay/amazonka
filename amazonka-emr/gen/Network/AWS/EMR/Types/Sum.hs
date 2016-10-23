@@ -33,7 +33,7 @@ instance FromText ActionOnFailure where
         "terminate_cluster" -> pure TerminateCluster
         "terminate_job_flow" -> pure TerminateJobFlow
         e -> fromTextError $ "Failure parsing ActionOnFailure from value: '" <> e
-           <> "'. Accepted values: CANCEL_AND_WAIT, CONTINUE, TERMINATE_CLUSTER, TERMINATE_JOB_FLOW"
+           <> "'. Accepted values: cancel_and_wait, continue, terminate_cluster, terminate_job_flow"
 
 instance ToText ActionOnFailure where
     toText = \case
@@ -74,7 +74,7 @@ instance FromText ClusterState where
         "terminating" -> pure CSTerminating
         "waiting" -> pure CSWaiting
         e -> fromTextError $ "Failure parsing ClusterState from value: '" <> e
-           <> "'. Accepted values: BOOTSTRAPPING, RUNNING, STARTING, TERMINATED, TERMINATED_WITH_ERRORS, TERMINATING, WAITING"
+           <> "'. Accepted values: bootstrapping, running, starting, terminated, terminated_with_errors, terminating, waiting"
 
 instance ToText ClusterState where
     toText = \case
@@ -118,7 +118,7 @@ instance FromText ClusterStateChangeReasonCode where
         "user_request" -> pure CSCRCUserRequest
         "validation_error" -> pure CSCRCValidationError
         e -> fromTextError $ "Failure parsing ClusterStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: ALL_STEPS_COMPLETED, BOOTSTRAP_FAILURE, INSTANCE_FAILURE, INTERNAL_ERROR, STEP_FAILURE, USER_REQUEST, VALIDATION_ERROR"
+           <> "'. Accepted values: all_steps_completed, bootstrap_failure, instance_failure, internal_error, step_failure, user_request, validation_error"
 
 instance ToText ClusterStateChangeReasonCode where
     toText = \case
@@ -165,7 +165,7 @@ instance FromText InstanceGroupState where
         "terminated" -> pure Terminated
         "terminating" -> pure Terminating
         e -> fromTextError $ "Failure parsing InstanceGroupState from value: '" <> e
-           <> "'. Accepted values: ARRESTED, BOOTSTRAPPING, ENDED, PROVISIONING, RESIZING, RUNNING, SHUTTING_DOWN, SUSPENDED, TERMINATED, TERMINATING"
+           <> "'. Accepted values: arrested, bootstrapping, ended, provisioning, resizing, running, shutting_down, suspended, terminated, terminating"
 
 instance ToText InstanceGroupState where
     toText = \case
@@ -203,7 +203,7 @@ instance FromText InstanceGroupStateChangeReasonCode where
         "internal_error" -> pure InternalError
         "validation_error" -> pure ValidationError
         e -> fromTextError $ "Failure parsing InstanceGroupStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: CLUSTER_TERMINATED, INSTANCE_FAILURE, INTERNAL_ERROR, VALIDATION_ERROR"
+           <> "'. Accepted values: cluster_terminated, instance_failure, internal_error, validation_error"
 
 instance ToText InstanceGroupStateChangeReasonCode where
     toText = \case
@@ -233,7 +233,7 @@ instance FromText InstanceGroupType where
         "master" -> pure Master
         "task" -> pure Task
         e -> fromTextError $ "Failure parsing InstanceGroupType from value: '" <> e
-           <> "'. Accepted values: CORE, MASTER, TASK"
+           <> "'. Accepted values: core, master, task"
 
 instance ToText InstanceGroupType where
     toText = \case
@@ -265,7 +265,7 @@ instance FromText InstanceRoleType where
         "master" -> pure IRTMaster
         "task" -> pure IRTTask
         e -> fromTextError $ "Failure parsing InstanceRoleType from value: '" <> e
-           <> "'. Accepted values: CORE, MASTER, TASK"
+           <> "'. Accepted values: core, master, task"
 
 instance ToText InstanceRoleType where
     toText = \case
@@ -298,7 +298,7 @@ instance FromText InstanceState where
         "running" -> pure ISRunning
         "terminated" -> pure ISTerminated
         e -> fromTextError $ "Failure parsing InstanceState from value: '" <> e
-           <> "'. Accepted values: AWAITING_FULFILLMENT, BOOTSTRAPPING, PROVISIONING, RUNNING, TERMINATED"
+           <> "'. Accepted values: awaiting_fulfillment, bootstrapping, provisioning, running, terminated"
 
 instance ToText InstanceState where
     toText = \case
@@ -313,6 +313,9 @@ instance NFData       InstanceState
 instance ToByteString InstanceState
 instance ToQuery      InstanceState
 instance ToHeader     InstanceState
+
+instance ToJSON InstanceState where
+    toJSON = toJSONText
 
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
@@ -333,7 +336,7 @@ instance FromText InstanceStateChangeReasonCode where
         "internal_error" -> pure ISCRCInternalError
         "validation_error" -> pure ISCRCValidationError
         e -> fromTextError $ "Failure parsing InstanceStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: BOOTSTRAP_FAILURE, CLUSTER_TERMINATED, INSTANCE_FAILURE, INTERNAL_ERROR, VALIDATION_ERROR"
+           <> "'. Accepted values: bootstrap_failure, cluster_terminated, instance_failure, internal_error, validation_error"
 
 instance ToText InstanceStateChangeReasonCode where
     toText = \case
@@ -362,7 +365,7 @@ instance FromText MarketType where
         "on_demand" -> pure OnDemand
         "spot" -> pure Spot
         e -> fromTextError $ "Failure parsing MarketType from value: '" <> e
-           <> "'. Accepted values: ON_DEMAND, SPOT"
+           <> "'. Accepted values: on_demand, spot"
 
 instance ToText MarketType where
     toText = \case
@@ -399,7 +402,7 @@ instance FromText StepState where
         "pending" -> pure SSPending
         "running" -> pure SSRunning
         e -> fromTextError $ "Failure parsing StepState from value: '" <> e
-           <> "'. Accepted values: CANCELLED, COMPLETED, FAILED, INTERRUPTED, PENDING, RUNNING"
+           <> "'. Accepted values: cancelled, completed, failed, interrupted, pending, running"
 
 instance ToText StepState where
     toText = \case
@@ -430,7 +433,7 @@ instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
         "none" -> pure None
         e -> fromTextError $ "Failure parsing StepStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: NONE"
+           <> "'. Accepted values: none"
 
 instance ToText StepStateChangeReasonCode where
     toText = \case

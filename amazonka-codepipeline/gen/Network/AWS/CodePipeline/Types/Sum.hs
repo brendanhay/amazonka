@@ -20,7 +20,8 @@ module Network.AWS.CodePipeline.Types.Sum where
 import           Network.AWS.Prelude
 
 data ActionCategory
-    = Build
+    = Approval
+    | Build
     | Deploy
     | Invoke
     | Source
@@ -29,16 +30,18 @@ data ActionCategory
 
 instance FromText ActionCategory where
     parser = takeLowerText >>= \case
+        "approval" -> pure Approval
         "build" -> pure Build
         "deploy" -> pure Deploy
         "invoke" -> pure Invoke
         "source" -> pure Source
         "test" -> pure Test
         e -> fromTextError $ "Failure parsing ActionCategory from value: '" <> e
-           <> "'. Accepted values: Build, Deploy, Invoke, Source, Test"
+           <> "'. Accepted values: approval, build, deploy, invoke, source, test"
 
 instance ToText ActionCategory where
     toText = \case
+        Approval -> "Approval"
         Build -> "Build"
         Deploy -> "Deploy"
         Invoke -> "Invoke"
@@ -69,7 +72,7 @@ instance FromText ActionConfigurationPropertyType where
         "number" -> pure Number
         "string" -> pure String
         e -> fromTextError $ "Failure parsing ActionConfigurationPropertyType from value: '" <> e
-           <> "'. Accepted values: Boolean, Number, String"
+           <> "'. Accepted values: boolean, number, string"
 
 instance ToText ActionConfigurationPropertyType where
     toText = \case
@@ -90,24 +93,24 @@ instance FromJSON ActionConfigurationPropertyType where
     parseJSON = parseJSONText "ActionConfigurationPropertyType"
 
 data ActionExecutionStatus
-    = Failed
-    | InProgress
-    | Succeeded
+    = AESFailed
+    | AESInProgress
+    | AESSucceeded
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionExecutionStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "inprogress" -> pure InProgress
-        "succeeded" -> pure Succeeded
+        "failed" -> pure AESFailed
+        "inprogress" -> pure AESInProgress
+        "succeeded" -> pure AESSucceeded
         e -> fromTextError $ "Failure parsing ActionExecutionStatus from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Succeeded"
+           <> "'. Accepted values: failed, inprogress, succeeded"
 
 instance ToText ActionExecutionStatus where
     toText = \case
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Succeeded -> "Succeeded"
+        AESFailed -> "Failed"
+        AESInProgress -> "InProgress"
+        AESSucceeded -> "Succeeded"
 
 instance Hashable     ActionExecutionStatus
 instance NFData       ActionExecutionStatus
@@ -130,7 +133,7 @@ instance FromText ActionOwner where
         "custom" -> pure Custom
         "thirdparty" -> pure ThirdParty
         e -> fromTextError $ "Failure parsing ActionOwner from value: '" <> e
-           <> "'. Accepted values: AWS, Custom, ThirdParty"
+           <> "'. Accepted values: aws, custom, thirdparty"
 
 instance ToText ActionOwner where
     toText = \case
@@ -150,6 +153,32 @@ instance ToJSON ActionOwner where
 instance FromJSON ActionOwner where
     parseJSON = parseJSONText "ActionOwner"
 
+data ApprovalStatus
+    = Approved
+    | Rejected
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ApprovalStatus where
+    parser = takeLowerText >>= \case
+        "approved" -> pure Approved
+        "rejected" -> pure Rejected
+        e -> fromTextError $ "Failure parsing ApprovalStatus from value: '" <> e
+           <> "'. Accepted values: approved, rejected"
+
+instance ToText ApprovalStatus where
+    toText = \case
+        Approved -> "Approved"
+        Rejected -> "Rejected"
+
+instance Hashable     ApprovalStatus
+instance NFData       ApprovalStatus
+instance ToByteString ApprovalStatus
+instance ToQuery      ApprovalStatus
+instance ToHeader     ApprovalStatus
+
+instance ToJSON ApprovalStatus where
+    toJSON = toJSONText
+
 data ArtifactLocationType =
     ALTS3
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -158,7 +187,7 @@ instance FromText ArtifactLocationType where
     parser = takeLowerText >>= \case
         "s3" -> pure ALTS3
         e -> fromTextError $ "Failure parsing ArtifactLocationType from value: '" <> e
-           <> "'. Accepted values: S3"
+           <> "'. Accepted values: s3"
 
 instance ToText ArtifactLocationType where
     toText = \case
@@ -181,7 +210,7 @@ instance FromText ArtifactStoreType where
     parser = takeLowerText >>= \case
         "s3" -> pure S3
         e -> fromTextError $ "Failure parsing ArtifactStoreType from value: '" <> e
-           <> "'. Accepted values: S3"
+           <> "'. Accepted values: s3"
 
 instance ToText ArtifactStoreType where
     toText = \case
@@ -207,7 +236,7 @@ instance FromText BlockerType where
     parser = takeLowerText >>= \case
         "schedule" -> pure Schedule
         e -> fromTextError $ "Failure parsing BlockerType from value: '" <> e
-           <> "'. Accepted values: Schedule"
+           <> "'. Accepted values: schedule"
 
 instance ToText BlockerType where
     toText = \case
@@ -233,7 +262,7 @@ instance FromText EncryptionKeyType where
     parser = takeLowerText >>= \case
         "kms" -> pure KMS
         e -> fromTextError $ "Failure parsing EncryptionKeyType from value: '" <> e
-           <> "'. Accepted values: KMS"
+           <> "'. Accepted values: kms"
 
 instance ToText EncryptionKeyType where
     toText = \case
@@ -269,7 +298,7 @@ instance FromText FailureType where
         "revisionunavailable" -> pure RevisionUnavailable
         "systemunavailable" -> pure SystemUnavailable
         e -> fromTextError $ "Failure parsing FailureType from value: '" <> e
-           <> "'. Accepted values: ConfigurationError, JobFailed, PermissionError, RevisionOutOfSync, RevisionUnavailable, SystemUnavailable"
+           <> "'. Accepted values: configurationerror, jobfailed, permissionerror, revisionoutofsync, revisionunavailable, systemunavailable"
 
 instance ToText FailureType where
     toText = \case
@@ -309,7 +338,7 @@ instance FromText JobStatus where
         "succeeded" -> pure JSSucceeded
         "timedout" -> pure JSTimedOut
         e -> fromTextError $ "Failure parsing JobStatus from value: '" <> e
-           <> "'. Accepted values: Created, Dispatched, Failed, InProgress, Queued, Succeeded, TimedOut"
+           <> "'. Accepted values: created, dispatched, failed, inprogress, queued, succeeded, timedout"
 
 instance ToText JobStatus where
     toText = \case
@@ -330,6 +359,90 @@ instance ToHeader     JobStatus
 instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
+data PipelineExecutionStatus
+    = Failed
+    | InProgress
+    | Succeeded
+    | Superseded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PipelineExecutionStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "succeeded" -> pure Succeeded
+        "superseded" -> pure Superseded
+        e -> fromTextError $ "Failure parsing PipelineExecutionStatus from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, succeeded, superseded"
+
+instance ToText PipelineExecutionStatus where
+    toText = \case
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Succeeded -> "Succeeded"
+        Superseded -> "Superseded"
+
+instance Hashable     PipelineExecutionStatus
+instance NFData       PipelineExecutionStatus
+instance ToByteString PipelineExecutionStatus
+instance ToQuery      PipelineExecutionStatus
+instance ToHeader     PipelineExecutionStatus
+
+instance FromJSON PipelineExecutionStatus where
+    parseJSON = parseJSONText "PipelineExecutionStatus"
+
+data StageExecutionStatus
+    = SESFailed
+    | SESInProgress
+    | SESSucceeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StageExecutionStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure SESFailed
+        "inprogress" -> pure SESInProgress
+        "succeeded" -> pure SESSucceeded
+        e -> fromTextError $ "Failure parsing StageExecutionStatus from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, succeeded"
+
+instance ToText StageExecutionStatus where
+    toText = \case
+        SESFailed -> "Failed"
+        SESInProgress -> "InProgress"
+        SESSucceeded -> "Succeeded"
+
+instance Hashable     StageExecutionStatus
+instance NFData       StageExecutionStatus
+instance ToByteString StageExecutionStatus
+instance ToQuery      StageExecutionStatus
+instance ToHeader     StageExecutionStatus
+
+instance FromJSON StageExecutionStatus where
+    parseJSON = parseJSONText "StageExecutionStatus"
+
+data StageRetryMode =
+    FailedActions
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StageRetryMode where
+    parser = takeLowerText >>= \case
+        "failed_actions" -> pure FailedActions
+        e -> fromTextError $ "Failure parsing StageRetryMode from value: '" <> e
+           <> "'. Accepted values: failed_actions"
+
+instance ToText StageRetryMode where
+    toText = \case
+        FailedActions -> "FAILED_ACTIONS"
+
+instance Hashable     StageRetryMode
+instance NFData       StageRetryMode
+instance ToByteString StageRetryMode
+instance ToQuery      StageRetryMode
+instance ToHeader     StageRetryMode
+
+instance ToJSON StageRetryMode where
+    toJSON = toJSONText
+
 data StageTransitionType
     = Inbound
     | Outbound
@@ -340,7 +453,7 @@ instance FromText StageTransitionType where
         "inbound" -> pure Inbound
         "outbound" -> pure Outbound
         e -> fromTextError $ "Failure parsing StageTransitionType from value: '" <> e
-           <> "'. Accepted values: Inbound, Outbound"
+           <> "'. Accepted values: inbound, outbound"
 
 instance ToText StageTransitionType where
     toText = \case

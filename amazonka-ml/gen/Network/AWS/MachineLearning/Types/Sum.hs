@@ -19,10 +19,10 @@ module Network.AWS.MachineLearning.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The function used to train a 'MLModel'. Training choices supported by Amazon ML include the following:
+-- | The function used to train an 'MLModel'. Training choices supported by Amazon ML include the following:
 --
--- -   SGD - Stochastic Gradient Descent.
--- -   RandomForest - Random forest of decision trees.
+-- -   'SGD' - Stochastic Gradient Descent.
+-- -   'RandomForest' - Random forest of decision trees.
 data Algorithm =
     SGD
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -77,7 +77,7 @@ instance FromText BatchPredictionFilterVariable where
         "name" -> pure BatchName
         "status" -> pure BatchStatus
         e -> fromTextError $ "Failure parsing BatchPredictionFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataSourceId, DataURI, IAMUser, LastUpdatedAt, MLModelId, Name, Status"
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText BatchPredictionFilterVariable where
     toText = \case
@@ -128,7 +128,7 @@ instance FromText DataSourceFilterVariable where
         "name" -> pure DataName
         "status" -> pure DataStatus
         e -> fromTextError $ "Failure parsing DataSourceFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataLocationS3, IAMUser, LastUpdatedAt, Name, Status"
+           <> "'. Accepted values: createdat, datalocations3, iamuser, lastupdatedat, name, status"
 
 instance ToText DataSourceFilterVariable where
     toText = \case
@@ -148,7 +148,7 @@ instance ToHeader     DataSourceFilterVariable
 instance ToJSON DataSourceFilterVariable where
     toJSON = toJSONText
 
--- | Contains the key values of 'DetailsMap': PredictiveModelType - Indicates the type of the 'MLModel'. Algorithm - Indicates the algorithm was used for the 'MLModel'.
+-- | Contains the key values of 'DetailsMap': 'PredictiveModelType' - Indicates the type of the 'MLModel'. 'Algorithm' - Indicates the algorithm that was used for the 'MLModel'.
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
@@ -159,7 +159,7 @@ instance FromText DetailsAttributes where
         "algorithm" -> pure Algorithm
         "predictivemodeltype" -> pure PredictiveModelType
         e -> fromTextError $ "Failure parsing DetailsAttributes from value: '" <> e
-           <> "'. Accepted values: Algorithm, PredictiveModelType"
+           <> "'. Accepted values: algorithm, predictivemodeltype"
 
 instance ToText DetailsAttributes where
     toText = \case
@@ -175,13 +175,13 @@ instance ToHeader     DetailsAttributes
 instance FromJSON DetailsAttributes where
     parseJSON = parseJSONText "DetailsAttributes"
 
--- | Entity status with the following possible values:
+-- | Object status with the following possible values:
 --
--- -   PENDING
--- -   INPROGRESS
--- -   FAILED
--- -   COMPLETED
--- -   DELETED
+-- -   'PENDING'
+-- -   'INPROGRESS'
+-- -   'FAILED'
+-- -   'COMPLETED'
+-- -   'DELETED'
 data EntityStatus
     = ESCompleted
     | ESDeleted
@@ -198,7 +198,7 @@ instance FromText EntityStatus where
         "inprogress" -> pure ESInprogress
         "pending" -> pure ESPending
         e -> fromTextError $ "Failure parsing EntityStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETED, DELETED, FAILED, INPROGRESS, PENDING"
+           <> "'. Accepted values: completed, deleted, failed, inprogress, pending"
 
 instance ToText EntityStatus where
     toText = \case
@@ -248,7 +248,7 @@ instance FromText EvaluationFilterVariable where
         "name" -> pure EvalName
         "status" -> pure EvalStatus
         e -> fromTextError $ "Failure parsing EvaluationFilterVariable from value: '" <> e
-           <> "'. Accepted values: CreatedAt, DataSourceId, DataURI, IAMUser, LastUpdatedAt, MLModelId, Name, Status"
+           <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText EvaluationFilterVariable where
     toText = \case
@@ -296,7 +296,7 @@ instance FromText MLModelFilterVariable where
         "trainingdatasourceid" -> pure MLMFVTrainingDataSourceId
         "trainingdatauri" -> pure MLMFVTrainingDataURI
         e -> fromTextError $ "Failure parsing MLModelFilterVariable from value: '" <> e
-           <> "'. Accepted values: Algorithm, CreatedAt, IAMUser, LastUpdatedAt, MLModelType, Name, RealtimeEndpointStatus, Status, TrainingDataSourceId, TrainingDataURI"
+           <> "'. Accepted values: algorithm, createdat, iamuser, lastupdatedat, mlmodeltype, name, realtimeendpointstatus, status, trainingdatasourceid, trainingdatauri"
 
 instance ToText MLModelFilterVariable where
     toText = \case
@@ -332,7 +332,7 @@ instance FromText MLModelType where
         "multiclass" -> pure Multiclass
         "regression" -> pure Regression
         e -> fromTextError $ "Failure parsing MLModelType from value: '" <> e
-           <> "'. Accepted values: BINARY, MULTICLASS, REGRESSION"
+           <> "'. Accepted values: binary, multiclass, regression"
 
 instance ToText MLModelType where
     toText = \case
@@ -366,7 +366,7 @@ instance FromText RealtimeEndpointStatus where
         "ready" -> pure Ready
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing RealtimeEndpointStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, NONE, READY, UPDATING"
+           <> "'. Accepted values: failed, none, ready, updating"
 
 instance ToText RealtimeEndpointStatus where
     toText = \case
@@ -413,3 +413,38 @@ instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
+
+data TaggableResourceType
+    = BatchPrediction
+    | DataSource
+    | Evaluation
+    | MLModel
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaggableResourceType where
+    parser = takeLowerText >>= \case
+        "batchprediction" -> pure BatchPrediction
+        "datasource" -> pure DataSource
+        "evaluation" -> pure Evaluation
+        "mlmodel" -> pure MLModel
+        e -> fromTextError $ "Failure parsing TaggableResourceType from value: '" <> e
+           <> "'. Accepted values: batchprediction, datasource, evaluation, mlmodel"
+
+instance ToText TaggableResourceType where
+    toText = \case
+        BatchPrediction -> "BatchPrediction"
+        DataSource -> "DataSource"
+        Evaluation -> "Evaluation"
+        MLModel -> "MLModel"
+
+instance Hashable     TaggableResourceType
+instance NFData       TaggableResourceType
+instance ToByteString TaggableResourceType
+instance ToQuery      TaggableResourceType
+instance ToHeader     TaggableResourceType
+
+instance ToJSON TaggableResourceType where
+    toJSON = toJSONText
+
+instance FromJSON TaggableResourceType where
+    parseJSON = parseJSONText "TaggableResourceType"

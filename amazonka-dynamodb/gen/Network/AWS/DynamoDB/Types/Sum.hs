@@ -31,7 +31,7 @@ instance FromText AttributeAction where
         "delete" -> pure Delete
         "put" -> pure Put
         e -> fromTextError $ "Failure parsing AttributeAction from value: '" <> e
-           <> "'. Accepted values: ADD, DELETE, PUT"
+           <> "'. Accepted values: add, delete, put"
 
 instance ToText AttributeAction where
     toText = \case
@@ -80,7 +80,7 @@ instance FromText ComparisonOperator where
         "not_null" -> pure NotNull
         "null" -> pure Null
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: BEGINS_WITH, BETWEEN, CONTAINS, EQ, GE, GT, IN, LE, LT, NE, NOT_CONTAINS, NOT_NULL, NULL"
+           <> "'. Accepted values: begins_with, between, contains, eq, ge, gt, in, le, lt, ne, not_contains, not_null, null"
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -117,7 +117,7 @@ instance FromText ConditionalOperator where
         "and" -> pure And
         "or" -> pure OR
         e -> fromTextError $ "Failure parsing ConditionalOperator from value: '" <> e
-           <> "'. Accepted values: AND, OR"
+           <> "'. Accepted values: and, or"
 
 instance ToText ConditionalOperator where
     toText = \case
@@ -147,7 +147,7 @@ instance FromText IndexStatus where
         "deleting" -> pure ISDeleting
         "updating" -> pure ISUpdating
         e -> fromTextError $ "Failure parsing IndexStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText IndexStatus where
     toText = \case
@@ -175,7 +175,7 @@ instance FromText KeyType where
         "hash" -> pure Hash
         "range" -> pure Range
         e -> fromTextError $ "Failure parsing KeyType from value: '" <> e
-           <> "'. Accepted values: HASH, RANGE"
+           <> "'. Accepted values: hash, range"
 
 instance ToText KeyType where
     toText = \case
@@ -206,7 +206,7 @@ instance FromText ProjectionType where
         "include" -> pure Include
         "keys_only" -> pure KeysOnly
         e -> fromTextError $ "Failure parsing ProjectionType from value: '" <> e
-           <> "'. Accepted values: ALL, INCLUDE, KEYS_ONLY"
+           <> "'. Accepted values: all, include, keys_only"
 
 instance ToText ProjectionType where
     toText = \case
@@ -248,7 +248,7 @@ instance FromText ReturnConsumedCapacity where
         "none" -> pure RCCNone
         "total" -> pure RCCTotal
         e -> fromTextError $ "Failure parsing ReturnConsumedCapacity from value: '" <> e
-           <> "'. Accepted values: INDEXES, NONE, TOTAL"
+           <> "'. Accepted values: indexes, none, total"
 
 instance ToText ReturnConsumedCapacity where
     toText = \case
@@ -275,7 +275,7 @@ instance FromText ReturnItemCollectionMetrics where
         "none" -> pure RICMNone
         "size" -> pure RICMSize
         e -> fromTextError $ "Failure parsing ReturnItemCollectionMetrics from value: '" <> e
-           <> "'. Accepted values: NONE, SIZE"
+           <> "'. Accepted values: none, size"
 
 instance ToText ReturnItemCollectionMetrics where
     toText = \case
@@ -307,7 +307,7 @@ instance FromText ReturnValue where
         "updated_new" -> pure UpdatedNew
         "updated_old" -> pure UpdatedOld
         e -> fromTextError $ "Failure parsing ReturnValue from value: '" <> e
-           <> "'. Accepted values: ALL_NEW, ALL_OLD, NONE, UPDATED_NEW, UPDATED_OLD"
+           <> "'. Accepted values: all_new, all_old, none, updated_new, updated_old"
 
 instance ToText ReturnValue where
     toText = \case
@@ -338,7 +338,7 @@ instance FromText ScalarAttributeType where
         "n" -> pure N
         "s" -> pure S
         e -> fromTextError $ "Failure parsing ScalarAttributeType from value: '" <> e
-           <> "'. Accepted values: B, N, S"
+           <> "'. Accepted values: b, n, s"
 
 instance ToText ScalarAttributeType where
     toText = \case
@@ -372,7 +372,7 @@ instance FromText Select where
         "count" -> pure Count
         "specific_attributes" -> pure SpecificAttributes
         e -> fromTextError $ "Failure parsing Select from value: '" <> e
-           <> "'. Accepted values: ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, COUNT, SPECIFIC_ATTRIBUTES"
+           <> "'. Accepted values: all_attributes, all_projected_attributes, count, specific_attributes"
 
 instance ToText Select where
     toText = \case
@@ -404,7 +404,7 @@ instance FromText StreamViewType where
         "new_image" -> pure SVTNewImage
         "old_image" -> pure SVTOldImage
         e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
-           <> "'. Accepted values: KEYS_ONLY, NEW_AND_OLD_IMAGES, NEW_IMAGE, OLD_IMAGE"
+           <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
 
 instance ToText StreamViewType where
     toText = \case
@@ -439,7 +439,7 @@ instance FromText TableStatus where
         "deleting" -> pure Deleting
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing TableStatus from value: '" <> e
-           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
+           <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText TableStatus where
     toText = \case

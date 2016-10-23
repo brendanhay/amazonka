@@ -40,6 +40,9 @@ import Test.AWS.KMS.Internal
 --         , requestGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintext
 --
+--         , requestGetParametersForImport $
+--             getParametersForImport
+--
 --         , requestEnableKeyRotation $
 --             enableKeyRotation
 --
@@ -115,6 +118,12 @@ import Test.AWS.KMS.Internal
 --         , requestGetKeyPolicy $
 --             getKeyPolicy
 --
+--         , requestImportKeyMaterial $
+--             importKeyMaterial
+--
+--         , requestDeleteImportedKeyMaterial $
+--             deleteImportedKeyMaterial
+--
 --           ]
 
 --     , testGroup "response"
@@ -129,6 +138,9 @@ import Test.AWS.KMS.Internal
 --
 --         , responseGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintextResponse
+--
+--         , responseGetParametersForImport $
+--             getParametersForImportResponse
 --
 --         , responseEnableKeyRotation $
 --             enableKeyRotationResponse
@@ -205,6 +217,12 @@ import Test.AWS.KMS.Internal
 --         , responseGetKeyPolicy $
 --             getKeyPolicyResponse
 --
+--         , responseImportKeyMaterial $
+--             importKeyMaterialResponse
+--
+--         , responseDeleteImportedKeyMaterial $
+--             deleteImportedKeyMaterialResponse
+--
 --           ]
 --     ]
 
@@ -229,6 +247,11 @@ requestGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintext -> Tes
 requestGenerateDataKeyWithoutPlaintext = req
     "GenerateDataKeyWithoutPlaintext"
     "fixture/GenerateDataKeyWithoutPlaintext.yaml"
+
+requestGetParametersForImport :: GetParametersForImport -> TestTree
+requestGetParametersForImport = req
+    "GetParametersForImport"
+    "fixture/GetParametersForImport.yaml"
 
 requestEnableKeyRotation :: EnableKeyRotation -> TestTree
 requestEnableKeyRotation = req
@@ -355,6 +378,16 @@ requestGetKeyPolicy = req
     "GetKeyPolicy"
     "fixture/GetKeyPolicy.yaml"
 
+requestImportKeyMaterial :: ImportKeyMaterial -> TestTree
+requestImportKeyMaterial = req
+    "ImportKeyMaterial"
+    "fixture/ImportKeyMaterial.yaml"
+
+requestDeleteImportedKeyMaterial :: DeleteImportedKeyMaterial -> TestTree
+requestDeleteImportedKeyMaterial = req
+    "DeleteImportedKeyMaterial"
+    "fixture/DeleteImportedKeyMaterial.yaml"
+
 -- Responses
 
 responseEncrypt :: EncryptResponse -> TestTree
@@ -384,6 +417,13 @@ responseGenerateDataKeyWithoutPlaintext = res
     "fixture/GenerateDataKeyWithoutPlaintextResponse.proto"
     kms
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
+
+responseGetParametersForImport :: GetParametersForImportResponse -> TestTree
+responseGetParametersForImport = res
+    "GetParametersForImportResponse"
+    "fixture/GetParametersForImportResponse.proto"
+    kms
+    (Proxy :: Proxy GetParametersForImport)
 
 responseEnableKeyRotation :: EnableKeyRotationResponse -> TestTree
 responseEnableKeyRotation = res
@@ -559,3 +599,17 @@ responseGetKeyPolicy = res
     "fixture/GetKeyPolicyResponse.proto"
     kms
     (Proxy :: Proxy GetKeyPolicy)
+
+responseImportKeyMaterial :: ImportKeyMaterialResponse -> TestTree
+responseImportKeyMaterial = res
+    "ImportKeyMaterialResponse"
+    "fixture/ImportKeyMaterialResponse.proto"
+    kms
+    (Proxy :: Proxy ImportKeyMaterial)
+
+responseDeleteImportedKeyMaterial :: DeleteImportedKeyMaterialResponse -> TestTree
+responseDeleteImportedKeyMaterial = res
+    "DeleteImportedKeyMaterialResponse"
+    "fixture/DeleteImportedKeyMaterialResponse.proto"
+    kms
+    (Proxy :: Proxy DeleteImportedKeyMaterial)

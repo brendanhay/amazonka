@@ -65,7 +65,7 @@ describeIdFormat =
     { _difResource = Nothing
     }
 
--- | The type of resource.
+-- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
 difResource :: Lens' DescribeIdFormat (Maybe Text)
 difResource = lens _difResource (\ s a -> s{_difResource = a});
 
@@ -94,7 +94,7 @@ instance ToQuery DescribeIdFormat where
         toQuery DescribeIdFormat'{..}
           = mconcat
               ["Action" =: ("DescribeIdFormat" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "Resource" =: _difResource]
 
 -- | Contains the output of DescribeIdFormat.

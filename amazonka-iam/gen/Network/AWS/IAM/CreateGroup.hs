@@ -67,13 +67,17 @@ createGroup pGroupName_ =
     , _cgGroupName = pGroupName_
     }
 
--- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (\/).
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 
 -- | The name of the group to create. Do not include the path in this value.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both \"ADMINS\" and \"admins\".
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
@@ -132,7 +136,7 @@ createGroupResponse pResponseStatus_ pGroup_ =
 cgrsResponseStatus :: Lens' CreateGroupResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 
--- | Information about the group.
+-- | A structure containing details about the new group.
 cgrsGroup :: Lens' CreateGroupResponse Group
 cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});
 

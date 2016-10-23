@@ -81,11 +81,11 @@ updateAlias pAliasId_ =
 uaRoutingStrategy :: Lens' UpdateAlias (Maybe RoutingStrategy)
 uaRoutingStrategy = lens _uaRoutingStrategy (\ s a -> s{_uaRoutingStrategy = a});
 
--- | Descriptive label associated with this alias. Alias names do not need to be unique.
+-- | Descriptive label associated with an alias. Alias names do not need to be unique.
 uaName :: Lens' UpdateAlias (Maybe Text)
 uaName = lens _uaName (\ s a -> s{_uaName = a});
 
--- | Human-readable description of the alias.
+-- | Human-readable description of an alias.
 uaDescription :: Lens' UpdateAlias (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 

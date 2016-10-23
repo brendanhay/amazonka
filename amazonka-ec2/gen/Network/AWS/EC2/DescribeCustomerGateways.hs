@@ -131,7 +131,7 @@ instance ToQuery DescribeCustomerGateways where
           = mconcat
               ["Action" =:
                  ("DescribeCustomerGateways" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery
                  (toQueryList "CustomerGatewayId" <$>
                     _dcgCustomerGatewayIds),

@@ -76,7 +76,7 @@ updateModel pRestAPIId_ pModelName_ =
     , _uModelName = pModelName_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
 uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
 

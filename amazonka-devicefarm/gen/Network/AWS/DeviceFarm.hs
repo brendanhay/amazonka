@@ -56,6 +56,9 @@ module Network.AWS.DeviceFarm
     -- ** GetDevicePoolCompatibility
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
+    -- ** InstallToRemoteAccessSession
+    , module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
+
     -- ** ListTests (Paginated)
     , module Network.AWS.DeviceFarm.ListTests
 
@@ -64,6 +67,9 @@ module Network.AWS.DeviceFarm
 
     -- ** CreateUpload
     , module Network.AWS.DeviceFarm.CreateUpload
+
+    -- ** DeleteRemoteAccessSession
+    , module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
 
     -- ** DeleteUpload
     , module Network.AWS.DeviceFarm.DeleteUpload
@@ -107,6 +113,9 @@ module Network.AWS.DeviceFarm
     -- ** ListJobs (Paginated)
     , module Network.AWS.DeviceFarm.ListJobs
 
+    -- ** StopRemoteAccessSession
+    , module Network.AWS.DeviceFarm.StopRemoteAccessSession
+
     -- ** GetJob
     , module Network.AWS.DeviceFarm.GetJob
 
@@ -122,8 +131,14 @@ module Network.AWS.DeviceFarm
     -- ** ListSuites (Paginated)
     , module Network.AWS.DeviceFarm.ListSuites
 
+    -- ** ListRemoteAccessSessions
+    , module Network.AWS.DeviceFarm.ListRemoteAccessSessions
+
     -- ** GetAccountSettings
     , module Network.AWS.DeviceFarm.GetAccountSettings
+
+    -- ** CreateRemoteAccessSession
+    , module Network.AWS.DeviceFarm.CreateRemoteAccessSession
 
     -- ** GetOfferingStatus
     , module Network.AWS.DeviceFarm.GetOfferingStatus
@@ -133,6 +148,9 @@ module Network.AWS.DeviceFarm
 
     -- ** GetSuite
     , module Network.AWS.DeviceFarm.GetSuite
+
+    -- ** GetRemoteAccessSession
+    , module Network.AWS.DeviceFarm.GetRemoteAccessSession
 
     -- ** PurchaseOffering
     , module Network.AWS.DeviceFarm.PurchaseOffering
@@ -245,6 +263,11 @@ module Network.AWS.DeviceFarm
     , cFailed
     , cErrored
 
+    -- ** CreateRemoteAccessSessionConfiguration
+    , CreateRemoteAccessSessionConfiguration
+    , createRemoteAccessSessionConfiguration
+    , crascBillingMethod
+
     -- ** Device
     , Device
     , device
@@ -252,8 +275,10 @@ module Network.AWS.DeviceFarm
     , devImage
     , devManufacturer
     , devPlatform
+    , devRemoteAccessEnabled
     , devArn
     , devFormFactor
+    , devFleetType
     , devResolution
     , devMemory
     , devRadio
@@ -262,6 +287,7 @@ module Network.AWS.DeviceFarm
     , devModel
     , devCpu
     , devHeapSize
+    , devFleetName
 
     -- ** DeviceMinutes
     , DeviceMinutes
@@ -383,6 +409,22 @@ module Network.AWS.DeviceFarm
     , rcFrequency
     , rcCost
 
+    -- ** RemoteAccessSession
+    , RemoteAccessSession
+    , remoteAccessSession
+    , rasBillingMethod
+    , rasStatus
+    , rasArn
+    , rasCreated
+    , rasDevice
+    , rasStopped
+    , rasResult
+    , rasName
+    , rasDeviceMinutes
+    , rasEndpoint
+    , rasMessage
+    , rasStarted
+
     -- ** Resolution
     , Resolution
     , resolution
@@ -493,9 +535,11 @@ module Network.AWS.DeviceFarm
 
 import           Network.AWS.DeviceFarm.CreateDevicePool
 import           Network.AWS.DeviceFarm.CreateProject
+import           Network.AWS.DeviceFarm.CreateRemoteAccessSession
 import           Network.AWS.DeviceFarm.CreateUpload
 import           Network.AWS.DeviceFarm.DeleteDevicePool
 import           Network.AWS.DeviceFarm.DeleteProject
+import           Network.AWS.DeviceFarm.DeleteRemoteAccessSession
 import           Network.AWS.DeviceFarm.DeleteRun
 import           Network.AWS.DeviceFarm.DeleteUpload
 import           Network.AWS.DeviceFarm.GetAccountSettings
@@ -505,10 +549,12 @@ import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 import           Network.AWS.DeviceFarm.GetJob
 import           Network.AWS.DeviceFarm.GetOfferingStatus
 import           Network.AWS.DeviceFarm.GetProject
+import           Network.AWS.DeviceFarm.GetRemoteAccessSession
 import           Network.AWS.DeviceFarm.GetRun
 import           Network.AWS.DeviceFarm.GetSuite
 import           Network.AWS.DeviceFarm.GetTest
 import           Network.AWS.DeviceFarm.GetUpload
+import           Network.AWS.DeviceFarm.InstallToRemoteAccessSession
 import           Network.AWS.DeviceFarm.ListArtifacts
 import           Network.AWS.DeviceFarm.ListDevicePools
 import           Network.AWS.DeviceFarm.ListDevices
@@ -516,6 +562,7 @@ import           Network.AWS.DeviceFarm.ListJobs
 import           Network.AWS.DeviceFarm.ListOfferings
 import           Network.AWS.DeviceFarm.ListOfferingTransactions
 import           Network.AWS.DeviceFarm.ListProjects
+import           Network.AWS.DeviceFarm.ListRemoteAccessSessions
 import           Network.AWS.DeviceFarm.ListRuns
 import           Network.AWS.DeviceFarm.ListSamples
 import           Network.AWS.DeviceFarm.ListSuites
@@ -525,6 +572,7 @@ import           Network.AWS.DeviceFarm.ListUploads
 import           Network.AWS.DeviceFarm.PurchaseOffering
 import           Network.AWS.DeviceFarm.RenewOffering
 import           Network.AWS.DeviceFarm.ScheduleRun
+import           Network.AWS.DeviceFarm.StopRemoteAccessSession
 import           Network.AWS.DeviceFarm.StopRun
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.UpdateDevicePool

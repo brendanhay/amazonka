@@ -59,7 +59,7 @@ instance FromText RepositoryTriggerEventEnum where
         "deletereference" -> pure DeleteReference
         "updatereference" -> pure UpdateReference
         e -> fromTextError $ "Failure parsing RepositoryTriggerEventEnum from value: '" <> e
-           <> "'. Accepted values: all, createReference, deleteReference, updateReference"
+           <> "'. Accepted values: all, createreference, deletereference, updatereference"
 
 instance ToText RepositoryTriggerEventEnum where
     toText = \case
@@ -90,7 +90,7 @@ instance FromText SortByEnum where
         "lastmodifieddate" -> pure LastModifiedDate
         "repositoryname" -> pure RepositoryName
         e -> fromTextError $ "Failure parsing SortByEnum from value: '" <> e
-           <> "'. Accepted values: lastModifiedDate, repositoryName"
+           <> "'. Accepted values: lastmodifieddate, repositoryname"
 
 instance ToText SortByEnum where
     toText = \case

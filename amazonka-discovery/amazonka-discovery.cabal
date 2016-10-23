@@ -1,5 +1,5 @@
 name:                  amazonka-discovery
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Application Discovery Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -207,7 +207,7 @@ library
         , Network.AWS.Discovery.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-discovery-test
@@ -227,9 +227,9 @@ test-suite amazonka-discovery-test
         , Test.AWS.Discovery.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-discovery == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-discovery == 1.4.4.*
         , base
         , bytestring
         , tasty

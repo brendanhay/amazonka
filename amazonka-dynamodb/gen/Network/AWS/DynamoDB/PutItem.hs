@@ -151,6 +151,7 @@ piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExp
 --
 -- -   'ALL_OLD' - If /PutItem/ overwrote an attribute name-value pair, then the content of the old item is returned.
 --
+-- The /ReturnValues/ parameter is used by several DynamoDB operations; however, /PutItem/ does not recognize any values other than 'NONE' or 'ALL_OLD'.
 piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 

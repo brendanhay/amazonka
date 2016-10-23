@@ -64,6 +64,9 @@ module Network.AWS.AutoScaling
     -- ** PutScalingPolicy
     , module Network.AWS.AutoScaling.PutScalingPolicy
 
+    -- ** AttachLoadBalancerTargetGroups
+    , module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
+
     -- ** DeleteLaunchConfiguration
     , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
 
@@ -102,6 +105,9 @@ module Network.AWS.AutoScaling
 
     -- ** DeleteTags
     , module Network.AWS.AutoScaling.DeleteTags
+
+    -- ** DetachLoadBalancerTargetGroups
+    , module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
 
     -- ** DescribeLifecycleHooks
     , module Network.AWS.AutoScaling.DescribeLifecycleHooks
@@ -162,6 +168,9 @@ module Network.AWS.AutoScaling
 
     -- ** TerminateInstanceInAutoScalingGroup
     , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
+
+    -- ** DescribeLoadBalancerTargetGroups
+    , module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
 
     -- ** PutScheduledUpdateGroupAction
     , module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
@@ -234,6 +243,7 @@ module Network.AWS.AutoScaling
     , asgHealthCheckGracePeriod
     , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
+    , asgTargetGroupARNs
     , asgEnabledMetrics
     , asgLaunchConfigurationName
     , asgInstances
@@ -349,6 +359,12 @@ module Network.AWS.AutoScaling
     , lbsState
     , lbsLoadBalancerName
 
+    -- ** LoadBalancerTargetGroupState
+    , LoadBalancerTargetGroupState
+    , loadBalancerTargetGroupState
+    , lbtgsState
+    , lbtgsLoadBalancerTargetGroupARN
+
     -- ** MetricCollectionType
     , MetricCollectionType
     , metricCollectionType
@@ -442,6 +458,7 @@ module Network.AWS.AutoScaling
 
 import           Network.AWS.AutoScaling.AttachInstances
 import           Network.AWS.AutoScaling.AttachLoadBalancers
+import           Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
 import           Network.AWS.AutoScaling.CompleteLifecycleAction
 import           Network.AWS.AutoScaling.CreateAutoScalingGroup
 import           Network.AWS.AutoScaling.CreateLaunchConfiguration
@@ -462,6 +479,7 @@ import           Network.AWS.AutoScaling.DescribeLaunchConfigurations
 import           Network.AWS.AutoScaling.DescribeLifecycleHooks
 import           Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 import           Network.AWS.AutoScaling.DescribeLoadBalancers
+import           Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
 import           Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 import           Network.AWS.AutoScaling.DescribeNotificationConfigurations
 import           Network.AWS.AutoScaling.DescribePolicies
@@ -472,6 +490,7 @@ import           Network.AWS.AutoScaling.DescribeTags
 import           Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 import           Network.AWS.AutoScaling.DetachInstances
 import           Network.AWS.AutoScaling.DetachLoadBalancers
+import           Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
 import           Network.AWS.AutoScaling.DisableMetricsCollection
 import           Network.AWS.AutoScaling.EnableMetricsCollection
 import           Network.AWS.AutoScaling.EnterStandby

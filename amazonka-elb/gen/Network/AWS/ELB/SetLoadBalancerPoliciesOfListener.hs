@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates, updates, or disables a policy with a listener for the specified load balancer. You can associate multiple policies with a listener.
+-- Replaces the current set of policies for the specified load balancer port with the specified set of policies.
+--
+-- To enable back-end server authentication, use < SetLoadBalancerPoliciesForBackendServer>.
+--
+-- For more information about setting policies, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html Update the SSL Negotiation Configuration>, <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness>, and <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Creating a Request
@@ -43,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
+-- | Contains the parameters for SetLoadBalancePoliciesOfListener.
+--
+-- /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName :: !Text
     , _slbpolLoadBalancerPort :: !Int
@@ -74,11 +80,11 @@ setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
 slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a});
 
--- | The external port of the load balancer for the policy.
+-- | The external port of the load balancer.
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
 slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
 
--- | The names of the policies. If the list is empty, the current policy is removed from the listener.
+-- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce;
 
@@ -118,7 +124,9 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
                "PolicyNames" =:
                  toQueryList "member" _slbpolPolicyNames]
 
--- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
+-- | Contains the output of SetLoadBalancePoliciesOfListener.
+--
+-- /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -42,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
--- | /See:/ 'cancelCommand' smart constructor.
+-- |
+--
+-- /See:/ 'cancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
     { _ccInstanceIds :: !(Maybe (List1 Text))
     , _ccCommandId   :: !Text

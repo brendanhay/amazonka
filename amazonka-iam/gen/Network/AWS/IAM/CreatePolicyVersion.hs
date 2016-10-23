@@ -20,7 +20,7 @@
 --
 -- Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using < DeletePolicyVersion> before you create a new version.
 --
--- Optionally, you can set the new version as the policy\'s default version. The default version is the operative version; that is, the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
+-- Optionally, you can set the new version as the policy\'s default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
 --
 -- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.CreatePolicyVersion
@@ -83,11 +83,15 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.
+--
+-- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
 cpvPolicyARN :: Lens' CreatePolicyVersion Text
 cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 
--- | The policy document.
+-- | The JSON policy document that you want to use as the content for this new version of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 
@@ -144,7 +148,7 @@ createPolicyVersionResponse pResponseStatus_ =
     , _cpvrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the policy version.
+-- | A structure containing details about the new policy version.
 cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = a});
 

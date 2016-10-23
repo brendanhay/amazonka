@@ -87,7 +87,7 @@ updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _uiStatusCode = pStatusCode_
     }
 
--- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uiPatchOperations :: Lens' UpdateIntegrationResponse [PatchOperation]
 uiPatchOperations = lens _uiPatchOperations (\ s a -> s{_uiPatchOperations = a}) . _Default . _Coerce;
 

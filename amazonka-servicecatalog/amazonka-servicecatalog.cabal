@@ -1,0 +1,102 @@
+name:                  amazonka-servicecatalog
+version:               1.4.4
+synopsis:              Amazon Service Catalog SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+description:
+    AWS Service Catalog
+
+    __Overview__
+
+    <https://aws.amazon.com/servicecatalog/ AWS Service Catalog> allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, you need to be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html AWS Service Catalog Concepts>.
+
+    /Additional Resources/
+
+    -   <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html AWS Service Catalog Administrator Guide>
+
+    -   <http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html AWS Service Catalog User Guide>
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ServiceCatalog" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.ServiceCatalog
+        , Network.AWS.ServiceCatalog.DescribeProduct
+        , Network.AWS.ServiceCatalog.DescribeProductView
+        , Network.AWS.ServiceCatalog.DescribeProvisioningParameters
+        , Network.AWS.ServiceCatalog.DescribeRecord
+        , Network.AWS.ServiceCatalog.ListLaunchPaths
+        , Network.AWS.ServiceCatalog.ListRecordHistory
+        , Network.AWS.ServiceCatalog.ProvisionProduct
+        , Network.AWS.ServiceCatalog.ScanProvisionedProducts
+        , Network.AWS.ServiceCatalog.SearchProducts
+        , Network.AWS.ServiceCatalog.TerminateProvisionedProduct
+        , Network.AWS.ServiceCatalog.Types
+        , Network.AWS.ServiceCatalog.UpdateProvisionedProduct
+        , Network.AWS.ServiceCatalog.Waiters
+
+    other-modules:
+          Network.AWS.ServiceCatalog.Types.Product
+        , Network.AWS.ServiceCatalog.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.4.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-servicecatalog-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ServiceCatalog
+        , Test.AWS.Gen.ServiceCatalog
+        , Test.AWS.ServiceCatalog.Internal
+
+    build-depends:
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-servicecatalog == 1.4.4.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

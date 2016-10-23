@@ -56,6 +56,7 @@ module Network.AWS.CognitoIdentity.Types
     -- * IdentityPool
     , IdentityPool
     , identityPool
+    , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

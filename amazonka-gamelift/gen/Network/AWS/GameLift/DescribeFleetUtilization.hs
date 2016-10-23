@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves utilization statistics for one or more fleets. You can request utilization data for all fleets, or specify a list of one or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetUtilization> object is returned for each requested fleet ID. When specifying a list of fleet IDs, utilization objects are returned only for fleets that currently exist.
+-- Retrieves utilization statistics for one or more fleets. You can request utilization data for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetUtilization> object is returned for each requested fleet ID. When specifying a list of fleet IDs, utilization objects are returned only for fleets that currently exist.
 --
 -- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
 module Network.AWS.GameLift.DescribeFleetUtilization
@@ -78,11 +78,11 @@ describeFleetUtilization =
 dfuNextToken :: Lens' DescribeFleetUtilization (Maybe Text)
 dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a});
 
--- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuLimit :: Lens' DescribeFleetUtilization (Maybe Natural)
 dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve utilization data for. Leave this parameter empty to retrieve utilization data for all fleets.
+-- | Unique identifier for the fleet(s) you want to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
 dfuFleetIds :: Lens' DescribeFleetUtilization (Maybe (NonEmpty Text))
 dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1;
 

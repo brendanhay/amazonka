@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'setReceiptRulePosition' smart constructor.
+-- | Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'setReceiptRulePosition' smart constructor.
 data SetReceiptRulePosition = SetReceiptRulePosition'
     { _srrpAfter       :: !(Maybe Text)
     , _srrpRuleSetName :: !Text
@@ -116,7 +118,9 @@ instance ToQuery SetReceiptRulePosition where
                "RuleSetName" =: _srrpRuleSetName,
                "RuleName" =: _srrpRuleName]
 
--- | /See:/ 'setReceiptRulePositionResponse' smart constructor.
+-- | An empty element returned on a successful request.
+--
+-- /See:/ 'setReceiptRulePositionResponse' smart constructor.
 newtype SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
     { _srrprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

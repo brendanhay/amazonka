@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeServices' smart constructor.
+-- |
+--
+-- /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
     { _dsServiceCodeList :: !(Maybe [Text])
     , _dsLanguage        :: !(Maybe Text)

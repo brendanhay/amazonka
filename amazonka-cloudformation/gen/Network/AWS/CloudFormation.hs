@@ -19,7 +19,7 @@
 --
 -- For more information about this product, go to the <http://aws.amazon.com/cloudformation/ CloudFormation Product Page>.
 --
--- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product\'s technical documentation at <http://docs.aws.amazon.com/documentation/>.
+-- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product\'s technical documentation at <http://docs.aws.amazon.com/>.
 module Network.AWS.CloudFormation
     (
     -- * Service Configuration
@@ -153,6 +153,9 @@ module Network.AWS.CloudFormation
     -- ** EvaluationType
     , EvaluationType (..)
 
+    -- ** ExecutionStatus
+    , ExecutionStatus (..)
+
     -- ** OnFailure
     , OnFailure (..)
 
@@ -192,6 +195,7 @@ module Network.AWS.CloudFormation
     , cssCreationTime
     , cssStatus
     , cssChangeSetName
+    , cssExecutionStatus
     , cssChangeSetId
     , cssStatusReason
     , cssStackId

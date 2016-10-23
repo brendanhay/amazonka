@@ -67,6 +67,9 @@ import Test.AWS.S3.Internal
 --         , requestPutBucketAccelerateConfiguration $
 --             putBucketAccelerateConfiguration
 --
+--         , requestListObjectsV $
+--             listObjectsV
+--
 --         , requestGetObject $
 --             getObject
 --
@@ -231,6 +234,9 @@ import Test.AWS.S3.Internal
 --
 --         , responsePutBucketAccelerateConfiguration $
 --             putBucketAccelerateConfigurationResponse
+--
+--         , responseListObjectsV $
+--             listObjectsVResponse
 --
 --         , responseGetObject $
 --             getObjectResponse
@@ -419,6 +425,11 @@ requestPutBucketAccelerateConfiguration :: PutBucketAccelerateConfiguration -> T
 requestPutBucketAccelerateConfiguration = req
     "PutBucketAccelerateConfiguration"
     "fixture/PutBucketAccelerateConfiguration.yaml"
+
+requestListObjectsV :: ListObjectsV -> TestTree
+requestListObjectsV = req
+    "ListObjectsV"
+    "fixture/ListObjectsV.yaml"
 
 requestGetObject :: GetObject -> TestTree
 requestGetObject = req
@@ -712,6 +723,13 @@ responsePutBucketAccelerateConfiguration = res
     "fixture/PutBucketAccelerateConfigurationResponse.proto"
     s3
     (Proxy :: Proxy PutBucketAccelerateConfiguration)
+
+responseListObjectsV :: ListObjectsVResponse -> TestTree
+responseListObjectsV = res
+    "ListObjectsVResponse"
+    "fixture/ListObjectsVResponse.proto"
+    s3
+    (Proxy :: Proxy ListObjectsV)
 
 responsePutBucketReplication :: PutBucketReplicationResponse -> TestTree
 responsePutBucketReplication = res

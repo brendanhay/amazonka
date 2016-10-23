@@ -90,14 +90,14 @@ ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\ s a -> s{_u
 ugsPlayerSessionCreationPolicy :: Lens' UpdateGameSession (Maybe PlayerSessionCreationPolicy)
 ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> s{_ugsPlayerSessionCreationPolicy = a});
 
--- | Descriptive label associated with this game session. Session names do not need to be unique.
+-- | Descriptive label associated with a game session. Session names do not need to be unique.
 ugsName :: Lens' UpdateGameSession (Maybe Text)
 ugsName = lens _ugsName (\ s a -> s{_ugsName = a});
 
 -- | Game session protection policy to apply to this game session only.
 --
--- -   NoProtection: The game session can be terminated during a scale-down event.
--- -   FullProtection: If the game session is in an ACTIVE status, it cannot be terminated during a scale-down event.
+-- -   __NoProtection__ – The game session can be terminated during a scale-down event.
+-- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
 ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
 ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a});
 

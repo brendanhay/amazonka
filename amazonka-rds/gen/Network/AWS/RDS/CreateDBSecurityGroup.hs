@@ -82,10 +82,12 @@ cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 -- -   Must not be \"Default\"
--- -   Cannot contain spaces
 --
 -- Example: 'mysecuritygroup'
 cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text

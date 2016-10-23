@@ -26,6 +26,11 @@ data ESPartitionInstanceType
     | M3_Large_Elasticsearch
     | M3_Medium_Elasticsearch
     | M3_XLarge_Elasticsearch
+    | M4_10XLarge_Elasticsearch
+    | M4_2XLarge_Elasticsearch
+    | M4_4XLarge_Elasticsearch
+    | M4_Large_Elasticsearch
+    | M4_XLarge_Elasticsearch
     | R3_2XLarge_Elasticsearch
     | R3_4XLarge_Elasticsearch
     | R3_8XLarge_Elasticsearch
@@ -44,6 +49,11 @@ instance FromText ESPartitionInstanceType where
         "m3.large.elasticsearch" -> pure M3_Large_Elasticsearch
         "m3.medium.elasticsearch" -> pure M3_Medium_Elasticsearch
         "m3.xlarge.elasticsearch" -> pure M3_XLarge_Elasticsearch
+        "m4.10xlarge.elasticsearch" -> pure M4_10XLarge_Elasticsearch
+        "m4.2xlarge.elasticsearch" -> pure M4_2XLarge_Elasticsearch
+        "m4.4xlarge.elasticsearch" -> pure M4_4XLarge_Elasticsearch
+        "m4.large.elasticsearch" -> pure M4_Large_Elasticsearch
+        "m4.xlarge.elasticsearch" -> pure M4_XLarge_Elasticsearch
         "r3.2xlarge.elasticsearch" -> pure R3_2XLarge_Elasticsearch
         "r3.4xlarge.elasticsearch" -> pure R3_4XLarge_Elasticsearch
         "r3.8xlarge.elasticsearch" -> pure R3_8XLarge_Elasticsearch
@@ -53,7 +63,7 @@ instance FromText ESPartitionInstanceType where
         "t2.micro.elasticsearch" -> pure T2_Micro_Elasticsearch
         "t2.small.elasticsearch" -> pure T2_Small_Elasticsearch
         e -> fromTextError $ "Failure parsing ESPartitionInstanceType from value: '" <> e
-           <> "'. Accepted values: i2.2xlarge.elasticsearch, i2.xlarge.elasticsearch, m3.2xlarge.elasticsearch, m3.large.elasticsearch, m3.medium.elasticsearch, m3.xlarge.elasticsearch, r3.2xlarge.elasticsearch, r3.4xlarge.elasticsearch, r3.8xlarge.elasticsearch, r3.large.elasticsearch, r3.xlarge.elasticsearch, t2.medium.elasticsearch, t2.micro.elasticsearch, t2.small.elasticsearch"
+           <> "'. Accepted values: i2.2xlarge.elasticsearch, i2.xlarge.elasticsearch, m3.2xlarge.elasticsearch, m3.large.elasticsearch, m3.medium.elasticsearch, m3.xlarge.elasticsearch, m4.10xlarge.elasticsearch, m4.2xlarge.elasticsearch, m4.4xlarge.elasticsearch, m4.large.elasticsearch, m4.xlarge.elasticsearch, r3.2xlarge.elasticsearch, r3.4xlarge.elasticsearch, r3.8xlarge.elasticsearch, r3.large.elasticsearch, r3.xlarge.elasticsearch, t2.medium.elasticsearch, t2.micro.elasticsearch, t2.small.elasticsearch"
 
 instance ToText ESPartitionInstanceType where
     toText = \case
@@ -63,6 +73,11 @@ instance ToText ESPartitionInstanceType where
         M3_Large_Elasticsearch -> "m3.large.elasticsearch"
         M3_Medium_Elasticsearch -> "m3.medium.elasticsearch"
         M3_XLarge_Elasticsearch -> "m3.xlarge.elasticsearch"
+        M4_10XLarge_Elasticsearch -> "m4.10xlarge.elasticsearch"
+        M4_2XLarge_Elasticsearch -> "m4.2xlarge.elasticsearch"
+        M4_4XLarge_Elasticsearch -> "m4.4xlarge.elasticsearch"
+        M4_Large_Elasticsearch -> "m4.large.elasticsearch"
+        M4_XLarge_Elasticsearch -> "m4.xlarge.elasticsearch"
         R3_2XLarge_Elasticsearch -> "r3.2xlarge.elasticsearch"
         R3_4XLarge_Elasticsearch -> "r3.4xlarge.elasticsearch"
         R3_8XLarge_Elasticsearch -> "r3.8xlarge.elasticsearch"
@@ -100,7 +115,7 @@ instance FromText OptionState where
         "processing" -> pure Processing
         "requiresindexdocuments" -> pure RequiresIndexDocuments
         e -> fromTextError $ "Failure parsing OptionState from value: '" <> e
-           <> "'. Accepted values: Active, Processing, RequiresIndexDocuments"
+           <> "'. Accepted values: active, processing, requiresindexdocuments"
 
 instance ToText OptionState where
     toText = \case

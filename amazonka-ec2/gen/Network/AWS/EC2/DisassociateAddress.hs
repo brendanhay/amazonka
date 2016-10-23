@@ -104,7 +104,7 @@ instance ToQuery DisassociateAddress where
         toQuery DisassociateAddress'{..}
           = mconcat
               ["Action" =: ("DisassociateAddress" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "AssociationId" =: _dasAssociationId,
                "PublicIp" =: _dasPublicIP, "DryRun" =: _dasDryRun]
 

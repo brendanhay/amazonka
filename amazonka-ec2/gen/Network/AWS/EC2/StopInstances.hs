@@ -28,7 +28,7 @@
 --
 -- Stopping an instance is different to rebooting or terminating it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance> in the /Amazon Elastic Compute Cloud User Guide/.
+-- When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.StopInstances
     (
     -- * Creating a Request
@@ -120,7 +120,7 @@ instance ToQuery StopInstances where
         toQuery StopInstances'{..}
           = mconcat
               ["Action" =: ("StopInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "Force" =: _siForce, "DryRun" =: _siDryRun,
                toQueryList "InstanceId" _siInstanceIds]
 

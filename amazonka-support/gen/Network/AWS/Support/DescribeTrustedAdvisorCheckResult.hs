@@ -23,14 +23,19 @@
 -- The response contains a < TrustedAdvisorCheckResult> object, which contains these three objects:
 --
 -- -   < TrustedAdvisorCategorySpecificSummary>
+--
 -- -   < TrustedAdvisorResourceDetail>
+--
 -- -   < TrustedAdvisorResourcesSummary>
 --
 -- In addition, the response contains these fields:
 --
--- -   __Status.__ The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
--- -   __Timestamp.__ The time of the last refresh of the check.
--- -   __CheckId.__ The unique identifier for the check.
+-- -   __status.__ The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+--
+-- -   __timestamp.__ The time of the last refresh of the check.
+--
+-- -   __checkId.__ The unique identifier for the check.
+--
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Creating a Request
@@ -55,7 +60,9 @@ import           Network.AWS.Response
 import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
--- | /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
+-- |
+--
+-- /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
     { _dtacrLanguage :: !(Maybe Text)
     , _dtacrCheckId  :: !Text

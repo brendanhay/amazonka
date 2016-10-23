@@ -73,10 +73,14 @@ updateAccessKey pAccessKeyId_ pStatus_ =
     }
 
 -- | The name of the user whose key you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
 -- | The access key ID of the secret access key you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 uakAccessKeyId :: Lens' UpdateAccessKey Text
 uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 

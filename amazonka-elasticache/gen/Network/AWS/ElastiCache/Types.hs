@@ -65,6 +65,9 @@ module Network.AWS.ElastiCache.Types
     -- * AutomaticFailoverStatus
     , AutomaticFailoverStatus (..)
 
+    -- * ChangeType
+    , ChangeType (..)
+
     -- * PendingAutomaticFailoverStatus
     , PendingAutomaticFailoverStatus (..)
 
@@ -133,6 +136,7 @@ module Network.AWS.ElastiCache.Types
     , cntspAllowedValues
     , cntspParameterName
     , cntspDescription
+    , cntspChangeType
 
     -- * CacheNodeTypeSpecificValue
     , CacheNodeTypeSpecificValue
@@ -252,6 +256,7 @@ module Network.AWS.ElastiCache.Types
     , pAllowedValues
     , pParameterName
     , pDescription
+    , pChangeType
 
     -- * ParameterNameValue
     , ParameterNameValue

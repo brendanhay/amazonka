@@ -111,7 +111,7 @@ instance ToQuery ReplaceNetworkACLAssociation where
           = mconcat
               ["Action" =:
                  ("ReplaceNetworkAclAssociation" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _rnaaDryRun,
                "AssociationId" =: _rnaaAssociationId,
                "NetworkAclId" =: _rnaaNetworkACLId]

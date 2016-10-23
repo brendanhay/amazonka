@@ -175,7 +175,7 @@ instance ToQuery DescribeVolumes where
         toQuery DescribeVolumes'{..}
           = mconcat
               ["Action" =: ("DescribeVolumes" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _desFilters),
                toQuery (toQueryList "VolumeId" <$> _desVolumeIds),
                "NextToken" =: _desNextToken, "DryRun" =: _desDryRun,

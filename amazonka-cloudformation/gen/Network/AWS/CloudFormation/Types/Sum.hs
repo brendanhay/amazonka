@@ -19,19 +19,22 @@ module Network.AWS.CloudFormation.Types.Sum where
 
 import           Network.AWS.Prelude
 
-data Capability =
-    CapabilityIAM
+data Capability
+    = CapabilityIAM
+    | CapabilityNamedIAM
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
         "capability_iam" -> pure CapabilityIAM
+        "capability_named_iam" -> pure CapabilityNamedIAM
         e -> fromTextError $ "Failure parsing Capability from value: '" <> e
-           <> "'. Accepted values: CAPABILITY_IAM"
+           <> "'. Accepted values: capability_iam, capability_named_iam"
 
 instance ToText Capability where
     toText = \case
         CapabilityIAM -> "CAPABILITY_IAM"
+        CapabilityNamedIAM -> "CAPABILITY_NAMED_IAM"
 
 instance Hashable     Capability
 instance NFData       Capability
@@ -54,7 +57,7 @@ instance FromText ChangeAction where
         "modify" -> pure Modify
         "remove" -> pure Remove
         e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
-           <> "'. Accepted values: Add, Modify, Remove"
+           <> "'. Accepted values: add, modify, remove"
 
 instance ToText ChangeAction where
     toText = \case
@@ -87,7 +90,7 @@ instance FromText ChangeSetStatus where
         "delete_complete" -> pure CSSDeleteComplete
         "failed" -> pure CSSFailed
         e -> fromTextError $ "Failure parsing ChangeSetStatus from value: '" <> e
-           <> "'. Accepted values: CREATE_COMPLETE, CREATE_IN_PROGRESS, CREATE_PENDING, DELETE_COMPLETE, FAILED"
+           <> "'. Accepted values: create_complete, create_in_progress, create_pending, delete_complete, failed"
 
 instance ToText ChangeSetStatus where
     toText = \case
@@ -122,7 +125,7 @@ instance FromText ChangeSource where
         "resourceattribute" -> pure ResourceAttribute
         "resourcereference" -> pure ResourceReference
         e -> fromTextError $ "Failure parsing ChangeSource from value: '" <> e
-           <> "'. Accepted values: Automatic, DirectModification, ParameterReference, ResourceAttribute, ResourceReference"
+           <> "'. Accepted values: automatic, directmodification, parameterreference, resourceattribute, resourcereference"
 
 instance ToText ChangeSource where
     toText = \case
@@ -149,7 +152,7 @@ instance FromText ChangeType where
     parser = takeLowerText >>= \case
         "resource" -> pure Resource
         e -> fromTextError $ "Failure parsing ChangeType from value: '" <> e
-           <> "'. Accepted values: Resource"
+           <> "'. Accepted values: resource"
 
 instance ToText ChangeType where
     toText = \case
@@ -174,7 +177,7 @@ instance FromText EvaluationType where
         "dynamic" -> pure Dynamic
         "static" -> pure Static
         e -> fromTextError $ "Failure parsing EvaluationType from value: '" <> e
-           <> "'. Accepted values: Dynamic, Static"
+           <> "'. Accepted values: dynamic, static"
 
 instance ToText EvaluationType where
     toText = \case
@@ -190,6 +193,44 @@ instance ToHeader     EvaluationType
 instance FromXML EvaluationType where
     parseXML = parseXMLText "EvaluationType"
 
+data ExecutionStatus
+    = Available
+    | ExecuteComplete
+    | ExecuteFailed
+    | ExecuteInProgress
+    | Obsolete
+    | Unavailable
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ExecutionStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "execute_complete" -> pure ExecuteComplete
+        "execute_failed" -> pure ExecuteFailed
+        "execute_in_progress" -> pure ExecuteInProgress
+        "obsolete" -> pure Obsolete
+        "unavailable" -> pure Unavailable
+        e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
+           <> "'. Accepted values: available, execute_complete, execute_failed, execute_in_progress, obsolete, unavailable"
+
+instance ToText ExecutionStatus where
+    toText = \case
+        Available -> "AVAILABLE"
+        ExecuteComplete -> "EXECUTE_COMPLETE"
+        ExecuteFailed -> "EXECUTE_FAILED"
+        ExecuteInProgress -> "EXECUTE_IN_PROGRESS"
+        Obsolete -> "OBSOLETE"
+        Unavailable -> "UNAVAILABLE"
+
+instance Hashable     ExecutionStatus
+instance NFData       ExecutionStatus
+instance ToByteString ExecutionStatus
+instance ToQuery      ExecutionStatus
+instance ToHeader     ExecutionStatus
+
+instance FromXML ExecutionStatus where
+    parseXML = parseXMLText "ExecutionStatus"
+
 data OnFailure
     = Delete
     | DoNothing
@@ -202,7 +243,7 @@ instance FromText OnFailure where
         "do_nothing" -> pure DoNothing
         "rollback" -> pure Rollback
         e -> fromTextError $ "Failure parsing OnFailure from value: '" <> e
-           <> "'. Accepted values: DELETE, DO_NOTHING, ROLLBACK"
+           <> "'. Accepted values: delete, do_nothing, rollback"
 
 instance ToText OnFailure where
     toText = \case
@@ -228,7 +269,7 @@ instance FromText Replacement where
         "false" -> pure False'
         "true" -> pure True'
         e -> fromTextError $ "Failure parsing Replacement from value: '" <> e
-           <> "'. Accepted values: Conditional, False, True"
+           <> "'. Accepted values: conditional, false, true"
 
 instance ToText Replacement where
     toText = \case
@@ -257,7 +298,7 @@ instance FromText RequiresRecreation where
         "conditionally" -> pure Conditionally
         "never" -> pure Never
         e -> fromTextError $ "Failure parsing RequiresRecreation from value: '" <> e
-           <> "'. Accepted values: Always, Conditionally, Never"
+           <> "'. Accepted values: always, conditionally, never"
 
 instance ToText RequiresRecreation where
     toText = \case
@@ -292,7 +333,7 @@ instance FromText ResourceAttribute where
         "tags" -> pure Tags
         "updatepolicy" -> pure UpdatePolicy
         e -> fromTextError $ "Failure parsing ResourceAttribute from value: '" <> e
-           <> "'. Accepted values: CreationPolicy, DeletionPolicy, Metadata, Properties, Tags, UpdatePolicy"
+           <> "'. Accepted values: creationpolicy, deletionpolicy, metadata, properties, tags, updatepolicy"
 
 instance ToText ResourceAttribute where
     toText = \case
@@ -322,7 +363,7 @@ instance FromText ResourceSignalStatus where
         "failure" -> pure Failure
         "success" -> pure Success
         e -> fromTextError $ "Failure parsing ResourceSignalStatus from value: '" <> e
-           <> "'. Accepted values: FAILURE, SUCCESS"
+           <> "'. Accepted values: failure, success"
 
 instance ToText ResourceSignalStatus where
     toText = \case
@@ -361,7 +402,7 @@ instance FromText ResourceStatus where
         "update_failed" -> pure UpdateFailed
         "update_in_progress" -> pure UpdateInProgress
         e -> fromTextError $ "Failure parsing ResourceStatus from value: '" <> e
-           <> "'. Accepted values: CREATE_COMPLETE, CREATE_FAILED, CREATE_IN_PROGRESS, DELETE_COMPLETE, DELETE_FAILED, DELETE_IN_PROGRESS, DELETE_SKIPPED, UPDATE_COMPLETE, UPDATE_FAILED, UPDATE_IN_PROGRESS"
+           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, delete_skipped, update_complete, update_failed, update_in_progress"
 
 instance ToText ResourceStatus where
     toText = \case
@@ -423,7 +464,7 @@ instance FromText StackStatus where
         "update_rollback_failed" -> pure SSUpdateRollbackFailed
         "update_rollback_in_progress" -> pure SSUpdateRollbackInProgress
         e -> fromTextError $ "Failure parsing StackStatus from value: '" <> e
-           <> "'. Accepted values: CREATE_COMPLETE, CREATE_FAILED, CREATE_IN_PROGRESS, DELETE_COMPLETE, DELETE_FAILED, DELETE_IN_PROGRESS, ROLLBACK_COMPLETE, ROLLBACK_FAILED, ROLLBACK_IN_PROGRESS, UPDATE_COMPLETE, UPDATE_COMPLETE_CLEANUP_IN_PROGRESS, UPDATE_IN_PROGRESS, UPDATE_ROLLBACK_COMPLETE, UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS, UPDATE_ROLLBACK_FAILED, UPDATE_ROLLBACK_IN_PROGRESS"
+           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
 
 instance ToText StackStatus where
     toText = \case

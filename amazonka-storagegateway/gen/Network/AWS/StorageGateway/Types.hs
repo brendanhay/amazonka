@@ -64,6 +64,7 @@ module Network.AWS.StorageGateway.Types
     , giGatewayARN
     , giGatewayOperationalState
     , giGatewayName
+    , giGatewayId
     , giGatewayType
 
     -- * NetworkInterface
@@ -113,6 +114,15 @@ module Network.AWS.StorageGateway.Types
     , taCompletionTime
     , taRetrievedTo
 
+    -- * TapeInfo
+    , TapeInfo
+    , tapeInfo
+    , tiTapeBarcode
+    , tiTapeStatus
+    , tiTapeARN
+    , tiGatewayARN
+    , tiTapeSizeInBytes
+
     -- * TapeRecoveryPointInfo
     , TapeRecoveryPointInfo
     , tapeRecoveryPointInfo
@@ -133,7 +143,11 @@ module Network.AWS.StorageGateway.Types
     -- * VolumeInfo
     , VolumeInfo
     , volumeInfo
+    , viGatewayARN
     , viVolumeARN
+    , viVolumeSizeInBytes
+    , viVolumeId
+    , viGatewayId
     , viVolumeType
 
     -- * VolumeRecoveryPointInfo
@@ -194,11 +208,11 @@ storageGateway =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | An exception occurred because an invalid gateway request was issued to the service. See the error and message fields for more information.
+-- | An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
 _InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
     _ServiceError . hasCode "InvalidGatewayRequestException"
 
--- | An internal server error has occurred during the request. See the error and message fields for more information.
+-- | An internal server error has occurred during the request. For more information, see the error and message fields.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"

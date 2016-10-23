@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'describeActiveReceiptRuleSet' smart constructor.
+-- | Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'describeActiveReceiptRuleSet' smart constructor.
 data DescribeActiveReceiptRuleSet =
     DescribeActiveReceiptRuleSet'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -89,7 +91,9 @@ instance ToQuery DescribeActiveReceiptRuleSet where
                     ("DescribeActiveReceiptRuleSet" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | /See:/ 'describeActiveReceiptRuleSetResponse' smart constructor.
+-- | Represents the metadata and receipt rules for the receipt rule set that is currently active.
+--
+-- /See:/ 'describeActiveReceiptRuleSetResponse' smart constructor.
 data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse'
     { _darrsrsRules          :: !(Maybe [ReceiptRule])
     , _darrsrsMetadata       :: !(Maybe ReceiptRuleSetMetadata)

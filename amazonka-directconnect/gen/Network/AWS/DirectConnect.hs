@@ -77,6 +77,9 @@ module Network.AWS.DirectConnect
     -- ** DeleteVirtualInterface
     , module Network.AWS.DirectConnect.DeleteVirtualInterface
 
+    -- ** DescribeInterconnectLoa
+    , module Network.AWS.DirectConnect.DescribeInterconnectLoa
+
     -- ** CreatePrivateVirtualInterface
     , module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 
@@ -89,6 +92,9 @@ module Network.AWS.DirectConnect
     -- ** CreateInterconnect
     , module Network.AWS.DirectConnect.CreateInterconnect
 
+    -- ** DescribeConnectionLoa
+    , module Network.AWS.DirectConnect.DescribeConnectionLoa
+
     -- * Types
 
     -- ** ConnectionState
@@ -96,6 +102,9 @@ module Network.AWS.DirectConnect
 
     -- ** InterconnectState
     , InterconnectState (..)
+
+    -- ** LoaContentType
+    , LoaContentType (..)
 
     -- ** VirtualInterfaceState
     , VirtualInterfaceState (..)
@@ -106,6 +115,7 @@ module Network.AWS.DirectConnect
     , cVlan
     , cLocation
     , cConnectionId
+    , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
@@ -124,9 +134,16 @@ module Network.AWS.DirectConnect
     , iInterconnectId
     , iLocation
     , iInterconnectName
+    , iLoaIssueTime
     , iBandwidth
     , iInterconnectState
     , iRegion
+
+    -- ** Loa
+    , Loa
+    , loa
+    , loaLoaContent
+    , loaLoaContentType
 
     -- ** Location
     , Location
@@ -221,8 +238,10 @@ import           Network.AWS.DirectConnect.CreatePublicVirtualInterface
 import           Network.AWS.DirectConnect.DeleteConnection
 import           Network.AWS.DirectConnect.DeleteInterconnect
 import           Network.AWS.DirectConnect.DeleteVirtualInterface
+import           Network.AWS.DirectConnect.DescribeConnectionLoa
 import           Network.AWS.DirectConnect.DescribeConnections
 import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+import           Network.AWS.DirectConnect.DescribeInterconnectLoa
 import           Network.AWS.DirectConnect.DescribeInterconnects
 import           Network.AWS.DirectConnect.DescribeLocations
 import           Network.AWS.DirectConnect.DescribeVirtualGateways

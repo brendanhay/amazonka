@@ -83,7 +83,7 @@ describeImages =
     , _deseDryRun = Nothing
     }
 
--- | Filters the images by the owner. Specify an AWS account ID, 'amazon' (owner is Amazon), 'aws-marketplace' (owner is AWS Marketplace), 'self' (owner is the sender of the request). Omitting this option returns all images for which you have launch permissions, regardless of ownership.
+-- | Filters the images by the owner. Specify an AWS account ID, 'self' (owner is the sender of the request), or an AWS owner alias (valid values are 'amazon' | 'aws-marketplace' | 'microsoft'). Omitting this option returns all images for which you have launch permissions, regardless of ownership.
 deseOwners :: Lens' DescribeImages [Text]
 deseOwners = lens _deseOwners (\ s a -> s{_deseOwners = a}) . _Default . _Coerce;
 
@@ -121,7 +121,7 @@ deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers
 --
 -- -   'name' - The name of the AMI (provided during image creation).
 --
--- -   'owner-alias' - The AWS account alias (for example, 'amazon').
+-- -   'owner-alias' - String value from an Amazon-maintained list ('amazon' | 'aws-marketplace' | 'microsoft') of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
 --
 -- -   'owner-id' - The AWS account ID of the image owner.
 --
@@ -189,7 +189,7 @@ instance ToQuery DescribeImages where
         toQuery DescribeImages'{..}
           = mconcat
               ["Action" =: ("DescribeImages" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Owner" <$> _deseOwners),
                toQuery
                  (toQueryList "ExecutableBy" <$>

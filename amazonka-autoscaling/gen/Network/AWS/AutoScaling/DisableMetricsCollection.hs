@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables monitoring of the specified metrics for the specified Auto Scaling group.
+-- Disables group metrics for the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request
@@ -40,7 +40,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disableMetricsCollection' smart constructor.
+-- | Contains the parameters for DisableMetricsCollection.
+--
+-- /See:/ 'disableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
     { _dmcMetrics              :: !(Maybe [Text])
     , _dmcAutoScalingGroupName :: !Text

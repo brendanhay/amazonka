@@ -170,6 +170,13 @@ module Network.AWS.EMR.Types
     , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
+    -- * FailureDetails
+    , FailureDetails
+    , failureDetails
+    , fdLogFile
+    , fdReason
+    , fdMessage
+
     -- * HadoopJARStepConfig
     , HadoopJARStepConfig
     , hadoopJARStepConfig
@@ -351,6 +358,7 @@ module Network.AWS.EMR.Types
     , StepStatus
     , stepStatus
     , ssState
+    , ssFailureDetails
     , ssStateChangeReason
     , ssTimeline
 

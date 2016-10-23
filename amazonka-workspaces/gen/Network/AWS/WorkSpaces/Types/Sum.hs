@@ -31,7 +31,7 @@ instance FromText Compute where
         "standard" -> pure Standard
         "value" -> pure Value
         e -> fromTextError $ "Failure parsing Compute from value: '" <> e
-           <> "'. Accepted values: PERFORMANCE, STANDARD, VALUE"
+           <> "'. Accepted values: performance, standard, value"
 
 instance ToText Compute where
     toText = \case
@@ -47,6 +47,64 @@ instance ToHeader     Compute
 
 instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
+
+data ConnectionState
+    = Connected
+    | Disconnected
+    | Unknown
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ConnectionState where
+    parser = takeLowerText >>= \case
+        "connected" -> pure Connected
+        "disconnected" -> pure Disconnected
+        "unknown" -> pure Unknown
+        e -> fromTextError $ "Failure parsing ConnectionState from value: '" <> e
+           <> "'. Accepted values: connected, disconnected, unknown"
+
+instance ToText ConnectionState where
+    toText = \case
+        Connected -> "CONNECTED"
+        Disconnected -> "DISCONNECTED"
+        Unknown -> "UNKNOWN"
+
+instance Hashable     ConnectionState
+instance NFData       ConnectionState
+instance ToByteString ConnectionState
+instance ToQuery      ConnectionState
+instance ToHeader     ConnectionState
+
+instance FromJSON ConnectionState where
+    parseJSON = parseJSONText "ConnectionState"
+
+data RunningMode
+    = AlwaysOn
+    | AutoStop
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RunningMode where
+    parser = takeLowerText >>= \case
+        "always_on" -> pure AlwaysOn
+        "auto_stop" -> pure AutoStop
+        e -> fromTextError $ "Failure parsing RunningMode from value: '" <> e
+           <> "'. Accepted values: always_on, auto_stop"
+
+instance ToText RunningMode where
+    toText = \case
+        AlwaysOn -> "ALWAYS_ON"
+        AutoStop -> "AUTO_STOP"
+
+instance Hashable     RunningMode
+instance NFData       RunningMode
+instance ToByteString RunningMode
+instance ToQuery      RunningMode
+instance ToHeader     RunningMode
+
+instance ToJSON RunningMode where
+    toJSON = toJSONText
+
+instance FromJSON RunningMode where
+    parseJSON = parseJSONText "RunningMode"
 
 data WorkspaceDirectoryState
     = Deregistered
@@ -64,7 +122,7 @@ instance FromText WorkspaceDirectoryState where
         "registered" -> pure Registered
         "registering" -> pure Registering
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryState from value: '" <> e
-           <> "'. Accepted values: DEREGISTERED, DEREGISTERING, ERROR, REGISTERED, REGISTERING"
+           <> "'. Accepted values: deregistered, deregistering, error, registered, registering"
 
 instance ToText WorkspaceDirectoryState where
     toText = \case
@@ -93,7 +151,7 @@ instance FromText WorkspaceDirectoryType where
         "ad_connector" -> pure AdConnector
         "simple_ad" -> pure SimpleAd
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryType from value: '" <> e
-           <> "'. Accepted values: AD_CONNECTOR, SIMPLE_AD"
+           <> "'. Accepted values: ad_connector, simple_ad"
 
 instance ToText WorkspaceDirectoryType where
     toText = \case
@@ -113,9 +171,13 @@ data WorkspaceState
     = WSAvailable
     | WSError'
     | WSImpaired
+    | WSMaintenance
     | WSPending
     | WSRebooting
     | WSRebuilding
+    | WSStarting
+    | WSStopped
+    | WSStopping
     | WSSuspended
     | WSTerminated
     | WSTerminating
@@ -127,24 +189,32 @@ instance FromText WorkspaceState where
         "available" -> pure WSAvailable
         "error" -> pure WSError'
         "impaired" -> pure WSImpaired
+        "maintenance" -> pure WSMaintenance
         "pending" -> pure WSPending
         "rebooting" -> pure WSRebooting
         "rebuilding" -> pure WSRebuilding
+        "starting" -> pure WSStarting
+        "stopped" -> pure WSStopped
+        "stopping" -> pure WSStopping
         "suspended" -> pure WSSuspended
         "terminated" -> pure WSTerminated
         "terminating" -> pure WSTerminating
         "unhealthy" -> pure WSUnhealthy
         e -> fromTextError $ "Failure parsing WorkspaceState from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, ERROR, IMPAIRED, PENDING, REBOOTING, REBUILDING, SUSPENDED, TERMINATED, TERMINATING, UNHEALTHY"
+           <> "'. Accepted values: available, error, impaired, maintenance, pending, rebooting, rebuilding, starting, stopped, stopping, suspended, terminated, terminating, unhealthy"
 
 instance ToText WorkspaceState where
     toText = \case
         WSAvailable -> "AVAILABLE"
         WSError' -> "ERROR"
         WSImpaired -> "IMPAIRED"
+        WSMaintenance -> "MAINTENANCE"
         WSPending -> "PENDING"
         WSRebooting -> "REBOOTING"
         WSRebuilding -> "REBUILDING"
+        WSStarting -> "STARTING"
+        WSStopped -> "STOPPED"
+        WSStopping -> "STOPPING"
         WSSuspended -> "SUSPENDED"
         WSTerminated -> "TERMINATED"
         WSTerminating -> "TERMINATING"

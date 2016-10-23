@@ -145,7 +145,11 @@ instance NFData AttributeValue
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
--- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a hash type primary key would be represented by one /KeySchemaElement/. A hash-and-range type primary key would require one /KeySchemaElement/ for the hash attribute, and another /KeySchemaElement/ for the range attribute.
+-- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a simple primary key (partition key) would be represented by one /KeySchemaElement/. A composite primary key (partition key and sort key) would require one /KeySchemaElement/ for the partition key, and another /KeySchemaElement/ for the sort key.
+--
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\'s usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
@@ -228,7 +232,9 @@ record =
     , _rEventId = Nothing
     }
 
--- | The version number of the stream record format. Currently, this is /1.0/.
+-- | The version number of the stream record format. This number is updated whenever the structure of /Record/ is modified.
+--
+-- Client applications must not assume that /eventVersion/ will remain at a particular value, as this number is subject to change at any time. In general, /eventVersion/ will only increase as the low-level DynamoDB Streams API evolves.
 rEventVersion :: Lens' Record (Maybe Text)
 rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 
@@ -244,7 +250,7 @@ rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 --
 -- -   'INSERT' - a new item was added to the table.
 --
--- -   'MODIFY' - one or more of the item\'s attributes were updated.
+-- -   'MODIFY' - one or more of an existing item\'s attributes were modified.
 --
 -- -   'REMOVE' - the item was deleted from the table
 --
@@ -505,7 +511,7 @@ sdStreamLabel = lens _sdStreamLabel (\ s a -> s{_sdStreamLabel = a});
 --
 -- -   'ENABLING' - Streams is currently being enabled on the DynamoDB table.
 --
--- -   'ENABLING' - the stream is enabled.
+-- -   'ENABLED' - the stream is enabled.
 --
 -- -   'DISABLING' - Streams is currently being disabled on the DynamoDB table.
 --
@@ -522,9 +528,9 @@ sdKeySchema = lens _sdKeySchema (\ s a -> s{_sdKeySchema = a}) . mapping _List1;
 --
 -- -   'KEYS_ONLY' - only the key attributes of items that were modified in the DynamoDB table.
 --
--- -   'NEW_IMAGE' - entire item from the table, as it appeared after they were modified.
+-- -   'NEW_IMAGE' - entire items from the table, as they appeared after they were modified.
 --
--- -   'OLD_IMAGE' - entire item from the table, as it appeared before they were modified.
+-- -   'OLD_IMAGE' - entire items from the table, as they appeared before they were modified.
 --
 -- -   'NEW_AND_OLD_IMAGES' - both the new and the old images of the items from the table.
 --
@@ -570,12 +576,13 @@ instance NFData StreamDescription
 --
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-    { _srSizeBytes      :: !(Maybe Nat)
-    , _srSequenceNumber :: !(Maybe Text)
-    , _srStreamViewType :: !(Maybe StreamViewType)
-    , _srKeys           :: !(Maybe (Map Text AttributeValue))
-    , _srOldImage       :: !(Maybe (Map Text AttributeValue))
-    , _srNewImage       :: !(Maybe (Map Text AttributeValue))
+    { _srSizeBytes                   :: !(Maybe Nat)
+    , _srSequenceNumber              :: !(Maybe Text)
+    , _srApproximateCreationDateTime :: !(Maybe POSIX)
+    , _srStreamViewType              :: !(Maybe StreamViewType)
+    , _srKeys                        :: !(Maybe (Map Text AttributeValue))
+    , _srOldImage                    :: !(Maybe (Map Text AttributeValue))
+    , _srNewImage                    :: !(Maybe (Map Text AttributeValue))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StreamRecord' with the minimum fields required to make a request.
@@ -585,6 +592,8 @@ data StreamRecord = StreamRecord'
 -- * 'srSizeBytes'
 --
 -- * 'srSequenceNumber'
+--
+-- * 'srApproximateCreationDateTime'
 --
 -- * 'srStreamViewType'
 --
@@ -599,6 +608,7 @@ streamRecord =
     StreamRecord'
     { _srSizeBytes = Nothing
     , _srSequenceNumber = Nothing
+    , _srApproximateCreationDateTime = Nothing
     , _srStreamViewType = Nothing
     , _srKeys = Nothing
     , _srOldImage = Nothing
@@ -613,15 +623,19 @@ srSizeBytes = lens _srSizeBytes (\ s a -> s{_srSizeBytes = a}) . mapping _Nat;
 srSequenceNumber :: Lens' StreamRecord (Maybe Text)
 srSequenceNumber = lens _srSequenceNumber (\ s a -> s{_srSequenceNumber = a});
 
+-- | The approximate date and time when the stream record was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
+srApproximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
+srApproximateCreationDateTime = lens _srApproximateCreationDateTime (\ s a -> s{_srApproximateCreationDateTime = a}) . mapping _Time;
+
 -- | The type of data from the modified DynamoDB item that was captured in this stream record:
 --
 -- -   'KEYS_ONLY' - only the key attributes of the modified item.
 --
--- -   'NEW_IMAGE' - the entire item, as it appears after it was modified.
+-- -   'NEW_IMAGE' - the entire item, as it appeared after it was modified.
 --
 -- -   'OLD_IMAGE' - the entire item, as it appeared before it was modified.
 --
--- -   'NEW_AND_OLD_IMAGES' — both the new and the old item images of the item.
+-- -   'NEW_AND_OLD_IMAGES' - both the new and the old item images of the item.
 --
 srStreamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 srStreamViewType = lens _srStreamViewType (\ s a -> s{_srStreamViewType = a});
@@ -644,7 +658,8 @@ instance FromJSON StreamRecord where
               (\ x ->
                  StreamRecord' <$>
                    (x .:? "SizeBytes") <*> (x .:? "SequenceNumber") <*>
-                     (x .:? "StreamViewType")
+                     (x .:? "ApproximateCreationDateTime")
+                     <*> (x .:? "StreamViewType")
                      <*> (x .:? "Keys" .!= mempty)
                      <*> (x .:? "OldImage" .!= mempty)
                      <*> (x .:? "NewImage" .!= mempty))

@@ -24,7 +24,7 @@ import           System.IO
 instanceOverview :: Region -> IO ()
 instanceOverview r = do
     lgr <- newLogger Info stdout
-    env <- newEnv r Discover <&> envLogger .~ lgr
+    env <- newEnv Discover <&> set envLogger lgr
 
     let pp x = mconcat
           [ "[instance:" <> build (x ^. insInstanceId) <> "] {"
@@ -34,7 +34,7 @@ instanceOverview r = do
           , "\n}\n"
           ]
 
-    runResourceT . runAWST env $
+    runResourceT . runAWST env . within r $
         paginate describeInstances
             =$= CL.concatMap (view dirsReservations)
             =$= CL.concatMap (view rInstances)

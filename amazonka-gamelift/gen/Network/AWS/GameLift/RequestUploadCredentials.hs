@@ -20,9 +20,9 @@
 --
 -- Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage location for a specific build. Valid credentials are required to upload your game build files to Amazon S3.
 --
--- Call this action only if you need credentials for a build created with < CreateBuild>. This is a rare situation; in most cases, builds are created using the CLI command 'upload-build', which creates a build record and also uploads build files.
+-- Call this action only if you need credentials for a build created with 'CreateBuild'. This is a rare situation; in most cases, builds are created using the CLI command 'upload-build', which creates a build record and also uploads build files.
 --
--- Upload credentials are returned when you create the build, but they have a limited lifespan. You can get fresh credentials and use them to re-upload game files until the state of that build changes to READY. Once this happens, you must create a brand new build.
+-- Upload credentials are returned when you create the build, but they have a limited lifespan. You can get fresh credentials and use them to re-upload game files until the status of that build changes to 'READY'. Once this happens, you must create a brand new build.
 module Network.AWS.GameLift.RequestUploadCredentials
     (
     -- * Creating a Request

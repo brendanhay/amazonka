@@ -25,8 +25,9 @@ module Network.AWS.IoT.UpdateCACertificate
       updateCACertificate
     , UpdateCACertificate
     -- * Request Lenses
-    , ucacCertificateId
     , ucacNewStatus
+    , ucacNewAutoRegistrationStatus
+    , ucacCertificateId
 
     -- * Destructuring the Response
     , updateCACertificateResponse
@@ -44,34 +45,43 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateCACertificate' smart constructor.
 data UpdateCACertificate = UpdateCACertificate'
-    { _ucacCertificateId :: !Text
-    , _ucacNewStatus     :: !CACertificateStatus
+    { _ucacNewStatus                 :: !(Maybe CACertificateStatus)
+    , _ucacNewAutoRegistrationStatus :: !(Maybe AutoRegistrationStatus)
+    , _ucacCertificateId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateCACertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucacCertificateId'
---
 -- * 'ucacNewStatus'
+--
+-- * 'ucacNewAutoRegistrationStatus'
+--
+-- * 'ucacCertificateId'
 updateCACertificate
     :: Text -- ^ 'ucacCertificateId'
-    -> CACertificateStatus -- ^ 'ucacNewStatus'
     -> UpdateCACertificate
-updateCACertificate pCertificateId_ pNewStatus_ =
+updateCACertificate pCertificateId_ =
     UpdateCACertificate'
-    { _ucacCertificateId = pCertificateId_
-    , _ucacNewStatus = pNewStatus_
+    { _ucacNewStatus = Nothing
+    , _ucacNewAutoRegistrationStatus = Nothing
+    , _ucacCertificateId = pCertificateId_
     }
+
+-- | The updated status of the CA certificate.
+--
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+ucacNewStatus :: Lens' UpdateCACertificate (Maybe CACertificateStatus)
+ucacNewStatus = lens _ucacNewStatus (\ s a -> s{_ucacNewStatus = a});
+
+-- | The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".
+ucacNewAutoRegistrationStatus :: Lens' UpdateCACertificate (Maybe AutoRegistrationStatus)
+ucacNewAutoRegistrationStatus = lens _ucacNewAutoRegistrationStatus (\ s a -> s{_ucacNewAutoRegistrationStatus = a});
 
 -- | The CA certificate identifier.
 ucacCertificateId :: Lens' UpdateCACertificate Text
 ucacCertificateId = lens _ucacCertificateId (\ s a -> s{_ucacCertificateId = a});
-
--- | The updated status of the CA certificate.
-ucacNewStatus :: Lens' UpdateCACertificate CACertificateStatus
-ucacNewStatus = lens _ucacNewStatus (\ s a -> s{_ucacNewStatus = a});
 
 instance AWSRequest UpdateCACertificate where
         type Rs UpdateCACertificate =
@@ -96,7 +106,10 @@ instance ToPath UpdateCACertificate where
 
 instance ToQuery UpdateCACertificate where
         toQuery UpdateCACertificate'{..}
-          = mconcat ["newStatus" =: _ucacNewStatus]
+          = mconcat
+              ["newStatus" =: _ucacNewStatus,
+               "newAutoRegistrationStatus" =:
+                 _ucacNewAutoRegistrationStatus]
 
 -- | /See:/ 'updateCACertificateResponse' smart constructor.
 data UpdateCACertificateResponse =

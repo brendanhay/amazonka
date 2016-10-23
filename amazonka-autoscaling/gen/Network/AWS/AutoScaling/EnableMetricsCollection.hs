@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables monitoring of the specified metrics for the specified Auto Scaling group.
---
--- You can only enable metrics collection if 'InstanceMonitoring' in the launch configuration for the group is set to 'True'.
+-- Enables group metrics for the specified Auto Scaling group. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html Monitoring Your Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Creating a Request
@@ -43,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableMetricsCollection' smart constructor.
+-- | Contains the parameters for EnableMetricsCollection.
+--
+-- /See:/ 'enableMetricsCollection' smart constructor.
 data EnableMetricsCollection = EnableMetricsCollection'
     { _emcMetrics              :: !(Maybe [Text])
     , _emcAutoScalingGroupName :: !Text
@@ -88,7 +88,6 @@ enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
 --
 -- -   'GroupTotalInstances'
 --
--- Note that the 'GroupStandbyInstances' metric is not enabled by default. You must explicitly request this metric.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce;
 

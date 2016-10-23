@@ -27,10 +27,12 @@ module Network.AWS.ELB.Types
     , _DuplicateListenerException
     , _TooManyTagsException
     , _PolicyTypeNotFoundException
+    , _UnsupportedProtocolException
     , _DuplicateAccessPointNameException
     , _InvalidSecurityGroupException
     , _ListenerNotFoundException
     , _InvalidEndPointException
+    , _DependencyThrottleException
     , _InvalidSchemeException
     , _TooManyAccessPointsException
     , _TooManyPoliciesException
@@ -296,7 +298,7 @@ _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a Servic
 _DuplicateTagKeysException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
 
--- | A listener already exists for the specified 'LoadBalancerName' and 'LoadBalancerPort', but with a different 'InstancePort', 'Protocol', or 'SSLCertificateId'.
+-- | A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
@@ -309,6 +311,11 @@ _TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
 _PolicyTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyTypeNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "PolicyTypeNotFound"
+
+-- | Prism for UnsupportedProtocolException' errors.
+_UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedProtocolException =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedProtocol"
 
 -- | The specified load balancer name already exists for this account.
 _DuplicateAccessPointNameException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -330,6 +337,11 @@ _InvalidEndPointException :: AsError a => Getting (First ServiceError) a Service
 _InvalidEndPointException =
     _ServiceError . hasStatus 400 . hasCode "InvalidInstance"
 
+-- | Prism for DependencyThrottleException' errors.
+_DependencyThrottleException :: AsError a => Getting (First ServiceError) a ServiceError
+_DependencyThrottleException =
+    _ServiceError . hasStatus 400 . hasCode "DependencyThrottle"
+
 -- | The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
@@ -345,7 +357,7 @@ _TooManyPoliciesException :: AsError a => Getting (First ServiceError) a Service
 _TooManyPoliciesException =
     _ServiceError . hasStatus 400 . hasCode "TooManyPolicies"
 
--- | The specified SSL ID does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM).
+-- | The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
 _CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"

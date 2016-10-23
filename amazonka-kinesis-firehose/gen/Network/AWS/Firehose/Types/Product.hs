@@ -782,7 +782,7 @@ elasticsearchRetryOptions =
     { _eroDurationInSeconds = Nothing
     }
 
--- | After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery. After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds. A value of 0 (zero) results in no retries.
+-- | After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
 eroDurationInSeconds :: Lens' ElasticsearchRetryOptions (Maybe Natural)
 eroDurationInSeconds = lens _eroDurationInSeconds (\ s a -> s{_eroDurationInSeconds = a}) . mapping _Nat;
 
@@ -988,6 +988,7 @@ instance ToJSON Record where
 -- /See:/ 'redshiftDestinationConfiguration' smart constructor.
 data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
     { _rdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+    , _rdcRetryOptions             :: !(Maybe RedshiftRetryOptions)
     , _rdcRoleARN                  :: !Text
     , _rdcClusterJDBCURL           :: !Text
     , _rdcCopyCommand              :: !CopyCommand
@@ -1001,6 +1002,8 @@ data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdcCloudWatchLoggingOptions'
+--
+-- * 'rdcRetryOptions'
 --
 -- * 'rdcRoleARN'
 --
@@ -1024,6 +1027,7 @@ redshiftDestinationConfiguration
 redshiftDestinationConfiguration pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pPassword_ pS3Configuration_ =
     RedshiftDestinationConfiguration'
     { _rdcCloudWatchLoggingOptions = Nothing
+    , _rdcRetryOptions = Nothing
     , _rdcRoleARN = pRoleARN_
     , _rdcClusterJDBCURL = pClusterJDBCURL_
     , _rdcCopyCommand = pCopyCommand_
@@ -1035,6 +1039,10 @@ redshiftDestinationConfiguration pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsern
 -- | Describes CloudWatch logging options for your delivery stream.
 rdcCloudWatchLoggingOptions :: Lens' RedshiftDestinationConfiguration (Maybe CloudWatchLoggingOptions)
 rdcCloudWatchLoggingOptions = lens _rdcCloudWatchLoggingOptions (\ s a -> s{_rdcCloudWatchLoggingOptions = a});
+
+-- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+rdcRetryOptions :: Lens' RedshiftDestinationConfiguration (Maybe RedshiftRetryOptions)
+rdcRetryOptions = lens _rdcRetryOptions (\ s a -> s{_rdcRetryOptions = a});
 
 -- | The ARN of the AWS credentials.
 rdcRoleARN :: Lens' RedshiftDestinationConfiguration Text
@@ -1073,6 +1081,7 @@ instance ToJSON RedshiftDestinationConfiguration
               (catMaybes
                  [("CloudWatchLoggingOptions" .=) <$>
                     _rdcCloudWatchLoggingOptions,
+                  ("RetryOptions" .=) <$> _rdcRetryOptions,
                   Just ("RoleARN" .= _rdcRoleARN),
                   Just ("ClusterJDBCURL" .= _rdcClusterJDBCURL),
                   Just ("CopyCommand" .= _rdcCopyCommand),
@@ -1085,6 +1094,7 @@ instance ToJSON RedshiftDestinationConfiguration
 -- /See:/ 'redshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
     { _rddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+    , _rddRetryOptions             :: !(Maybe RedshiftRetryOptions)
     , _rddRoleARN                  :: !Text
     , _rddClusterJDBCURL           :: !Text
     , _rddCopyCommand              :: !CopyCommand
@@ -1097,6 +1107,8 @@ data RedshiftDestinationDescription = RedshiftDestinationDescription'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rddCloudWatchLoggingOptions'
+--
+-- * 'rddRetryOptions'
 --
 -- * 'rddRoleARN'
 --
@@ -1117,6 +1129,7 @@ redshiftDestinationDescription
 redshiftDestinationDescription pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pS3DestinationDescription_ =
     RedshiftDestinationDescription'
     { _rddCloudWatchLoggingOptions = Nothing
+    , _rddRetryOptions = Nothing
     , _rddRoleARN = pRoleARN_
     , _rddClusterJDBCURL = pClusterJDBCURL_
     , _rddCopyCommand = pCopyCommand_
@@ -1127,6 +1140,10 @@ redshiftDestinationDescription pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsernam
 -- | Describes CloudWatch logging options for your delivery stream.
 rddCloudWatchLoggingOptions :: Lens' RedshiftDestinationDescription (Maybe CloudWatchLoggingOptions)
 rddCloudWatchLoggingOptions = lens _rddCloudWatchLoggingOptions (\ s a -> s{_rddCloudWatchLoggingOptions = a});
+
+-- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+rddRetryOptions :: Lens' RedshiftDestinationDescription (Maybe RedshiftRetryOptions)
+rddRetryOptions = lens _rddRetryOptions (\ s a -> s{_rddRetryOptions = a});
 
 -- | The ARN of the AWS credentials.
 rddRoleARN :: Lens' RedshiftDestinationDescription Text
@@ -1155,7 +1172,8 @@ instance FromJSON RedshiftDestinationDescription
               (\ x ->
                  RedshiftDestinationDescription' <$>
                    (x .:? "CloudWatchLoggingOptions") <*>
-                     (x .: "RoleARN")
+                     (x .:? "RetryOptions")
+                     <*> (x .: "RoleARN")
                      <*> (x .: "ClusterJDBCURL")
                      <*> (x .: "CopyCommand")
                      <*> (x .: "Username")
@@ -1174,6 +1192,7 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
     , _rduS3Update                 :: !(Maybe S3DestinationUpdate)
     , _rduPassword                 :: !(Maybe (Sensitive Text))
     , _rduCopyCommand              :: !(Maybe CopyCommand)
+    , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
     , _rduClusterJDBCURL           :: !(Maybe Text)
     , _rduRoleARN                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1192,6 +1211,8 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
 --
 -- * 'rduCopyCommand'
 --
+-- * 'rduRetryOptions'
+--
 -- * 'rduClusterJDBCURL'
 --
 -- * 'rduRoleARN'
@@ -1204,6 +1225,7 @@ redshiftDestinationUpdate =
     , _rduS3Update = Nothing
     , _rduPassword = Nothing
     , _rduCopyCommand = Nothing
+    , _rduRetryOptions = Nothing
     , _rduClusterJDBCURL = Nothing
     , _rduRoleARN = Nothing
     }
@@ -1230,6 +1252,10 @@ rduPassword = lens _rduPassword (\ s a -> s{_rduPassword = a}) . mapping _Sensit
 rduCopyCommand :: Lens' RedshiftDestinationUpdate (Maybe CopyCommand)
 rduCopyCommand = lens _rduCopyCommand (\ s a -> s{_rduCopyCommand = a});
 
+-- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+rduRetryOptions :: Lens' RedshiftDestinationUpdate (Maybe RedshiftRetryOptions)
+rduRetryOptions = lens _rduRetryOptions (\ s a -> s{_rduRetryOptions = a});
+
 -- | The database connection string.
 rduClusterJDBCURL :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduClusterJDBCURL = lens _rduClusterJDBCURL (\ s a -> s{_rduClusterJDBCURL = a});
@@ -1252,8 +1278,49 @@ instance ToJSON RedshiftDestinationUpdate where
                   ("S3Update" .=) <$> _rduS3Update,
                   ("Password" .=) <$> _rduPassword,
                   ("CopyCommand" .=) <$> _rduCopyCommand,
+                  ("RetryOptions" .=) <$> _rduRetryOptions,
                   ("ClusterJDBCURL" .=) <$> _rduClusterJDBCURL,
                   ("RoleARN" .=) <$> _rduRoleARN])
+
+-- | Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift.
+--
+-- /See:/ 'redshiftRetryOptions' smart constructor.
+newtype RedshiftRetryOptions = RedshiftRetryOptions'
+    { _rroDurationInSeconds :: Maybe Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RedshiftRetryOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rroDurationInSeconds'
+redshiftRetryOptions
+    :: RedshiftRetryOptions
+redshiftRetryOptions =
+    RedshiftRetryOptions'
+    { _rroDurationInSeconds = Nothing
+    }
+
+-- | The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of 'DurationInSeconds' is 0 (zero) or if the first delivery attempt takes longer than the current value.
+rroDurationInSeconds :: Lens' RedshiftRetryOptions (Maybe Natural)
+rroDurationInSeconds = lens _rroDurationInSeconds (\ s a -> s{_rroDurationInSeconds = a}) . mapping _Nat;
+
+instance FromJSON RedshiftRetryOptions where
+        parseJSON
+          = withObject "RedshiftRetryOptions"
+              (\ x ->
+                 RedshiftRetryOptions' <$>
+                   (x .:? "DurationInSeconds"))
+
+instance Hashable RedshiftRetryOptions
+
+instance NFData RedshiftRetryOptions
+
+instance ToJSON RedshiftRetryOptions where
+        toJSON RedshiftRetryOptions'{..}
+          = object
+              (catMaybes
+                 [("DurationInSeconds" .=) <$> _rroDurationInSeconds])
 
 -- | Describes the configuration of a destination in Amazon S3.
 --
@@ -1300,7 +1367,7 @@ s3DestinationConfiguration pRoleARN_ pBucketARN_ =
     , _sdcBucketARN = pBucketARN_
     }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ guide-fh-dev>.
+-- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
 sdcPrefix :: Lens' S3DestinationConfiguration (Maybe Text)
 sdcPrefix = lens _sdcPrefix (\ s a -> s{_sdcPrefix = a});
 
@@ -1396,7 +1463,7 @@ s3DestinationDescription pRoleARN_ pBucketARN_ pBufferingHints_ pCompressionForm
     , _sddEncryptionConfiguration = pEncryptionConfiguration_
     }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ guide-fh-dev>.
+-- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
 sddPrefix :: Lens' S3DestinationDescription (Maybe Text)
 sddPrefix = lens _sddPrefix (\ s a -> s{_sddPrefix = a});
 
@@ -1484,7 +1551,7 @@ s3DestinationUpdate =
     , _sduRoleARN = Nothing
     }
 
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ guide-fh-dev>.
+-- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the <http://docs.aws.amazon.com/firehose/latest/dev/ Amazon Kinesis Firehose Developer Guide>.
 sduPrefix :: Lens' S3DestinationUpdate (Maybe Text)
 sduPrefix = lens _sduPrefix (\ s a -> s{_sduPrefix = a});
 

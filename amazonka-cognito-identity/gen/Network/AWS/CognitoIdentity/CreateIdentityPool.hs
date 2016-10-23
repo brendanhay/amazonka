@@ -33,6 +33,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
       createIdentityPool
     , CreateIdentityPool
     -- * Request Lenses
+    , cipSamlProviderARNs
     , cipSupportedLoginProviders
     , cipDeveloperProviderName
     , cipOpenIdConnectProviderARNs
@@ -44,6 +45,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , identityPool
     , IdentityPool
     -- * Response Lenses
+    , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
@@ -64,7 +66,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createIdentityPool' smart constructor.
 data CreateIdentityPool = CreateIdentityPool'
-    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    { _cipSamlProviderARNs               :: !(Maybe [Text])
+    , _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _cipDeveloperProviderName          :: !(Maybe Text)
     , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
     , _cipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
@@ -75,6 +78,8 @@ data CreateIdentityPool = CreateIdentityPool'
 -- | Creates a value of 'CreateIdentityPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cipSamlProviderARNs'
 --
 -- * 'cipSupportedLoginProviders'
 --
@@ -93,13 +98,18 @@ createIdentityPool
     -> CreateIdentityPool
 createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
-    { _cipSupportedLoginProviders = Nothing
+    { _cipSamlProviderARNs = Nothing
+    , _cipSupportedLoginProviders = Nothing
     , _cipDeveloperProviderName = Nothing
     , _cipOpenIdConnectProviderARNs = Nothing
     , _cipCognitoIdentityProviders = Nothing
     , _cipIdentityPoolName = pIdentityPoolName_
     , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
+
+-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
+cipSamlProviderARNs :: Lens' CreateIdentityPool [Text]
+cipSamlProviderARNs = lens _cipSamlProviderARNs (\ s a -> s{_cipSamlProviderARNs = a}) . _Default . _Coerce;
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
@@ -115,7 +125,7 @@ cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDevelo
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
--- | A list representing a Cognito User Identity Pool and its client ID.
+-- | An array of Amazon Cognito Identity user pools.
 cipCognitoIdentityProviders :: Lens' CreateIdentityPool [CognitoIdentityProvider]
 cipCognitoIdentityProviders = lens _cipCognitoIdentityProviders (\ s a -> s{_cipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
@@ -150,7 +160,8 @@ instance ToJSON CreateIdentityPool where
         toJSON CreateIdentityPool'{..}
           = object
               (catMaybes
-                 [("SupportedLoginProviders" .=) <$>
+                 [("SamlProviderARNs" .=) <$> _cipSamlProviderARNs,
+                  ("SupportedLoginProviders" .=) <$>
                     _cipSupportedLoginProviders,
                   ("DeveloperProviderName" .=) <$>
                     _cipDeveloperProviderName,

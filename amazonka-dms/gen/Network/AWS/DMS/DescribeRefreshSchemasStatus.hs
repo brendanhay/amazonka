@@ -19,7 +19,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the status of the RefreshSchemas operation.
---
 module Network.AWS.DMS.DescribeRefreshSchemasStatus
     (
     -- * Creating a Request
@@ -43,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeRefreshSchemasStatus' smart constructor.
+-- |
+--
+-- /See:/ 'describeRefreshSchemasStatus' smart constructor.
 newtype DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
     { _drssEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -103,7 +104,9 @@ instance ToPath DescribeRefreshSchemasStatus where
 instance ToQuery DescribeRefreshSchemasStatus where
         toQuery = const mempty
 
--- | /See:/ 'describeRefreshSchemasStatusResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
     { _drssrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
     , _drssrsResponseStatus       :: !Int

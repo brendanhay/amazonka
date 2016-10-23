@@ -29,7 +29,7 @@ instance FromText ChronologicalOrder where
         "forward" -> pure Forward
         "reverse" -> pure Reverse
         e -> fromTextError $ "Failure parsing ChronologicalOrder from value: '" <> e
-           <> "'. Accepted values: Forward, Reverse"
+           <> "'. Accepted values: forward, reverse"
 
 instance ToText ChronologicalOrder where
     toText = \case
@@ -59,7 +59,7 @@ instance FromText ComplianceType where
         "non_compliant" -> pure NonCompliant
         "not_applicable" -> pure NotApplicable
         e -> fromTextError $ "Failure parsing ComplianceType from value: '" <> e
-           <> "'. Accepted values: COMPLIANT, INSUFFICIENT_DATA, NON_COMPLIANT, NOT_APPLICABLE"
+           <> "'. Accepted values: compliant, insufficient_data, non_compliant, not_applicable"
 
 instance ToText ComplianceType where
     toText = \case
@@ -83,19 +83,25 @@ instance FromJSON ComplianceType where
 data ConfigRuleState
     = Active
     | Deleting
+    | DeletingResults
+    | Evaluating
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigRuleState where
     parser = takeLowerText >>= \case
         "active" -> pure Active
         "deleting" -> pure Deleting
+        "deleting_results" -> pure DeletingResults
+        "evaluating" -> pure Evaluating
         e -> fromTextError $ "Failure parsing ConfigRuleState from value: '" <> e
-           <> "'. Accepted values: ACTIVE, DELETING"
+           <> "'. Accepted values: active, deleting, deleting_results, evaluating"
 
 instance ToText ConfigRuleState where
     toText = \case
         Active -> "ACTIVE"
         Deleting -> "DELETING"
+        DeletingResults -> "DELETING_RESULTS"
+        Evaluating -> "EVALUATING"
 
 instance Hashable     ConfigRuleState
 instance NFData       ConfigRuleState
@@ -123,7 +129,7 @@ instance FromText ConfigurationItemStatus where
         "failed" -> pure Failed
         "ok" -> pure OK
         e -> fromTextError $ "Failure parsing ConfigurationItemStatus from value: '" <> e
-           <> "'. Accepted values: Deleted, Discovered, Failed, Ok"
+           <> "'. Accepted values: deleted, discovered, failed, ok"
 
 instance ToText ConfigurationItemStatus where
     toText = \case
@@ -153,7 +159,7 @@ instance FromText DeliveryStatus where
         "not_applicable" -> pure DSNotApplicable
         "success" -> pure DSSuccess
         e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
-           <> "'. Accepted values: Failure, Not_Applicable, Success"
+           <> "'. Accepted values: failure, not_applicable, success"
 
 instance ToText DeliveryStatus where
     toText = \case
@@ -212,7 +218,7 @@ instance FromText MaximumExecutionFrequency where
         "twelve_hours" -> pure TwelveHours
         "twentyfour_hours" -> pure TwentyFourHours
         e -> fromTextError $ "Failure parsing MaximumExecutionFrequency from value: '" <> e
-           <> "'. Accepted values: One_Hour, Six_Hours, Three_Hours, Twelve_Hours, TwentyFour_Hours"
+           <> "'. Accepted values: one_hour, six_hours, three_hours, twelve_hours, twentyfour_hours"
 
 instance ToText MaximumExecutionFrequency where
     toText = \case
@@ -237,19 +243,22 @@ instance FromJSON MaximumExecutionFrequency where
 data MessageType
     = ConfigurationItemChangeNotification
     | ConfigurationSnapshotDeliveryCompleted
+    | ScheduledNotification
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
         "configurationitemchangenotification" -> pure ConfigurationItemChangeNotification
         "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
+        "schedulednotification" -> pure ScheduledNotification
         e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
-           <> "'. Accepted values: ConfigurationItemChangeNotification, ConfigurationSnapshotDeliveryCompleted"
+           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, schedulednotification"
 
 instance ToText MessageType where
     toText = \case
         ConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
         ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
+        ScheduledNotification -> "ScheduledNotification"
 
 instance Hashable     MessageType
 instance NFData       MessageType
@@ -273,7 +282,7 @@ instance FromText Owner where
         "aws" -> pure AWS
         "custom_lambda" -> pure CustomLambda
         e -> fromTextError $ "Failure parsing Owner from value: '" <> e
-           <> "'. Accepted values: AWS, CUSTOM_LAMBDA"
+           <> "'. Accepted values: aws, custom_lambda"
 
 instance ToText Owner where
     toText = \case
@@ -304,7 +313,7 @@ instance FromText RecorderStatus where
         "pending" -> pure Pending
         "success" -> pure Success
         e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
-           <> "'. Accepted values: Failure, Pending, Success"
+           <> "'. Accepted values: failure, pending, success"
 
 instance ToText RecorderStatus where
     toText = \case
@@ -322,7 +331,8 @@ instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
 
 data ResourceType
-    = AWSCloudTrailTrail
+    = AWSAcmCertificate
+    | AWSCloudTrailTrail
     | AWSEC2CustomerGateway
     | AWSEC2EIP
     | AWSEC2Host
@@ -337,14 +347,21 @@ data ResourceType
     | AWSEC2VPNConnection
     | AWSEC2VPNGateway
     | AWSEC2Volume
+    | AWSELASTICLOADBALANCINGV2LoadBalancer
     | AWSIAMGroup
     | AWSIAMPolicy
     | AWSIAMRole
     | AWSIAMUser
+    | AWSRDSDBInstance
+    | AWSRDSDBSecurityGroup
+    | AWSRDSDBSnapshot
+    | AWSRDSDBSubnetGroup
+    | AWSRDSEventSubscription
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
+        "aws::acm::certificate" -> pure AWSAcmCertificate
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
         "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
         "aws::ec2::eip" -> pure AWSEC2EIP
@@ -360,15 +377,22 @@ instance FromText ResourceType where
         "aws::ec2::vpnconnection" -> pure AWSEC2VPNConnection
         "aws::ec2::vpngateway" -> pure AWSEC2VPNGateway
         "aws::ec2::volume" -> pure AWSEC2Volume
+        "aws::elasticloadbalancingv2::loadbalancer" -> pure AWSELASTICLOADBALANCINGV2LoadBalancer
         "aws::iam::group" -> pure AWSIAMGroup
         "aws::iam::policy" -> pure AWSIAMPolicy
         "aws::iam::role" -> pure AWSIAMRole
         "aws::iam::user" -> pure AWSIAMUser
+        "aws::rds::dbinstance" -> pure AWSRDSDBInstance
+        "aws::rds::dbsecuritygroup" -> pure AWSRDSDBSecurityGroup
+        "aws::rds::dbsnapshot" -> pure AWSRDSDBSnapshot
+        "aws::rds::dbsubnetgroup" -> pure AWSRDSDBSubnetGroup
+        "aws::rds::eventsubscription" -> pure AWSRDSEventSubscription
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: AWS::CloudTrail::Trail, AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Host, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::Volume, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User"
+           <> "'. Accepted values: aws::acm::certificate, aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription"
 
 instance ToText ResourceType where
     toText = \case
+        AWSAcmCertificate -> "AWS::ACM::Certificate"
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
         AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
         AWSEC2EIP -> "AWS::EC2::EIP"
@@ -384,10 +408,16 @@ instance ToText ResourceType where
         AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
         AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
         AWSEC2Volume -> "AWS::EC2::Volume"
+        AWSELASTICLOADBALANCINGV2LoadBalancer -> "AWS::ElasticLoadBalancingV2::LoadBalancer"
         AWSIAMGroup -> "AWS::IAM::Group"
         AWSIAMPolicy -> "AWS::IAM::Policy"
         AWSIAMRole -> "AWS::IAM::Role"
         AWSIAMUser -> "AWS::IAM::User"
+        AWSRDSDBInstance -> "AWS::RDS::DBInstance"
+        AWSRDSDBSecurityGroup -> "AWS::RDS::DBSecurityGroup"
+        AWSRDSDBSnapshot -> "AWS::RDS::DBSnapshot"
+        AWSRDSDBSubnetGroup -> "AWS::RDS::DBSubnetGroup"
+        AWSRDSEventSubscription -> "AWS::RDS::EventSubscription"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType

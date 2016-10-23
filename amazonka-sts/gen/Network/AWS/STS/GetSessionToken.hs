@@ -95,7 +95,7 @@ gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = 
 
 -- | The identification number of the MFA device that is associated with the IAM user who is making the 'GetSessionToken' call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as 'GAHT12345678') or an Amazon Resource Name (ARN) for a virtual device (such as 'arn:aws:iam::123456789012:mfa\/user'). You can find the device for an IAM user by going to the AWS Management Console and viewing the user\'s security credentials.
 --
--- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.\'-
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
 

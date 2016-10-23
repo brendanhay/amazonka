@@ -52,6 +52,9 @@ import Test.AWS.RDS.Internal
 --         , requestResetDBClusterParameterGroup $
 --             resetDBClusterParameterGroup
 --
+--         , requestRestoreDBClusterFromS3 $
+--             restoreDBClusterFromS3
+--
 --         , requestDescribeEvents $
 --             describeEvents
 --
@@ -94,6 +97,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributes
 --
+--         , requestPromoteReadReplicaDBCluster $
+--             promoteReadReplicaDBCluster
+--
 --         , requestRemoveTagsFromResource $
 --             removeTagsFromResource
 --
@@ -117,6 +123,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngress
+--
+--         , requestDescribeSourceRegions $
+--             describeSourceRegions
 --
 --         , requestRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshot
@@ -169,8 +178,14 @@ import Test.AWS.RDS.Internal
 --         , requestCreateDBParameterGroup $
 --             createDBParameterGroup
 --
+--         , requestModifyDBClusterSnapshotAttribute $
+--             modifyDBClusterSnapshotAttribute
+--
 --         , requestModifyDBCluster $
 --             modifyDBCluster
+--
+--         , requestCopyDBClusterParameterGroup $
+--             copyDBClusterParameterGroup
 --
 --         , requestDescribeEventCategories $
 --             describeEventCategories
@@ -180,6 +195,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestRestoreDBInstanceToPointInTime $
 --             restoreDBInstanceToPointInTime
+--
+--         , requestDescribeDBClusterSnapshotAttributes $
+--             describeDBClusterSnapshotAttributes
 --
 --         , requestDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActions
@@ -289,6 +307,9 @@ import Test.AWS.RDS.Internal
 --         , responseResetDBClusterParameterGroup $
 --             dbClusterParameterGroupNameMessage
 --
+--         , responseRestoreDBClusterFromS3 $
+--             restoreDBClusterFromS3Response
+--
 --         , responseDescribeEvents $
 --             describeEventsResponse
 --
@@ -331,6 +352,9 @@ import Test.AWS.RDS.Internal
 --         , responseDescribeDBSnapshotAttributes $
 --             describeDBSnapshotAttributesResponse
 --
+--         , responsePromoteReadReplicaDBCluster $
+--             promoteReadReplicaDBClusterResponse
+--
 --         , responseRemoveTagsFromResource $
 --             removeTagsFromResourceResponse
 --
@@ -354,6 +378,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseAuthorizeDBSecurityGroupIngress $
 --             authorizeDBSecurityGroupIngressResponse
+--
+--         , responseDescribeSourceRegions $
+--             describeSourceRegionsResponse
 --
 --         , responseRestoreDBClusterFromSnapshot $
 --             restoreDBClusterFromSnapshotResponse
@@ -406,8 +433,14 @@ import Test.AWS.RDS.Internal
 --         , responseCreateDBParameterGroup $
 --             createDBParameterGroupResponse
 --
+--         , responseModifyDBClusterSnapshotAttribute $
+--             modifyDBClusterSnapshotAttributeResponse
+--
 --         , responseModifyDBCluster $
 --             modifyDBClusterResponse
+--
+--         , responseCopyDBClusterParameterGroup $
+--             copyDBClusterParameterGroupResponse
 --
 --         , responseDescribeEventCategories $
 --             describeEventCategoriesResponse
@@ -417,6 +450,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseRestoreDBInstanceToPointInTime $
 --             restoreDBInstanceToPointInTimeResponse
+--
+--         , responseDescribeDBClusterSnapshotAttributes $
+--             describeDBClusterSnapshotAttributesResponse
 --
 --         , responseDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActionsResponse
@@ -544,6 +580,11 @@ requestResetDBClusterParameterGroup = req
     "ResetDBClusterParameterGroup"
     "fixture/ResetDBClusterParameterGroup.yaml"
 
+requestRestoreDBClusterFromS3 :: RestoreDBClusterFromS3 -> TestTree
+requestRestoreDBClusterFromS3 = req
+    "RestoreDBClusterFromS3"
+    "fixture/RestoreDBClusterFromS3.yaml"
+
 requestDescribeEvents :: DescribeEvents -> TestTree
 requestDescribeEvents = req
     "DescribeEvents"
@@ -614,6 +655,11 @@ requestDescribeDBSnapshotAttributes = req
     "DescribeDBSnapshotAttributes"
     "fixture/DescribeDBSnapshotAttributes.yaml"
 
+requestPromoteReadReplicaDBCluster :: PromoteReadReplicaDBCluster -> TestTree
+requestPromoteReadReplicaDBCluster = req
+    "PromoteReadReplicaDBCluster"
+    "fixture/PromoteReadReplicaDBCluster.yaml"
+
 requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
 requestRemoveTagsFromResource = req
     "RemoveTagsFromResource"
@@ -653,6 +699,11 @@ requestAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngress -> Tes
 requestAuthorizeDBSecurityGroupIngress = req
     "AuthorizeDBSecurityGroupIngress"
     "fixture/AuthorizeDBSecurityGroupIngress.yaml"
+
+requestDescribeSourceRegions :: DescribeSourceRegions -> TestTree
+requestDescribeSourceRegions = req
+    "DescribeSourceRegions"
+    "fixture/DescribeSourceRegions.yaml"
 
 requestRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshot -> TestTree
 requestRestoreDBClusterFromSnapshot = req
@@ -739,10 +790,20 @@ requestCreateDBParameterGroup = req
     "CreateDBParameterGroup"
     "fixture/CreateDBParameterGroup.yaml"
 
+requestModifyDBClusterSnapshotAttribute :: ModifyDBClusterSnapshotAttribute -> TestTree
+requestModifyDBClusterSnapshotAttribute = req
+    "ModifyDBClusterSnapshotAttribute"
+    "fixture/ModifyDBClusterSnapshotAttribute.yaml"
+
 requestModifyDBCluster :: ModifyDBCluster -> TestTree
 requestModifyDBCluster = req
     "ModifyDBCluster"
     "fixture/ModifyDBCluster.yaml"
+
+requestCopyDBClusterParameterGroup :: CopyDBClusterParameterGroup -> TestTree
+requestCopyDBClusterParameterGroup = req
+    "CopyDBClusterParameterGroup"
+    "fixture/CopyDBClusterParameterGroup.yaml"
 
 requestDescribeEventCategories :: DescribeEventCategories -> TestTree
 requestDescribeEventCategories = req
@@ -758,6 +819,11 @@ requestRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTime -> TestT
 requestRestoreDBInstanceToPointInTime = req
     "RestoreDBInstanceToPointInTime"
     "fixture/RestoreDBInstanceToPointInTime.yaml"
+
+requestDescribeDBClusterSnapshotAttributes :: DescribeDBClusterSnapshotAttributes -> TestTree
+requestDescribeDBClusterSnapshotAttributes = req
+    "DescribeDBClusterSnapshotAttributes"
+    "fixture/DescribeDBClusterSnapshotAttributes.yaml"
 
 requestDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
 requestDescribePendingMaintenanceActions = req
@@ -952,6 +1018,13 @@ responseResetDBClusterParameterGroup = res
     rds
     (Proxy :: Proxy ResetDBClusterParameterGroup)
 
+responseRestoreDBClusterFromS3 :: RestoreDBClusterFromS3Response -> TestTree
+responseRestoreDBClusterFromS3 = res
+    "RestoreDBClusterFromS3Response"
+    "fixture/RestoreDBClusterFromS3Response.proto"
+    rds
+    (Proxy :: Proxy RestoreDBClusterFromS3)
+
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents = res
     "DescribeEventsResponse"
@@ -1050,6 +1123,13 @@ responseDescribeDBSnapshotAttributes = res
     rds
     (Proxy :: Proxy DescribeDBSnapshotAttributes)
 
+responsePromoteReadReplicaDBCluster :: PromoteReadReplicaDBClusterResponse -> TestTree
+responsePromoteReadReplicaDBCluster = res
+    "PromoteReadReplicaDBClusterResponse"
+    "fixture/PromoteReadReplicaDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy PromoteReadReplicaDBCluster)
+
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource = res
     "RemoveTagsFromResourceResponse"
@@ -1105,6 +1185,13 @@ responseAuthorizeDBSecurityGroupIngress = res
     "fixture/AuthorizeDBSecurityGroupIngressResponse.proto"
     rds
     (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
+
+responseDescribeSourceRegions :: DescribeSourceRegionsResponse -> TestTree
+responseDescribeSourceRegions = res
+    "DescribeSourceRegionsResponse"
+    "fixture/DescribeSourceRegionsResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeSourceRegions)
 
 responseRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshotResponse -> TestTree
 responseRestoreDBClusterFromSnapshot = res
@@ -1225,12 +1312,26 @@ responseCreateDBParameterGroup = res
     rds
     (Proxy :: Proxy CreateDBParameterGroup)
 
+responseModifyDBClusterSnapshotAttribute :: ModifyDBClusterSnapshotAttributeResponse -> TestTree
+responseModifyDBClusterSnapshotAttribute = res
+    "ModifyDBClusterSnapshotAttributeResponse"
+    "fixture/ModifyDBClusterSnapshotAttributeResponse.proto"
+    rds
+    (Proxy :: Proxy ModifyDBClusterSnapshotAttribute)
+
 responseModifyDBCluster :: ModifyDBClusterResponse -> TestTree
 responseModifyDBCluster = res
     "ModifyDBClusterResponse"
     "fixture/ModifyDBClusterResponse.proto"
     rds
     (Proxy :: Proxy ModifyDBCluster)
+
+responseCopyDBClusterParameterGroup :: CopyDBClusterParameterGroupResponse -> TestTree
+responseCopyDBClusterParameterGroup = res
+    "CopyDBClusterParameterGroupResponse"
+    "fixture/CopyDBClusterParameterGroupResponse.proto"
+    rds
+    (Proxy :: Proxy CopyDBClusterParameterGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
 responseDescribeEventCategories = res
@@ -1252,6 +1353,13 @@ responseRestoreDBInstanceToPointInTime = res
     "fixture/RestoreDBInstanceToPointInTimeResponse.proto"
     rds
     (Proxy :: Proxy RestoreDBInstanceToPointInTime)
+
+responseDescribeDBClusterSnapshotAttributes :: DescribeDBClusterSnapshotAttributesResponse -> TestTree
+responseDescribeDBClusterSnapshotAttributes = res
+    "DescribeDBClusterSnapshotAttributesResponse"
+    "fixture/DescribeDBClusterSnapshotAttributesResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeDBClusterSnapshotAttributes)
 
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
 responseDescribePendingMaintenanceActions = res

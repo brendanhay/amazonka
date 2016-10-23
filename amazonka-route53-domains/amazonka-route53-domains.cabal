@@ -1,5 +1,5 @@
 name:                  amazonka-route53-domains
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Route 53 Domains SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -49,11 +49,13 @@ library
         , Network.AWS.Route53Domains.EnableDomainTransferLock
         , Network.AWS.Route53Domains.GetContactReachabilityStatus
         , Network.AWS.Route53Domains.GetDomainDetail
+        , Network.AWS.Route53Domains.GetDomainSuggestions
         , Network.AWS.Route53Domains.GetOperationDetail
         , Network.AWS.Route53Domains.ListDomains
         , Network.AWS.Route53Domains.ListOperations
         , Network.AWS.Route53Domains.ListTagsForDomain
         , Network.AWS.Route53Domains.RegisterDomain
+        , Network.AWS.Route53Domains.RenewDomain
         , Network.AWS.Route53Domains.ResendContactReachabilityEmail
         , Network.AWS.Route53Domains.RetrieveDomainAuthCode
         , Network.AWS.Route53Domains.TransferDomain
@@ -62,6 +64,7 @@ library
         , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
         , Network.AWS.Route53Domains.UpdateDomainNameservers
         , Network.AWS.Route53Domains.UpdateTagsForDomain
+        , Network.AWS.Route53Domains.ViewBilling
         , Network.AWS.Route53Domains.Waiters
 
     other-modules:
@@ -69,7 +72,7 @@ library
         , Network.AWS.Route53Domains.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-route53-domains-test
@@ -89,9 +92,9 @@ test-suite amazonka-route53-domains-test
         , Test.AWS.Route53Domains.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-route53-domains == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-route53-domains == 1.4.4.*
         , base
         , bytestring
         , tasty

@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateConditionalForwarder' smart constructor.
+-- | Updates a conditional forwarder.
+--
+-- /See:/ 'updateConditionalForwarder' smart constructor.
 data UpdateConditionalForwarder = UpdateConditionalForwarder'
     { _ucfDirectoryId      :: !Text
     , _ucfRemoteDomainName :: !Text
@@ -120,7 +122,9 @@ instance ToPath UpdateConditionalForwarder where
 instance ToQuery UpdateConditionalForwarder where
         toQuery = const mempty
 
--- | /See:/ 'updateConditionalForwarderResponse' smart constructor.
+-- | The result of an UpdateConditionalForwarder request.
+--
+-- /See:/ 'updateConditionalForwarderResponse' smart constructor.
 newtype UpdateConditionalForwarderResponse = UpdateConditionalForwarderResponse'
     { _ucfrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

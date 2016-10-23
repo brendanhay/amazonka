@@ -20,10 +20,13 @@ module Network.AWS.CodePipeline.Types
     , _ValidationException
     , _InvalidNonceException
     , _ActionNotFoundException
+    , _InvalidApprovalTokenException
     , _InvalidBlockerDeclarationException
     , _InvalidJobStateException
     , _InvalidJobException
     , _PipelineVersionNotFoundException
+    , _StageNotRetryableException
+    , _PipelineExecutionNotFoundException
     , _ActionTypeNotFoundException
     , _InvalidNextTokenException
     , _InvalidStageDeclarationException
@@ -31,9 +34,11 @@ module Network.AWS.CodePipeline.Types
     , _StageNotFoundException
     , _InvalidStructureException
     , _JobNotFoundException
+    , _ApprovalAlreadyCompletedException
     , _PipelineNameInUseException
     , _PipelineNotFoundException
     , _LimitExceededException
+    , _NotLatestPipelineExecutionException
 
     -- * ActionCategory
     , ActionCategory (..)
@@ -46,6 +51,9 @@ module Network.AWS.CodePipeline.Types
 
     -- * ActionOwner
     , ActionOwner (..)
+
+    -- * ApprovalStatus
+    , ApprovalStatus (..)
 
     -- * ArtifactLocationType
     , ArtifactLocationType (..)
@@ -64,6 +72,15 @@ module Network.AWS.CodePipeline.Types
 
     -- * JobStatus
     , JobStatus (..)
+
+    -- * PipelineExecutionStatus
+    , PipelineExecutionStatus (..)
+
+    -- * StageExecutionStatus
+    , StageExecutionStatus (..)
+
+    -- * StageRetryMode
+    , StageRetryMode (..)
 
     -- * StageTransitionType
     , StageTransitionType (..)
@@ -110,9 +127,11 @@ module Network.AWS.CodePipeline.Types
     -- * ActionExecution
     , ActionExecution
     , actionExecution
+    , aeLastUpdatedBy
     , aeSummary
     , aeStatus
     , aeLastStatusChange
+    , aeToken
     , aeExternalExecutionURL
     , aeExternalExecutionId
     , aeErrorDetails
@@ -121,9 +140,9 @@ module Network.AWS.CodePipeline.Types
     -- * ActionRevision
     , ActionRevision
     , actionRevision
-    , arRevisionId
-    , arRevisionChangeId
-    , arCreated
+    , aRevisionId
+    , aRevisionChangeId
+    , aCreated
 
     -- * ActionState
     , ActionState
@@ -159,6 +178,12 @@ module Network.AWS.CodePipeline.Types
     , atsRevisionURLTemplate
     , atsEntityURLTemplate
 
+    -- * ApprovalResult
+    , ApprovalResult
+    , approvalResult
+    , arSummary
+    , arStatus
+
     -- * Artifact
     , Artifact
     , artifact
@@ -178,6 +203,16 @@ module Network.AWS.CodePipeline.Types
     , alS3Location
     , alType
 
+    -- * ArtifactRevision
+    , ArtifactRevision
+    , artifactRevision
+    , arRevisionSummary
+    , arRevisionURL
+    , arCreated
+    , arName
+    , arRevisionId
+    , arRevisionChangeIdentifier
+
     -- * ArtifactStore
     , ArtifactStore
     , artifactStore
@@ -194,6 +229,8 @@ module Network.AWS.CodePipeline.Types
     -- * CurrentRevision
     , CurrentRevision
     , currentRevision
+    , crRevisionSummary
+    , crCreated
     , crRevision
     , crChangeIdentifier
 
@@ -276,6 +313,15 @@ module Network.AWS.CodePipeline.Types
     , pdArtifactStore
     , pdStages
 
+    -- * PipelineExecution
+    , PipelineExecution
+    , pipelineExecution
+    , peStatus
+    , pePipelineName
+    , pePipelineVersion
+    , pePipelineExecutionId
+    , peArtifactRevisions
+
     -- * PipelineSummary
     , PipelineSummary
     , pipelineSummary
@@ -302,12 +348,19 @@ module Network.AWS.CodePipeline.Types
     , sdName
     , sdActions
 
+    -- * StageExecution
+    , StageExecution
+    , stageExecution
+    , sePipelineExecutionId
+    , seStatus
+
     -- * StageState
     , StageState
     , stageState
     , ssInboundTransitionState
     , ssActionStates
     , ssStageName
+    , ssLatestExecution
 
     -- * ThirdPartyJob
     , ThirdPartyJob
@@ -400,6 +453,11 @@ _InvalidNonceException = _ServiceError . hasCode "InvalidNonceException"
 _ActionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionNotFoundException = _ServiceError . hasCode "ActionNotFoundException"
 
+-- | The approval request already received a response or has expired.
+_InvalidApprovalTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidApprovalTokenException =
+    _ServiceError . hasCode "InvalidApprovalTokenException"
+
 -- | Reserved for future use.
 _InvalidBlockerDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBlockerDeclarationException =
@@ -417,6 +475,16 @@ _InvalidJobException = _ServiceError . hasCode "InvalidJobException"
 _PipelineVersionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineVersionNotFoundException =
     _ServiceError . hasCode "PipelineVersionNotFoundException"
+
+-- | The specified stage can\'t be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress.
+_StageNotRetryableException :: AsError a => Getting (First ServiceError) a ServiceError
+_StageNotRetryableException =
+    _ServiceError . hasCode "StageNotRetryableException"
+
+-- | The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
+_PipelineExecutionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_PipelineExecutionNotFoundException =
+    _ServiceError . hasCode "PipelineExecutionNotFoundException"
 
 -- | The specified action type cannot be found.
 _ActionTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -451,6 +519,11 @@ _InvalidStructureException =
 _JobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
 
+-- | The approval action has already been approved or rejected.
+_ApprovalAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ApprovalAlreadyCompletedException =
+    _ServiceError . hasCode "ApprovalAlreadyCompletedException"
+
 -- | The specified pipeline name is already in use.
 _PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNameInUseException =
@@ -464,3 +537,8 @@ _PipelineNotFoundException =
 -- | The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.
+_NotLatestPipelineExecutionException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotLatestPipelineExecutionException =
+    _ServiceError . hasCode "NotLatestPipelineExecutionException"

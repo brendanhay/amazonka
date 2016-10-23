@@ -86,7 +86,7 @@ describeCacheParameters pCacheParameterGroupName_ =
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
+-- | The maximum number of brecords to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --

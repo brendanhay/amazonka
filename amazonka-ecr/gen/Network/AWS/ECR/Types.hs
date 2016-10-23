@@ -42,6 +42,9 @@ module Network.AWS.ECR.Types
     -- * LayerFailureCode
     , LayerFailureCode (..)
 
+    -- * TagStatus
+    , TagStatus (..)
+
     -- * AuthorizationData
     , AuthorizationData
     , authorizationData
@@ -83,6 +86,11 @@ module Network.AWS.ECR.Types
     , lfFailureReason
     , lfFailureCode
     , lfLayerDigest
+
+    -- * ListImagesFilter
+    , ListImagesFilter
+    , listImagesFilter
+    , lifTagStatus
 
     -- * Repository
     , Repository

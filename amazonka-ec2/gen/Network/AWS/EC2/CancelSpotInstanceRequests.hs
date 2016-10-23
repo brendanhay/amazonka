@@ -103,7 +103,7 @@ instance ToQuery CancelSpotInstanceRequests where
           = mconcat
               ["Action" =:
                  ("CancelSpotInstanceRequests" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "DryRun" =: _csirDryRun,
                toQueryList "SpotInstanceRequestId"
                  _csirSpotInstanceRequestIds]

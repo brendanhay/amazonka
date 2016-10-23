@@ -35,7 +35,7 @@ instance FromText OperatorType where
         "le" -> pure OperatorLE
         "ref_eq" -> pure OperatorRefEQ
         e -> fromTextError $ "Failure parsing OperatorType from value: '" <> e
-           <> "'. Accepted values: BETWEEN, EQ, GE, LE, REF_EQ"
+           <> "'. Accepted values: between, eq, ge, le, ref_eq"
 
 instance ToText OperatorType where
     toText = \case
@@ -66,7 +66,7 @@ instance FromText TaskStatus where
         "false" -> pure False'
         "finished" -> pure Finished
         e -> fromTextError $ "Failure parsing TaskStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, FALSE, FINISHED"
+           <> "'. Accepted values: failed, false, finished"
 
 instance ToText TaskStatus where
     toText = \case

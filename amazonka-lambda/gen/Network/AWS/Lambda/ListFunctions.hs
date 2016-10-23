@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listFunctions' smart constructor.
+-- |
+--
+-- /See:/ 'listFunctions' smart constructor.
 data ListFunctions = ListFunctions'
     { _lfMarker   :: !(Maybe Text)
     , _lfMaxItems :: !(Maybe Nat)

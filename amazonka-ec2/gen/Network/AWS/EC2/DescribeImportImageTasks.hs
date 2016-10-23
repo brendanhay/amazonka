@@ -130,7 +130,7 @@ instance ToQuery DescribeImportImageTasks where
           = mconcat
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filters" <$> _diitFilters),
                toQuery
                  (toQueryList "ImportTaskId" <$> _diitImportTaskIds),

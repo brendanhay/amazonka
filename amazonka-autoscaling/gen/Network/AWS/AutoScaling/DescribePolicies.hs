@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describePolicies' smart constructor.
+-- | Contains the parameters for DescribePolicies.
+--
+-- /See:/ 'describePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
     { _dpsPolicyNames          :: !(Maybe [Text])
     , _dpsNextToken            :: !(Maybe Text)
@@ -83,7 +85,7 @@ describePolicies =
     , _dpsPolicyTypes = Nothing
     }
 
--- | One or more policy names or policy ARNs to be described. If you omit this list, all policy names are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
+-- | One or more policy names or policy ARNs to be described. If you omit this parameter, all policy names are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
 dpsPolicyNames :: Lens' DescribePolicies [Text]
 dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default . _Coerce;
 
@@ -145,7 +147,9 @@ instance ToQuery DescribePolicies where
                "PolicyTypes" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 
--- | /See:/ 'describePoliciesResponse' smart constructor.
+-- | Contains the output of DescribePolicies.
+--
+-- /See:/ 'describePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprsNextToken       :: !(Maybe Text)
     , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])

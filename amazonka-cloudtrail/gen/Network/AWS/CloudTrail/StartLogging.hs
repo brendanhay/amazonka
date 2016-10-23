@@ -61,7 +61,9 @@ startLogging pName_ =
     { _sName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
+--
+-- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
 sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a});
 

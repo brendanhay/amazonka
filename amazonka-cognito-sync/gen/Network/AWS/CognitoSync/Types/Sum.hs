@@ -33,7 +33,7 @@ instance FromText BulkPublishStatus where
         "not_started" -> pure NotStarted
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing BulkPublishStatus from value: '" <> e
-           <> "'. Accepted values: FAILED, IN_PROGRESS, NOT_STARTED, SUCCEEDED"
+           <> "'. Accepted values: failed, in_progress, not_started, succeeded"
 
 instance ToText BulkPublishStatus where
     toText = \case
@@ -91,7 +91,7 @@ instance FromText Platform where
         "apns_sandbox" -> pure APNSSandbox
         "gcm" -> pure GCM
         e -> fromTextError $ "Failure parsing Platform from value: '" <> e
-           <> "'. Accepted values: ADM, APNS, APNS_SANDBOX, GCM"
+           <> "'. Accepted values: adm, apns, apns_sandbox, gcm"
 
 instance ToText Platform where
     toText = \case
@@ -119,7 +119,7 @@ instance FromText StreamingStatus where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing StreamingStatus from value: '" <> e
-           <> "'. Accepted values: DISABLED, ENABLED"
+           <> "'. Accepted values: disabled, enabled"
 
 instance ToText StreamingStatus where
     toText = \case

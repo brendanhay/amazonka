@@ -25,7 +25,7 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'enhancedMetrics' smart constructor.
 newtype EnhancedMetrics = EnhancedMetrics'
-    { _emShardLevelMetrics :: Maybe (List1 MetricsName)
+    { _emShardLevelMetrics :: Maybe [MetricsName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnhancedMetrics' with the minimum fields required to make a request.
@@ -54,14 +54,15 @@ enhancedMetrics =
 -- -   'ALL'
 --
 -- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
-emShardLevelMetrics :: Lens' EnhancedMetrics (Maybe (NonEmpty MetricsName))
-emShardLevelMetrics = lens _emShardLevelMetrics (\ s a -> s{_emShardLevelMetrics = a}) . mapping _List1;
+emShardLevelMetrics :: Lens' EnhancedMetrics [MetricsName]
+emShardLevelMetrics = lens _emShardLevelMetrics (\ s a -> s{_emShardLevelMetrics = a}) . _Default . _Coerce;
 
 instance FromJSON EnhancedMetrics where
         parseJSON
           = withObject "EnhancedMetrics"
               (\ x ->
-                 EnhancedMetrics' <$> (x .:? "ShardLevelMetrics"))
+                 EnhancedMetrics' <$>
+                   (x .:? "ShardLevelMetrics" .!= mempty))
 
 instance Hashable EnhancedMetrics
 
@@ -71,8 +72,8 @@ instance NFData EnhancedMetrics
 --
 -- /See:/ 'enhancedMonitoringOutput' smart constructor.
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
-    { _emoDesiredShardLevelMetrics :: !(Maybe (List1 MetricsName))
-    , _emoCurrentShardLevelMetrics :: !(Maybe (List1 MetricsName))
+    { _emoDesiredShardLevelMetrics :: !(Maybe [MetricsName])
+    , _emoCurrentShardLevelMetrics :: !(Maybe [MetricsName])
     , _emoStreamName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -95,12 +96,12 @@ enhancedMonitoringOutput =
     }
 
 -- | Represents the list of all the metrics that would be in the enhanced state after the operation.
-emoDesiredShardLevelMetrics :: Lens' EnhancedMonitoringOutput (Maybe (NonEmpty MetricsName))
-emoDesiredShardLevelMetrics = lens _emoDesiredShardLevelMetrics (\ s a -> s{_emoDesiredShardLevelMetrics = a}) . mapping _List1;
+emoDesiredShardLevelMetrics :: Lens' EnhancedMonitoringOutput [MetricsName]
+emoDesiredShardLevelMetrics = lens _emoDesiredShardLevelMetrics (\ s a -> s{_emoDesiredShardLevelMetrics = a}) . _Default . _Coerce;
 
 -- | Represents the current state of the metrics that are in the enhanced state before the operation.
-emoCurrentShardLevelMetrics :: Lens' EnhancedMonitoringOutput (Maybe (NonEmpty MetricsName))
-emoCurrentShardLevelMetrics = lens _emoCurrentShardLevelMetrics (\ s a -> s{_emoCurrentShardLevelMetrics = a}) . mapping _List1;
+emoCurrentShardLevelMetrics :: Lens' EnhancedMonitoringOutput [MetricsName]
+emoCurrentShardLevelMetrics = lens _emoCurrentShardLevelMetrics (\ s a -> s{_emoCurrentShardLevelMetrics = a}) . _Default . _Coerce;
 
 -- | The name of the Amazon Kinesis stream.
 emoStreamName :: Lens' EnhancedMonitoringOutput (Maybe Text)
@@ -111,8 +112,8 @@ instance FromJSON EnhancedMonitoringOutput where
           = withObject "EnhancedMonitoringOutput"
               (\ x ->
                  EnhancedMonitoringOutput' <$>
-                   (x .:? "DesiredShardLevelMetrics") <*>
-                     (x .:? "CurrentShardLevelMetrics")
+                   (x .:? "DesiredShardLevelMetrics" .!= mempty) <*>
+                     (x .:? "CurrentShardLevelMetrics" .!= mempty)
                      <*> (x .:? "StreamName"))
 
 instance Hashable EnhancedMonitoringOutput

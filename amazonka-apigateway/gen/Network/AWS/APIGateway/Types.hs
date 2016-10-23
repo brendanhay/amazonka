@@ -24,6 +24,9 @@ module Network.AWS.APIGateway.Types
     , _BadRequestException
     , _LimitExceededException
 
+    -- * APIKeysFormat
+    , APIKeysFormat (..)
+
     -- * AuthorizerType
     , AuthorizerType (..)
 
@@ -42,6 +45,9 @@ module Network.AWS.APIGateway.Types
     -- * PutMode
     , PutMode (..)
 
+    -- * QuotaPeriodType
+    , QuotaPeriodType (..)
+
     -- * UnauthorizedCacheControlHeaderStrategy
     , UnauthorizedCacheControlHeaderStrategy (..)
 
@@ -49,6 +55,7 @@ module Network.AWS.APIGateway.Types
     , APIKey
     , apiKey
     , akEnabled
+    , akValue
     , akCreatedDate
     , akName
     , akId
@@ -56,10 +63,18 @@ module Network.AWS.APIGateway.Types
     , akLastUpdatedDate
     , akDescription
 
+    -- * APIStage
+    , APIStage
+    , apiStage
+    , asStage
+    , asApiId
+
     -- * Account
     , Account
     , account
+    , aApiKeyVersion
     , aCloudwatchRoleARN
+    , aFeatures
     , aThrottleSettings
 
     -- * Authorizer
@@ -67,6 +82,7 @@ module Network.AWS.APIGateway.Types
     , authorizer
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
@@ -114,6 +130,7 @@ module Network.AWS.APIGateway.Types
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
     , iCacheNamespace
@@ -184,6 +201,13 @@ module Network.AWS.APIGateway.Types
     , poValue
     , poFrom
 
+    -- * QuotaSettings
+    , QuotaSettings
+    , quotaSettings
+    , qsOffset
+    , qsPeriod
+    , qsLimit
+
     -- * Resource
     , Resource
     , resource
@@ -228,6 +252,33 @@ module Network.AWS.APIGateway.Types
     , throttleSettings
     , tsBurstLimit
     , tsRateLimit
+
+    -- * Usage
+    , Usage
+    , usage
+    , uUsagePlanId
+    , uEndDate
+    , uItems
+    , uStartDate
+    , uPosition
+
+    -- * UsagePlan
+    , UsagePlan
+    , usagePlan
+    , upApiStages
+    , upName
+    , upId
+    , upThrottle
+    , upQuota
+    , upDescription
+
+    -- * UsagePlanKey
+    , UsagePlanKey
+    , usagePlanKey
+    , upkValue
+    , upkName
+    , upkId
+    , upkType
     ) where
 
 import           Network.AWS.APIGateway.Types.Product

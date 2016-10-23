@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about the OpenID Connect providers in the AWS account.
+-- Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the AWS account.
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
     -- * Creating a Request
@@ -106,7 +106,7 @@ listOpenIdConnectProvidersResponse pResponseStatus_ =
     , _loicprsResponseStatus = pResponseStatus_
     }
 
--- | The list of IAM OpenID Connect providers in the AWS account.
+-- | The list of IAM OIDC provider resource objects defined in the AWS account.
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
 loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 

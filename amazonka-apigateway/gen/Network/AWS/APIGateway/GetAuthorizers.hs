@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe an existing < Authorizers> resource.
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizers
     (
     -- * Creating a Request
@@ -77,7 +79,7 @@ getAuthorizers pRestAPIId_ =
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | If not all < Authorizer> resources in the response were present, the position will specificy where to start the next page of results.
+-- | If not all < Authorizer> resources in the response were present, the position will specify where to start the next page of results.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 
@@ -116,6 +118,8 @@ instance ToQuery GetAuthorizers where
               ["limit" =: _gaLimit, "position" =: _gaPosition]
 
 -- | Represents a collection of < Authorizer> resources.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
 -- /See:/ 'getAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'

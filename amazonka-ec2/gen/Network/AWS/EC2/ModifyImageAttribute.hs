@@ -21,6 +21,8 @@
 -- Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
 --
 -- AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
+--
+-- The SriovNetSupport enhanced networking attribute cannot be changed using this command. Instead, enable SriovNetSupport on an instance and create an AMI from the instance. This will result in an image with SriovNetSupport enabled.
 module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Creating a Request
@@ -166,7 +168,7 @@ instance ToQuery ModifyImageAttribute where
         toQuery ModifyImageAttribute'{..}
           = mconcat
               ["Action" =: ("ModifyImageAttribute" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                "Attribute" =: _miaAttribute,
                toQuery (toQueryList "UserId" <$> _miaUserIds),
                toQuery (toQueryList "UserGroup" <$> _miaUserGroups),

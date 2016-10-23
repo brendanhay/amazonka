@@ -40,9 +40,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteScheduledAction' smart constructor.
+-- | Contains the parameters for DeleteScheduledAction.
+--
+-- /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-    { _dsaAutoScalingGroupName :: !(Maybe Text)
+    { _dsaAutoScalingGroupName :: !Text
     , _dsaScheduledActionName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -54,16 +56,17 @@ data DeleteScheduledAction = DeleteScheduledAction'
 --
 -- * 'dsaScheduledActionName'
 deleteScheduledAction
-    :: Text -- ^ 'dsaScheduledActionName'
+    :: Text -- ^ 'dsaAutoScalingGroupName'
+    -> Text -- ^ 'dsaScheduledActionName'
     -> DeleteScheduledAction
-deleteScheduledAction pScheduledActionName_ =
+deleteScheduledAction pAutoScalingGroupName_ pScheduledActionName_ =
     DeleteScheduledAction'
-    { _dsaAutoScalingGroupName = Nothing
+    { _dsaAutoScalingGroupName = pAutoScalingGroupName_
     , _dsaScheduledActionName = pScheduledActionName_
     }
 
 -- | The name of the Auto Scaling group.
-dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
+dsaAutoScalingGroupName :: Lens' DeleteScheduledAction Text
 dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a});
 
 -- | The name of the action to delete.

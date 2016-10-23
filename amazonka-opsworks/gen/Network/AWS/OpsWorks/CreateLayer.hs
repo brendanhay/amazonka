@@ -207,7 +207,7 @@ clAutoAssignElasticIPs = lens _clAutoAssignElasticIPs (\ s a -> s{_clAutoAssignE
 clStackId :: Lens' CreateLayer Text
 clStackId = lens _clStackId (\ s a -> s{_clStackId = a});
 
--- | The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers.
+-- | The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.
 clType :: Lens' CreateLayer LayerType
 clType = lens _clType (\ s a -> s{_clType = a});
 

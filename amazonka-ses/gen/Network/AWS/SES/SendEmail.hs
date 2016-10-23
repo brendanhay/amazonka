@@ -23,9 +23,13 @@
 -- There are several important points to know about 'SendEmail':
 --
 -- -   You can only send email from verified email addresses and domains; otherwise, you will get an \"Email address not verified\" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+--
 -- -   The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.
+--
 -- -   Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+--
 -- -   For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
+--
 module Network.AWS.SES.SendEmail
     (
     -- * Creating a Request
@@ -55,7 +59,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | /See:/ 'sendEmail' smart constructor.
+-- | Represents a request to send a single formatted email using Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html Amazon SES Developer Guide>.
+--
+-- /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
     { _seReturnPath       :: !(Maybe Text)
     , _seSourceARN        :: !(Maybe Text)
@@ -173,7 +179,9 @@ instance ToQuery SendEmail where
                "Destination" =: _seDestination,
                "Message" =: _seMessage]
 
--- | /See:/ 'sendEmailResponse' smart constructor.
+-- | Represents a unique message ID.
+--
+-- /See:/ 'sendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
     { _sersResponseStatus :: !Int
     , _sersMessageId      :: !Text

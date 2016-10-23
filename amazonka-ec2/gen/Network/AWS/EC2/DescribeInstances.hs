@@ -24,6 +24,8 @@
 --
 -- Recently terminated instances might appear in the returned results. This interval is usually less than one hour.
 --
+-- If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.
+--
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstances
     (
@@ -91,7 +93,7 @@ describeInstances =
 
 -- | One or more filters.
 --
--- -   'affinity' - The affinity setting for an instance running on a Dedicated host ('default' | 'host').
+-- -   'affinity' - The affinity setting for an instance running on a Dedicated Host ('default' | 'host').
 --
 -- -   'architecture' - The instance architecture ('i386' | 'x86_64').
 --
@@ -115,7 +117,7 @@ describeInstances =
 --
 -- -   'group-name' - The name of the security group for the instance. EC2-Classic only.
 --
--- -   'host-Id' - The ID of the Dedicated host on which the instance is running, if applicable.
+-- -   'host-id' - The ID of the Dedicated Host on which the instance is running, if applicable.
 --
 -- -   'hypervisor' - The hypervisor type of the instance ('ovm' | 'xen').
 --
@@ -272,7 +274,7 @@ diiInstanceIds = lens _diiInstanceIds (\ s a -> s{_diiInstanceIds = a}) . _Defau
 diiDryRun :: Lens' DescribeInstances (Maybe Bool)
 diiDryRun = lens _diiDryRun (\ s a -> s{_diiDryRun = a});
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned 'NextToken' value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned 'NextToken' value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter or tag filters in the same call.
 diiMaxResults :: Lens' DescribeInstances (Maybe Int)
 diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a});
 
@@ -309,7 +311,7 @@ instance ToQuery DescribeInstances where
         toQuery DescribeInstances'{..}
           = mconcat
               ["Action" =: ("DescribeInstances" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery (toQueryList "Filter" <$> _diiFilters),
                "NextToken" =: _diiNextToken,
                toQuery

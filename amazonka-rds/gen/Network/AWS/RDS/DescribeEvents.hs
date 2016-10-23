@@ -124,11 +124,17 @@ deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   If SourceIdentifier is supplied, SourceType must also be provided.
+--
 -- -   If the source type is 'DBInstance', then a 'DBInstanceIdentifier' must be supplied.
+--
 -- -   If the source type is 'DBSecurityGroup', a 'DBSecurityGroupName' must be supplied.
+--
 -- -   If the source type is 'DBParameterGroup', a 'DBParameterGroupName' must be supplied.
+--
 -- -   If the source type is 'DBSnapshot', a 'DBSnapshotIdentifier' must be supplied.
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your Spot fleet requests.
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotFleetRequests
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -93,6 +96,14 @@ dsfrDryRun = lens _dsfrDryRun (\ s a -> s{_dsfrDryRun = a});
 dsfrMaxResults :: Lens' DescribeSpotFleetRequests (Maybe Int)
 dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
 
+instance AWSPager DescribeSpotFleetRequests where
+        page rq rs
+          | stop (rs ^. dsfrrsNextToken) = Nothing
+          | stop (rs ^. dsfrrsSpotFleetRequestConfigs) =
+            Nothing
+          | otherwise =
+            Just $ rq & dsfrNextToken .~ rs ^. dsfrrsNextToken
+
 instance AWSRequest DescribeSpotFleetRequests where
         type Rs DescribeSpotFleetRequests =
              DescribeSpotFleetRequestsResponse
@@ -120,7 +131,7 @@ instance ToQuery DescribeSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetRequests" :: ByteString),
-               "Version" =: ("2015-10-01" :: ByteString),
+               "Version" =: ("2016-04-01" :: ByteString),
                toQuery
                  (toQueryList "SpotFleetRequestId" <$>
                     _dsfrSpotFleetRequestIds),

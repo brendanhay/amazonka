@@ -21,19 +21,24 @@ import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types.Sum
 import           Network.AWS.Prelude
 
--- | Represents the output of < GetBatchPrediction> operation.
+-- | Represents the output of a 'GetBatchPrediction' operation.
 --
--- The content consists of the detailed metadata, the status, and the data file information of a /Batch Prediction/.
+-- The content consists of the detailed metadata, the status, and the data file information of a 'Batch Prediction'.
 --
 -- /See:/ 'batchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
     { _bpStatus                      :: !(Maybe EntityStatus)
     , _bpLastUpdatedAt               :: !(Maybe POSIX)
     , _bpCreatedAt                   :: !(Maybe POSIX)
+    , _bpComputeTime                 :: !(Maybe Integer)
     , _bpInputDataLocationS3         :: !(Maybe Text)
     , _bpMLModelId                   :: !(Maybe Text)
     , _bpBatchPredictionDataSourceId :: !(Maybe Text)
+    , _bpTotalRecordCount            :: !(Maybe Integer)
+    , _bpStartedAt                   :: !(Maybe POSIX)
     , _bpBatchPredictionId           :: !(Maybe Text)
+    , _bpFinishedAt                  :: !(Maybe POSIX)
+    , _bpInvalidRecordCount          :: !(Maybe Integer)
     , _bpCreatedByIAMUser            :: !(Maybe Text)
     , _bpName                        :: !(Maybe Text)
     , _bpMessage                     :: !(Maybe Text)
@@ -50,13 +55,23 @@ data BatchPrediction = BatchPrediction'
 --
 -- * 'bpCreatedAt'
 --
+-- * 'bpComputeTime'
+--
 -- * 'bpInputDataLocationS3'
 --
 -- * 'bpMLModelId'
 --
 -- * 'bpBatchPredictionDataSourceId'
 --
+-- * 'bpTotalRecordCount'
+--
+-- * 'bpStartedAt'
+--
 -- * 'bpBatchPredictionId'
+--
+-- * 'bpFinishedAt'
+--
+-- * 'bpInvalidRecordCount'
 --
 -- * 'bpCreatedByIAMUser'
 --
@@ -72,10 +87,15 @@ batchPrediction =
     { _bpStatus = Nothing
     , _bpLastUpdatedAt = Nothing
     , _bpCreatedAt = Nothing
+    , _bpComputeTime = Nothing
     , _bpInputDataLocationS3 = Nothing
     , _bpMLModelId = Nothing
     , _bpBatchPredictionDataSourceId = Nothing
+    , _bpTotalRecordCount = Nothing
+    , _bpStartedAt = Nothing
     , _bpBatchPredictionId = Nothing
+    , _bpFinishedAt = Nothing
+    , _bpInvalidRecordCount = Nothing
     , _bpCreatedByIAMUser = Nothing
     , _bpName = Nothing
     , _bpMessage = Nothing
@@ -86,7 +106,7 @@ batchPrediction =
 --
 -- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request to generate predictions for a batch of observations.
 -- -   'INPROGRESS' - The process is underway.
--- -   'FAILED' - The request to peform a batch prediction did not run to completion. It is not usable.
+-- -   'FAILED' - The request to perform a batch prediction did not run to completion. It is not usable.
 -- -   'COMPLETED' - The batch prediction process completed successfully.
 -- -   'DELETED' - The 'BatchPrediction' is marked as deleted. It is not usable.
 bpStatus :: Lens' BatchPrediction (Maybe EntityStatus)
@@ -100,6 +120,10 @@ bpLastUpdatedAt = lens _bpLastUpdatedAt (\ s a -> s{_bpLastUpdatedAt = a}) . map
 bpCreatedAt :: Lens' BatchPrediction (Maybe UTCTime)
 bpCreatedAt = lens _bpCreatedAt (\ s a -> s{_bpCreatedAt = a}) . mapping _Time;
 
+-- | Undocumented member.
+bpComputeTime :: Lens' BatchPrediction (Maybe Integer)
+bpComputeTime = lens _bpComputeTime (\ s a -> s{_bpComputeTime = a});
+
 -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 bpInputDataLocationS3 :: Lens' BatchPrediction (Maybe Text)
 bpInputDataLocationS3 = lens _bpInputDataLocationS3 (\ s a -> s{_bpInputDataLocationS3 = a});
@@ -112,9 +136,25 @@ bpMLModelId = lens _bpMLModelId (\ s a -> s{_bpMLModelId = a});
 bpBatchPredictionDataSourceId :: Lens' BatchPrediction (Maybe Text)
 bpBatchPredictionDataSourceId = lens _bpBatchPredictionDataSourceId (\ s a -> s{_bpBatchPredictionDataSourceId = a});
 
+-- | Undocumented member.
+bpTotalRecordCount :: Lens' BatchPrediction (Maybe Integer)
+bpTotalRecordCount = lens _bpTotalRecordCount (\ s a -> s{_bpTotalRecordCount = a});
+
+-- | Undocumented member.
+bpStartedAt :: Lens' BatchPrediction (Maybe UTCTime)
+bpStartedAt = lens _bpStartedAt (\ s a -> s{_bpStartedAt = a}) . mapping _Time;
+
 -- | The ID assigned to the 'BatchPrediction' at creation. This value should be identical to the value of the 'BatchPredictionID' in the request.
 bpBatchPredictionId :: Lens' BatchPrediction (Maybe Text)
 bpBatchPredictionId = lens _bpBatchPredictionId (\ s a -> s{_bpBatchPredictionId = a});
+
+-- | Undocumented member.
+bpFinishedAt :: Lens' BatchPrediction (Maybe UTCTime)
+bpFinishedAt = lens _bpFinishedAt (\ s a -> s{_bpFinishedAt = a}) . mapping _Time;
+
+-- | Undocumented member.
+bpInvalidRecordCount :: Lens' BatchPrediction (Maybe Integer)
+bpInvalidRecordCount = lens _bpInvalidRecordCount (\ s a -> s{_bpInvalidRecordCount = a});
 
 -- | The AWS user account that invoked the 'BatchPrediction'. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 bpCreatedByIAMUser :: Lens' BatchPrediction (Maybe Text)
@@ -128,7 +168,7 @@ bpName = lens _bpName (\ s a -> s{_bpName = a});
 bpMessage :: Lens' BatchPrediction (Maybe Text)
 bpMessage = lens _bpMessage (\ s a -> s{_bpMessage = a});
 
--- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the s3 key portion of the \"outputURI\" field: \':\', \'\/\/\', \'\/.\/\', \'\/..\/\'.
+-- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the 's3 key' portion of the 'outputURI' field: \':\', \'\/\/\', \'\/.\/\', \'\/..\/\'.
 bpOutputURI :: Lens' BatchPrediction (Maybe Text)
 bpOutputURI = lens _bpOutputURI (\ s a -> s{_bpOutputURI = a});
 
@@ -139,10 +179,15 @@ instance FromJSON BatchPrediction where
                  BatchPrediction' <$>
                    (x .:? "Status") <*> (x .:? "LastUpdatedAt") <*>
                      (x .:? "CreatedAt")
+                     <*> (x .:? "ComputeTime")
                      <*> (x .:? "InputDataLocationS3")
                      <*> (x .:? "MLModelId")
                      <*> (x .:? "BatchPredictionDataSourceId")
+                     <*> (x .:? "TotalRecordCount")
+                     <*> (x .:? "StartedAt")
                      <*> (x .:? "BatchPredictionId")
+                     <*> (x .:? "FinishedAt")
+                     <*> (x .:? "InvalidRecordCount")
                      <*> (x .:? "CreatedByIamUser")
                      <*> (x .:? "Name")
                      <*> (x .:? "Message")
@@ -152,7 +197,7 @@ instance Hashable BatchPrediction
 
 instance NFData BatchPrediction
 
--- | Represents the output of the < GetDataSource> operation.
+-- | Represents the output of the 'GetDataSource' operation.
 --
 -- The content consists of the detailed metadata and data file information and the current status of the 'DataSource'.
 --
@@ -162,9 +207,12 @@ data DataSource = DataSource'
     , _dsNumberOfFiles     :: !(Maybe Integer)
     , _dsLastUpdatedAt     :: !(Maybe POSIX)
     , _dsCreatedAt         :: !(Maybe POSIX)
+    , _dsComputeTime       :: !(Maybe Integer)
     , _dsDataSourceId      :: !(Maybe Text)
     , _dsRDSMetadata       :: !(Maybe RDSMetadata)
     , _dsDataSizeInBytes   :: !(Maybe Integer)
+    , _dsStartedAt         :: !(Maybe POSIX)
+    , _dsFinishedAt        :: !(Maybe POSIX)
     , _dsCreatedByIAMUser  :: !(Maybe Text)
     , _dsName              :: !(Maybe Text)
     , _dsDataLocationS3    :: !(Maybe Text)
@@ -187,11 +235,17 @@ data DataSource = DataSource'
 --
 -- * 'dsCreatedAt'
 --
+-- * 'dsComputeTime'
+--
 -- * 'dsDataSourceId'
 --
 -- * 'dsRDSMetadata'
 --
 -- * 'dsDataSizeInBytes'
+--
+-- * 'dsStartedAt'
+--
+-- * 'dsFinishedAt'
 --
 -- * 'dsCreatedByIAMUser'
 --
@@ -216,9 +270,12 @@ dataSource =
     , _dsNumberOfFiles = Nothing
     , _dsLastUpdatedAt = Nothing
     , _dsCreatedAt = Nothing
+    , _dsComputeTime = Nothing
     , _dsDataSourceId = Nothing
     , _dsRDSMetadata = Nothing
     , _dsDataSizeInBytes = Nothing
+    , _dsStartedAt = Nothing
+    , _dsFinishedAt = Nothing
     , _dsCreatedByIAMUser = Nothing
     , _dsName = Nothing
     , _dsDataLocationS3 = Nothing
@@ -251,6 +308,10 @@ dsLastUpdatedAt = lens _dsLastUpdatedAt (\ s a -> s{_dsLastUpdatedAt = a}) . map
 dsCreatedAt :: Lens' DataSource (Maybe UTCTime)
 dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
 
+-- | Undocumented member.
+dsComputeTime :: Lens' DataSource (Maybe Integer)
+dsComputeTime = lens _dsComputeTime (\ s a -> s{_dsComputeTime = a});
+
 -- | The ID that is assigned to the 'DataSource' during creation.
 dsDataSourceId :: Lens' DataSource (Maybe Text)
 dsDataSourceId = lens _dsDataSourceId (\ s a -> s{_dsDataSourceId = a});
@@ -262,6 +323,14 @@ dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
 -- | The total number of observations contained in the data files that the 'DataSource' references.
 dsDataSizeInBytes :: Lens' DataSource (Maybe Integer)
 dsDataSizeInBytes = lens _dsDataSizeInBytes (\ s a -> s{_dsDataSizeInBytes = a});
+
+-- | Undocumented member.
+dsStartedAt :: Lens' DataSource (Maybe UTCTime)
+dsStartedAt = lens _dsStartedAt (\ s a -> s{_dsStartedAt = a}) . mapping _Time;
+
+-- | Undocumented member.
+dsFinishedAt :: Lens' DataSource (Maybe UTCTime)
+dsFinishedAt = lens _dsFinishedAt (\ s a -> s{_dsFinishedAt = a}) . mapping _Time;
 
 -- | The AWS user account from which the 'DataSource' was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 dsCreatedByIAMUser :: Lens' DataSource (Maybe Text)
@@ -287,7 +356,7 @@ dsMessage = lens _dsMessage (\ s a -> s{_dsMessage = a});
 dsRedshiftMetadata :: Lens' DataSource (Maybe RedshiftMetadata)
 dsRedshiftMetadata = lens _dsRedshiftMetadata (\ s a -> s{_dsRedshiftMetadata = a});
 
--- | A JSON string that represents the splitting requirement of a 'Datasource'.
+-- | A JSON string that represents the splitting and rearrangement requirement used when this 'DataSource' was created.
 dsDataRearrangement :: Lens' DataSource (Maybe Text)
 dsDataRearrangement = lens _dsDataRearrangement (\ s a -> s{_dsDataRearrangement = a});
 
@@ -303,9 +372,12 @@ instance FromJSON DataSource where
                    (x .:? "Status") <*> (x .:? "NumberOfFiles") <*>
                      (x .:? "LastUpdatedAt")
                      <*> (x .:? "CreatedAt")
+                     <*> (x .:? "ComputeTime")
                      <*> (x .:? "DataSourceId")
                      <*> (x .:? "RDSMetadata")
                      <*> (x .:? "DataSizeInBytes")
+                     <*> (x .:? "StartedAt")
+                     <*> (x .:? "FinishedAt")
                      <*> (x .:? "CreatedByIamUser")
                      <*> (x .:? "Name")
                      <*> (x .:? "DataLocationS3")
@@ -319,7 +391,7 @@ instance Hashable DataSource
 
 instance NFData DataSource
 
--- | Represents the output of < GetEvaluation> operation.
+-- | Represents the output of 'GetEvaluation' operation.
 --
 -- The content consists of the detailed metadata and data file information and the current status of the 'Evaluation'.
 --
@@ -329,8 +401,11 @@ data Evaluation = Evaluation'
     , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
     , _eLastUpdatedAt          :: !(Maybe POSIX)
     , _eCreatedAt              :: !(Maybe POSIX)
+    , _eComputeTime            :: !(Maybe Integer)
     , _eInputDataLocationS3    :: !(Maybe Text)
     , _eMLModelId              :: !(Maybe Text)
+    , _eStartedAt              :: !(Maybe POSIX)
+    , _eFinishedAt             :: !(Maybe POSIX)
     , _eCreatedByIAMUser       :: !(Maybe Text)
     , _eName                   :: !(Maybe Text)
     , _eEvaluationId           :: !(Maybe Text)
@@ -350,9 +425,15 @@ data Evaluation = Evaluation'
 --
 -- * 'eCreatedAt'
 --
+-- * 'eComputeTime'
+--
 -- * 'eInputDataLocationS3'
 --
 -- * 'eMLModelId'
+--
+-- * 'eStartedAt'
+--
+-- * 'eFinishedAt'
 --
 -- * 'eCreatedByIAMUser'
 --
@@ -371,8 +452,11 @@ evaluation =
     , _ePerformanceMetrics = Nothing
     , _eLastUpdatedAt = Nothing
     , _eCreatedAt = Nothing
+    , _eComputeTime = Nothing
     , _eInputDataLocationS3 = Nothing
     , _eMLModelId = Nothing
+    , _eStartedAt = Nothing
+    , _eFinishedAt = Nothing
     , _eCreatedByIAMUser = Nothing
     , _eName = Nothing
     , _eEvaluationId = Nothing
@@ -390,7 +474,7 @@ evaluation =
 eStatus :: Lens' Evaluation (Maybe EntityStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
--- | Measurements of how well the 'MLModel' performed, using observations referenced by the 'DataSource'. One of the following metrics is returned, based on the type of the MLModel:
+-- | Measurements of how well the 'MLModel' performed, using observations referenced by the 'DataSource'. One of the following metrics is returned, based on the type of the 'MLModel':
 --
 -- -   BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique to measure performance.
 --
@@ -410,6 +494,10 @@ eLastUpdatedAt = lens _eLastUpdatedAt (\ s a -> s{_eLastUpdatedAt = a}) . mappin
 eCreatedAt :: Lens' Evaluation (Maybe UTCTime)
 eCreatedAt = lens _eCreatedAt (\ s a -> s{_eCreatedAt = a}) . mapping _Time;
 
+-- | Undocumented member.
+eComputeTime :: Lens' Evaluation (Maybe Integer)
+eComputeTime = lens _eComputeTime (\ s a -> s{_eComputeTime = a});
+
 -- | The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
 eInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
 eInputDataLocationS3 = lens _eInputDataLocationS3 (\ s a -> s{_eInputDataLocationS3 = a});
@@ -417,6 +505,14 @@ eInputDataLocationS3 = lens _eInputDataLocationS3 (\ s a -> s{_eInputDataLocatio
 -- | The ID of the 'MLModel' that is the focus of the evaluation.
 eMLModelId :: Lens' Evaluation (Maybe Text)
 eMLModelId = lens _eMLModelId (\ s a -> s{_eMLModelId = a});
+
+-- | Undocumented member.
+eStartedAt :: Lens' Evaluation (Maybe UTCTime)
+eStartedAt = lens _eStartedAt (\ s a -> s{_eStartedAt = a}) . mapping _Time;
+
+-- | Undocumented member.
+eFinishedAt :: Lens' Evaluation (Maybe UTCTime)
+eFinishedAt = lens _eFinishedAt (\ s a -> s{_eFinishedAt = a}) . mapping _Time;
 
 -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 eCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
@@ -446,8 +542,11 @@ instance FromJSON Evaluation where
                    (x .:? "Status") <*> (x .:? "PerformanceMetrics") <*>
                      (x .:? "LastUpdatedAt")
                      <*> (x .:? "CreatedAt")
+                     <*> (x .:? "ComputeTime")
                      <*> (x .:? "InputDataLocationS3")
                      <*> (x .:? "MLModelId")
+                     <*> (x .:? "StartedAt")
+                     <*> (x .:? "FinishedAt")
                      <*> (x .:? "CreatedByIamUser")
                      <*> (x .:? "Name")
                      <*> (x .:? "EvaluationId")
@@ -458,7 +557,7 @@ instance Hashable Evaluation
 
 instance NFData Evaluation
 
--- | Represents the output of a < GetMLModel> operation.
+-- | Represents the output of a 'GetMLModel' operation.
 --
 -- The content consists of the detailed metadata and the current status of the 'MLModel'.
 --
@@ -469,10 +568,13 @@ data MLModel = MLModel'
     , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
     , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
     , _mlmCreatedAt                   :: !(Maybe POSIX)
+    , _mlmComputeTime                 :: !(Maybe Integer)
     , _mlmInputDataLocationS3         :: !(Maybe Text)
     , _mlmMLModelId                   :: !(Maybe Text)
     , _mlmSizeInBytes                 :: !(Maybe Integer)
+    , _mlmStartedAt                   :: !(Maybe POSIX)
     , _mlmScoreThreshold              :: !(Maybe Double)
+    , _mlmFinishedAt                  :: !(Maybe POSIX)
     , _mlmAlgorithm                   :: !(Maybe Algorithm)
     , _mlmCreatedByIAMUser            :: !(Maybe Text)
     , _mlmName                        :: !(Maybe Text)
@@ -496,13 +598,19 @@ data MLModel = MLModel'
 --
 -- * 'mlmCreatedAt'
 --
+-- * 'mlmComputeTime'
+--
 -- * 'mlmInputDataLocationS3'
 --
 -- * 'mlmMLModelId'
 --
 -- * 'mlmSizeInBytes'
 --
+-- * 'mlmStartedAt'
+--
 -- * 'mlmScoreThreshold'
+--
+-- * 'mlmFinishedAt'
 --
 -- * 'mlmAlgorithm'
 --
@@ -526,10 +634,13 @@ mLModel =
     , _mlmTrainingParameters = Nothing
     , _mlmScoreThresholdLastUpdatedAt = Nothing
     , _mlmCreatedAt = Nothing
+    , _mlmComputeTime = Nothing
     , _mlmInputDataLocationS3 = Nothing
     , _mlmMLModelId = Nothing
     , _mlmSizeInBytes = Nothing
+    , _mlmStartedAt = Nothing
     , _mlmScoreThreshold = Nothing
+    , _mlmFinishedAt = Nothing
     , _mlmAlgorithm = Nothing
     , _mlmCreatedByIAMUser = Nothing
     , _mlmName = Nothing
@@ -541,11 +652,11 @@ mLModel =
 
 -- | The current status of an 'MLModel'. This element can have one of the following values:
 --
--- -   PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create an 'MLModel'.
--- -   INPROGRESS - The creation process is underway.
--- -   FAILED - The request to create an 'MLModel' did not run to completion. It is not usable.
--- -   COMPLETED - The creation process completed successfully.
--- -   DELETED - The 'MLModel' is marked as deleted. It is not usable.
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request to create an 'MLModel'.
+-- -   'INPROGRESS' - The creation process is underway.
+-- -   'FAILED' - The request to create an 'MLModel' didn\'t run to completion. The model isn\'t usable.
+-- -   'COMPLETED' - The creation process completed successfully.
+-- -   'DELETED' - The 'MLModel' is marked as deleted. It isn\'t usable.
 mlmStatus :: Lens' MLModel (Maybe EntityStatus)
 mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 
@@ -553,23 +664,25 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 mlmLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmLastUpdatedAt = lens _mlmLastUpdatedAt (\ s a -> s{_mlmLastUpdatedAt = a}) . mapping _Time;
 
--- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key\/value pairs.
+-- | A list of the training parameters in the 'MLModel'. The list is implemented as a map of key-value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
+-- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
 --
---     The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L1 normalization. The parameter cannot be used when 'L2' is specified. Use this parameter sparingly.
+--     The value is an integer that ranges from '100000' to '2147483648'. The default value is '33554432'.
 --
--- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, specify a small value, such as 1.0E-04 or 1.0E-08.
+-- -   'sgd.maxPasses' - The number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from '1' to '10000'. The default value is '10'.
 --
---     The valus is a double that ranges from 0 to MAX_DOUBLE. The default is not to use L2 normalization. This cannot be used when 'L1' is specified. Use this parameter sparingly.
+-- -   'sgd.shuffleType' - Whether Amazon ML shuffles the training data. Shuffling the data improves a model\'s ability to find the optimal solution for a variety of data types. The valid values are 'auto' and 'none'. The default value is 'none'.
 --
--- -   'sgd.maxPasses' - Number of times that the training process traverses the observations to build the 'MLModel'. The value is an integer that ranges from 1 to 10000. The default value is 10.
+-- -   'sgd.l1RegularizationAmount' - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
 --
--- -   'sgd.maxMLModelSizeInBytes' - Maximum allowed size of the model. Depending on the input data, the model size might affect performance.
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L1 normalization. This parameter can\'t be used when 'L2' is specified. Use this parameter sparingly.
 --
---     The value is an integer that ranges from 100000 to 2147483648. The default value is 33554432.
+-- -   'sgd.l2RegularizationAmount' - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as '1.0E-08'.
+--
+--     The value is a double that ranges from '0' to 'MAX_DOUBLE'. The default is to not use L2 normalization. This parameter can\'t be used when 'L1' is specified. Use this parameter sparingly.
 --
 mlmTrainingParameters :: Lens' MLModel (HashMap Text Text)
 mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Default . _Map;
@@ -581,6 +694,10 @@ mlmScoreThresholdLastUpdatedAt = lens _mlmScoreThresholdLastUpdatedAt (\ s a -> 
 -- | The time that the 'MLModel' was created. The time is expressed in epoch time.
 mlmCreatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmCreatedAt = lens _mlmCreatedAt (\ s a -> s{_mlmCreatedAt = a}) . mapping _Time;
+
+-- | Undocumented member.
+mlmComputeTime :: Lens' MLModel (Maybe Integer)
+mlmComputeTime = lens _mlmComputeTime (\ s a -> s{_mlmComputeTime = a});
 
 -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 mlmInputDataLocationS3 :: Lens' MLModel (Maybe Text)
@@ -595,12 +712,20 @@ mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
 mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
 
 -- | Undocumented member.
+mlmStartedAt :: Lens' MLModel (Maybe UTCTime)
+mlmStartedAt = lens _mlmStartedAt (\ s a -> s{_mlmStartedAt = a}) . mapping _Time;
+
+-- | Undocumented member.
 mlmScoreThreshold :: Lens' MLModel (Maybe Double)
 mlmScoreThreshold = lens _mlmScoreThreshold (\ s a -> s{_mlmScoreThreshold = a});
 
+-- | Undocumented member.
+mlmFinishedAt :: Lens' MLModel (Maybe UTCTime)
+mlmFinishedAt = lens _mlmFinishedAt (\ s a -> s{_mlmFinishedAt = a}) . mapping _Time;
+
 -- | The algorithm used to train the 'MLModel'. The following algorithm is supported:
 --
--- -   SGD -- Stochastic gradient descent. The goal of SGD is to minimize the gradient of the loss function.
+-- -   'SGD' -- Stochastic gradient descent. The goal of 'SGD' is to minimize the gradient of the loss function.
 mlmAlgorithm :: Lens' MLModel (Maybe Algorithm)
 mlmAlgorithm = lens _mlmAlgorithm (\ s a -> s{_mlmAlgorithm = a});
 
@@ -616,7 +741,7 @@ mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 mlmEndpointInfo :: Lens' MLModel (Maybe RealtimeEndpointInfo)
 mlmEndpointInfo = lens _mlmEndpointInfo (\ s a -> s{_mlmEndpointInfo = a});
 
--- | The ID of the training 'DataSource'. The < CreateMLModel> operation uses the 'TrainingDataSourceId'.
+-- | The ID of the training 'DataSource'. The 'CreateMLModel' operation uses the 'TrainingDataSourceId'.
 mlmTrainingDataSourceId :: Lens' MLModel (Maybe Text)
 mlmTrainingDataSourceId = lens _mlmTrainingDataSourceId (\ s a -> s{_mlmTrainingDataSourceId = a});
 
@@ -626,9 +751,11 @@ mlmMessage = lens _mlmMessage (\ s a -> s{_mlmMessage = a});
 
 -- | Identifies the 'MLModel' category. The following are the available types:
 --
--- -   REGRESSION - Produces a numeric result. For example, \"What listing price should a house have?\".
--- -   BINARY - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".
--- -   MULTICLASS - Produces more than two possible results. For example, \"Is this a HIGH, LOW or MEDIUM risk trade?\".
+-- -   'REGRESSION' - Produces a numeric result. For example, \"What price should a house be listed at?\"
+-- -   'BINARY' - Produces one of two possible results. For example, \"Is this a child-friendly web site?\".
+-- -   'MULTICLASS' - Produces one of several possible results. For example, \"Is this a HIGH-, LOW-, or MEDIUM
+--     -
+--     risk trade?\".
 mlmMLModelType :: Lens' MLModel (Maybe MLModelType)
 mlmMLModelType = lens _mlmMLModelType (\ s a -> s{_mlmMLModelType = a});
 
@@ -641,10 +768,13 @@ instance FromJSON MLModel where
                      (x .:? "TrainingParameters" .!= mempty)
                      <*> (x .:? "ScoreThresholdLastUpdatedAt")
                      <*> (x .:? "CreatedAt")
+                     <*> (x .:? "ComputeTime")
                      <*> (x .:? "InputDataLocationS3")
                      <*> (x .:? "MLModelId")
                      <*> (x .:? "SizeInBytes")
+                     <*> (x .:? "StartedAt")
                      <*> (x .:? "ScoreThreshold")
+                     <*> (x .:? "FinishedAt")
                      <*> (x .:? "Algorithm")
                      <*> (x .:? "CreatedByIamUser")
                      <*> (x .:? "Name")
@@ -701,13 +831,13 @@ instance NFData PerformanceMetrics
 
 -- | The output from a 'Predict' operation:
 --
--- -   'Details' - Contains the following attributes: DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS DetailsAttributes.ALGORITHM - SGD
+-- -   'Details' - Contains the following attributes: 'DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS' 'DetailsAttributes.ALGORITHM - SGD'
 --
--- -   'PredictedLabel' - Present for either a BINARY or MULTICLASS 'MLModel' request.
+-- -   'PredictedLabel' - Present for either a 'BINARY' or 'MULTICLASS' 'MLModel' request.
 --
 -- -   'PredictedScores' - Contains the raw classification score corresponding to each label.
 --
--- -   'PredictedValue' - Present for a REGRESSION 'MLModel' request.
+-- -   'PredictedValue' - Present for a 'REGRESSION' 'MLModel' request.
 --
 --
 -- /See:/ 'prediction' smart constructor.
@@ -739,11 +869,11 @@ prediction =
     , _pDetails = Nothing
     }
 
--- | The prediction value for REGRESSION 'MLModel'.
+-- | The prediction value for 'REGRESSION' 'MLModel'.
 pPredictedValue :: Lens' Prediction (Maybe Double)
 pPredictedValue = lens _pPredictedValue (\ s a -> s{_pPredictedValue = a});
 
--- | The prediction label for either a BINARY or MULTICLASS 'MLModel'.
+-- | The prediction label for either a 'BINARY' or 'MULTICLASS' 'MLModel'.
 pPredictedLabel :: Lens' Prediction (Maybe Text)
 pPredictedLabel = lens _pPredictedLabel (\ s a -> s{_pPredictedLabel = a});
 
@@ -864,13 +994,52 @@ rdsdsDataSchemaURI = lens _rdsdsDataSchemaURI (\ s a -> s{_rdsdsDataSchemaURI = 
 rdsdsDataSchema :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataSchema = lens _rdsdsDataSchema (\ s a -> s{_rdsdsDataSchema = a});
 
--- | DataRearrangement - A JSON string that represents the splitting requirement of a 'DataSource'.
+-- | A JSON string that represents the splitting and rearrangement processing to be applied to a 'DataSource'. If the 'DataRearrangement' parameter is not provided, all of the input data is used to create the 'Datasource'.
 --
--- Sample - ' \"{\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
+-- There are multiple parameters that control what data is used to create a datasource:
+--
+-- -   __'percentBegin'__
+--
+--     Use 'percentBegin' to indicate the beginning of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'percentEnd'__
+--
+--     Use 'percentEnd' to indicate the end of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'complement'__
+--
+--     The 'complement' parameter instructs Amazon ML to use the data that is not included in the range of 'percentBegin' to 'percentEnd' to create a datasource. The 'complement' parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for 'percentBegin' and 'percentEnd', along with the 'complement' parameter.
+--
+--     For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}'
+--
+-- -   __'strategy'__
+--
+--     To change how Amazon ML splits the data for a datasource, use the 'strategy' parameter.
+--
+--     The default value for the 'strategy' parameter is 'sequential', meaning that Amazon ML takes all of the data records between the 'percentBegin' and 'percentEnd' parameters for the datasource, in the order that the records appear in the input data.
+--
+--     The following two 'DataRearrangement' lines are examples of sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}'
+--
+--     To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the 'strategy' parameter to 'random' and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between 'percentBegin' and 'percentEnd'. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.
+--
+--     The following two 'DataRearrangement' lines are examples of non-sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}'
+--
 rdsdsDataRearrangement :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataRearrangement = lens _rdsdsDataRearrangement (\ s a -> s{_rdsdsDataRearrangement = a});
 
--- | Describes the 'DatabaseName' and 'InstanceIdentifier' of an an Amazon RDS database.
+-- | Describes the 'DatabaseName' and 'InstanceIdentifier' of an Amazon RDS database.
 rdsdsDatabaseInformation :: Lens' RDSDataSpec RDSDatabase
 rdsdsDatabaseInformation = lens _rdsdsDatabaseInformation (\ s a -> s{_rdsdsDatabaseInformation = a});
 
@@ -1145,9 +1314,9 @@ reiEndpointURL = lens _reiEndpointURL (\ s a -> s{_reiEndpointURL = a});
 
 -- | The current status of the real-time endpoint for the 'MLModel'. This element can have one of the following values:
 --
--- -   NONE - Endpoint does not exist or was previously deleted.
--- -   READY - Endpoint is ready to be used for real-time predictions.
--- -   UPDATING - Updating\/creating the endpoint.
+-- -   'NONE' - Endpoint does not exist or was previously deleted.
+-- -   'READY' - Endpoint is ready to be used for real-time predictions.
+-- -   'UPDATING' - Updating\/creating the endpoint.
 reiEndpointStatus :: Lens' RealtimeEndpointInfo (Maybe RealtimeEndpointStatus)
 reiEndpointStatus = lens _reiEndpointStatus (\ s a -> s{_reiEndpointStatus = a});
 
@@ -1245,7 +1414,48 @@ rDataSchemaURI = lens _rDataSchemaURI (\ s a -> s{_rDataSchemaURI = a});
 rDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
 rDataSchema = lens _rDataSchema (\ s a -> s{_rDataSchema = a});
 
--- | Describes the splitting specifications for a 'DataSource'.
+-- | A JSON string that represents the splitting and rearrangement processing to be applied to a 'DataSource'. If the 'DataRearrangement' parameter is not provided, all of the input data is used to create the 'Datasource'.
+--
+-- There are multiple parameters that control what data is used to create a datasource:
+--
+-- -   __'percentBegin'__
+--
+--     Use 'percentBegin' to indicate the beginning of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'percentEnd'__
+--
+--     Use 'percentEnd' to indicate the end of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'complement'__
+--
+--     The 'complement' parameter instructs Amazon ML to use the data that is not included in the range of 'percentBegin' to 'percentEnd' to create a datasource. The 'complement' parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for 'percentBegin' and 'percentEnd', along with the 'complement' parameter.
+--
+--     For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}'
+--
+-- -   __'strategy'__
+--
+--     To change how Amazon ML splits the data for a datasource, use the 'strategy' parameter.
+--
+--     The default value for the 'strategy' parameter is 'sequential', meaning that Amazon ML takes all of the data records between the 'percentBegin' and 'percentEnd' parameters for the datasource, in the order that the records appear in the input data.
+--
+--     The following two 'DataRearrangement' lines are examples of sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}'
+--
+--     To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the 'strategy' parameter to 'random' and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between 'percentBegin' and 'percentEnd'. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.
+--
+--     The following two 'DataRearrangement' lines are examples of non-sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}'
+--
 rDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
 rDataRearrangement = lens _rDataRearrangement (\ s a -> s{_rDataRearrangement = a});
 
@@ -1464,6 +1674,8 @@ s3DataSpec pDataLocationS3_ =
 
 -- | A JSON string that represents the schema for an Amazon S3 'DataSource'. The 'DataSchema' defines the structure of the observation data in the data file(s) referenced in the 'DataSource'.
 --
+-- You must provide either the 'DataSchema' or the 'DataSchemaLocationS3'.
+--
 -- Define your 'DataSchema' as a series of key-value pairs. 'attributes' and 'excludedVariableNames' have an array of key-value pairs for their value. Use the following format to define your 'DataSchema'.
 --
 -- { \"version\": \"1.0\",
@@ -1486,11 +1698,52 @@ s3DataSpec pDataLocationS3_ =
 sdsDataSchema :: Lens' S3DataSpec (Maybe Text)
 sdsDataSchema = lens _sdsDataSchema (\ s a -> s{_sdsDataSchema = a});
 
--- | Describes the schema Location in Amazon S3.
+-- | Describes the schema location in Amazon S3. You must provide either the 'DataSchema' or the 'DataSchemaLocationS3'.
 sdsDataSchemaLocationS3 :: Lens' S3DataSpec (Maybe Text)
 sdsDataSchemaLocationS3 = lens _sdsDataSchemaLocationS3 (\ s a -> s{_sdsDataSchemaLocationS3 = a});
 
--- | Describes the splitting requirement of a 'Datasource'.
+-- | A JSON string that represents the splitting and rearrangement processing to be applied to a 'DataSource'. If the 'DataRearrangement' parameter is not provided, all of the input data is used to create the 'Datasource'.
+--
+-- There are multiple parameters that control what data is used to create a datasource:
+--
+-- -   __'percentBegin'__
+--
+--     Use 'percentBegin' to indicate the beginning of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'percentEnd'__
+--
+--     Use 'percentEnd' to indicate the end of the range of the data used to create the Datasource. If you do not include 'percentBegin' and 'percentEnd', Amazon ML includes all of the data when creating the datasource.
+--
+-- -   __'complement'__
+--
+--     The 'complement' parameter instructs Amazon ML to use the data that is not included in the range of 'percentBegin' to 'percentEnd' to create a datasource. The 'complement' parameter is useful if you need to create complementary datasources for training and evaluation. To create a complementary datasource, use the same values for 'percentBegin' and 'percentEnd', along with the 'complement' parameter.
+--
+--     For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":0, \"percentEnd\":25, \"complement\":\"true\"}}'
+--
+-- -   __'strategy'__
+--
+--     To change how Amazon ML splits the data for a datasource, use the 'strategy' parameter.
+--
+--     The default value for the 'strategy' parameter is 'sequential', meaning that Amazon ML takes all of the data records between the 'percentBegin' and 'percentEnd' parameters for the datasource, in the order that the records appear in the input data.
+--
+--     The following two 'DataRearrangement' lines are examples of sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"sequential\", \"complement\":\"true\"}}'
+--
+--     To randomly split the input data into the proportions indicated by the percentBegin and percentEnd parameters, set the 'strategy' parameter to 'random' and provide a string that is used as the seed value for the random data splitting (for example, you can use the S3 path to your data as the random seed string). If you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random number between 0 and 100, and then selects the rows that have an assigned number between 'percentBegin' and 'percentEnd'. Pseudo-random numbers are assigned using both the input seed string value and the byte offset as a seed, so changing the data results in a different split. Any existing ordering is preserved. The random splitting strategy ensures that variables in the training and evaluation data are distributed similarly. It is useful in the cases where the input data may have an implicit sort order, which would otherwise result in training and evaluation datasources containing non-similar data records.
+--
+--     The following two 'DataRearrangement' lines are examples of non-sequentially ordered training and evaluation datasources:
+--
+--     Datasource for evaluation: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\"}}'
+--
+--     Datasource for training: '{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}'
+--
 sdsDataRearrangement :: Lens' S3DataSpec (Maybe Text)
 sdsDataRearrangement = lens _sdsDataRearrangement (\ s a -> s{_sdsDataRearrangement = a});
 
@@ -1511,3 +1764,49 @@ instance ToJSON S3DataSpec where
                     _sdsDataSchemaLocationS3,
                   ("DataRearrangement" .=) <$> _sdsDataRearrangement,
                   Just ("DataLocationS3" .= _sdsDataLocationS3)])
+
+-- | A custom key-value pair associated with an ML object, such as an ML model.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
+tag =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = Nothing
+    }
+
+-- | An optional string, typically used to describe or define the tag. Valid characters include Unicode letters, digits, white space, _, ., \/, =, +, -, %, and \'.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | A unique identifier for the tag. Valid characters include Unicode letters, digits, white space, _, ., \/, =, +, -, %, and \'.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])

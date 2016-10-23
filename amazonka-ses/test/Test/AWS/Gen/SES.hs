@@ -31,6 +31,9 @@ import Test.AWS.SES.Internal
 --         [ requestCreateReceiptRuleSet $
 --             createReceiptRuleSet
 --
+--         , requestSetIdentityHeadersInNotificationsEnabled $
+--             setIdentityHeadersInNotificationsEnabled
+--
 --         , requestGetSendQuota $
 --             getSendQuota
 --
@@ -156,6 +159,9 @@ import Test.AWS.SES.Internal
 --     , testGroup "response"
 --         [ responseCreateReceiptRuleSet $
 --             createReceiptRuleSetResponse
+--
+--         , responseSetIdentityHeadersInNotificationsEnabled $
+--             setIdentityHeadersInNotificationsEnabledResponse
 --
 --         , responseGetSendQuota $
 --             getSendQuotaResponse
@@ -286,6 +292,11 @@ requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
 requestCreateReceiptRuleSet = req
     "CreateReceiptRuleSet"
     "fixture/CreateReceiptRuleSet.yaml"
+
+requestSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabled -> TestTree
+requestSetIdentityHeadersInNotificationsEnabled = req
+    "SetIdentityHeadersInNotificationsEnabled"
+    "fixture/SetIdentityHeadersInNotificationsEnabled.yaml"
 
 requestGetSendQuota :: GetSendQuota -> TestTree
 requestGetSendQuota = req
@@ -495,6 +506,13 @@ responseCreateReceiptRuleSet = res
     "fixture/CreateReceiptRuleSetResponse.proto"
     ses
     (Proxy :: Proxy CreateReceiptRuleSet)
+
+responseSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabledResponse -> TestTree
+responseSetIdentityHeadersInNotificationsEnabled = res
+    "SetIdentityHeadersInNotificationsEnabledResponse"
+    "fixture/SetIdentityHeadersInNotificationsEnabledResponse.proto"
+    ses
+    (Proxy :: Proxy SetIdentityHeadersInNotificationsEnabled)
 
 responseGetSendQuota :: GetSendQuotaResponse -> TestTree
 responseGetSendQuota = res

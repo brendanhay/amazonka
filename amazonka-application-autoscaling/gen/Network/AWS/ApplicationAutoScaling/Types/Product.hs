@@ -118,11 +118,11 @@ scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_
 stServiceNamespace :: Lens' ScalableTarget ServiceNamespace
 stServiceNamespace = lens _stServiceNamespace (\ s a -> s{_stServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the scalable target. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
+-- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
 stResourceId :: Lens' ScalableTarget Text
 stResourceId = lens _stResourceId (\ s a -> s{_stResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
 stScalableDimension :: Lens' ScalableTarget ScalableDimension
 stScalableDimension = lens _stScalableDimension (\ s a -> s{_stScalableDimension = a});
 
@@ -245,11 +245,11 @@ saActivityId = lens _saActivityId (\ s a -> s{_saActivityId = a});
 saServiceNamespace :: Lens' ScalingActivity ServiceNamespace
 saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
+-- | The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
 saResourceId :: Lens' ScalingActivity Text
 saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
 
--- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
+-- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
 saScalableDimension :: Lens' ScalingActivity ScalableDimension
 saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
 
@@ -367,11 +367,11 @@ spPolicyName = lens _spPolicyName (\ s a -> s{_spPolicyName = a});
 spServiceNamespace :: Lens' ScalingPolicy ServiceNamespace
 spServiceNamespace = lens _spServiceNamespace (\ s a -> s{_spServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
+-- | The resource type and unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
 spResourceId :: Lens' ScalingPolicy Text
 spResourceId = lens _spResourceId (\ s a -> s{_spResourceId = a});
 
--- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
+-- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
 spScalableDimension :: Lens' ScalingPolicy ScalableDimension
 spScalableDimension = lens _spScalableDimension (\ s a -> s{_spScalableDimension = a});
 

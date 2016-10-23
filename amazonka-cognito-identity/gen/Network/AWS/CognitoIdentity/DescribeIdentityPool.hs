@@ -33,6 +33,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , identityPool
     , IdentityPool
     -- * Response Lenses
+    , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

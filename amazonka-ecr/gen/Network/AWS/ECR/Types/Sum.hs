@@ -35,7 +35,7 @@ instance FromText ImageFailureCode where
         "invalidimagetag" -> pure InvalidImageTag
         "missingdigestandtag" -> pure MissingDigestAndTag
         e -> fromTextError $ "Failure parsing ImageFailureCode from value: '" <> e
-           <> "'. Accepted values: ImageNotFound, ImageTagDoesNotMatchDigest, InvalidImageDigest, InvalidImageTag, MissingDigestAndTag"
+           <> "'. Accepted values: imagenotfound, imagetagdoesnotmatchdigest, invalidimagedigest, invalidimagetag, missingdigestandtag"
 
 instance ToText ImageFailureCode where
     toText = \case
@@ -64,7 +64,7 @@ instance FromText LayerAvailability where
         "available" -> pure Available
         "unavailable" -> pure Unavailable
         e -> fromTextError $ "Failure parsing LayerAvailability from value: '" <> e
-           <> "'. Accepted values: AVAILABLE, UNAVAILABLE"
+           <> "'. Accepted values: available, unavailable"
 
 instance ToText LayerAvailability where
     toText = \case
@@ -90,7 +90,7 @@ instance FromText LayerFailureCode where
         "invalidlayerdigest" -> pure InvalidLayerDigest
         "missinglayerdigest" -> pure MissingLayerDigest
         e -> fromTextError $ "Failure parsing LayerFailureCode from value: '" <> e
-           <> "'. Accepted values: InvalidLayerDigest, MissingLayerDigest"
+           <> "'. Accepted values: invalidlayerdigest, missinglayerdigest"
 
 instance ToText LayerFailureCode where
     toText = \case
@@ -105,3 +105,29 @@ instance ToHeader     LayerFailureCode
 
 instance FromJSON LayerFailureCode where
     parseJSON = parseJSONText "LayerFailureCode"
+
+data TagStatus
+    = Tagged
+    | Untagged
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TagStatus where
+    parser = takeLowerText >>= \case
+        "tagged" -> pure Tagged
+        "untagged" -> pure Untagged
+        e -> fromTextError $ "Failure parsing TagStatus from value: '" <> e
+           <> "'. Accepted values: tagged, untagged"
+
+instance ToText TagStatus where
+    toText = \case
+        Tagged -> "TAGGED"
+        Untagged -> "UNTAGGED"
+
+instance Hashable     TagStatus
+instance NFData       TagStatus
+instance ToByteString TagStatus
+instance ToQuery      TagStatus
+instance ToHeader     TagStatus
+
+instance ToJSON TagStatus where
+    toJSON = toJSONText

@@ -94,7 +94,7 @@ createTrust pDirectoryId_ pRemoteDomainName_ pTrustPassword_ pTrustDirection_ =
     , _ctTrustDirection = pTrustDirection_
     }
 
--- | Undocumented member.
+-- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 ctConditionalForwarderIPAddrs :: Lens' CreateTrust [Text]
 ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\ s a -> s{_ctConditionalForwarderIPAddrs = a}) . _Default . _Coerce;
 
@@ -159,7 +159,9 @@ instance ToPath CreateTrust where
 instance ToQuery CreateTrust where
         toQuery = const mempty
 
--- | /See:/ 'createTrustResponse' smart constructor.
+-- | The result of a CreateTrust request.
+--
+-- /See:/ 'createTrustResponse' smart constructor.
 data CreateTrustResponse = CreateTrustResponse'
     { _ctrsTrustId        :: !(Maybe Text)
     , _ctrsResponseStatus :: !Int

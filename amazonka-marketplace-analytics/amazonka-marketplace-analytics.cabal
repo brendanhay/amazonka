@@ -1,5 +1,5 @@
 name:                  amazonka-marketplace-analytics
-version:               1.4.3
+version:               1.4.4
 synopsis:              Amazon Marketplace Commerce Analytics SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -42,6 +42,7 @@ library
     exposed-modules:
           Network.AWS.MarketplaceAnalytics
         , Network.AWS.MarketplaceAnalytics.GenerateDataSet
+        , Network.AWS.MarketplaceAnalytics.StartSupportDataExport
         , Network.AWS.MarketplaceAnalytics.Types
         , Network.AWS.MarketplaceAnalytics.Waiters
 
@@ -50,7 +51,7 @@ library
         , Network.AWS.MarketplaceAnalytics.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.3.*
+          amazonka-core == 1.4.4.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-marketplace-analytics-test
@@ -70,9 +71,9 @@ test-suite amazonka-marketplace-analytics-test
         , Test.AWS.MarketplaceAnalytics.Internal
 
     build-depends:
-          amazonka-core == 1.4.3.*
-        , amazonka-test == 1.4.3.*
-        , amazonka-marketplace-analytics == 1.4.3.*
+          amazonka-core == 1.4.4.*
+        , amazonka-test == 1.4.4.*
+        , amazonka-marketplace-analytics == 1.4.4.*
         , base
         , bytestring
         , tasty

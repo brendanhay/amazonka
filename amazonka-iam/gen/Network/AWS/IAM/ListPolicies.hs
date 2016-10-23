@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the managed policies that are available to your account, including your own customer managed policies and all AWS managed policies.
+-- Lists all the managed policies that are available in your AWS account, including your own customer-defined managed policies and all AWS managed policies.
 --
 -- You can filter the list of policies that is returned using the optional 'OnlyAttached', 'Scope', and 'PathPrefix' parameters. For example, to list only the customer managed policies in your AWS account, set 'Scope' to 'Local'. To list only AWS managed policies, set 'Scope' to 'AWS'.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
--- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- For more information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicies
@@ -90,13 +90,13 @@ listPolicies =
     , _lpMaxItems = Nothing
     }
 
--- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all policies.
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all policies. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lpPathPrefix :: Lens' ListPolicies (Maybe Text)
 lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a});
 
 -- | A flag to filter the results to only the attached policies.
 --
--- When 'OnlyAttached' is 'true', the returned list contains only the policies that are attached to a user, group, or role. When 'OnlyAttached' is 'false', or when the parameter is not included, all policies are returned.
+-- When 'OnlyAttached' is 'true', the returned list contains only the policies that are attached to an IAM user, group, or role. When 'OnlyAttached' is 'false', or when the parameter is not included, all policies are returned.
 lpOnlyAttached :: Lens' ListPolicies (Maybe Bool)
 lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
 

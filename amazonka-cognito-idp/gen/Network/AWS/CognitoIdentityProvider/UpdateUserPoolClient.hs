@@ -25,6 +25,10 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
       updateUserPoolClient
     , UpdateUserPoolClient
     -- * Request Lenses
+    , uupcRefreshTokenValidity
+    , uupcExplicitAuthFlows
+    , uupcWriteAttributes
+    , uupcReadAttributes
     , uupcClientName
     , uupcUserPoolId
     , uupcClientId
@@ -48,14 +52,26 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
-    { _uupcClientName :: !(Maybe Text)
-    , _uupcUserPoolId :: !Text
-    , _uupcClientId   :: !(Sensitive Text)
+    { _uupcRefreshTokenValidity :: !(Maybe Nat)
+    , _uupcExplicitAuthFlows    :: !(Maybe [ExplicitAuthFlowsType])
+    , _uupcWriteAttributes      :: !(Maybe [Text])
+    , _uupcReadAttributes       :: !(Maybe [Text])
+    , _uupcClientName           :: !(Maybe Text)
+    , _uupcUserPoolId           :: !Text
+    , _uupcClientId             :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUserPoolClient' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uupcRefreshTokenValidity'
+--
+-- * 'uupcExplicitAuthFlows'
+--
+-- * 'uupcWriteAttributes'
+--
+-- * 'uupcReadAttributes'
 --
 -- * 'uupcClientName'
 --
@@ -68,10 +84,30 @@ updateUserPoolClient
     -> UpdateUserPoolClient
 updateUserPoolClient pUserPoolId_ pClientId_ =
     UpdateUserPoolClient'
-    { _uupcClientName = Nothing
+    { _uupcRefreshTokenValidity = Nothing
+    , _uupcExplicitAuthFlows = Nothing
+    , _uupcWriteAttributes = Nothing
+    , _uupcReadAttributes = Nothing
+    , _uupcClientName = Nothing
     , _uupcUserPoolId = pUserPoolId_
     , _uupcClientId = _Sensitive # pClientId_
     }
+
+-- | The validity of the refresh token.
+uupcRefreshTokenValidity :: Lens' UpdateUserPoolClient (Maybe Natural)
+uupcRefreshTokenValidity = lens _uupcRefreshTokenValidity (\ s a -> s{_uupcRefreshTokenValidity = a}) . mapping _Nat;
+
+-- | Explicit authentication flows.
+uupcExplicitAuthFlows :: Lens' UpdateUserPoolClient [ExplicitAuthFlowsType]
+uupcExplicitAuthFlows = lens _uupcExplicitAuthFlows (\ s a -> s{_uupcExplicitAuthFlows = a}) . _Default . _Coerce;
+
+-- | The writeable attributes of the user pool.
+uupcWriteAttributes :: Lens' UpdateUserPoolClient [Text]
+uupcWriteAttributes = lens _uupcWriteAttributes (\ s a -> s{_uupcWriteAttributes = a}) . _Default . _Coerce;
+
+-- | The read-only attributes of the user pool.
+uupcReadAttributes :: Lens' UpdateUserPoolClient [Text]
+uupcReadAttributes = lens _uupcReadAttributes (\ s a -> s{_uupcReadAttributes = a}) . _Default . _Coerce;
 
 -- | The client name from the update user pool client request.
 uupcClientName :: Lens' UpdateUserPoolClient (Maybe Text)
@@ -113,7 +149,12 @@ instance ToJSON UpdateUserPoolClient where
         toJSON UpdateUserPoolClient'{..}
           = object
               (catMaybes
-                 [("ClientName" .=) <$> _uupcClientName,
+                 [("RefreshTokenValidity" .=) <$>
+                    _uupcRefreshTokenValidity,
+                  ("ExplicitAuthFlows" .=) <$> _uupcExplicitAuthFlows,
+                  ("WriteAttributes" .=) <$> _uupcWriteAttributes,
+                  ("ReadAttributes" .=) <$> _uupcReadAttributes,
+                  ("ClientName" .=) <$> _uupcClientName,
                   Just ("UserPoolId" .= _uupcUserPoolId),
                   Just ("ClientId" .= _uupcClientId)])
 

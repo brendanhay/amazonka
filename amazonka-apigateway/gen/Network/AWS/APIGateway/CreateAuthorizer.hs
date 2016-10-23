@@ -19,20 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a new < Authorizer> resource to an existing < RestApi> resource.
+--
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request
       createAuthorizer
     , CreateAuthorizer
     -- * Request Lenses
+    , caAuthorizerURI
     , caIdentityValidationExpression
+    , caProviderARNs
     , caAuthorizerResultTtlInSeconds
     , caAuthType
     , caAuthorizerCredentials
     , caRestAPIId
     , caName
     , caType
-    , caAuthorizerURI
     , caIdentitySource
 
     -- * Destructuring the Response
@@ -41,6 +44,7 @@ module Network.AWS.APIGateway.CreateAuthorizer
     -- * Response Lenses
     , aAuthorizerURI
     , aIdentityValidationExpression
+    , aProviderARNs
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
@@ -61,14 +65,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-    { _caIdentityValidationExpression :: !(Maybe Text)
+    { _caAuthorizerURI                :: !(Maybe Text)
+    , _caIdentityValidationExpression :: !(Maybe Text)
+    , _caProviderARNs                 :: !(Maybe [Text])
     , _caAuthorizerResultTtlInSeconds :: !(Maybe Int)
     , _caAuthType                     :: !(Maybe Text)
     , _caAuthorizerCredentials        :: !(Maybe Text)
     , _caRestAPIId                    :: !Text
     , _caName                         :: !Text
     , _caType                         :: !AuthorizerType
-    , _caAuthorizerURI                :: !Text
     , _caIdentitySource               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -76,7 +81,11 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'caAuthorizerURI'
+--
 -- * 'caIdentityValidationExpression'
+--
+-- * 'caProviderARNs'
 --
 -- * 'caAuthorizerResultTtlInSeconds'
 --
@@ -90,32 +99,38 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- * 'caType'
 --
--- * 'caAuthorizerURI'
---
 -- * 'caIdentitySource'
 createAuthorizer
     :: Text -- ^ 'caRestAPIId'
     -> Text -- ^ 'caName'
     -> AuthorizerType -- ^ 'caType'
-    -> Text -- ^ 'caAuthorizerURI'
     -> Text -- ^ 'caIdentitySource'
     -> CreateAuthorizer
-createAuthorizer pRestAPIId_ pName_ pType_ pAuthorizerURI_ pIdentitySource_ =
+createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ =
     CreateAuthorizer'
-    { _caIdentityValidationExpression = Nothing
+    { _caAuthorizerURI = Nothing
+    , _caIdentityValidationExpression = Nothing
+    , _caProviderARNs = Nothing
     , _caAuthorizerResultTtlInSeconds = Nothing
     , _caAuthType = Nothing
     , _caAuthorizerCredentials = Nothing
     , _caRestAPIId = pRestAPIId_
     , _caName = pName_
     , _caType = pType_
-    , _caAuthorizerURI = pAuthorizerURI_
     , _caIdentitySource = pIdentitySource_
     }
+
+-- | [Required] Specifies the authorizer\'s Uniform Resource Identifier (URI).
+caAuthorizerURI :: Lens' CreateAuthorizer (Maybe Text)
+caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 
 -- | A validation expression for the incoming identity.
 caIdentityValidationExpression :: Lens' CreateAuthorizer (Maybe Text)
 caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> s{_caIdentityValidationExpression = a});
+
+-- | A list of the Cognito Your User Pool authorizer\'s provider ARNs.
+caProviderARNs :: Lens' CreateAuthorizer [Text]
+caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Default . _Coerce;
 
 -- | The TTL of cached authorizer results.
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
@@ -141,10 +156,6 @@ caName = lens _caName (\ s a -> s{_caName = a});
 caType :: Lens' CreateAuthorizer AuthorizerType
 caType = lens _caType (\ s a -> s{_caType = a});
 
--- | [Required] Specifies the authorizer\'s Uniform Resource Identifier (URI).
-caAuthorizerURI :: Lens' CreateAuthorizer Text
-caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
-
 -- | [Required] The source of the identity in an incoming request.
 caIdentitySource :: Lens' CreateAuthorizer Text
 caIdentitySource = lens _caIdentitySource (\ s a -> s{_caIdentitySource = a});
@@ -168,15 +179,16 @@ instance ToJSON CreateAuthorizer where
         toJSON CreateAuthorizer'{..}
           = object
               (catMaybes
-                 [("identityValidationExpression" .=) <$>
+                 [("authorizerUri" .=) <$> _caAuthorizerURI,
+                  ("identityValidationExpression" .=) <$>
                     _caIdentityValidationExpression,
+                  ("providerARNs" .=) <$> _caProviderARNs,
                   ("authorizerResultTtlInSeconds" .=) <$>
                     _caAuthorizerResultTtlInSeconds,
                   ("authType" .=) <$> _caAuthType,
                   ("authorizerCredentials" .=) <$>
                     _caAuthorizerCredentials,
                   Just ("name" .= _caName), Just ("type" .= _caType),
-                  Just ("authorizerUri" .= _caAuthorizerURI),
                   Just ("identitySource" .= _caIdentitySource)])
 
 instance ToPath CreateAuthorizer where

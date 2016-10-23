@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the password for the specified user.
+-- Changes the password for the specified IAM user.
 --
--- Users can change their own passwords by calling < ChangePassword>. For more information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /IAM User Guide/.
+-- IAM users can change their own passwords by calling < ChangePassword>. For more information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /IAM User Guide/.
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Creating a Request
@@ -69,15 +69,19 @@ updateLoginProfile pUserName_ =
     , _ulpUserName = pUserName_
     }
 
--- | The new password for the specified user.
+-- | The new password for the specified IAM user.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D). However, the format can be further restricted by the account administrator by setting a password policy on the AWS account. For more information, see < UpdateAccountPasswordPolicy>.
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
 ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensitive;
 
--- | Require the specified user to set a new password on next sign-in.
+-- | Allows this new password to be used only once by requiring the specified IAM user to set a new password on next sign-in.
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswordResetRequired = a});
 
 -- | The name of the user whose password you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 

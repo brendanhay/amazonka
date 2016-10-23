@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'estimateTemplateCost' smart constructor.
+-- | The input for an < EstimateTemplateCost> action.
+--
+-- /See:/ 'estimateTemplateCost' smart constructor.
 data EstimateTemplateCost = EstimateTemplateCost'
     { _etcParameters   :: !(Maybe [Parameter])
     , _etcTemplateBody :: !(Maybe Text)

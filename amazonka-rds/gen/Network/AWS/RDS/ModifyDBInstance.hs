@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
+-- Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Creating a Request
@@ -31,6 +31,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiMasterUserPassword
     , mdiPubliclyAccessible
     , mdiAutoMinorVersionUpgrade
+    , mdiDBSubnetGroupName
     , mdiMonitoringRoleARN
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
@@ -40,6 +41,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiTDECredentialPassword
     , mdiDBInstanceClass
     , mdiPromotionTier
+    , mdiLicenseModel
     , mdiPreferredMaintenanceWindow
     , mdiCACertificateIdentifier
     , mdiDBParameterGroupName
@@ -81,6 +83,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiMasterUserPassword         :: !(Maybe Text)
     , _mdiPubliclyAccessible         :: !(Maybe Bool)
     , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mdiDBSubnetGroupName          :: !(Maybe Text)
     , _mdiMonitoringRoleARN          :: !(Maybe Text)
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
@@ -90,6 +93,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiTDECredentialPassword      :: !(Maybe Text)
     , _mdiDBInstanceClass            :: !(Maybe Text)
     , _mdiPromotionTier              :: !(Maybe Int)
+    , _mdiLicenseModel               :: !(Maybe Text)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
     , _mdiCACertificateIdentifier    :: !(Maybe Text)
     , _mdiDBParameterGroupName       :: !(Maybe Text)
@@ -123,6 +127,8 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiAutoMinorVersionUpgrade'
 --
+-- * 'mdiDBSubnetGroupName'
+--
 -- * 'mdiMonitoringRoleARN'
 --
 -- * 'mdiIOPS'
@@ -140,6 +146,8 @@ data ModifyDBInstance = ModifyDBInstance'
 -- * 'mdiDBInstanceClass'
 --
 -- * 'mdiPromotionTier'
+--
+-- * 'mdiLicenseModel'
 --
 -- * 'mdiPreferredMaintenanceWindow'
 --
@@ -181,6 +189,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiMasterUserPassword = Nothing
     , _mdiPubliclyAccessible = Nothing
     , _mdiAutoMinorVersionUpgrade = Nothing
+    , _mdiDBSubnetGroupName = Nothing
     , _mdiMonitoringRoleARN = Nothing
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
@@ -190,6 +199,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiTDECredentialPassword = Nothing
     , _mdiDBInstanceClass = Nothing
     , _mdiPromotionTier = Nothing
+    , _mdiLicenseModel = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
     , _mdiCACertificateIdentifier = Nothing
     , _mdiDBParameterGroupName = Nothing
@@ -220,8 +230,11 @@ mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
 mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
 
@@ -297,6 +310,16 @@ mdiPubliclyAccessible = lens _mdiPubliclyAccessible (\ s a -> s{_mdiPubliclyAcce
 mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
 
+-- | The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC, or to a different subnet group in the same VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance>.
+--
+-- Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify 'true' for the 'ApplyImmediately' parameter.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens.
+--
+-- Example: 'mySubnetGroup'
+mdiDBSubnetGroupName :: Lens' ModifyDBInstance (Maybe Text)
+mdiDBSubnetGroupName = lens _mdiDBSubnetGroupName (\ s a -> s{_mdiDBSubnetGroupName = a});
+
 -- | The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
 --
 -- If 'MonitoringInterval' is set to a value other than 0, then you must supply a 'MonitoringRoleArn' value.
@@ -330,8 +353,11 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 -- Constraints:
 --
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
 
@@ -341,7 +367,7 @@ mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNe
 mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
 mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
 
--- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 60.
+-- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
 --
 -- If 'MonitoringRoleArn' is specified, then you must also set 'MonitoringInterval' to a value other than 0.
 --
@@ -370,6 +396,12 @@ mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = 
 -- Valid Values: 0 - 15
 mdiPromotionTier :: Lens' ModifyDBInstance (Maybe Int)
 mdiPromotionTier = lens _mdiPromotionTier (\ s a -> s{_mdiPromotionTier = a});
+
+-- | The license model for the DB instance.
+--
+-- Valid values: 'license-included' | 'bring-your-own-license' | 'general-public-license'
+mdiLicenseModel :: Lens' ModifyDBInstance (Maybe Text)
+mdiLicenseModel = lens _mdiLicenseModel (\ s a -> s{_mdiLicenseModel = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
 --
@@ -400,9 +432,13 @@ mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParame
 -- Constraints:
 --
 -- -   Must be in the format hh24:mi-hh24:mi
+--
 -- -   Times should be in Universal Time Coordinated (UTC)
+--
 -- -   Must not conflict with the preferred maintenance window
+--
 -- -   Must be at least 30 minutes
+--
 mdiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPreferredBackupWindow = a});
 
@@ -415,9 +451,13 @@ mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPrefer
 -- Constraints:
 --
 -- -   Must be a value from 0 to 35
+--
 -- -   Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+--
 -- -   Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5
+--
 -- -   Cannot be set to 0 if the DB instance is a source to Read Replicas
+--
 mdiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Int)
 mdiBackupRetentionPeriod = lens _mdiBackupRetentionPeriod (\ s a -> s{_mdiBackupRetentionPeriod = a});
 
@@ -426,14 +466,17 @@ mdiBackupRetentionPeriod = lens _mdiBackupRetentionPeriod (\ s a -> s{_mdiBackup
 -- Constraints:
 --
 -- -   Must be 1 to 255 alphanumeric characters
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
 mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the 'ApplyImmediately' parameter is set to 'true' for this request.
 --
--- Constraints: Cannot be specified if the DB instance is a Read Replica. This parameter cannot be used with SQL Server DB instances. Multi-AZ for SQL Server DB instances is set using the Mirroring option in an option group associated with the DB instance.
+-- Constraints: Cannot be specified if the DB instance is a Read Replica.
 mdiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 
@@ -526,9 +569,13 @@ mdiStorageType = lens _mdiStorageType (\ s a -> s{_mdiStorageType = a});
 -- Constraints:
 --
 -- -   Must be the identifier for an existing DB instance
+--
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+--
 -- -   First character must be a letter
+--
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
 mdiDBInstanceIdentifier :: Lens' ModifyDBInstance Text
 mdiDBInstanceIdentifier = lens _mdiDBInstanceIdentifier (\ s a -> s{_mdiDBInstanceIdentifier = a});
 
@@ -566,6 +613,7 @@ instance ToQuery ModifyDBInstance where
                "PubliclyAccessible" =: _mdiPubliclyAccessible,
                "AutoMinorVersionUpgrade" =:
                  _mdiAutoMinorVersionUpgrade,
+               "DBSubnetGroupName" =: _mdiDBSubnetGroupName,
                "MonitoringRoleArn" =: _mdiMonitoringRoleARN,
                "Iops" =: _mdiIOPS,
                "AllowMajorVersionUpgrade" =:
@@ -577,6 +625,7 @@ instance ToQuery ModifyDBInstance where
                "TdeCredentialPassword" =: _mdiTDECredentialPassword,
                "DBInstanceClass" =: _mdiDBInstanceClass,
                "PromotionTier" =: _mdiPromotionTier,
+               "LicenseModel" =: _mdiLicenseModel,
                "PreferredMaintenanceWindow" =:
                  _mdiPreferredMaintenanceWindow,
                "CACertificateIdentifier" =:

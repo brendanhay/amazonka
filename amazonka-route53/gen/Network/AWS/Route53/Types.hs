@@ -352,16 +352,16 @@ _HealthCheckVersionMismatch :: AsError a => Getting (First ServiceError) a Servi
 _HealthCheckVersionMismatch =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch"
 
--- | Some value specified in the request is invalid or the XML document is malformed.
+-- | The input is not valid.
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
--- | The hosted zone contains resource record sets in addition to the default NS and SOA resource record sets. Before you can delete the hosted zone, you must delete the additional resource record sets.
+-- | The hosted zone contains resource records that are not SOA or NS records.
 _HostedZoneNotEmpty :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneNotEmpty =
     _ServiceError . hasStatus 400 . hasCode "HostedZoneNotEmpty"
 
--- | At least one of the specified arguments is invalid.
+-- | Parameter name and problem.
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgument = _ServiceError . hasCode "InvalidArgument"
 
@@ -385,12 +385,12 @@ _DelegationSetAlreadyReusable :: AsError a => Getting (First ServiceError) a Ser
 _DelegationSetAlreadyReusable =
     _ServiceError . hasCode "DelegationSetAlreadyReusable"
 
--- | The request was rejected because Amazon Route 53 was still processing a prior request.
+-- | If Amazon Route 53 can\'t process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an 'HTTP 400 error' ('Bad request'). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
 _PriorRequestNotComplete :: AsError a => Getting (First ServiceError) a ServiceError
 _PriorRequestNotComplete =
     _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete"
 
--- | This error contains a list of one or more error messages. Each error message indicates one error in the change batch. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#example_Errors Example InvalidChangeBatch Errors>.
+-- | This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.
 _InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
 
@@ -404,11 +404,11 @@ _InvalidTrafficPolicyDocument :: AsError a => Getting (First ServiceError) a Ser
 _InvalidTrafficPolicyDocument =
     _ServiceError . hasStatus 400 . hasCode "InvalidTrafficPolicyDocument"
 
--- | The specified delegation set has not been marked as reusable.
+-- | A reusable delegation set with the specified ID does not exist.
 _DelegationSetNotReusable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
 
--- | This error indicates that the specified domain name is not valid.
+-- | The specified domain name is not valid.
 _InvalidDomainName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDomainName =
     _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
@@ -426,11 +426,13 @@ _HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound"
 _DelegationSetInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse"
 
--- | The specified delegation set does not exist.
+-- | A reusable delegation set with the specified ID does not exist.
 _NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
 
--- | The health check you are trying to create already exists. Amazon Route 53 returns this error when a health check has already been created with the specified 'CallerReference'.
+-- | The health check you\'re attempting to create already exists.
+--
+-- Amazon Route 53 returns this error when a health check has already been created with the specified value for 'CallerReference'.
 _HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
@@ -440,17 +442,17 @@ _TooManyTrafficPolicies :: AsError a => Getting (First ServiceError) a ServiceEr
 _TooManyTrafficPolicies =
     _ServiceError . hasStatus 400 . hasCode "TooManyTrafficPolicies"
 
--- | The geo location you are trying to get does not exist.
+-- | Amazon Route 53 doesn\'t support the specified geolocation.
 _NoSuchGeoLocation :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchGeoLocation =
     _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation"
 
--- | Amazon Route 53 allows some duplicate domain names, but there is a maximum number of duplicate names. This error indicates that you have reached that maximum. If you want to create another hosted zone with the same name and Amazon Route 53 generates this error, you can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.
 _DelegationSetNotAvailable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotAvailable =
     _ServiceError . hasCode "DelegationSetNotAvailable"
 
--- | The VPC you specified is not currently associated with the hosted zone.
+-- | The specified VPC and hosted zone are not currently associated.
 _VPCAssociationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _VPCAssociationNotFound =
     _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound"
@@ -483,21 +485,21 @@ _IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersion =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
 
--- | The hosted zone you are trying to associate VPC with doesn\'t have any VPC association. Amazon Route 53 currently doesn\'t support associate a VPC with a public hosted zone.
+-- | The hosted zone specified in 'HostedZoneId' is a public hosted zone.
 _PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _PublicZoneVPCAssociation =
     _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
 
--- | Prism for NoSuchHostedZone' errors.
+-- | No hosted zone exists with the ID that you specified.
 _NoSuchHostedZone :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
 
--- | This error indicates that you\'ve reached the maximum number of hosted zones that can be created for the current AWS account. You can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | This hosted zone cannot be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <http://aws.amazon.com/route53-request/ Contact Us> page.
 _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
     _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones"
 
--- | There are resource records associated with this health check. Before you can delete the health check, you must disassociate it from the resource record sets.
+-- | The health check ID for this health check is referenced in the 'HealthCheckId' element in one of the resource record sets in one of the hosted zones that are owned by the current AWS account.
 _HealthCheckInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckInUse = _ServiceError . hasStatus 400 . hasCode "HealthCheckInUse"
 
@@ -510,7 +512,7 @@ _DelegationSetAlreadyCreated =
 _ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
 
--- | The VPC you are trying to disassociate from the hosted zone is the last the VPC that is associated with the hosted zone. Amazon Route 53 currently doesn\'t support disassociate the last VPC from the hosted zone.
+-- | Only one VPC is currently associated with the hosted zone. You cannot convert a private hosted zone into a public hosted zone by disassociating the last VPC from a hosted zone.
 _LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _LastVPCAssociation =
     _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
@@ -519,7 +521,7 @@ _LastVPCAssociation =
 _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
 
--- | The health check you are trying to get or delete does not exist.
+-- | No health check exists with the ID that you specified in the 'DeleteHealthCheck' request.
 _NoSuchHealthCheck :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHealthCheck =
     _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck"

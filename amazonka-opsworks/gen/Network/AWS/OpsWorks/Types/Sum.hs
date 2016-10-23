@@ -33,7 +33,7 @@ instance FromText AppAttributesKeys where
         "documentroot" -> pure DocumentRoot
         "railsenv" -> pure RailsEnv
         e -> fromTextError $ "Failure parsing AppAttributesKeys from value: '" <> e
-           <> "'. Accepted values: AwsFlowRubySettings, AutoBundleOnDeploy, DocumentRoot, RailsEnv"
+           <> "'. Accepted values: awsflowrubysettings, autobundleondeploy, documentroot, railsenv"
 
 instance ToText AppAttributesKeys where
     toText = \case
@@ -271,7 +271,7 @@ instance FromText LayerAttributesKeys where
         "rubyversion" -> pure RubyVersion
         "rubygemsversion" -> pure RubygemsVersion
         e -> fromTextError $ "Failure parsing LayerAttributesKeys from value: '" <> e
-           <> "'. Accepted values: BundlerVersion, EcsClusterArn, EnableHaproxyStats, GangliaPassword, GangliaUrl, GangliaUser, HaproxyHealthCheckMethod, HaproxyHealthCheckUrl, HaproxyStatsPassword, HaproxyStatsUrl, HaproxyStatsUser, Jvm, JvmOptions, JvmVersion, JavaAppServer, JavaAppServerVersion, ManageBundler, MemcachedMemory, MysqlRootPassword, MysqlRootPasswordUbiquitous, NodejsVersion, PassengerVersion, RailsStack, RubyVersion, RubygemsVersion"
+           <> "'. Accepted values: bundlerversion, ecsclusterarn, enablehaproxystats, gangliapassword, gangliaurl, gangliauser, haproxyhealthcheckmethod, haproxyhealthcheckurl, haproxystatspassword, haproxystatsurl, haproxystatsuser, jvm, jvmoptions, jvmversion, javaappserver, javaappserverversion, managebundler, memcachedmemory, mysqlrootpassword, mysqlrootpasswordubiquitous, nodejsversion, passengerversion, railsstack, rubyversion, rubygemsversion"
 
 instance ToText LayerAttributesKeys where
     toText = \case
@@ -444,7 +444,7 @@ instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
         "color" -> pure Color
         e -> fromTextError $ "Failure parsing StackAttributesKeys from value: '" <> e
-           <> "'. Accepted values: Color"
+           <> "'. Accepted values: color"
 
 instance ToText StackAttributesKeys where
     toText = \case

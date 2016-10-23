@@ -31,7 +31,7 @@ instance FromText AdjustmentType where
         "exactcapacity" -> pure ExactCapacity
         "percentchangeincapacity" -> pure PercentChangeInCapacity
         e -> fromTextError $ "Failure parsing AdjustmentType from value: '" <> e
-           <> "'. Accepted values: ChangeInCapacity, ExactCapacity, PercentChangeInCapacity"
+           <> "'. Accepted values: changeincapacity, exactcapacity, percentchangeincapacity"
 
 instance ToText AdjustmentType where
     toText = \case
@@ -63,7 +63,7 @@ instance FromText MetricAggregationType where
         "maximum" -> pure Maximum
         "minimum" -> pure Minimum
         e -> fromTextError $ "Failure parsing MetricAggregationType from value: '" <> e
-           <> "'. Accepted values: Average, Maximum, Minimum"
+           <> "'. Accepted values: average, maximum, minimum"
 
 instance ToText MetricAggregationType where
     toText = \case
@@ -91,7 +91,7 @@ instance FromText PolicyType where
     parser = takeLowerText >>= \case
         "stepscaling" -> pure StepScaling
         e -> fromTextError $ "Failure parsing PolicyType from value: '" <> e
-           <> "'. Accepted values: StepScaling"
+           <> "'. Accepted values: stepscaling"
 
 instance ToText PolicyType where
     toText = \case
@@ -109,18 +109,21 @@ instance ToJSON PolicyType where
 instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
 
-data ScalableDimension =
-    EcsServiceDesiredCount
+data ScalableDimension
+    = EC2SpotFleetRequestTargetCapacity
+    | EcsServiceDesiredCount
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
+        "ec2:spot-fleet-request:targetcapacity" -> pure EC2SpotFleetRequestTargetCapacity
         "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: ecs:service:DesiredCount"
+           <> "'. Accepted values: ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount"
 
 instance ToText ScalableDimension where
     toText = \case
+        EC2SpotFleetRequestTargetCapacity -> "ec2:spot-fleet-request:TargetCapacity"
         EcsServiceDesiredCount -> "ecs:service:DesiredCount"
 
 instance Hashable     ScalableDimension
@@ -153,7 +156,7 @@ instance FromText ScalingActivityStatusCode where
         "successful" -> pure Successful
         "unfulfilled" -> pure Unfulfilled
         e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
-           <> "'. Accepted values: Failed, InProgress, Overridden, Pending, Successful, Unfulfilled"
+           <> "'. Accepted values: failed, inprogress, overridden, pending, successful, unfulfilled"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case
@@ -173,18 +176,21 @@ instance ToHeader     ScalingActivityStatusCode
 instance FromJSON ScalingActivityStatusCode where
     parseJSON = parseJSONText "ScalingActivityStatusCode"
 
-data ServiceNamespace =
-    Ecs
+data ServiceNamespace
+    = EC2
+    | Ecs
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ServiceNamespace where
     parser = takeLowerText >>= \case
+        "ec2" -> pure EC2
         "ecs" -> pure Ecs
         e -> fromTextError $ "Failure parsing ServiceNamespace from value: '" <> e
-           <> "'. Accepted values: ecs"
+           <> "'. Accepted values: ec2, ecs"
 
 instance ToText ServiceNamespace where
     toText = \case
+        EC2 -> "ec2"
         Ecs -> "ecs"
 
 instance Hashable     ServiceNamespace

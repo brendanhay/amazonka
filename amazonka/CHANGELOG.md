@@ -1,5 +1,21 @@
 # Change Log
 
+## [1.4.4](https://github.com/brendanhay/amazonka/tree/1.4.4)
+Released: **23 October, 2016**, Compare: [1.4.3](https://github.com/brendanhay/amazonka/compare/1.4.3...1.4.4)
+
+### Fixed [\#306](https://github.com/brendanhay/amazonka/pull/306)
+
+- Kinesis `SharedLevelMetrics` now correctly deserializes empty responses. [\#306](https://github.com/brendanhay/amazonka/pull/306)
+
+### Changed
+
+- `newEnv` no longer takes `Region` as a parameter and instead defaults to `us-east-1`
+  per other SDK behaviour. The new `Env` can be configured using the `envRegion` lens
+  or the `within` combinator.
+- Region is now discovered via the `InstanceIdentity` metadata document. [\#308](https://github.com/brendanhay/amazonka/pull/308)
+- Region can now be overridden via the `AWS_REGION` environment variable. [\#308](https://github.com/brendanhay/amazonka/pull/308)
+
+
 ## [1.4.3](https://github.com/brendanhay/amazonka/tree/1.4.3)
 Released: **09 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.2...1.4.3)
 

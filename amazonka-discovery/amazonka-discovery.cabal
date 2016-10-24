@@ -11,7 +11,7 @@ copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
     The AWS Application Discovery Service helps Systems Integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profile.
 

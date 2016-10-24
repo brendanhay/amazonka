@@ -11,7 +11,7 @@ copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
     Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By offloading the time and effort associated with building and operating a web-scale database, SimpleDB provides developers the freedom to focus on application development.
 

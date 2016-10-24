@@ -11,7 +11,7 @@ copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
     AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phones, tablets, and other devices in the cloud.
     .

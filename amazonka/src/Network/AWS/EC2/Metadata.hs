@@ -44,15 +44,15 @@ module Network.AWS.EC2.Metadata
     , devpayProductCodes
     , billingProducts
     , version
-    , privateIP
+    , privateIp
     , availabilityZone
     , region
-    , instanceID
+    , instanceId
     , instanceType
-    , accountID
-    , imageID
-    , kernelID
-    , ramdiskID
+    , accountId
+    , imageId
+    , kernelId
+    , ramdiskId
     , architecture
     ) where
 
@@ -343,15 +343,15 @@ data IdentityDocument = IdentityDocument
     { _devpayProductCodes :: Maybe Text
     , _billingProducts    :: Maybe Text
     , _version            :: Text
-    , _privateIP          :: Text
+    , _privateIp          :: Text
     , _availabilityZone   :: Text
     , _region             :: !Region
-    , _instanceID         :: Text
+    , _instanceId         :: Text
     , _instanceType       :: Text
-    , _accountID          :: Text
-    , _imageID            :: Text
-    , _kernelID           :: Text
-    , _ramdiskID          :: Maybe Text
+    , _accountId          :: Text
+    , _imageId            :: Text
+    , _kernelId           :: Text
+    , _ramdiskId          :: Maybe Text
     , _architecture       :: Text
     } deriving (Eq, Show)
 
@@ -364,8 +364,8 @@ billingProducts = lens _billingProducts (\s a -> s { _billingProducts = a })
 version :: Lens' IdentityDocument Text
 version = lens _version (\s a -> s { _version = a })
 
-privateIP :: Lens' IdentityDocument Text
-privateIP = lens _privateIP (\s a -> s { _privateIP = a })
+privateIp :: Lens' IdentityDocument Text
+privateIp = lens _privateIp (\s a -> s { _privateIp = a })
 
 availabilityZone :: Lens' IdentityDocument Text
 availabilityZone = lens _availabilityZone (\s a -> s { _availabilityZone = a })
@@ -373,59 +373,59 @@ availabilityZone = lens _availabilityZone (\s a -> s { _availabilityZone = a })
 region :: Lens' IdentityDocument Region
 region = lens _region (\s a -> s { _region = a })
 
-instanceID :: Lens' IdentityDocument Text
-instanceID = lens _instanceID (\s a -> s { _instanceID = a })
+instanceId :: Lens' IdentityDocument Text
+instanceId = lens _instanceId (\s a -> s { _instanceId = a })
 
 instanceType :: Lens' IdentityDocument Text
 instanceType = lens _instanceType (\s a -> s { _instanceType = a })
 
-accountID :: Lens' IdentityDocument Text
-accountID = lens _accountID (\s a -> s { _accountID = a })
+accountId :: Lens' IdentityDocument Text
+accountId = lens _accountId (\s a -> s { _accountId = a })
 
-imageID :: Lens' IdentityDocument Text
-imageID = lens _imageID (\s a -> s { _imageID = a })
+imageId :: Lens' IdentityDocument Text
+imageId = lens _imageId (\s a -> s { _imageId = a })
 
-kernelID :: Lens' IdentityDocument Text
-kernelID = lens _kernelID (\s a -> s { _kernelID = a })
+kernelId :: Lens' IdentityDocument Text
+kernelId = lens _kernelId (\s a -> s { _kernelId = a })
 
-ramdiskID :: Lens' IdentityDocument (Maybe Text)
-ramdiskID = lens _ramdiskID (\s a -> s { _ramdiskID = a })
+ramdiskId :: Lens' IdentityDocument (Maybe Text)
+ramdiskId = lens _ramdiskId (\s a -> s { _ramdiskId = a })
 
 architecture :: Lens' IdentityDocument Text
 architecture = lens _architecture (\s a -> s { _architecture = a })
 
 instance FromJSON IdentityDocument where
-    parseJSON = withObject "dynamic/instance-identity/document" $ \o ->
-        IdentityDocument
-            <$> o .:? "devpayProductCodes"
-            <*> o .:? "availabilityZone"
-            <*> o .:  "privateIp"
-            <*> o .:  "version"
-            <*> o .:  "region"
-            <*> o .:  "instanceId"
-            <*> o .:  "billingProducts"
-            <*> o .:  "instanceType"
-            <*> o .:  "accountId"
-            <*> o .:  "imageId"
-            <*> o .:  "kernelId"
-            <*> o .:? "ramdiskId"
-            <*> o .:  "architecture"
+    parseJSON = withObject "dynamic/instance-identity/document" $ \o -> do
+            _devpayProductCodes <- o .:? "devpayProductCodes"
+            _billingProducts    <- o .:?  "billingProducts"
+            _privateIp          <- o .:  "privateIp"
+            _version            <- o .:  "version"
+            _availabilityZone   <- o .: "availabilityZone"
+            _region             <- o .:  "region"
+            _instanceId         <- o .:  "instanceId"
+            _instanceType       <- o .:  "instanceType"
+            _accountId          <- o .:  "accountId"
+            _imageId            <- o .:  "imageId"
+            _kernelId           <- o .:  "kernelId"
+            _ramdiskId          <- o .:? "ramdiskId"
+            _architecture       <- o .:  "architecture"
+            pure IdentityDocument{..}
 
 instance ToJSON IdentityDocument where
     toJSON IdentityDocument{..} =
         object
             [ "devpayProductCodes" .= _devpayProductCodes
-            , "availabilityZone"   .= _availabilityZone
-            , "privateIp"          .= _privateIP
-            , "version"            .= _version
-            , "region"             .= _region
-            , "instanceId"         .= _instanceID
             , "billingProducts"    .= _billingProducts
+            , "privateIp"          .= _privateIp
+            , "version"            .= _version
+            , "availabilityZone"   .= _availabilityZone
+            , "region"             .= _region
+            , "instanceId"         .= _instanceId
             , "instanceType"       .= _instanceType
-            , "accountId"          .= _accountID
-            , "imageId"            .= _imageID
-            , "kernelId"           .= _kernelID
-            , "ramdiskId"          .= _ramdiskID
+            , "accountId"          .= _accountId
+            , "imageId"            .= _imageId
+            , "kernelId"           .= _kernelId
+            , "ramdiskId"          .= _ramdiskId
             , "architecture"       .= _architecture
             ]
 

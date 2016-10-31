@@ -76,6 +76,9 @@ instance FromText Text where
 instance FromText ByteString where
     parser = Text.encodeUtf8 <$> A.takeText
 
+instance (CI.FoldCase a, FromText a) => FromText (CI a) where
+    parser = CI.mk <$> parser
+
 instance FromText Char where
     parser = A.anyChar <* A.endOfInput
 

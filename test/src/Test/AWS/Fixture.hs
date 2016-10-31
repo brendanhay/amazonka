@@ -32,6 +32,7 @@ import           Data.Proxy
 import           Data.Time
 import qualified Data.Yaml                    as YAML
 import           Network.AWS.Data.ByteString
+import qualified Network.AWS.Data.Map         as Map
 import           Network.AWS.Lens             (trying, (<&>))
 import           Network.AWS.Prelude
 import           Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
@@ -123,7 +124,7 @@ instance FromJSON Req where
         <$> o .: "method"
         <*> (o .:? "path"    .!= "/")
         <*> (o .:? "query"   .!= mempty)
-        <*> (o .:? "headers" .!= mempty <&> Map.toList)
+        <*> (o .:? "headers" .!= mempty <&> Map.toList . Map.toMap)
         <*> (o .:? "body"    .!= mempty)
 
 sortKeys :: Ord a => [(a, b)] -> [(a, b)]

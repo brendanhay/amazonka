@@ -14,28 +14,8 @@
 --
 module Test.AWS.Orphans where
 
-import           Data.Aeson
-import qualified Data.CaseInsensitive as CI
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.Text.Encoding   as Text
-import           Data.Traversable     (traverse)
-import           Network.AWS.Prelude
+import Data.Aeson
+import Network.AWS.Prelude
 
 instance FromJSON ByteString where
     parseJSON = withText "bytestring" (either fail pure . fromText)
-
-instance FromJSON (HashMap ByteString ByteString) where
-    parseJSON = withObject "hashmap" $
-          fmap Map.fromList
-        . traverse go
-        . Map.toList
-      where
-        go (k, v) = (Text.encodeUtf8 k,) <$> parseJSON v
-
-instance FromJSON (HashMap HeaderName ByteString) where
-    parseJSON = withObject "headers" $
-          fmap Map.fromList
-        . traverse go
-        . Map.toList
-      where
-        go (k, v) = (CI.mk (Text.encodeUtf8 k),) <$> parseJSON v

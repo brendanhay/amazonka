@@ -54,7 +54,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteVPCAssociationAuthorization' smart constructor.
 data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
-    { _dvaaHostedZoneId :: !Text
+    { _dvaaHostedZoneId :: !ResourceId
     , _dvaaVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,7 +66,7 @@ data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
 --
 -- * 'dvaaVPC' - When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.
 deleteVPCAssociationAuthorization
-    :: Text -- ^ 'dvaaHostedZoneId'
+    :: ResourceId -- ^ 'dvaaHostedZoneId'
     -> VPC -- ^ 'dvaaVPC'
     -> DeleteVPCAssociationAuthorization
 deleteVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
@@ -76,7 +76,7 @@ deleteVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
     }
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
-dvaaHostedZoneId :: Lens' DeleteVPCAssociationAuthorization Text
+dvaaHostedZoneId :: Lens' DeleteVPCAssociationAuthorization ResourceId
 dvaaHostedZoneId = lens _dvaaHostedZoneId (\ s a -> s{_dvaaHostedZoneId = a});
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.

@@ -53,7 +53,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteReusableDelegationSet' smart constructor.
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
-    { _drdsId :: Text
+    { _drdsId :: ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteReusableDelegationSet' with the minimum fields required to make a request.
@@ -62,7 +62,7 @@ newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
 --
 -- * 'drdsId' - The ID of the reusable delegation set you want to delete.
 deleteReusableDelegationSet
-    :: Text -- ^ 'drdsId'
+    :: ResourceId -- ^ 'drdsId'
     -> DeleteReusableDelegationSet
 deleteReusableDelegationSet pId_ =
     DeleteReusableDelegationSet'
@@ -70,7 +70,7 @@ deleteReusableDelegationSet pId_ =
     }
 
 -- | The ID of the reusable delegation set you want to delete.
-drdsId :: Lens' DeleteReusableDelegationSet Text
+drdsId :: Lens' DeleteReusableDelegationSet ResourceId
 drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where

@@ -66,7 +66,7 @@ import           Network.AWS.Route53.Types.Product
 data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
     { _lvaaNextToken    :: !(Maybe Text)
     , _lvaaMaxResults   :: !(Maybe Text)
-    , _lvaaHostedZoneId :: !Text
+    , _lvaaHostedZoneId :: !ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVPCAssociationAuthorizations' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
 --
 -- * 'lvaaHostedZoneId' - The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
 listVPCAssociationAuthorizations
-    :: Text -- ^ 'lvaaHostedZoneId'
+    :: ResourceId -- ^ 'lvaaHostedZoneId'
     -> ListVPCAssociationAuthorizations
 listVPCAssociationAuthorizations pHostedZoneId_ =
     ListVPCAssociationAuthorizations'
@@ -97,7 +97,7 @@ lvaaMaxResults :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
 lvaaMaxResults = lens _lvaaMaxResults (\ s a -> s{_lvaaMaxResults = a});
 
 -- | The ID of the hosted zone for which you want a list of VPCs that can be associated with the hosted zone.
-lvaaHostedZoneId :: Lens' ListVPCAssociationAuthorizations Text
+lvaaHostedZoneId :: Lens' ListVPCAssociationAuthorizations ResourceId
 lvaaHostedZoneId = lens _lvaaHostedZoneId (\ s a -> s{_lvaaHostedZoneId = a});
 
 instance AWSRequest ListVPCAssociationAuthorizations
@@ -144,7 +144,7 @@ instance ToQuery ListVPCAssociationAuthorizations
 data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizationsResponse'
     { _lvaarsNextToken      :: !(Maybe Text)
     , _lvaarsResponseStatus :: !Int
-    , _lvaarsHostedZoneId   :: !Text
+    , _lvaarsHostedZoneId   :: !ResourceId
     , _lvaarsVPCs           :: !(List1 VPC)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -161,7 +161,7 @@ data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizations
 -- * 'lvaarsVPCs' - The list of VPCs that are authorized to be associated with the specified hosted zone.
 listVPCAssociationAuthorizationsResponse
     :: Int -- ^ 'lvaarsResponseStatus'
-    -> Text -- ^ 'lvaarsHostedZoneId'
+    -> ResourceId -- ^ 'lvaarsHostedZoneId'
     -> NonEmpty VPC -- ^ 'lvaarsVPCs'
     -> ListVPCAssociationAuthorizationsResponse
 listVPCAssociationAuthorizationsResponse pResponseStatus_ pHostedZoneId_ pVPCs_ =
@@ -181,7 +181,7 @@ lvaarsResponseStatus :: Lens' ListVPCAssociationAuthorizationsResponse Int
 lvaarsResponseStatus = lens _lvaarsResponseStatus (\ s a -> s{_lvaarsResponseStatus = a});
 
 -- | The ID of the hosted zone that you can associate the listed VPCs with.
-lvaarsHostedZoneId :: Lens' ListVPCAssociationAuthorizationsResponse Text
+lvaarsHostedZoneId :: Lens' ListVPCAssociationAuthorizationsResponse ResourceId
 lvaarsHostedZoneId = lens _lvaarsHostedZoneId (\ s a -> s{_lvaarsHostedZoneId = a});
 
 -- | The list of VPCs that are authorized to be associated with the specified hosted zone.

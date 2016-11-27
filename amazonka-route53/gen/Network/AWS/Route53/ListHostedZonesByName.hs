@@ -108,7 +108,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
-    { _lhzbnHostedZoneId :: !(Maybe Text)
+    { _lhzbnHostedZoneId :: !(Maybe ResourceId)
     , _lhzbnMaxItems     :: !(Maybe Text)
     , _lhzbnDNSName      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -132,7 +132,7 @@ listHostedZonesByName =
     }
 
 -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter. If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
-lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe ResourceId)
 lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a});
 
 -- | The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, then the value of the @IsTruncated@ element in the response is true, and the values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted zone in the next group of @maxitems@ hosted zones.
@@ -184,8 +184,8 @@ instance ToQuery ListHostedZonesByName where
 --
 -- /See:/ 'listHostedZonesByNameResponse' smart constructor.
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-    { _lhzbnrsHostedZoneId     :: !(Maybe Text)
-    , _lhzbnrsNextHostedZoneId :: !(Maybe Text)
+    { _lhzbnrsHostedZoneId     :: !(Maybe ResourceId)
+    , _lhzbnrsNextHostedZoneId :: !(Maybe ResourceId)
     , _lhzbnrsDNSName          :: !(Maybe Text)
     , _lhzbnrsNextDNSName      :: !(Maybe Text)
     , _lhzbnrsResponseStatus   :: !Int
@@ -231,11 +231,11 @@ listHostedZonesByNameResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     }
 
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
-lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe ResourceId)
 lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a});
 
 -- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively. This element is present only if @IsTruncated@ is @true@ .
-lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe ResourceId)
 lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a});
 
 -- | For the second and subsequent calls to @ListHostedZonesByName@ , @DNSName@ is the value that you specified for the @dnsname@ parameter in the request that produced the current response.

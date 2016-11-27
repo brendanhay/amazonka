@@ -52,7 +52,7 @@ import           Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'createReusableDelegationSet' smart constructor.
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
-    { _crdsHostedZoneId    :: !(Maybe Text)
+    { _crdsHostedZoneId    :: !(Maybe ResourceId)
     , _crdsCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ createReusableDelegationSet pCallerReference_ =
     }
 
 -- | If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
-crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
+crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe ResourceId)
 crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 
 -- | A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.

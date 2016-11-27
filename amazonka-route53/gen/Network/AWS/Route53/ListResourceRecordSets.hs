@@ -90,7 +90,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
     , _lrrsStartRecordType       :: !(Maybe RecordType)
     , _lrrsStartRecordIdentifier :: !(Maybe Text)
     , _lrrsMaxItems              :: !(Maybe Text)
-    , _lrrsHostedZoneId          :: !Text
+    , _lrrsHostedZoneId          :: !ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListResourceRecordSets' with the minimum fields required to make a request.
@@ -107,7 +107,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
 --
 -- * 'lrrsHostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to get.
 listResourceRecordSets
-    :: Text -- ^ 'lrrsHostedZoneId'
+    :: ResourceId -- ^ 'lrrsHostedZoneId'
     -> ListResourceRecordSets
 listResourceRecordSets pHostedZoneId_ =
     ListResourceRecordSets'
@@ -135,7 +135,7 @@ lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 
 -- | The ID of the hosted zone that contains the resource record sets that you want to get.
-lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
+lrrsHostedZoneId :: Lens' ListResourceRecordSets ResourceId
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
 
 instance AWSPager ListResourceRecordSets where

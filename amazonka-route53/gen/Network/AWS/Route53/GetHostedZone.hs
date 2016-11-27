@@ -52,7 +52,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getHostedZone' smart constructor.
 newtype GetHostedZone = GetHostedZone'
-    { _ghzId :: Text
+    { _ghzId :: ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetHostedZone' with the minimum fields required to make a request.
@@ -61,7 +61,7 @@ newtype GetHostedZone = GetHostedZone'
 --
 -- * 'ghzId' - The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.
 getHostedZone
-    :: Text -- ^ 'ghzId'
+    :: ResourceId -- ^ 'ghzId'
     -> GetHostedZone
 getHostedZone pId_ =
     GetHostedZone'
@@ -69,7 +69,7 @@ getHostedZone pId_ =
     }
 
 -- | The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.
-ghzId :: Lens' GetHostedZone Text
+ghzId :: Lens' GetHostedZone ResourceId
 ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
 instance AWSRequest GetHostedZone where

@@ -20,6 +20,12 @@
         },
         "ResourceRecordSetFailover": {
             "renamedTo": "Failover"
+        },
+        "ResourceId": {
+            "replacedBy": {
+                "name": "ResourceId",
+                "deriving": []
+            }
         }
     }
 }

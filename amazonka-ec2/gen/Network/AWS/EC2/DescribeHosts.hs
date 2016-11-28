@@ -20,7 +20,9 @@
 --
 -- Describes one or more of your Dedicated Hosts.
 --
--- The results describe only the Dedicated Hosts in the region you\'re currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released will be listed with the state 'released'.
+--
+-- The results describe only the Dedicated Hosts in the region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released will be listed with the state @released@ .
+--
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeHosts.
 --
+--
+--
 -- /See:/ 'describeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
     { _dhNextToken  :: !(Maybe Text)
@@ -62,13 +66,13 @@ data DescribeHosts = DescribeHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhNextToken'
+-- * 'dhNextToken' - The token to retrieve the next page of results.
 --
--- * 'dhFilter'
+-- * 'dhFilter' - One or more filters.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @client-token@ - The idempotency token you provided when you launched the instance     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @availability-zone@ - The Availability Zone of the host.
 --
--- * 'dhHostIds'
+-- * 'dhHostIds' - The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
 --
--- * 'dhMaxResults'
+-- * 'dhMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 describeHosts
     :: DescribeHosts
 describeHosts =
@@ -83,20 +87,7 @@ describeHosts =
 dhNextToken :: Lens' DescribeHosts (Maybe Text)
 dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a});
 
--- | One or more filters.
---
--- -   'instance-type' - The instance type size that the Dedicated Host is configured to support.
---
--- -   'auto-placement' - Whether auto-placement is enabled or disabled ('on' | 'off').
---
--- -   'host-reservation-id' - The ID of the reservation assigned to this host.
---
--- -   'client-token' - The idempotency token you provided when you launched the instance
---
--- -   'state'- The allocation state of the Dedicated Host ('available' | 'under-assessment' | 'permanent-failure' | 'released' | 'released-permanent-failure').
---
--- -   'availability-zone' - The Availability Zone of the host.
---
+-- | One or more filters.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @client-token@ - The idempotency token you provided when you launched the instance     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @availability-zone@ - The Availability Zone of the host.
 dhFilter :: Lens' DescribeHosts [Filter]
 dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce;
 
@@ -104,7 +95,7 @@ dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce;
 dhHostIds :: Lens' DescribeHosts [Text]
 dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'nextToken' value. This value can be between 5 and 500; if 'maxResults' is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 dhMaxResults :: Lens' DescribeHosts (Maybe Int)
 dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a});
 
@@ -142,6 +133,8 @@ instance ToQuery DescribeHosts where
 
 -- | Contains the output of DescribeHosts.
 --
+--
+--
 -- /See:/ 'describeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
     { _dhrsHosts          :: !(Maybe [Host])
@@ -153,11 +146,11 @@ data DescribeHostsResponse = DescribeHostsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrsHosts'
+-- * 'dhrsHosts' - Information about the Dedicated Hosts.
 --
--- * 'dhrsNextToken'
+-- * 'dhrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dhrsResponseStatus'
+-- * 'dhrsResponseStatus' - -- | The response status code.
 describeHostsResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> DescribeHostsResponse
@@ -172,11 +165,11 @@ describeHostsResponse pResponseStatus_ =
 dhrsHosts :: Lens' DescribeHostsResponse [Host]
 dhrsHosts = lens _dhrsHosts (\ s a -> s{_dhrsHosts = a}) . _Default . _Coerce;
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrsNextToken :: Lens' DescribeHostsResponse (Maybe Text)
 dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 

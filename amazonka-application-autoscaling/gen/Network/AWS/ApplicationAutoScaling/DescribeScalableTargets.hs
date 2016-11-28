@@ -20,9 +20,11 @@
 --
 -- Provides descriptive information for scalable targets with a specified service namespace.
 --
--- You can filter the results in a service namespace with the 'ResourceIds' and 'ScalableDimension' parameters.
 --
--- To create a new scalable target or update an existing one, see < RegisterScalableTarget>. If you are no longer using a scalable target, you can deregister it with < DeregisterScalableTarget>.
+-- You can filter the results in a service namespace with the @ResourceIds@ and @ScalableDimension@ parameters.
+--
+-- To create a new scalable target or update an existing one, see 'RegisterScalableTarget' . If you are no longer using a scalable target, you can deregister it with 'DeregisterScalableTarget' .
+--
 module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
     (
     -- * Creating a Request
@@ -64,15 +66,15 @@ data DescribeScalableTargets = DescribeScalableTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dstResourceIds'
+-- * 'dstResourceIds' - The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
 --
--- * 'dstScalableDimension'
+-- * 'dstScalableDimension' - The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 --
--- * 'dstNextToken'
+-- * 'dstNextToken' - The @NextToken@ value returned from a previous paginated @DescribeScalableTargets@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'dstMaxResults'
+-- * 'dstMaxResults' - The maximum number of scalable target results returned by @DescribeScalableTargets@ in paginated output. When this parameter is used, @DescribeScalableTargets@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalableTargets@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalableTargets@ returns up to 50 results and a @NextToken@ value, if applicable.
 --
--- * 'dstServiceNamespace'
+-- * 'dstServiceNamespace' - The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 describeScalableTargets
     :: ServiceNamespace -- ^ 'dstServiceNamespace'
     -> DescribeScalableTargets
@@ -85,19 +87,19 @@ describeScalableTargets pServiceNamespace_ =
     , _dstServiceNamespace = pServiceNamespace_
     }
 
--- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
 dstResourceIds :: Lens' DescribeScalableTargets [Text]
 dstResourceIds = lens _dstResourceIds (\ s a -> s{_dstResourceIds = a}) . _Default . _Coerce;
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 dstScalableDimension :: Lens' DescribeScalableTargets (Maybe ScalableDimension)
 dstScalableDimension = lens _dstScalableDimension (\ s a -> s{_dstScalableDimension = a});
 
--- | The 'NextToken' value returned from a previous paginated 'DescribeScalableTargets' request. Pagination continues from the end of the previous results that returned the 'NextToken' value. This value is 'null' when there are no more results to return.
+-- | The @NextToken@ value returned from a previous paginated @DescribeScalableTargets@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
 dstNextToken :: Lens' DescribeScalableTargets (Maybe Text)
 dstNextToken = lens _dstNextToken (\ s a -> s{_dstNextToken = a});
 
--- | The maximum number of scalable target results returned by 'DescribeScalableTargets' in paginated output. When this parameter is used, 'DescribeScalableTargets' returns up to 'MaxResults' results in a single page along with a 'NextToken' response element. The remaining results of the initial request can be seen by sending another 'DescribeScalableTargets' request with the returned 'NextToken' value. This value can be between 1 and 50. If this parameter is not used, then 'DescribeScalableTargets' returns up to 50 results and a 'NextToken' value, if applicable.
+-- | The maximum number of scalable target results returned by @DescribeScalableTargets@ in paginated output. When this parameter is used, @DescribeScalableTargets@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalableTargets@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalableTargets@ returns up to 50 results and a @NextToken@ value, if applicable.
 dstMaxResults :: Lens' DescribeScalableTargets (Maybe Int)
 dstMaxResults = lens _dstMaxResults (\ s a -> s{_dstMaxResults = a});
 
@@ -158,11 +160,11 @@ data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dstsrsNextToken'
+-- * 'dstsrsNextToken' - The @NextToken@ value to include in a future @DescribeScalableTargets@ request. When the results of a @DescribeScalableTargets@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dstsrsScalableTargets'
+-- * 'dstsrsScalableTargets' - The list of scalable targets that matches the request parameters.
 --
--- * 'dstsrsResponseStatus'
+-- * 'dstsrsResponseStatus' - -- | The response status code.
 describeScalableTargetsResponse
     :: Int -- ^ 'dstsrsResponseStatus'
     -> DescribeScalableTargetsResponse
@@ -173,7 +175,7 @@ describeScalableTargetsResponse pResponseStatus_ =
     , _dstsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'NextToken' value to include in a future 'DescribeScalableTargets' request. When the results of a 'DescribeScalableTargets' request exceed 'MaxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The @NextToken@ value to include in a future @DescribeScalableTargets@ request. When the results of a @DescribeScalableTargets@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dstsrsNextToken :: Lens' DescribeScalableTargetsResponse (Maybe Text)
 dstsrsNextToken = lens _dstsrsNextToken (\ s a -> s{_dstsrsNextToken = a});
 
@@ -181,7 +183,7 @@ dstsrsNextToken = lens _dstsrsNextToken (\ s a -> s{_dstsrsNextToken = a});
 dstsrsScalableTargets :: Lens' DescribeScalableTargetsResponse [ScalableTarget]
 dstsrsScalableTargets = lens _dstsrsScalableTargets (\ s a -> s{_dstsrsScalableTargets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dstsrsResponseStatus :: Lens' DescribeScalableTargetsResponse Int
 dstsrsResponseStatus = lens _dstsrsResponseStatus (\ s a -> s{_dstsrsResponseStatus = a});
 

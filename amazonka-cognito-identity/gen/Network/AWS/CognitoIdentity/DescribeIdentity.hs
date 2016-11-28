@@ -20,7 +20,9 @@
 --
 -- Returns metadata related to the given identity, including when the identity was created and any associated linked logins.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the 'DescribeIdentity' action.
+-- | Input to the @DescribeIdentity@ action.
+--
+--
 --
 -- /See:/ 'describeIdentity' smart constructor.
 newtype DescribeIdentity = DescribeIdentity'
@@ -57,7 +61,7 @@ newtype DescribeIdentity = DescribeIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentityId'
+-- * 'diIdentityId' - A unique identifier in the format REGION:GUID.
 describeIdentity
     :: Text -- ^ 'diIdentityId'
     -> DescribeIdentity

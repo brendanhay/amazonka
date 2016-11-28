@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- API to emit metering records. For identical requests, the API is idempotent. It simply returns the metering record ID.
+--
+--
 module Network.AWS.MarketplaceMetering.MeterUsage
     (
     -- * Creating a Request
@@ -59,15 +61,15 @@ data MeterUsage = MeterUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'muProductCode'
+-- * 'muProductCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 --
--- * 'muTimestamp'
+-- * 'muTimestamp' - Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the timestamp will be ignored.
 --
--- * 'muUsageDimension'
+-- * 'muUsageDimension' - It will be one of the 'fcp dimension name' provided during the publishing of the product.
 --
--- * 'muUsageQuantity'
+-- * 'muUsageQuantity' - Consumption value for the hour.
 --
--- * 'muDryRun'
+-- * 'muDryRun' - Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException.
 meterUsage
     :: Text -- ^ 'muProductCode'
     -> UTCTime -- ^ 'muTimestamp'
@@ -92,7 +94,7 @@ muProductCode = lens _muProductCode (\ s a -> s{_muProductCode = a});
 muTimestamp :: Lens' MeterUsage UTCTime
 muTimestamp = lens _muTimestamp (\ s a -> s{_muTimestamp = a}) . _Time;
 
--- | It will be one of the \'fcp dimension name\' provided during the publishing of the product.
+-- | It will be one of the 'fcp dimension name' provided during the publishing of the product.
 muUsageDimension :: Lens' MeterUsage Text
 muUsageDimension = lens _muUsageDimension (\ s a -> s{_muUsageDimension = a});
 
@@ -152,9 +154,9 @@ data MeterUsageResponse = MeterUsageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mursMeteringRecordId'
+-- * 'mursMeteringRecordId' - Undocumented member.
 --
--- * 'mursResponseStatus'
+-- * 'mursResponseStatus' - -- | The response status code.
 meterUsageResponse
     :: Int -- ^ 'mursResponseStatus'
     -> MeterUsageResponse
@@ -168,7 +170,7 @@ meterUsageResponse pResponseStatus_ =
 mursMeteringRecordId :: Lens' MeterUsageResponse (Maybe Text)
 mursMeteringRecordId = lens _mursMeteringRecordId (\ s a -> s{_mursMeteringRecordId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mursResponseStatus :: Lens' MeterUsageResponse Int
 mursResponseStatus = lens _mursResponseStatus (\ s a -> s{_mursResponseStatus = a});
 

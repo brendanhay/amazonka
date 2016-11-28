@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID, you can use the 'MaxResults' and 'NextToken' parameters to paginate the response. However, AWS OpsWorks currently supports only one cluster per layer, so the result set has a maximum of one element.
+-- Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID, you can use the @MaxResults@ and @NextToken@ parameters to paginate the response. However, AWS OpsWorks currently supports only one cluster per layer, so the result set has a maximum of one element.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permission. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permission. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeEcsClusters
     (
     -- * Creating a Request
@@ -60,13 +62,13 @@ data DescribeEcsClusters = DescribeEcsClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decNextToken'
+-- * 'decNextToken' - If the previous paginated request did not return all of the remaining results, the response object's@NextToken@ parameter value is set to a token. To retrieve the next set of results, call @DescribeEcsClusters@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 --
--- * 'decStackId'
+-- * 'decStackId' - A stack ID. @DescribeEcsClusters@ returns a description of the cluster that is registered with the stack.
 --
--- * 'decMaxResults'
+-- * 'decMaxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 --
--- * 'decEcsClusterARNs'
+-- * 'decEcsClusterARNs' - A list of ARNs, one for each cluster to be described.
 describeEcsClusters
     :: DescribeEcsClusters
 describeEcsClusters =
@@ -77,15 +79,15 @@ describeEcsClusters =
     , _decEcsClusterARNs = Nothing
     }
 
--- | If the previous paginated request did not return all of the remaining results, the response object\'s'NextToken' parameter value is set to a token. To retrieve the next set of results, call 'DescribeEcsClusters' again and assign that token to the request object\'s 'NextToken' parameter. If there are no remaining results, the previous response object\'s 'NextToken' parameter is set to 'null'.
+-- | If the previous paginated request did not return all of the remaining results, the response object's@NextToken@ parameter value is set to a token. To retrieve the next set of results, call @DescribeEcsClusters@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 decNextToken :: Lens' DescribeEcsClusters (Maybe Text)
 decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 
--- | A stack ID. 'DescribeEcsClusters' returns a description of the cluster that is registered with the stack.
+-- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster that is registered with the stack.
 decStackId :: Lens' DescribeEcsClusters (Maybe Text)
 decStackId = lens _decStackId (\ s a -> s{_decStackId = a});
 
--- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a 'NextToken' value that you can assign to the 'NextToken' request parameter to get the next set of results.
+-- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 decMaxResults :: Lens' DescribeEcsClusters (Maybe Int)
 decMaxResults = lens _decMaxResults (\ s a -> s{_decMaxResults = a});
 
@@ -134,7 +136,9 @@ instance ToPath DescribeEcsClusters where
 instance ToQuery DescribeEcsClusters where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeEcsClusters' request.
+-- | Contains the response to a @DescribeEcsClusters@ request.
+--
+--
 --
 -- /See:/ 'describeEcsClustersResponse' smart constructor.
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
@@ -147,11 +151,11 @@ data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsNextToken'
+-- * 'decrsNextToken' - If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
 --
--- * 'decrsEcsClusters'
+-- * 'decrsEcsClusters' - A list of @EcsCluster@ objects containing the cluster descriptions.
 --
--- * 'decrsResponseStatus'
+-- * 'decrsResponseStatus' - -- | The response status code.
 describeEcsClustersResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEcsClustersResponse
@@ -162,15 +166,15 @@ describeEcsClustersResponse pResponseStatus_ =
     , _decrsResponseStatus = pResponseStatus_
     }
 
--- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object\'s 'NextToken' parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to 'null'.
+-- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
 decrsNextToken :: Lens' DescribeEcsClustersResponse (Maybe Text)
 decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 
--- | A list of 'EcsCluster' objects containing the cluster descriptions.
+-- | A list of @EcsCluster@ objects containing the cluster descriptions.
 decrsEcsClusters :: Lens' DescribeEcsClustersResponse [EcsCluster]
 decrsEcsClusters = lens _decrsEcsClusters (\ s a -> s{_decrsEcsClusters = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEcsClustersResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 

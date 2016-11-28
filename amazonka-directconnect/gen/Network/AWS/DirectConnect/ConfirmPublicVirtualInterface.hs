@@ -20,7 +20,9 @@
 --
 -- Accept ownership of a public virtual interface created by another customer.
 --
+--
 -- After the virtual interface owner calls this function, the specified virtual interface will be created and made available for handling traffic.
+--
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPublicVirtualInterface operation.
 --
+--
+--
 -- /See:/ 'confirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
     { _cVirtualInterfaceId :: Text
@@ -55,7 +59,7 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cVirtualInterfaceId'
+-- * 'cVirtualInterfaceId' - Undocumented member.
 confirmPublicVirtualInterface
     :: Text -- ^ 'cVirtualInterfaceId'
     -> ConfirmPublicVirtualInterface
@@ -110,6 +114,8 @@ instance ToQuery ConfirmPublicVirtualInterface where
 
 -- | The response received when ConfirmPublicVirtualInterface is called.
 --
+--
+--
 -- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
@@ -120,9 +126,9 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsVirtualInterfaceState'
+-- * 'crsVirtualInterfaceState' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 confirmPublicVirtualInterfaceResponse
     :: Int -- ^ 'crsResponseStatus'
     -> ConfirmPublicVirtualInterfaceResponse
@@ -136,7 +142,7 @@ confirmPublicVirtualInterfaceResponse pResponseStatus_ =
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

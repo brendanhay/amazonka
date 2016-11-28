@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified Amazon Redshift HSM configuration.
+--
+--
 module Network.AWS.Redshift.DeleteHSMConfiguration
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteHSMConfiguration' smart constructor.
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
     { _dhcHSMConfigurationIdentifier :: Text
@@ -50,7 +54,7 @@ newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhcHSMConfigurationIdentifier'
+-- * 'dhcHSMConfigurationIdentifier' - The identifier of the Amazon Redshift HSM configuration to be deleted.
 deleteHSMConfiguration
     :: Text -- ^ 'dhcHSMConfigurationIdentifier'
     -> DeleteHSMConfiguration

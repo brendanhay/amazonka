@@ -20,9 +20,11 @@
 --
 -- Sets the position of the specified receipt rule in the receipt rule set.
 --
--- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+--
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.SetReceiptRulePosition
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'setReceiptRulePosition' smart constructor.
 data SetReceiptRulePosition = SetReceiptRulePosition'
@@ -60,11 +64,11 @@ data SetReceiptRulePosition = SetReceiptRulePosition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srrpAfter'
+-- * 'srrpAfter' - The name of the receipt rule after which to place the specified receipt rule.
 --
--- * 'srrpRuleSetName'
+-- * 'srrpRuleSetName' - The name of the receipt rule set that contains the receipt rule to reposition.
 --
--- * 'srrpRuleName'
+-- * 'srrpRuleName' - The name of the receipt rule to reposition.
 setReceiptRulePosition
     :: Text -- ^ 'srrpRuleSetName'
     -> Text -- ^ 'srrpRuleName'
@@ -120,6 +124,8 @@ instance ToQuery SetReceiptRulePosition where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'setReceiptRulePositionResponse' smart constructor.
 newtype SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
     { _srrprsResponseStatus :: Int
@@ -129,7 +135,7 @@ newtype SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srrprsResponseStatus'
+-- * 'srrprsResponseStatus' - -- | The response status code.
 setReceiptRulePositionResponse
     :: Int -- ^ 'srrprsResponseStatus'
     -> SetReceiptRulePositionResponse
@@ -138,7 +144,7 @@ setReceiptRulePositionResponse pResponseStatus_ =
     { _srrprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 srrprsResponseStatus :: Lens' SetReceiptRulePositionResponse Int
 srrprsResponseStatus = lens _srrprsResponseStatus (\ s a -> s{_srrprsResponseStatus = a});
 

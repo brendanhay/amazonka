@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.
+--
+--
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteTopic = DeleteTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTopicARN'
+-- * 'dtTopicARN' - The ARN of the topic you want to delete.
 deleteTopic
     :: Text -- ^ 'dtTopicARN'
     -> DeleteTopic

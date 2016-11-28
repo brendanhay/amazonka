@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new, empty repository.
+--
+--
 module Network.AWS.CodeCommit.CreateRepository
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create repository operation.
 --
+--
+--
 -- /See:/ 'createRepository' smart constructor.
 data CreateRepository = CreateRepository'
     { _crRepositoryDescription :: !(Maybe Text)
@@ -55,9 +59,9 @@ data CreateRepository = CreateRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRepositoryDescription'
+-- * 'crRepositoryDescription' - A comment or description about the new repository.
 --
--- * 'crRepositoryName'
+-- * 'crRepositoryName' - The name of the new repository to be created.
 createRepository
     :: Text -- ^ 'crRepositoryName'
     -> CreateRepository
@@ -68,14 +72,10 @@ createRepository pRepositoryName_ =
     }
 
 -- | A comment or description about the new repository.
---
--- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
 crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
 crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
 
 -- | The name of the new repository to be created.
---
--- The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For a full description of the limits on repository names, see <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits> in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.
 crRepositoryName :: Lens' CreateRepository Text
 crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 
@@ -118,6 +118,8 @@ instance ToQuery CreateRepository where
 
 -- | Represents the output of a create repository operation.
 --
+--
+--
 -- /See:/ 'createRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
     { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
@@ -128,9 +130,9 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRepositoryMetadata'
+-- * 'crrsRepositoryMetadata' - Information about the newly created repository.
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 createRepositoryResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRepositoryResponse
@@ -144,7 +146,7 @@ createRepositoryResponse pResponseStatus_ =
 crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
 crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

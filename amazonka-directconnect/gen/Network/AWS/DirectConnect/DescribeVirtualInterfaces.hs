@@ -20,9 +20,11 @@
 --
 -- Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are also returned. If a connection ID is included then only virtual interfaces associated with this connection will be returned. If a virtual interface ID is included then only a single virtual interface will be returned.
 --
+--
 -- A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
 --
 -- If a connection ID is provided, only virtual interfaces provisioned on the specified connection will be returned. If a virtual interface ID is provided, only this particular virtual interface will be returned.
+--
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
+--
+--
 -- /See:/ 'describeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
     { _dviConnectionId       :: !(Maybe Text)
@@ -59,9 +63,9 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dviConnectionId'
+-- * 'dviConnectionId' - Undocumented member.
 --
--- * 'dviVirtualInterfaceId'
+-- * 'dviVirtualInterfaceId' - Undocumented member.
 describeVirtualInterfaces
     :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
@@ -119,6 +123,8 @@ instance ToQuery DescribeVirtualInterfaces where
 
 -- | A structure containing a list of virtual interfaces.
 --
+--
+--
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
@@ -129,9 +135,9 @@ data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvisrsVirtualInterfaces'
+-- * 'dvisrsVirtualInterfaces' - A list of virtual interfaces.
 --
--- * 'dvisrsResponseStatus'
+-- * 'dvisrsResponseStatus' - -- | The response status code.
 describeVirtualInterfacesResponse
     :: Int -- ^ 'dvisrsResponseStatus'
     -> DescribeVirtualInterfacesResponse
@@ -145,7 +151,7 @@ describeVirtualInterfacesResponse pResponseStatus_ =
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});
 

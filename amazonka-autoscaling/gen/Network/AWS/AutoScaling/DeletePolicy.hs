@@ -20,7 +20,9 @@
 --
 -- Deletes the specified Auto Scaling policy.
 --
+--
 -- Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
+--
 module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeletePolicy.
 --
+--
+--
 -- /See:/ 'deletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
     { _dpAutoScalingGroupName :: !(Maybe Text)
@@ -54,9 +58,9 @@ data DeletePolicy = DeletePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpAutoScalingGroupName'
+-- * 'dpAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dpPolicyName'
+-- * 'dpPolicyName' - The name or Amazon Resource Name (ARN) of the policy.
 deletePolicy
     :: Text -- ^ 'dpPolicyName'
     -> DeletePolicy

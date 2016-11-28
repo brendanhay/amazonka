@@ -20,7 +20,9 @@
 --
 -- Terminates the specified instance and optionally adjusts the desired group size.
 --
+--
 -- This call simply makes a termination request. The instance is not terminated immediately.
+--
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for TerminateInstanceInAutoScalingGroup.
 --
+--
+--
 -- /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
     { _tiiasgInstanceId                     :: !Text
@@ -57,9 +61,9 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tiiasgInstanceId'
+-- * 'tiiasgInstanceId' - The ID of the instance.
 --
--- * 'tiiasgShouldDecrementDesiredCapacity'
+-- * 'tiiasgShouldDecrementDesiredCapacity' - If @true@ , terminating the instance also decrements the size of the Auto Scaling group.
 terminateInstanceInAutoScalingGroup
     :: Text -- ^ 'tiiasgInstanceId'
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
@@ -74,7 +78,7 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
--- | If 'true', terminating the instance also decrements the size of the Auto Scaling group.
+-- | If @true@ , terminating the instance also decrements the size of the Auto Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
 
@@ -116,6 +120,8 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 
 -- | Contains the output of TerminateInstancesInAutoScalingGroup.
 --
+--
+--
 -- /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity       :: !(Maybe Activity)
@@ -126,9 +132,9 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tiiasgrsActivity'
+-- * 'tiiasgrsActivity' - A scaling activity.
 --
--- * 'tiiasgrsResponseStatus'
+-- * 'tiiasgrsResponseStatus' - -- | The response status code.
 terminateInstanceInAutoScalingGroupResponse
     :: Int -- ^ 'tiiasgrsResponseStatus'
     -> TerminateInstanceInAutoScalingGroupResponse
@@ -142,7 +148,7 @@ terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 
--- | The response status code.
+-- | -- | The response status code.
 tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
 tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a});
 

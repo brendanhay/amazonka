@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists certificates that are being transfered but not yet accepted.
+--
+--
 module Network.AWS.IoT.ListOutgoingCertificates
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input to the ListOutgoingCertificates operation.
 --
+--
+--
 -- /See:/ 'listOutgoingCertificates' smart constructor.
 data ListOutgoingCertificates = ListOutgoingCertificates'
     { _locMarker         :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListOutgoingCertificates = ListOutgoingCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locMarker'
+-- * 'locMarker' - The marker for the next set of results.
 --
--- * 'locAscendingOrder'
+-- * 'locAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 --
--- * 'locPageSize'
+-- * 'locPageSize' - The result page size.
 listOutgoingCertificates
     :: ListOutgoingCertificates
 listOutgoingCertificates =
@@ -115,6 +119,8 @@ instance ToQuery ListOutgoingCertificates where
 
 -- | The output from the ListOutgoingCertificates operation.
 --
+--
+--
 -- /See:/ 'listOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
     { _locrsNextMarker           :: !(Maybe Text)
@@ -126,11 +132,11 @@ data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locrsNextMarker'
+-- * 'locrsNextMarker' - The marker for the next set of results.
 --
--- * 'locrsOutgoingCertificates'
+-- * 'locrsOutgoingCertificates' - The certificates that are being transfered but not yet accepted.
 --
--- * 'locrsResponseStatus'
+-- * 'locrsResponseStatus' - -- | The response status code.
 listOutgoingCertificatesResponse
     :: Int -- ^ 'locrsResponseStatus'
     -> ListOutgoingCertificatesResponse
@@ -149,7 +155,7 @@ locrsNextMarker = lens _locrsNextMarker (\ s a -> s{_locrsNextMarker = a});
 locrsOutgoingCertificates :: Lens' ListOutgoingCertificatesResponse [OutgoingCertificate]
 locrsOutgoingCertificates = lens _locrsOutgoingCertificates (\ s a -> s{_locrsOutgoingCertificates = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 locrsResponseStatus :: Lens' ListOutgoingCertificatesResponse Int
 locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
 

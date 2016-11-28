@@ -67,15 +67,15 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRequestPayer'
+-- * 'cRequestPayer' - Undocumented member.
 --
--- * 'cMultipartUpload'
+-- * 'cMultipartUpload' - Undocumented member.
 --
--- * 'cBucket'
+-- * 'cBucket' - Undocumented member.
 --
--- * 'cKey'
+-- * 'cKey' - Undocumented member.
 --
--- * 'cUploadId'
+-- * 'cUploadId' - Undocumented member.
 completeMultipartUpload
     :: BucketName -- ^ 'cBucket'
     -> ObjectKey -- ^ 'cKey'
@@ -170,25 +170,25 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsRequestCharged'
+-- * 'crsRequestCharged' - Undocumented member.
 --
--- * 'crsETag'
+-- * 'crsETag' - Entity tag of the object.
 --
--- * 'crsVersionId'
+-- * 'crsVersionId' - Version of the object.
 --
--- * 'crsLocation'
+-- * 'crsLocation' - Undocumented member.
 --
--- * 'crsExpiration'
+-- * 'crsExpiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
--- * 'crsBucket'
+-- * 'crsBucket' - Undocumented member.
 --
--- * 'crsKey'
+-- * 'crsKey' - Undocumented member.
 --
--- * 'crsSSEKMSKeyId'
+-- * 'crsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'crsServerSideEncryption'
+-- * 'crsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 completeMultipartUploadResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CompleteMultipartUploadResponse
@@ -242,7 +242,7 @@ crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mappin
 crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CompleteMultipartUploadResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UnassignVolume
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype UnassignVolume = UnassignVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uvVolumeId'
+-- * 'uvVolumeId' - The volume ID.
 unassignVolume
     :: Text -- ^ 'uvVolumeId'
     -> UnassignVolume

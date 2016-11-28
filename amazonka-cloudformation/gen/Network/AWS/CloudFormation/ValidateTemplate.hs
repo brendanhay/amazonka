@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates a specified template.
+--
+--
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for < ValidateTemplate> action.
+-- | The input for 'ValidateTemplate' action.
+--
+--
 --
 -- /See:/ 'validateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
@@ -58,9 +62,9 @@ data ValidateTemplate = ValidateTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtTemplateBody'
+-- * 'vtTemplateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 --
--- * 'vtTemplateURL'
+-- * 'vtTemplateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 validateTemplate
     :: ValidateTemplate
 validateTemplate =
@@ -69,15 +73,11 @@ validateTemplate =
     , _vtTemplateURL = Nothing
     }
 
--- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed, only 'TemplateBody' is used.
+-- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 
--- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed, only 'TemplateBody' is used.
+-- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
 
@@ -115,7 +115,9 @@ instance ToQuery ValidateTemplate where
                "TemplateBody" =: _vtTemplateBody,
                "TemplateURL" =: _vtTemplateURL]
 
--- | The output for < ValidateTemplate> action.
+-- | The output for 'ValidateTemplate' action.
+--
+--
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
@@ -130,15 +132,15 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtrsCapabilitiesReason'
+-- * 'vtrsCapabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
 --
--- * 'vtrsParameters'
+-- * 'vtrsParameters' - A list of @TemplateParameter@ structures.
 --
--- * 'vtrsDescription'
+-- * 'vtrsDescription' - The description found within the template.
 --
--- * 'vtrsCapabilities'
+-- * 'vtrsCapabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 --
--- * 'vtrsResponseStatus'
+-- * 'vtrsResponseStatus' - -- | The response status code.
 validateTemplateResponse
     :: Int -- ^ 'vtrsResponseStatus'
     -> ValidateTemplateResponse
@@ -151,11 +153,11 @@ validateTemplateResponse pResponseStatus_ =
     , _vtrsResponseStatus = pResponseStatus_
     }
 
--- | The list of resources that generated the values in the 'Capabilities' response element.
+-- | The list of resources that generated the values in the @Capabilities@ response element.
 vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilitiesReason = a});
 
--- | A list of 'TemplateParameter' structures.
+-- | A list of @TemplateParameter@ structures.
 vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
 vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default . _Coerce;
 
@@ -163,13 +165,11 @@ vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Defau
 vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
--- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the < CreateStack> or < UpdateStack> actions with your template; otherwise, those actions return an InsufficientCapabilities error.
---
--- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 vtrsResponseStatus :: Lens' ValidateTemplateResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
 

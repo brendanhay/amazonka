@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
+-- Assigns the @DELETED@ status to an @Evaluation@ , rendering it unusable.
 --
--- After invoking the 'DeleteEvaluation' operation, you can use the 'GetEvaluation' operation to verify that the status of the 'Evaluation' changed to 'DELETED'.
 --
--- Caution
+-- After invoking the @DeleteEvaluation@ operation, you can use the @GetEvaluation@ operation to verify that the status of the @Evaluation@ changed to @DELETED@ .
 --
--- The results of the 'DeleteEvaluation' operation are irreversible.
+-- ____Caution__
+-- The results of the @DeleteEvaluation@ operation are irreversible.
+--
+-- __
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
     -- * Creating a Request
@@ -57,7 +59,7 @@ newtype DeleteEvaluation = DeleteEvaluation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deEvaluationId'
+-- * 'deEvaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 deleteEvaluation
     :: Text -- ^ 'deEvaluationId'
     -> DeleteEvaluation
@@ -66,7 +68,7 @@ deleteEvaluation pEvaluationId_ =
     { _deEvaluationId = pEvaluationId_
     }
 
--- | A user-supplied ID that uniquely identifies the 'Evaluation' to delete.
+-- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
 deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
@@ -104,9 +106,11 @@ instance ToPath DeleteEvaluation where
 instance ToQuery DeleteEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a 'DeleteEvaluation' operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.
+-- | Represents the output of a @DeleteEvaluation@ operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.
 --
--- You can use the 'GetEvaluation' operation and check the value of the 'Status' parameter to see whether an 'Evaluation' is marked as 'DELETED'.
+--
+-- You can use the @GetEvaluation@ operation and check the value of the @Status@ parameter to see whether an @Evaluation@ is marked as @DELETED@ .
+--
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
@@ -118,9 +122,9 @@ data DeleteEvaluationResponse = DeleteEvaluationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersEvaluationId'
+-- * 'dersEvaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 deleteEvaluationResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DeleteEvaluationResponse
@@ -130,11 +134,11 @@ deleteEvaluationResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the 'Evaluation'. This value should be identical to the value of the 'EvaluationId' in the request.
+-- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DeleteEvaluationResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

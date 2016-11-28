@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the type of medium changer in a gateway-VTL. When you activate a gateway-VTL, you select a medium changer type for the gateway-VTL. This operation enables you to select a different type of medium changer after a gateway-VTL is activated.
+--
+--
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data UpdateVTLDeviceType = UpdateVTLDeviceType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uvtldtVTLDeviceARN'
+-- * 'uvtldtVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
 --
--- * 'uvtldtDeviceType'
+-- * 'uvtldtDeviceType' - The type of medium changer you want to select. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 updateVTLDeviceType
     :: Text -- ^ 'uvtldtVTLDeviceARN'
     -> Text -- ^ 'uvtldtDeviceType'
@@ -70,9 +72,7 @@ updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
 uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
 uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a});
 
--- | The type of medium changer you want to select.
---
--- Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
+-- | The type of medium changer you want to select. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
 uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
@@ -115,6 +115,8 @@ instance ToQuery UpdateVTLDeviceType where
 
 -- | UpdateVTLDeviceTypeOutput
 --
+--
+--
 -- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
     { _uvtldtrsVTLDeviceARN   :: !(Maybe Text)
@@ -125,9 +127,9 @@ data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uvtldtrsVTLDeviceARN'
+-- * 'uvtldtrsVTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
 --
--- * 'uvtldtrsResponseStatus'
+-- * 'uvtldtrsResponseStatus' - -- | The response status code.
 updateVTLDeviceTypeResponse
     :: Int -- ^ 'uvtldtrsResponseStatus'
     -> UpdateVTLDeviceTypeResponse
@@ -141,7 +143,7 @@ updateVTLDeviceTypeResponse pResponseStatus_ =
 uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
 uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a});
 

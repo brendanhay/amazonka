@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional 'QueueNamePrefix' parameter, only queues with a name beginning with the specified value are returned.
+-- Returns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional @QueueNamePrefix@ parameter, only queues with a name beginning with the specified value are returned.
+--
+--
 module Network.AWS.SQS.ListQueues
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'listQueues' smart constructor.
 newtype ListQueues = ListQueues'
     { _lqQueueNamePrefix :: Maybe Text
@@ -53,7 +57,7 @@ newtype ListQueues = ListQueues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lqQueueNamePrefix'
+-- * 'lqQueueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
 listQueues
     :: ListQueues
 listQueues =
@@ -61,9 +65,7 @@ listQueues =
     { _lqQueueNamePrefix = Nothing
     }
 
--- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
---
--- Queue names are case-sensitive.
+-- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 
@@ -96,6 +98,8 @@ instance ToQuery ListQueues where
 
 -- | A list of your queues.
 --
+--
+--
 -- /See:/ 'listQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
     { _lqrsQueueURLs      :: !(Maybe [Text])
@@ -106,9 +110,9 @@ data ListQueuesResponse = ListQueuesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lqrsQueueURLs'
+-- * 'lqrsQueueURLs' - A list of queue URLs, up to 1000 entries.
 --
--- * 'lqrsResponseStatus'
+-- * 'lqrsResponseStatus' - -- | The response status code.
 listQueuesResponse
     :: Int -- ^ 'lqrsResponseStatus'
     -> ListQueuesResponse
@@ -122,7 +126,7 @@ listQueuesResponse pResponseStatus_ =
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lqrsResponseStatus :: Lens' ListQueuesResponse Int
 lqrsResponseStatus = lens _lqrsResponseStatus (\ s a -> s{_lqrsResponseStatus = a});
 

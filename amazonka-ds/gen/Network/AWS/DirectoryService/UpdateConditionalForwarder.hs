@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a conditional forwarder that has been set up for your AWS directory.
+--
+--
 module Network.AWS.DirectoryService.UpdateConditionalForwarder
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Updates a conditional forwarder.
 --
+--
+--
 -- /See:/ 'updateConditionalForwarder' smart constructor.
 data UpdateConditionalForwarder = UpdateConditionalForwarder'
     { _ucfDirectoryId      :: !Text
@@ -56,11 +60,11 @@ data UpdateConditionalForwarder = UpdateConditionalForwarder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfDirectoryId'
+-- * 'ucfDirectoryId' - The directory ID of the AWS directory for which to update the conditional forwarder.
 --
--- * 'ucfRemoteDomainName'
+-- * 'ucfRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 --
--- * 'ucfDNSIPAddrs'
+-- * 'ucfDNSIPAddrs' - The updated IP addresses of the remote DNS server associated with the conditional forwarder.
 updateConditionalForwarder
     :: Text -- ^ 'ucfDirectoryId'
     -> Text -- ^ 'ucfRemoteDomainName'
@@ -124,6 +128,8 @@ instance ToQuery UpdateConditionalForwarder where
 
 -- | The result of an UpdateConditionalForwarder request.
 --
+--
+--
 -- /See:/ 'updateConditionalForwarderResponse' smart constructor.
 newtype UpdateConditionalForwarderResponse = UpdateConditionalForwarderResponse'
     { _ucfrsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype UpdateConditionalForwarderResponse = UpdateConditionalForwarderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfrsResponseStatus'
+-- * 'ucfrsResponseStatus' - -- | The response status code.
 updateConditionalForwarderResponse
     :: Int -- ^ 'ucfrsResponseStatus'
     -> UpdateConditionalForwarderResponse
@@ -142,7 +148,7 @@ updateConditionalForwarderResponse pResponseStatus_ =
     { _ucfrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ucfrsResponseStatus :: Lens' UpdateConditionalForwarderResponse Int
 ucfrsResponseStatus = lens _ucfrsResponseStatus (\ s a -> s{_ucfrsResponseStatus = a});
 

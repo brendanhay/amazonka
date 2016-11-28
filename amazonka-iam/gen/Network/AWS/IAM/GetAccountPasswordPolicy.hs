@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the password policy for the AWS account. For more information about using a password policy, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>.
+-- Retrieves the password policy for the AWS account. For more information about using a password policy, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy> .
+--
+--
 module Network.AWS.IAM.GetAccountPasswordPolicy
     (
     -- * Creating a Request
@@ -79,7 +81,9 @@ instance ToQuery GetAccountPasswordPolicy where
                     ("GetAccountPasswordPolicy" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < GetAccountPasswordPolicy> request.
+-- | Contains the response to a successful 'GetAccountPasswordPolicy' request.
+--
+--
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
@@ -91,9 +95,9 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gapprsResponseStatus'
+-- * 'gapprsResponseStatus' - -- | The response status code.
 --
--- * 'gapprsPasswordPolicy'
+-- * 'gapprsPasswordPolicy' - Undocumented member.
 getAccountPasswordPolicyResponse
     :: Int -- ^ 'gapprsResponseStatus'
     -> PasswordPolicy -- ^ 'gapprsPasswordPolicy'
@@ -104,7 +108,7 @@ getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
     , _gapprsPasswordPolicy = pPasswordPolicy_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
 gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseStatus = a});
 

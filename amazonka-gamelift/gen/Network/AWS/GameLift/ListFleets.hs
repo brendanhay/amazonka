@@ -20,7 +20,7 @@
 --
 -- Retrieves a collection of fleet records for this AWS account. You can filter the result set by build ID. Use the pagination parameters to retrieve results in sequential pages.
 --
--- Fleet records are not listed in any particular order.
+--
 module Network.AWS.GameLift.ListFleets
     (
     -- * Creating a Request
@@ -49,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'listFleets' smart constructor.
 data ListFleets = ListFleets'
     { _lfBuildId   :: !(Maybe Text)
@@ -60,11 +62,11 @@ data ListFleets = ListFleets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfBuildId'
+-- * 'lfBuildId' - Unique identifier of the build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
 --
--- * 'lfNextToken'
+-- * 'lfNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
--- * 'lfLimit'
+-- * 'lfLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listFleets
     :: ListFleets
 listFleets =
@@ -82,7 +84,7 @@ lfBuildId = lens _lfBuildId (\ s a -> s{_lfBuildId = a});
 lfNextToken :: Lens' ListFleets (Maybe Text)
 lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a});
 
--- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 lfLimit :: Lens' ListFleets (Maybe Natural)
 lfLimit = lens _lfLimit (\ s a -> s{_lfLimit = a}) . mapping _Nat;
 
@@ -125,6 +127,8 @@ instance ToQuery ListFleets where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'listFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
     { _lfrsNextToken      :: !(Maybe Text)
@@ -136,11 +140,11 @@ data ListFleetsResponse = ListFleetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfrsNextToken'
+-- * 'lfrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'lfrsFleetIds'
+-- * 'lfrsFleetIds' - Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , and 'DescribeFleetUtilization' .
 --
--- * 'lfrsResponseStatus'
+-- * 'lfrsResponseStatus' - -- | The response status code.
 listFleetsResponse
     :: Int -- ^ 'lfrsResponseStatus'
     -> ListFleetsResponse
@@ -152,16 +156,14 @@ listFleetsResponse pResponseStatus_ =
     }
 
 -- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 lfrsNextToken :: Lens' ListFleetsResponse (Maybe Text)
 lfrsNextToken = lens _lfrsNextToken (\ s a -> s{_lfrsNextToken = a});
 
--- | Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to < DescribeFleetAttributes>, < DescribeFleetCapacity>, and < DescribeFleetUtilization>.
+-- | Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , and 'DescribeFleetUtilization' .
 lfrsFleetIds :: Lens' ListFleetsResponse (Maybe (NonEmpty Text))
 lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 lfrsResponseStatus :: Lens' ListFleetsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
 

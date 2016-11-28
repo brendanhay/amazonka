@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers the user in the specified user pool and creates a user name, password, and user attributes.
+--
+--
 module Network.AWS.CognitoIdentityProvider.SignUp
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to register a user.
 --
+--
+--
 -- /See:/ 'signUp' smart constructor.
 data SignUp = SignUp'
     { _suUserAttributes :: !(Maybe [AttributeType])
@@ -64,17 +68,17 @@ data SignUp = SignUp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suUserAttributes'
+-- * 'suUserAttributes' - An array of name-value pairs representing user attributes.
 --
--- * 'suSecretHash'
+-- * 'suSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'suValidationData'
+-- * 'suValidationData' - The validation data in the request to register a user.
 --
--- * 'suClientId'
+-- * 'suClientId' - The ID of the client associated with the user pool.
 --
--- * 'suUsername'
+-- * 'suUsername' - The user name of the user you wish to register.
 --
--- * 'suPassword'
+-- * 'suPassword' - The password of the user you wish to register.
 signUp
     :: Text -- ^ 'suClientId'
     -> Text -- ^ 'suUsername'
@@ -158,6 +162,8 @@ instance ToQuery SignUp where
 
 -- | The response from the server for a registration request.
 --
+--
+--
 -- /See:/ 'signUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
     { _sursUserConfirmed       :: !(Maybe Bool)
@@ -169,11 +175,11 @@ data SignUpResponse = SignUpResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sursUserConfirmed'
+-- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
 --
--- * 'sursCodeDeliveryDetails'
+-- * 'sursCodeDeliveryDetails' - Undocumented member.
 --
--- * 'sursResponseStatus'
+-- * 'sursResponseStatus' - -- | The response status code.
 signUpResponse
     :: Int -- ^ 'sursResponseStatus'
     -> SignUpResponse
@@ -192,7 +198,7 @@ sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a})
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
 sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 sursResponseStatus :: Lens' SignUpResponse Int
 sursResponseStatus = lens _sursResponseStatus (\ s a -> s{_sursResponseStatus = a});
 

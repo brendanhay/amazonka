@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.
+--
+--
 module Network.AWS.DirectoryService.CreateConditionalForwarder
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
+--
+--
 -- /See:/ 'createConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
     { _ccfDirectoryId      :: !Text
@@ -56,11 +60,11 @@ data CreateConditionalForwarder = CreateConditionalForwarder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfDirectoryId'
+-- * 'ccfDirectoryId' - The directory ID of the AWS directory for which you are creating the conditional forwarder.
 --
--- * 'ccfRemoteDomainName'
+-- * 'ccfRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 --
--- * 'ccfDNSIPAddrs'
+-- * 'ccfDNSIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName.
 createConditionalForwarder
     :: Text -- ^ 'ccfDirectoryId'
     -> Text -- ^ 'ccfRemoteDomainName'
@@ -124,6 +128,8 @@ instance ToQuery CreateConditionalForwarder where
 
 -- | The result of a CreateConditinalForwarder request.
 --
+--
+--
 -- /See:/ 'createConditionalForwarderResponse' smart constructor.
 newtype CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
     { _ccfrsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfrsResponseStatus'
+-- * 'ccfrsResponseStatus' - -- | The response status code.
 createConditionalForwarderResponse
     :: Int -- ^ 'ccfrsResponseStatus'
     -> CreateConditionalForwarderResponse
@@ -142,7 +148,7 @@ createConditionalForwarderResponse pResponseStatus_ =
     { _ccfrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ccfrsResponseStatus :: Lens' CreateConditionalForwarderResponse Int
 ccfrsResponseStatus = lens _ccfrsResponseStatus (\ s a -> s{_ccfrsResponseStatus = a});
 

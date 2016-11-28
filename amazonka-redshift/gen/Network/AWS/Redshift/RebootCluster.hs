@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to 'rebooting'. A cluster event is created when the reboot is completed. Any pending cluster modifications (see < ModifyCluster>) are applied at this reboot. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to @rebooting@ . A cluster event is created when the reboot is completed. Any pending cluster modifications (see 'ModifyCluster' ) are applied at this reboot. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+--
+--
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'rebootCluster' smart constructor.
 newtype RebootCluster = RebootCluster'
     { _rcClusterIdentifier :: Text
@@ -53,7 +57,7 @@ newtype RebootCluster = RebootCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcClusterIdentifier'
+-- * 'rcClusterIdentifier' - The cluster identifier.
 rebootCluster
     :: Text -- ^ 'rcClusterIdentifier'
     -> RebootCluster
@@ -102,9 +106,9 @@ data RebootClusterResponse = RebootClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsCluster'
+-- * 'rcrsCluster' - Undocumented member.
 --
--- * 'rcrsResponseStatus'
+-- * 'rcrsResponseStatus' - -- | The response status code.
 rebootClusterResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RebootClusterResponse
@@ -118,7 +122,7 @@ rebootClusterResponse pResponseStatus_ =
 rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcrsResponseStatus :: Lens' RebootClusterResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 

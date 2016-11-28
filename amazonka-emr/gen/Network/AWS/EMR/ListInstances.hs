@@ -20,6 +20,8 @@
 --
 -- Provides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
     (
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | This input determines which instances to list.
 --
+--
+--
 -- /See:/ 'listInstances' smart constructor.
 data ListInstances = ListInstances'
     { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
@@ -65,15 +69,15 @@ data ListInstances = ListInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liInstanceGroupTypes'
+-- * 'liInstanceGroupTypes' - The type of instance group for which to list the instances.
 --
--- * 'liMarker'
+-- * 'liMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'liInstanceStates'
+-- * 'liInstanceStates' - A list of instance states that will filter the instances returned with this request.
 --
--- * 'liInstanceGroupId'
+-- * 'liInstanceGroupId' - The identifier of the instance group for which to list the instances.
 --
--- * 'liClusterId'
+-- * 'liClusterId' - The identifier of the cluster for which to list the instances.
 listInstances
     :: Text -- ^ 'liClusterId'
     -> ListInstances
@@ -154,6 +158,8 @@ instance ToQuery ListInstances where
 
 -- | This output contains the list of instances.
 --
+--
+--
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
     { _lirsMarker         :: !(Maybe Text)
@@ -165,11 +171,11 @@ data ListInstancesResponse = ListInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsMarker'
+-- * 'lirsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lirsInstances'
+-- * 'lirsInstances' - The list of instances for the cluster and given filters.
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 listInstancesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListInstancesResponse
@@ -188,7 +194,7 @@ lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 lirsInstances :: Lens' ListInstancesResponse [Instance]
 lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListInstancesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 

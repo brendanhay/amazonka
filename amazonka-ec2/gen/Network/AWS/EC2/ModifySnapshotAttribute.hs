@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot\'s list of create volume permissions, but you cannot do both in a single API call. If you need to both add and remove account IDs for a snapshot, you must use multiple API calls.
+-- Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single API call. If you need to both add and remove account IDs for a snapshot, you must use multiple API calls.
 --
--- Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
 --
--- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
     -- * Creating a Request
@@ -51,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifySnapshotAttribute.
 --
+--
+--
 -- /See:/ 'modifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
     { _msaAttribute              :: !(Maybe SnapshotAttributeName)
@@ -66,19 +68,19 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msaAttribute'
+-- * 'msaAttribute' - The snapshot attribute to modify.
 --
--- * 'msaCreateVolumePermission'
+-- * 'msaCreateVolumePermission' - A JSON representation of the snapshot attribute modification.
 --
--- * 'msaUserIds'
+-- * 'msaUserIds' - The account ID to modify for the snapshot.
 --
--- * 'msaGroupNames'
+-- * 'msaGroupNames' - The group to modify for the snapshot.
 --
--- * 'msaOperationType'
+-- * 'msaOperationType' - The type of operation to perform to the attribute.
 --
--- * 'msaDryRun'
+-- * 'msaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'msaSnapshotId'
+-- * 'msaSnapshotId' - The ID of the snapshot.
 modifySnapshotAttribute
     :: Text -- ^ 'msaSnapshotId'
     -> ModifySnapshotAttribute
@@ -94,8 +96,6 @@ modifySnapshotAttribute pSnapshotId_ =
     }
 
 -- | The snapshot attribute to modify.
---
--- Only volume creation permissions may be modified at the customer level.
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
@@ -115,7 +115,7 @@ msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default 
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe OperationType)
 msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
 msaDryRun = lens _msaDryRun (\ s a -> s{_msaDryRun = a});
 

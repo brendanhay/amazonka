@@ -20,7 +20,9 @@
 --
 -- Tests whether an event pattern matches the provided event.
 --
--- __Note:__ Most services in AWS treat : or \/ as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+--
+-- __Note:__ Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+--
 module Network.AWS.CloudWatchEvents.TestEventPattern
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < TestEventPattern> operation.
+-- | Container for the parameters to the 'TestEventPattern' operation.
+--
+--
 --
 -- /See:/ 'testEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
@@ -57,9 +61,9 @@ data TestEventPattern = TestEventPattern'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tepEventPattern'
+-- * 'tepEventPattern' - The event pattern you want to test.
 --
--- * 'tepEvent'
+-- * 'tepEvent' - The event in the JSON format to test against the event pattern.
 testEventPattern
     :: Text -- ^ 'tepEventPattern'
     -> Text -- ^ 'tepEvent'
@@ -113,7 +117,9 @@ instance ToPath TestEventPattern where
 instance ToQuery TestEventPattern where
         toQuery = const mempty
 
--- | The result of the < TestEventPattern> operation.
+-- | The result of the 'TestEventPattern' operation.
+--
+--
 --
 -- /See:/ 'testEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
@@ -125,9 +131,9 @@ data TestEventPatternResponse = TestEventPatternResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'teprsResult'
+-- * 'teprsResult' - Indicates whether the event matches the event pattern.
 --
--- * 'teprsResponseStatus'
+-- * 'teprsResponseStatus' - -- | The response status code.
 testEventPatternResponse
     :: Int -- ^ 'teprsResponseStatus'
     -> TestEventPatternResponse
@@ -141,7 +147,7 @@ testEventPatternResponse pResponseStatus_ =
 teprsResult :: Lens' TestEventPatternResponse (Maybe Bool)
 teprsResult = lens _teprsResult (\ s a -> s{_teprsResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 teprsResponseStatus :: Lens' TestEventPatternResponse Int
 teprsResponseStatus = lens _teprsResponseStatus (\ s a -> s{_teprsResponseStatus = a});
 

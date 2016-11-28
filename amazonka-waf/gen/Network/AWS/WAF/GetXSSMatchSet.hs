@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < XssMatchSet> that is specified by 'XssMatchSetId'.
+-- Returns the 'XssMatchSet' that is specified by @XssMatchSetId@ .
+--
+--
 module Network.AWS.WAF.GetXSSMatchSet
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to get an < XssMatchSet>.
+-- | A request to get an 'XssMatchSet' .
+--
+--
 --
 -- /See:/ 'getXSSMatchSet' smart constructor.
 newtype GetXSSMatchSet = GetXSSMatchSet'
@@ -53,7 +57,7 @@ newtype GetXSSMatchSet = GetXSSMatchSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gxmsXSSMatchSetId'
+-- * 'gxmsXSSMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 getXSSMatchSet
     :: Text -- ^ 'gxmsXSSMatchSetId'
     -> GetXSSMatchSet
@@ -62,7 +66,7 @@ getXSSMatchSet pXSSMatchSetId_ =
     { _gxmsXSSMatchSetId = pXSSMatchSetId_
     }
 
--- | The 'XssMatchSetId' of the < XssMatchSet> that you want to get. 'XssMatchSetId' is returned by < CreateXssMatchSet> and by < ListXssMatchSets>.
+-- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 gxmsXSSMatchSetId :: Lens' GetXSSMatchSet Text
 gxmsXSSMatchSetId = lens _gxmsXSSMatchSetId (\ s a -> s{_gxmsXSSMatchSetId = a});
 
@@ -100,7 +104,9 @@ instance ToPath GetXSSMatchSet where
 instance ToQuery GetXSSMatchSet where
         toQuery = const mempty
 
--- | The response to a < GetXssMatchSet> request.
+-- | The response to a 'GetXssMatchSet' request.
+--
+--
 --
 -- /See:/ 'getXSSMatchSetResponse' smart constructor.
 data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
@@ -112,9 +118,9 @@ data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gxmsrsXSSMatchSet'
+-- * 'gxmsrsXSSMatchSet' - Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects    * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gxmsrsResponseStatus'
+-- * 'gxmsrsResponseStatus' - -- | The response status code.
 getXSSMatchSetResponse
     :: Int -- ^ 'gxmsrsResponseStatus'
     -> GetXSSMatchSetResponse
@@ -124,15 +130,11 @@ getXSSMatchSetResponse pResponseStatus_ =
     , _gxmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < XssMatchSet> that you specified in the 'GetXssMatchSet' request. For more information, see the following topics:
---
--- -   < XssMatchSet>: Contains 'Name', 'XssMatchSetId', and an array of 'XssMatchTuple' objects
--- -   < XssMatchTuple>: Each 'XssMatchTuple' object contains 'FieldToMatch' and 'TextTransformation'
--- -   < FieldToMatch>: Contains 'Data' and 'Type'
+-- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects    * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
 gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
 gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gxmsrsResponseStatus :: Lens' GetXSSMatchSetResponse Int
 gxmsrsResponseStatus = lens _gxmsrsResponseStatus (\ s a -> s{_gxmsrsResponseStatus = a});
 

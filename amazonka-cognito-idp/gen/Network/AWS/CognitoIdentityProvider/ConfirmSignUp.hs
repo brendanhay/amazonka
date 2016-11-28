@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Confirms registration of a user and handles the existing alias from a previous user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to confirm registration of a user.
 --
+--
+--
 -- /See:/ 'confirmSignUp' smart constructor.
 data ConfirmSignUp = ConfirmSignUp'
     { _csuForceAliasCreation :: !(Maybe Bool)
@@ -60,15 +64,15 @@ data ConfirmSignUp = ConfirmSignUp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csuForceAliasCreation'
+-- * 'csuForceAliasCreation' - Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
 --
--- * 'csuSecretHash'
+-- * 'csuSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'csuClientId'
+-- * 'csuClientId' - The ID of the client associated with the user pool.
 --
--- * 'csuUsername'
+-- * 'csuUsername' - The user name of the user whose registration you wish to confirm.
 --
--- * 'csuConfirmationCode'
+-- * 'csuConfirmationCode' - The confirmation code sent by a user's request to confirm registration.
 confirmSignUp
     :: Text -- ^ 'csuClientId'
     -> Text -- ^ 'csuUsername'
@@ -83,7 +87,7 @@ confirmSignUp pClientId_ pUsername_ pConfirmationCode_ =
     , _csuConfirmationCode = pConfirmationCode_
     }
 
--- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number\/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
+-- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
 csuForceAliasCreation :: Lens' ConfirmSignUp (Maybe Bool)
 csuForceAliasCreation = lens _csuForceAliasCreation (\ s a -> s{_csuForceAliasCreation = a});
 
@@ -99,7 +103,7 @@ csuClientId = lens _csuClientId (\ s a -> s{_csuClientId = a}) . _Sensitive;
 csuUsername :: Lens' ConfirmSignUp Text
 csuUsername = lens _csuUsername (\ s a -> s{_csuUsername = a}) . _Sensitive;
 
--- | The confirmation code sent by a user\'s request to confirm registration.
+-- | The confirmation code sent by a user's request to confirm registration.
 csuConfirmationCode :: Lens' ConfirmSignUp Text
 csuConfirmationCode = lens _csuConfirmationCode (\ s a -> s{_csuConfirmationCode = a});
 
@@ -144,6 +148,8 @@ instance ToQuery ConfirmSignUp where
 
 -- | Represents the response from the server for the registration confirmation.
 --
+--
+--
 -- /See:/ 'confirmSignUpResponse' smart constructor.
 newtype ConfirmSignUpResponse = ConfirmSignUpResponse'
     { _csursResponseStatus :: Int
@@ -153,7 +159,7 @@ newtype ConfirmSignUpResponse = ConfirmSignUpResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csursResponseStatus'
+-- * 'csursResponseStatus' - -- | The response status code.
 confirmSignUpResponse
     :: Int -- ^ 'csursResponseStatus'
     -> ConfirmSignUpResponse
@@ -162,7 +168,7 @@ confirmSignUpResponse pResponseStatus_ =
     { _csursResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 csursResponseStatus :: Lens' ConfirmSignUpResponse Int
 csursResponseStatus = lens _csursResponseStatus (\ s a -> s{_csursResponseStatus = a});
 

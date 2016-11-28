@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.
+--
+--
 module Network.AWS.Inspector.ListAssessmentTemplates
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'latNextToken'
+-- * 'latNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'latFilter'
+-- * 'latFilter' - You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 --
--- * 'latMaxResults'
+-- * 'latMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 --
--- * 'latAssessmentTargetARNs'
+-- * 'latAssessmentTargetARNs' - A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
 listAssessmentTemplates
     :: ListAssessmentTemplates
 listAssessmentTemplates =
@@ -79,9 +81,7 @@ listAssessmentTemplates =
 latNextToken :: Lens' ListAssessmentTemplates (Maybe Text)
 latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 
--- | You can use this parameter to specify a subset of data to be included in the action\'s response.
---
--- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+-- | You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 latFilter :: Lens' ListAssessmentTemplates (Maybe AssessmentTemplateFilter)
 latFilter = lens _latFilter (\ s a -> s{_latFilter = a});
 
@@ -145,11 +145,11 @@ data ListAssessmentTemplatesResponse = ListAssessmentTemplatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'latrsNextToken'
+-- * 'latrsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'latrsResponseStatus'
+-- * 'latrsResponseStatus' - -- | The response status code.
 --
--- * 'latrsAssessmentTemplateARNs'
+-- * 'latrsAssessmentTemplateARNs' - A list of ARNs that specifies the assessment templates returned by the action.
 listAssessmentTemplatesResponse
     :: Int -- ^ 'latrsResponseStatus'
     -> ListAssessmentTemplatesResponse
@@ -164,7 +164,7 @@ listAssessmentTemplatesResponse pResponseStatus_ =
 latrsNextToken :: Lens' ListAssessmentTemplatesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 latrsResponseStatus :: Lens' ListAssessmentTemplatesResponse Int
 latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
 

@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Description of the file system.
 --
+--
+--
 -- /See:/ 'fileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
     { _fsdName                 :: !(Maybe Text)
@@ -40,23 +42,23 @@ data FileSystemDescription = FileSystemDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsdName'
+-- * 'fsdName' - You can add tags to a file system, including a @Name@ tag. For more information, see 'CreateTags' . If the file system has a @Name@ tag, Amazon EFS returns the value in this field.
 --
--- * 'fsdOwnerId'
+-- * 'fsdOwnerId' - AWS account that created the file system. If the file system was created by an IAM user, the parent account to which the user belongs is the owner.
 --
--- * 'fsdCreationToken'
+-- * 'fsdCreationToken' - Opaque string specified in the request.
 --
--- * 'fsdFileSystemId'
+-- * 'fsdFileSystemId' - ID of the file system, assigned by Amazon EFS.
 --
--- * 'fsdCreationTime'
+-- * 'fsdCreationTime' - Time that the file system was created, in seconds (since 1970-01-01T00:00:00Z).
 --
--- * 'fsdLifeCycleState'
+-- * 'fsdLifeCycleState' - Lifecycle phase of the file system.
 --
--- * 'fsdNumberOfMountTargets'
+-- * 'fsdNumberOfMountTargets' - Current number of mount targets that the file system has. For more information, see 'CreateMountTarget' .
 --
--- * 'fsdSizeInBytes'
+-- * 'fsdSizeInBytes' - Latest known metered size (in bytes) of data stored in the file system, in bytes, in its @Value@ field, and the time at which that size was determined in its @Timestamp@ field. The @Timestamp@ value is the integer number of seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size the file system was at any instant in time.
 --
--- * 'fsdPerformanceMode'
+-- * 'fsdPerformanceMode' - The @PerformanceMode@ of the file system.
 fileSystemDescription
     :: Text -- ^ 'fsdOwnerId'
     -> Text -- ^ 'fsdCreationToken'
@@ -80,7 +82,7 @@ fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pL
     , _fsdPerformanceMode = pPerformanceMode_
     }
 
--- | You can add tags to a file system, including a 'Name' tag. For more information, see < CreateTags>. If the file system has a 'Name' tag, Amazon EFS returns the value in this field.
+-- | You can add tags to a file system, including a @Name@ tag. For more information, see 'CreateTags' . If the file system has a @Name@ tag, Amazon EFS returns the value in this field.
 fsdName :: Lens' FileSystemDescription (Maybe Text)
 fsdName = lens _fsdName (\ s a -> s{_fsdName = a});
 
@@ -104,15 +106,15 @@ fsdCreationTime = lens _fsdCreationTime (\ s a -> s{_fsdCreationTime = a}) . _Ti
 fsdLifeCycleState :: Lens' FileSystemDescription LifeCycleState
 fsdLifeCycleState = lens _fsdLifeCycleState (\ s a -> s{_fsdLifeCycleState = a});
 
--- | Current number of mount targets that the file system has. For more information, see < CreateMountTarget>.
+-- | Current number of mount targets that the file system has. For more information, see 'CreateMountTarget' .
 fsdNumberOfMountTargets :: Lens' FileSystemDescription Natural
 fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat;
 
--- | Latest known metered size (in bytes) of data stored in the file system, in bytes, in its 'Value' field, and the time at which that size was determined in its 'Timestamp' field. The 'Timestamp' value is the integer number of seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size the file system was at any instant in time.
+-- | Latest known metered size (in bytes) of data stored in the file system, in bytes, in its @Value@ field, and the time at which that size was determined in its @Timestamp@ field. The @Timestamp@ value is the integer number of seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not the exact size the file system was at any instant in time.
 fsdSizeInBytes :: Lens' FileSystemDescription FileSystemSize
 fsdSizeInBytes = lens _fsdSizeInBytes (\ s a -> s{_fsdSizeInBytes = a});
 
--- | The 'PerformanceMode' of the file system.
+-- | The @PerformanceMode@ of the file system.
 fsdPerformanceMode :: Lens' FileSystemDescription PerformanceMode
 fsdPerformanceMode = lens _fsdPerformanceMode (\ s a -> s{_fsdPerformanceMode = a});
 
@@ -134,7 +136,9 @@ instance Hashable FileSystemDescription
 
 instance NFData FileSystemDescription
 
--- | Latest known metered size (in bytes) of data stored in the file system, in its 'Value' field, and the time at which that size was determined in its 'Timestamp' field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.
+-- | Latest known metered size (in bytes) of data stored in the file system, in its @Value@ field, and the time at which that size was determined in its @Timestamp@ field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.
+--
+--
 --
 -- /See:/ 'fileSystemSize' smart constructor.
 data FileSystemSize = FileSystemSize'
@@ -146,9 +150,9 @@ data FileSystemSize = FileSystemSize'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fssTimestamp'
+-- * 'fssTimestamp' - Time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 --
--- * 'fssValue'
+-- * 'fssValue' - Latest known metered size (in bytes) of data stored in the file system.
 fileSystemSize
     :: Natural -- ^ 'fssValue'
     -> FileSystemSize
@@ -158,7 +162,7 @@ fileSystemSize pValue_ =
     , _fssValue = _Nat # pValue_
     }
 
--- | Time at which the size of data, returned in the 'Value' field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
+-- | Time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 fssTimestamp :: Lens' FileSystemSize (Maybe UTCTime)
 fssTimestamp = lens _fssTimestamp (\ s a -> s{_fssTimestamp = a}) . mapping _Time;
 
@@ -179,6 +183,8 @@ instance NFData FileSystemSize
 
 -- | Provides a description of a mount target.
 --
+--
+--
 -- /See:/ 'mountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
     { _mtdIPAddress          :: !(Maybe Text)
@@ -194,19 +200,19 @@ data MountTargetDescription = MountTargetDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtdIPAddress'
+-- * 'mtdIPAddress' - Address at which the file system may be mounted via the mount target.
 --
--- * 'mtdNetworkInterfaceId'
+-- * 'mtdNetworkInterfaceId' - ID of the network interface that Amazon EFS created when it created the mount target.
 --
--- * 'mtdOwnerId'
+-- * 'mtdOwnerId' - AWS account ID that owns the resource.
 --
--- * 'mtdMountTargetId'
+-- * 'mtdMountTargetId' - System-assigned mount target ID.
 --
--- * 'mtdFileSystemId'
+-- * 'mtdFileSystemId' - ID of the file system for which the mount target is intended.
 --
--- * 'mtdSubnetId'
+-- * 'mtdSubnetId' - ID of the mount target's subnet.
 --
--- * 'mtdLifeCycleState'
+-- * 'mtdLifeCycleState' - Lifecycle state of the mount target.
 mountTargetDescription
     :: Text -- ^ 'mtdMountTargetId'
     -> Text -- ^ 'mtdFileSystemId'
@@ -244,7 +250,7 @@ mtdMountTargetId = lens _mtdMountTargetId (\ s a -> s{_mtdMountTargetId = a});
 mtdFileSystemId :: Lens' MountTargetDescription Text
 mtdFileSystemId = lens _mtdFileSystemId (\ s a -> s{_mtdFileSystemId = a});
 
--- | ID of the mount target\'s subnet.
+-- | ID of the mount target's subnet.
 mtdSubnetId :: Lens' MountTargetDescription Text
 mtdSubnetId = lens _mtdSubnetId (\ s a -> s{_mtdSubnetId = a});
 
@@ -268,7 +274,9 @@ instance Hashable MountTargetDescription
 
 instance NFData MountTargetDescription
 
--- | A tag is a key-value pair. Allowed characters: letters, whitespace, and numbers, representable in UTF-8, and the following characters:' + - = . _ : \/'
+-- | A tag is a key-value pair. Allowed characters: letters, whitespace, and numbers, representable in UTF-8, and the following characters:@+ - = . _ : /@
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -280,9 +288,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - Tag key (String). The key can't start with @aws:@ .
 --
--- * 'tagValue'
+-- * 'tagValue' - Value of the tag key.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -293,7 +301,7 @@ tag pKey_ pValue_ =
     , _tagValue = pValue_
     }
 
--- | Tag key (String). The key can\'t start with 'aws:'.
+-- | Tag key (String). The key can't start with @aws:@ .
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 

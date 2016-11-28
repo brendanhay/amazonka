@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Responds to the authentication challenge.
+--
+--
 module Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | The request to respond to an authentication challenge.
 --
+--
+--
 -- /See:/ 'respondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
     { _rtacChallengeResponses :: !(Maybe (Map Text Text))
@@ -62,13 +66,13 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtacChallengeResponses'
+-- * 'rtacChallengeResponses' - The responses to the authentication challenge.
 --
--- * 'rtacSession'
+-- * 'rtacSession' - The session.
 --
--- * 'rtacClientId'
+-- * 'rtacClientId' - The client ID.
 --
--- * 'rtacChallengeName'
+-- * 'rtacChallengeName' - The name of the challenge.
 respondToAuthChallenge
     :: Text -- ^ 'rtacClientId'
     -> ChallengeNameType -- ^ 'rtacChallengeName'
@@ -143,6 +147,8 @@ instance ToQuery RespondToAuthChallenge where
 
 -- | The response to respond to the authentication challenge.
 --
+--
+--
 -- /See:/ 'respondToAuthChallengeResponse' smart constructor.
 data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
     { _rtacrsChallengeName        :: !(Maybe ChallengeNameType)
@@ -156,15 +162,15 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtacrsChallengeName'
+-- * 'rtacrsChallengeName' - The challenge name.
 --
--- * 'rtacrsChallengeParameters'
+-- * 'rtacrsChallengeParameters' - The challenge parameters.
 --
--- * 'rtacrsAuthenticationResult'
+-- * 'rtacrsAuthenticationResult' - Undocumented member.
 --
--- * 'rtacrsSession'
+-- * 'rtacrsSession' - The session.
 --
--- * 'rtacrsResponseStatus'
+-- * 'rtacrsResponseStatus' - -- | The response status code.
 respondToAuthChallengeResponse
     :: Int -- ^ 'rtacrsResponseStatus'
     -> RespondToAuthChallengeResponse
@@ -193,7 +199,7 @@ rtacrsAuthenticationResult = lens _rtacrsAuthenticationResult (\ s a -> s{_rtacr
 rtacrsSession :: Lens' RespondToAuthChallengeResponse (Maybe Text)
 rtacrsSession = lens _rtacrsSession (\ s a -> s{_rtacrsSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rtacrsResponseStatus :: Lens' RespondToAuthChallengeResponse Int
 rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
 

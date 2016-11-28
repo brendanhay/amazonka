@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.
+--
+--
 module Network.AWS.EC2.DescribeVPCAttribute
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpcAttribute.
 --
+--
+--
 -- /See:/ 'describeVPCAttribute' smart constructor.
 data DescribeVPCAttribute = DescribeVPCAttribute'
     { _dvpcaDryRun    :: !(Maybe Bool)
@@ -59,11 +63,11 @@ data DescribeVPCAttribute = DescribeVPCAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcaDryRun'
+-- * 'dvpcaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpcaVPCId'
+-- * 'dvpcaVPCId' - The ID of the VPC.
 --
--- * 'dvpcaAttribute'
+-- * 'dvpcaAttribute' - The VPC attribute.
 describeVPCAttribute
     :: Text -- ^ 'dvpcaVPCId'
     -> VPCAttributeName -- ^ 'dvpcaAttribute'
@@ -75,7 +79,7 @@ describeVPCAttribute pVPCId_ pAttribute_ =
     , _dvpcaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
 dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
 
@@ -120,6 +124,8 @@ instance ToQuery DescribeVPCAttribute where
 
 -- | Contains the output of DescribeVpcAttribute.
 --
+--
+--
 -- /See:/ 'describeVPCAttributeResponse' smart constructor.
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
@@ -132,13 +138,13 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcarsEnableDNSHostnames'
+-- * 'dvpcarsEnableDNSHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is @true@ , instances in the VPC get DNS hostnames; otherwise, they do not.
 --
--- * 'dvpcarsEnableDNSSupport'
+-- * 'dvpcarsEnableDNSSupport' - Indicates whether DNS resolution is enabled for the VPC. If this attribute is @true@ , the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
 --
--- * 'dvpcarsVPCId'
+-- * 'dvpcarsVPCId' - The ID of the VPC.
 --
--- * 'dvpcarsResponseStatus'
+-- * 'dvpcarsResponseStatus' - -- | The response status code.
 describeVPCAttributeResponse
     :: Int -- ^ 'dvpcarsResponseStatus'
     -> DescribeVPCAttributeResponse
@@ -150,11 +156,11 @@ describeVPCAttributeResponse pResponseStatus_ =
     , _dvpcarsResponseStatus = pResponseStatus_
     }
 
--- | Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is 'true', instances in the VPC get DNS hostnames; otherwise, they do not.
+-- | Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is @true@ , instances in the VPC get DNS hostnames; otherwise, they do not.
 dvpcarsEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
 dvpcarsEnableDNSHostnames = lens _dvpcarsEnableDNSHostnames (\ s a -> s{_dvpcarsEnableDNSHostnames = a});
 
--- | Indicates whether DNS resolution is enabled for the VPC. If this attribute is 'true', the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
+-- | Indicates whether DNS resolution is enabled for the VPC. If this attribute is @true@ , the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
 dvpcarsEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
 dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnableDNSSupport = a});
 
@@ -162,7 +168,7 @@ dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnab
 dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvpcarsResponseStatus :: Lens' DescribeVPCAttributeResponse Int
 dvpcarsResponseStatus = lens _dvpcarsResponseStatus (\ s a -> s{_dvpcarsResponseStatus = a});
 

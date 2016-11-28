@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances.
+--
+--
 module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateElasticsearchDomain' operation. Specifies the type and number of instances in the domain cluster.
+-- | Container for the parameters to the @'UpdateElasticsearchDomain' @ operation. Specifies the type and number of instances in the domain cluster.
+--
+--
 --
 -- /See:/ 'updateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
@@ -63,17 +67,17 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uedcEBSOptions'
+-- * 'uedcEBSOptions' - Specify the type and size of the EBS volume that you want to use.
 --
--- * 'uedcAccessPolicies'
+-- * 'uedcAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
--- * 'uedcElasticsearchClusterConfig'
+-- * 'uedcElasticsearchClusterConfig' - The type and number of instances to instantiate for the domain cluster.
 --
--- * 'uedcSnapshotOptions'
+-- * 'uedcSnapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
 --
--- * 'uedcAdvancedOptions'
+-- * 'uedcAdvancedOptions' - Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 --
--- * 'uedcDomainName'
+-- * 'uedcDomainName' - The name of the Elasticsearch domain that you are updating.
 updateElasticsearchDomainConfig
     :: Text -- ^ 'uedcDomainName'
     -> UpdateElasticsearchDomainConfig
@@ -99,11 +103,11 @@ uedcAccessPolicies = lens _uedcAccessPolicies (\ s a -> s{_uedcAccessPolicies = 
 uedcElasticsearchClusterConfig :: Lens' UpdateElasticsearchDomainConfig (Maybe ElasticsearchClusterConfig)
 uedcElasticsearchClusterConfig = lens _uedcElasticsearchClusterConfig (\ s a -> s{_uedcElasticsearchClusterConfig = a});
 
--- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is '0' hours.
+-- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
 uedcSnapshotOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe SnapshotOptions)
 uedcSnapshotOptions = lens _uedcSnapshotOptions (\ s a -> s{_uedcSnapshotOptions = a});
 
--- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be 'false' when configuring access to individual sub-resources. By default, the value is 'true'. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 uedcAdvancedOptions :: Lens' UpdateElasticsearchDomainConfig (HashMap Text Text)
 uedcAdvancedOptions = lens _uedcAdvancedOptions (\ s a -> s{_uedcAdvancedOptions = a}) . _Default . _Map;
 
@@ -151,7 +155,9 @@ instance ToQuery UpdateElasticsearchDomainConfig
          where
         toQuery = const mempty
 
--- | The result of an 'UpdateElasticsearchDomain' request. Contains the status of the Elasticsearch domain being updated.
+-- | The result of an @UpdateElasticsearchDomain@ request. Contains the status of the Elasticsearch domain being updated.
+--
+--
 --
 -- /See:/ 'updateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
@@ -163,9 +169,9 @@ data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uedcrsResponseStatus'
+-- * 'uedcrsResponseStatus' - -- | The response status code.
 --
--- * 'uedcrsDomainConfig'
+-- * 'uedcrsDomainConfig' - The status of the updated Elasticsearch domain.
 updateElasticsearchDomainConfigResponse
     :: Int -- ^ 'uedcrsResponseStatus'
     -> ElasticsearchDomainConfig -- ^ 'uedcrsDomainConfig'
@@ -176,7 +182,7 @@ updateElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
     , _uedcrsDomainConfig = pDomainConfig_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 uedcrsResponseStatus :: Lens' UpdateElasticsearchDomainConfigResponse Int
 uedcrsResponseStatus = lens _uedcrsResponseStatus (\ s a -> s{_uedcrsResponseStatus = a});
 

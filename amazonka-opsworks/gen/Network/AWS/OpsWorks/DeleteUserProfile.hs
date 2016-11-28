@@ -20,7 +20,9 @@
 --
 -- Deletes a user profile.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeleteUserProfile = DeleteUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARN'
+-- * 'dupIAMUserARN' - The user's IAM ARN.
 deleteUserProfile
     :: Text -- ^ 'dupIAMUserARN'
     -> DeleteUserProfile
@@ -59,7 +61,7 @@ deleteUserProfile pIAMUserARN_ =
     { _dupIAMUserARN = pIAMUserARN_
     }
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
 dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 

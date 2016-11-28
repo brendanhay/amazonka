@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified instance profile, including the instance profile\'s path, GUID, ARN, and role. For more information about instance profiles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> in the /IAM User Guide/.
+-- Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetInstanceProfile = GetInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gipInstanceProfileName'
+-- * 'gipInstanceProfileName' - The name of the instance profile to get information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getInstanceProfile
     :: Text -- ^ 'gipInstanceProfileName'
     -> GetInstanceProfile
@@ -60,9 +62,7 @@ getInstanceProfile pInstanceProfileName_ =
     { _gipInstanceProfileName = pInstanceProfileName_
     }
 
--- | The name of the instance profile to get information about.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the instance profile to get information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
@@ -93,7 +93,9 @@ instance ToQuery GetInstanceProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "InstanceProfileName" =: _gipInstanceProfileName]
 
--- | Contains the response to a successful < GetInstanceProfile> request.
+-- | Contains the response to a successful 'GetInstanceProfile' request.
+--
+--
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
@@ -105,9 +107,9 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giprsResponseStatus'
+-- * 'giprsResponseStatus' - -- | The response status code.
 --
--- * 'giprsInstanceProfile'
+-- * 'giprsInstanceProfile' - A structure containing details about the instance profile.
 getInstanceProfileResponse
     :: Int -- ^ 'giprsResponseStatus'
     -> InstanceProfile -- ^ 'giprsInstanceProfile'
@@ -118,7 +120,7 @@ getInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
     , _giprsInstanceProfile = pInstanceProfile_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
 giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
 

@@ -20,13 +20,15 @@
 --
 -- Removes one or more instances from the specified Auto Scaling group.
 --
+--
 -- After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.
 --
 -- If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.
 --
 -- If there is a Classic load balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachInstances.
 --
+--
+--
 -- /See:/ 'detachInstances' smart constructor.
 data DetachInstances = DetachInstances'
     { _diInstanceIds                    :: !(Maybe [Text])
@@ -65,11 +69,11 @@ data DetachInstances = DetachInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInstanceIds'
+-- * 'diInstanceIds' - One or more instance IDs.
 --
--- * 'diAutoScalingGroupName'
+-- * 'diAutoScalingGroupName' - The name of the group.
 --
--- * 'diShouldDecrementDesiredCapacity'
+-- * 'diShouldDecrementDesiredCapacity' - If @True@ , the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 detachInstances
     :: Text -- ^ 'diAutoScalingGroupName'
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
@@ -89,7 +93,7 @@ diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default 
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
 
--- | If 'True', the Auto Scaling group decrements the desired capacity value by the number of instances detached.
+-- | If @True@ , the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
@@ -127,6 +131,8 @@ instance ToQuery DetachInstances where
 
 -- | Contains the output of DetachInstances.
 --
+--
+--
 -- /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirsActivities     :: !(Maybe [Activity])
@@ -137,9 +143,9 @@ data DetachInstancesResponse = DetachInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsActivities'
+-- * 'dirsActivities' - The activities related to detaching the instances from the Auto Scaling group.
 --
--- * 'dirsResponseStatus'
+-- * 'dirsResponseStatus' - -- | The response status code.
 detachInstancesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DetachInstancesResponse
@@ -153,7 +159,7 @@ detachInstancesResponse pResponseStatus_ =
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dirsResponseStatus :: Lens' DetachInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 

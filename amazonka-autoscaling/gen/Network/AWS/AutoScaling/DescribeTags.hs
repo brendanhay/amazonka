@@ -20,9 +20,11 @@
 --
 -- Describes the specified tags.
 --
+--
 -- You can use filters to limit the results. For example, you can query for the tags for a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at least one of the specified values for it to be included in the results.
 --
--- You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there\'s no match, no special message is returned.
+-- You can also specify multiple filters. The result includes information for a particular tag only if it matches all the filters. If there's no match, no special message is returned.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeTags
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeTags.
 --
+--
+--
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
     { _dtFilters    :: !(Maybe [Filter])
@@ -65,11 +69,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters'
+-- * 'dtFilters' - A filter used to scope the tags to return.
 --
--- * 'dtNextToken'
+-- * 'dtNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dtMaxRecords'
+-- * 'dtMaxRecords' - The maximum number of items to return with this call.
 describeTags
     :: DescribeTags
 describeTags =
@@ -132,6 +136,8 @@ instance ToQuery DescribeTags where
 
 -- | Contains the output of DescribeTags.
 --
+--
+--
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsNextToken      :: !(Maybe Text)
@@ -143,11 +149,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsNextToken'
+-- * 'dtrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dtrsTags'
+-- * 'dtrsTags' - One or more tags.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -166,7 +172,7 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

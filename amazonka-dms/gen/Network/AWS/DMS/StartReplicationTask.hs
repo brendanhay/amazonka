@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the replication task.
+--
+--
 module Network.AWS.DMS.StartReplicationTask
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'startReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
     { _srtCdcStartTime             :: !(Maybe POSIX)
@@ -57,11 +61,11 @@ data StartReplicationTask = StartReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srtCdcStartTime'
+-- * 'srtCdcStartTime' - The start time for the Change Data Capture (CDC) operation.
 --
--- * 'srtReplicationTaskARN'
+-- * 'srtReplicationTaskARN' - The Amazon Resource Number (ARN) of the replication task to be started.
 --
--- * 'srtStartReplicationTaskType'
+-- * 'srtStartReplicationTaskType' - The type of replication task.
 startReplicationTask
     :: Text -- ^ 'srtReplicationTaskARN'
     -> StartReplicationTaskTypeValue -- ^ 'srtStartReplicationTaskType'
@@ -128,6 +132,8 @@ instance ToQuery StartReplicationTask where
 
 -- |
 --
+--
+--
 -- /See:/ 'startReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
     { _srtrsReplicationTask :: !(Maybe ReplicationTask)
@@ -138,9 +144,9 @@ data StartReplicationTaskResponse = StartReplicationTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srtrsReplicationTask'
+-- * 'srtrsReplicationTask' - The replication task started.
 --
--- * 'srtrsResponseStatus'
+-- * 'srtrsResponseStatus' - -- | The response status code.
 startReplicationTaskResponse
     :: Int -- ^ 'srtrsResponseStatus'
     -> StartReplicationTaskResponse
@@ -154,7 +160,7 @@ startReplicationTaskResponse pResponseStatus_ =
 srtrsReplicationTask :: Lens' StartReplicationTaskResponse (Maybe ReplicationTask)
 srtrsReplicationTask = lens _srtrsReplicationTask (\ s a -> s{_srtrsReplicationTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srtrsResponseStatus :: Lens' StartReplicationTaskResponse Int
 srtrsResponseStatus = lens _srtrsResponseStatus (\ s a -> s{_srtrsResponseStatus = a});
 

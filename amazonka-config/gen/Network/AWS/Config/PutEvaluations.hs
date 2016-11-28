@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Used by an AWS Lambda function to deliver evaluation results to AWS Config. This action is required in every AWS Lambda function that is invoked by an AWS Config rule.
+--
+--
 module Network.AWS.Config.PutEvaluations
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data PutEvaluations = PutEvaluations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peEvaluations'
+-- * 'peEvaluations' - The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 --
--- * 'peResultToken'
+-- * 'peResultToken' - An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
 putEvaluations
     :: Text -- ^ 'peResultToken'
     -> PutEvaluations
@@ -119,9 +121,9 @@ data PutEvaluationsResponse = PutEvaluationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'persFailedEvaluations'
+-- * 'persFailedEvaluations' - Requests that failed because of a client or server error.
 --
--- * 'persResponseStatus'
+-- * 'persResponseStatus' - -- | The response status code.
 putEvaluationsResponse
     :: Int -- ^ 'persResponseStatus'
     -> PutEvaluationsResponse
@@ -135,7 +137,7 @@ putEvaluationsResponse pResponseStatus_ =
 persFailedEvaluations :: Lens' PutEvaluationsResponse [Evaluation]
 persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvaluations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 persResponseStatus :: Lens' PutEvaluationsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
 

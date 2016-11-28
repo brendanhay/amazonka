@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the agents of the assessment runs that are specified by the ARNs of the assessment runs.
+--
+--
 module Network.AWS.Inspector.ListAssessmentRunAgents
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data ListAssessmentRunAgents = ListAssessmentRunAgents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laraNextToken'
+-- * 'laraNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'laraFilter'
+-- * 'laraFilter' - You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 --
--- * 'laraMaxResults'
+-- * 'laraMaxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
 --
--- * 'laraAssessmentRunARN'
+-- * 'laraAssessmentRunARN' - The ARN that specifies the assessment run whose agents you want to list.
 listAssessmentRunAgents
     :: Text -- ^ 'laraAssessmentRunARN'
     -> ListAssessmentRunAgents
@@ -80,9 +82,7 @@ listAssessmentRunAgents pAssessmentRunARN_ =
 laraNextToken :: Lens' ListAssessmentRunAgents (Maybe Text)
 laraNextToken = lens _laraNextToken (\ s a -> s{_laraNextToken = a});
 
--- | You can use this parameter to specify a subset of data to be included in the action\'s response.
---
--- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+-- | You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 laraFilter :: Lens' ListAssessmentRunAgents (Maybe AgentFilter)
 laraFilter = lens _laraFilter (\ s a -> s{_laraFilter = a});
 
@@ -145,11 +145,11 @@ data ListAssessmentRunAgentsResponse = ListAssessmentRunAgentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lararsNextToken'
+-- * 'lararsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'lararsResponseStatus'
+-- * 'lararsResponseStatus' - -- | The response status code.
 --
--- * 'lararsAssessmentRunAgents'
+-- * 'lararsAssessmentRunAgents' - A list of ARNs that specifies the agents returned by the action.
 listAssessmentRunAgentsResponse
     :: Int -- ^ 'lararsResponseStatus'
     -> ListAssessmentRunAgentsResponse
@@ -164,7 +164,7 @@ listAssessmentRunAgentsResponse pResponseStatus_ =
 lararsNextToken :: Lens' ListAssessmentRunAgentsResponse (Maybe Text)
 lararsNextToken = lens _lararsNextToken (\ s a -> s{_lararsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lararsResponseStatus :: Lens' ListAssessmentRunAgentsResponse Int
 lararsResponseStatus = lens _lararsResponseStatus (\ s a -> s{_lararsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new < BasePathMapping> resource.
+-- Creates a new 'BasePathMapping' resource.
+--
+--
 module Network.AWS.APIGateway.CreateBasePathMapping
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a new < BasePathMapping> resource.
+-- | Requests Amazon API Gateway to create a new 'BasePathMapping' resource.
+--
+--
 --
 -- /See:/ 'createBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
@@ -60,13 +64,13 @@ data CreateBasePathMapping = CreateBasePathMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbpmStage'
+-- * 'cbpmStage' - The name of the API's stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
 --
--- * 'cbpmBasePath'
+-- * 'cbpmBasePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify a base path name after the domain name.
 --
--- * 'cbpmDomainName'
+-- * 'cbpmDomainName' - The domain name of the 'BasePathMapping' resource to create.
 --
--- * 'cbpmRestAPIId'
+-- * 'cbpmRestAPIId' - The name of the API that you want to apply this mapping to.
 createBasePathMapping
     :: Text -- ^ 'cbpmDomainName'
     -> Text -- ^ 'cbpmRestAPIId'
@@ -79,7 +83,7 @@ createBasePathMapping pDomainName_ pRestAPIId_ =
     , _cbpmRestAPIId = pRestAPIId_
     }
 
--- | The name of the API\'s stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
+-- | The name of the API's stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.
 cbpmStage :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmStage = lens _cbpmStage (\ s a -> s{_cbpmStage = a});
 
@@ -87,7 +91,7 @@ cbpmStage = lens _cbpmStage (\ s a -> s{_cbpmStage = a});
 cbpmBasePath :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmBasePath = lens _cbpmBasePath (\ s a -> s{_cbpmBasePath = a});
 
--- | The domain name of the < BasePathMapping> resource to create.
+-- | The domain name of the 'BasePathMapping' resource to create.
 cbpmDomainName :: Lens' CreateBasePathMapping Text
 cbpmDomainName = lens _cbpmDomainName (\ s a -> s{_cbpmDomainName = a});
 

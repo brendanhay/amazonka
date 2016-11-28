@@ -20,9 +20,11 @@
 --
 -- Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.
 --
--- You can use < DescribeLoadBalancers> to verify that the instance is deregistered from the load balancer.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/.
+-- You can use 'DescribeLoadBalancers' to verify that the instance is deregistered from the load balancer.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
 --
+--
+--
 -- /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName :: !Text
@@ -59,9 +63,9 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diflbLoadBalancerName'
+-- * 'diflbLoadBalancerName' - The name of the load balancer.
 --
--- * 'diflbInstances'
+-- * 'diflbInstances' - The IDs of the instances.
 deregisterInstancesFromLoadBalancer
     :: Text -- ^ 'diflbLoadBalancerName'
     -> DeregisterInstancesFromLoadBalancer
@@ -118,6 +122,8 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 
 -- | Contains the output of DeregisterInstancesFromLoadBalancer.
 --
+--
+--
 -- /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances      :: !(Maybe [Instance])
@@ -128,9 +134,9 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diflbrsInstances'
+-- * 'diflbrsInstances' - The remaining instances registered with the load balancer.
 --
--- * 'diflbrsResponseStatus'
+-- * 'diflbrsResponseStatus' - -- | The response status code.
 deregisterInstancesFromLoadBalancerResponse
     :: Int -- ^ 'diflbrsResponseStatus'
     -> DeregisterInstancesFromLoadBalancerResponse
@@ -144,7 +150,7 @@ deregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
 diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a});
 

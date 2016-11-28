@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new instance profile. For information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Creates a new instance profile. For information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
 --
--- For information about the number of instance profiles you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+--
+-- For information about the number of instance profiles you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data CreateInstanceProfile = CreateInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipPath'
+-- * 'cipPath' - The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cipInstanceProfileName'
+-- * 'cipInstanceProfileName' - The name of the instance profile to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createInstanceProfile
     :: Text -- ^ 'cipInstanceProfileName'
     -> CreateInstanceProfile
@@ -67,17 +69,11 @@ createInstanceProfile pInstanceProfileName_ =
     , _cipInstanceProfileName = pInstanceProfileName_
     }
 
--- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
 
--- | The name of the instance profile to create.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the instance profile to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
@@ -109,7 +105,9 @@ instance ToQuery CreateInstanceProfile where
                "Path" =: _cipPath,
                "InstanceProfileName" =: _cipInstanceProfileName]
 
--- | Contains the response to a successful < CreateInstanceProfile> request.
+-- | Contains the response to a successful 'CreateInstanceProfile' request.
+--
+--
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
@@ -121,9 +119,9 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciprsResponseStatus'
+-- * 'ciprsResponseStatus' - -- | The response status code.
 --
--- * 'ciprsInstanceProfile'
+-- * 'ciprsInstanceProfile' - A structure containing details about the new instance profile.
 createInstanceProfileResponse
     :: Int -- ^ 'ciprsResponseStatus'
     -> InstanceProfile -- ^ 'ciprsInstanceProfile'
@@ -134,7 +132,7 @@ createInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
     , _ciprsInstanceProfile = pInstanceProfile_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ciprsResponseStatus :: Lens' CreateInstanceProfileResponse Int
 ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota\'s maximum value.
+-- Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
+--
 --
 -- This command does not take any parameters.
+--
 module Network.AWS.DMS.DescribeAccountAttributes
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- |
+--
+--
 --
 -- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes =
@@ -91,6 +95,8 @@ instance ToQuery DescribeAccountAttributes where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
@@ -101,9 +107,9 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsAccountQuotas'
+-- * 'daarsAccountQuotas' - Account quota information.
 --
--- * 'daarsResponseStatus'
+-- * 'daarsResponseStatus' - -- | The response status code.
 describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
@@ -117,7 +123,7 @@ describeAccountAttributesResponse pResponseStatus_ =
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 

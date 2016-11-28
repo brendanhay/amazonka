@@ -20,7 +20,9 @@
 --
 -- Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.
 --
+--
 -- This is a public API. You do not need any credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Creating a Request
@@ -59,11 +61,11 @@ data GetId = GetId'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giAccountId'
+-- * 'giAccountId' - A standard AWS account ID (9+ digits).
 --
--- * 'giLogins'
+-- * 'giLogins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@     * Google: @accounts.google.com@     * Amazon: @www.amazon.com@     * Twitter: @api.twitter.com@     * Digits: @www.digits.com@
 --
--- * 'giIdentityPoolId'
+-- * 'giIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 getId
     :: Text -- ^ 'giIdentityPoolId'
     -> GetId
@@ -78,15 +80,7 @@ getId pIdentityPoolId_ =
 giAccountId :: Lens' GetId (Maybe Text)
 giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 
--- | A set of optional name-value pairs that map provider names to provider tokens.
---
--- The available provider names for 'Logins' are as follows:
---
--- -   Facebook: 'graph.facebook.com'
--- -   Google: 'accounts.google.com'
--- -   Amazon: 'www.amazon.com'
--- -   Twitter: 'api.twitter.com'
--- -   Digits: 'www.digits.com'
+-- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@     * Google: @accounts.google.com@     * Amazon: @www.amazon.com@     * Twitter: @api.twitter.com@     * Digits: @www.digits.com@
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 
@@ -142,9 +136,9 @@ data GetIdResponse = GetIdResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'girsIdentityId'
+-- * 'girsIdentityId' - A unique identifier in the format REGION:GUID.
 --
--- * 'girsResponseStatus'
+-- * 'girsResponseStatus' - -- | The response status code.
 getIdResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetIdResponse
@@ -158,7 +152,7 @@ getIdResponse pResponseStatus_ =
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
 girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 girsResponseStatus :: Lens' GetIdResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 

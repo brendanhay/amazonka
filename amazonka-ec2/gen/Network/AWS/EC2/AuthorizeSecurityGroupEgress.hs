@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination CIDR IP address ranges, or to one or more destination security groups for the same VPC. This action doesn\'t apply to security groups for use in EC2-Classic. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination CIDR IP address ranges, or to one or more destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
 --
--- You can have up to 50 rules per security group (covering both ingress and egress rules).
+--
+-- /Important:/ You can have up to 50 rules per security group (covering both ingress and egress rules).
 --
 -- Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
 --
 -- Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
+--
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AuthorizeSecurityGroupEgress.
 --
+--
+--
 -- /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
     { _asgeFromPort                   :: !(Maybe Int)
@@ -72,23 +76,23 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgeFromPort'
+-- * 'asgeFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'asgeIPPermissions'
+-- * 'asgeIPPermissions' - A set of IP permissions. You can't specify a destination security group and a CIDR IP address range.
 --
--- * 'asgeIPProtocol'
+-- * 'asgeIPProtocol' - The IP protocol name or number. We recommend that you specify the protocol in a set of IP permissions instead.
 --
--- * 'asgeToPort'
+-- * 'asgeToPort' - The end of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'asgeCIdRIP'
+-- * 'asgeCIdRIP' - The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
 --
--- * 'asgeSourceSecurityGroupOwnerId'
+-- * 'asgeSourceSecurityGroupOwnerId' - The AWS account number for a destination security group. To authorize outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
--- * 'asgeSourceSecurityGroupName'
+-- * 'asgeSourceSecurityGroupName' - The name of a destination security group. To authorize outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
--- * 'asgeDryRun'
+-- * 'asgeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'asgeGroupId'
+-- * 'asgeGroupId' - The ID of the security group.
 authorizeSecurityGroupEgress
     :: Text -- ^ 'asgeGroupId'
     -> AuthorizeSecurityGroupEgress
@@ -109,7 +113,7 @@ authorizeSecurityGroupEgress pGroupId_ =
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 
--- | A set of IP permissions. You can\'t specify a destination security group and a CIDR IP address range.
+-- | A set of IP permissions. You can't specify a destination security group and a CIDR IP address range.
 asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
 asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce;
 
@@ -133,7 +137,7 @@ asgeSourceSecurityGroupOwnerId = lens _asgeSourceSecurityGroupOwnerId (\ s a -> 
 asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\ s a -> s{_asgeSourceSecurityGroupName = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 asgeDryRun :: Lens' AuthorizeSecurityGroupEgress (Maybe Bool)
 asgeDryRun = lens _asgeDryRun (\ s a -> s{_asgeDryRun = a});
 

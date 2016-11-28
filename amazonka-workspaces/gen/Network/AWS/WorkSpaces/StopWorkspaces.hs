@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops the specified WorkSpaces. The API only works with WorkSpaces that have RunningMode configured as AutoStop and the State set to AVAILABLE, IMPAIRED, UNHEALTHY, or ERROR.
+--
+--
 module Network.AWS.WorkSpaces.StopWorkspaces
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype StopWorkspaces = StopWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swStopWorkspaceRequests'
+-- * 'swStopWorkspaceRequests' - The requests.
 stopWorkspaces
     :: NonEmpty StopRequest -- ^ 'swStopWorkspaceRequests'
     -> StopWorkspaces
@@ -111,9 +113,9 @@ data StopWorkspacesResponse = StopWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsFailedRequests'
+-- * 'srsFailedRequests' - The failed requests.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopWorkspacesResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopWorkspacesResponse
@@ -127,7 +129,7 @@ stopWorkspacesResponse pResponseStatus_ =
 srsFailedRequests :: Lens' StopWorkspacesResponse [FailedWorkspaceChangeRequest]
 srsFailedRequests = lens _srsFailedRequests (\ s a -> s{_srsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopWorkspacesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

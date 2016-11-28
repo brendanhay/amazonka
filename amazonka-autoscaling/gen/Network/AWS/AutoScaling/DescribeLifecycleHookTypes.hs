@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the available types of lifecycle hooks.
+--
+--
 module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     (
     -- * Creating a Request
@@ -84,6 +86,8 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 -- | Contains the output of DescribeLifecycleHookTypes.
 --
+--
+--
 -- /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
@@ -94,9 +98,9 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlhtrsLifecycleHookTypes'
+-- * 'dlhtrsLifecycleHookTypes' - The lifecycle hook types.
 --
--- * 'dlhtrsResponseStatus'
+-- * 'dlhtrsResponseStatus' - -- | The response status code.
 describeLifecycleHookTypesResponse
     :: Int -- ^ 'dlhtrsResponseStatus'
     -> DescribeLifecycleHookTypesResponse
@@ -110,7 +114,7 @@ describeLifecycleHookTypesResponse pResponseStatus_ =
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
 dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});
 

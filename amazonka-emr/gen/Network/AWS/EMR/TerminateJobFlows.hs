@@ -20,7 +20,9 @@
 --
 -- TerminateJobFlows shuts a list of job flows down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the job flow is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the job flow was created.
 --
+--
 -- The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows is asynchronous. Depending on the configuration of the job flow, it may take up to 5-20 minutes for the job flow to completely terminate and release allocated resources, such as Amazon EC2 instances.
+--
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the < TerminateJobFlows> operation.
+-- | Input to the 'TerminateJobFlows' operation.
+--
+--
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'
@@ -52,7 +56,7 @@ newtype TerminateJobFlows = TerminateJobFlows'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tjfJobFlowIds'
+-- * 'tjfJobFlowIds' - A list of job flows to be shutdown.
 terminateJobFlows
     :: TerminateJobFlows
 terminateJobFlows =

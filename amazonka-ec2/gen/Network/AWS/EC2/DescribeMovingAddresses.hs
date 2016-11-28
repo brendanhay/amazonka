@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.
+--
+--
 module Network.AWS.EC2.DescribeMovingAddresses
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeMovingAddresses.
 --
+--
+--
 -- /See:/ 'describeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
     { _dmaFilters    :: !(Maybe [Filter])
@@ -62,15 +66,15 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmaFilters'
+-- * 'dmaFilters' - One or more filters.     * @moving-status@ - The status of the Elastic IP address (@MovingToVpc@ | @RestoringToClassic@ ).
 --
--- * 'dmaPublicIPs'
+-- * 'dmaPublicIPs' - One or more Elastic IP addresses.
 --
--- * 'dmaNextToken'
+-- * 'dmaNextToken' - The token to use to retrieve the next page of results.
 --
--- * 'dmaDryRun'
+-- * 'dmaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dmaMaxResults'
+-- * 'dmaMaxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value outside of this range, an error is returned. Default: If no value is provided, the default is 1000.
 describeMovingAddresses
     :: DescribeMovingAddresses
 describeMovingAddresses =
@@ -82,10 +86,7 @@ describeMovingAddresses =
     , _dmaMaxResults = Nothing
     }
 
--- | One or more filters.
---
--- -   'moving-status' - The status of the Elastic IP address ('MovingToVpc' | 'RestoringToClassic').
---
+-- | One or more filters.     * @moving-status@ - The status of the Elastic IP address (@MovingToVpc@ | @RestoringToClassic@ ).
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
 dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce;
 
@@ -97,13 +98,11 @@ dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _
 dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
 dmaNextToken = lens _dmaNextToken (\ s a -> s{_dmaNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dmaDryRun :: Lens' DescribeMovingAddresses (Maybe Bool)
 dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a});
 
--- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned 'NextToken' value. This value can be between 5 and 1000; if 'MaxResults' is given a value outside of this range, an error is returned.
---
--- Default: If no value is provided, the default is 1000.
+-- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value outside of this range, an error is returned. Default: If no value is provided, the default is 1000.
 dmaMaxResults :: Lens' DescribeMovingAddresses (Maybe Int)
 dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a});
 
@@ -143,6 +142,8 @@ instance ToQuery DescribeMovingAddresses where
 
 -- | Contains the output of DescribeMovingAddresses.
 --
+--
+--
 -- /See:/ 'describeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
@@ -154,11 +155,11 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmarsMovingAddressStatuses'
+-- * 'dmarsMovingAddressStatuses' - The status for each Elastic IP address.
 --
--- * 'dmarsNextToken'
+-- * 'dmarsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dmarsResponseStatus'
+-- * 'dmarsResponseStatus' - -- | The response status code.
 describeMovingAddressesResponse
     :: Int -- ^ 'dmarsResponseStatus'
     -> DescribeMovingAddressesResponse
@@ -173,11 +174,11 @@ describeMovingAddressesResponse pResponseStatus_ =
 dmarsMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
 dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default . _Coerce;
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
 dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});
 

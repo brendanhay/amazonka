@@ -20,6 +20,8 @@
 --
 -- Describes all available options.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOptionGroupOptions
     (
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOptionGroupOptions' smart constructor.
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
     { _dogoFilters            :: !(Maybe [Filter])
@@ -65,15 +69,15 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dogoFilters'
+-- * 'dogoFilters' - This parameter is not currently supported.
 --
--- * 'dogoMajorEngineVersion'
+-- * 'dogoMajorEngineVersion' - If specified, filters the results to include only options for the specified major engine version.
 --
--- * 'dogoMarker'
+-- * 'dogoMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dogoMaxRecords'
+-- * 'dogoMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dogoEngineName'
+-- * 'dogoEngineName' - A required parameter. Options available for the given engine name will be described.
 describeOptionGroupOptions
     :: Text -- ^ 'dogoEngineName'
     -> DescribeOptionGroupOptions
@@ -94,15 +98,11 @@ dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default . _Coe
 dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngineVersion = a});
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
 dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
 
@@ -156,6 +156,8 @@ instance ToQuery DescribeOptionGroupOptions where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOptionGroupOptionsResponse' smart constructor.
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
     { _dogorsOptionGroupOptions :: !(Maybe [OptionGroupOption])
@@ -167,11 +169,11 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dogorsOptionGroupOptions'
+-- * 'dogorsOptionGroupOptions' - Undocumented member.
 --
--- * 'dogorsMarker'
+-- * 'dogorsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dogorsResponseStatus'
+-- * 'dogorsResponseStatus' - -- | The response status code.
 describeOptionGroupOptionsResponse
     :: Int -- ^ 'dogorsResponseStatus'
     -> DescribeOptionGroupOptionsResponse
@@ -186,11 +188,11 @@ describeOptionGroupOptionsResponse pResponseStatus_ =
 dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
 dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dogorsResponseStatus :: Lens' DescribeOptionGroupOptionsResponse Int
 dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a});
 

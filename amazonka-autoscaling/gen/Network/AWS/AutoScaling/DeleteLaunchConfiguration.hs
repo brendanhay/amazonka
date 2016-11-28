@@ -20,7 +20,9 @@
 --
 -- Deletes the specified launch configuration.
 --
+--
 -- The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.
+--
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteLaunchConfiguration.
 --
+--
+--
 -- /See:/ 'deleteLaunchConfiguration' smart constructor.
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
     { _dlcLaunchConfigurationName :: Text
@@ -52,7 +56,7 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcLaunchConfigurationName'
+-- * 'dlcLaunchConfigurationName' - The name of the launch configuration.
 deleteLaunchConfiguration
     :: Text -- ^ 'dlcLaunchConfigurationName'
     -> DeleteLaunchConfiguration

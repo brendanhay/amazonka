@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates an unpredictable byte string.
+--
+--
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GenerateRandom = GenerateRandom'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grNumberOfBytes'
+-- * 'grNumberOfBytes' - Integer that contains the number of bytes to generate. Common values are 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
 generateRandom
     :: GenerateRandom
 generateRandom =
@@ -107,9 +109,9 @@ data GenerateRandomResponse = GenerateRandomResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsPlaintext'
+-- * 'grrsPlaintext' - Plaintext that contains the unpredictable byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 generateRandomResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GenerateRandomResponse
@@ -119,17 +121,11 @@ generateRandomResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Plaintext that contains the unpredictable byte string.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | Plaintext that contains the unpredictable byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GenerateRandomResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 

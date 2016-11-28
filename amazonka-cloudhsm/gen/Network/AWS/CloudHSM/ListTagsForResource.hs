@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all tags for the specified AWS CloudHSM resource.
+--
+--
 module Network.AWS.CloudHSM.ListTagsForResource
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
@@ -110,9 +112,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTagList'
+-- * 'ltfrrsTagList' - One or more tags.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -122,7 +124,7 @@ listTagsForResourceResponse pResponseStatus_ =
     , _ltfrrsTagList = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

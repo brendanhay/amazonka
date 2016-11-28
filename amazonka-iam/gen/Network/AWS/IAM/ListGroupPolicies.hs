@@ -20,9 +20,11 @@
 --
 -- Lists the names of the inline policies that are embedded in the specified IAM group.
 --
--- An IAM group can also have managed policies attached to it. To list the managed policies that are attached to a group, use < ListAttachedGroupPolicies>. For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If there are no inline policies embedded with the specified group, the action returns an empty list.
+-- An IAM group can also have managed policies attached to it. To list the managed policies that are attached to a group, use 'ListAttachedGroupPolicies' . For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
+-- You can paginate the results using the @MaxItems@ and @Marker@ parameters. If there are no inline policies embedded with the specified group, the action returns an empty list.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupPolicies
@@ -64,11 +66,11 @@ data ListGroupPolicies = ListGroupPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgpMarker'
+-- * 'lgpMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'lgpMaxItems'
+-- * 'lgpMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'lgpGroupName'
+-- * 'lgpGroupName' - The name of the group to list policies for. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 listGroupPolicies
     :: Text -- ^ 'lgpGroupName'
     -> ListGroupPolicies
@@ -79,19 +81,15 @@ listGroupPolicies pGroupName_ =
     , _lgpGroupName = pGroupName_
     }
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
 lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
--- | The name of the group to list policies for.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the group to list policies for. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 lgpGroupName :: Lens' ListGroupPolicies Text
 lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 
@@ -133,7 +131,9 @@ instance ToQuery ListGroupPolicies where
                "Marker" =: _lgpMarker, "MaxItems" =: _lgpMaxItems,
                "GroupName" =: _lgpGroupName]
 
--- | Contains the response to a successful < ListGroupPolicies> request.
+-- | Contains the response to a successful 'ListGroupPolicies' request.
+--
+--
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
@@ -147,13 +147,13 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgprsMarker'
+-- * 'lgprsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'lgprsIsTruncated'
+-- * 'lgprsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'lgprsResponseStatus'
+-- * 'lgprsResponseStatus' - -- | The response status code.
 --
--- * 'lgprsPolicyNames'
+-- * 'lgprsPolicyNames' - A list of policy names.
 listGroupPoliciesResponse
     :: Int -- ^ 'lgprsResponseStatus'
     -> ListGroupPoliciesResponse
@@ -165,15 +165,15 @@ listGroupPoliciesResponse pResponseStatus_ =
     , _lgprsPolicyNames = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lgprsMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
 lgprsMarker = lens _lgprsMarker (\ s a -> s{_lgprsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lgprsResponseStatus :: Lens' ListGroupPoliciesResponse Int
 lgprsResponseStatus = lens _lgprsResponseStatus (\ s a -> s{_lgprsResponseStatus = a});
 

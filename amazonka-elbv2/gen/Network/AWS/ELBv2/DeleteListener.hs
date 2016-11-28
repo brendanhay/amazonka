@@ -20,7 +20,9 @@
 --
 -- Deletes the specified listener.
 --
--- Alternatively, your listener is deleted when you delete the load balancer it is attached to using < DeleteLoadBalancer>.
+--
+-- Alternatively, your listener is deleted when you delete the load balancer it is attached to using 'DeleteLoadBalancer' .
+--
 module Network.AWS.ELBv2.DeleteListener
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteListener.
 --
+--
+--
 -- /See:/ 'deleteListener' smart constructor.
 newtype DeleteListener = DeleteListener'
     { _dlListenerARN :: Text
@@ -54,7 +58,7 @@ newtype DeleteListener = DeleteListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlListenerARN'
+-- * 'dlListenerARN' - The Amazon Resource Name (ARN) of the listener.
 deleteListener
     :: Text -- ^ 'dlListenerARN'
     -> DeleteListener
@@ -94,6 +98,8 @@ instance ToQuery DeleteListener where
 
 -- | Contains the output of DeleteListener.
 --
+--
+--
 -- /See:/ 'deleteListenerResponse' smart constructor.
 newtype DeleteListenerResponse = DeleteListenerResponse'
     { _dlrsResponseStatus :: Int
@@ -103,7 +109,7 @@ newtype DeleteListenerResponse = DeleteListenerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsResponseStatus'
+-- * 'dlrsResponseStatus' - -- | The response status code.
 deleteListenerResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DeleteListenerResponse
@@ -112,7 +118,7 @@ deleteListenerResponse pResponseStatus_ =
     { _dlrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteListenerResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed. You can optionally provide a 'sha256' digest of the image layer for data validation purposes.
+-- Inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed. You can optionally provide a @sha256@ digest of the image layer for data validation purposes.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.CompleteLayerUpload
     (
     -- * Creating a Request
@@ -62,13 +62,13 @@ data CompleteLayerUpload = CompleteLayerUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cluRegistryId'
+-- * 'cluRegistryId' - The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
 --
--- * 'cluRepositoryName'
+-- * 'cluRepositoryName' - The name of the repository to associate with the image layer.
 --
--- * 'cluUploadId'
+-- * 'cluUploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
 --
--- * 'cluLayerDigests'
+-- * 'cluLayerDigests' - The @sha256@ digest of the image layer.
 completeLayerUpload
     :: Text -- ^ 'cluRepositoryName'
     -> Text -- ^ 'cluUploadId'
@@ -90,11 +90,11 @@ cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a});
 cluRepositoryName :: Lens' CompleteLayerUpload Text
 cluRepositoryName = lens _cluRepositoryName (\ s a -> s{_cluRepositoryName = a});
 
--- | The upload ID from a previous < InitiateLayerUpload> operation to associate with the image layer.
+-- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
 cluUploadId :: Lens' CompleteLayerUpload Text
 cluUploadId = lens _cluUploadId (\ s a -> s{_cluUploadId = a});
 
--- | The 'sha256' digest of the image layer.
+-- | The @sha256@ digest of the image layer.
 cluLayerDigests :: Lens' CompleteLayerUpload (NonEmpty Text)
 cluLayerDigests = lens _cluLayerDigests (\ s a -> s{_cluLayerDigests = a}) . _List1;
 
@@ -153,15 +153,15 @@ data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clursRegistryId'
+-- * 'clursRegistryId' - The registry ID associated with the request.
 --
--- * 'clursLayerDigest'
+-- * 'clursLayerDigest' - The @sha256@ digest of the image layer.
 --
--- * 'clursRepositoryName'
+-- * 'clursRepositoryName' - The repository name associated with the request.
 --
--- * 'clursUploadId'
+-- * 'clursUploadId' - The upload ID associated with the layer.
 --
--- * 'clursResponseStatus'
+-- * 'clursResponseStatus' - -- | The response status code.
 completeLayerUploadResponse
     :: Int -- ^ 'clursResponseStatus'
     -> CompleteLayerUploadResponse
@@ -178,7 +178,7 @@ completeLayerUploadResponse pResponseStatus_ =
 clursRegistryId :: Lens' CompleteLayerUploadResponse (Maybe Text)
 clursRegistryId = lens _clursRegistryId (\ s a -> s{_clursRegistryId = a});
 
--- | The 'sha256' digest of the image layer.
+-- | The @sha256@ digest of the image layer.
 clursLayerDigest :: Lens' CompleteLayerUploadResponse (Maybe Text)
 clursLayerDigest = lens _clursLayerDigest (\ s a -> s{_clursLayerDigest = a});
 
@@ -190,7 +190,7 @@ clursRepositoryName = lens _clursRepositoryName (\ s a -> s{_clursRepositoryName
 clursUploadId :: Lens' CompleteLayerUploadResponse (Maybe Text)
 clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 clursResponseStatus :: Lens' CompleteLayerUploadResponse Int
 clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a});
 

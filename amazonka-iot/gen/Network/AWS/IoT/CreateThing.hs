@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a thing record in the thing registry.
+--
+--
 module Network.AWS.IoT.CreateThing
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreateThing operation.
 --
+--
+--
 -- /See:/ 'createThing' smart constructor.
 data CreateThing = CreateThing'
     { _ctThingTypeName    :: !(Maybe Text)
@@ -58,11 +62,11 @@ data CreateThing = CreateThing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctThingTypeName'
+-- * 'ctThingTypeName' - The name of the thing type associated with the new thing.
 --
--- * 'ctAttributePayload'
+-- * 'ctAttributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
 --
--- * 'ctThingName'
+-- * 'ctThingName' - The name of the thing to create.
 createThing
     :: Text -- ^ 'ctThingName'
     -> CreateThing
@@ -77,9 +81,7 @@ createThing pThingName_ =
 ctThingTypeName :: Lens' CreateThing (Maybe Text)
 ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a});
 
--- | The attribute payload, which consists of up to three name\/value pairs in a JSON document. For example:
---
--- '{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})'
+-- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 
@@ -120,6 +122,8 @@ instance ToQuery CreateThing where
 
 -- | The output of the CreateThing operation.
 --
+--
+--
 -- /See:/ 'createThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
     { _ctrsThingARN       :: !(Maybe Text)
@@ -131,11 +135,11 @@ data CreateThingResponse = CreateThingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsThingARN'
+-- * 'ctrsThingARN' - The ARN of the new thing.
 --
--- * 'ctrsThingName'
+-- * 'ctrsThingName' - The name of the new thing.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createThingResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateThingResponse
@@ -154,7 +158,7 @@ ctrsThingARN = lens _ctrsThingARN (\ s a -> s{_ctrsThingARN = a});
 ctrsThingName :: Lens' CreateThingResponse (Maybe Text)
 ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateThingResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 

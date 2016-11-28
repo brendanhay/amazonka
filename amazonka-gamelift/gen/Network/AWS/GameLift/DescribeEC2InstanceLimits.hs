@@ -20,10 +20,11 @@
 --
 -- Retrieves the following information for the specified EC2 instance type:
 --
--- -   maximum number of instances allowed per AWS account (service limit)
--- -   current usage level for the AWS account
+--
+--     * maximum number of instances allowed per AWS account (service limit)    * current usage level for the AWS account
 --
 -- Service limits vary depending on region. Available regions for GameLift can be found in the AWS Management Console for GameLift (see the drop-down list in the upper right corner).
+--
 module Network.AWS.GameLift.DescribeEC2InstanceLimits
     (
     -- * Creating a Request
@@ -49,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeEC2InstanceLimits' smart constructor.
 newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
     { _deilEC2InstanceType :: Maybe EC2InstanceType
@@ -58,7 +61,7 @@ newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deilEC2InstanceType'
+-- * 'deilEC2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
 describeEC2InstanceLimits
     :: DescribeEC2InstanceLimits
 describeEC2InstanceLimits =
@@ -108,6 +111,8 @@ instance ToQuery DescribeEC2InstanceLimits where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
     { _deilrsEC2InstanceLimits :: !(Maybe [EC2InstanceLimit])
@@ -118,9 +123,9 @@ data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deilrsEC2InstanceLimits'
+-- * 'deilrsEC2InstanceLimits' - Object containing the maximum number of instances for the specified instance type.
 --
--- * 'deilrsResponseStatus'
+-- * 'deilrsResponseStatus' - -- | The response status code.
 describeEC2InstanceLimitsResponse
     :: Int -- ^ 'deilrsResponseStatus'
     -> DescribeEC2InstanceLimitsResponse
@@ -134,7 +139,7 @@ describeEC2InstanceLimitsResponse pResponseStatus_ =
 deilrsEC2InstanceLimits :: Lens' DescribeEC2InstanceLimitsResponse [EC2InstanceLimit]
 deilrsEC2InstanceLimits = lens _deilrsEC2InstanceLimits (\ s a -> s{_deilrsEC2InstanceLimits = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 deilrsResponseStatus :: Lens' DescribeEC2InstanceLimitsResponse Int
 deilrsResponseStatus = lens _deilrsResponseStatus (\ s a -> s{_deilrsResponseStatus = a});
 

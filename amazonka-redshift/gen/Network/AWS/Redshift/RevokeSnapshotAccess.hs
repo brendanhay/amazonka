@@ -20,7 +20,9 @@
 --
 -- Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.
 --
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'revokeSnapshotAccess' smart constructor.
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
     { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
@@ -59,11 +63,11 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsaSnapshotClusterIdentifier'
+-- * 'rsaSnapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 --
--- * 'rsaSnapshotIdentifier'
+-- * 'rsaSnapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
 --
--- * 'rsaAccountWithRestoreAccess'
+-- * 'rsaAccountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore the specified snapshot.
 revokeSnapshotAccess
     :: Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
@@ -128,9 +132,9 @@ data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsarsSnapshot'
+-- * 'rsarsSnapshot' - Undocumented member.
 --
--- * 'rsarsResponseStatus'
+-- * 'rsarsResponseStatus' - -- | The response status code.
 revokeSnapshotAccessResponse
     :: Int -- ^ 'rsarsResponseStatus'
     -> RevokeSnapshotAccessResponse
@@ -144,7 +148,7 @@ revokeSnapshotAccessResponse pResponseStatus_ =
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
 rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a});
 

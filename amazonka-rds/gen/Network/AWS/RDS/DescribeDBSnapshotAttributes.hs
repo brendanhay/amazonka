@@ -20,9 +20,11 @@
 --
 -- Returns a list of DB snapshot attribute names and values for a manual DB snapshot.
 --
--- When sharing snapshots with other AWS accounts, 'DescribeDBSnapshotAttributes' returns the 'restore' attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB snapshot. If 'all' is included in the list of values for the 'restore' attribute, then the manual DB snapshot is public and can be copied or restored by all AWS accounts.
 --
--- To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the manual DB snapshot public or private, use the < ModifyDBSnapshotAttribute> API action.
+-- When sharing snapshots with other AWS accounts, @DescribeDBSnapshotAttributes@ returns the @restore@ attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB snapshot. If @all@ is included in the list of values for the @restore@ attribute, then the manual DB snapshot is public and can be copied or restored by all AWS accounts.
+--
+-- To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the manual DB snapshot public or private, use the 'ModifyDBSnapshotAttribute' API action.
+--
 module Network.AWS.RDS.DescribeDBSnapshotAttributes
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBSnapshotAttributes' smart constructor.
 newtype DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
     { _ddsaDBSnapshotIdentifier :: Text
@@ -57,7 +61,7 @@ newtype DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsaDBSnapshotIdentifier'
+-- * 'ddsaDBSnapshotIdentifier' - The identifier for the DB snapshot to describe the attributes for.
 describeDBSnapshotAttributes
     :: Text -- ^ 'ddsaDBSnapshotIdentifier'
     -> DescribeDBSnapshotAttributes
@@ -111,9 +115,9 @@ data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsarsDBSnapshotAttributesResult'
+-- * 'ddsarsDBSnapshotAttributesResult' - Undocumented member.
 --
--- * 'ddsarsResponseStatus'
+-- * 'ddsarsResponseStatus' - -- | The response status code.
 describeDBSnapshotAttributesResponse
     :: Int -- ^ 'ddsarsResponseStatus'
     -> DescribeDBSnapshotAttributesResponse
@@ -127,7 +131,7 @@ describeDBSnapshotAttributesResponse pResponseStatus_ =
 ddsarsDBSnapshotAttributesResult :: Lens' DescribeDBSnapshotAttributesResponse (Maybe DBSnapshotAttributesResult)
 ddsarsDBSnapshotAttributesResult = lens _ddsarsDBSnapshotAttributesResult (\ s a -> s{_ddsarsDBSnapshotAttributesResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddsarsResponseStatus :: Lens' DescribeDBSnapshotAttributesResponse Int
 ddsarsResponseStatus = lens _ddsarsResponseStatus (\ s a -> s{_ddsarsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment templates that are specified by the ARNs of the assessment templates.
+--
+--
 module Network.AWS.Inspector.DescribeAssessmentTemplates
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTemplateARNs'
+-- * 'datAssessmentTemplateARNs' - The ARN that specifiesthe assessment templates that you want to describe.
 describeAssessmentTemplates
     :: NonEmpty Text -- ^ 'datAssessmentTemplateARNs'
     -> DescribeAssessmentTemplates
@@ -116,11 +118,11 @@ data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 --
--- * 'datrsAssessmentTemplates'
+-- * 'datrsAssessmentTemplates' - Information about the assessment templates.
 --
--- * 'datrsFailedItems'
+-- * 'datrsFailedItems' - Assessment template details that cannot be described. An error code is provided for each failed item.
 describeAssessmentTemplatesResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAssessmentTemplatesResponse
@@ -131,7 +133,7 @@ describeAssessmentTemplatesResponse pResponseStatus_ =
     , _datrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAssessmentTemplatesResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 

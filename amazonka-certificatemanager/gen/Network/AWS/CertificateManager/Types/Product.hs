@@ -21,7 +21,9 @@ import           Network.AWS.CertificateManager.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Contains detailed metadata about an ACM Certificate. This structure is returned in the response to a < DescribeCertificate> request.
+-- | Contains detailed metadata about an ACM Certificate. This structure is returned in the response to a 'DescribeCertificate' request.
+--
+--
 --
 -- /See:/ 'certificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
@@ -49,41 +51,41 @@ data CertificateDetail = CertificateDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdSubject'
+-- * 'cdSubject' - The X.500 distinguished name of the entity associated with the public key contained in the certificate.
 --
--- * 'cdStatus'
+-- * 'cdStatus' - The status of the certificate.
 --
--- * 'cdFailureReason'
+-- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the structure's @Status@ is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
 --
--- * 'cdSubjectAlternativeNames'
+-- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate request. After the certificate is issued, this list includes the domain names bound to the public key contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
 --
--- * 'cdInUseBy'
+-- * 'cdInUseBy' - A list of ARNs for the resources that are using the certificate. An ACM Certificate can be used by multiple AWS resources.
 --
--- * 'cdCreatedAt'
+-- * 'cdCreatedAt' - The time at which the certificate was requested.
 --
--- * 'cdCertificateARN'
+-- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'cdSerial'
+-- * 'cdSerial' - The serial number of the certificate.
 --
--- * 'cdRevokedAt'
+-- * 'cdRevokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 --
--- * 'cdNotBefore'
+-- * 'cdNotBefore' - The time before which the certificate is not valid.
 --
--- * 'cdRevocationReason'
+-- * 'cdRevocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 --
--- * 'cdDomainName'
+-- * 'cdDomainName' - The fully qualified domain name (FQDN) for the certificate, such as www.example.com or example.com.
 --
--- * 'cdKeyAlgorithm'
+-- * 'cdKeyAlgorithm' - The algorithm used to generate the key pair (the public and private key). Currently the only supported value is @RSA_2048@ .
 --
--- * 'cdIssuedAt'
+-- * 'cdIssuedAt' - The time at which the certificate was issued.
 --
--- * 'cdSignatureAlgorithm'
+-- * 'cdSignatureAlgorithm' - The algorithm used to generate a signature. Currently the only supported value is @SHA256WITHRSA@ .
 --
--- * 'cdDomainValidationOptions'
+-- * 'cdDomainValidationOptions' - Contains information about the email address or addresses used for domain validation.
 --
--- * 'cdIssuer'
+-- * 'cdIssuer' - The X.500 distinguished name of the CA that issued and signed the certificate.
 --
--- * 'cdNotAfter'
+-- * 'cdNotAfter' - The time after which the certificate is not valid.
 certificateDetail
     :: CertificateDetail
 certificateDetail =
@@ -116,7 +118,7 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 cdStatus :: Lens' CertificateDetail (Maybe CertificateStatus)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
--- | The reason the certificate request failed. This value exists only when the structure\'s 'Status' is 'FAILED'. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/.
+-- | The reason the certificate request failed. This value exists only when the structure's @Status@ is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
 cdFailureReason :: Lens' CertificateDetail (Maybe FailureReason)
 cdFailureReason = lens _cdFailureReason (\ s a -> s{_cdFailureReason = a});
 
@@ -132,7 +134,7 @@ cdInUseBy = lens _cdInUseBy (\ s a -> s{_cdInUseBy = a}) . _Default . _Coerce;
 cdCreatedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdCreatedAt = lens _cdCreatedAt (\ s a -> s{_cdCreatedAt = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 cdCertificateARN :: Lens' CertificateDetail (Maybe Text)
 cdCertificateARN = lens _cdCertificateARN (\ s a -> s{_cdCertificateARN = a});
 
@@ -140,7 +142,7 @@ cdCertificateARN = lens _cdCertificateARN (\ s a -> s{_cdCertificateARN = a});
 cdSerial :: Lens' CertificateDetail (Maybe Text)
 cdSerial = lens _cdSerial (\ s a -> s{_cdSerial = a});
 
--- | The time at which the certificate was revoked. This value exists only when the certificate status is 'REVOKED'.
+-- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 cdRevokedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdRevokedAt = lens _cdRevokedAt (\ s a -> s{_cdRevokedAt = a}) . mapping _Time;
 
@@ -148,7 +150,7 @@ cdRevokedAt = lens _cdRevokedAt (\ s a -> s{_cdRevokedAt = a}) . mapping _Time;
 cdNotBefore :: Lens' CertificateDetail (Maybe UTCTime)
 cdNotBefore = lens _cdNotBefore (\ s a -> s{_cdNotBefore = a}) . mapping _Time;
 
--- | The reason the certificate was revoked. This value exists only when the certificate status is 'REVOKED'.
+-- | The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 cdRevocationReason :: Lens' CertificateDetail (Maybe RevocationReason)
 cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = a});
 
@@ -156,7 +158,7 @@ cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = 
 cdDomainName :: Lens' CertificateDetail (Maybe Text)
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
--- | The algorithm used to generate the key pair (the public and private key). Currently the only supported value is 'RSA_2048'.
+-- | The algorithm used to generate the key pair (the public and private key). Currently the only supported value is @RSA_2048@ .
 cdKeyAlgorithm :: Lens' CertificateDetail (Maybe KeyAlgorithm)
 cdKeyAlgorithm = lens _cdKeyAlgorithm (\ s a -> s{_cdKeyAlgorithm = a});
 
@@ -164,7 +166,7 @@ cdKeyAlgorithm = lens _cdKeyAlgorithm (\ s a -> s{_cdKeyAlgorithm = a});
 cdIssuedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdIssuedAt = lens _cdIssuedAt (\ s a -> s{_cdIssuedAt = a}) . mapping _Time;
 
--- | The algorithm used to generate a signature. Currently the only supported value is 'SHA256WITHRSA'.
+-- | The algorithm used to generate a signature. Currently the only supported value is @SHA256WITHRSA@ .
 cdSignatureAlgorithm :: Lens' CertificateDetail (Maybe Text)
 cdSignatureAlgorithm = lens _cdSignatureAlgorithm (\ s a -> s{_cdSignatureAlgorithm = a});
 
@@ -207,7 +209,9 @@ instance Hashable CertificateDetail
 
 instance NFData CertificateDetail
 
--- | This structure is returned in the response object of < ListCertificates> action.
+-- | This structure is returned in the response object of 'ListCertificates' action.
+--
+--
 --
 -- /See:/ 'certificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
@@ -219,9 +223,9 @@ data CertificateSummary = CertificateSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csCertificateARN'
+-- * 'csCertificateARN' - Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'csDomainName'
+-- * 'csDomainName' - Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
 certificateSummary
     :: CertificateSummary
 certificateSummary =
@@ -230,11 +234,7 @@ certificateSummary =
     , _csDomainName = Nothing
     }
 
--- | Amazon Resource Name (ARN) of the certificate. This is of the form:
---
--- 'arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012'
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- | Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 csCertificateARN :: Lens' CertificateSummary (Maybe Text)
 csCertificateARN = lens _csCertificateARN (\ s a -> s{_csCertificateARN = a});
 
@@ -255,6 +255,8 @@ instance NFData CertificateSummary
 
 -- | Structure that contains the domain name, the base validation domain to which validation email is sent, and the email addresses used to validate the domain identity.
 --
+--
+--
 -- /See:/ 'domainValidation' smart constructor.
 data DomainValidation = DomainValidation'
     { _dvValidationEmails :: !(Maybe [Text])
@@ -266,11 +268,11 @@ data DomainValidation = DomainValidation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvValidationEmails'
+-- * 'dvValidationEmails' - A list of contact address for the domain registrant.
 --
--- * 'dvValidationDomain'
+-- * 'dvValidationDomain' - The base validation domain that acts as the suffix of the email addresses that are used to send the emails.
 --
--- * 'dvDomainName'
+-- * 'dvDomainName' - Fully Qualified Domain Name (FQDN) of the form @www.example.com or @ @example.com@ .
 domainValidation
     :: Text -- ^ 'dvDomainName'
     -> DomainValidation
@@ -289,7 +291,7 @@ dvValidationEmails = lens _dvValidationEmails (\ s a -> s{_dvValidationEmails = 
 dvValidationDomain :: Lens' DomainValidation (Maybe Text)
 dvValidationDomain = lens _dvValidationDomain (\ s a -> s{_dvValidationDomain = a});
 
--- | Fully Qualified Domain Name (FQDN) of the form 'www.example.com or ' 'example.com'.
+-- | Fully Qualified Domain Name (FQDN) of the form @www.example.com or @ @example.com@ .
 dvDomainName :: Lens' DomainValidation Text
 dvDomainName = lens _dvDomainName (\ s a -> s{_dvDomainName = a});
 
@@ -306,7 +308,9 @@ instance Hashable DomainValidation
 
 instance NFData DomainValidation
 
--- | This structure is used in the request object of the < RequestCertificate> action.
+-- | This structure is used in the request object of the 'RequestCertificate' action.
+--
+--
 --
 -- /See:/ 'domainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
@@ -318,9 +322,9 @@ data DomainValidationOption = DomainValidationOption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvoDomainName'
+-- * 'dvoDomainName' - Fully Qualified Domain Name (FQDN) of the certificate being requested.
 --
--- * 'dvoValidationDomain'
+-- * 'dvoValidationDomain' - The domain to which validation email is sent. This is the base validation domain that will act as the suffix of the email addresses. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS for the base domain and the following five addresses:     * admin@subdomain.example.com     * administrator@subdomain.example.com     * hostmaster@subdomain.example.com     * postmaster@subdomain.example.com     * webmaster@subdomain.example.com
 domainValidationOption
     :: Text -- ^ 'dvoDomainName'
     -> Text -- ^ 'dvoValidationDomain'
@@ -335,18 +339,7 @@ domainValidationOption pDomainName_ pValidationDomain_ =
 dvoDomainName :: Lens' DomainValidationOption Text
 dvoDomainName = lens _dvoDomainName (\ s a -> s{_dvoDomainName = a});
 
--- | The domain to which validation email is sent. This is the base validation domain that will act as the suffix of the email addresses. This must be the same as the 'DomainName' value or a superdomain of the 'DomainName' value. For example, if you requested a certificate for 'site.subdomain.example.com' and specify a __ValidationDomain__ of 'subdomain.example.com', ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS for the base domain and the following five addresses:
---
--- -   admin\'subdomain.example.com
---
--- -   administrator\'subdomain.example.com
---
--- -   hostmaster\'subdomain.example.com
---
--- -   postmaster\'subdomain.example.com
---
--- -   webmaster\'subdomain.example.com
---
+-- | The domain to which validation email is sent. This is the base validation domain that will act as the suffix of the email addresses. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS for the base domain and the following five addresses:     * admin@subdomain.example.com     * administrator@subdomain.example.com     * hostmaster@subdomain.example.com     * postmaster@subdomain.example.com     * webmaster@subdomain.example.com
 dvoValidationDomain :: Lens' DomainValidationOption Text
 dvoValidationDomain = lens _dvoValidationDomain (\ s a -> s{_dvoValidationDomain = a});
 
@@ -363,6 +356,8 @@ instance ToJSON DomainValidationOption where
 
 -- | A key-value pair that identifies or specifies metadata about an ACM resource.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -373,9 +368,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag

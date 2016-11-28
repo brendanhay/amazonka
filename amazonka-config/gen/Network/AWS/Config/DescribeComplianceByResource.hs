@@ -20,13 +20,13 @@
 --
 -- Indicates whether the specified AWS resources are compliant. If a resource is noncompliant, this action returns the number of AWS Config rules that the resource does not comply with.
 --
+--
 -- A resource is compliant if it complies with all the AWS Config rules that evaluate it. It is noncompliant if it does not comply with one or more of these rules.
 --
--- If AWS Config has no current evaluation results for the resource, it returns 'INSUFFICIENT_DATA'. This result might indicate one of the following conditions about the rules that evaluate the resource:
+-- If AWS Config has no current evaluation results for the resource, it returns @INSUFFICIENT_DATA@ . This result might indicate one of the following conditions about the rules that evaluate the resource:
 --
--- -   AWS Config has never invoked an evaluation for the rule. To check whether it has, use the 'DescribeConfigRuleEvaluationStatus' action to get the 'LastSuccessfulInvocationTime' and 'LastFailedInvocationTime'.
--- -   The rule\'s AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the 'config:PutEvaluations' permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the 'config:PutEvaluations' permission.
--- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for all evaluation results. This can occur if the resources were deleted or removed from the rule\'s scope.
+--     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .    * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.    * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
+--
 module Network.AWS.Config.DescribeComplianceByResource
     (
     -- * Creating a Request
@@ -68,15 +68,15 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbrResourceId'
+-- * 'dcbrResourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
 --
--- * 'dcbrResourceType'
+-- * 'dcbrResourceType' - The types of AWS resources for which you want compliance information; for example, @AWS::EC2::Instance@ . For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 --
--- * 'dcbrComplianceTypes'
+-- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 --
--- * 'dcbrNextToken'
+-- * 'dcbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'dcbrLimit'
+-- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
 describeComplianceByResource
     :: DescribeComplianceByResource
 describeComplianceByResource =
@@ -88,21 +88,19 @@ describeComplianceByResource =
     , _dcbrLimit = Nothing
     }
 
--- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for 'ResourceType'.
+-- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
 dcbrResourceId :: Lens' DescribeComplianceByResource (Maybe Text)
 dcbrResourceId = lens _dcbrResourceId (\ s a -> s{_dcbrResourceId = a});
 
--- | The types of AWS resources for which you want compliance information; for example, 'AWS::EC2::Instance'. For this action, you can specify that the resource type is an AWS account by specifying 'AWS::::Account'.
+-- | The types of AWS resources for which you want compliance information; for example, @AWS::EC2::Instance@ . For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 dcbrResourceType :: Lens' DescribeComplianceByResource (Maybe Text)
 dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a});
 
--- | Filters the results by compliance.
---
--- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and 'INSUFFICIENT_DATA'.
+-- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
 dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbrNextToken :: Lens' DescribeComplianceByResource (Maybe Text)
 dcbrNextToken = lens _dcbrNextToken (\ s a -> s{_dcbrNextToken = a});
 
@@ -164,11 +162,11 @@ data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbrrsComplianceByResources'
+-- * 'dcbrrsComplianceByResources' - Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
 --
--- * 'dcbrrsNextToken'
+-- * 'dcbrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
 --
--- * 'dcbrrsResponseStatus'
+-- * 'dcbrrsResponseStatus' - -- | The response status code.
 describeComplianceByResourceResponse
     :: Int -- ^ 'dcbrrsResponseStatus'
     -> DescribeComplianceByResourceResponse
@@ -187,7 +185,7 @@ dcbrrsComplianceByResources = lens _dcbrrsComplianceByResources (\ s a -> s{_dcb
 dcbrrsNextToken :: Lens' DescribeComplianceByResourceResponse (Maybe Text)
 dcbrrsNextToken = lens _dcbrrsNextToken (\ s a -> s{_dcbrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
 dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the ID and status of each active change set for a stack. For example, AWS CloudFormation lists change sets that are in the 'CREATE_IN_PROGRESS' or 'CREATE_PENDING' state.
+-- Returns the ID and status of each active change set for a stack. For example, AWS CloudFormation lists change sets that are in the @CREATE_IN_PROGRESS@ or @CREATE_PENDING@ state.
+--
+--
 module Network.AWS.CloudFormation.ListChangeSets
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < ListChangeSets> action.
+-- | The input for the 'ListChangeSets' action.
+--
+--
 --
 -- /See:/ 'listChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
@@ -56,9 +60,9 @@ data ListChangeSets = ListChangeSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcsNextToken'
+-- * 'lcsNextToken' - A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
 --
--- * 'lcsStackName'
+-- * 'lcsStackName' - The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
 listChangeSets
     :: Text -- ^ 'lcsStackName'
     -> ListChangeSets
@@ -68,7 +72,7 @@ listChangeSets pStackName_ =
     , _lcsStackName = pStackName_
     }
 
--- | A string (provided by the < ListChangeSets> response output) that identifies the next page of change sets that you want to retrieve.
+-- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
 lcsNextToken :: Lens' ListChangeSets (Maybe Text)
 lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a});
 
@@ -106,7 +110,9 @@ instance ToQuery ListChangeSets where
                "NextToken" =: _lcsNextToken,
                "StackName" =: _lcsStackName]
 
--- | The output for the < ListChangeSets> action.
+-- | The output for the 'ListChangeSets' action.
+--
+--
 --
 -- /See:/ 'listChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
@@ -119,11 +125,11 @@ data ListChangeSetsResponse = ListChangeSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcsrsNextToken'
+-- * 'lcsrsNextToken' - If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
 --
--- * 'lcsrsSummaries'
+-- * 'lcsrsSummaries' - A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
 --
--- * 'lcsrsResponseStatus'
+-- * 'lcsrsResponseStatus' - -- | The response status code.
 listChangeSetsResponse
     :: Int -- ^ 'lcsrsResponseStatus'
     -> ListChangeSetsResponse
@@ -138,11 +144,11 @@ listChangeSetsResponse pResponseStatus_ =
 lcsrsNextToken :: Lens' ListChangeSetsResponse (Maybe Text)
 lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
 
--- | A list of 'ChangeSetSummary' structures that provides the ID and status of each change set for the specified stack.
+-- | A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
 lcsrsSummaries :: Lens' ListChangeSetsResponse [ChangeSetSummary]
 lcsrsSummaries = lens _lcsrsSummaries (\ s a -> s{_lcsrsSummaries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lcsrsResponseStatus :: Lens' ListChangeSetsResponse Int
 lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
 

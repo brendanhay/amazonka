@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets an attribute of an instance to its default value. To reset the 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset the 'sourceDestCheck', the instance can be either running or stopped.
+-- Resets an attribute of an instance to its default value. To reset the @kernel@ or @ramdisk@ , the instance must be in a stopped state. To reset the @sourceDestCheck@ , the instance can be either running or stopped.
 --
--- The 'sourceDestCheck' attribute controls whether source\/destination checking is enabled. The default value is 'true', which means checking is enabled. This value must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- The @sourceDestCheck@ attribute controls whether source/destination checking is enabled. The default value is @true@ , which means checking is enabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ResetInstanceAttribute.
 --
+--
+--
 -- /See:/ 'resetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
     { _riaDryRun     :: !(Maybe Bool)
@@ -56,11 +60,11 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riaDryRun'
+-- * 'riaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'riaInstanceId'
+-- * 'riaInstanceId' - The ID of the instance.
 --
--- * 'riaAttribute'
+-- * 'riaAttribute' - The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 resetInstanceAttribute
     :: Text -- ^ 'riaInstanceId'
     -> InstanceAttributeName -- ^ 'riaAttribute'
@@ -72,7 +76,7 @@ resetInstanceAttribute pInstanceId_ pAttribute_ =
     , _riaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
 
@@ -80,9 +84,7 @@ riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
 riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
 
--- | The attribute to reset.
---
--- You can only reset the following attributes: 'kernel' | 'ramdisk' | 'sourceDestCheck'. To change an instance attribute, use < ModifyInstanceAttribute>.
+-- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 

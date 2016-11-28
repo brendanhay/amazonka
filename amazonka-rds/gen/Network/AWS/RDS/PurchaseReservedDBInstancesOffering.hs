@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Purchases a reserved DB instance offering.
+--
+--
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'purchaseReservedDBInstancesOffering' smart constructor.
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
     { _prdioDBInstanceCount               :: !(Maybe Int)
@@ -59,13 +63,13 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prdioDBInstanceCount'
+-- * 'prdioDBInstanceCount' - The number of instances to reserve. Default: @1@
 --
--- * 'prdioReservedDBInstanceId'
+-- * 'prdioReservedDBInstanceId' - Customer-specified identifier to track this reservation. Example: myreservationID
 --
--- * 'prdioTags'
+-- * 'prdioTags' - Undocumented member.
 --
--- * 'prdioReservedDBInstancesOfferingId'
+-- * 'prdioReservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 purchaseReservedDBInstancesOffering
     :: Text -- ^ 'prdioReservedDBInstancesOfferingId'
     -> PurchaseReservedDBInstancesOffering
@@ -77,15 +81,11 @@ purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
     , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
     }
 
--- | The number of instances to reserve.
---
--- Default: '1'
+-- | The number of instances to reserve. Default: @1@
 prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
 prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a});
 
--- | Customer-specified identifier to track this reservation.
---
--- Example: myreservationID
+-- | Customer-specified identifier to track this reservation. Example: myreservationID
 prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
 prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
@@ -93,9 +93,7 @@ prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioRe
 prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
 prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce;
 
--- | The ID of the Reserved DB instance offering to purchase.
---
--- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
+-- | The ID of the Reserved DB instance offering to purchase. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
 prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
 
@@ -147,9 +145,9 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prdiorsReservedDBInstance'
+-- * 'prdiorsReservedDBInstance' - Undocumented member.
 --
--- * 'prdiorsResponseStatus'
+-- * 'prdiorsResponseStatus' - -- | The response status code.
 purchaseReservedDBInstancesOfferingResponse
     :: Int -- ^ 'prdiorsResponseStatus'
     -> PurchaseReservedDBInstancesOfferingResponse
@@ -163,7 +161,7 @@ purchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
 prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
 prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});
 

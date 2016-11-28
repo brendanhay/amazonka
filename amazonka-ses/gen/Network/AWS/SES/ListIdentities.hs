@@ -20,7 +20,9 @@
 --
 -- Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.
 --
+--
 -- This action is throttled at one request per second.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SES.ListIdentities
@@ -52,6 +54,8 @@ import           Network.AWS.SES.Types.Product
 
 -- | Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.
 --
+--
+--
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
@@ -63,11 +67,11 @@ data ListIdentities = ListIdentities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liIdentityType'
+-- * 'liIdentityType' - The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
 --
--- * 'liNextToken'
+-- * 'liNextToken' - The token to use for pagination.
 --
--- * 'liMaxItems'
+-- * 'liMaxItems' - The maximum number of identities per page. Possible values are 1-1000 inclusive.
 listIdentities
     :: ListIdentities
 listIdentities =
@@ -77,7 +81,7 @@ listIdentities =
     , _liMaxItems = Nothing
     }
 
--- | The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.
+-- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a});
 
@@ -128,6 +132,8 @@ instance ToQuery ListIdentities where
 
 -- | A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.
 --
+--
+--
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsNextToken      :: !(Maybe Text)
@@ -139,11 +145,11 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsNextToken'
+-- * 'lirsNextToken' - The token used for pagination.
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 --
--- * 'lirsIdentities'
+-- * 'lirsIdentities' - A list of identities.
 listIdentitiesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
@@ -158,7 +164,7 @@ listIdentitiesResponse pResponseStatus_ =
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 

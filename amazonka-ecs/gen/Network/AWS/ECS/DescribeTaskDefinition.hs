@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a task definition. You can specify a 'family' and 'revision' to find information about a specific task definition, or you can simply specify the family to find the latest 'ACTIVE' revision in that family.
+-- Describes a task definition. You can specify a @family@ and @revision@ to find information about a specific task definition, or you can simply specify the family to find the latest @ACTIVE@ revision in that family.
 --
--- You can only describe 'INACTIVE' task definitions while an active task or service references them.
+--
 module Network.AWS.ECS.DescribeTaskDefinition
     (
     -- * Creating a Request
@@ -53,7 +53,7 @@ newtype DescribeTaskDefinition = DescribeTaskDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtdTaskDefinition'
+-- * 'dtdTaskDefinition' - The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 describeTaskDefinition
     :: Text -- ^ 'dtdTaskDefinition'
     -> DescribeTaskDefinition
@@ -62,7 +62,7 @@ describeTaskDefinition pTaskDefinition_ =
     { _dtdTaskDefinition = pTaskDefinition_
     }
 
--- | The 'family' for the latest 'ACTIVE' revision, 'family' and 'revision' ('family:revision') for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
+-- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
@@ -112,9 +112,9 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsTaskDefinition'
+-- * 'desrsTaskDefinition' - The full task definition description.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeTaskDefinitionResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeTaskDefinitionResponse
@@ -128,7 +128,7 @@ describeTaskDefinitionResponse pResponseStatus_ =
 desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
 desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 

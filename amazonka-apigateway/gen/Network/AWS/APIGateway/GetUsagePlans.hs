@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets all the usage plans of the caller\'s account.
+-- Gets all the usage plans of the caller's account.
+--
+--
 module Network.AWS.APIGateway.GetUsagePlans
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The GET request to get all the usage plans of the caller\'s account.
+-- | The GET request to get all the usage plans of the caller's account.
+--
+--
 --
 -- /See:/ 'getUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
@@ -58,11 +62,11 @@ data GetUsagePlans = GetUsagePlans'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupKeyId'
+-- * 'gupKeyId' - The identifier of the API key associated with the usage plans.
 --
--- * 'gupLimit'
+-- * 'gupLimit' - The number of 'UsagePlan' resources to be returned as the result.
 --
--- * 'gupPosition'
+-- * 'gupPosition' - The zero-based array index specifying the position of the to-be-retrieved 'UsagePlan' resource.
 getUsagePlans
     :: GetUsagePlans
 getUsagePlans =
@@ -76,11 +80,11 @@ getUsagePlans =
 gupKeyId :: Lens' GetUsagePlans (Maybe Text)
 gupKeyId = lens _gupKeyId (\ s a -> s{_gupKeyId = a});
 
--- | The number of < UsagePlan> resources to be returned as the result.
+-- | The number of 'UsagePlan' resources to be returned as the result.
 gupLimit :: Lens' GetUsagePlans (Maybe Int)
 gupLimit = lens _gupLimit (\ s a -> s{_gupLimit = a});
 
--- | The zero-based array index specifying the position of the to-be-retrieved < UsagePlan> resource.
+-- | The zero-based array index specifying the position of the to-be-retrieved 'UsagePlan' resource.
 gupPosition :: Lens' GetUsagePlans (Maybe Text)
 gupPosition = lens _gupPosition (\ s a -> s{_gupPosition = a});
 
@@ -115,6 +119,7 @@ instance ToQuery GetUsagePlans where
 
 -- | Represents a collection of usage plans for an AWS account.
 --
+--
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'getUsagePlansResponse' smart constructor.
@@ -128,11 +133,11 @@ data GetUsagePlansResponse = GetUsagePlansResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guprsItems'
+-- * 'guprsItems' - Gets the current item when enumerating the collection of 'UsagePlan' .
 --
--- * 'guprsPosition'
+-- * 'guprsPosition' - Undocumented member.
 --
--- * 'guprsResponseStatus'
+-- * 'guprsResponseStatus' - -- | The response status code.
 getUsagePlansResponse
     :: Int -- ^ 'guprsResponseStatus'
     -> GetUsagePlansResponse
@@ -143,7 +148,7 @@ getUsagePlansResponse pResponseStatus_ =
     , _guprsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current item when enumerating the collection of < UsagePlan>.
+-- | Gets the current item when enumerating the collection of 'UsagePlan' .
 guprsItems :: Lens' GetUsagePlansResponse [UsagePlan]
 guprsItems = lens _guprsItems (\ s a -> s{_guprsItems = a}) . _Default . _Coerce;
 
@@ -151,7 +156,7 @@ guprsItems = lens _guprsItems (\ s a -> s{_guprsItems = a}) . _Default . _Coerce
 guprsPosition :: Lens' GetUsagePlansResponse (Maybe Text)
 guprsPosition = lens _guprsPosition (\ s a -> s{_guprsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 guprsResponseStatus :: Lens' GetUsagePlansResponse Int
 guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a list of specified images within a specified repository. Images are specified with either 'imageTag' or 'imageDigest'.
+-- Deletes a list of specified images within a specified repository. Images are specified with either @imageTag@ or @imageDigest@ .
+--
+--
 module Network.AWS.ECR.BatchDeleteImage
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Deletes specified images within a specified repository. Images are specified with either the 'imageTag' or 'imageDigest'.
+-- | Deletes specified images within a specified repository. Images are specified with either the @imageTag@ or @imageDigest@ .
+--
+--
 --
 -- /See:/ 'batchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
@@ -58,11 +62,11 @@ data BatchDeleteImage = BatchDeleteImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdiRegistryId'
+-- * 'bdiRegistryId' - The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
 --
--- * 'bdiRepositoryName'
+-- * 'bdiRepositoryName' - The repository that contains the image to delete.
 --
--- * 'bdiImageIds'
+-- * 'bdiImageIds' - A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 batchDeleteImage
     :: Text -- ^ 'bdiRepositoryName'
     -> BatchDeleteImage
@@ -81,7 +85,7 @@ bdiRegistryId = lens _bdiRegistryId (\ s a -> s{_bdiRegistryId = a});
 bdiRepositoryName :: Lens' BatchDeleteImage Text
 bdiRepositoryName = lens _bdiRepositoryName (\ s a -> s{_bdiRepositoryName = a});
 
--- | A list of image ID references that correspond to images to delete. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
+-- | A list of image ID references that correspond to images to delete. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 bdiImageIds :: Lens' BatchDeleteImage [ImageIdentifier]
 bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _Coerce;
 
@@ -135,11 +139,11 @@ data BatchDeleteImageResponse = BatchDeleteImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdirsFailures'
+-- * 'bdirsFailures' - Any failures associated with the call.
 --
--- * 'bdirsImageIds'
+-- * 'bdirsImageIds' - The image IDs of the deleted images.
 --
--- * 'bdirsResponseStatus'
+-- * 'bdirsResponseStatus' - -- | The response status code.
 batchDeleteImageResponse
     :: Int -- ^ 'bdirsResponseStatus'
     -> BatchDeleteImageResponse
@@ -158,7 +162,7 @@ bdirsFailures = lens _bdirsFailures (\ s a -> s{_bdirsFailures = a}) . _Default 
 bdirsImageIds :: Lens' BatchDeleteImageResponse [ImageIdentifier]
 bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int
 bdirsResponseStatus = lens _bdirsResponseStatus (\ s a -> s{_bdirsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SuspendProcesses and ResumeProcesses.
 --
+--
+--
 -- /See:/ 'resumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
     { _rpScalingProcesses     :: !(Maybe [Text])
@@ -54,9 +58,9 @@ data ResumeProcesses = ResumeProcesses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpScalingProcesses'
+-- * 'rpScalingProcesses' - One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 --
--- * 'rpAutoScalingGroupName'
+-- * 'rpAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 resumeProcesses
     :: Text -- ^ 'rpAutoScalingGroupName'
     -> ResumeProcesses
@@ -66,24 +70,7 @@ resumeProcesses pAutoScalingGroupName_ =
     , _rpAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following processes. If you omit this parameter, all processes are specified.
---
--- -   'Launch'
---
--- -   'Terminate'
---
--- -   'HealthCheck'
---
--- -   'ReplaceUnhealthy'
---
--- -   'AZRebalance'
---
--- -   'AlarmNotification'
---
--- -   'ScheduledActions'
---
--- -   'AddToLoadBalancer'
---
+-- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
 

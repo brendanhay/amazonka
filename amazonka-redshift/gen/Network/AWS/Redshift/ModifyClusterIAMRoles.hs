@@ -20,7 +20,9 @@
 --
 -- Modifies the list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
+--
 -- A cluster can have up to 10 IAM roles associated at any time.
+--
 module Network.AWS.Redshift.ModifyClusterIAMRoles
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyClusterIAMRoles' smart constructor.
 data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
     { _mcirRemoveIAMRoles    :: !(Maybe [Text])
@@ -59,11 +63,11 @@ data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcirRemoveIAMRoles'
+-- * 'mcirRemoveIAMRoles' - Zero or more IAM roles (in their ARN format) to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 --
--- * 'mcirAddIAMRoles'
+-- * 'mcirAddIAMRoles' - Zero or more IAM roles (in their ARN format) to associate with the cluster. You can associate up to 10 IAM roles with a single cluster in a single request.
 --
--- * 'mcirClusterIdentifier'
+-- * 'mcirClusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 modifyClusterIAMRoles
     :: Text -- ^ 'mcirClusterIdentifier'
     -> ModifyClusterIAMRoles
@@ -129,9 +133,9 @@ data ModifyClusterIAMRolesResponse = ModifyClusterIAMRolesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcirrsCluster'
+-- * 'mcirrsCluster' - Undocumented member.
 --
--- * 'mcirrsResponseStatus'
+-- * 'mcirrsResponseStatus' - -- | The response status code.
 modifyClusterIAMRolesResponse
     :: Int -- ^ 'mcirrsResponseStatus'
     -> ModifyClusterIAMRolesResponse
@@ -145,7 +149,7 @@ modifyClusterIAMRolesResponse pResponseStatus_ =
 mcirrsCluster :: Lens' ModifyClusterIAMRolesResponse (Maybe Cluster)
 mcirrsCluster = lens _mcirrsCluster (\ s a -> s{_mcirrsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mcirrsResponseStatus :: Lens' ModifyClusterIAMRolesResponse Int
 mcirrsResponseStatus = lens _mcirrsResponseStatus (\ s a -> s{_mcirrsResponseStatus = a});
 

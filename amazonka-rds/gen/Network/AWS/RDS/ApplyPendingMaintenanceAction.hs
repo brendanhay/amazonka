@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Applies a pending maintenance action to a resource (for example, to a DB instance).
+--
+--
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'applyPendingMaintenanceAction' smart constructor.
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
     { _apmaResourceIdentifier :: !Text
@@ -57,11 +61,11 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apmaResourceIdentifier'
+-- * 'apmaResourceIdentifier' - The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 --
--- * 'apmaApplyAction'
+-- * 'apmaApplyAction' - The pending maintenance action to apply to this resource. Valid values: @system-update@ , @db-upgrade@
 --
--- * 'apmaOptInType'
+-- * 'apmaOptInType' - A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type @immediate@ cannot be undone. Valid values:     * @immediate@ - Apply the maintenance action immediately.     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
 applyPendingMaintenanceAction
     :: Text -- ^ 'apmaResourceIdentifier'
     -> Text -- ^ 'apmaApplyAction'
@@ -74,26 +78,15 @@ applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
     , _apmaOptInType = pOptInType_
     }
 
--- | The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
 apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceIdentifier = a});
 
--- | The pending maintenance action to apply to this resource.
---
--- Valid values: 'system-update', 'db-upgrade'
+-- | The pending maintenance action to apply to this resource. Valid values: @system-update@ , @db-upgrade@
 apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
 apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 
--- | A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type 'immediate' cannot be undone.
---
--- Valid values:
---
--- -   'immediate' - Apply the maintenance action immediately.
---
--- -   'next-maintenance' - Apply the maintenance action during the next maintenance window for the resource.
---
--- -   'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.
---
+-- | A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type @immediate@ cannot be undone. Valid values:     * @immediate@ - Apply the maintenance action immediately.     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
 apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
 apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 
@@ -141,9 +134,9 @@ data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apmarsResourcePendingMaintenanceActions'
+-- * 'apmarsResourcePendingMaintenanceActions' - Undocumented member.
 --
--- * 'apmarsResponseStatus'
+-- * 'apmarsResponseStatus' - -- | The response status code.
 applyPendingMaintenanceActionResponse
     :: Int -- ^ 'apmarsResponseStatus'
     -> ApplyPendingMaintenanceActionResponse
@@ -157,7 +150,7 @@ applyPendingMaintenanceActionResponse pResponseStatus_ =
 apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
 apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\ s a -> s{_apmarsResourcePendingMaintenanceActions = a});
 
--- | The response status code.
+-- | -- | The response status code.
 apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarsResponseStatus = lens _apmarsResponseStatus (\ s a -> s{_apmarsResponseStatus = a});
 

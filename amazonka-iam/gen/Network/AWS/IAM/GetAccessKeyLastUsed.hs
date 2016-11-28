@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the AWS service and region that were specified in the last request made with that key.
+--
+--
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakluAccessKeyId'
+-- * 'gakluAccessKeyId' - The identifier of an access key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 getAccessKeyLastUsed
     :: Text -- ^ 'gakluAccessKeyId'
     -> GetAccessKeyLastUsed
@@ -61,9 +63,7 @@ getAccessKeyLastUsed pAccessKeyId_ =
     { _gakluAccessKeyId = pAccessKeyId_
     }
 
--- | The identifier of an access key.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The identifier of an access key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
@@ -95,7 +95,9 @@ instance ToQuery GetAccessKeyLastUsed where
                "Version" =: ("2010-05-08" :: ByteString),
                "AccessKeyId" =: _gakluAccessKeyId]
 
--- | Contains the response to a successful < GetAccessKeyLastUsed> request. It is also returned as a member of the < AccessKeyMetaData> structure returned by the < ListAccessKeys> action.
+-- | Contains the response to a successful 'GetAccessKeyLastUsed' request. It is also returned as a member of the 'AccessKeyMetaData' structure returned by the 'ListAccessKeys' action.
+--
+--
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
@@ -108,11 +110,11 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaklursUserName'
+-- * 'gaklursUserName' - The name of the AWS IAM user that owns this access key.
 --
--- * 'gaklursAccessKeyLastUsed'
+-- * 'gaklursAccessKeyLastUsed' - Contains information about the last time the access key was used.
 --
--- * 'gaklursResponseStatus'
+-- * 'gaklursResponseStatus' - -- | The response status code.
 getAccessKeyLastUsedResponse
     :: Int -- ^ 'gaklursResponseStatus'
     -> GetAccessKeyLastUsedResponse
@@ -124,7 +126,6 @@ getAccessKeyLastUsedResponse pResponseStatus_ =
     }
 
 -- | The name of the AWS IAM user that owns this access key.
---
 gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
 gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 
@@ -132,7 +133,7 @@ gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
 gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gaklursResponseStatus :: Lens' GetAccessKeyLastUsedResponse Int
 gaklursResponseStatus = lens _gaklursResponseStatus (\ s a -> s{_gaklursResponseStatus = a});
 

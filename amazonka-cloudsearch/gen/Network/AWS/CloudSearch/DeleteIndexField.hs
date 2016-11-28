@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an 'IndexField' from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
+-- Removes an @'IndexField' @ from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DeleteIndexField
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteIndexField' operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.
+-- | Container for the parameters to the @'DeleteIndexField' @ operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.
+--
+--
 --
 -- /See:/ 'deleteIndexField' smart constructor.
 data DeleteIndexField = DeleteIndexField'
@@ -55,9 +59,9 @@ data DeleteIndexField = DeleteIndexField'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difiDomainName'
+-- * 'difiDomainName' - Undocumented member.
 --
--- * 'difiIndexFieldName'
+-- * 'difiIndexFieldName' - The name of the index field your want to remove from the domain's indexing options.
 deleteIndexField
     :: Text -- ^ 'difiDomainName'
     -> Text -- ^ 'difiIndexFieldName'
@@ -72,7 +76,7 @@ deleteIndexField pDomainName_ pIndexFieldName_ =
 difiDomainName :: Lens' DeleteIndexField Text
 difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a});
 
--- | The name of the index field your want to remove from the domain\'s indexing options.
+-- | The name of the index field your want to remove from the domain's indexing options.
 difiIndexFieldName :: Lens' DeleteIndexField Text
 difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a});
 
@@ -103,7 +107,9 @@ instance ToQuery DeleteIndexField where
                "DomainName" =: _difiDomainName,
                "IndexFieldName" =: _difiIndexFieldName]
 
--- | The result of a 'DeleteIndexField' request.
+-- | The result of a @'DeleteIndexField' @ request.
+--
+--
 --
 -- /See:/ 'deleteIndexFieldResponse' smart constructor.
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
@@ -115,9 +121,9 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difrsResponseStatus'
+-- * 'difrsResponseStatus' - -- | The response status code.
 --
--- * 'difrsIndexField'
+-- * 'difrsIndexField' - The status of the index field being deleted.
 deleteIndexFieldResponse
     :: Int -- ^ 'difrsResponseStatus'
     -> IndexFieldStatus -- ^ 'difrsIndexField'
@@ -128,7 +134,7 @@ deleteIndexFieldResponse pResponseStatus_ pIndexField_ =
     , _difrsIndexField = pIndexField_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 difrsResponseStatus :: Lens' DeleteIndexFieldResponse Int
 difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
 

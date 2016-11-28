@@ -52,11 +52,11 @@ data PutBucketWebsite = PutBucketWebsite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbwContentMD5'
+-- * 'pbwContentMD5' - Undocumented member.
 --
--- * 'pbwBucket'
+-- * 'pbwBucket' - Undocumented member.
 --
--- * 'pbwWebsiteConfiguration'
+-- * 'pbwWebsiteConfiguration' - Undocumented member.
 putBucketWebsite
     :: BucketName -- ^ 'pbwBucket'
     -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'

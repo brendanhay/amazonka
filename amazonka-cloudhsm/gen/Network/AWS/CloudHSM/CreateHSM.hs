@@ -20,9 +20,11 @@
 --
 -- Creates an uninitialized HSM instance.
 --
--- There is an upfront fee charged for each HSM instance that you create with the < CreateHsm> operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the < DeleteHsm> operation, go to the <https://console.aws.amazon.com/support/home#/ AWS Support Center>, create a new case, and select __Account and Billing Support__.
 --
--- It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the < DescribeHsm> operation. The HSM is ready to be initialized when the status changes to 'RUNNING'.
+-- There is an upfront fee charged for each HSM instance that you create with the 'CreateHsm' operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the 'DeleteHsm' operation, go to the <https://console.aws.amazon.com/support/home#/ AWS Support Center> , create a new case, and select __Account and Billing Support__ .
+--
+-- /Important:/ It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the 'DescribeHsm' operation. The HSM is ready to be initialized when the status changes to @RUNNING@ .
+--
 module Network.AWS.CloudHSM.CreateHSM
     (
     -- * Creating a Request
@@ -53,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateHsm> operation.
+-- | Contains the inputs for the 'CreateHsm' operation.
+--
+--
 --
 -- /See:/ 'createHSM' smart constructor.
 data CreateHSM = CreateHSM'
@@ -71,21 +75,21 @@ data CreateHSM = CreateHSM'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chClientToken'
+-- * 'chClientToken' - A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
 --
--- * 'chSyslogIP'
+-- * 'chSyslogIP' - The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 --
--- * 'chExternalId'
+-- * 'chExternalId' - The external ID from __IamRoleArn__ , if present.
 --
--- * 'chEniIP'
+-- * 'chEniIP' - The IP address to assign to the HSM's ENI. If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
 --
--- * 'chSubnetId'
+-- * 'chSubnetId' - The identifier of the subnet in your VPC in which to place the HSM.
 --
--- * 'chSSHKey'
+-- * 'chSSHKey' - The SSH public key to install on the HSM.
 --
--- * 'chIAMRoleARN'
+-- * 'chIAMRoleARN' - The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
 --
--- * 'chSubscriptionType'
+-- * 'chSubscriptionType' - Undocumented member.
 createHSM
     :: Text -- ^ 'chSubnetId'
     -> Text -- ^ 'chSSHKey'
@@ -112,13 +116,11 @@ chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
 chSyslogIP :: Lens' CreateHSM (Maybe Text)
 chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
 
--- | The external ID from __IamRoleArn__, if present.
+-- | The external ID from __IamRoleArn__ , if present.
 chExternalId :: Lens' CreateHSM (Maybe Text)
 chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
 
--- | The IP address to assign to the HSM\'s ENI.
---
--- If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
+-- | The IP address to assign to the HSM's ENI. If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
 chEniIP :: Lens' CreateHSM (Maybe Text)
 chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a});
 
@@ -179,7 +181,9 @@ instance ToPath CreateHSM where
 instance ToQuery CreateHSM where
         toQuery = const mempty
 
--- | Contains the output of the < CreateHsm> operation.
+-- | Contains the output of the 'CreateHsm' operation.
+--
+--
 --
 -- /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
@@ -191,9 +195,9 @@ data CreateHSMResponse = CreateHSMResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chrsHSMARN'
+-- * 'chrsHSMARN' - The ARN of the HSM.
 --
--- * 'chrsResponseStatus'
+-- * 'chrsResponseStatus' - -- | The response status code.
 createHSMResponse
     :: Int -- ^ 'chrsResponseStatus'
     -> CreateHSMResponse
@@ -207,7 +211,7 @@ createHSMResponse pResponseStatus_ =
 chrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
 chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 chrsResponseStatus :: Lens' CreateHSMResponse Int
 chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
 

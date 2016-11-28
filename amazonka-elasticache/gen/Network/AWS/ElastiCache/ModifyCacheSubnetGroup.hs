@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet group.
+--
+--
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheSubnetGroup/ action.
 --
+--
+--
 -- /See:/ 'modifyCacheSubnetGroup' smart constructor.
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
     { _mcsgSubnetIds                   :: !(Maybe [Text])
@@ -57,11 +61,11 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcsgSubnetIds'
+-- * 'mcsgSubnetIds' - The EC2 subnet IDs for the cache subnet group.
 --
--- * 'mcsgCacheSubnetGroupDescription'
+-- * 'mcsgCacheSubnetGroupDescription' - A description for the cache subnet group.
 --
--- * 'mcsgCacheSubnetGroupName'
+-- * 'mcsgCacheSubnetGroupName' - The name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 modifyCacheSubnetGroup
     :: Text -- ^ 'mcsgCacheSubnetGroupName'
     -> ModifyCacheSubnetGroup
@@ -80,11 +84,7 @@ mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Default 
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -> s{_mcsgCacheSubnetGroupDescription = a});
 
--- | The name for the cache subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
---
--- Example: 'mysubnetgroup'
+-- | The name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a});
 
@@ -131,9 +131,9 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcsgrsCacheSubnetGroup'
+-- * 'mcsgrsCacheSubnetGroup' - Undocumented member.
 --
--- * 'mcsgrsResponseStatus'
+-- * 'mcsgrsResponseStatus' - -- | The response status code.
 modifyCacheSubnetGroupResponse
     :: Int -- ^ 'mcsgrsResponseStatus'
     -> ModifyCacheSubnetGroupResponse
@@ -147,7 +147,7 @@ modifyCacheSubnetGroupResponse pResponseStatus_ =
 mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mcsgrsResponseStatus :: Lens' ModifyCacheSubnetGroupResponse Int
 mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
 

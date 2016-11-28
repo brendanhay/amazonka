@@ -20,7 +20,9 @@
 --
 -- Deletes the specified lifecycle hook.
 --
--- If there are any outstanding lifecycle actions, they are completed first ('ABANDON' for launching instances, 'CONTINUE' for terminating instances).
+--
+-- If there are any outstanding lifecycle actions, they are completed first (@ABANDON@ for launching instances, @CONTINUE@ for terminating instances).
+--
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteLifecycleHook.
 --
+--
+--
 -- /See:/ 'deleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
     { _delLifecycleHookName    :: !Text
@@ -56,9 +60,9 @@ data DeleteLifecycleHook = DeleteLifecycleHook'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delLifecycleHookName'
+-- * 'delLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'delAutoScalingGroupName'
+-- * 'delAutoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
 deleteLifecycleHook
     :: Text -- ^ 'delLifecycleHookName'
     -> Text -- ^ 'delAutoScalingGroupName'
@@ -106,6 +110,8 @@ instance ToQuery DeleteLifecycleHook where
 
 -- | Contains the output of DeleteLifecycleHook.
 --
+--
+--
 -- /See:/ 'deleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
     { _drsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteLifecycleHookResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteLifecycleHookResponse
@@ -124,7 +130,7 @@ deleteLifecycleHookResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

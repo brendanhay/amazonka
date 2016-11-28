@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Returns information about a branch.
 --
+--
+--
 -- /See:/ 'branchInfo' smart constructor.
 data BranchInfo = BranchInfo'
     { _biCommitId   :: !(Maybe Text)
@@ -33,9 +35,9 @@ data BranchInfo = BranchInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'biCommitId'
+-- * 'biCommitId' - The ID of the last commit made to the branch.
 --
--- * 'biBranchName'
+-- * 'biBranchName' - The name of the branch.
 branchInfo
     :: BranchInfo
 branchInfo =
@@ -65,6 +67,8 @@ instance NFData BranchInfo
 
 -- | Returns information about a specific commit.
 --
+--
+--
 -- /See:/ 'commit' smart constructor.
 data Commit = Commit'
     { _cCommitter      :: !(Maybe UserInfo)
@@ -79,17 +83,17 @@ data Commit = Commit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCommitter'
+-- * 'cCommitter' - Information about the person who committed the specified commit, also known as the committer. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 --
--- * 'cTreeId'
+-- * 'cTreeId' - Tree information for the specified commit.
 --
--- * 'cAdditionalData'
+-- * 'cAdditionalData' - Any additional data associated with the specified commit.
 --
--- * 'cParents'
+-- * 'cParents' - The parent list for the specified commit.
 --
--- * 'cAuthor'
+-- * 'cAuthor' - Information about the author of the specified commit.
 --
--- * 'cMessage'
+-- * 'cMessage' - The message associated with the specified commit.
 commit
     :: Commit
 commit =
@@ -143,6 +147,8 @@ instance NFData Commit
 
 -- | Information about a repository.
 --
+--
+--
 -- /See:/ 'repositoryMetadata' smart constructor.
 data RepositoryMetadata = RepositoryMetadata'
     { _rmRepositoryDescription :: !(Maybe Text)
@@ -161,25 +167,25 @@ data RepositoryMetadata = RepositoryMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmRepositoryDescription'
+-- * 'rmRepositoryDescription' - A comment or description about the repository.
 --
--- * 'rmLastModifiedDate'
+-- * 'rmLastModifiedDate' - The date and time the repository was last modified, in timestamp format.
 --
--- * 'rmARN'
+-- * 'rmARN' - The Amazon Resource Name (ARN) of the repository.
 --
--- * 'rmCloneURLHTTP'
+-- * 'rmCloneURLHTTP' - The URL to use for cloning the repository over HTTPS.
 --
--- * 'rmAccountId'
+-- * 'rmAccountId' - The ID of the AWS account associated with the repository.
 --
--- * 'rmDefaultBranch'
+-- * 'rmDefaultBranch' - The repository's default branch name.
 --
--- * 'rmRepositoryId'
+-- * 'rmRepositoryId' - The ID of the repository.
 --
--- * 'rmRepositoryName'
+-- * 'rmRepositoryName' - The repository's name.
 --
--- * 'rmCreationDate'
+-- * 'rmCreationDate' - The date and time the repository was created, in timestamp format.
 --
--- * 'rmCloneURLSSH'
+-- * 'rmCloneURLSSH' - The URL to use for cloning the repository over SSH.
 repositoryMetadata
     :: RepositoryMetadata
 repositoryMetadata =
@@ -216,7 +222,7 @@ rmCloneURLHTTP = lens _rmCloneURLHTTP (\ s a -> s{_rmCloneURLHTTP = a});
 rmAccountId :: Lens' RepositoryMetadata (Maybe Text)
 rmAccountId = lens _rmAccountId (\ s a -> s{_rmAccountId = a});
 
--- | The repository\'s default branch name.
+-- | The repository's default branch name.
 rmDefaultBranch :: Lens' RepositoryMetadata (Maybe Text)
 rmDefaultBranch = lens _rmDefaultBranch (\ s a -> s{_rmDefaultBranch = a});
 
@@ -224,7 +230,7 @@ rmDefaultBranch = lens _rmDefaultBranch (\ s a -> s{_rmDefaultBranch = a});
 rmRepositoryId :: Lens' RepositoryMetadata (Maybe Text)
 rmRepositoryId = lens _rmRepositoryId (\ s a -> s{_rmRepositoryId = a});
 
--- | The repository\'s name.
+-- | The repository's name.
 rmRepositoryName :: Lens' RepositoryMetadata (Maybe Text)
 rmRepositoryName = lens _rmRepositoryName (\ s a -> s{_rmRepositoryName = a});
 
@@ -258,6 +264,8 @@ instance NFData RepositoryMetadata
 
 -- | Information about a repository name and ID.
 --
+--
+--
 -- /See:/ 'repositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
     { _rnipRepositoryId   :: !(Maybe Text)
@@ -268,9 +276,9 @@ data RepositoryNameIdPair = RepositoryNameIdPair'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnipRepositoryId'
+-- * 'rnipRepositoryId' - The ID associated with the repository.
 --
--- * 'rnipRepositoryName'
+-- * 'rnipRepositoryName' - The name associated with the repository.
 repositoryNameIdPair
     :: RepositoryNameIdPair
 repositoryNameIdPair =
@@ -300,6 +308,8 @@ instance NFData RepositoryNameIdPair
 
 -- | Information about a trigger for a repository.
 --
+--
+--
 -- /See:/ 'repositoryTrigger' smart constructor.
 data RepositoryTrigger = RepositoryTrigger'
     { _rtBranches       :: !(Maybe [Text])
@@ -313,15 +323,15 @@ data RepositoryTrigger = RepositoryTrigger'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtBranches'
+-- * 'rtBranches' - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
 --
--- * 'rtCustomData'
+-- * 'rtCustomData' - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 --
--- * 'rtDestinationARN'
+-- * 'rtDestinationARN' - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
 --
--- * 'rtName'
+-- * 'rtName' - The name of the trigger.
 --
--- * 'rtEvents'
+-- * 'rtEvents' - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events.
 repositoryTrigger
     :: RepositoryTrigger
 repositoryTrigger =
@@ -380,6 +390,8 @@ instance ToJSON RepositoryTrigger where
 
 -- | A trigger failed to run.
 --
+--
+--
 -- /See:/ 'repositoryTriggerExecutionFailure' smart constructor.
 data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
     { _rtefFailureMessage :: !(Maybe Text)
@@ -390,9 +402,9 @@ data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtefFailureMessage'
+-- * 'rtefFailureMessage' - Additional message information about the trigger that did not run.
 --
--- * 'rtefTrigger'
+-- * 'rtefTrigger' - The name of the trigger that did not run.
 repositoryTriggerExecutionFailure
     :: RepositoryTriggerExecutionFailure
 repositoryTriggerExecutionFailure =
@@ -423,6 +435,8 @@ instance NFData RepositoryTriggerExecutionFailure
 
 -- | Information about the user who made a specified commit.
 --
+--
+--
 -- /See:/ 'userInfo' smart constructor.
 data UserInfo = UserInfo'
     { _uiEmail :: !(Maybe Text)
@@ -434,11 +448,11 @@ data UserInfo = UserInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiEmail'
+-- * 'uiEmail' - The email address associated with the user who made the commit, if any.
 --
--- * 'uiDate'
+-- * 'uiDate' - The date when the specified commit was pushed to the repository.
 --
--- * 'uiName'
+-- * 'uiName' - The name of the user who made the specified commit.
 userInfo
     :: UserInfo
 userInfo =

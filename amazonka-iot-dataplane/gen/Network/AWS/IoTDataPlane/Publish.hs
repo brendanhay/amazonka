@@ -20,7 +20,9 @@
 --
 -- Publishes state information.
 --
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol> in the /AWS IoT Developer Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http HTTP Protocol> in the /AWS IoT Developer Guide/ .
+--
 module Network.AWS.IoTDataPlane.Publish
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The input for the Publish operation.
 --
+--
+--
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
     { _pPayload :: !(Maybe (HashMap Text Value))
@@ -56,11 +60,11 @@ data Publish = Publish'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPayload'
+-- * 'pPayload' - The state information, in JSON format.
 --
--- * 'pQos'
+-- * 'pQos' - The Quality of Service (QoS) level.
 --
--- * 'pTopic'
+-- * 'pTopic' - The name of the MQTT topic.
 publish
     :: Text -- ^ 'pTopic'
     -> Publish

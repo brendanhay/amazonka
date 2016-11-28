@@ -52,11 +52,11 @@ data PutBucketLogging = PutBucketLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblContentMD5'
+-- * 'pblContentMD5' - Undocumented member.
 --
--- * 'pblBucket'
+-- * 'pblBucket' - Undocumented member.
 --
--- * 'pblBucketLoggingStatus'
+-- * 'pblBucketLoggingStatus' - Undocumented member.
 putBucketLogging
     :: BucketName -- ^ 'pblBucket'
     -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'

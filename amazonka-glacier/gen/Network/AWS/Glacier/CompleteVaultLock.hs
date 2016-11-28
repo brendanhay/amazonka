@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation completes the vault locking process by transitioning the vault lock from the 'InProgress' state to the 'Locked' state, which causes the vault lock policy to become unchangeable. A vault lock is put into the 'InProgress' state by calling < InitiateVaultLock>. You can obtain the state of the vault lock by calling < GetVaultLock>. For more information about the vault locking process, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
+-- This operation completes the vault locking process by transitioning the vault lock from the @InProgress@ state to the @Locked@ state, which causes the vault lock policy to become unchangeable. A vault lock is put into the @InProgress@ state by calling 'InitiateVaultLock' . You can obtain the state of the vault lock by calling 'GetVaultLock' . For more information about the vault locking process, <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock> .
 --
--- This operation is idempotent. This request is always successful if the vault lock is in the 'Locked' state and the provided lock ID matches the lock ID originally used to lock the vault.
 --
--- If an invalid lock ID is passed in the request when the vault lock is in the 'Locked' state, the operation returns an 'AccessDeniedException' error. If an invalid lock ID is passed in the request when the vault lock is in the 'InProgress' state, the operation throws an 'InvalidParameter' error.
+-- This operation is idempotent. This request is always successful if the vault lock is in the @Locked@ state and the provided lock ID matches the lock ID originally used to lock the vault.
+--
+-- If an invalid lock ID is passed in the request when the vault lock is in the @Locked@ state, the operation returns an @AccessDeniedException@ error. If an invalid lock ID is passed in the request when the vault lock is in the @InProgress@ state, the operation throws an @InvalidParameter@ error.
+--
 module Network.AWS.Glacier.CompleteVaultLock
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input values for 'CompleteVaultLock'.
+-- | The input values for @CompleteVaultLock@ .
+--
+--
 --
 -- /See:/ 'completeVaultLock' smart constructor.
 data CompleteVaultLock = CompleteVaultLock'
@@ -58,11 +62,11 @@ data CompleteVaultLock = CompleteVaultLock'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvlAccountId'
+-- * 'cvlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
 --
--- * 'cvlVaultName'
+-- * 'cvlVaultName' - The name of the vault.
 --
--- * 'cvlLockId'
+-- * 'cvlLockId' - The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
 completeVaultLock
     :: Text -- ^ 'cvlAccountId'
     -> Text -- ^ 'cvlVaultName'
@@ -75,7 +79,7 @@ completeVaultLock pAccountId_ pVaultName_ pLockId_ =
     , _cvlLockId = pLockId_
     }
 
--- | The 'AccountId' value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
 cvlAccountId :: Lens' CompleteVaultLock Text
 cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
 
@@ -83,7 +87,7 @@ cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
 cvlVaultName :: Lens' CompleteVaultLock Text
 cvlVaultName = lens _cvlVaultName (\ s a -> s{_cvlVaultName = a});
 
--- | The 'lockId' value is the lock ID obtained from a < InitiateVaultLock> request.
+-- | The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
 cvlLockId :: Lens' CompleteVaultLock Text
 cvlLockId = lens _cvlLockId (\ s a -> s{_cvlLockId = a});
 

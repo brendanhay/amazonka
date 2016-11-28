@@ -20,17 +20,20 @@
 --
 -- Deletes the specified mount target.
 --
+--
 -- This operation forcibly breaks any mounts of the file system via the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes may be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC via another mount target.
 --
 -- This operation requires permissions for the following action on the file system:
 --
--- -   'elasticfilesystem:DeleteMountTarget'
+--     * @elasticfilesystem:DeleteMountTarget@
 --
--- The 'DeleteMountTarget' call returns while the mount target state is still 'deleting'. You can check the mount target deletion by calling the < DescribeMountTargets> operation, which returns a list of mount target descriptions for the given file system.
 --
--- The operation also requires permissions for the following Amazon EC2 action on the mount target\'s network interface:
 --
--- -   'ec2:DeleteNetworkInterface'
+-- The operation also requires permissions for the following Amazon EC2 action on the mount target's network interface:
+--
+--     * @ec2:DeleteNetworkInterface@
+--
+--
 --
 module Network.AWS.EFS.DeleteMountTarget
     (
@@ -54,6 +57,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
     { _dMountTargetId :: Text
@@ -63,7 +68,7 @@ newtype DeleteMountTarget = DeleteMountTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dMountTargetId'
+-- * 'dMountTargetId' - ID of the mount target to delete (String).
 deleteMountTarget
     :: Text -- ^ 'dMountTargetId'
     -> DeleteMountTarget

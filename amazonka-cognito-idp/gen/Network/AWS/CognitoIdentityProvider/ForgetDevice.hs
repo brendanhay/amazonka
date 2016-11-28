@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Forgets the specified device.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ForgetDevice
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to forget the device.
 --
+--
+--
 -- /See:/ 'forgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
     { _fdAccessToken :: !(Maybe (Sensitive Text))
@@ -52,9 +56,9 @@ data ForgetDevice = ForgetDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdAccessToken'
+-- * 'fdAccessToken' - The access token for the forgotten device request.
 --
--- * 'fdDeviceKey'
+-- * 'fdDeviceKey' - The device key.
 forgetDevice
     :: Text -- ^ 'fdDeviceKey'
     -> ForgetDevice

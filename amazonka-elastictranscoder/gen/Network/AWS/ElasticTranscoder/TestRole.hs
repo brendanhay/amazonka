@@ -20,7 +20,9 @@
 --
 -- The TestRole operation tests the IAM role used to create the pipeline.
 --
--- The 'TestRole' action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.
+--
+-- The @TestRole@ action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.
+--
 module Network.AWS.ElasticTranscoder.TestRole
     (
     -- * Creating a Request
@@ -48,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'TestRoleRequest' structure.
+-- | The @TestRoleRequest@ structure.
+--
+--
 --
 -- /See:/ 'testRole' smart constructor.
 data TestRole = TestRole'
@@ -62,13 +66,13 @@ data TestRole = TestRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trRole'
+-- * 'trRole' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.
 --
--- * 'trInputBucket'
+-- * 'trInputBucket' - The Amazon S3 bucket that contains media files to be transcoded. The action attempts to read from this bucket.
 --
--- * 'trOutputBucket'
+-- * 'trOutputBucket' - The Amazon S3 bucket that Elastic Transcoder will write transcoded media files to. The action attempts to read from this bucket.
 --
--- * 'trTopics'
+-- * 'trTopics' - The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.
 testRole
     :: Text -- ^ 'trRole'
     -> Text -- ^ 'trInputBucket'
@@ -130,7 +134,9 @@ instance ToPath TestRole where
 instance ToQuery TestRole where
         toQuery = const mempty
 
--- | The 'TestRoleResponse' structure.
+-- | The @TestRoleResponse@ structure.
+--
+--
 --
 -- /See:/ 'testRoleResponse' smart constructor.
 data TestRoleResponse = TestRoleResponse'
@@ -143,11 +149,11 @@ data TestRoleResponse = TestRoleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trrsSuccess'
+-- * 'trrsSuccess' - If the operation is successful, this value is @true@ ; otherwise, the value is @false@ .
 --
--- * 'trrsMessages'
+-- * 'trrsMessages' - If the @Success@ element contains @false@ , this value is an array of one or more error messages that were generated during the test process.
 --
--- * 'trrsResponseStatus'
+-- * 'trrsResponseStatus' - -- | The response status code.
 testRoleResponse
     :: Int -- ^ 'trrsResponseStatus'
     -> TestRoleResponse
@@ -158,15 +164,15 @@ testRoleResponse pResponseStatus_ =
     , _trrsResponseStatus = pResponseStatus_
     }
 
--- | If the operation is successful, this value is 'true'; otherwise, the value is 'false'.
+-- | If the operation is successful, this value is @true@ ; otherwise, the value is @false@ .
 trrsSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrsSuccess = lens _trrsSuccess (\ s a -> s{_trrsSuccess = a});
 
--- | If the 'Success' element contains 'false', this value is an array of one or more error messages that were generated during the test process.
+-- | If the @Success@ element contains @false@ , this value is an array of one or more error messages that were generated during the test process.
 trrsMessages :: Lens' TestRoleResponse [Text]
 trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 trrsResponseStatus :: Lens' TestRoleResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
 

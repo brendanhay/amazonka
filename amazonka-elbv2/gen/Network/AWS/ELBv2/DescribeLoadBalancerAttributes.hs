@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the attributes for the specified load balancer.
+--
+--
 module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerAttributes' smart constructor.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerARN :: Text
@@ -53,7 +57,7 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbaLoadBalancerARN'
+-- * 'dlbaLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 describeLoadBalancerAttributes
     :: Text -- ^ 'dlbaLoadBalancerARN'
     -> DescribeLoadBalancerAttributes
@@ -101,6 +105,8 @@ instance ToQuery DescribeLoadBalancerAttributes where
 
 -- | Contains the output of DescribeLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
@@ -111,9 +117,9 @@ data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbarsAttributes'
+-- * 'dlbarsAttributes' - Information about the load balancer attributes.
 --
--- * 'dlbarsResponseStatus'
+-- * 'dlbarsResponseStatus' - -- | The response status code.
 describeLoadBalancerAttributesResponse
     :: Int -- ^ 'dlbarsResponseStatus'
     -> DescribeLoadBalancerAttributesResponse
@@ -127,7 +133,7 @@ describeLoadBalancerAttributesResponse pResponseStatus_ =
 dlbarsAttributes :: Lens' DescribeLoadBalancerAttributesResponse [LoadBalancerAttribute]
 dlbarsAttributes = lens _dlbarsAttributes (\ s a -> s{_dlbarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a});
 

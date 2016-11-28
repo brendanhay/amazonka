@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a real time endpoint of an 'MLModel'.
+-- Deletes a real time endpoint of an @MLModel@ .
+--
+--
 module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dreMLModelId'
+-- * 'dreMLModelId' - The ID assigned to the @MLModel@ during creation.
 deleteRealtimeEndpoint
     :: Text -- ^ 'dreMLModelId'
     -> DeleteRealtimeEndpoint
@@ -61,7 +63,7 @@ deleteRealtimeEndpoint pMLModelId_ =
     { _dreMLModelId = pMLModelId_
     }
 
--- | The ID assigned to the 'MLModel' during creation.
+-- | The ID assigned to the @MLModel@ during creation.
 dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
 dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
 
@@ -102,9 +104,11 @@ instance ToPath DeleteRealtimeEndpoint where
 instance ToQuery DeleteRealtimeEndpoint where
         toQuery = const mempty
 
--- | Represents the output of an 'DeleteRealtimeEndpoint' operation.
+-- | Represents the output of an @DeleteRealtimeEndpoint@ operation.
 --
--- The result contains the 'MLModelId' and the endpoint information for the 'MLModel'.
+--
+-- The result contains the @MLModelId@ and the endpoint information for the @MLModel@ .
+--
 --
 -- /See:/ 'deleteRealtimeEndpointResponse' smart constructor.
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
@@ -117,11 +121,11 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drersRealtimeEndpointInfo'
+-- * 'drersRealtimeEndpointInfo' - The endpoint information of the @MLModel@
 --
--- * 'drersMLModelId'
+-- * 'drersMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 --
--- * 'drersResponseStatus'
+-- * 'drersResponseStatus' - -- | The response status code.
 deleteRealtimeEndpointResponse
     :: Int -- ^ 'drersResponseStatus'
     -> DeleteRealtimeEndpointResponse
@@ -132,15 +136,15 @@ deleteRealtimeEndpointResponse pResponseStatus_ =
     , _drersResponseStatus = pResponseStatus_
     }
 
--- | The endpoint information of the 'MLModel'
+-- | The endpoint information of the @MLModel@
 drersRealtimeEndpointInfo :: Lens' DeleteRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
 drersRealtimeEndpointInfo = lens _drersRealtimeEndpointInfo (\ s a -> s{_drersRealtimeEndpointInfo = a});
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'. This value should be identical to the value of the 'MLModelId' in the request.
+-- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 drersMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drersResponseStatus :: Lens' DeleteRealtimeEndpointResponse Int
 drersResponseStatus = lens _drersResponseStatus (\ s a -> s{_drersResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration response.
+--
+--
 module Network.AWS.APIGateway.GetIntegrationResponse
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a get integration response request.
 --
+--
+--
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
     { _getRestAPIId  :: !Text
@@ -61,13 +65,13 @@ data GetIntegrationResponse = GetIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getRestAPIId'
+-- * 'getRestAPIId' - Specifies a get integration response request's API identifier.
 --
--- * 'getResourceId'
+-- * 'getResourceId' - Specifies a get integration response request's resource identifier.
 --
--- * 'getHttpMethod'
+-- * 'getHttpMethod' - Specifies a get integration response request's HTTP method.
 --
--- * 'getStatusCode'
+-- * 'getStatusCode' - Specifies a get integration response request's status code.
 getIntegrationResponse
     :: Text -- ^ 'getRestAPIId'
     -> Text -- ^ 'getResourceId'
@@ -82,19 +86,19 @@ getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _getStatusCode = pStatusCode_
     }
 
--- | Specifies a get integration response request\'s API identifier.
+-- | Specifies a get integration response request's API identifier.
 getRestAPIId :: Lens' GetIntegrationResponse Text
 getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a});
 
--- | Specifies a get integration response request\'s resource identifier.
+-- | Specifies a get integration response request's resource identifier.
 getResourceId :: Lens' GetIntegrationResponse Text
 getResourceId = lens _getResourceId (\ s a -> s{_getResourceId = a});
 
--- | Specifies a get integration response request\'s HTTP method.
+-- | Specifies a get integration response request's HTTP method.
 getHttpMethod :: Lens' GetIntegrationResponse Text
 getHttpMethod = lens _getHttpMethod (\ s a -> s{_getHttpMethod = a});
 
--- | Specifies a get integration response request\'s status code.
+-- | Specifies a get integration response request's status code.
 getStatusCode :: Lens' GetIntegrationResponse Text
 getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
 

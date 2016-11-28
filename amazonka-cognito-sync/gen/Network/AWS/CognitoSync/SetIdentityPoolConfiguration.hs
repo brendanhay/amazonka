@@ -20,7 +20,9 @@
 --
 -- Sets the necessary configuration for push sync.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | The input for the SetIdentityPoolConfiguration operation.
 --
+--
+--
 -- /See:/ 'setIdentityPoolConfiguration' smart constructor.
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
     { _sipcCognitoStreams :: !(Maybe CognitoStreams)
@@ -61,11 +65,11 @@ data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sipcCognitoStreams'
+-- * 'sipcCognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 --
--- * 'sipcPushSync'
+-- * 'sipcPushSync' - Options to apply to this identity pool for push synchronization.
 --
--- * 'sipcIdentityPoolId'
+-- * 'sipcIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
 setIdentityPoolConfiguration
     :: Text -- ^ 'sipcIdentityPoolId'
     -> SetIdentityPoolConfiguration
@@ -130,6 +134,8 @@ instance ToQuery SetIdentityPoolConfiguration where
 
 -- | The output for the SetIdentityPoolConfiguration operation
 --
+--
+--
 -- /See:/ 'setIdentityPoolConfigurationResponse' smart constructor.
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId :: !(Maybe Text)
@@ -142,13 +148,13 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sipcrsIdentityPoolId'
+-- * 'sipcrsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 --
--- * 'sipcrsCognitoStreams'
+-- * 'sipcrsCognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 --
--- * 'sipcrsPushSync'
+-- * 'sipcrsPushSync' - Options to apply to this identity pool for push synchronization.
 --
--- * 'sipcrsResponseStatus'
+-- * 'sipcrsResponseStatus' - -- | The response status code.
 setIdentityPoolConfigurationResponse
     :: Int -- ^ 'sipcrsResponseStatus'
     -> SetIdentityPoolConfigurationResponse
@@ -172,7 +178,7 @@ sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStre
 sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 
--- | The response status code.
+-- | -- | The response status code.
 sipcrsResponseStatus :: Lens' SetIdentityPoolConfigurationResponse Int
 sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a});
 

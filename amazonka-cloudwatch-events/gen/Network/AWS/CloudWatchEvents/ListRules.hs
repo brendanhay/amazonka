@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Amazon CloudWatch Events rules in your account. You can either list all the rules or you can provide a prefix to match to the rule names. If you have more rules in your account than the given limit, the results will be paginated. In that case, use the next token returned in the response and repeat ListRules until the NextToken in the response is returned as null.
+--
+--
 module Network.AWS.CloudWatchEvents.ListRules
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < ListRules> operation.
+-- | Container for the parameters to the 'ListRules' operation.
+--
+--
 --
 -- /See:/ 'listRules' smart constructor.
 data ListRules = ListRules'
@@ -58,11 +62,11 @@ data ListRules = ListRules'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrNextToken'
+-- * 'lrNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'lrNamePrefix'
+-- * 'lrNamePrefix' - The prefix matching the rule name.
 --
--- * 'lrLimit'
+-- * 'lrLimit' - The maximum number of results to return.
 listRules
     :: ListRules
 listRules =
@@ -121,7 +125,9 @@ instance ToPath ListRules where
 instance ToQuery ListRules where
         toQuery = const mempty
 
--- | The result of the < ListRules> operation.
+-- | The result of the 'ListRules' operation.
+--
+--
 --
 -- /See:/ 'listRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
@@ -134,11 +140,11 @@ data ListRulesResponse = ListRulesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsRules'
+-- * 'lrrsRules' - List of rules matching the specified criteria.
 --
--- * 'lrrsNextToken'
+-- * 'lrrsNextToken' - Indicates that there are additional results to retrieve.
 --
--- * 'lrrsResponseStatus'
+-- * 'lrrsResponseStatus' - -- | The response status code.
 listRulesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRulesResponse
@@ -157,7 +163,7 @@ lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce;
 lrrsNextToken :: Lens' ListRulesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRulesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 

@@ -52,11 +52,11 @@ data PutBucketTagging = PutBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbtContentMD5'
+-- * 'pbtContentMD5' - Undocumented member.
 --
--- * 'pbtBucket'
+-- * 'pbtBucket' - Undocumented member.
 --
--- * 'pbtTagging'
+-- * 'pbtTagging' - Undocumented member.
 putBucketTagging
     :: BucketName -- ^ 'pbtBucket'
     -> Tagging -- ^ 'pbtTagging'

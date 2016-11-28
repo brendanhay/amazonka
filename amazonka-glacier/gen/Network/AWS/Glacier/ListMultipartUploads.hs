@@ -18,15 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists in-progress multipart uploads for the specified vault. An in-progress multipart upload is a multipart upload that has been initiated by an < InitiateMultipartUpload> request, but has not yet been completed or aborted. The list returned in the List Multipart Upload response has no guaranteed order.
+-- This operation lists in-progress multipart uploads for the specified vault. An in-progress multipart upload is a multipart upload that has been initiated by an 'InitiateMultipartUpload' request, but has not yet been completed or aborted. The list returned in the List Multipart Upload response has no guaranteed order.
 --
--- The List Multipart Uploads operation supports pagination. By default, this operation returns up to 1,000 multipart uploads in the response. You should always check the response for a 'marker' at which to continue the list; if there are no more items the 'marker' is 'null'. To return a list of multipart uploads that begins at a specific upload, set the 'marker' request parameter to the value you obtained from a previous List Multipart Upload request. You can also limit the number of uploads returned in the response by specifying the 'limit' parameter in the request.
 --
--- Note the difference between this operation and listing parts (< ListParts>). The List Multipart Uploads operation lists all multipart uploads for a vault and does not require a multipart upload ID. The List Parts operation requires a multipart upload ID since parts are associated with a single upload.
+-- The List Multipart Uploads operation supports pagination. By default, this operation returns up to 1,000 multipart uploads in the response. You should always check the response for a @marker@ at which to continue the list; if there are no more items the @marker@ is @null@ . To return a list of multipart uploads that begins at a specific upload, set the @marker@ request parameter to the value you obtained from a previous List Multipart Upload request. You can also limit the number of uploads returned in the response by specifying the @limit@ parameter in the request.
 --
--- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
+-- Note the difference between this operation and listing parts ('ListParts' ). The List Multipart Uploads operation lists all multipart uploads for a vault and does not require a multipart upload ID. The List Parts operation requires a multipart upload ID since parts are associated with a single upload.
 --
--- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html List Multipart Uploads> in the /Amazon Glacier Developer Guide/.
+-- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
+--
+-- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html List Multipart Uploads > in the /Amazon Glacier Developer Guide/ .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListMultipartUploads
@@ -59,6 +61,8 @@ import           Network.AWS.Response
 
 -- | Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.
 --
+--
+--
 -- /See:/ 'listMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
     { _lmuMarker    :: !(Maybe Text)
@@ -71,13 +75,13 @@ data ListMultipartUploads = ListMultipartUploads'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmuMarker'
+-- * 'lmuMarker' - An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
 --
--- * 'lmuLimit'
+-- * 'lmuLimit' - Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 1,000 uploads.
 --
--- * 'lmuAccountId'
+-- * 'lmuAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 --
--- * 'lmuVaultName'
+-- * 'lmuVaultName' - The name of the vault.
 listMultipartUploads
     :: Text -- ^ 'lmuAccountId'
     -> Text -- ^ 'lmuVaultName'
@@ -98,7 +102,7 @@ lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a});
 lmuLimit :: Lens' ListMultipartUploads (Maybe Text)
 lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a});
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 lmuAccountId :: Lens' ListMultipartUploads Text
 lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
 
@@ -144,6 +148,8 @@ instance ToQuery ListMultipartUploads where
 
 -- | Contains the Amazon Glacier response to your request.
 --
+--
+--
 -- /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmursUploadsList    :: !(Maybe [UploadListElement])
@@ -155,11 +161,11 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmursUploadsList'
+-- * 'lmursUploadsList' - A list of in-progress multipart uploads.
 --
--- * 'lmursMarker'
+-- * 'lmursMarker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
 --
--- * 'lmursResponseStatus'
+-- * 'lmursResponseStatus' - -- | The response status code.
 listMultipartUploadsResponse
     :: Int -- ^ 'lmursResponseStatus'
     -> ListMultipartUploadsResponse
@@ -174,11 +180,11 @@ listMultipartUploadsResponse pResponseStatus_ =
 lmursUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
 lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default . _Coerce;
 
--- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is 'null'.
+-- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
 lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
 lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
 

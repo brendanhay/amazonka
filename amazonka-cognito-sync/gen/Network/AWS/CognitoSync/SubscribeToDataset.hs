@@ -20,7 +20,9 @@
 --
 -- Subscribes to receive notifications when a dataset is modified by another device.
 --
+--
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
+--
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | A request to SubscribeToDatasetRequest.
 --
+--
+--
 -- /See:/ 'subscribeToDataset' smart constructor.
 data SubscribeToDataset = SubscribeToDataset'
     { _stdIdentityPoolId :: !Text
@@ -60,13 +64,13 @@ data SubscribeToDataset = SubscribeToDataset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stdIdentityPoolId'
+-- * 'stdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
 --
--- * 'stdIdentityId'
+-- * 'stdIdentityId' - Unique ID for this identity.
 --
--- * 'stdDatasetName'
+-- * 'stdDatasetName' - The name of the dataset to subcribe to.
 --
--- * 'stdDeviceId'
+-- * 'stdDeviceId' - The unique ID generated for this device by Cognito.
 subscribeToDataset
     :: Text -- ^ 'stdIdentityPoolId'
     -> Text -- ^ 'stdIdentityId'
@@ -133,6 +137,8 @@ instance ToQuery SubscribeToDataset where
 
 -- | Response to a SubscribeToDataset request.
 --
+--
+--
 -- /See:/ 'subscribeToDatasetResponse' smart constructor.
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
     { _stdrsResponseStatus :: Int
@@ -142,7 +148,7 @@ newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stdrsResponseStatus'
+-- * 'stdrsResponseStatus' - -- | The response status code.
 subscribeToDatasetResponse
     :: Int -- ^ 'stdrsResponseStatus'
     -> SubscribeToDatasetResponse
@@ -151,7 +157,7 @@ subscribeToDatasetResponse pResponseStatus_ =
     { _stdrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 stdrsResponseStatus :: Lens' SubscribeToDatasetResponse Int
 stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a});
 

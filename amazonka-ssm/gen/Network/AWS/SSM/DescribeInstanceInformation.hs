@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your instances. You can use this to get information about instances like the operating system platform, the SSM agent version (Linux), status etc. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error.
+--
+--
 module Network.AWS.SSM.DescribeInstanceInformation
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diiInstanceInformationFilterList'
+-- * 'diiInstanceInformationFilterList' - One or more filters. Use a filter to return a more specific list of instances.
 --
--- * 'diiNextToken'
+-- * 'diiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'diiMaxResults'
+-- * 'diiMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 describeInstanceInformation
     :: DescribeInstanceInformation
 describeInstanceInformation =
@@ -134,11 +136,11 @@ data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diirsNextToken'
+-- * 'diirsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'diirsInstanceInformationList'
+-- * 'diirsInstanceInformationList' - The instance information list.
 --
--- * 'diirsResponseStatus'
+-- * 'diirsResponseStatus' - -- | The response status code.
 describeInstanceInformationResponse
     :: Int -- ^ 'diirsResponseStatus'
     -> DescribeInstanceInformationResponse
@@ -157,7 +159,7 @@ diirsNextToken = lens _diirsNextToken (\ s a -> s{_diirsNextToken = a});
 diirsInstanceInformationList :: Lens' DescribeInstanceInformationResponse [InstanceInformation]
 diirsInstanceInformationList = lens _diirsInstanceInformationList (\ s a -> s{_diirsInstanceInformationList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diirsResponseStatus :: Lens' DescribeInstanceInformationResponse Int
 diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
 

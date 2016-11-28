@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about a collection of < Resource> resources.
+-- Lists information about a collection of 'Resource' resources.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetResources
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Request to list information about a collection of resources.
 --
+--
+--
 -- /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
     { _grsLimit     :: !(Maybe Int)
@@ -61,11 +65,11 @@ data GetResources = GetResources'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsLimit'
+-- * 'grsLimit' - The maximum number of 'Resource' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'grsPosition'
+-- * 'grsPosition' - The position of the next set of results in the current 'Resources' resource to get information about.
 --
--- * 'grsRestAPIId'
+-- * 'grsRestAPIId' - The 'RestApi' identifier for the Resource.
 getResources
     :: Text -- ^ 'grsRestAPIId'
     -> GetResources
@@ -76,15 +80,15 @@ getResources pRestAPIId_ =
     , _grsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of < Resource> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of 'Resource' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 grsLimit :: Lens' GetResources (Maybe Int)
 grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a});
 
--- | The position of the next set of results in the current < Resources> resource to get information about.
+-- | The position of the next set of results in the current 'Resources' resource to get information about.
 grsPosition :: Lens' GetResources (Maybe Text)
 grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
 
--- | The < RestApi> identifier for the Resource.
+-- | The 'RestApi' identifier for the Resource.
 grsRestAPIId :: Lens' GetResources Text
 grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a});
 
@@ -125,7 +129,8 @@ instance ToQuery GetResources where
           = mconcat
               ["limit" =: _grsLimit, "position" =: _grsPosition]
 
--- | Represents a collection of < Resource> resources.
+-- | Represents a collection of 'Resource' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
@@ -140,11 +145,11 @@ data GetResourcesResponse = GetResourcesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsItems'
+-- * 'grrsItems' - Gets the current 'Resource' resource in the collection.
 --
--- * 'grrsPosition'
+-- * 'grrsPosition' - Undocumented member.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 getResourcesResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetResourcesResponse
@@ -155,7 +160,7 @@ getResourcesResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current < Resource> resource in the collection.
+-- | Gets the current 'Resource' resource in the collection.
 grrsItems :: Lens' GetResourcesResponse [Resource]
 grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce;
 
@@ -163,7 +168,7 @@ grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce;
 grrsPosition :: Lens' GetResourcesResponse (Maybe Text)
 grrsPosition = lens _grrsPosition (\ s a -> s{_grrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetResourcesResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 

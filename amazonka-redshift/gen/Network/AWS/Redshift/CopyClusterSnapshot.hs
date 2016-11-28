@@ -20,9 +20,11 @@
 --
 -- Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.
 --
+--
 -- When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.
 --
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'copyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
     { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
@@ -61,11 +65,11 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsSourceSnapshotClusterIdentifier'
+-- * 'ccsSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints:     * Must be the identifier for a valid cluster.
 --
--- * 'ccsSourceSnapshotIdentifier'
+-- * 'ccsSourceSnapshotIdentifier' - The identifier for the source snapshot.  Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 --
--- * 'ccsTargetSnapshotIdentifier'
+-- * 'ccsTargetSnapshotIdentifier' - The identifier given to the new manual snapshot.  Constraints:     * Cannot be null, empty, or blank.    * Must contain from 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for the AWS account that is making the request.
 copyClusterSnapshot
     :: Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
@@ -77,31 +81,15 @@ copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
--- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- Constraints:
---
--- -   Must be the identifier for a valid cluster.
+-- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints:     * Must be the identifier for a valid cluster.
 ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
 ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
 
--- | The identifier for the source snapshot.
---
--- Constraints:
---
--- -   Must be the identifier for a valid automated snapshot whose state is 'available'.
+-- | The identifier for the source snapshot.  Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
 
--- | The identifier given to the new manual snapshot.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank.
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens.
--- -   First character must be a letter.
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
--- -   Must be unique for the AWS account that is making the request.
+-- | The identifier given to the new manual snapshot.  Constraints:     * Cannot be null, empty, or blank.    * Must contain from 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for the AWS account that is making the request.
 ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
 
@@ -147,9 +135,9 @@ data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsrsSnapshot'
+-- * 'ccsrsSnapshot' - Undocumented member.
 --
--- * 'ccsrsResponseStatus'
+-- * 'ccsrsResponseStatus' - -- | The response status code.
 copyClusterSnapshotResponse
     :: Int -- ^ 'ccsrsResponseStatus'
     -> CopyClusterSnapshotResponse
@@ -163,7 +151,7 @@ copyClusterSnapshotResponse pResponseStatus_ =
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
 ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attempts to stop an ongoing deployment.
+--
+--
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a stop deployment operation.
 --
+--
+--
 -- /See:/ 'stopDeployment' smart constructor.
 newtype StopDeployment = StopDeployment'
     { _sdDeploymentId :: Text
@@ -54,7 +58,7 @@ newtype StopDeployment = StopDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdDeploymentId'
+-- * 'sdDeploymentId' - The unique ID of a deployment.
 stopDeployment
     :: Text -- ^ 'sdDeploymentId'
     -> StopDeployment
@@ -104,6 +108,8 @@ instance ToQuery StopDeployment where
 
 -- | Represents the output of a stop deployment operation.
 --
+--
+--
 -- /See:/ 'stopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrsStatus         :: !(Maybe StopStatus)
@@ -115,11 +121,11 @@ data StopDeploymentResponse = StopDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdrsStatus'
+-- * 'sdrsStatus' - The status of the stop deployment operation:     * Pending: The stop operation is pending.    * Succeeded: The stop operation was successful.
 --
--- * 'sdrsStatusMessage'
+-- * 'sdrsStatusMessage' - An accompanying status message.
 --
--- * 'sdrsResponseStatus'
+-- * 'sdrsResponseStatus' - -- | The response status code.
 stopDeploymentResponse
     :: Int -- ^ 'sdrsResponseStatus'
     -> StopDeploymentResponse
@@ -130,10 +136,7 @@ stopDeploymentResponse pResponseStatus_ =
     , _sdrsResponseStatus = pResponseStatus_
     }
 
--- | The status of the stop deployment operation:
---
--- -   Pending: The stop operation is pending.
--- -   Succeeded: The stop operation was successful.
+-- | The status of the stop deployment operation:     * Pending: The stop operation is pending.    * Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 
@@ -141,7 +144,7 @@ sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 sdrsResponseStatus :: Lens' StopDeploymentResponse Int
 sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a});
 

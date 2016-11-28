@@ -58,11 +58,11 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usdIfMatch'
+-- * 'usdIfMatch' - The value of the ETag header you received when retrieving the streaming distribution's configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'usdStreamingDistributionConfig'
+-- * 'usdStreamingDistributionConfig' - The streaming distribution's configuration information.
 --
--- * 'usdId'
+-- * 'usdId' - The streaming distribution's id.
 updateStreamingDistribution
     :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
@@ -74,15 +74,15 @@ updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     , _usdId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the streaming distribution\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the streaming distribution's configuration. For example: E2QWRUHAPOMQZL.
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
 
--- | The streaming distribution\'s configuration information.
+-- | The streaming distribution's configuration information.
 usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
 usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a});
 
--- | The streaming distribution\'s id.
+-- | The streaming distribution's id.
 usdId :: Lens' UpdateStreamingDistribution Text
 usdId = lens _usdId (\ s a -> s{_usdId = a});
 
@@ -134,11 +134,11 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usdrsETag'
+-- * 'usdrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'usdrsStreamingDistribution'
+-- * 'usdrsStreamingDistribution' - The streaming distribution's information.
 --
--- * 'usdrsResponseStatus'
+-- * 'usdrsResponseStatus' - -- | The response status code.
 updateStreamingDistributionResponse
     :: Int -- ^ 'usdrsResponseStatus'
     -> UpdateStreamingDistributionResponse
@@ -153,11 +153,11 @@ updateStreamingDistributionResponse pResponseStatus_ =
 usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
 usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
 
--- | The streaming distribution\'s information.
+-- | The streaming distribution's information.
 usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
 usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
 

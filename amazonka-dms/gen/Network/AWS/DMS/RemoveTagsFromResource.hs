@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes metadata tags from a DMS resource.
+--
+--
 module Network.AWS.DMS.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
     { _rtfrResourceARN :: !Text
@@ -54,9 +58,9 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceARN'
+-- * 'rtfrResourceARN' - >The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from.
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceARN'
     -> RemoveTagsFromResource
@@ -113,6 +117,8 @@ instance ToQuery RemoveTagsFromResource where
 
 -- |
 --
+--
+--
 -- /See:/ 'removeTagsFromResourceResponse' smart constructor.
 newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
     { _rtfrrsResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
@@ -131,7 +137,7 @@ removeTagsFromResourceResponse pResponseStatus_ =
     { _rtfrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 

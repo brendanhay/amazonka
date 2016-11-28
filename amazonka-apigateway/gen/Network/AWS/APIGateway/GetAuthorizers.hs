@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing < Authorizers> resource.
+-- Describe an existing 'Authorizers' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizers
@@ -47,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe an existing < Authorizers> resource.
+-- | Request to describe an existing 'Authorizers' resource.
+--
+--
 --
 -- /See:/ 'getAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
@@ -60,11 +63,11 @@ data GetAuthorizers = GetAuthorizers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaLimit'
+-- * 'gaLimit' - Limit the number of 'Authorizer' resources in the response.
 --
--- * 'gaPosition'
+-- * 'gaPosition' - If not all 'Authorizer' resources in the response were present, the position will specify where to start the next page of results.
 --
--- * 'gaRestAPIId'
+-- * 'gaRestAPIId' - The 'RestApi' identifier for the 'Authorizers' resource.
 getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
@@ -75,15 +78,15 @@ getAuthorizers pRestAPIId_ =
     , _gaRestAPIId = pRestAPIId_
     }
 
--- | Limit the number of < Authorizer> resources in the response.
+-- | Limit the number of 'Authorizer' resources in the response.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | If not all < Authorizer> resources in the response were present, the position will specify where to start the next page of results.
+-- | If not all 'Authorizer' resources in the response were present, the position will specify where to start the next page of results.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 
--- | The < RestApi> identifier for the < Authorizers> resource.
+-- | The 'RestApi' identifier for the 'Authorizers' resource.
 gaRestAPIId :: Lens' GetAuthorizers Text
 gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a});
 
@@ -117,7 +120,8 @@ instance ToQuery GetAuthorizers where
           = mconcat
               ["limit" =: _gaLimit, "position" =: _gaPosition]
 
--- | Represents a collection of < Authorizer> resources.
+-- | Represents a collection of 'Authorizer' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
@@ -132,11 +136,11 @@ data GetAuthorizersResponse = GetAuthorizersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsItems'
+-- * 'garsItems' - Gets the current list of 'Authorizer' resources in the collection.
 --
--- * 'garsPosition'
+-- * 'garsPosition' - Undocumented member.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 getAuthorizersResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAuthorizersResponse
@@ -147,7 +151,7 @@ getAuthorizersResponse pResponseStatus_ =
     , _garsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current list of < Authorizer> resources in the collection.
+-- | Gets the current list of 'Authorizer' resources in the collection.
 garsItems :: Lens' GetAuthorizersResponse [Authorizer]
 garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
 
@@ -155,7 +159,7 @@ garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
 garsPosition :: Lens' GetAuthorizersResponse (Maybe Text)
 garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 

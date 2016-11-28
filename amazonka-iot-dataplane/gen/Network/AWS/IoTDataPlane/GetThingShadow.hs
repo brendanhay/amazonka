@@ -20,7 +20,9 @@
 --
 -- Gets the thing shadow for the specified thing.
 --
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the /AWS IoT Developer Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the /AWS IoT Developer Guide/ .
+--
 module Network.AWS.IoTDataPlane.GetThingShadow
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The input for the GetThingShadow operation.
 --
+--
+--
 -- /See:/ 'getThingShadow' smart constructor.
 newtype GetThingShadow = GetThingShadow'
     { _gtsThingName :: Text
@@ -55,7 +59,7 @@ newtype GetThingShadow = GetThingShadow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtsThingName'
+-- * 'gtsThingName' - The name of the thing.
 getThingShadow
     :: Text -- ^ 'gtsThingName'
     -> GetThingShadow
@@ -93,6 +97,8 @@ instance ToQuery GetThingShadow where
 
 -- | The output from the GetThingShadow operation.
 --
+--
+--
 -- /See:/ 'getThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
     { _gtsrsPayload        :: !(Maybe (HashMap Text Value))
@@ -103,9 +109,9 @@ data GetThingShadowResponse = GetThingShadowResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtsrsPayload'
+-- * 'gtsrsPayload' - The state information, in JSON format.
 --
--- * 'gtsrsResponseStatus'
+-- * 'gtsrsResponseStatus' - -- | The response status code.
 getThingShadowResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetThingShadowResponse
@@ -119,7 +125,7 @@ getThingShadowResponse pResponseStatus_ =
 gtsrsPayload :: Lens' GetThingShadowResponse (Maybe (HashMap Text Value))
 gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gtsrsResponseStatus :: Lens' GetThingShadowResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 

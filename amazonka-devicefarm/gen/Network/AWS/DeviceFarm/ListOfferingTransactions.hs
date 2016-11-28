@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
 module Network.AWS.DeviceFarm.ListOfferingTransactions
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list the offering transaction history.
 --
+--
+--
 -- /See:/ 'listOfferingTransactions' smart constructor.
 newtype ListOfferingTransactions = ListOfferingTransactions'
     { _lotNextToken :: Maybe Text
@@ -54,7 +58,7 @@ newtype ListOfferingTransactions = ListOfferingTransactions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lotNextToken'
+-- * 'lotNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listOfferingTransactions
     :: ListOfferingTransactions
 listOfferingTransactions =
@@ -105,6 +109,8 @@ instance ToQuery ListOfferingTransactions where
 
 -- | Returns the transaction log of the specified offerings.
 --
+--
+--
 -- /See:/ 'listOfferingTransactionsResponse' smart constructor.
 data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
     { _lotrsOfferingTransactions :: !(Maybe [OfferingTransaction])
@@ -116,11 +122,11 @@ data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lotrsOfferingTransactions'
+-- * 'lotrsOfferingTransactions' - The audit log of subscriptions you have purchased and modified through AWS Device Farm.
 --
--- * 'lotrsNextToken'
+-- * 'lotrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lotrsResponseStatus'
+-- * 'lotrsResponseStatus' - -- | The response status code.
 listOfferingTransactionsResponse
     :: Int -- ^ 'lotrsResponseStatus'
     -> ListOfferingTransactionsResponse
@@ -139,7 +145,7 @@ lotrsOfferingTransactions = lens _lotrsOfferingTransactions (\ s a -> s{_lotrsOf
 lotrsNextToken :: Lens' ListOfferingTransactionsResponse (Maybe Text)
 lotrsNextToken = lens _lotrsNextToken (\ s a -> s{_lotrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lotrsResponseStatus :: Lens' ListOfferingTransactionsResponse Int
 lotrsResponseStatus = lens _lotrsResponseStatus (\ s a -> s{_lotrsResponseStatus = a});
 

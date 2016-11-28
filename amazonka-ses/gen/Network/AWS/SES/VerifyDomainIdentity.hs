@@ -20,7 +20,9 @@
 --
 -- Verifies a domain.
 --
+--
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html Amazon SES Developer Guide>.
+-- | Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'verifyDomainIdentity' smart constructor.
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
@@ -55,7 +59,7 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vdiDomain'
+-- * 'vdiDomain' - The domain to be verified.
 verifyDomainIdentity
     :: Text -- ^ 'vdiDomain'
     -> VerifyDomainIdentity
@@ -97,6 +101,8 @@ instance ToQuery VerifyDomainIdentity where
 
 -- | Returns a TXT record that you must publish to the DNS server of your domain to complete domain verification with Amazon SES.
 --
+--
+--
 -- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirsResponseStatus    :: !Int
@@ -107,9 +113,9 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vdirsResponseStatus'
+-- * 'vdirsResponseStatus' - -- | The response status code.
 --
--- * 'vdirsVerificationToken'
+-- * 'vdirsVerificationToken' - A TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification.
 verifyDomainIdentityResponse
     :: Int -- ^ 'vdirsResponseStatus'
     -> Text -- ^ 'vdirsVerificationToken'
@@ -120,7 +126,7 @@ verifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
     , _vdirsVerificationToken = pVerificationToken_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 vdirsResponseStatus :: Lens' VerifyDomainIdentityResponse Int
 vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus = a});
 

@@ -34,11 +34,11 @@ data CognitoStreams = CognitoStreams'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csStreamingStatus'
+-- * 'csStreamingStatus' - Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
 --
--- * 'csStreamName'
+-- * 'csStreamName' - The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
 --
--- * 'csRoleARN'
+-- * 'csRoleARN' - The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
 cognitoStreams
     :: CognitoStreams
 cognitoStreams =
@@ -48,11 +48,7 @@ cognitoStreams =
     , _csRoleARN = Nothing
     }
 
--- | Status of the Cognito streams. Valid values are:
---
--- ENABLED - Streaming of updates to identity pool is enabled.
---
--- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
 csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
 csStreamingStatus = lens _csStreamingStatus (\ s a -> s{_csStreamingStatus = a});
 
@@ -84,7 +80,7 @@ instance ToJSON CognitoStreams where
                   ("StreamName" .=) <$> _csStreamName,
                   ("RoleArn" .=) <$> _csRoleARN])
 
--- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 --
 -- /See:/ 'dataset' smart constructor.
 data Dataset = Dataset'
@@ -101,19 +97,19 @@ data Dataset = Dataset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLastModifiedDate'
+-- * 'dLastModifiedDate' - Date when the dataset was last modified.
 --
--- * 'dNumRecords'
+-- * 'dNumRecords' - Number of records in this dataset.
 --
--- * 'dDataStorage'
+-- * 'dDataStorage' - Total size in bytes of the records in this dataset.
 --
--- * 'dDatasetName'
+-- * 'dDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 --
--- * 'dCreationDate'
+-- * 'dCreationDate' - Date on which the dataset was created.
 --
--- * 'dLastModifiedBy'
+-- * 'dLastModifiedBy' - The device that made the last change to this dataset.
 --
--- * 'dIdentityId'
+-- * 'dIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 dataset
     :: Dataset
 dataset =
@@ -139,7 +135,7 @@ dNumRecords = lens _dNumRecords (\ s a -> s{_dNumRecords = a});
 dDataStorage :: Lens' Dataset (Maybe Integer)
 dDataStorage = lens _dDataStorage (\ s a -> s{_dDataStorage = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 dDatasetName :: Lens' Dataset (Maybe Text)
 dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a});
 
@@ -185,13 +181,13 @@ data IdentityPoolUsage = IdentityPoolUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipuLastModifiedDate'
+-- * 'ipuLastModifiedDate' - Date on which the identity pool was last modified.
 --
--- * 'ipuIdentityPoolId'
+-- * 'ipuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'ipuDataStorage'
+-- * 'ipuDataStorage' - Data storage information for the identity pool.
 --
--- * 'ipuSyncSessionsCount'
+-- * 'ipuSyncSessionsCount' - Number of sync sessions for the identity pool.
 identityPoolUsage
     :: IdentityPoolUsage
 identityPoolUsage =
@@ -247,15 +243,15 @@ data IdentityUsage = IdentityUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iuLastModifiedDate'
+-- * 'iuLastModifiedDate' - Date on which the identity was last modified.
 --
--- * 'iuIdentityPoolId'
+-- * 'iuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'iuDatasetCount'
+-- * 'iuDatasetCount' - Number of datasets for the identity.
 --
--- * 'iuDataStorage'
+-- * 'iuDataStorage' - Total data storage for this identity.
 --
--- * 'iuIdentityId'
+-- * 'iuIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 identityUsage
     :: IdentityUsage
 identityUsage =
@@ -304,6 +300,8 @@ instance NFData IdentityUsage
 
 -- | Configuration options to be applied to the identity pool.
 --
+--
+--
 -- /See:/ 'pushSync' smart constructor.
 data PushSync = PushSync'
     { _psApplicationARNs :: !(Maybe [Text])
@@ -314,9 +312,9 @@ data PushSync = PushSync'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psApplicationARNs'
+-- * 'psApplicationARNs' - List of SNS platform application ARNs that could be used by clients.
 --
--- * 'psRoleARN'
+-- * 'psRoleARN' - A role configured to allow Cognito to call SNS on behalf of the developer.
 pushSync
     :: PushSync
 pushSync =
@@ -368,17 +366,17 @@ data Record = Record'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rSyncCount'
+-- * 'rSyncCount' - The server sync count for this record.
 --
--- * 'rDeviceLastModifiedDate'
+-- * 'rDeviceLastModifiedDate' - The last modified date of the client device.
 --
--- * 'rLastModifiedDate'
+-- * 'rLastModifiedDate' - The date on which the record was last modified.
 --
--- * 'rValue'
+-- * 'rValue' - The value for the record.
 --
--- * 'rKey'
+-- * 'rKey' - The key for the record.
 --
--- * 'rLastModifiedBy'
+-- * 'rLastModifiedBy' - The user/device that made the last change to this record.
 record
     :: Record
 record =
@@ -411,7 +409,7 @@ rValue = lens _rValue (\ s a -> s{_rValue = a});
 rKey :: Lens' Record (Maybe Text)
 rKey = lens _rKey (\ s a -> s{_rKey = a});
 
--- | The user\/device that made the last change to this record.
+-- | The user/device that made the last change to this record.
 rLastModifiedBy :: Lens' Record (Maybe Text)
 rLastModifiedBy = lens _rLastModifiedBy (\ s a -> s{_rLastModifiedBy = a});
 
@@ -446,15 +444,15 @@ data RecordPatch = RecordPatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpDeviceLastModifiedDate'
+-- * 'rpDeviceLastModifiedDate' - The last modified date of the client device.
 --
--- * 'rpValue'
+-- * 'rpValue' - The value associated with the record patch.
 --
--- * 'rpOp'
+-- * 'rpOp' - An operation, either replace or remove.
 --
--- * 'rpKey'
+-- * 'rpKey' - The key associated with the record patch.
 --
--- * 'rpSyncCount'
+-- * 'rpSyncCount' - Last known server sync count for this record. Set to 0 if unknown.
 recordPatch
     :: Operation -- ^ 'rpOp'
     -> Text -- ^ 'rpKey'

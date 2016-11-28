@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current < ClientCertificate> resource.
+-- Gets information about the current 'ClientCertificate' resource.
+--
+--
 module Network.AWS.APIGateway.GetClientCertificate
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current < ClientCertificate> resource.
+-- | A request to get information about the current 'ClientCertificate' resource.
+--
+--
 --
 -- /See:/ 'getClientCertificate' smart constructor.
 newtype GetClientCertificate = GetClientCertificate'
@@ -56,7 +60,7 @@ newtype GetClientCertificate = GetClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccClientCertificateId'
+-- * 'gccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be described.
 getClientCertificate
     :: Text -- ^ 'gccClientCertificateId'
     -> GetClientCertificate
@@ -65,7 +69,7 @@ getClientCertificate pClientCertificateId_ =
     { _gccClientCertificateId = pClientCertificateId_
     }
 
--- | The identifier of the < ClientCertificate> resource to be described.
+-- | The identifier of the 'ClientCertificate' resource to be described.
 gccClientCertificateId :: Lens' GetClientCertificate Text
 gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCertificateId = a});
 

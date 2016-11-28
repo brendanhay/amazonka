@@ -178,9 +178,9 @@ prodData m s st = (,fields) <$> mk
         <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
-    mkHelp = Raw $
+    mkHelp = Help $
         sformat ("Creates a value of '" % itype %
-                "' with the minimum fields required to make a request.\n")
+                "' with the minimum fields required to make a request.")
                 n
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
@@ -207,7 +207,7 @@ serviceData :: HasMetadata a Identity
             => a
             -> Retry
             -> Either Error Fun
-serviceData m r = Fun' (m ^. serviceConfig) (Raw h)
+serviceData m r = Fun' (m ^. serviceConfig) (Help h)
     <$> pp None   (serviceS m)
     <*> pp Indent (serviceD m r)
   where
@@ -223,7 +223,7 @@ waiterData :: HasMetadata a Identity
 waiterData m os n w = do
     o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
     wf <- waiterFields m o w
-    c  <- Fun' (smartCtorId n) (Raw h)
+    c  <- Fun' (smartCtorId n) (Help h)
         <$> pp None   (waiterS n wf)
         <*> pp Indent (waiterD n wf)
     return $! WData (typeId n) (_opName o) c
@@ -235,7 +235,7 @@ waiterData m os n w = do
 
     h = sformat
         ("Polls 'Network.AWS." % stext % "." % itype %
-         "' every " % int % " seconds until a\n" %
+         "' every " % int % " seconds until a " %
          "successful state is reached. An error is returned after "
          % int % " failed checks.")
         (m ^. serviceAbbrev) k (_waitDelay w) (_waitAttempts w)

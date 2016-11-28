@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Confirms user registration as an admin without using a confirmation code. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to confirm user registration.
 --
+--
+--
 -- /See:/ 'adminConfirmSignUp' smart constructor.
 data AdminConfirmSignUp = AdminConfirmSignUp'
     { _acsuUserPoolId :: !Text
@@ -54,9 +58,9 @@ data AdminConfirmSignUp = AdminConfirmSignUp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsuUserPoolId'
+-- * 'acsuUserPoolId' - The user pool ID for which you want to confirm user registration.
 --
--- * 'acsuUsername'
+-- * 'acsuUsername' - The user name for which you want to confirm user registration.
 adminConfirmSignUp
     :: Text -- ^ 'acsuUserPoolId'
     -> Text -- ^ 'acsuUsername'
@@ -113,6 +117,8 @@ instance ToQuery AdminConfirmSignUp where
 
 -- | Represents the response from the server for the request to confirm registration.
 --
+--
+--
 -- /See:/ 'adminConfirmSignUpResponse' smart constructor.
 newtype AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
     { _acsursResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsursResponseStatus'
+-- * 'acsursResponseStatus' - -- | The response status code.
 adminConfirmSignUpResponse
     :: Int -- ^ 'acsursResponseStatus'
     -> AdminConfirmSignUpResponse
@@ -131,7 +137,7 @@ adminConfirmSignUpResponse pResponseStatus_ =
     { _acsursResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 acsursResponseStatus :: Lens' AdminConfirmSignUpResponse Int
 acsursResponseStatus = lens _acsursResponseStatus (\ s a -> s{_acsursResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified replication task.
+--
+--
 module Network.AWS.DMS.DeleteReplicationTask
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationTask' smart constructor.
 newtype DeleteReplicationTask = DeleteReplicationTask'
     { _drtReplicationTaskARN :: Text
@@ -53,7 +57,7 @@ newtype DeleteReplicationTask = DeleteReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drtReplicationTaskARN'
+-- * 'drtReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task to be deleted.
 deleteReplicationTask
     :: Text -- ^ 'drtReplicationTaskARN'
     -> DeleteReplicationTask
@@ -105,6 +109,8 @@ instance ToQuery DeleteReplicationTask where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationTaskResponse' smart constructor.
 data DeleteReplicationTaskResponse = DeleteReplicationTaskResponse'
     { _drtrsReplicationTask :: !(Maybe ReplicationTask)
@@ -115,9 +121,9 @@ data DeleteReplicationTaskResponse = DeleteReplicationTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drtrsReplicationTask'
+-- * 'drtrsReplicationTask' - The deleted replication task.
 --
--- * 'drtrsResponseStatus'
+-- * 'drtrsResponseStatus' - -- | The response status code.
 deleteReplicationTaskResponse
     :: Int -- ^ 'drtrsResponseStatus'
     -> DeleteReplicationTaskResponse
@@ -131,7 +137,7 @@ deleteReplicationTaskResponse pResponseStatus_ =
 drtrsReplicationTask :: Lens' DeleteReplicationTaskResponse (Maybe ReplicationTask)
 drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drtrsResponseStatus :: Lens' DeleteReplicationTaskResponse Int
 drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
 

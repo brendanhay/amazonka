@@ -20,6 +20,8 @@
 --
 -- List the grants for a specified key.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListGrants
     (
@@ -59,11 +61,11 @@ data ListGrants = ListGrants'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgMarker'
+-- * 'lgMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
 --
--- * 'lgLimit'
+-- * 'lgLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 --
--- * 'lgKeyId'
+-- * 'lgKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 listGrants
     :: Text -- ^ 'lgKeyId'
     -> ListGrants
@@ -74,22 +76,15 @@ listGrants pKeyId_ =
     , _lgKeyId = pKeyId_
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of 'NextMarker' from the response you just received.
+-- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the 'Truncated' element in the response is set to true.
---
--- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 lgLimit :: Lens' ListGrants (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 

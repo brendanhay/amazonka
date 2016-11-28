@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing < Method> resource.
+-- Deletes an existing 'Method' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteMethod
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing < Method> resource.
+-- | Request to delete an existing 'Method' resource.
+--
+--
 --
 -- /See:/ 'deleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
@@ -54,11 +58,11 @@ data DeleteMethod = DeleteMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmmRestAPIId'
+-- * 'dmmRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
 --
--- * 'dmmResourceId'
+-- * 'dmmResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
--- * 'dmmHttpMethod'
+-- * 'dmmHttpMethod' - The HTTP verb of the 'Method' resource.
 deleteMethod
     :: Text -- ^ 'dmmRestAPIId'
     -> Text -- ^ 'dmmResourceId'
@@ -71,15 +75,15 @@ deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _dmmHttpMethod = pHttpMethod_
     }
 
--- | The < RestApi> identifier for the < Method> resource.
+-- | The 'RestApi' identifier for the 'Method' resource.
 dmmRestAPIId :: Lens' DeleteMethod Text
 dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a});
 
--- | The < Resource> identifier for the < Method> resource.
+-- | The 'Resource' identifier for the 'Method' resource.
 dmmResourceId :: Lens' DeleteMethod Text
 dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 dmmHttpMethod :: Lens' DeleteMethod Text
 dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a});
 

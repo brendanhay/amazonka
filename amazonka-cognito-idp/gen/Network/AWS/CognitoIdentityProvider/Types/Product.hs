@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Specifies whether the attribute is standard or custom.
 --
+--
+--
 -- /See:/ 'attributeType' smart constructor.
 data AttributeType = AttributeType'
     { _atValue :: !(Maybe (Sensitive Text))
@@ -33,9 +35,9 @@ data AttributeType = AttributeType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atValue'
+-- * 'atValue' - The value of the attribute.
 --
--- * 'atName'
+-- * 'atName' - The name of the attribute.
 attributeType
     :: Text -- ^ 'atName'
     -> AttributeType
@@ -72,6 +74,8 @@ instance ToJSON AttributeType where
 
 -- | The result type of the authentication result.
 --
+--
+--
 -- /See:/ 'authenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
     { _artAccessToken       :: !(Maybe (Sensitive Text))
@@ -86,17 +90,17 @@ data AuthenticationResultType = AuthenticationResultType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artAccessToken'
+-- * 'artAccessToken' - The access token of the authentication result.
 --
--- * 'artRefreshToken'
+-- * 'artRefreshToken' - The refresh token of the authentication result.
 --
--- * 'artNewDeviceMetadata'
+-- * 'artNewDeviceMetadata' - The new device metadata from an authentication result.
 --
--- * 'artExpiresIn'
+-- * 'artExpiresIn' - The expiration period of the authentication result.
 --
--- * 'artTokenType'
+-- * 'artTokenType' - The token type of the authentication result.
 --
--- * 'artIdToken'
+-- * 'artIdToken' - The ID token of the authentication result.
 authenticationResultType
     :: AuthenticationResultType
 authenticationResultType =
@@ -150,6 +154,8 @@ instance NFData AuthenticationResultType
 
 -- | The type of code delivery details being returned from the server.
 --
+--
+--
 -- /See:/ 'codeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
     { _cddtDestination    :: !(Maybe Text)
@@ -161,11 +167,11 @@ data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cddtDestination'
+-- * 'cddtDestination' - The destination for the code delivery details.
 --
--- * 'cddtDeliveryMedium'
+-- * 'cddtDeliveryMedium' - The delivery medium (email message or phone number).
 --
--- * 'cddtAttributeName'
+-- * 'cddtAttributeName' - The name of the attribute in the code delivery details type.
 codeDeliveryDetailsType
     :: CodeDeliveryDetailsType
 codeDeliveryDetailsType =
@@ -199,7 +205,9 @@ instance Hashable CodeDeliveryDetailsType
 
 instance NFData CodeDeliveryDetailsType
 
--- | The type of configuration for the user pool\'s device tracking.
+-- | The type of configuration for the user pool's device tracking.
+--
+--
 --
 -- /See:/ 'deviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
@@ -211,9 +219,9 @@ data DeviceConfigurationType = DeviceConfigurationType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctChallengeRequiredOnNewDevice'
+-- * 'dctChallengeRequiredOnNewDevice' - Indicates whether a challenge is required on a new device. Only applicable to a new device.
 --
--- * 'dctDeviceOnlyRememberedOnUserPrompt'
+-- * 'dctDeviceOnlyRememberedOnUserPrompt' - If true, a device is only remembered on user prompt.
 deviceConfigurationType
     :: DeviceConfigurationType
 deviceConfigurationType =
@@ -253,6 +261,8 @@ instance ToJSON DeviceConfigurationType where
 
 -- | The device verifier against which it will be authenticated.
 --
+--
+--
 -- /See:/ 'deviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
     { _dsvctPasswordVerifier :: !(Maybe Text)
@@ -263,9 +273,9 @@ data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsvctPasswordVerifier'
+-- * 'dsvctPasswordVerifier' - The password verifier.
 --
--- * 'dsvctSalt'
+-- * 'dsvctSalt' - The salt.
 deviceSecretVerifierConfigType
     :: DeviceSecretVerifierConfigType
 deviceSecretVerifierConfigType =
@@ -295,6 +305,8 @@ instance ToJSON DeviceSecretVerifierConfigType where
 
 -- | The device type.
 --
+--
+--
 -- /See:/ 'deviceType' smart constructor.
 data DeviceType = DeviceType'
     { _dtDeviceLastModifiedDate      :: !(Maybe POSIX)
@@ -308,15 +320,15 @@ data DeviceType = DeviceType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtDeviceLastModifiedDate'
+-- * 'dtDeviceLastModifiedDate' - The last modified date of the device.
 --
--- * 'dtDeviceCreateDate'
+-- * 'dtDeviceCreateDate' - The creation date of the device.
 --
--- * 'dtDeviceAttributes'
+-- * 'dtDeviceAttributes' - The device attributes.
 --
--- * 'dtDeviceKey'
+-- * 'dtDeviceKey' - The device key.
 --
--- * 'dtDeviceLastAuthenticatedDate'
+-- * 'dtDeviceLastAuthenticatedDate' - The date in which the device was last authenticated.
 deviceType
     :: DeviceType
 deviceType =
@@ -365,6 +377,8 @@ instance NFData DeviceType
 
 -- | The email configuration type.
 --
+--
+--
 -- /See:/ 'emailConfigurationType' smart constructor.
 data EmailConfigurationType = EmailConfigurationType'
     { _ectSourceARN           :: !(Maybe Text)
@@ -375,9 +389,9 @@ data EmailConfigurationType = EmailConfigurationType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ectSourceARN'
+-- * 'ectSourceARN' - The Amazon Resource Name (ARN) of the email source.
 --
--- * 'ectReplyToEmailAddress'
+-- * 'ectReplyToEmailAddress' - The REPLY-TO email address.
 emailConfigurationType
     :: EmailConfigurationType
 emailConfigurationType =
@@ -416,6 +430,8 @@ instance ToJSON EmailConfigurationType where
 
 -- | Specifies the type of configuration for AWS Lambda triggers.
 --
+--
+--
 -- /See:/ 'lambdaConfigType' smart constructor.
 data LambdaConfigType = LambdaConfigType'
     { _lctPreAuthentication           :: !(Maybe Text)
@@ -432,21 +448,21 @@ data LambdaConfigType = LambdaConfigType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lctPreAuthentication'
+-- * 'lctPreAuthentication' - A pre-authentication AWS Lambda trigger.
 --
--- * 'lctCreateAuthChallenge'
+-- * 'lctCreateAuthChallenge' - Creates an authentication challenge.
 --
--- * 'lctVerifyAuthChallengeResponse'
+-- * 'lctVerifyAuthChallengeResponse' - Verifies the authentication challenge response.
 --
--- * 'lctPostAuthentication'
+-- * 'lctPostAuthentication' - A post-authentication AWS Lambda trigger.
 --
--- * 'lctCustomMessage'
+-- * 'lctCustomMessage' - A custom Message AWS Lambda trigger.
 --
--- * 'lctDefineAuthChallenge'
+-- * 'lctDefineAuthChallenge' - Defines the authentication challenge.
 --
--- * 'lctPostConfirmation'
+-- * 'lctPostConfirmation' - A post-confirmation AWS Lambda trigger.
 --
--- * 'lctPreSignUp'
+-- * 'lctPreSignUp' - A pre-registration AWS Lambda trigger.
 lambdaConfigType
     :: LambdaConfigType
 lambdaConfigType =
@@ -529,6 +545,8 @@ instance ToJSON LambdaConfigType where
 
 -- | Specifies the different settings for multi-factor authentication (MFA).
 --
+--
+--
 -- /See:/ 'mfaOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
     { _motDeliveryMedium :: !(Maybe DeliveryMediumType)
@@ -539,9 +557,9 @@ data MFAOptionType = MFAOptionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'motDeliveryMedium'
+-- * 'motDeliveryMedium' - The delivery medium (email message or SMS message) to send the MFA code.
 --
--- * 'motAttributeName'
+-- * 'motAttributeName' - The attribute name of the MFA option type.
 mfaOptionType
     :: MFAOptionType
 mfaOptionType =
@@ -578,6 +596,8 @@ instance ToJSON MFAOptionType where
 
 -- | The new device metadata type.
 --
+--
+--
 -- /See:/ 'newDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
     { _ndmtDeviceGroupKey :: !(Maybe Text)
@@ -588,9 +608,9 @@ data NewDeviceMetadataType = NewDeviceMetadataType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ndmtDeviceGroupKey'
+-- * 'ndmtDeviceGroupKey' - The device group key.
 --
--- * 'ndmtDeviceKey'
+-- * 'ndmtDeviceKey' - The device key.
 newDeviceMetadataType
     :: NewDeviceMetadataType
 newDeviceMetadataType =
@@ -620,6 +640,8 @@ instance NFData NewDeviceMetadataType
 
 -- | The minimum and maximum value of an attribute that is of the number data type.
 --
+--
+--
 -- /See:/ 'numberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
     { _nactMaxValue :: !(Maybe Text)
@@ -630,9 +652,9 @@ data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nactMaxValue'
+-- * 'nactMaxValue' - The maximum value of an attribute that is of the number data type.
 --
--- * 'nactMinValue'
+-- * 'nactMinValue' - The minimum value of an attribute that is of the number data type.
 numberAttributeConstraintsType
     :: NumberAttributeConstraintsType
 numberAttributeConstraintsType =
@@ -670,6 +692,8 @@ instance ToJSON NumberAttributeConstraintsType where
 
 -- | The password policy type.
 --
+--
+--
 -- /See:/ 'passwordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
     { _pptRequireNumbers   :: !(Maybe Bool)
@@ -683,15 +707,15 @@ data PasswordPolicyType = PasswordPolicyType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pptRequireNumbers'
+-- * 'pptRequireNumbers' - In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
 --
--- * 'pptRequireUppercase'
+-- * 'pptRequireUppercase' - In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
 --
--- * 'pptRequireLowercase'
+-- * 'pptRequireLowercase' - In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 --
--- * 'pptMinimumLength'
+-- * 'pptMinimumLength' - The minimum length of the password policy that you have set. Cannot be less than 6.
 --
--- * 'pptRequireSymbols'
+-- * 'pptRequireSymbols' - In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 passwordPolicyType
     :: PasswordPolicyType
 passwordPolicyType =
@@ -750,6 +774,8 @@ instance ToJSON PasswordPolicyType where
 
 -- | Contains information about the schema attribute.
 --
+--
+--
 -- /See:/ 'schemaAttributeType' smart constructor.
 data SchemaAttributeType = SchemaAttributeType'
     { _satNumberAttributeConstraints :: !(Maybe NumberAttributeConstraintsType)
@@ -765,19 +791,19 @@ data SchemaAttributeType = SchemaAttributeType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'satNumberAttributeConstraints'
+-- * 'satNumberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
 --
--- * 'satRequired'
+-- * 'satRequired' - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 --
--- * 'satAttributeDataType'
+-- * 'satAttributeDataType' - The attribute data type.
 --
--- * 'satStringAttributeConstraints'
+-- * 'satStringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
 --
--- * 'satName'
+-- * 'satName' - A schema attribute of the name type.
 --
--- * 'satDeveloperOnlyAttribute'
+-- * 'satDeveloperOnlyAttribute' - Specifies whether the attribute type is developer only.
 --
--- * 'satMutable'
+-- * 'satMutable' - Specifies whether the attribute can be changed once it has been created.
 schemaAttributeType
     :: SchemaAttributeType
 schemaAttributeType =
@@ -853,6 +879,8 @@ instance ToJSON SchemaAttributeType where
 
 -- | The SMS configuratoin type.
 --
+--
+--
 -- /See:/ 'smsConfigurationType' smart constructor.
 data SmsConfigurationType = SmsConfigurationType'
     { _sctSNSCallerARN :: !(Maybe Text)
@@ -863,9 +891,9 @@ data SmsConfigurationType = SmsConfigurationType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sctSNSCallerARN'
+-- * 'sctSNSCallerARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
 --
--- * 'sctExternalId'
+-- * 'sctExternalId' - The external ID.
 smsConfigurationType
     :: SmsConfigurationType
 smsConfigurationType =
@@ -902,6 +930,8 @@ instance ToJSON SmsConfigurationType where
 
 -- | The type of constraints associated with an attribute of the string type.
 --
+--
+--
 -- /See:/ 'stringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
     { _sactMaxLength :: !(Maybe Text)
@@ -912,9 +942,9 @@ data StringAttributeConstraintsType = StringAttributeConstraintsType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sactMaxLength'
+-- * 'sactMaxLength' - The maximum length of an attribute value of the string type.
 --
--- * 'sactMinLength'
+-- * 'sactMinLength' - The minimum length of an attribute value of the string type.
 stringAttributeConstraintsType
     :: StringAttributeConstraintsType
 stringAttributeConstraintsType =
@@ -952,6 +982,8 @@ instance ToJSON StringAttributeConstraintsType where
 
 -- | The user import job type.
 --
+--
+--
 -- /See:/ 'userImportJobType' smart constructor.
 data UserImportJobType = UserImportJobType'
     { _uijtStatus                :: !(Maybe UserImportJobStatusType)
@@ -973,31 +1005,31 @@ data UserImportJobType = UserImportJobType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uijtStatus'
+-- * 'uijtStatus' - The status of the user import job. One of the following:     * Created - The job was created but not started.    * Pending - A transition state. You have started the job, but it has not begun importing users yet.    * InProgress - The job has started, and users are being imported.    * Stopping - You have stopped the job, but the job has not stopped importing users yet.    * Stopped - You have stopped the job, and the job has stopped importing users.    * Succeeded - The job has completed successfully.    * Failed - The job has stopped due to an error.    * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 --
--- * 'uijtSkippedUsers'
+-- * 'uijtSkippedUsers' - The number of users that were skipped.
 --
--- * 'uijtJobId'
+-- * 'uijtJobId' - The job ID for the user import job.
 --
--- * 'uijtUserPoolId'
+-- * 'uijtUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'uijtJobName'
+-- * 'uijtJobName' - The job name for the user import job.
 --
--- * 'uijtPreSignedURL'
+-- * 'uijtPreSignedURL' - The pre-signed URL to be used to upload the .csv file.
 --
--- * 'uijtFailedUsers'
+-- * 'uijtFailedUsers' - The number of users that could not be imported.
 --
--- * 'uijtStartDate'
+-- * 'uijtStartDate' - The date when the user import job was started.
 --
--- * 'uijtCompletionMessage'
+-- * 'uijtCompletionMessage' - The message returned when the user import job is completed.
 --
--- * 'uijtCreationDate'
+-- * 'uijtCreationDate' - The date when the user import job was created.
 --
--- * 'uijtCompletionDate'
+-- * 'uijtCompletionDate' - The date when the user imoprt job was completed.
 --
--- * 'uijtCloudWatchLogsRoleARN'
+-- * 'uijtCloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
 --
--- * 'uijtImportedUsers'
+-- * 'uijtImportedUsers' - The number of users that were successfully imported.
 userImportJobType
     :: UserImportJobType
 userImportJobType =
@@ -1017,16 +1049,7 @@ userImportJobType =
     , _uijtImportedUsers = Nothing
     }
 
--- | The status of the user import job. One of the following:
---
--- -   Created - The job was created but not started.
--- -   Pending - A transition state. You have started the job, but it has not begun importing users yet.
--- -   InProgress - The job has started, and users are being imported.
--- -   Stopping - You have stopped the job, but the job has not stopped importing users yet.
--- -   Stopped - You have stopped the job, and the job has stopped importing users.
--- -   Succeeded - The job has completed successfully.
--- -   Failed - The job has stopped due to an error.
--- -   Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+-- | The status of the user import job. One of the following:     * Created - The job was created but not started.    * Pending - A transition state. You have started the job, but it has not begun importing users yet.    * InProgress - The job has started, and users are being imported.    * Stopping - You have stopped the job, but the job has not stopped importing users yet.    * Stopped - You have stopped the job, and the job has stopped importing users.    * Succeeded - The job has completed successfully.    * Failed - The job has stopped due to an error.    * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 uijtStatus :: Lens' UserImportJobType (Maybe UserImportJobStatusType)
 uijtStatus = lens _uijtStatus (\ s a -> s{_uijtStatus = a});
 
@@ -1070,7 +1093,7 @@ uijtCreationDate = lens _uijtCreationDate (\ s a -> s{_uijtCreationDate = a}) . 
 uijtCompletionDate :: Lens' UserImportJobType (Maybe UTCTime)
 uijtCompletionDate = lens _uijtCompletionDate (\ s a -> s{_uijtCompletionDate = a}) . mapping _Time;
 
--- | The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
+-- | The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
 uijtCloudWatchLogsRoleARN :: Lens' UserImportJobType (Maybe Text)
 uijtCloudWatchLogsRoleARN = lens _uijtCloudWatchLogsRoleARN (\ s a -> s{_uijtCloudWatchLogsRoleARN = a});
 
@@ -1102,6 +1125,8 @@ instance NFData UserImportJobType
 
 -- | The description of the user poool client.
 --
+--
+--
 -- /See:/ 'userPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
     { _upcdClientId   :: !(Maybe (Sensitive Text))
@@ -1113,11 +1138,11 @@ data UserPoolClientDescription = UserPoolClientDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upcdClientId'
+-- * 'upcdClientId' - The ID of the client associated with the user pool.
 --
--- * 'upcdUserPoolId'
+-- * 'upcdUserPoolId' - The user pool ID for the user pool where you want to describe the user pool client.
 --
--- * 'upcdClientName'
+-- * 'upcdClientName' - The client name from the user pool client description.
 userPoolClientDescription
     :: UserPoolClientDescription
 userPoolClientDescription =
@@ -1153,6 +1178,8 @@ instance NFData UserPoolClientDescription
 
 -- | A user pool of the client type.
 --
+--
+--
 -- /See:/ 'userPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
     { _upctRefreshTokenValidity :: !(Maybe Nat)
@@ -1171,25 +1198,25 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upctRefreshTokenValidity'
+-- * 'upctRefreshTokenValidity' - The validity of the refresh token.
 --
--- * 'upctClientId'
+-- * 'upctClientId' - The ID of the client associated with the user pool.
 --
--- * 'upctExplicitAuthFlows'
+-- * 'upctExplicitAuthFlows' - The explicit authentication flows.
 --
--- * 'upctClientSecret'
+-- * 'upctClientSecret' - The client secret from the user pool request of the client type.
 --
--- * 'upctLastModifiedDate'
+-- * 'upctLastModifiedDate' - The last modified date from the user pool request of the client type.
 --
--- * 'upctUserPoolId'
+-- * 'upctUserPoolId' - The user pool ID for the user pool client.
 --
--- * 'upctWriteAttributes'
+-- * 'upctWriteAttributes' - The writeable attributes.
 --
--- * 'upctCreationDate'
+-- * 'upctCreationDate' - The creation date from the user pool request of the client type.
 --
--- * 'upctReadAttributes'
+-- * 'upctReadAttributes' - The Read-only attributes.
 --
--- * 'upctClientName'
+-- * 'upctClientName' - The client name from the user pool request of the client type.
 userPoolClientType
     :: UserPoolClientType
 userPoolClientType =
@@ -1267,6 +1294,8 @@ instance NFData UserPoolClientType
 
 -- | A user pool description.
 --
+--
+--
 -- /See:/ 'userPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
     { _updtStatus           :: !(Maybe StatusType)
@@ -1281,17 +1310,17 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'updtStatus'
+-- * 'updtStatus' - The user pool status in a user pool description.
 --
--- * 'updtLastModifiedDate'
+-- * 'updtLastModifiedDate' - The last modified date in a user pool description.
 --
--- * 'updtName'
+-- * 'updtName' - The name in a user pool description.
 --
--- * 'updtId'
+-- * 'updtId' - The ID in a user pool description.
 --
--- * 'updtCreationDate'
+-- * 'updtCreationDate' - The creation date in a user pool description.
 --
--- * 'updtLambdaConfig'
+-- * 'updtLambdaConfig' - The AWS Lambda configuration information in a user pool description.
 userPoolDescriptionType
     :: UserPoolDescriptionType
 userPoolDescriptionType =
@@ -1345,6 +1374,8 @@ instance NFData UserPoolDescriptionType
 
 -- | The type of policy in a user pool.
 --
+--
+--
 -- /See:/ 'userPoolPolicyType' smart constructor.
 newtype UserPoolPolicyType = UserPoolPolicyType'
     { _upptPasswordPolicy :: Maybe PasswordPolicyType
@@ -1354,7 +1385,7 @@ newtype UserPoolPolicyType = UserPoolPolicyType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upptPasswordPolicy'
+-- * 'upptPasswordPolicy' - A container with information about the user pool password policy.
 userPoolPolicyType
     :: UserPoolPolicyType
 userPoolPolicyType =
@@ -1383,6 +1414,8 @@ instance ToJSON UserPoolPolicyType where
                  [("PasswordPolicy" .=) <$> _upptPasswordPolicy])
 
 -- | A container with information about the user pool type.
+--
+--
 --
 -- /See:/ 'userPoolType' smart constructor.
 data UserPoolType = UserPoolType'
@@ -1413,47 +1446,47 @@ data UserPoolType = UserPoolType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uptStatus'
+-- * 'uptStatus' - The status of a user pool.
 --
--- * 'uptEmailConfigurationFailure'
+-- * 'uptEmailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
 --
--- * 'uptLastModifiedDate'
+-- * 'uptLastModifiedDate' - The last modified date of a user pool.
 --
--- * 'uptEstimatedNumberOfUsers'
+-- * 'uptEstimatedNumberOfUsers' - A number estimating the size of the user pool.
 --
--- * 'uptEmailVerificationMessage'
+-- * 'uptEmailVerificationMessage' - The contents of the email verification message.
 --
--- * 'uptSmsAuthenticationMessage'
+-- * 'uptSmsAuthenticationMessage' - The contents of the SMS authentication message.
 --
--- * 'uptSchemaAttributes'
+-- * 'uptSchemaAttributes' - A container with the schema attributes of a user pool.
 --
--- * 'uptEmailVerificationSubject'
+-- * 'uptEmailVerificationSubject' - The subject of the email verification message.
 --
--- * 'uptAliasAttributes'
+-- * 'uptAliasAttributes' - Specifies the attributes that are aliased in a user pool.
 --
--- * 'uptEmailConfiguration'
+-- * 'uptEmailConfiguration' - The email configuration.
 --
--- * 'uptSmsVerificationMessage'
+-- * 'uptSmsVerificationMessage' - The contents of the SMS verification message.
 --
--- * 'uptName'
+-- * 'uptName' - The name of the user pool.
 --
--- * 'uptMFAConfiguration'
+-- * 'uptMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
--- * 'uptId'
+-- * 'uptId' - The ID of the user pool.
 --
--- * 'uptSmsConfigurationFailure'
+-- * 'uptSmsConfigurationFailure' - The reason why the SMS configuration cannot send the message(s) to your users.
 --
--- * 'uptCreationDate'
+-- * 'uptCreationDate' - The creation date of a user pool.
 --
--- * 'uptLambdaConfig'
+-- * 'uptLambdaConfig' - A container describing the AWS Lambda triggers associated with a user pool.
 --
--- * 'uptSmsConfiguration'
+-- * 'uptSmsConfiguration' - The SMS configuration.
 --
--- * 'uptDeviceConfiguration'
+-- * 'uptDeviceConfiguration' - The device configuration.
 --
--- * 'uptAutoVerifiedAttributes'
+-- * 'uptAutoVerifiedAttributes' - Specifies the attributes that are auto-verified in a user pool.
 --
--- * 'uptPolicies'
+-- * 'uptPolicies' - A container describing the policies associated with a user pool.
 userPoolType
     :: UserPoolType
 userPoolType =
@@ -1529,11 +1562,7 @@ uptSmsVerificationMessage = lens _uptSmsVerificationMessage (\ s a -> s{_uptSmsV
 uptName :: Lens' UserPoolType (Maybe Text)
 uptName = lens _uptName (\ s a -> s{_uptName = a});
 
--- | Can be one of the following values:
---
--- -   'OFF' - MFA tokens are not required and cannot be specified during user registration.
--- -   'ON' - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
--- -   'OPTIONAL' - Users have the option when registering to create an MFA token.
+-- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 uptMFAConfiguration :: Lens' UserPoolType (Maybe UserPoolMFAType)
 uptMFAConfiguration = lens _uptMFAConfiguration (\ s a -> s{_uptMFAConfiguration = a});
 
@@ -1602,6 +1631,8 @@ instance NFData UserPoolType
 
 -- | The user type.
 --
+--
+--
 -- /See:/ 'userType' smart constructor.
 data UserType = UserType'
     { _utEnabled              :: !(Maybe Bool)
@@ -1616,17 +1647,17 @@ data UserType = UserType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utEnabled'
+-- * 'utEnabled' - Specifies whether the user is enabled.
 --
--- * 'utUserStatus'
+-- * 'utUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
 --
--- * 'utUsername'
+-- * 'utUsername' - The user name of the user you wish to describe.
 --
--- * 'utUserCreateDate'
+-- * 'utUserCreateDate' - The creation date of the user.
 --
--- * 'utAttributes'
+-- * 'utAttributes' - A container with information about the user type attributes.
 --
--- * 'utUserLastModifiedDate'
+-- * 'utUserLastModifiedDate' - The last modified date of the user.
 userType
     :: UserType
 userType =
@@ -1643,13 +1674,7 @@ userType =
 utEnabled :: Lens' UserType (Maybe Bool)
 utEnabled = lens _utEnabled (\ s a -> s{_utEnabled = a});
 
--- | The user status. Can be one of the following:
---
--- -   UNCONFIRMED - User has been created but not confirmed.
--- -   CONFIRMED - User has been confirmed.
--- -   ARCHIVED - User is no longer active.
--- -   COMPROMISED - User is disabled due to a potential security threat.
--- -   UNKNOWN - User status is not known.
+-- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
 utUserStatus :: Lens' UserType (Maybe UserStatusType)
 utUserStatus = lens _utUserStatus (\ s a -> s{_utUserStatus = a});
 

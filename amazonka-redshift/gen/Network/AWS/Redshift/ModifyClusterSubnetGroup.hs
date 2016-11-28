@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.
+--
+--
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyClusterSubnetGroup' smart constructor.
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
     { _mcsgDescription            :: !(Maybe Text)
@@ -57,11 +61,11 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcsgDescription'
+-- * 'mcsgDescription' - A text description of the subnet group to be modified.
 --
--- * 'mcsgClusterSubnetGroupName'
+-- * 'mcsgClusterSubnetGroupName' - The name of the subnet group to be modified.
 --
--- * 'mcsgSubnetIds'
+-- * 'mcsgSubnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 modifyClusterSubnetGroup
     :: Text -- ^ 'mcsgClusterSubnetGroupName'
     -> ModifyClusterSubnetGroup
@@ -126,9 +130,9 @@ data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcsgrsClusterSubnetGroup'
+-- * 'mcsgrsClusterSubnetGroup' - Undocumented member.
 --
--- * 'mcsgrsResponseStatus'
+-- * 'mcsgrsResponseStatus' - -- | The response status code.
 modifyClusterSubnetGroupResponse
     :: Int -- ^ 'mcsgrsResponseStatus'
     -> ModifyClusterSubnetGroupResponse
@@ -142,7 +146,7 @@ modifyClusterSubnetGroupResponse pResponseStatus_ =
 mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mcsgrsResponseStatus :: Lens' ModifyClusterSubnetGroupResponse Int
 mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
 

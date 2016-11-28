@@ -20,7 +20,9 @@
 --
 -- Deregisters a scalable target that was previously registered. If you are no longer using a scalable target, you can delete it with this operation. When you deregister a scalable target, all of the scaling policies that are associated with that scalable target are deleted.
 --
--- To create a new scalable target or update an existing one, see < RegisterScalableTarget>.
+--
+-- To create a new scalable target or update an existing one, see 'RegisterScalableTarget' .
+--
 module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derServiceNamespace'
+-- * 'derServiceNamespace' - The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 --
--- * 'derResourceId'
+-- * 'derResourceId' - The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
 --
--- * 'derScalableDimension'
+-- * 'derScalableDimension' - The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
 deregisterScalableTarget
     :: ServiceNamespace -- ^ 'derServiceNamespace'
     -> Text -- ^ 'derResourceId'
@@ -77,11 +79,11 @@ deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
 derServiceNamespace :: Lens' DeregisterScalableTarget ServiceNamespace
 derServiceNamespace = lens _derServiceNamespace (\ s a -> s{_derServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
+-- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
 derResourceId :: Lens' DeregisterScalableTarget Text
 derResourceId = lens _derResourceId (\ s a -> s{_derResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
 derScalableDimension :: Lens' DeregisterScalableTarget ScalableDimension
 derScalableDimension = lens _derScalableDimension (\ s a -> s{_derScalableDimension = a});
 
@@ -132,7 +134,7 @@ newtype DeregisterScalableTargetResponse = DeregisterScalableTargetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dstrsResponseStatus'
+-- * 'dstrsResponseStatus' - -- | The response status code.
 deregisterScalableTargetResponse
     :: Int -- ^ 'dstrsResponseStatus'
     -> DeregisterScalableTargetResponse
@@ -141,7 +143,7 @@ deregisterScalableTargetResponse pResponseStatus_ =
     { _dstrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dstrsResponseStatus :: Lens' DeregisterScalableTargetResponse Int
 dstrsResponseStatus = lens _dstrsResponseStatus (\ s a -> s{_dstrsResponseStatus = a});
 

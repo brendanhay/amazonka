@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
 module Network.AWS.DeviceFarm.PurchaseOffering
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents a request for a purchase offering.
 --
+--
+--
 -- /See:/ 'purchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
     { _poQuantity   :: !(Maybe Int)
@@ -55,9 +59,9 @@ data PurchaseOffering = PurchaseOffering'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poQuantity'
+-- * 'poQuantity' - The number of device slots you wish to purchase in an offering request.
 --
--- * 'poOfferingId'
+-- * 'poOfferingId' - The ID of the offering.
 purchaseOffering
     :: PurchaseOffering
 purchaseOffering =
@@ -113,6 +117,8 @@ instance ToQuery PurchaseOffering where
 
 -- | The result of the purchase offering (e.g., success or failure).
 --
+--
+--
 -- /See:/ 'purchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
     { _porsOfferingTransaction :: !(Maybe OfferingTransaction)
@@ -123,9 +129,9 @@ data PurchaseOfferingResponse = PurchaseOfferingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'porsOfferingTransaction'
+-- * 'porsOfferingTransaction' - Represents the offering transaction for the purchase result.
 --
--- * 'porsResponseStatus'
+-- * 'porsResponseStatus' - -- | The response status code.
 purchaseOfferingResponse
     :: Int -- ^ 'porsResponseStatus'
     -> PurchaseOfferingResponse
@@ -139,7 +145,7 @@ purchaseOfferingResponse pResponseStatus_ =
 porsOfferingTransaction :: Lens' PurchaseOfferingResponse (Maybe OfferingTransaction)
 porsOfferingTransaction = lens _porsOfferingTransaction (\ s a -> s{_porsOfferingTransaction = a});
 
--- | The response status code.
+-- | -- | The response status code.
 porsResponseStatus :: Lens' PurchaseOfferingResponse Int
 porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
 

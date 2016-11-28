@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates an access policy associated with an existing 'Destination'. An access policy is an <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document> that is used to authorize claims to register a subscription filter against a given destination.
+-- Creates or updates an access policy associated with an existing @Destination@ . An access policy is an <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document> that is used to authorize claims to register a subscription filter against a given destination.
+--
+--
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
     -- * Creating a Request
@@ -50,9 +52,9 @@ data PutDestinationPolicy = PutDestinationPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdpDestinationName'
+-- * 'pdpDestinationName' - A name for an existing destination.
 --
--- * 'pdpAccessPolicy'
+-- * 'pdpAccessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to associated destination.
 putDestinationPolicy
     :: Text -- ^ 'pdpDestinationName'
     -> Text -- ^ 'pdpAccessPolicy'

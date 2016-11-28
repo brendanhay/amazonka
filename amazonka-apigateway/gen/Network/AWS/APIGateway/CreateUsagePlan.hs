@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload.
+--
+--
 module Network.AWS.APIGateway.CreateUsagePlan
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.
 --
+--
+--
 -- /See:/ 'createUsagePlan' smart constructor.
 data CreateUsagePlan = CreateUsagePlan'
     { _cupApiStages   :: !(Maybe [APIStage])
@@ -65,15 +69,15 @@ data CreateUsagePlan = CreateUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupApiStages'
+-- * 'cupApiStages' - The associated API stages of the usage plan.
 --
--- * 'cupThrottle'
+-- * 'cupThrottle' - The throttling limits of the usage plan.
 --
--- * 'cupQuota'
+-- * 'cupQuota' - The quota of the usage plan.
 --
--- * 'cupDescription'
+-- * 'cupDescription' - The description of the usage plan.
 --
--- * 'cupName'
+-- * 'cupName' - The name of the usage plan.
 createUsagePlan
     :: Text -- ^ 'cupName'
     -> CreateUsagePlan

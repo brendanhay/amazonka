@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
---
 -- Sent to acknowledge that a task changed states.
+--
+--
 module Network.AWS.ECS.SubmitTaskStateChange
     (
     -- * Creating a Request
@@ -59,13 +59,13 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stscStatus'
+-- * 'stscStatus' - The status of the state change request.
 --
--- * 'stscCluster'
+-- * 'stscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 --
--- * 'stscReason'
+-- * 'stscReason' - The reason for the state change request.
 --
--- * 'stscTask'
+-- * 'stscTask' - The task ID or full Amazon Resource Name (ARN) of the task in the state change request.
 submitTaskStateChange
     :: SubmitTaskStateChange
 submitTaskStateChange =
@@ -141,9 +141,9 @@ data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stscrsAcknowledgment'
+-- * 'stscrsAcknowledgment' - Acknowledgement of the state change.
 --
--- * 'stscrsResponseStatus'
+-- * 'stscrsResponseStatus' - -- | The response status code.
 submitTaskStateChangeResponse
     :: Int -- ^ 'stscrsResponseStatus'
     -> SubmitTaskStateChangeResponse
@@ -157,7 +157,7 @@ submitTaskStateChangeResponse pResponseStatus_ =
 stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
 
--- | The response status code.
+-- | -- | The response status code.
 stscrsResponseStatus :: Lens' SubmitTaskStateChangeResponse Int
 stscrsResponseStatus = lens _stscrsResponseStatus (\ s a -> s{_stscrsResponseStatus = a});
 

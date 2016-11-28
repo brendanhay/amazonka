@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified IAM user, including the user\'s creation date, path, unique ID, and ARN.
+-- Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
+--
 --
 -- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request to this API.
+--
 module Network.AWS.IAM.GetUser
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype GetUser = GetUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guUserName'
+-- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getUser
     :: GetUser
 getUser =
@@ -61,9 +63,7 @@ getUser =
     { _guUserName = Nothing
     }
 
--- | The name of the user to get information about.
---
--- This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
@@ -93,7 +93,9 @@ instance ToQuery GetUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _guUserName]
 
--- | Contains the response to a successful < GetUser> request.
+-- | Contains the response to a successful 'GetUser' request.
+--
+--
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
@@ -105,9 +107,9 @@ data GetUserResponse = GetUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gursResponseStatus'
+-- * 'gursResponseStatus' - -- | The response status code.
 --
--- * 'gursUser'
+-- * 'gursUser' - A structure containing details about the IAM user.
 getUserResponse
     :: Int -- ^ 'gursResponseStatus'
     -> User -- ^ 'gursUser'
@@ -118,7 +120,7 @@ getUserResponse pResponseStatus_ pUser_ =
     , _gursUser = pUser_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gursResponseStatus :: Lens' GetUserResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 

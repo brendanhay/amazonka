@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the things associated with the specified principal.
+--
+--
 module Network.AWS.IoT.ListPrincipalThings
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListPrincipalThings operation.
 --
+--
+--
 -- /See:/ 'listPrincipalThings' smart constructor.
 data ListPrincipalThings = ListPrincipalThings'
     { _lptNextToken  :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListPrincipalThings = ListPrincipalThings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lptNextToken'
+-- * 'lptNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lptMaxResults'
+-- * 'lptMaxResults' - The maximum number of results to return in this operation.
 --
--- * 'lptPrincipal'
+-- * 'lptPrincipal' - The principal.
 listPrincipalThings
     :: Text -- ^ 'lptPrincipal'
     -> ListPrincipalThings
@@ -115,6 +119,8 @@ instance ToQuery ListPrincipalThings where
 
 -- | The output from the ListPrincipalThings operation.
 --
+--
+--
 -- /See:/ 'listPrincipalThingsResponse' smart constructor.
 data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
     { _lptrsNextToken      :: !(Maybe Text)
@@ -126,11 +132,11 @@ data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lptrsNextToken'
+-- * 'lptrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lptrsThings'
+-- * 'lptrsThings' - The things.
 --
--- * 'lptrsResponseStatus'
+-- * 'lptrsResponseStatus' - -- | The response status code.
 listPrincipalThingsResponse
     :: Int -- ^ 'lptrsResponseStatus'
     -> ListPrincipalThingsResponse
@@ -149,7 +155,7 @@ lptrsNextToken = lens _lptrsNextToken (\ s a -> s{_lptrsNextToken = a});
 lptrsThings :: Lens' ListPrincipalThingsResponse [Text]
 lptrsThings = lens _lptrsThings (\ s a -> s{_lptrsThings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lptrsResponseStatus :: Lens' ListPrincipalThingsResponse Int
 lptrsResponseStatus = lens _lptrsResponseStatus (\ s a -> s{_lptrsResponseStatus = a});
 

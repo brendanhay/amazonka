@@ -21,15 +21,17 @@ import           Network.AWS.EMR.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>. Currently supported values are:
+-- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop> . Currently supported values are:
 --
--- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
 --
--- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
+--     * "mapr-m3" - launch the job flow using MapR M3 Edition.
 --
--- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition, respectively.
+--     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
--- In Amazon EMR releases 4.0 and greater, the only accepted parameter is the application name. To pass arguments to applications, you supply a configuration for each application.
+--     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition, respectively.
+--
+--
+--
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
@@ -43,13 +45,13 @@ data Application = Application'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aArgs'
+-- * 'aArgs' - Arguments for Amazon EMR to pass to the application.
 --
--- * 'aAdditionalInfo'
+-- * 'aAdditionalInfo' - This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
 --
--- * 'aName'
+-- * 'aName' - The name of the application.
 --
--- * 'aVersion'
+-- * 'aVersion' - The version of the application.
 application
     :: Application
 application =
@@ -101,6 +103,8 @@ instance ToJSON Application where
 
 -- | Configuration of a bootstrap action.
 --
+--
+--
 -- /See:/ 'bootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
     { _bacName                  :: !Text
@@ -111,9 +115,9 @@ data BootstrapActionConfig = BootstrapActionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bacName'
+-- * 'bacName' - The name of the bootstrap action.
 --
--- * 'bacScriptBootstrapAction'
+-- * 'bacScriptBootstrapAction' - The script run by the bootstrap action.
 bootstrapActionConfig
     :: Text -- ^ 'bacName'
     -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
@@ -147,6 +151,8 @@ instance ToJSON BootstrapActionConfig where
 
 -- | The detailed description of the cluster.
 --
+--
+--
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
     { _cluRequestedAMIVersion     :: !(Maybe Text)
@@ -172,39 +178,39 @@ data Cluster = Cluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cluRequestedAMIVersion'
+-- * 'cluRequestedAMIVersion' - The AMI version requested for this cluster.
 --
--- * 'cluEC2InstanceAttributes'
+-- * 'cluEC2InstanceAttributes' - Undocumented member.
 --
--- * 'cluNormalizedInstanceHours'
+-- * 'cluNormalizedInstanceHours' - An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
--- * 'cluConfigurations'
+-- * 'cluConfigurations' - The list of Configurations supplied to the EMR cluster.
 --
--- * 'cluReleaseLabel'
+-- * 'cluReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 --
--- * 'cluLogURI'
+-- * 'cluLogURI' - The path to the Amazon S3 location where logs for this cluster are stored.
 --
--- * 'cluRunningAMIVersion'
+-- * 'cluRunningAMIVersion' - The AMI version running on this cluster.
 --
--- * 'cluMasterPublicDNSName'
+-- * 'cluMasterPublicDNSName' - The public DNS name of the master EC2 instance.
 --
--- * 'cluTerminationProtected'
+-- * 'cluTerminationProtected' - Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances from being terminated by an API call or user intervention, or in the event of a cluster error.
 --
--- * 'cluVisibleToAllUsers'
+-- * 'cluVisibleToAllUsers' - Indicates whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and manage the job flow if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
 --
--- * 'cluAutoTerminate'
+-- * 'cluAutoTerminate' - Specifies whether the cluster should terminate after completing all steps.
 --
--- * 'cluApplications'
+-- * 'cluApplications' - The applications installed on this cluster.
 --
--- * 'cluTags'
+-- * 'cluTags' - A list of tags associated with a cluster.
 --
--- * 'cluServiceRole'
+-- * 'cluServiceRole' - The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
 --
--- * 'cluId'
+-- * 'cluId' - The unique identifier for the cluster.
 --
--- * 'cluName'
+-- * 'cluName' - The name of the cluster.
 --
--- * 'cluStatus'
+-- * 'cluStatus' - The current status details about the cluster.
 cluster
     :: Text -- ^ 'cluId'
     -> Text -- ^ 'cluName'
@@ -239,13 +245,11 @@ cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedA
 cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
 cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
 
--- | An approximation of the cost of the job flow, represented in m1.small\/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- | An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 cluNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
 cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNormalizedInstanceHours = a});
 
--- | Amazon EMR releases 4.x or later.
---
--- The list of Configurations supplied to the EMR cluster.
+-- | The list of Configurations supplied to the EMR cluster.
 cluConfigurations :: Lens' Cluster [Configuration]
 cluConfigurations = lens _cluConfigurations (\ s a -> s{_cluConfigurations = a}) . _Default . _Coerce;
 
@@ -269,7 +273,7 @@ cluMasterPublicDNSName = lens _cluMasterPublicDNSName (\ s a -> s{_cluMasterPubl
 cluTerminationProtected :: Lens' Cluster (Maybe Bool)
 cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminationProtected = a});
 
--- | Indicates whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to 'true', all IAM users of that AWS account can view and manage the job flow if they have the proper policy permissions set. If this value is 'false', only the IAM user that created the cluster can view and manage it. This value can be changed using the < SetVisibleToAllUsers> action.
+-- | Indicates whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and manage the job flow if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
 cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
@@ -330,6 +334,8 @@ instance NFData Cluster
 
 -- | The reason that the cluster changed to its current state.
 --
+--
+--
 -- /See:/ 'clusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
     { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
@@ -340,9 +346,9 @@ data ClusterStateChangeReason = ClusterStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cscrCode'
+-- * 'cscrCode' - The programmatic code for the state change reason.
 --
--- * 'cscrMessage'
+-- * 'cscrMessage' - The descriptive message for the state change reason.
 clusterStateChangeReason
     :: ClusterStateChangeReason
 clusterStateChangeReason =
@@ -372,6 +378,8 @@ instance NFData ClusterStateChangeReason
 
 -- | The detailed status of the cluster.
 --
+--
+--
 -- /See:/ 'clusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
     { _csState             :: !(Maybe ClusterState)
@@ -383,11 +391,11 @@ data ClusterStatus = ClusterStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csState'
+-- * 'csState' - The current state of the cluster.
 --
--- * 'csStateChangeReason'
+-- * 'csStateChangeReason' - The reason for the cluster status change.
 --
--- * 'csTimeline'
+-- * 'csTimeline' - A timeline that represents the status of a cluster over the lifetime of the cluster.
 clusterStatus
     :: ClusterStatus
 clusterStatus =
@@ -423,6 +431,8 @@ instance NFData ClusterStatus
 
 -- | The summary description of the cluster.
 --
+--
+--
 -- /See:/ 'clusterSummary' smart constructor.
 data ClusterSummary = ClusterSummary'
     { _csStatus                  :: !(Maybe ClusterStatus)
@@ -435,13 +445,13 @@ data ClusterSummary = ClusterSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csStatus'
+-- * 'csStatus' - The details about the current status of the cluster.
 --
--- * 'csNormalizedInstanceHours'
+-- * 'csNormalizedInstanceHours' - An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
--- * 'csName'
+-- * 'csName' - The name of the cluster.
 --
--- * 'csId'
+-- * 'csId' - The unique identifier for the cluster.
 clusterSummary
     :: ClusterSummary
 clusterSummary =
@@ -456,7 +466,7 @@ clusterSummary =
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\ s a -> s{_csStatus = a});
 
--- | An approximation of the cost of the job flow, represented in m1.small\/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- | An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 csNormalizedInstanceHours :: Lens' ClusterSummary (Maybe Int)
 csNormalizedInstanceHours = lens _csNormalizedInstanceHours (\ s a -> s{_csNormalizedInstanceHours = a});
 
@@ -482,7 +492,9 @@ instance Hashable ClusterSummary
 
 instance NFData ClusterSummary
 
--- | Represents the timeline of the cluster\'s lifecycle.
+-- | Represents the timeline of the cluster's lifecycle.
+--
+--
 --
 -- /See:/ 'clusterTimeline' smart constructor.
 data ClusterTimeline = ClusterTimeline'
@@ -495,11 +507,11 @@ data ClusterTimeline = ClusterTimeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctReadyDateTime'
+-- * 'ctReadyDateTime' - The date and time when the cluster was ready to execute steps.
 --
--- * 'ctCreationDateTime'
+-- * 'ctCreationDateTime' - The creation date and time of the cluster.
 --
--- * 'ctEndDateTime'
+-- * 'ctEndDateTime' - The date and time when the cluster was terminated.
 clusterTimeline
     :: ClusterTimeline
 clusterTimeline =
@@ -536,6 +548,8 @@ instance NFData ClusterTimeline
 
 -- | An entity describing an executable that runs on a cluster.
 --
+--
+--
 -- /See:/ 'command' smart constructor.
 data Command = Command'
     { _cArgs       :: !(Maybe [Text])
@@ -547,11 +561,11 @@ data Command = Command'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cArgs'
+-- * 'cArgs' - Arguments for Amazon EMR to pass to the command for execution.
 --
--- * 'cScriptPath'
+-- * 'cScriptPath' - The Amazon S3 location of the command script.
 --
--- * 'cName'
+-- * 'cName' - The name of the command.
 command
     :: Command
 command =
@@ -585,9 +599,9 @@ instance Hashable Command
 
 instance NFData Command
 
--- | Amazon EMR releases 4.x or later.
+-- | Specifies a hardware and software configuration of the EMR cluster. This includes configurations for applications and software bundled with Amazon EMR. The Configuration object is a JSON object which is defined by a classification and a set of properties. Configurations can be nested, so a configuration may have its own Configuration objects listed.
 --
--- Specifies a hardware and software configuration of the EMR cluster. This includes configurations for applications and software bundled with Amazon EMR. The Configuration object is a JSON object which is defined by a classification and a set of properties. Configurations can be nested, so a configuration may have its own Configuration objects listed.
+--
 --
 -- /See:/ 'configuration' smart constructor.
 data Configuration = Configuration'
@@ -600,11 +614,11 @@ data Configuration = Configuration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cConfigurations'
+-- * 'cConfigurations' - A list of configurations you apply to this configuration object.
 --
--- * 'cClassification'
+-- * 'cClassification' - The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations> .
 --
--- * 'cProperties'
+-- * 'cProperties' - A set of properties supplied to the Configuration object.
 configuration
     :: Configuration
 configuration =
@@ -618,7 +632,7 @@ configuration =
 cConfigurations :: Lens' Configuration [Configuration]
 cConfigurations = lens _cConfigurations (\ s a -> s{_cConfigurations = a}) . _Default . _Coerce;
 
--- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations>.
+-- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations> .
 cClassification :: Lens' Configuration (Maybe Text)
 cClassification = lens _cClassification (\ s a -> s{_cClassification = a});
 
@@ -649,6 +663,8 @@ instance ToJSON Configuration where
 
 -- | Configuration of requested EBS block device associated with the instance group.
 --
+--
+--
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
     { _ebdDevice              :: !(Maybe Text)
@@ -659,9 +675,9 @@ data EBSBlockDevice = EBSBlockDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ebdDevice'
+-- * 'ebdDevice' - The device name that is exposed to the instance, such as /dev/sdh.
 --
--- * 'ebdVolumeSpecification'
+-- * 'ebdVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebsBlockDevice
     :: EBSBlockDevice
 ebsBlockDevice =
@@ -670,7 +686,7 @@ ebsBlockDevice =
     , _ebdVolumeSpecification = Nothing
     }
 
--- | The device name that is exposed to the instance, such as \/dev\/sdh.
+-- | The device name that is exposed to the instance, such as /dev/sdh.
 ebdDevice :: Lens' EBSBlockDevice (Maybe Text)
 ebdDevice = lens _ebdDevice (\ s a -> s{_ebdDevice = a});
 
@@ -691,6 +707,8 @@ instance NFData EBSBlockDevice
 
 -- | Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
 --
+--
+--
 -- /See:/ 'ebsBlockDeviceConfig' smart constructor.
 data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
     { _ebdcVolumesPerInstance  :: !(Maybe Int)
@@ -701,9 +719,9 @@ data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ebdcVolumesPerInstance'
+-- * 'ebdcVolumesPerInstance' - Number of EBS volumes with specific volume configuration, that will be associated with every instance in the instance group
 --
--- * 'ebdcVolumeSpecification'
+-- * 'ebdcVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebsBlockDeviceConfig
     :: VolumeSpecification -- ^ 'ebdcVolumeSpecification'
     -> EBSBlockDeviceConfig
@@ -744,9 +762,9 @@ data EBSConfiguration = EBSConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecEBSOptimized'
+-- * 'ecEBSOptimized' - Undocumented member.
 --
--- * 'ecEBSBlockDeviceConfigs'
+-- * 'ecEBSBlockDeviceConfigs' - Undocumented member.
 ebsConfiguration
     :: EBSConfiguration
 ebsConfiguration =
@@ -775,7 +793,9 @@ instance ToJSON EBSConfiguration where
                   ("EbsBlockDeviceConfigs" .=) <$>
                     _ecEBSBlockDeviceConfigs])
 
--- | EBS block device that\'s attached to an EC2 instance.
+-- | EBS block device that's attached to an EC2 instance.
+--
+--
 --
 -- /See:/ 'ebsVolume' smart constructor.
 data EBSVolume = EBSVolume'
@@ -787,9 +807,9 @@ data EBSVolume = EBSVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evDevice'
+-- * 'evDevice' - The device name that is exposed to the instance, such as /dev/sdh.
 --
--- * 'evVolumeId'
+-- * 'evVolumeId' - The volume identifier of the EBS volume.
 ebsVolume
     :: EBSVolume
 ebsVolume =
@@ -798,7 +818,7 @@ ebsVolume =
     , _evVolumeId = Nothing
     }
 
--- | The device name that is exposed to the instance, such as \/dev\/sdh.
+-- | The device name that is exposed to the instance, such as /dev/sdh.
 evDevice :: Lens' EBSVolume (Maybe Text)
 evDevice = lens _evDevice (\ s a -> s{_evDevice = a});
 
@@ -819,6 +839,8 @@ instance NFData EBSVolume
 
 -- | Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 --
+--
+--
 -- /See:/ 'ec2InstanceAttributes' smart constructor.
 data EC2InstanceAttributes = EC2InstanceAttributes'
     { _eiaEC2KeyName                     :: !(Maybe Text)
@@ -836,23 +858,23 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiaEC2KeyName'
+-- * 'eiaEC2KeyName' - The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
 --
--- * 'eiaEmrManagedSlaveSecurityGroup'
+-- * 'eiaEmrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the slave nodes.
 --
--- * 'eiaAdditionalSlaveSecurityGroups'
+-- * 'eiaAdditionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the slave nodes.
 --
--- * 'eiaAdditionalMasterSecurityGroups'
+-- * 'eiaAdditionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
 --
--- * 'eiaIAMInstanceProfile'
+-- * 'eiaIAMInstanceProfile' - The IAM role that was specified when the job flow was launched. The EC2 instances of the job flow assume this role.
 --
--- * 'eiaEmrManagedMasterSecurityGroup'
+-- * 'eiaEmrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
 --
--- * 'eiaEC2SubnetId'
+-- * 'eiaEC2SubnetId' - To launch the job flow in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
 --
--- * 'eiaServiceAccessSecurityGroup'
+-- * 'eiaServiceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 --
--- * 'eiaEC2AvailabilityZone'
+-- * 'eiaEC2AvailabilityZone' - The Availability Zone in which the cluster will run.
 ec2InstanceAttributes
     :: EC2InstanceAttributes
 ec2InstanceAttributes =
@@ -868,7 +890,7 @@ ec2InstanceAttributes =
     , _eiaEC2AvailabilityZone = Nothing
     }
 
--- | The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named \"hadoop\".
+-- | The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
 eiaEC2KeyName :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2KeyName = lens _eiaEC2KeyName (\ s a -> s{_eiaEC2KeyName = a});
 
@@ -892,9 +914,7 @@ eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceP
 eiaEmrManagedMasterSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedMasterSecurityGroup = lens _eiaEmrManagedMasterSecurityGroup (\ s a -> s{_eiaEmrManagedMasterSecurityGroup = a});
 
--- | To launch the job flow in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal AWS cloud, outside of a VPC.
---
--- Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
+-- | To launch the job flow in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
 eiaEC2SubnetId :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2SubnetId = lens _eiaEC2SubnetId (\ s a -> s{_eiaEC2SubnetId = a});
 
@@ -929,6 +949,8 @@ instance NFData EC2InstanceAttributes
 
 -- | The details of the step failure. The service attempts to detect the root cause for many common failures.
 --
+--
+--
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
     { _fdLogFile :: !(Maybe Text)
@@ -940,11 +962,11 @@ data FailureDetails = FailureDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdLogFile'
+-- * 'fdLogFile' - The path to the log file where the step failure root cause was originally recorded.
 --
--- * 'fdReason'
+-- * 'fdReason' - The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
 --
--- * 'fdMessage'
+-- * 'fdMessage' - The descriptive message including the error the EMR service has identified as the cause of step failure. This is text from an error log that describes the root cause of the failure.
 failureDetails
     :: FailureDetails
 failureDetails =
@@ -958,7 +980,7 @@ failureDetails =
 fdLogFile :: Lens' FailureDetails (Maybe Text)
 fdLogFile = lens _fdLogFile (\ s a -> s{_fdLogFile = a});
 
--- | The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.
+-- | The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns "Unknown Error" as a reason.
 fdReason :: Lens' FailureDetails (Maybe Text)
 fdReason = lens _fdReason (\ s a -> s{_fdReason = a});
 
@@ -980,6 +1002,8 @@ instance NFData FailureDetails
 
 -- | A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
+--
+--
 -- /See:/ 'hadoopJARStepConfig' smart constructor.
 data HadoopJARStepConfig = HadoopJARStepConfig'
     { _hjscArgs       :: !(Maybe [Text])
@@ -992,13 +1016,13 @@ data HadoopJARStepConfig = HadoopJARStepConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hjscArgs'
+-- * 'hjscArgs' - A list of command line arguments passed to the JAR file's main function when executed.
 --
--- * 'hjscMainClass'
+-- * 'hjscMainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 --
--- * 'hjscProperties'
+-- * 'hjscProperties' - A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
 --
--- * 'hjscJAR'
+-- * 'hjscJAR' - A path to a JAR file run during the step.
 hadoopJARStepConfig
     :: Text -- ^ 'hjscJAR'
     -> HadoopJARStepConfig
@@ -1010,7 +1034,7 @@ hadoopJARStepConfig pJAR_ =
     , _hjscJAR = pJAR_
     }
 
--- | A list of command line arguments passed to the JAR file\'s main function when executed.
+-- | A list of command line arguments passed to the JAR file's main function when executed.
 hjscArgs :: Lens' HadoopJARStepConfig [Text]
 hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a}) . _Default . _Coerce;
 
@@ -1041,6 +1065,8 @@ instance ToJSON HadoopJARStepConfig where
 
 -- | A cluster step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
+--
+--
 -- /See:/ 'hadoopStepConfig' smart constructor.
 data HadoopStepConfig = HadoopStepConfig'
     { _hscArgs       :: !(Maybe [Text])
@@ -1053,13 +1079,13 @@ data HadoopStepConfig = HadoopStepConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hscArgs'
+-- * 'hscArgs' - The list of command line arguments to pass to the JAR file's main function for execution.
 --
--- * 'hscJAR'
+-- * 'hscJAR' - The path to the JAR file that runs during the step.
 --
--- * 'hscMainClass'
+-- * 'hscMainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
 --
--- * 'hscProperties'
+-- * 'hscProperties' - The list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
 hadoopStepConfig
     :: HadoopStepConfig
 hadoopStepConfig =
@@ -1070,7 +1096,7 @@ hadoopStepConfig =
     , _hscProperties = Nothing
     }
 
--- | The list of command line arguments to pass to the JAR file\'s main function for execution.
+-- | The list of command line arguments to pass to the JAR file's main function for execution.
 hscArgs :: Lens' HadoopStepConfig [Text]
 hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a}) . _Default . _Coerce;
 
@@ -1101,6 +1127,8 @@ instance NFData HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
+--
+--
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
     { _iStatus           :: !(Maybe InstanceStatus)
@@ -1118,23 +1146,23 @@ data Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iStatus'
+-- * 'iStatus' - The current status of the instance.
 --
--- * 'iPublicDNSName'
+-- * 'iPublicDNSName' - The public DNS name of the instance.
 --
--- * 'iEBSVolumes'
+-- * 'iEBSVolumes' - The list of EBS volumes that are attached to this instance.
 --
--- * 'iEC2InstanceId'
+-- * 'iEC2InstanceId' - The unique identifier of the instance in Amazon EC2.
 --
--- * 'iPrivateIPAddress'
+-- * 'iPrivateIPAddress' - The private IP address of the instance.
 --
--- * 'iId'
+-- * 'iId' - The unique identifier for the instance in Amazon EMR.
 --
--- * 'iInstanceGroupId'
+-- * 'iInstanceGroupId' - The identifier of the instance group to which this instance belongs.
 --
--- * 'iPrivateDNSName'
+-- * 'iPrivateDNSName' - The private DNS name of the instance.
 --
--- * 'iPublicIPAddress'
+-- * 'iPublicIPAddress' - The public IP address of the instance.
 instance'
     :: Instance
 instance' =
@@ -1206,6 +1234,8 @@ instance NFData Instance
 
 -- | This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.
 --
+--
+--
 -- /See:/ 'instanceGroup' smart constructor.
 data InstanceGroup = InstanceGroup'
     { _igStatus                 :: !(Maybe InstanceGroupStatus)
@@ -1227,31 +1257,31 @@ data InstanceGroup = InstanceGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igStatus'
+-- * 'igStatus' - The current status of the instance group.
 --
--- * 'igBidPrice'
+-- * 'igBidPrice' - The bid price for each EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
 --
--- * 'igRequestedInstanceCount'
+-- * 'igRequestedInstanceCount' - The target number of instances for the instance group.
 --
--- * 'igRunningInstanceCount'
+-- * 'igRunningInstanceCount' - The number of instances currently running in this instance group.
 --
--- * 'igConfigurations'
+-- * 'igConfigurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 --
--- * 'igInstanceGroupType'
+-- * 'igInstanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
 --
--- * 'igEBSBlockDevices'
+-- * 'igEBSBlockDevices' - The EBS block devices that are mapped to this instance group.
 --
--- * 'igInstanceType'
+-- * 'igInstanceType' - The EC2 instance type for all instances in the instance group.
 --
--- * 'igEBSOptimized'
+-- * 'igEBSOptimized' - If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
 --
--- * 'igMarket'
+-- * 'igMarket' - The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
 --
--- * 'igName'
+-- * 'igName' - The name of the instance group.
 --
--- * 'igShrinkPolicy'
+-- * 'igShrinkPolicy' - Policy for customizing shrink operations.
 --
--- * 'igId'
+-- * 'igId' - The identifier of the instance group.
 instanceGroup
     :: InstanceGroup
 instanceGroup =
@@ -1287,9 +1317,7 @@ igRequestedInstanceCount = lens _igRequestedInstanceCount (\ s a -> s{_igRequest
 igRunningInstanceCount :: Lens' InstanceGroup (Maybe Int)
 igRunningInstanceCount = lens _igRunningInstanceCount (\ s a -> s{_igRunningInstanceCount = a});
 
--- | Amazon EMR releases 4.x or later.
---
--- The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+-- | The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 igConfigurations :: Lens' InstanceGroup [Configuration]
 igConfigurations = lens _igConfigurations (\ s a -> s{_igConfigurations = a}) . _Default . _Coerce;
 
@@ -1305,7 +1333,7 @@ igEBSBlockDevices = lens _igEBSBlockDevices (\ s a -> s{_igEBSBlockDevices = a})
 igInstanceType :: Lens' InstanceGroup (Maybe Text)
 igInstanceType = lens _igInstanceType (\ s a -> s{_igInstanceType = a});
 
--- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I\/O.
+-- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
 igEBSOptimized :: Lens' InstanceGroup (Maybe Bool)
 igEBSOptimized = lens _igEBSOptimized (\ s a -> s{_igEBSOptimized = a});
 
@@ -1349,6 +1377,8 @@ instance NFData InstanceGroup
 
 -- | Configuration defining a new instance group.
 --
+--
+--
 -- /See:/ 'instanceGroupConfig' smart constructor.
 data InstanceGroupConfig = InstanceGroupConfig'
     { _igcEBSConfiguration :: !(Maybe EBSConfiguration)
@@ -1365,21 +1395,21 @@ data InstanceGroupConfig = InstanceGroupConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igcEBSConfiguration'
+-- * 'igcEBSConfiguration' - EBS configurations that will be attached to each Amazon EC2 instance in the instance group.
 --
--- * 'igcBidPrice'
+-- * 'igcBidPrice' - Bid price for each Amazon EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
 --
--- * 'igcConfigurations'
+-- * 'igcConfigurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 --
--- * 'igcMarket'
+-- * 'igcMarket' - Market type of the Amazon EC2 instances used to create a cluster node.
 --
--- * 'igcName'
+-- * 'igcName' - Friendly name given to the instance group.
 --
--- * 'igcInstanceRole'
+-- * 'igcInstanceRole' - The role of the instance group in the cluster.
 --
--- * 'igcInstanceType'
+-- * 'igcInstanceType' - The Amazon EC2 instance type for all instances in the instance group.
 --
--- * 'igcInstanceCount'
+-- * 'igcInstanceCount' - Target number of instances for the instance group.
 instanceGroupConfig
     :: InstanceRoleType -- ^ 'igcInstanceRole'
     -> Text -- ^ 'igcInstanceType'
@@ -1405,9 +1435,7 @@ igcEBSConfiguration = lens _igcEBSConfiguration (\ s a -> s{_igcEBSConfiguration
 igcBidPrice :: Lens' InstanceGroupConfig (Maybe Text)
 igcBidPrice = lens _igcBidPrice (\ s a -> s{_igcBidPrice = a});
 
--- | Amazon EMR releases 4.x or later.
---
--- The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+-- | The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 igcConfigurations :: Lens' InstanceGroupConfig [Configuration]
 igcConfigurations = lens _igcConfigurations (\ s a -> s{_igcConfigurations = a}) . _Default . _Coerce;
 
@@ -1450,6 +1478,8 @@ instance ToJSON InstanceGroupConfig where
 
 -- | Modify an instance group size.
 --
+--
+--
 -- /See:/ 'instanceGroupModifyConfig' smart constructor.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     { _igmcInstanceCount             :: !(Maybe Int)
@@ -1462,13 +1492,13 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igmcInstanceCount'
+-- * 'igmcInstanceCount' - Target size for the instance group.
 --
--- * 'igmcEC2InstanceIdsToTerminate'
+-- * 'igmcEC2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. Once you terminate the instances, the instance group will not return to its original requested size.
 --
--- * 'igmcShrinkPolicy'
+-- * 'igmcShrinkPolicy' - Policy for customizing shrink operations.
 --
--- * 'igmcInstanceGroupId'
+-- * 'igmcInstanceGroupId' - Unique ID of the instance group to expand or shrink.
 instanceGroupModifyConfig
     :: Text -- ^ 'igmcInstanceGroupId'
     -> InstanceGroupModifyConfig
@@ -1512,6 +1542,8 @@ instance ToJSON InstanceGroupModifyConfig where
 
 -- | The status change reason details for the instance group.
 --
+--
+--
 -- /See:/ 'instanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
     { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
@@ -1522,9 +1554,9 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igscrCode'
+-- * 'igscrCode' - The programmable code for the state change reason.
 --
--- * 'igscrMessage'
+-- * 'igscrMessage' - The status change reason description.
 instanceGroupStateChangeReason
     :: InstanceGroupStateChangeReason
 instanceGroupStateChangeReason =
@@ -1555,6 +1587,8 @@ instance NFData InstanceGroupStateChangeReason
 
 -- | The details of the instance group status.
 --
+--
+--
 -- /See:/ 'instanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
     { _igsState             :: !(Maybe InstanceGroupState)
@@ -1566,11 +1600,11 @@ data InstanceGroupStatus = InstanceGroupStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igsState'
+-- * 'igsState' - The current state of the instance group.
 --
--- * 'igsStateChangeReason'
+-- * 'igsStateChangeReason' - The status change reason details for the instance group.
 --
--- * 'igsTimeline'
+-- * 'igsTimeline' - The timeline of the instance group status over time.
 instanceGroupStatus
     :: InstanceGroupStatus
 instanceGroupStatus =
@@ -1606,6 +1640,8 @@ instance NFData InstanceGroupStatus
 
 -- | The timeline of the instance group lifecycle.
 --
+--
+--
 -- /See:/ 'instanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
     { _igtReadyDateTime    :: !(Maybe POSIX)
@@ -1617,11 +1653,11 @@ data InstanceGroupTimeline = InstanceGroupTimeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igtReadyDateTime'
+-- * 'igtReadyDateTime' - The date and time when the instance group became ready to perform tasks.
 --
--- * 'igtCreationDateTime'
+-- * 'igtCreationDateTime' - The creation date and time of the instance group.
 --
--- * 'igtEndDateTime'
+-- * 'igtEndDateTime' - The date and time when the instance group terminated.
 instanceGroupTimeline
     :: InstanceGroupTimeline
 instanceGroupTimeline =
@@ -1658,6 +1694,8 @@ instance NFData InstanceGroupTimeline
 
 -- | Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
 --
+--
+--
 -- /See:/ 'instanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
     { _irpInstancesToProtect         :: !(Maybe [Text])
@@ -1669,11 +1707,11 @@ data InstanceResizePolicy = InstanceResizePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irpInstancesToProtect'
+-- * 'irpInstancesToProtect' - Specific list of instances to be protected when shrinking an instance group.
 --
--- * 'irpInstancesToTerminate'
+-- * 'irpInstancesToTerminate' - Specific list of instances to be terminated when shrinking an instance group.
 --
--- * 'irpInstanceTerminationTimeout'
+-- * 'irpInstanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to be terminated.
 instanceResizePolicy
     :: InstanceResizePolicy
 instanceResizePolicy =
@@ -1721,6 +1759,8 @@ instance ToJSON InstanceResizePolicy where
 
 -- | The details of the status change reason for the instance.
 --
+--
+--
 -- /See:/ 'instanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
     { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
@@ -1731,9 +1771,9 @@ data InstanceStateChangeReason = InstanceStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iscrCode'
+-- * 'iscrCode' - The programmable code for the state change reason.
 --
--- * 'iscrMessage'
+-- * 'iscrMessage' - The status change reason description.
 instanceStateChangeReason
     :: InstanceStateChangeReason
 instanceStateChangeReason =
@@ -1763,6 +1803,8 @@ instance NFData InstanceStateChangeReason
 
 -- | The instance status details.
 --
+--
+--
 -- /See:/ 'instanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
     { _isState             :: !(Maybe InstanceState)
@@ -1774,11 +1816,11 @@ data InstanceStatus = InstanceStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isState'
+-- * 'isState' - The current state of the instance.
 --
--- * 'isStateChangeReason'
+-- * 'isStateChangeReason' - The details of the status change reason for the instance.
 --
--- * 'isTimeline'
+-- * 'isTimeline' - The timeline of the instance status over time.
 instanceStatus
     :: InstanceStatus
 instanceStatus =
@@ -1814,6 +1856,8 @@ instance NFData InstanceStatus
 
 -- | The timeline of the instance lifecycle.
 --
+--
+--
 -- /See:/ 'instanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
     { _itReadyDateTime    :: !(Maybe POSIX)
@@ -1825,11 +1869,11 @@ data InstanceTimeline = InstanceTimeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itReadyDateTime'
+-- * 'itReadyDateTime' - The date and time when the instance was ready to perform tasks.
 --
--- * 'itCreationDateTime'
+-- * 'itCreationDateTime' - The creation date and time of the instance.
 --
--- * 'itEndDateTime'
+-- * 'itEndDateTime' - The date and time when the instance was terminated.
 instanceTimeline
     :: InstanceTimeline
 instanceTimeline =
@@ -1866,6 +1910,8 @@ instance NFData InstanceTimeline
 
 -- | A description of the Amazon EC2 instance running the job flow. A valid JobFlowInstancesConfig must contain at least InstanceGroups, which is the recommended configuration. However, a valid alternative is to have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present).
 --
+--
+--
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
     { _jficEC2KeyName                     :: !(Maybe Text)
@@ -1889,35 +1935,35 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jficEC2KeyName'
+-- * 'jficEC2KeyName' - The name of the Amazon EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 --
--- * 'jficSlaveInstanceType'
+-- * 'jficSlaveInstanceType' - The EC2 instance type of the slave nodes.
 --
--- * 'jficInstanceCount'
+-- * 'jficInstanceCount' - The number of Amazon EC2 instances used to execute the job flow.
 --
--- * 'jficEmrManagedSlaveSecurityGroup'
+-- * 'jficEmrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the slave nodes.
 --
--- * 'jficAdditionalSlaveSecurityGroups'
+-- * 'jficAdditionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the slave nodes.
 --
--- * 'jficHadoopVersion'
+-- * 'jficHadoopVersion' - The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
 --
--- * 'jficAdditionalMasterSecurityGroups'
+-- * 'jficAdditionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
 --
--- * 'jficEmrManagedMasterSecurityGroup'
+-- * 'jficEmrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
 --
--- * 'jficEC2SubnetId'
+-- * 'jficEC2SubnetId' - To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal Amazon Web Services cloud, outside of an Amazon VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a Amazon VPC.
 --
--- * 'jficMasterInstanceType'
+-- * 'jficMasterInstanceType' - The EC2 instance type of the master node.
 --
--- * 'jficInstanceGroups'
+-- * 'jficInstanceGroups' - Configuration for the job flow's instance groups.
 --
--- * 'jficKeepJobFlowAliveWhenNoSteps'
+-- * 'jficKeepJobFlowAliveWhenNoSteps' - Specifies whether the job flow should be kept alive after completing all steps.
 --
--- * 'jficServiceAccessSecurityGroup'
+-- * 'jficServiceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 --
--- * 'jficTerminationProtected'
+-- * 'jficTerminationProtected' - Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job flow error.
 --
--- * 'jficPlacement'
+-- * 'jficPlacement' - The Availability Zone the job flow will run in.
 jobFlowInstancesConfig
     :: JobFlowInstancesConfig
 jobFlowInstancesConfig =
@@ -1939,7 +1985,7 @@ jobFlowInstancesConfig =
     , _jficPlacement = Nothing
     }
 
--- | The name of the Amazon EC2 key pair that can be used to ssh to the master node as the user called \"hadoop.\"
+-- | The name of the Amazon EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 jficEC2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
 
@@ -1959,7 +2005,7 @@ jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a
 jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
 jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
--- | The Hadoop version for the job flow. Valid inputs are \"0.18\" (deprecated), \"0.20\" (deprecated), \"0.20.205\" (deprecated), \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+-- | The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
 jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a});
 
@@ -1971,9 +2017,7 @@ jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\
 jficEmrManagedMasterSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedMasterSecurityGroup = lens _jficEmrManagedMasterSecurityGroup (\ s a -> s{_jficEmrManagedMasterSecurityGroup = a});
 
--- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal Amazon Web Services cloud, outside of an Amazon VPC.
---
--- Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a Amazon VPC.
+-- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal Amazon Web Services cloud, outside of an Amazon VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a Amazon VPC.
 jficEC2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2SubnetId = lens _jficEC2SubnetId (\ s a -> s{_jficEC2SubnetId = a});
 
@@ -1981,7 +2025,7 @@ jficEC2SubnetId = lens _jficEC2SubnetId (\ s a -> s{_jficEC2SubnetId = a});
 jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterInstanceType = a});
 
--- | Configuration for the job flow\'s instance groups.
+-- | Configuration for the job flow's instance groups.
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
 jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default . _Coerce;
 
@@ -2035,6 +2079,8 @@ instance ToJSON JobFlowInstancesConfig where
 
 -- | A key value pair.
 --
+--
+--
 -- /See:/ 'keyValue' smart constructor.
 data KeyValue = KeyValue'
     { _kvValue :: !(Maybe Text)
@@ -2045,9 +2091,9 @@ data KeyValue = KeyValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kvValue'
+-- * 'kvValue' - The value part of the identified key.
 --
--- * 'kvKey'
+-- * 'kvKey' - The unique identifier of a key value pair.
 keyValue
     :: KeyValue
 keyValue =
@@ -2076,6 +2122,8 @@ instance ToJSON KeyValue where
 
 -- | The Amazon EC2 location for the job flow.
 --
+--
+--
 -- /See:/ 'placementType' smart constructor.
 newtype PlacementType = PlacementType'
     { _ptAvailabilityZone :: Text
@@ -2085,7 +2133,7 @@ newtype PlacementType = PlacementType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptAvailabilityZone'
+-- * 'ptAvailabilityZone' - The Amazon EC2 Availability Zone for the job flow.
 placementType
     :: Text -- ^ 'ptAvailabilityZone'
     -> PlacementType
@@ -2110,6 +2158,8 @@ instance ToJSON PlacementType where
 
 -- | Configuration of the script to run during a bootstrap action.
 --
+--
+--
 -- /See:/ 'scriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
     { _sbacArgs :: !(Maybe [Text])
@@ -2120,9 +2170,9 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbacArgs'
+-- * 'sbacArgs' - A list of command line arguments to pass to the bootstrap action script.
 --
--- * 'sbacPath'
+-- * 'sbacPath' - Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
 scriptBootstrapActionConfig
     :: Text -- ^ 'sbacPath'
     -> ScriptBootstrapActionConfig
@@ -2153,6 +2203,8 @@ instance ToJSON ScriptBootstrapActionConfig where
 
 -- | Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.
 --
+--
+--
 -- /See:/ 'shrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
     { _spDecommissionTimeout  :: !(Maybe Int)
@@ -2163,9 +2215,9 @@ data ShrinkPolicy = ShrinkPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spDecommissionTimeout'
+-- * 'spDecommissionTimeout' - The desired timeout for decommissioning an instance. Overrides the default YARN decommissioning timeout.
 --
--- * 'spInstanceResizePolicy'
+-- * 'spInstanceResizePolicy' - Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
 shrinkPolicy
     :: ShrinkPolicy
 shrinkPolicy =
@@ -2205,6 +2257,8 @@ instance ToJSON ShrinkPolicy where
 
 -- | This represents a step in a cluster.
 --
+--
+--
 -- /See:/ 'step' smart constructor.
 data Step = Step'
     { _sStatus          :: !(Maybe StepStatus)
@@ -2218,15 +2272,15 @@ data Step = Step'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus'
+-- * 'sStatus' - The current execution status details of the cluster step.
 --
--- * 'sActionOnFailure'
+-- * 'sActionOnFailure' - This specifies what action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
 --
--- * 'sConfig'
+-- * 'sConfig' - The Hadoop job configuration of the cluster step.
 --
--- * 'sName'
+-- * 'sName' - The name of the cluster step.
 --
--- * 'sId'
+-- * 'sId' - The identifier of the cluster step.
 step
     :: Step
 step =
@@ -2274,6 +2328,8 @@ instance NFData Step
 
 -- | Specification of a job flow step.
 --
+--
+--
 -- /See:/ 'stepConfig' smart constructor.
 data StepConfig = StepConfig'
     { _scActionOnFailure :: !(Maybe ActionOnFailure)
@@ -2285,11 +2341,11 @@ data StepConfig = StepConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scActionOnFailure'
+-- * 'scActionOnFailure' - The action to take if the job flow step fails.
 --
--- * 'scName'
+-- * 'scName' - The name of the job flow step.
 --
--- * 'scHadoopJARStep'
+-- * 'scHadoopJARStep' - The JAR file used for the job flow step.
 stepConfig
     :: Text -- ^ 'scName'
     -> HadoopJARStepConfig -- ^ 'scHadoopJARStep'
@@ -2327,6 +2383,8 @@ instance ToJSON StepConfig where
 
 -- | The details of the step state change reason.
 --
+--
+--
 -- /See:/ 'stepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
     { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
@@ -2337,9 +2395,9 @@ data StepStateChangeReason = StepStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sscrCode'
+-- * 'sscrCode' - The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
 --
--- * 'sscrMessage'
+-- * 'sscrMessage' - The descriptive message for the state change reason.
 stepStateChangeReason
     :: StepStateChangeReason
 stepStateChangeReason =
@@ -2369,6 +2427,8 @@ instance NFData StepStateChangeReason
 
 -- | The execution status details of the cluster step.
 --
+--
+--
 -- /See:/ 'stepStatus' smart constructor.
 data StepStatus = StepStatus'
     { _ssState             :: !(Maybe StepState)
@@ -2381,13 +2441,13 @@ data StepStatus = StepStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssState'
+-- * 'ssState' - The execution state of the cluster step.
 --
--- * 'ssFailureDetails'
+-- * 'ssFailureDetails' - The details for the step failure including reason, message, and log file path where the root cause was identified.
 --
--- * 'ssStateChangeReason'
+-- * 'ssStateChangeReason' - The reason for the step execution status change.
 --
--- * 'ssTimeline'
+-- * 'ssTimeline' - The timeline of the cluster step status over time.
 stepStatus
     :: StepStatus
 stepStatus =
@@ -2429,6 +2489,8 @@ instance NFData StepStatus
 
 -- | The summary of the cluster step.
 --
+--
+--
 -- /See:/ 'stepSummary' smart constructor.
 data StepSummary = StepSummary'
     { _ssStatus          :: !(Maybe StepStatus)
@@ -2442,15 +2504,15 @@ data StepSummary = StepSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssStatus'
+-- * 'ssStatus' - The current execution status details of the cluster step.
 --
--- * 'ssActionOnFailure'
+-- * 'ssActionOnFailure' - This specifies what action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
 --
--- * 'ssConfig'
+-- * 'ssConfig' - The Hadoop job configuration of the cluster step.
 --
--- * 'ssName'
+-- * 'ssName' - The name of the cluster step.
 --
--- * 'ssId'
+-- * 'ssId' - The identifier of the cluster step.
 stepSummary
     :: StepSummary
 stepSummary =
@@ -2498,6 +2560,8 @@ instance NFData StepSummary
 
 -- | The timeline of the cluster step lifecycle.
 --
+--
+--
 -- /See:/ 'stepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
     { _stCreationDateTime :: !(Maybe POSIX)
@@ -2509,11 +2573,11 @@ data StepTimeline = StepTimeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stCreationDateTime'
+-- * 'stCreationDateTime' - The date and time when the cluster step was created.
 --
--- * 'stEndDateTime'
+-- * 'stEndDateTime' - The date and time when the cluster step execution completed or failed.
 --
--- * 'stStartDateTime'
+-- * 'stStartDateTime' - The date and time when the cluster step execution started.
 stepTimeline
     :: StepTimeline
 stepTimeline =
@@ -2549,6 +2613,8 @@ instance NFData StepTimeline
 
 -- | The list of supported product configurations which allow user-supplied arguments. EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.
 --
+--
+--
 -- /See:/ 'supportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
     { _spcArgs :: !(Maybe [Text])
@@ -2559,9 +2625,9 @@ data SupportedProductConfig = SupportedProductConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spcArgs'
+-- * 'spcArgs' - The list of user-supplied arguments.
 --
--- * 'spcName'
+-- * 'spcName' - The name of the product configuration.
 supportedProductConfig
     :: SupportedProductConfig
 supportedProductConfig =
@@ -2588,7 +2654,9 @@ instance ToJSON SupportedProductConfig where
               (catMaybes
                  [("Args" .=) <$> _spcArgs, ("Name" .=) <$> _spcName])
 
--- | A key\/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clu\\ sters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- | A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clu\ sters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -2600,9 +2668,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 --
--- * 'tagKey'
+-- * 'tagKey' - A user-defined key, which is the minimum required information for a valid tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 tag
     :: Tag
 tag =
@@ -2611,11 +2679,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A user-defined key, which is the minimum required information for a valid tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- | A user-defined key, which is the minimum required information for a valid tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -2636,6 +2704,8 @@ instance ToJSON Tag where
 
 -- | EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 --
+--
+--
 -- /See:/ 'volumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
     { _vsIOPS       :: !(Maybe Int)
@@ -2647,11 +2717,11 @@ data VolumeSpecification = VolumeSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vsIOPS'
+-- * 'vsIOPS' - The number of I/O operations per second (IOPS) that the volume supports.
 --
--- * 'vsVolumeType'
+-- * 'vsVolumeType' - The volume type. Volume types supported are gp2, io1, standard.
 --
--- * 'vsSizeInGB'
+-- * 'vsSizeInGB' - The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
 volumeSpecification
     :: Text -- ^ 'vsVolumeType'
     -> Int -- ^ 'vsSizeInGB'
@@ -2663,7 +2733,7 @@ volumeSpecification pVolumeType_ pSizeInGB_ =
     , _vsSizeInGB = pSizeInGB_
     }
 
--- | The number of I\/O operations per second (IOPS) that the volume supports.
+-- | The number of I/O operations per second (IOPS) that the volume supports.
 vsIOPS :: Lens' VolumeSpecification (Maybe Int)
 vsIOPS = lens _vsIOPS (\ s a -> s{_vsIOPS = a});
 

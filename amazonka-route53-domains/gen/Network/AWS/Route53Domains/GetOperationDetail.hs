@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns the current status of an operation that is not completed.
+--
+--
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The GetOperationDetail request includes the following element.
 --
+--
+--
 -- /See:/ 'getOperationDetail' smart constructor.
 newtype GetOperationDetail = GetOperationDetail'
     { _godOperationId :: Text
@@ -58,7 +62,7 @@ newtype GetOperationDetail = GetOperationDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'godOperationId'
+-- * 'godOperationId' - The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request. Type: String Default: None Required: Yes
 getOperationDetail
     :: Text -- ^ 'godOperationId'
     -> GetOperationDetail
@@ -67,13 +71,7 @@ getOperationDetail pOperationId_ =
     { _godOperationId = pOperationId_
     }
 
--- | The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request.
---
--- Type: String
---
--- Default: None
---
--- Required: Yes
+-- | The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier in the response to the original request. Type: String Default: None Required: Yes
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a});
 
@@ -119,6 +117,8 @@ instance ToQuery GetOperationDetail where
 
 -- | The GetOperationDetail response includes the following elements.
 --
+--
+--
 -- /See:/ 'getOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
     { _godrsStatus         :: !(Maybe OperationStatus)
@@ -134,19 +134,19 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'godrsStatus'
+-- * 'godrsStatus' - The current status of the requested operation in the system. Type: String
 --
--- * 'godrsSubmittedDate'
+-- * 'godrsSubmittedDate' - The date when the request was submitted.
 --
--- * 'godrsDomainName'
+-- * 'godrsDomainName' - The name of a domain. Type: String
 --
--- * 'godrsOperationId'
+-- * 'godrsOperationId' - The identifier for the operation. Type: String
 --
--- * 'godrsType'
+-- * 'godrsType' - The type of operation that was requested. Type: String
 --
--- * 'godrsMessage'
+-- * 'godrsMessage' - Detailed information on the status including possible errors. Type: String
 --
--- * 'godrsResponseStatus'
+-- * 'godrsResponseStatus' - -- | The response status code.
 getOperationDetailResponse
     :: Int -- ^ 'godrsResponseStatus'
     -> GetOperationDetailResponse
@@ -161,9 +161,7 @@ getOperationDetailResponse pResponseStatus_ =
     , _godrsResponseStatus = pResponseStatus_
     }
 
--- | The current status of the requested operation in the system.
---
--- Type: String
+-- | The current status of the requested operation in the system. Type: String
 godrsStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});
 
@@ -171,31 +169,23 @@ godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});
 godrsSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
 godrsSubmittedDate = lens _godrsSubmittedDate (\ s a -> s{_godrsSubmittedDate = a}) . mapping _Time;
 
--- | The name of a domain.
---
--- Type: String
+-- | The name of a domain. Type: String
 godrsDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsDomainName = lens _godrsDomainName (\ s a -> s{_godrsDomainName = a});
 
--- | The identifier for the operation.
---
--- Type: String
+-- | The identifier for the operation. Type: String
 godrsOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsOperationId = lens _godrsOperationId (\ s a -> s{_godrsOperationId = a});
 
--- | The type of operation that was requested.
---
--- Type: String
+-- | The type of operation that was requested. Type: String
 godrsType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godrsType = lens _godrsType (\ s a -> s{_godrsType = a});
 
--- | Detailed information on the status including possible errors.
---
--- Type: String
+-- | Detailed information on the status including possible errors. Type: String
 godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 godrsResponseStatus :: Lens' GetOperationDetailResponse Int
 godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).
 --
--- To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain\'s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html Amazon SES Developer Guide>.
+--
+-- /Important:/ To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.SetIdentityMailFromDomain
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>.
+-- | Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'setIdentityMailFromDomain' smart constructor.
 data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
@@ -60,11 +64,11 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'simfdMailFromDomain'
+-- * 'simfdMailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> ), and 3) not be used to receive emails. A value of @null@ disables the custom MAIL FROM setting for the identity.
 --
--- * 'simfdBehaviorOnMXFailure'
+-- * 'simfdBehaviorOnMXFailure' - The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose @UseDefaultValue@ , Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose @RejectMessage@ , Amazon SES will return a @MailFromDomainNotVerified@ error and not send the email. The action specified in @BehaviorOnMXFailure@ is taken when the custom MAIL FROM domain setup is in the @Pending@ , @Failed@ , and @TemporaryFailure@ states.
 --
--- * 'simfdIdentity'
+-- * 'simfdIdentity' - The verified identity for which you want to enable or disable the specified custom MAIL FROM domain.
 setIdentityMailFromDomain
     :: Text -- ^ 'simfdIdentity'
     -> SetIdentityMailFromDomain
@@ -75,13 +79,11 @@ setIdentityMailFromDomain pIdentity_ =
     , _simfdIdentity = pIdentity_
     }
 
--- | The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>), and 3) not be used to receive emails. A value of 'null' disables the custom MAIL FROM setting for the identity.
+-- | The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> ), and 3) not be used to receive emails. A value of @null@ disables the custom MAIL FROM setting for the identity.
 simfdMailFromDomain :: Lens' SetIdentityMailFromDomain (Maybe Text)
 simfdMailFromDomain = lens _simfdMailFromDomain (\ s a -> s{_simfdMailFromDomain = a});
 
--- | The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose 'UseDefaultValue', Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose 'RejectMessage', Amazon SES will return a 'MailFromDomainNotVerified' error and not send the email.
---
--- The action specified in 'BehaviorOnMXFailure' is taken when the custom MAIL FROM domain setup is in the 'Pending', 'Failed', and 'TemporaryFailure' states.
+-- | The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose @UseDefaultValue@ , Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose @RejectMessage@ , Amazon SES will return a @MailFromDomainNotVerified@ error and not send the email. The action specified in @BehaviorOnMXFailure@ is taken when the custom MAIL FROM domain setup is in the @Pending@ , @Failed@ , and @TemporaryFailure@ states.
 simfdBehaviorOnMXFailure :: Lens' SetIdentityMailFromDomain (Maybe BehaviorOnMXFailure)
 simfdBehaviorOnMXFailure = lens _simfdBehaviorOnMXFailure (\ s a -> s{_simfdBehaviorOnMXFailure = a});
 
@@ -121,6 +123,8 @@ instance ToQuery SetIdentityMailFromDomain where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'setIdentityMailFromDomainResponse' smart constructor.
 newtype SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
     { _simfdrsResponseStatus :: Int
@@ -130,7 +134,7 @@ newtype SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'simfdrsResponseStatus'
+-- * 'simfdrsResponseStatus' - -- | The response status code.
 setIdentityMailFromDomainResponse
     :: Int -- ^ 'simfdrsResponseStatus'
     -> SetIdentityMailFromDomainResponse
@@ -139,7 +143,7 @@ setIdentityMailFromDomainResponse pResponseStatus_ =
     { _simfdrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 simfdrsResponseStatus :: Lens' SetIdentityMailFromDomainResponse Int
 simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a});
 

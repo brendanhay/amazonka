@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your Scheduled Instances.
+--
+--
 module Network.AWS.EC2.DescribeScheduledInstances
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeScheduledInstances.
 --
+--
+--
 -- /See:/ 'describeScheduledInstances' smart constructor.
 data DescribeScheduledInstances = DescribeScheduledInstances'
     { _dsiFilters              :: !(Maybe [Filter])
@@ -64,17 +68,17 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsiFilters'
+-- * 'dsiFilters' - One or more filters.     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).     * @instance-type@ - The instance type (for example, @c4.large@ ).     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
 --
--- * 'dsiSlotStartTimeRange'
+-- * 'dsiSlotStartTimeRange' - The time period for the first schedule to start.
 --
--- * 'dsiNextToken'
+-- * 'dsiNextToken' - The token for the next set of results.
 --
--- * 'dsiScheduledInstanceIds'
+-- * 'dsiScheduledInstanceIds' - One or more Scheduled Instance IDs.
 --
--- * 'dsiDryRun'
+-- * 'dsiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsiMaxResults'
+-- * 'dsiMaxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 describeScheduledInstances
     :: DescribeScheduledInstances
 describeScheduledInstances =
@@ -87,16 +91,7 @@ describeScheduledInstances =
     , _dsiMaxResults = Nothing
     }
 
--- | One or more filters.
---
--- -   'availability-zone' - The Availability Zone (for example, 'us-west-2a').
---
--- -   'instance-type' - The instance type (for example, 'c4.large').
---
--- -   'network-platform' - The network platform ('EC2-Classic' or 'EC2-VPC').
---
--- -   'platform' - The platform ('Linux\/UNIX' or 'Windows').
---
+-- | One or more filters.     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).     * @instance-type@ - The instance type (for example, @c4.large@ ).     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
 dsiFilters :: Lens' DescribeScheduledInstances [Filter]
 dsiFilters = lens _dsiFilters (\ s a -> s{_dsiFilters = a}) . _Default . _Coerce;
 
@@ -112,11 +107,11 @@ dsiNextToken = lens _dsiNextToken (\ s a -> s{_dsiNextToken = a});
 dsiScheduledInstanceIds :: Lens' DescribeScheduledInstances [Text]
 dsiScheduledInstanceIds = lens _dsiScheduledInstanceIds (\ s a -> s{_dsiScheduledInstanceIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsiDryRun :: Lens' DescribeScheduledInstances (Maybe Bool)
 dsiDryRun = lens _dsiDryRun (\ s a -> s{_dsiDryRun = a});
 
--- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsiMaxResults :: Lens' DescribeScheduledInstances (Maybe Int)
 dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a});
 
@@ -160,6 +155,8 @@ instance ToQuery DescribeScheduledInstances where
 
 -- | Contains the output of DescribeScheduledInstances.
 --
+--
+--
 -- /See:/ 'describeScheduledInstancesResponse' smart constructor.
 data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
     { _dsirsNextToken            :: !(Maybe Text)
@@ -171,11 +168,11 @@ data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsirsNextToken'
+-- * 'dsirsNextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
--- * 'dsirsScheduledInstanceSet'
+-- * 'dsirsScheduledInstanceSet' - Information about the Scheduled Instances.
 --
--- * 'dsirsResponseStatus'
+-- * 'dsirsResponseStatus' - -- | The response status code.
 describeScheduledInstancesResponse
     :: Int -- ^ 'dsirsResponseStatus'
     -> DescribeScheduledInstancesResponse
@@ -186,7 +183,7 @@ describeScheduledInstancesResponse pResponseStatus_ =
     , _dsirsResponseStatus = pResponseStatus_
     }
 
--- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
+-- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsirsNextToken :: Lens' DescribeScheduledInstancesResponse (Maybe Text)
 dsirsNextToken = lens _dsirsNextToken (\ s a -> s{_dsirsNextToken = a});
 
@@ -194,7 +191,7 @@ dsirsNextToken = lens _dsirsNextToken (\ s a -> s{_dsirsNextToken = a});
 dsirsScheduledInstanceSet :: Lens' DescribeScheduledInstancesResponse [ScheduledInstance]
 dsirsScheduledInstanceSet = lens _dsirsScheduledInstanceSet (\ s a -> s{_dsirsScheduledInstanceSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsirsResponseStatus :: Lens' DescribeScheduledInstancesResponse Int
 dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
 

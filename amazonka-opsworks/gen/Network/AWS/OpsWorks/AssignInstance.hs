@@ -20,13 +20,17 @@
 --
 -- Assign a registered instance to a layer.
 --
--- -   You can assign registered on-premises instances to any layer type.
 --
--- -   You can assign registered Amazon EC2 instances only to custom layers.
+--     * You can assign registered on-premises instances to any layer type.
 --
--- -   You cannot use this action with instances that were created with AWS OpsWorks.
+--     * You can assign registered Amazon EC2 instances only to custom layers.
 --
--- __Required Permissions__: To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--     * You cannot use this action with instances that were created with AWS OpsWorks.
+--
+--
+--
+-- __Required Permissions__ : To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.AssignInstance
     (
     -- * Creating a Request
@@ -58,9 +62,9 @@ data AssignInstance = AssignInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiInstanceId'
+-- * 'aiInstanceId' - The instance ID.
 --
--- * 'aiLayerIds'
+-- * 'aiLayerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
 assignInstance
     :: Text -- ^ 'aiInstanceId'
     -> AssignInstance

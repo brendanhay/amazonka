@@ -20,7 +20,9 @@
 --
 -- Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted and cannot be recovered after this operation successfully completes.
 --
+--
 -- If you specify a tag that does not exist, it is ignored.
+--
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for 'RemoveTagsFromStream'.
+-- | Represents the input for @RemoveTagsFromStream@ .
+--
+--
 --
 -- /See:/ 'removeTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
@@ -54,9 +58,9 @@ data RemoveTagsFromStream = RemoveTagsFromStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfsStreamName'
+-- * 'rtfsStreamName' - The name of the stream.
 --
--- * 'rtfsTagKeys'
+-- * 'rtfsTagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
 removeTagsFromStream
     :: Text -- ^ 'rtfsStreamName'
     -> NonEmpty Text -- ^ 'rtfsTagKeys'

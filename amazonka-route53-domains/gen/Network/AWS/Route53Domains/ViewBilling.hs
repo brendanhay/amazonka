@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns all the domain-related billing records for the current AWS account for a specified period
+--
+--
 module Network.AWS.Route53Domains.ViewBilling
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The ViewBilling request includes the following elements.
 --
+--
+--
 -- /See:/ 'viewBilling' smart constructor.
 data ViewBilling = ViewBilling'
     { _vbStart    :: !(Maybe POSIX)
@@ -60,13 +64,13 @@ data ViewBilling = ViewBilling'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vbStart'
+-- * 'vbStart' - The beginning date and time for the time period for which you want a list of billing records. Specify the date in Unix time format. Type: Double Default: None Required: Yes
 --
--- * 'vbEnd'
+-- * 'vbEnd' - The end date and time for the time period for which you want a list of billing records. Specify the date in Unix time format. Type: Double Default: None Required: Yes
 --
--- * 'vbMarker'
+-- * 'vbMarker' - For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current AWS account during the specified period is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional billing records. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.  Type: String Default: None Constraints: The marker must match the value of @NextPageMarker@ that was returned in the previous response. Required: No
 --
--- * 'vbMaxItems'
+-- * 'vbMaxItems' - The number of billing records to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
 viewBilling
     :: ViewBilling
 viewBilling =
@@ -77,47 +81,19 @@ viewBilling =
     , _vbMaxItems = Nothing
     }
 
--- | The beginning date and time for the time period for which you want a list of billing records. Specify the date in Unix time format.
---
--- Type: Double
---
--- Default: None
---
--- Required: Yes
+-- | The beginning date and time for the time period for which you want a list of billing records. Specify the date in Unix time format. Type: Double Default: None Required: Yes
 vbStart :: Lens' ViewBilling (Maybe UTCTime)
 vbStart = lens _vbStart (\ s a -> s{_vbStart = a}) . mapping _Time;
 
--- | The end date and time for the time period for which you want a list of billing records. Specify the date in Unix time format.
---
--- Type: Double
---
--- Default: None
---
--- Required: Yes
+-- | The end date and time for the time period for which you want a list of billing records. Specify the date in Unix time format. Type: Double Default: None Required: Yes
 vbEnd :: Lens' ViewBilling (Maybe UTCTime)
 vbEnd = lens _vbEnd (\ s a -> s{_vbEnd = a}) . mapping _Time;
 
--- | For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current AWS account during the specified period is greater than the value that you specified for 'MaxItems', you can use 'Marker' to return additional billing records. Get the value of 'NextPageMarker' from the previous response, and submit another request that includes the value of 'NextPageMarker' in the 'Marker' element.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The marker must match the value of 'NextPageMarker' that was returned in the previous response.
---
--- Required: No
+-- | For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current AWS account during the specified period is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional billing records. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.  Type: String Default: None Constraints: The marker must match the value of @NextPageMarker@ that was returned in the previous response. Required: No
 vbMarker :: Lens' ViewBilling (Maybe Text)
 vbMarker = lens _vbMarker (\ s a -> s{_vbMarker = a});
 
--- | The number of billing records to be returned.
---
--- Type: Integer
---
--- Default: 20
---
--- Constraints: A value between 1 and 100.
---
--- Required: No
+-- | The number of billing records to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
 vbMaxItems :: Lens' ViewBilling (Maybe Int)
 vbMaxItems = lens _vbMaxItems (\ s a -> s{_vbMaxItems = a});
 
@@ -162,6 +138,8 @@ instance ToQuery ViewBilling where
 
 -- | The ViewBilling response includes the following elements.
 --
+--
+--
 -- /See:/ 'viewBillingResponse' smart constructor.
 data ViewBillingResponse = ViewBillingResponse'
     { _vbrsNextPageMarker :: !(Maybe Text)
@@ -173,11 +151,11 @@ data ViewBillingResponse = ViewBillingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vbrsNextPageMarker'
+-- * 'vbrsNextPageMarker' - If there are more billing records than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @BillingRecords@
 --
--- * 'vbrsBillingRecords'
+-- * 'vbrsBillingRecords' - A summary of billing records. Type: Complex type containing a list of billing record summaries. Children: @DomainName@ , @Operation@ , @InvoiceId@ , @BillDate@ and @Price@
 --
--- * 'vbrsResponseStatus'
+-- * 'vbrsResponseStatus' - -- | The response status code.
 viewBillingResponse
     :: Int -- ^ 'vbrsResponseStatus'
     -> ViewBillingResponse
@@ -188,23 +166,15 @@ viewBillingResponse pResponseStatus_ =
     , _vbrsResponseStatus = pResponseStatus_
     }
 
--- | If there are more billing records than you specified for 'MaxItems' in the request, submit another request and include the value of 'NextPageMarker' in the value of 'Marker'.
---
--- Type: String
---
--- Parent: 'BillingRecords'
+-- | If there are more billing records than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @BillingRecords@
 vbrsNextPageMarker :: Lens' ViewBillingResponse (Maybe Text)
 vbrsNextPageMarker = lens _vbrsNextPageMarker (\ s a -> s{_vbrsNextPageMarker = a});
 
--- | A summary of billing records.
---
--- Type: Complex type containing a list of billing record summaries.
---
--- Children: 'DomainName', 'Operation', 'InvoiceId', 'BillDate' and 'Price'
+-- | A summary of billing records. Type: Complex type containing a list of billing record summaries. Children: @DomainName@ , @Operation@ , @InvoiceId@ , @BillDate@ and @Price@
 vbrsBillingRecords :: Lens' ViewBillingResponse [BillingRecord]
 vbrsBillingRecords = lens _vbrsBillingRecords (\ s a -> s{_vbrsBillingRecords = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 vbrsResponseStatus :: Lens' ViewBillingResponse Int
 vbrsResponseStatus = lens _vbrsResponseStatus (\ s a -> s{_vbrsResponseStatus = a});
 

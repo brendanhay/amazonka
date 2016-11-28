@@ -20,7 +20,7 @@
 --
 -- Returns details about the specified delivery channel. If a delivery channel is not specified, this action returns the details of all delivery channels associated with the account.
 --
--- Currently, you can specify only one delivery channel per account.
+--
 module Network.AWS.Config.DescribeDeliveryChannels
     (
     -- * Creating a Request
@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DescribeDeliveryChannels> action.
+-- | The input for the 'DescribeDeliveryChannels' action.
+--
+--
 --
 -- /See:/ 'describeDeliveryChannels' smart constructor.
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
@@ -55,7 +57,7 @@ newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeliveryChannelNames'
+-- * 'ddcDeliveryChannelNames' - A list of delivery channel names.
 describeDeliveryChannels
     :: DescribeDeliveryChannels
 describeDeliveryChannels =
@@ -105,7 +107,9 @@ instance ToPath DescribeDeliveryChannels where
 instance ToQuery DescribeDeliveryChannels where
         toQuery = const mempty
 
--- | The output for the < DescribeDeliveryChannels> action.
+-- | The output for the 'DescribeDeliveryChannels' action.
+--
+--
 --
 -- /See:/ 'describeDeliveryChannelsResponse' smart constructor.
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
@@ -117,9 +121,9 @@ data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcrsDeliveryChannels'
+-- * 'ddcrsDeliveryChannels' - A list that contains the descriptions of the specified delivery channel.
 --
--- * 'ddcrsResponseStatus'
+-- * 'ddcrsResponseStatus' - -- | The response status code.
 describeDeliveryChannelsResponse
     :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDeliveryChannelsResponse
@@ -133,7 +137,7 @@ describeDeliveryChannelsResponse pResponseStatus_ =
 ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDeliveryChannelsResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
 

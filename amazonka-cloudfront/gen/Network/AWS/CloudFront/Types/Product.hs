@@ -34,11 +34,11 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atsItems'
+-- * 'atsItems' - A complex type that contains one Signer complex type for each unique trusted signer that is specified in the TrustedSigners complex type, including trusted signers in the default cache behavior and in all of the other cache behaviors.
 --
--- * 'atsEnabled'
+-- * 'atsEnabled' - Each active trusted signer.
 --
--- * 'atsQuantity'
+-- * 'atsQuantity' - The number of unique trusted signers included in all cache behaviors. For example, if three cache behaviors all list the same three AWS accounts, the value of Quantity for ActiveTrustedSigners will be 3.
 activeTrustedSigners
     :: Bool -- ^ 'atsEnabled'
     -> Int -- ^ 'atsQuantity'
@@ -86,9 +86,9 @@ data Aliases = Aliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aItems'
+-- * 'aItems' - Optional: A complex type that contains CNAME elements, if any, for this distribution. If Quantity is 0, you can omit Items.
 --
--- * 'aQuantity'
+-- * 'aQuantity' - The number of CNAMEs, if any, for this distribution.
 aliases
     :: Int -- ^ 'aQuantity'
     -> Aliases
@@ -123,7 +123,7 @@ instance ToXML Aliases where
               ["Items" @= toXML (toXMLList "CNAME" <$> _aItems),
                "Quantity" @= _aQuantity]
 
--- | A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices: - CloudFront forwards only GET and HEAD requests. - CloudFront forwards only GET, HEAD and OPTIONS requests. - CloudFront forwards GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests. If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can\'t perform operations that you don\'t want them to. For example, you may not want users to have permission to delete objects from your origin.
+-- | A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices: - CloudFront forwards only GET and HEAD requests. - CloudFront forwards only GET, HEAD and OPTIONS requests. - CloudFront forwards GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests. If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you may not want users to have permission to delete objects from your origin.
 --
 -- /See:/ 'allowedMethods' smart constructor.
 data AllowedMethods = AllowedMethods'
@@ -136,11 +136,11 @@ data AllowedMethods = AllowedMethods'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amCachedMethods'
+-- * 'amCachedMethods' - Undocumented member.
 --
--- * 'amQuantity'
+-- * 'amQuantity' - The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD and OPTIONS requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests).
 --
--- * 'amItems'
+-- * 'amItems' - A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
 allowedMethods
     :: Int -- ^ 'amQuantity'
     -> AllowedMethods
@@ -180,7 +180,7 @@ instance ToXML AllowedMethods where
                "Quantity" @= _amQuantity,
                "Items" @= toXMLList "Method" _amItems]
 
--- | A complex type that describes how CloudFront processes requests. You can create up to 10 cache behaviors.You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to distribute objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin will never be used. If you don\'t want to specify any cache behaviors, include only an empty CacheBehaviors element. Don\'t include an empty CacheBehavior element, or CloudFront returns a MalformedXML error. To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty CacheBehaviors element. To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
+-- | A complex type that describes how CloudFront processes requests. You can create up to 10 cache behaviors.You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to distribute objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin will never be used. If you don't want to specify any cache behaviors, include only an empty CacheBehaviors element. Don't include an empty CacheBehavior element, or CloudFront returns a MalformedXML error. To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty CacheBehaviors element. To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
 --
 -- /See:/ 'cacheBehavior' smart constructor.
 data CacheBehavior = CacheBehavior'
@@ -201,27 +201,27 @@ data CacheBehavior = CacheBehavior'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbAllowedMethods'
+-- * 'cbAllowedMethods' - Undocumented member.
 --
--- * 'cbMaxTTL'
+-- * 'cbMaxTTL' - The maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 --
--- * 'cbCompress'
+-- * 'cbCompress' - <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
 --
--- * 'cbSmoothStreaming'
+-- * 'cbSmoothStreaming' - Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify true; if not, specify false.
 --
--- * 'cbDefaultTTL'
+-- * 'cbDefaultTTL' - If you don't configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 --
--- * 'cbPathPattern'
+-- * 'cbPathPattern' - The pattern (for example, images/*.jpg) that specifies which requests you want this cache behavior to apply to. When CloudFront receives an end-user request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution. The path pattern for the default cache behavior is * and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
 --
--- * 'cbTargetOriginId'
+-- * 'cbTargetOriginId' - The value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
 --
--- * 'cbForwardedValues'
+-- * 'cbForwardedValues' - A complex type that specifies how CloudFront handles query strings, cookies and headers.
 --
--- * 'cbTrustedSigners'
+-- * 'cbTrustedSigners' - A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --
--- * 'cbViewerProtocolPolicy'
+-- * 'cbViewerProtocolPolicy' - Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.
 --
--- * 'cbMinTTL'
+-- * 'cbMinTTL' - The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 cacheBehavior
     :: Text -- ^ 'cbPathPattern'
     -> Text -- ^ 'cbTargetOriginId'
@@ -253,7 +253,7 @@ cbAllowedMethods = lens _cbAllowedMethods (\ s a -> s{_cbAllowedMethods = a});
 cbMaxTTL :: Lens' CacheBehavior (Maybe Integer)
 cbMaxTTL = lens _cbMaxTTL (\ s a -> s{_cbMaxTTL = a});
 
--- | Whether you want CloudFront to automatically compress content for web requests that include Accept-Encoding: gzip in the request header. If so, specify true; if not, specify false. CloudFront compresses files larger than 1000 bytes and less than 1 megabyte for both Amazon S3 and custom origins. When a CloudFront edge location is unusually busy, some files might not be compressed. The value of the Content-Type header must be on the list of file types that CloudFront will compress. For the current list, see <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content> in the Amazon CloudFront Developer Guide. If you configure CloudFront to compress content, CloudFront removes the ETag response header from the objects that it compresses. The ETag header indicates that the version in a CloudFront edge cache is identical to the version on the origin server, but after compression the two versions are no longer identical. As a result, for compressed objects, CloudFront can\'t use the ETag header to determine whether an expired object in the CloudFront edge cache is still the latest version.
+-- | <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
 cbCompress :: Lens' CacheBehavior (Maybe Bool)
 cbCompress = lens _cbCompress (\ s a -> s{_cbCompress = a});
 
@@ -261,11 +261,11 @@ cbCompress = lens _cbCompress (\ s a -> s{_cbCompress = a});
 cbSmoothStreaming :: Lens' CacheBehavior (Maybe Bool)
 cbSmoothStreaming = lens _cbSmoothStreaming (\ s a -> s{_cbSmoothStreaming = a});
 
--- | If you don\'t configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
+-- | If you don't configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 cbDefaultTTL :: Lens' CacheBehavior (Maybe Integer)
 cbDefaultTTL = lens _cbDefaultTTL (\ s a -> s{_cbDefaultTTL = a});
 
--- | The pattern (for example, images\/*.jpg) that specifies which requests you want this cache behavior to apply to. When CloudFront receives an end-user request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution. The path pattern for the default cache behavior is * and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
+-- | The pattern (for example, images/*.jpg) that specifies which requests you want this cache behavior to apply to. When CloudFront receives an end-user request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution. The path pattern for the default cache behavior is * and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
 cbPathPattern :: Lens' CacheBehavior Text
 cbPathPattern = lens _cbPathPattern (\ s a -> s{_cbPathPattern = a});
 
@@ -277,7 +277,7 @@ cbTargetOriginId = lens _cbTargetOriginId (\ s a -> s{_cbTargetOriginId = a});
 cbForwardedValues :: Lens' CacheBehavior ForwardedValues
 cbForwardedValues = lens _cbForwardedValues (\ s a -> s{_cbForwardedValues = a});
 
--- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+-- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 cbTrustedSigners :: Lens' CacheBehavior TrustedSigners
 cbTrustedSigners = lens _cbTrustedSigners (\ s a -> s{_cbTrustedSigners = a});
 
@@ -333,9 +333,9 @@ data CacheBehaviors = CacheBehaviors'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbItems'
+-- * 'cbItems' - Optional: A complex type that contains cache behaviors for this distribution. If Quantity is 0, you can omit Items.
 --
--- * 'cbQuantity'
+-- * 'cbQuantity' - The number of cache behaviors for this distribution.
 cacheBehaviors
     :: Int -- ^ 'cbQuantity'
     -> CacheBehaviors
@@ -383,9 +383,9 @@ data CachedMethods = CachedMethods'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmQuantity'
+-- * 'cmQuantity' - The number of HTTP methods for which you want CloudFront to cache responses. Valid values are 2 (for caching responses to GET and HEAD requests) and 3 (for caching responses to GET, HEAD, and OPTIONS requests).
 --
--- * 'cmItems'
+-- * 'cmItems' - A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
 cachedMethods
     :: Int -- ^ 'cmQuantity'
     -> CachedMethods
@@ -432,11 +432,11 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfoaiCloudFrontOriginAccessIdentityConfig'
+-- * 'cfoaiCloudFrontOriginAccessIdentityConfig' - The current configuration information for the identity.
 --
--- * 'cfoaiId'
+-- * 'cfoaiId' - The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 --
--- * 'cfoaiS3CanonicalUserId'
+-- * 'cfoaiS3CanonicalUserId' - The Amazon S3 canonical user ID for the origin access identity, which you use when giving the origin access identity read permission to an object in Amazon S3.
 cloudFrontOriginAccessIdentity
     :: Text -- ^ 'cfoaiId'
     -> Text -- ^ 'cfoaiS3CanonicalUserId'
@@ -483,9 +483,9 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfoaicCallerReference'
+-- * 'cfoaicCallerReference' - A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the CloudFrontOriginAccessIdentityConfig object), a new origin access identity is created. If the CallerReference is a value you already sent in a previous request to create an identity, and the content of the CloudFrontOriginAccessIdentityConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create an identity but the content of the CloudFrontOriginAccessIdentityConfig is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists error.
 --
--- * 'cfoaicComment'
+-- * 'cfoaicComment' - Any comments you want to include about the origin access identity.
 cloudFrontOriginAccessIdentityConfig
     :: Text -- ^ 'cfoaicCallerReference'
     -> Text -- ^ 'cfoaicComment'
@@ -496,7 +496,7 @@ cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
     , _cfoaicComment = pComment_
     }
 
--- | A unique number that ensures the request can\'t be replayed. If the CallerReference is new (no matter the content of the CloudFrontOriginAccessIdentityConfig object), a new origin access identity is created. If the CallerReference is a value you already sent in a previous request to create an identity, and the content of the CloudFrontOriginAccessIdentityConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create an identity but the content of the CloudFrontOriginAccessIdentityConfig is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists error.
+-- | A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the CloudFrontOriginAccessIdentityConfig object), a new origin access identity is created. If the CallerReference is a value you already sent in a previous request to create an identity, and the content of the CloudFrontOriginAccessIdentityConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create an identity but the content of the CloudFrontOriginAccessIdentityConfig is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists error.
 cfoaicCallerReference :: Lens' CloudFrontOriginAccessIdentityConfig Text
 cfoaicCallerReference = lens _cfoaicCallerReference (\ s a -> s{_cfoaicCallerReference = a});
 
@@ -538,17 +538,17 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfoailItems'
+-- * 'cfoailItems' - A complex type that contains one CloudFrontOriginAccessIdentitySummary element for each origin access identity that was created by the current AWS account.
 --
--- * 'cfoailNextMarker'
+-- * 'cfoailNextMarker' - If IsTruncated is true, this element is present and contains the value you can use for the Marker request parameter to continue listing your origin access identities where they left off.
 --
--- * 'cfoailMarker'
+-- * 'cfoailMarker' - The value you provided for the Marker request parameter.
 --
--- * 'cfoailMaxItems'
+-- * 'cfoailMaxItems' - The value you provided for the MaxItems request parameter.
 --
--- * 'cfoailIsTruncated'
+-- * 'cfoailIsTruncated' - A flag that indicates whether more origin access identities remain to be listed. If your results were truncated, you can make a follow-up pagination request using the Marker request parameter to retrieve more items in the list.
 --
--- * 'cfoailQuantity'
+-- * 'cfoailQuantity' - The number of CloudFront origin access identities that were created by the current AWS account.
 cloudFrontOriginAccessIdentityList
     :: Text -- ^ 'cfoailMarker'
     -> Int -- ^ 'cfoailMaxItems'
@@ -620,11 +620,11 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfoaisId'
+-- * 'cfoaisId' - The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 --
--- * 'cfoaisS3CanonicalUserId'
+-- * 'cfoaisS3CanonicalUserId' - The Amazon S3 canonical user ID for the origin access identity, which you use when giving the origin access identity read permission to an object in Amazon S3.
 --
--- * 'cfoaisComment'
+-- * 'cfoaisComment' - The comment for this origin access identity, as originally specified when created.
 cloudFrontOriginAccessIdentitySummary
     :: Text -- ^ 'cfoaisId'
     -> Text -- ^ 'cfoaisS3CanonicalUserId'
@@ -673,9 +673,9 @@ data CookieNames = CookieNames'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnItems'
+-- * 'cnItems' - Optional: A complex type that contains whitelisted cookies for this cache behavior. If Quantity is 0, you can omit Items.
 --
--- * 'cnQuantity'
+-- * 'cnQuantity' - The number of whitelisted cookies for this cache behavior.
 cookieNames
     :: Int -- ^ 'cnQuantity'
     -> CookieNames
@@ -722,9 +722,9 @@ data CookiePreference = CookiePreference'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpWhitelistedNames'
+-- * 'cpWhitelistedNames' - A complex type that specifies the whitelisted cookies, if any, that you want CloudFront to forward to your origin that is associated with this cache behavior.
 --
--- * 'cpForward'
+-- * 'cpForward' - Use this element to specify whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify all, none or whitelist. If you choose All, CloudFront forwards all cookies regardless of how many your application uses.
 cookiePreference
     :: ItemSelection -- ^ 'cpForward'
     -> CookiePreference
@@ -757,7 +757,7 @@ instance ToXML CookiePreference where
               ["WhitelistedNames" @= _cpWhitelistedNames,
                "Forward" @= _cpForward]
 
--- | A complex type that describes how you\'d prefer CloudFront to respond to requests that result in either a 4xx or 5xx response. You can control whether a custom error page should be displayed, what the desired response code should be for this error page and how long should the error response be cached by CloudFront. If you don\'t want to specify any custom error responses, include only an empty CustomErrorResponses element. To delete all custom error responses in an existing distribution, update the distribution configuration and include only an empty CustomErrorResponses element. To add, change, or remove one or more custom error responses, update the distribution configuration and specify all of the custom error responses that you want to include in the updated distribution.
+-- | A complex type that describes how you'd prefer CloudFront to respond to requests that result in either a 4xx or 5xx response. You can control whether a custom error page should be displayed, what the desired response code should be for this error page and how long should the error response be cached by CloudFront. If you don't want to specify any custom error responses, include only an empty CustomErrorResponses element. To delete all custom error responses in an existing distribution, update the distribution configuration and include only an empty CustomErrorResponses element. To add, change, or remove one or more custom error responses, update the distribution configuration and specify all of the custom error responses that you want to include in the updated distribution.
 --
 -- /See:/ 'customErrorResponse' smart constructor.
 data CustomErrorResponse = CustomErrorResponse'
@@ -771,13 +771,13 @@ data CustomErrorResponse = CustomErrorResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceResponsePagePath'
+-- * 'ceResponsePagePath' - The path of the custom error page (for example, /custom_404.html). The path is relative to the distribution and must begin with a slash (/). If the path includes any non-ASCII characters or unsafe characters as defined in RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not return the custom error page to the viewer.
 --
--- * 'ceResponseCode'
+-- * 'ceResponseCode' - The HTTP status code that you want CloudFront to return with the custom error page to the viewer. For a list of HTTP status codes that you can replace, see CloudFront Documentation.
 --
--- * 'ceErrorCachingMinTTL'
+-- * 'ceErrorCachingMinTTL' - The minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. You can specify a value from 0 to 31,536,000.
 --
--- * 'ceErrorCode'
+-- * 'ceErrorCode' - The 4xx or 5xx HTTP status code that you want to customize. For a list of HTTP status codes that you can customize, see CloudFront documentation.
 customErrorResponse
     :: Int -- ^ 'ceErrorCode'
     -> CustomErrorResponse
@@ -789,7 +789,7 @@ customErrorResponse pErrorCode_ =
     , _ceErrorCode = pErrorCode_
     }
 
--- | The path of the custom error page (for example, \/custom_404.html). The path is relative to the distribution and must begin with a slash (\/). If the path includes any non-ASCII characters or unsafe characters as defined in RFC 1783 (http:\/\/www.ietf.org\/rfc\/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not return the custom error page to the viewer.
+-- | The path of the custom error page (for example, /custom_404.html). The path is relative to the distribution and must begin with a slash (/). If the path includes any non-ASCII characters or unsafe characters as defined in RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not return the custom error page to the viewer.
 ceResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
 ceResponsePagePath = lens _ceResponsePagePath (\ s a -> s{_ceResponsePagePath = a});
 
@@ -836,9 +836,9 @@ data CustomErrorResponses = CustomErrorResponses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cerItems'
+-- * 'cerItems' - Optional: A complex type that contains custom error responses for this distribution. If Quantity is 0, you can omit Items.
 --
--- * 'cerQuantity'
+-- * 'cerQuantity' - The number of custom error responses for this distribution.
 customErrorResponses
     :: Int -- ^ 'cerQuantity'
     -> CustomErrorResponses
@@ -887,9 +887,9 @@ data CustomHeaders = CustomHeaders'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chItems'
+-- * 'chItems' - A complex type that contains the custom headers for this Origin.
 --
--- * 'chQuantity'
+-- * 'chQuantity' - The number of custom headers for this origin.
 customHeaders
     :: Int -- ^ 'chQuantity'
     -> CustomHeaders
@@ -939,13 +939,13 @@ data CustomOriginConfig = CustomOriginConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cocOriginSSLProtocols'
+-- * 'cocOriginSSLProtocols' - The SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
 --
--- * 'cocHTTPPort'
+-- * 'cocHTTPPort' - The HTTP port the custom origin listens on.
 --
--- * 'cocHTTPSPort'
+-- * 'cocHTTPSPort' - The HTTPS port the custom origin listens on.
 --
--- * 'cocOriginProtocolPolicy'
+-- * 'cocOriginProtocolPolicy' - The origin protocol policy to apply to your origin.
 customOriginConfig
     :: Int -- ^ 'cocHTTPPort'
     -> Int -- ^ 'cocHTTPSPort'
@@ -959,7 +959,7 @@ customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
     }
 
--- | The SSL\/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+-- | The SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
 cocOriginSSLProtocols :: Lens' CustomOriginConfig (Maybe OriginSSLProtocols)
 cocOriginSSLProtocols = lens _cocOriginSSLProtocols (\ s a -> s{_cocOriginSSLProtocols = a});
 
@@ -994,7 +994,7 @@ instance ToXML CustomOriginConfig where
                "HTTPSPort" @= _cocHTTPSPort,
                "OriginProtocolPolicy" @= _cocOriginProtocolPolicy]
 
--- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don\'t match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
+-- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don't match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
 --
 -- /See:/ 'defaultCacheBehavior' smart constructor.
 data DefaultCacheBehavior = DefaultCacheBehavior'
@@ -1014,25 +1014,25 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbAllowedMethods'
+-- * 'dcbAllowedMethods' - Undocumented member.
 --
--- * 'dcbMaxTTL'
+-- * 'dcbMaxTTL' - The maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 --
--- * 'dcbCompress'
+-- * 'dcbCompress' - <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
 --
--- * 'dcbSmoothStreaming'
+-- * 'dcbSmoothStreaming' - Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify true; if not, specify false.
 --
--- * 'dcbDefaultTTL'
+-- * 'dcbDefaultTTL' - If you don't configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 --
--- * 'dcbTargetOriginId'
+-- * 'dcbTargetOriginId' - The value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
 --
--- * 'dcbForwardedValues'
+-- * 'dcbForwardedValues' - A complex type that specifies how CloudFront handles query strings, cookies and headers.
 --
--- * 'dcbTrustedSigners'
+-- * 'dcbTrustedSigners' - A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --
--- * 'dcbViewerProtocolPolicy'
+-- * 'dcbViewerProtocolPolicy' - Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.
 --
--- * 'dcbMinTTL'
+-- * 'dcbMinTTL' - The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 defaultCacheBehavior
     :: Text -- ^ 'dcbTargetOriginId'
     -> ForwardedValues -- ^ 'dcbForwardedValues'
@@ -1062,7 +1062,7 @@ dcbAllowedMethods = lens _dcbAllowedMethods (\ s a -> s{_dcbAllowedMethods = a})
 dcbMaxTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
 dcbMaxTTL = lens _dcbMaxTTL (\ s a -> s{_dcbMaxTTL = a});
 
--- | Whether you want CloudFront to automatically compress content for web requests that include Accept-Encoding: gzip in the request header. If so, specify true; if not, specify false. CloudFront compresses files larger than 1000 bytes and less than 1 megabyte for both Amazon S3 and custom origins. When a CloudFront edge location is unusually busy, some files might not be compressed. The value of the Content-Type header must be on the list of file types that CloudFront will compress. For the current list, see <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content> in the Amazon CloudFront Developer Guide. If you configure CloudFront to compress content, CloudFront removes the ETag response header from the objects that it compresses. The ETag header indicates that the version in a CloudFront edge cache is identical to the version on the origin server, but after compression the two versions are no longer identical. As a result, for compressed objects, CloudFront can\'t use the ETag header to determine whether an expired object in the CloudFront edge cache is still the latest version.
+-- | <http://docs.aws.amazon.com/console/cloudfront/compressed-content Serving Compressed Content>
 dcbCompress :: Lens' DefaultCacheBehavior (Maybe Bool)
 dcbCompress = lens _dcbCompress (\ s a -> s{_dcbCompress = a});
 
@@ -1070,7 +1070,7 @@ dcbCompress = lens _dcbCompress (\ s a -> s{_dcbCompress = a});
 dcbSmoothStreaming :: Lens' DefaultCacheBehavior (Maybe Bool)
 dcbSmoothStreaming = lens _dcbSmoothStreaming (\ s a -> s{_dcbSmoothStreaming = a});
 
--- | If you don\'t configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
+-- | If you don't configure your origin to add a Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).
 dcbDefaultTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
 dcbDefaultTTL = lens _dcbDefaultTTL (\ s a -> s{_dcbDefaultTTL = a});
 
@@ -1082,7 +1082,7 @@ dcbTargetOriginId = lens _dcbTargetOriginId (\ s a -> s{_dcbTargetOriginId = a})
 dcbForwardedValues :: Lens' DefaultCacheBehavior ForwardedValues
 dcbForwardedValues = lens _dcbForwardedValues (\ s a -> s{_dcbForwardedValues = a});
 
--- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+-- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 dcbTrustedSigners :: Lens' DefaultCacheBehavior TrustedSigners
 dcbTrustedSigners = lens _dcbTrustedSigners (\ s a -> s{_dcbTrustedSigners = a});
 
@@ -1142,21 +1142,21 @@ data Distribution = Distribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dId'
+-- * 'dId' - The identifier for the distribution. For example: EDFDVBD632BHDS5.
 --
--- * 'dARN'
+-- * 'dARN' - The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 --
--- * 'dStatus'
+-- * 'dStatus' - This response element indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 --
--- * 'dLastModifiedTime'
+-- * 'dLastModifiedTime' - The date and time the distribution was last modified.
 --
--- * 'dInProgressInvalidationBatches'
+-- * 'dInProgressInvalidationBatches' - The number of invalidation batches currently in progress.
 --
--- * 'dDomainName'
+-- * 'dDomainName' - The domain name corresponding to the distribution. For example: d604721fxaaqy9.cloudfront.net.
 --
--- * 'dActiveTrustedSigners'
+-- * 'dActiveTrustedSigners' - CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no KeyPairId element appears for a Signer, that signer can't create working signed URLs.
 --
--- * 'dDistributionConfig'
+-- * 'dDistributionConfig' - The current configuration information for the distribution.
 distribution
     :: Text -- ^ 'dId'
     -> Text -- ^ 'dARN'
@@ -1183,11 +1183,11 @@ distribution pId_ pARN_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatch
 dId :: Lens' Distribution Text
 dId = lens _dId (\ s a -> s{_dId = a});
 
--- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+-- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 dARN :: Lens' Distribution Text
 dARN = lens _dARN (\ s a -> s{_dARN = a});
 
--- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
+-- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 dStatus :: Lens' Distribution Text
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
@@ -1203,7 +1203,7 @@ dInProgressInvalidationBatches = lens _dInProgressInvalidationBatches (\ s a -> 
 dDomainName :: Lens' Distribution Text
 dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
--- | CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no KeyPairId element appears for a Signer, that signer can\'t create working signed URLs.
+-- | CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no KeyPairId element appears for a Signer, that signer can't create working signed URLs.
 dActiveTrustedSigners :: Lens' Distribution ActiveTrustedSigners
 dActiveTrustedSigners = lens _dActiveTrustedSigners (\ s a -> s{_dActiveTrustedSigners = a});
 
@@ -1250,35 +1250,35 @@ data DistributionConfig = DistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcHTTPVersion'
+-- * 'dcHTTPVersion' - (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 will automatically use an earlier version.
 --
--- * 'dcAliases'
+-- * 'dcAliases' - A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
--- * 'dcDefaultRootObject'
+-- * 'dcDefaultRootObject' - The object that you want CloudFront to return (for example, index.html) when an end user requests the root URL for your distribution (http://www.example.com) instead of an object in your distribution (http://www.example.com/index.html). Specifying a default root object avoids exposing the contents of your distribution. If you don't want to specify a default root object when you create a distribution, include an empty DefaultRootObject element. To delete the default root object from an existing distribution, update the distribution configuration and include an empty DefaultRootObject element. To replace the default root object, update the distribution configuration and specify the new object.
 --
--- * 'dcPriceClass'
+-- * 'dcPriceClass' - A complex type that contains information about price class for this distribution.
 --
--- * 'dcCustomErrorResponses'
+-- * 'dcCustomErrorResponses' - A complex type that contains zero or more CustomErrorResponse elements.
 --
--- * 'dcWebACLId'
+-- * 'dcWebACLId' - (Optional) If you're using AWS WAF to filter CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution.
 --
--- * 'dcViewerCertificate'
+-- * 'dcViewerCertificate' - Undocumented member.
 --
--- * 'dcRestrictions'
+-- * 'dcRestrictions' - Undocumented member.
 --
--- * 'dcLogging'
+-- * 'dcLogging' - A complex type that controls whether access logs are written for the distribution.
 --
--- * 'dcCacheBehaviors'
+-- * 'dcCacheBehaviors' - A complex type that contains zero or more CacheBehavior elements.
 --
--- * 'dcCallerReference'
+-- * 'dcCallerReference' - A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the DistributionConfig object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create a distribution, and the content of the DistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of the DistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
 --
--- * 'dcOrigins'
+-- * 'dcOrigins' - A complex type that contains information about origins for this distribution.
 --
--- * 'dcDefaultCacheBehavior'
+-- * 'dcDefaultCacheBehavior' - A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don't match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
 --
--- * 'dcComment'
+-- * 'dcComment' - Any comments you want to include about the distribution.
 --
--- * 'dcEnabled'
+-- * 'dcEnabled' - Whether the distribution is enabled to accept end user requests for content.
 distributionConfig
     :: Text -- ^ 'dcCallerReference'
     -> Origins -- ^ 'dcOrigins'
@@ -1305,7 +1305,7 @@ distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ 
     , _dcEnabled = pEnabled_
     }
 
--- | (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP\/2 will automatically use an earlier version.
+-- | (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 will automatically use an earlier version.
 dcHTTPVersion :: Lens' DistributionConfig (Maybe HTTPVersion)
 dcHTTPVersion = lens _dcHTTPVersion (\ s a -> s{_dcHTTPVersion = a});
 
@@ -1313,7 +1313,7 @@ dcHTTPVersion = lens _dcHTTPVersion (\ s a -> s{_dcHTTPVersion = a});
 dcAliases :: Lens' DistributionConfig (Maybe Aliases)
 dcAliases = lens _dcAliases (\ s a -> s{_dcAliases = a});
 
--- | The object that you want CloudFront to return (for example, index.html) when an end user requests the root URL for your distribution (http:\/\/www.example.com) instead of an object in your distribution (http:\/\/www.example.com\/index.html). Specifying a default root object avoids exposing the contents of your distribution. If you don\'t want to specify a default root object when you create a distribution, include an empty DefaultRootObject element. To delete the default root object from an existing distribution, update the distribution configuration and include an empty DefaultRootObject element. To replace the default root object, update the distribution configuration and specify the new object.
+-- | The object that you want CloudFront to return (for example, index.html) when an end user requests the root URL for your distribution (http://www.example.com) instead of an object in your distribution (http://www.example.com/index.html). Specifying a default root object avoids exposing the contents of your distribution. If you don't want to specify a default root object when you create a distribution, include an empty DefaultRootObject element. To delete the default root object from an existing distribution, update the distribution configuration and include an empty DefaultRootObject element. To replace the default root object, update the distribution configuration and specify the new object.
 dcDefaultRootObject :: Lens' DistributionConfig (Maybe Text)
 dcDefaultRootObject = lens _dcDefaultRootObject (\ s a -> s{_dcDefaultRootObject = a});
 
@@ -1325,7 +1325,7 @@ dcPriceClass = lens _dcPriceClass (\ s a -> s{_dcPriceClass = a});
 dcCustomErrorResponses :: Lens' DistributionConfig (Maybe CustomErrorResponses)
 dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomErrorResponses = a});
 
--- | (Optional) If you\'re using AWS WAF to filter CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution.
+-- | (Optional) If you're using AWS WAF to filter CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution.
 dcWebACLId :: Lens' DistributionConfig (Maybe Text)
 dcWebACLId = lens _dcWebACLId (\ s a -> s{_dcWebACLId = a});
 
@@ -1345,7 +1345,7 @@ dcLogging = lens _dcLogging (\ s a -> s{_dcLogging = a});
 dcCacheBehaviors :: Lens' DistributionConfig (Maybe CacheBehaviors)
 dcCacheBehaviors = lens _dcCacheBehaviors (\ s a -> s{_dcCacheBehaviors = a});
 
--- | A unique number that ensures the request can\'t be replayed. If the CallerReference is new (no matter the content of the DistributionConfig object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create a distribution, and the content of the DistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of the DistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
+-- | A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the DistributionConfig object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create a distribution, and the content of the DistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of the DistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
 dcCallerReference :: Lens' DistributionConfig Text
 dcCallerReference = lens _dcCallerReference (\ s a -> s{_dcCallerReference = a});
 
@@ -1353,7 +1353,7 @@ dcCallerReference = lens _dcCallerReference (\ s a -> s{_dcCallerReference = a})
 dcOrigins :: Lens' DistributionConfig Origins
 dcOrigins = lens _dcOrigins (\ s a -> s{_dcOrigins = a});
 
--- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don\'t match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
+-- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don't match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
 dcDefaultCacheBehavior :: Lens' DistributionConfig DefaultCacheBehavior
 dcDefaultCacheBehavior = lens _dcDefaultCacheBehavior (\ s a -> s{_dcDefaultCacheBehavior = a});
 
@@ -1417,9 +1417,9 @@ data DistributionConfigWithTags = DistributionConfigWithTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcwtDistributionConfig'
+-- * 'dcwtDistributionConfig' - A distribution Configuration.
 --
--- * 'dcwtTags'
+-- * 'dcwtTags' - A complex type that contains zero or more Tag elements.
 distributionConfigWithTags
     :: DistributionConfig -- ^ 'dcwtDistributionConfig'
     -> Tags -- ^ 'dcwtTags'
@@ -1464,17 +1464,17 @@ data DistributionList = DistributionList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlItems'
+-- * 'dlItems' - A complex type that contains one DistributionSummary element for each distribution that was created by the current AWS account.
 --
--- * 'dlNextMarker'
+-- * 'dlNextMarker' - If IsTruncated is true, this element is present and contains the value you can use for the Marker request parameter to continue listing your distributions where they left off.
 --
--- * 'dlMarker'
+-- * 'dlMarker' - The value you provided for the Marker request parameter.
 --
--- * 'dlMaxItems'
+-- * 'dlMaxItems' - The value you provided for the MaxItems request parameter.
 --
--- * 'dlIsTruncated'
+-- * 'dlIsTruncated' - A flag that indicates whether more distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the Marker request parameter to retrieve more distributions in the list.
 --
--- * 'dlQuantity'
+-- * 'dlQuantity' - The number of distributions that were created by the current AWS account.
 distributionList
     :: Text -- ^ 'dlMarker'
     -> Int -- ^ 'dlMaxItems'
@@ -1557,39 +1557,39 @@ data DistributionSummary = DistributionSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsId'
+-- * 'dsId' - The identifier for the distribution. For example: EDFDVBD632BHDS5.
 --
--- * 'dsARN'
+-- * 'dsARN' - The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 --
--- * 'dsStatus'
+-- * 'dsStatus' - This response element indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 --
--- * 'dsLastModifiedTime'
+-- * 'dsLastModifiedTime' - The date and time the distribution was last modified.
 --
--- * 'dsDomainName'
+-- * 'dsDomainName' - The domain name corresponding to the distribution. For example: d604721fxaaqy9.cloudfront.net.
 --
--- * 'dsAliases'
+-- * 'dsAliases' - A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
--- * 'dsOrigins'
+-- * 'dsOrigins' - A complex type that contains information about origins for this distribution.
 --
--- * 'dsDefaultCacheBehavior'
+-- * 'dsDefaultCacheBehavior' - A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don't match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
 --
--- * 'dsCacheBehaviors'
+-- * 'dsCacheBehaviors' - A complex type that contains zero or more CacheBehavior elements.
 --
--- * 'dsCustomErrorResponses'
+-- * 'dsCustomErrorResponses' - A complex type that contains zero or more CustomErrorResponses elements.
 --
--- * 'dsComment'
+-- * 'dsComment' - The comment originally specified when this distribution was created.
 --
--- * 'dsPriceClass'
+-- * 'dsPriceClass' - Undocumented member.
 --
--- * 'dsEnabled'
+-- * 'dsEnabled' - Whether the distribution is enabled to accept end user requests for content.
 --
--- * 'dsViewerCertificate'
+-- * 'dsViewerCertificate' - Undocumented member.
 --
--- * 'dsRestrictions'
+-- * 'dsRestrictions' - Undocumented member.
 --
--- * 'dsWebACLId'
+-- * 'dsWebACLId' - The Web ACL Id (if any) associated with the distribution.
 --
--- * 'dsHTTPVersion'
+-- * 'dsHTTPVersion' - Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 will automatically use an earlier version.
 distributionSummary
     :: Text -- ^ 'dsId'
     -> Text -- ^ 'dsARN'
@@ -1634,11 +1634,11 @@ distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases
 dsId :: Lens' DistributionSummary Text
 dsId = lens _dsId (\ s a -> s{_dsId = a});
 
--- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+-- | The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 dsARN :: Lens' DistributionSummary Text
 dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
--- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
+-- | This response element indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 dsStatus :: Lens' DistributionSummary Text
 dsStatus = lens _dsStatus (\ s a -> s{_dsStatus = a});
 
@@ -1658,7 +1658,7 @@ dsAliases = lens _dsAliases (\ s a -> s{_dsAliases = a});
 dsOrigins :: Lens' DistributionSummary Origins
 dsOrigins = lens _dsOrigins (\ s a -> s{_dsOrigins = a});
 
--- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don\'t match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
+-- | A complex type that describes the default cache behavior if you do not specify a CacheBehavior element or if files don't match any of the values of PathPattern in CacheBehavior elements.You must create exactly one default cache behavior.
 dsDefaultCacheBehavior :: Lens' DistributionSummary DefaultCacheBehavior
 dsDefaultCacheBehavior = lens _dsDefaultCacheBehavior (\ s a -> s{_dsDefaultCacheBehavior = a});
 
@@ -1694,7 +1694,7 @@ dsRestrictions = lens _dsRestrictions (\ s a -> s{_dsRestrictions = a});
 dsWebACLId :: Lens' DistributionSummary Text
 dsWebACLId = lens _dsWebACLId (\ s a -> s{_dsWebACLId = a});
 
--- | Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don\'t support HTTP\/2 will automatically use an earlier version.
+-- | Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 will automatically use an earlier version.
 dsHTTPVersion :: Lens' DistributionSummary HTTPVersion
 dsHTTPVersion = lens _dsHTTPVersion (\ s a -> s{_dsHTTPVersion = a});
 
@@ -1735,13 +1735,13 @@ data ForwardedValues = ForwardedValues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fvQueryStringCacheKeys'
+-- * 'fvQueryStringCacheKeys' - A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
 --
--- * 'fvHeaders'
+-- * 'fvHeaders' - A complex type that specifies the Headers, if any, that you want CloudFront to vary upon for this cache behavior.
 --
--- * 'fvQueryString'
+-- * 'fvQueryString' - Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of QueryString and on the values that you specify for QueryStringCacheKeys, if any:     * If you specify true for QueryString and you don't specify any values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.    * If you specify true for QueryString and you specify one or more values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.    * If you specify false for QueryString, CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
 --
--- * 'fvCookies'
+-- * 'fvCookies' - A complex type that specifies how CloudFront handles cookies.
 forwardedValues
     :: Bool -- ^ 'fvQueryString'
     -> CookiePreference -- ^ 'fvCookies'
@@ -1762,11 +1762,7 @@ fvQueryStringCacheKeys = lens _fvQueryStringCacheKeys (\ s a -> s{_fvQueryString
 fvHeaders :: Lens' ForwardedValues (Maybe Headers)
 fvHeaders = lens _fvHeaders (\ s a -> s{_fvHeaders = a});
 
--- | Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of QueryString and on the values that you specify for QueryStringCacheKeys, if any:
---
--- -   If you specify true for QueryString and you don\'t specify any values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
--- -   If you specify true for QueryString and you specify one or more values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
--- -   If you specify false for QueryString, CloudFront doesn\'t forward any query string parameters to the origin, and doesn\'t cache based on query string parameters.
+-- | Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of QueryString and on the values that you specify for QueryStringCacheKeys, if any:     * If you specify true for QueryString and you don't specify any values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.    * If you specify true for QueryString and you specify one or more values for QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.    * If you specify false for QueryString, CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
 fvQueryString :: Lens' ForwardedValues Bool
 fvQueryString = lens _fvQueryString (\ s a -> s{_fvQueryString = a});
 
@@ -1806,11 +1802,11 @@ data GeoRestriction = GeoRestriction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grItems'
+-- * 'grItems' - A complex type that contains a Location element for each country in which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist). The Location element is a two-letter, uppercase country code for a country that you want to include in your blacklist or whitelist. Include one Location element for each country. CloudFront and MaxMind both use ISO 3166 country codes. For the current list of countries and the corresponding codes, see ISO 3166-1-alpha-2 code on the International Organization for Standardization website. You can also refer to the country list in the CloudFront console, which includes both country names and codes.
 --
--- * 'grRestrictionType'
+-- * 'grRestrictionType' - The method that you want to use to restrict distribution of your content by country: - none: No geo restriction is enabled, meaning access to content is not restricted by client geo location. - blacklist: The Location elements specify the countries in which you do not want CloudFront to distribute your content. - whitelist: The Location elements specify the countries in which you want CloudFront to distribute your content.
 --
--- * 'grQuantity'
+-- * 'grQuantity' - When geo restriction is enabled, this is the number of countries in your whitelist or blacklist. Otherwise, when it is not enabled, Quantity is 0, and you can omit Items.
 geoRestriction
     :: GeoRestrictionType -- ^ 'grRestrictionType'
     -> Int -- ^ 'grQuantity'
@@ -1866,9 +1862,9 @@ data Headers = Headers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hItems'
+-- * 'hItems' - Optional: A complex type that contains a Name element for each header that you want CloudFront to forward to the origin and to vary on for this cache behavior. If Quantity is 0, omit Items.
 --
--- * 'hQuantity'
+-- * 'hQuantity' - The number of different headers that you want CloudFront to forward to the origin and to vary on for this cache behavior. The maximum number of headers that you can specify by name is 10. If you want CloudFront to forward all headers to the origin and vary on all of them, specify 1 for Quantity and * for Name. If you don't want CloudFront to forward any additional headers to the origin or to vary on any headers, specify 0 for Quantity and omit Items.
 headers
     :: Int -- ^ 'hQuantity'
     -> Headers
@@ -1882,7 +1878,7 @@ headers pQuantity_ =
 hItems :: Lens' Headers [Text]
 hItems = lens _hItems (\ s a -> s{_hItems = a}) . _Default . _Coerce;
 
--- | The number of different headers that you want CloudFront to forward to the origin and to vary on for this cache behavior. The maximum number of headers that you can specify by name is 10. If you want CloudFront to forward all headers to the origin and vary on all of them, specify 1 for Quantity and * for Name. If you don\'t want CloudFront to forward any additional headers to the origin or to vary on any headers, specify 0 for Quantity and omit Items.
+-- | The number of different headers that you want CloudFront to forward to the origin and to vary on for this cache behavior. The maximum number of headers that you can specify by name is 10. If you want CloudFront to forward all headers to the origin and vary on all of them, specify 1 for Quantity and * for Name. If you don't want CloudFront to forward any additional headers to the origin or to vary on any headers, specify 0 for Quantity and omit Items.
 hQuantity :: Lens' Headers Int
 hQuantity = lens _hQuantity (\ s a -> s{_hQuantity = a});
 
@@ -1917,13 +1913,13 @@ data Invalidation = Invalidation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iId'
+-- * 'iId' - The identifier for the invalidation request. For example: IDFDVBD632BHDS5.
 --
--- * 'iStatus'
+-- * 'iStatus' - The status of the invalidation request. When the invalidation batch is finished, the status is Completed.
 --
--- * 'iCreateTime'
+-- * 'iCreateTime' - The date and time the invalidation request was first made.
 --
--- * 'iInvalidationBatch'
+-- * 'iInvalidationBatch' - The current invalidation information for the batch request.
 invalidation
     :: Text -- ^ 'iId'
     -> Text -- ^ 'iStatus'
@@ -1977,9 +1973,9 @@ data InvalidationBatch = InvalidationBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ibPaths'
+-- * 'ibPaths' - The path of the object to invalidate. The path is relative to the distribution and must begin with a slash (/). You must enclose each invalidation object with the Path element tags. If the path includes non-ASCII characters or unsafe characters as defined in RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not invalidate the old version of the updated object.
 --
--- * 'ibCallerReference'
+-- * 'ibCallerReference' - A unique name that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the Path object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create an invalidation batch, and the content of each Path element is identical to the original request, the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of any Path is different from the original request, CloudFront returns an InvalidationBatchAlreadyExists error.
 invalidationBatch
     :: Paths -- ^ 'ibPaths'
     -> Text -- ^ 'ibCallerReference'
@@ -1990,11 +1986,11 @@ invalidationBatch pPaths_ pCallerReference_ =
     , _ibCallerReference = pCallerReference_
     }
 
--- | The path of the object to invalidate. The path is relative to the distribution and must begin with a slash (\/). You must enclose each invalidation object with the Path element tags. If the path includes non-ASCII characters or unsafe characters as defined in RFC 1783 (http:\/\/www.ietf.org\/rfc\/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not invalidate the old version of the updated object.
+-- | The path of the object to invalidate. The path is relative to the distribution and must begin with a slash (/). You must enclose each invalidation object with the Path element tags. If the path includes non-ASCII characters or unsafe characters as defined in RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not invalidate the old version of the updated object.
 ibPaths :: Lens' InvalidationBatch Paths
 ibPaths = lens _ibPaths (\ s a -> s{_ibPaths = a});
 
--- | A unique name that ensures the request can\'t be replayed. If the CallerReference is new (no matter the content of the Path object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create an invalidation batch, and the content of each Path element is identical to the original request, the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of any Path is different from the original request, CloudFront returns an InvalidationBatchAlreadyExists error.
+-- | A unique name that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the Path object), a new distribution is created. If the CallerReference is a value you already sent in a previous request to create an invalidation batch, and the content of each Path element is identical to the original request, the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a distribution but the content of any Path is different from the original request, CloudFront returns an InvalidationBatchAlreadyExists error.
 ibCallerReference :: Lens' InvalidationBatch Text
 ibCallerReference = lens _ibCallerReference (\ s a -> s{_ibCallerReference = a});
 
@@ -2029,17 +2025,17 @@ data InvalidationList = InvalidationList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ilItems'
+-- * 'ilItems' - A complex type that contains one InvalidationSummary element for each invalidation batch that was created by the current AWS account.
 --
--- * 'ilNextMarker'
+-- * 'ilNextMarker' - If IsTruncated is true, this element is present and contains the value you can use for the Marker request parameter to continue listing your invalidation batches where they left off.
 --
--- * 'ilMarker'
+-- * 'ilMarker' - The value you provided for the Marker request parameter.
 --
--- * 'ilMaxItems'
+-- * 'ilMaxItems' - The value you provided for the MaxItems request parameter.
 --
--- * 'ilIsTruncated'
+-- * 'ilIsTruncated' - A flag that indicates whether more invalidation batch requests remain to be listed. If your results were truncated, you can make a follow-up pagination request using the Marker request parameter to retrieve more invalidation batches in the list.
 --
--- * 'ilQuantity'
+-- * 'ilQuantity' - The number of invalidation batches that were created by the current AWS account.
 invalidationList
     :: Text -- ^ 'ilMarker'
     -> Int -- ^ 'ilMaxItems'
@@ -2108,11 +2104,11 @@ data InvalidationSummary = InvalidationSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isId'
+-- * 'isId' - The unique ID for an invalidation request.
 --
--- * 'isCreateTime'
+-- * 'isCreateTime' - Undocumented member.
 --
--- * 'isStatus'
+-- * 'isStatus' - The status of an invalidation request.
 invalidationSummary
     :: Text -- ^ 'isId'
     -> UTCTime -- ^ 'isCreateTime'
@@ -2159,9 +2155,9 @@ data KeyPairIds = KeyPairIds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kpiItems'
+-- * 'kpiItems' - A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.
 --
--- * 'kpiQuantity'
+-- * 'kpiQuantity' - The number of active CloudFront key pairs for AwsAccountNumber.
 keyPairIds
     :: Int -- ^ 'kpiQuantity'
     -> KeyPairIds
@@ -2204,13 +2200,13 @@ data LoggingConfig = LoggingConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcEnabled'
+-- * 'lcEnabled' - Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify false for Enabled, and specify empty Bucket and Prefix elements. If you specify false for Enabled but you specify values for Bucket, prefix and IncludeCookies, the values are automatically deleted.
 --
--- * 'lcIncludeCookies'
+-- * 'lcIncludeCookies' - Specifies whether you want CloudFront to include cookies in access logs, specify true for IncludeCookies. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you do not want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify false for IncludeCookies.
 --
--- * 'lcBucket'
+-- * 'lcBucket' - The Amazon S3 bucket to store the access logs in, for example, myawslogbucket.s3.amazonaws.com.
 --
--- * 'lcPrefix'
+-- * 'lcPrefix' - An optional string that you want CloudFront to prefix to the access log filenames for this distribution, for example, myprefix/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
 loggingConfig
     :: Bool -- ^ 'lcEnabled'
     -> Bool -- ^ 'lcIncludeCookies'
@@ -2237,7 +2233,7 @@ lcIncludeCookies = lens _lcIncludeCookies (\ s a -> s{_lcIncludeCookies = a});
 lcBucket :: Lens' LoggingConfig Text
 lcBucket = lens _lcBucket (\ s a -> s{_lcBucket = a});
 
--- | An optional string that you want CloudFront to prefix to the access log filenames for this distribution, for example, myprefix\/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
+-- | An optional string that you want CloudFront to prefix to the access log filenames for this distribution, for example, myprefix/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
 lcPrefix :: Lens' LoggingConfig Text
 lcPrefix = lens _lcPrefix (\ s a -> s{_lcPrefix = a});
 
@@ -2275,17 +2271,17 @@ data Origin = Origin'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oCustomHeaders'
+-- * 'oCustomHeaders' - A complex type that contains information about the custom headers associated with this Origin.
 --
--- * 'oCustomOriginConfig'
+-- * 'oCustomOriginConfig' - A complex type that contains information about a custom origin. If the origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
 --
--- * 'oS3OriginConfig'
+-- * 'oS3OriginConfig' - A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin, use the CustomOriginConfig element instead.
 --
--- * 'oOriginPath'
+-- * 'oOriginPath' - An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the OriginPath element, specify the directory name, beginning with a /. CloudFront appends the directory name to the value of DomainName.
 --
--- * 'oId'
+-- * 'oId' - A unique identifier for the origin. The value of Id must be unique within the distribution. You use the value of Id when you create a cache behavior. The Id identifies the origin that CloudFront routes a request to when the request matches the path pattern for that cache behavior.
 --
--- * 'oDomainName'
+-- * 'oDomainName' - Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin, for example, myawsbucket.s3.amazonaws.com. Custom origins: The DNS domain name for the HTTP server from which you want CloudFront to get objects for this origin, for example, www.example.com.
 origin
     :: Text -- ^ 'oId'
     -> Text -- ^ 'oDomainName'
@@ -2312,7 +2308,7 @@ oCustomOriginConfig = lens _oCustomOriginConfig (\ s a -> s{_oCustomOriginConfig
 oS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
 oS3OriginConfig = lens _oS3OriginConfig (\ s a -> s{_oS3OriginConfig = a});
 
--- | An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the OriginPath element, specify the directory name, beginning with a \/. CloudFront appends the directory name to the value of DomainName.
+-- | An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. When you include the OriginPath element, specify the directory name, beginning with a /. CloudFront appends the directory name to the value of DomainName.
 oOriginPath :: Lens' Origin (Maybe Text)
 oOriginPath = lens _oOriginPath (\ s a -> s{_oOriginPath = a});
 
@@ -2359,9 +2355,9 @@ data OriginCustomHeader = OriginCustomHeader'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ochHeaderName'
+-- * 'ochHeaderName' - The header's name.
 --
--- * 'ochHeaderValue'
+-- * 'ochHeaderValue' - The header's value.
 originCustomHeader
     :: Text -- ^ 'ochHeaderName'
     -> Text -- ^ 'ochHeaderValue'
@@ -2372,11 +2368,11 @@ originCustomHeader pHeaderName_ pHeaderValue_ =
     , _ochHeaderValue = pHeaderValue_
     }
 
--- | The header\'s name.
+-- | The header's name.
 ochHeaderName :: Lens' OriginCustomHeader Text
 ochHeaderName = lens _ochHeaderName (\ s a -> s{_ochHeaderName = a});
 
--- | The header\'s value.
+-- | The header's value.
 ochHeaderValue :: Lens' OriginCustomHeader Text
 ochHeaderValue = lens _ochHeaderValue (\ s a -> s{_ochHeaderValue = a});
 
@@ -2395,7 +2391,7 @@ instance ToXML OriginCustomHeader where
               ["HeaderName" @= _ochHeaderName,
                "HeaderValue" @= _ochHeaderValue]
 
--- | A complex type that contains the list of SSL\/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
+-- | A complex type that contains the list of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
 --
 -- /See:/ 'originSSLProtocols' smart constructor.
 data OriginSSLProtocols = OriginSSLProtocols'
@@ -2407,9 +2403,9 @@ data OriginSSLProtocols = OriginSSLProtocols'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ospQuantity'
+-- * 'ospQuantity' - The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
 --
--- * 'ospItems'
+-- * 'ospItems' - A complex type that contains one SslProtocol element for each SSL/TLS protocol that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
 originSSLProtocols
     :: Int -- ^ 'ospQuantity'
     -> OriginSSLProtocols
@@ -2419,11 +2415,11 @@ originSSLProtocols pQuantity_ =
     , _ospItems = mempty
     }
 
--- | The number of SSL\/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
+-- | The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
 ospQuantity :: Lens' OriginSSLProtocols Int
 ospQuantity = lens _ospQuantity (\ s a -> s{_ospQuantity = a});
 
--- | A complex type that contains one SslProtocol element for each SSL\/TLS protocol that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
+-- | A complex type that contains one SslProtocol element for each SSL/TLS protocol that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
 ospItems :: Lens' OriginSSLProtocols [SSLProtocol]
 ospItems = lens _ospItems (\ s a -> s{_ospItems = a}) . _Coerce;
 
@@ -2456,9 +2452,9 @@ data Origins = Origins'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oItems'
+-- * 'oItems' - A complex type that contains origins for this distribution.
 --
--- * 'oQuantity'
+-- * 'oQuantity' - The number of origins for this distribution.
 origins
     :: Int -- ^ 'oQuantity'
     -> Origins
@@ -2505,9 +2501,9 @@ data Paths = Paths'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pItems'
+-- * 'pItems' - A complex type that contains a list of the objects that you want to invalidate.
 --
--- * 'pQuantity'
+-- * 'pQuantity' - The number of objects that you want to invalidate.
 paths
     :: Int -- ^ 'pQuantity'
     -> Paths
@@ -2552,9 +2548,9 @@ data QueryStringCacheKeys = QueryStringCacheKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qsckItems'
+-- * 'qsckItems' - Optional: A list that contains the query string parameters that you want CloudFront to use as a basis for caching for this cache behavior. If Quantity is 0, you can omit Items.
 --
--- * 'qsckQuantity'
+-- * 'qsckQuantity' - The number of whitelisted query string parameters for this cache behavior.
 queryStringCacheKeys
     :: Int -- ^ 'qsckQuantity'
     -> QueryStringCacheKeys
@@ -2600,7 +2596,7 @@ newtype Restrictions = Restrictions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rGeoRestriction'
+-- * 'rGeoRestriction' - Undocumented member.
 restrictions
     :: GeoRestriction -- ^ 'rGeoRestriction'
     -> Restrictions
@@ -2637,9 +2633,9 @@ data S3Origin = S3Origin'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'soDomainName'
+-- * 'soDomainName' - The DNS name of the S3 origin.
 --
--- * 'soOriginAccessIdentity'
+-- * 'soOriginAccessIdentity' - Your S3 origin's origin access identity.
 s3Origin
     :: Text -- ^ 'soDomainName'
     -> Text -- ^ 'soOriginAccessIdentity'
@@ -2654,7 +2650,7 @@ s3Origin pDomainName_ pOriginAccessIdentity_ =
 soDomainName :: Lens' S3Origin Text
 soDomainName = lens _soDomainName (\ s a -> s{_soDomainName = a});
 
--- | Your S3 origin\'s origin access identity.
+-- | Your S3 origin's origin access identity.
 soOriginAccessIdentity :: Lens' S3Origin Text
 soOriginAccessIdentity = lens _soOriginAccessIdentity (\ s a -> s{_soOriginAccessIdentity = a});
 
@@ -2684,7 +2680,7 @@ newtype S3OriginConfig = S3OriginConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'socOriginAccessIdentity'
+-- * 'socOriginAccessIdentity' - The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that end users can only access objects in an Amazon S3 bucket through CloudFront. If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty OriginAccessIdentity element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty OriginAccessIdentity element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. Use the format origin-access-identity/cloudfront/Id where Id is the value that CloudFront returned in the Id element when you created the origin access identity.
 s3OriginConfig
     :: Text -- ^ 'socOriginAccessIdentity'
     -> S3OriginConfig
@@ -2693,7 +2689,7 @@ s3OriginConfig pOriginAccessIdentity_ =
     { _socOriginAccessIdentity = pOriginAccessIdentity_
     }
 
--- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that end users can only access objects in an Amazon S3 bucket through CloudFront. If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty OriginAccessIdentity element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty OriginAccessIdentity element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. Use the format origin-access-identity\/cloudfront\/Id where Id is the value that CloudFront returned in the Id element when you created the origin access identity.
+-- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that end users can only access objects in an Amazon S3 bucket through CloudFront. If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty OriginAccessIdentity element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty OriginAccessIdentity element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. Use the format origin-access-identity/cloudfront/Id where Id is the value that CloudFront returned in the Id element when you created the origin access identity.
 socOriginAccessIdentity :: Lens' S3OriginConfig Text
 socOriginAccessIdentity = lens _socOriginAccessIdentity (\ s a -> s{_socOriginAccessIdentity = a});
 
@@ -2722,9 +2718,9 @@ data Signer = Signer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAWSAccountNumber'
+-- * 'sAWSAccountNumber' - Specifies an AWS account that can create signed URLs. Values: self, which indicates that the AWS account that was used to create the distribution can created signed URLs, or an AWS account number. Omit the dashes in the account number.
 --
--- * 'sKeyPairIds'
+-- * 'sKeyPairIds' - A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.
 signer
     :: Signer
 signer =
@@ -2767,19 +2763,19 @@ data StreamingDistribution = StreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdLastModifiedTime'
+-- * 'sdLastModifiedTime' - The date and time the distribution was last modified.
 --
--- * 'sdId'
+-- * 'sdId' - The identifier for the streaming distribution. For example: EGTXBD79H29TRA8.
 --
--- * 'sdARN'
+-- * 'sdARN' - The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 --
--- * 'sdStatus'
+-- * 'sdStatus' - The current status of the streaming distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 --
--- * 'sdDomainName'
+-- * 'sdDomainName' - The domain name corresponding to the streaming distribution. For example: s5c39gqb8ow64r.cloudfront.net.
 --
--- * 'sdActiveTrustedSigners'
+-- * 'sdActiveTrustedSigners' - CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no KeyPairId element appears for a Signer, that signer can't create working signed URLs.
 --
--- * 'sdStreamingDistributionConfig'
+-- * 'sdStreamingDistributionConfig' - The current configuration information for the streaming distribution.
 streamingDistribution
     :: Text -- ^ 'sdId'
     -> Text -- ^ 'sdARN'
@@ -2807,11 +2803,11 @@ sdLastModifiedTime = lens _sdLastModifiedTime (\ s a -> s{_sdLastModifiedTime = 
 sdId :: Lens' StreamingDistribution Text
 sdId = lens _sdId (\ s a -> s{_sdId = a});
 
--- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+-- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 sdARN :: Lens' StreamingDistribution Text
 sdARN = lens _sdARN (\ s a -> s{_sdARN = a});
 
--- | The current status of the streaming distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
+-- | The current status of the streaming distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 sdStatus :: Lens' StreamingDistribution Text
 sdStatus = lens _sdStatus (\ s a -> s{_sdStatus = a});
 
@@ -2819,7 +2815,7 @@ sdStatus = lens _sdStatus (\ s a -> s{_sdStatus = a});
 sdDomainName :: Lens' StreamingDistribution Text
 sdDomainName = lens _sdDomainName (\ s a -> s{_sdDomainName = a});
 
--- | CloudFront automatically adds this element to the response only if you\'ve set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer\'s AWS account. If no KeyPairId element appears for a Signer, that signer can\'t create working signed URLs.
+-- | CloudFront automatically adds this element to the response only if you've set up the distribution to serve private content with signed URLs. The element lists the key pair IDs that CloudFront is aware of for each trusted signer. The Signer child element lists the AWS account number of the trusted signer (or an empty Self element if the signer is you). The Signer element also includes the IDs of any active key pairs associated with the trusted signer's AWS account. If no KeyPairId element appears for a Signer, that signer can't create working signed URLs.
 sdActiveTrustedSigners :: Lens' StreamingDistribution ActiveTrustedSigners
 sdActiveTrustedSigners = lens _sdActiveTrustedSigners (\ s a -> s{_sdActiveTrustedSigners = a});
 
@@ -2859,21 +2855,21 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcAliases'
+-- * 'sdcAliases' - A complex type that contains information about CNAMEs (alternate domain names), if any, for this streaming distribution.
 --
--- * 'sdcPriceClass'
+-- * 'sdcPriceClass' - A complex type that contains information about price class for this streaming distribution.
 --
--- * 'sdcLogging'
+-- * 'sdcLogging' - A complex type that controls whether access logs are written for the streaming distribution.
 --
--- * 'sdcCallerReference'
+-- * 'sdcCallerReference' - A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the StreamingDistributionConfig object), a new streaming distribution is created. If the CallerReference is a value you already sent in a previous request to create a streaming distribution, and the content of the StreamingDistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a streaming distribution but the content of the StreamingDistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
 --
--- * 'sdcS3Origin'
+-- * 'sdcS3Origin' - A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
 --
--- * 'sdcComment'
+-- * 'sdcComment' - Any comments you want to include about the streaming distribution.
 --
--- * 'sdcTrustedSigners'
+-- * 'sdcTrustedSigners' - A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --
--- * 'sdcEnabled'
+-- * 'sdcEnabled' - Whether the streaming distribution is enabled to accept end user requests for content.
 streamingDistributionConfig
     :: Text -- ^ 'sdcCallerReference'
     -> S3Origin -- ^ 'sdcS3Origin'
@@ -2905,7 +2901,7 @@ sdcPriceClass = lens _sdcPriceClass (\ s a -> s{_sdcPriceClass = a});
 sdcLogging :: Lens' StreamingDistributionConfig (Maybe StreamingLoggingConfig)
 sdcLogging = lens _sdcLogging (\ s a -> s{_sdcLogging = a});
 
--- | A unique number that ensures the request can\'t be replayed. If the CallerReference is new (no matter the content of the StreamingDistributionConfig object), a new streaming distribution is created. If the CallerReference is a value you already sent in a previous request to create a streaming distribution, and the content of the StreamingDistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a streaming distribution but the content of the StreamingDistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
+-- | A unique number that ensures the request can't be replayed. If the CallerReference is new (no matter the content of the StreamingDistributionConfig object), a new streaming distribution is created. If the CallerReference is a value you already sent in a previous request to create a streaming distribution, and the content of the StreamingDistributionConfig is identical to the original request (ignoring white space), the response includes the same information returned to the original request. If the CallerReference is a value you already sent in a previous request to create a streaming distribution but the content of the StreamingDistributionConfig is different from the original request, CloudFront returns a DistributionAlreadyExists error.
 sdcCallerReference :: Lens' StreamingDistributionConfig Text
 sdcCallerReference = lens _sdcCallerReference (\ s a -> s{_sdcCallerReference = a});
 
@@ -2917,7 +2913,7 @@ sdcS3Origin = lens _sdcS3Origin (\ s a -> s{_sdcS3Origin = a});
 sdcComment :: Lens' StreamingDistributionConfig Text
 sdcComment = lens _sdcComment (\ s a -> s{_sdcComment = a});
 
--- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+-- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 sdcTrustedSigners :: Lens' StreamingDistributionConfig TrustedSigners
 sdcTrustedSigners = lens _sdcTrustedSigners (\ s a -> s{_sdcTrustedSigners = a});
 
@@ -2963,9 +2959,9 @@ data StreamingDistributionConfigWithTags = StreamingDistributionConfigWithTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcwtStreamingDistributionConfig'
+-- * 'sdcwtStreamingDistributionConfig' - A streaming distribution Configuration.
 --
--- * 'sdcwtTags'
+-- * 'sdcwtTags' - A complex type that contains zero or more Tag elements.
 streamingDistributionConfigWithTags
     :: StreamingDistributionConfig -- ^ 'sdcwtStreamingDistributionConfig'
     -> Tags -- ^ 'sdcwtTags'
@@ -3012,17 +3008,17 @@ data StreamingDistributionList = StreamingDistributionList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdlItems'
+-- * 'sdlItems' - A complex type that contains one StreamingDistributionSummary element for each distribution that was created by the current AWS account.
 --
--- * 'sdlNextMarker'
+-- * 'sdlNextMarker' - If IsTruncated is true, this element is present and contains the value you can use for the Marker request parameter to continue listing your streaming distributions where they left off.
 --
--- * 'sdlMarker'
+-- * 'sdlMarker' - The value you provided for the Marker request parameter.
 --
--- * 'sdlMaxItems'
+-- * 'sdlMaxItems' - The value you provided for the MaxItems request parameter.
 --
--- * 'sdlIsTruncated'
+-- * 'sdlIsTruncated' - A flag that indicates whether more streaming distributions remain to be listed. If your results were truncated, you can make a follow-up pagination request using the Marker request parameter to retrieve more distributions in the list.
 --
--- * 'sdlQuantity'
+-- * 'sdlQuantity' - The number of streaming distributions that were created by the current AWS account.
 streamingDistributionList
     :: Text -- ^ 'sdlMarker'
     -> Int -- ^ 'sdlMaxItems'
@@ -3099,27 +3095,27 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdsId'
+-- * 'sdsId' - The identifier for the distribution. For example: EDFDVBD632BHDS5.
 --
--- * 'sdsARN'
+-- * 'sdsARN' - The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 --
--- * 'sdsStatus'
+-- * 'sdsStatus' - Indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 --
--- * 'sdsLastModifiedTime'
+-- * 'sdsLastModifiedTime' - The date and time the distribution was last modified.
 --
--- * 'sdsDomainName'
+-- * 'sdsDomainName' - The domain name corresponding to the distribution. For example: d604721fxaaqy9.cloudfront.net.
 --
--- * 'sdsS3Origin'
+-- * 'sdsS3Origin' - A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
 --
--- * 'sdsAliases'
+-- * 'sdsAliases' - A complex type that contains information about CNAMEs (alternate domain names), if any, for this streaming distribution.
 --
--- * 'sdsTrustedSigners'
+-- * 'sdsTrustedSigners' - A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --
--- * 'sdsComment'
+-- * 'sdsComment' - The comment originally specified when this distribution was created.
 --
--- * 'sdsPriceClass'
+-- * 'sdsPriceClass' - Undocumented member.
 --
--- * 'sdsEnabled'
+-- * 'sdsEnabled' - Whether the distribution is enabled to accept end user requests for content.
 streamingDistributionSummary
     :: Text -- ^ 'sdsId'
     -> Text -- ^ 'sdsARN'
@@ -3152,11 +3148,11 @@ streamingDistributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_
 sdsId :: Lens' StreamingDistributionSummary Text
 sdsId = lens _sdsId (\ s a -> s{_sdsId = a});
 
--- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
+-- | The ARN (Amazon Resource Name) for the streaming distribution. For example: arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account Id.
 sdsARN :: Lens' StreamingDistributionSummary Text
 sdsARN = lens _sdsARN (\ s a -> s{_sdsARN = a});
 
--- | Indicates the current status of the distribution. When the status is Deployed, the distribution\'s information is fully propagated throughout the Amazon CloudFront system.
+-- | Indicates the current status of the distribution. When the status is Deployed, the distribution's information is fully propagated throughout the Amazon CloudFront system.
 sdsStatus :: Lens' StreamingDistributionSummary Text
 sdsStatus = lens _sdsStatus (\ s a -> s{_sdsStatus = a});
 
@@ -3176,7 +3172,7 @@ sdsS3Origin = lens _sdsS3Origin (\ s a -> s{_sdsS3Origin = a});
 sdsAliases :: Lens' StreamingDistributionSummary Aliases
 sdsAliases = lens _sdsAliases (\ s a -> s{_sdsAliases = a});
 
--- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+-- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 sdsTrustedSigners :: Lens' StreamingDistributionSummary TrustedSigners
 sdsTrustedSigners = lens _sdsTrustedSigners (\ s a -> s{_sdsTrustedSigners = a});
 
@@ -3222,11 +3218,11 @@ data StreamingLoggingConfig = StreamingLoggingConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slcEnabled'
+-- * 'slcEnabled' - Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify false for Enabled, and specify empty Bucket and Prefix elements. If you specify false for Enabled but you specify values for Bucket and Prefix, the values are automatically deleted.
 --
--- * 'slcBucket'
+-- * 'slcBucket' - The Amazon S3 bucket to store the access logs in, for example, myawslogbucket.s3.amazonaws.com.
 --
--- * 'slcPrefix'
+-- * 'slcPrefix' - An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, myprefix/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
 streamingLoggingConfig
     :: Bool -- ^ 'slcEnabled'
     -> Text -- ^ 'slcBucket'
@@ -3247,7 +3243,7 @@ slcEnabled = lens _slcEnabled (\ s a -> s{_slcEnabled = a});
 slcBucket :: Lens' StreamingLoggingConfig Text
 slcBucket = lens _slcBucket (\ s a -> s{_slcBucket = a});
 
--- | An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, myprefix\/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
+-- | An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, myprefix/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.
 slcPrefix :: Lens' StreamingLoggingConfig Text
 slcPrefix = lens _slcPrefix (\ s a -> s{_slcPrefix = a});
 
@@ -3279,9 +3275,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - A string that contains an optional Tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
 --
--- * 'tagKey'
+-- * 'tagKey' - A string that contains Tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
@@ -3291,11 +3287,11 @@ tag pKey_ =
     , _tagKey = pKey_
     }
 
--- | A string that contains an optional Tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : \/ = + \'.
+-- | A string that contains an optional Tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A string that contains Tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : \/ = + \'.
+-- | A string that contains Tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -3322,7 +3318,7 @@ newtype TagKeys = TagKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tkItems'
+-- * 'tkItems' - A complex type that contains Tag key elements
 tagKeys
     :: TagKeys
 tagKeys =
@@ -3354,7 +3350,7 @@ newtype Tags = Tags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tItems'
+-- * 'tItems' - A complex type that contains Tag elements
 tags
     :: Tags
 tags =
@@ -3381,7 +3377,7 @@ instance ToXML Tags where
           = mconcat
               ["Items" @= toXML (toXMLList "Tag" <$> _tItems)]
 
--- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don\'t want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it\'s currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
+-- | A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content. If you want to require signed URLs in requests for objects in the target origin that match the PathPattern for this cache behavior, specify true for Enabled, and specify the applicable values for Quantity and Items. For more information, go to Using a Signed URL to Serve Private Content in the Amazon CloudFront Developer Guide. If you don't want to require signed URLs in requests for objects that match PathPattern, specify false for Enabled and 0 for Quantity. Omit Items. To add, change, or remove one or more trusted signers, change Enabled to true (if it's currently false), change Quantity as applicable, and specify all of the trusted signers that you want to include in the updated distribution.
 --
 -- /See:/ 'trustedSigners' smart constructor.
 data TrustedSigners = TrustedSigners'
@@ -3394,11 +3390,11 @@ data TrustedSigners = TrustedSigners'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tsItems'
+-- * 'tsItems' - Optional: A complex type that contains trusted signers for this cache behavior. If Quantity is 0, you can omit Items.
 --
--- * 'tsEnabled'
+-- * 'tsEnabled' - Specifies whether you want to require end users to use signed URLs to access the files specified by PathPattern and TargetOriginId.
 --
--- * 'tsQuantity'
+-- * 'tsQuantity' - The number of trusted signers for this cache behavior.
 trustedSigners
     :: Bool -- ^ 'tsEnabled'
     -> Int -- ^ 'tsQuantity'
@@ -3458,19 +3454,19 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcSSLSupportMethod'
+-- * 'vcSSLSupportMethod' - If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.
 --
--- * 'vcACMCertificateARN'
+-- * 'vcACMCertificateARN' - If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg), specify the ACM certificate ARN of the custom viewer certificate for this distribution. Specify either this value, IAMCertificateId, or CloudFrontDefaultCertificate.
 --
--- * 'vcCertificateSource'
+-- * 'vcCertificateSource' - Note: this field is deprecated. Please use one of [ACMCertificateArn, IAMCertificateId, CloudFrontDefaultCertificate].
 --
--- * 'vcMinimumProtocolVersion'
+-- * 'vcMinimumProtocolVersion' - Specify the minimum version of the SSL protocol that you want CloudFront to use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your objects only to browsers or devices that support at least the SSL version that you specify. The TLSv1 protocol is more secure, so we recommend that you specify SSLv3 only if your users are using browsers or devices that don't support TLSv1. If you're using a custom certificate (if you specify a value for IAMCertificateId) and if you're using dedicated IP (if you specify vip for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the MinimumProtocolVersion. If you're using a custom certificate (if you specify a value for IAMCertificateId) and if you're using SNI (if you specify sni-only for SSLSupportMethod), you must specify TLSv1 for MinimumProtocolVersion.
 --
--- * 'vcCertificate'
+-- * 'vcCertificate' - Note: this field is deprecated. Please use one of [ACMCertificateArn, IAMCertificateId, CloudFrontDefaultCertificate].
 --
--- * 'vcIAMCertificateId'
+-- * 'vcIAMCertificateId' - If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg), specify the IAM certificate identifier of the custom viewer certificate for this distribution. Specify either this value, ACMCertificateArn, or CloudFrontDefaultCertificate.
 --
--- * 'vcCloudFrontDefaultCertificate'
+-- * 'vcCloudFrontDefaultCertificate' - If you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name of your distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg), set to true. Omit this value if you are setting an ACMCertificateArn or IAMCertificateId.
 viewerCertificate
     :: ViewerCertificate
 viewerCertificate =
@@ -3484,11 +3480,11 @@ viewerCertificate =
     , _vcCloudFrontDefaultCertificate = Nothing
     }
 
--- | If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don\'t support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.
+-- | If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod = lens _vcSSLSupportMethod (\ s a -> s{_vcSSLSupportMethod = a});
 
--- | If you want viewers to use HTTPS to request your objects and you\'re using an alternate domain name in your object URLs (for example, https:\/\/example.com\/logo.jpg), specify the ACM certificate ARN of the custom viewer certificate for this distribution. Specify either this value, IAMCertificateId, or CloudFrontDefaultCertificate.
+-- | If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg), specify the ACM certificate ARN of the custom viewer certificate for this distribution. Specify either this value, IAMCertificateId, or CloudFrontDefaultCertificate.
 vcACMCertificateARN :: Lens' ViewerCertificate (Maybe Text)
 vcACMCertificateARN = lens _vcACMCertificateARN (\ s a -> s{_vcACMCertificateARN = a});
 
@@ -3496,7 +3492,7 @@ vcACMCertificateARN = lens _vcACMCertificateARN (\ s a -> s{_vcACMCertificateARN
 vcCertificateSource :: Lens' ViewerCertificate (Maybe CertificateSource)
 vcCertificateSource = lens _vcCertificateSource (\ s a -> s{_vcCertificateSource = a});
 
--- | Specify the minimum version of the SSL protocol that you want CloudFront to use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your objects only to browsers or devices that support at least the SSL version that you specify. The TLSv1 protocol is more secure, so we recommend that you specify SSLv3 only if your users are using browsers or devices that don\'t support TLSv1. If you\'re using a custom certificate (if you specify a value for IAMCertificateId) and if you\'re using dedicated IP (if you specify vip for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the MinimumProtocolVersion. If you\'re using a custom certificate (if you specify a value for IAMCertificateId) and if you\'re using SNI (if you specify sni-only for SSLSupportMethod), you must specify TLSv1 for MinimumProtocolVersion.
+-- | Specify the minimum version of the SSL protocol that you want CloudFront to use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your objects only to browsers or devices that support at least the SSL version that you specify. The TLSv1 protocol is more secure, so we recommend that you specify SSLv3 only if your users are using browsers or devices that don't support TLSv1. If you're using a custom certificate (if you specify a value for IAMCertificateId) and if you're using dedicated IP (if you specify vip for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the MinimumProtocolVersion. If you're using a custom certificate (if you specify a value for IAMCertificateId) and if you're using SNI (if you specify sni-only for SSLSupportMethod), you must specify TLSv1 for MinimumProtocolVersion.
 vcMinimumProtocolVersion :: Lens' ViewerCertificate (Maybe MinimumProtocolVersion)
 vcMinimumProtocolVersion = lens _vcMinimumProtocolVersion (\ s a -> s{_vcMinimumProtocolVersion = a});
 
@@ -3504,11 +3500,11 @@ vcMinimumProtocolVersion = lens _vcMinimumProtocolVersion (\ s a -> s{_vcMinimum
 vcCertificate :: Lens' ViewerCertificate (Maybe Text)
 vcCertificate = lens _vcCertificate (\ s a -> s{_vcCertificate = a});
 
--- | If you want viewers to use HTTPS to request your objects and you\'re using an alternate domain name in your object URLs (for example, https:\/\/example.com\/logo.jpg), specify the IAM certificate identifier of the custom viewer certificate for this distribution. Specify either this value, ACMCertificateArn, or CloudFrontDefaultCertificate.
+-- | If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg), specify the IAM certificate identifier of the custom viewer certificate for this distribution. Specify either this value, ACMCertificateArn, or CloudFrontDefaultCertificate.
 vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId = lens _vcIAMCertificateId (\ s a -> s{_vcIAMCertificateId = a});
 
--- | If you want viewers to use HTTPS to request your objects and you\'re using the CloudFront domain name of your distribution in your object URLs (for example, https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg), set to true. Omit this value if you are setting an ACMCertificateArn or IAMCertificateId.
+-- | If you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name of your distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg), set to true. Omit this value if you are setting an ACMCertificateArn or IAMCertificateId.
 vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate = lens _vcCloudFrontDefaultCertificate (\ s a -> s{_vcCloudFrontDefaultCertificate = a});
 

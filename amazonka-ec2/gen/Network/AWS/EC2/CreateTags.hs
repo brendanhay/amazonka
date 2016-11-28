@@ -20,7 +20,9 @@
 --
 -- Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/. For more information about creating IAM policies that control users\' access to resources based on tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ . For more information about creating IAM policies that control users' access to resources based on tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateTags
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateTags.
 --
+--
+--
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
     { _cDryRun    :: !(Maybe Bool)
@@ -56,11 +60,11 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cDryRun'
+-- * 'cDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cResources'
+-- * 'cResources' - The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 --
--- * 'cTags'
+-- * 'cTags' - One or more tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 createTags
     :: CreateTags
 createTags =
@@ -70,7 +74,7 @@ createTags =
     , _cTags = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cDryRun :: Lens' CreateTags (Maybe Bool)
 cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
 
@@ -78,7 +82,7 @@ cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
 cResources :: Lens' CreateTags [Text]
 cResources = lens _cResources (\ s a -> s{_cResources = a}) . _Coerce;
 
--- | One or more tags. The 'value' parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+-- | One or more tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 cTags :: Lens' CreateTags [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce;
 

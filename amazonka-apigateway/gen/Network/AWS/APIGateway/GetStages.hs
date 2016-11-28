@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more < Stage> resources.
+-- Gets information about one or more 'Stage' resources.
+--
+--
 module Network.AWS.APIGateway.GetStages
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about one or more < Stage> resources.
+-- | Requests Amazon API Gateway to get information about one or more 'Stage' resources.
+--
+--
 --
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
@@ -55,9 +59,9 @@ data GetStages = GetStages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsDeploymentId'
+-- * 'gsDeploymentId' - The stages' deployment identifiers.
 --
--- * 'gsRestAPIId'
+-- * 'gsRestAPIId' - The stages' API identifiers.
 getStages
     :: Text -- ^ 'gsRestAPIId'
     -> GetStages
@@ -67,11 +71,11 @@ getStages pRestAPIId_ =
     , _gsRestAPIId = pRestAPIId_
     }
 
--- | The stages\' deployment identifiers.
+-- | The stages' deployment identifiers.
 gsDeploymentId :: Lens' GetStages (Maybe Text)
 gsDeploymentId = lens _gsDeploymentId (\ s a -> s{_gsDeploymentId = a});
 
--- | The stages\' API identifiers.
+-- | The stages' API identifiers.
 gsRestAPIId :: Lens' GetStages Text
 gsRestAPIId = lens _gsRestAPIId (\ s a -> s{_gsRestAPIId = a});
 
@@ -103,7 +107,8 @@ instance ToQuery GetStages where
         toQuery GetStages'{..}
           = mconcat ["deploymentId" =: _gsDeploymentId]
 
--- | A list of < Stage> resources that are associated with the < ApiKey> resource.
+-- | A list of 'Stage' resources that are associated with the 'ApiKey' resource.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
 --
@@ -117,9 +122,9 @@ data GetStagesResponse = GetStagesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrsItem'
+-- * 'gsrsItem' - An individual 'Stage' resource.
 --
--- * 'gsrsResponseStatus'
+-- * 'gsrsResponseStatus' - -- | The response status code.
 getStagesResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetStagesResponse
@@ -129,11 +134,11 @@ getStagesResponse pResponseStatus_ =
     , _gsrsResponseStatus = pResponseStatus_
     }
 
--- | An individual < Stage> resource.
+-- | An individual 'Stage' resource.
 gsrsItem :: Lens' GetStagesResponse [Stage]
 gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetStagesResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 

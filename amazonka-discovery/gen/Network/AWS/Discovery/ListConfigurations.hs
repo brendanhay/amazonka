@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of configurations items according to the criteria you specify in a filter. The filter criteria identify relationship requirements.
+--
+--
 module Network.AWS.Discovery.ListConfigurations
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data ListConfigurations = ListConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcFilters'
+-- * 'lcFilters' - You can filter the list using a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  You can separate these items by using logical operators.
 --
--- * 'lcNextToken'
+-- * 'lcNextToken' - A token to start the list. Use this token to get the next set of results.
 --
--- * 'lcMaxResults'
+-- * 'lcMaxResults' - The total number of items to return. The maximum value is 100.
 --
--- * 'lcConfigurationType'
+-- * 'lcConfigurationType' - A valid configuration identified by the Discovery Service.
 listConfigurations
     :: ConfigurationItemType -- ^ 'lcConfigurationType'
     -> ListConfigurations
@@ -76,11 +78,7 @@ listConfigurations pConfigurationType_ =
     , _lcConfigurationType = pConfigurationType_
     }
 
--- | You can filter the list using a /key/-/value/ format. For example:
---
--- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
---
--- You can separate these items by using logical operators.
+-- | You can filter the list using a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  You can separate these items by using logical operators.
 lcFilters :: Lens' ListConfigurations [Filter]
 lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . _Default . _Coerce;
 
@@ -148,11 +146,11 @@ data ListConfigurationsResponse = ListConfigurationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsConfigurations'
+-- * 'lcrsConfigurations' - Returns configuration details, including the configuration ID, attribute names, and attribute values.
 --
--- * 'lcrsNextToken'
+-- * 'lcrsNextToken' - The call returns a token. Use this token to get the next set of results.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listConfigurationsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListConfigurationsResponse
@@ -171,7 +169,7 @@ lcrsConfigurations = lens _lcrsConfigurations (\ s a -> s{_lcrsConfigurations = 
 lcrsNextToken :: Lens' ListConfigurationsResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListConfigurationsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

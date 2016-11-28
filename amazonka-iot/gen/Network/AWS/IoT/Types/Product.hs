@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Describes the actions associated with a rule.
 --
+--
+--
 -- /See:/ 'action' smart constructor.
 data Action = Action'
     { _aCloudwatchMetric :: !(Maybe CloudwatchMetricAction)
@@ -42,27 +44,27 @@ data Action = Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aCloudwatchMetric'
+-- * 'aCloudwatchMetric' - Capture a CloudWatch metric.
 --
--- * 'aCloudwatchAlarm'
+-- * 'aCloudwatchAlarm' - Change the state of a CloudWatch alarm.
 --
--- * 'aSns'
+-- * 'aSns' - Publish to an Amazon SNS topic.
 --
--- * 'aDynamoDB'
+-- * 'aDynamoDB' - Write to a DynamoDB table.
 --
--- * 'aFirehose'
+-- * 'aFirehose' - Write to an Amazon Kinesis Firehose stream.
 --
--- * 'aLambda'
+-- * 'aLambda' - Invoke a Lambda function.
 --
--- * 'aKinesis'
+-- * 'aKinesis' - Write data to an Amazon Kinesis stream.
 --
--- * 'aS3'
+-- * 'aS3' - Write to an Amazon S3 bucket.
 --
--- * 'aElasticsearch'
+-- * 'aElasticsearch' - Write data to an Amazon Elasticsearch Service; domain.
 --
--- * 'aRepublish'
+-- * 'aRepublish' - Publish to another MQTT topic.
 --
--- * 'aSqs'
+-- * 'aSqs' - Publish to an Amazon SQS queue.
 action
     :: Action
 action =
@@ -161,6 +163,8 @@ instance ToJSON Action where
 
 -- | The attribute payload.
 --
+--
+--
 -- /See:/ 'attributePayload' smart constructor.
 data AttributePayload = AttributePayload'
     { _apAttributes :: !(Maybe (Map Text Text))
@@ -171,9 +175,9 @@ data AttributePayload = AttributePayload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apAttributes'
+-- * 'apAttributes' - A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
 --
--- * 'apMerge'
+-- * 'apMerge' - Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them. To remove an attribute, call @UpdateThing@ with an empty attribute value.
 attributePayload
     :: AttributePayload
 attributePayload =
@@ -182,17 +186,11 @@ attributePayload =
     , _apMerge = Nothing
     }
 
--- | A JSON string containing up to three key-value pair in JSON format. For example:
---
--- '{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})'
+-- | A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
--- | Specifies whether the list of attributes provided in the 'AttributePayload' is merged with the attributes stored in the registry, instead of overwriting them.
---
--- To remove an attribute, call 'UpdateThing' with an empty attribute value.
---
--- The 'merge' attribute is only valid when calling 'UpdateThing'.
+-- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them. To remove an attribute, call @UpdateThing@ with an empty attribute value.
 apMerge :: Lens' AttributePayload (Maybe Bool)
 apMerge = lens _apMerge (\ s a -> s{_apMerge = a});
 
@@ -209,6 +207,8 @@ instance ToJSON AttributePayload where
 
 -- | A CA certificate.
 --
+--
+--
 -- /See:/ 'cACertificate' smart constructor.
 data CACertificate = CACertificate'
     { _cacStatus         :: !(Maybe CACertificateStatus)
@@ -221,13 +221,13 @@ data CACertificate = CACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacStatus'
+-- * 'cacStatus' - The status of the CA certificate.  The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
--- * 'cacCertificateARN'
+-- * 'cacCertificateARN' - The ARN of the CA certificate.
 --
--- * 'cacCertificateId'
+-- * 'cacCertificateId' - The ID of the CA certificate.
 --
--- * 'cacCreationDate'
+-- * 'cacCreationDate' - The date the CA certificate was created.
 cACertificate
     :: CACertificate
 cACertificate =
@@ -238,9 +238,7 @@ cACertificate =
     , _cacCreationDate = Nothing
     }
 
--- | The status of the CA certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- | The status of the CA certificate.  The status value REGISTER_INACTIVE is deprecated and should not be used.
 cacStatus :: Lens' CACertificate (Maybe CACertificateStatus)
 cacStatus = lens _cacStatus (\ s a -> s{_cacStatus = a});
 
@@ -271,6 +269,8 @@ instance NFData CACertificate
 
 -- | Describes a CA certificate.
 --
+--
+--
 -- /See:/ 'cACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
     { _cacdStatus                 :: !(Maybe CACertificateStatus)
@@ -286,19 +286,19 @@ data CACertificateDescription = CACertificateDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacdStatus'
+-- * 'cacdStatus' - The status of a CA certificate.
 --
--- * 'cacdOwnedBy'
+-- * 'cacdOwnedBy' - The owner of the CA certificate.
 --
--- * 'cacdCertificatePem'
+-- * 'cacdCertificatePem' - The CA certificate data, in PEM format.
 --
--- * 'cacdCertificateARN'
+-- * 'cacdCertificateARN' - The CA certificate ARN.
 --
--- * 'cacdCertificateId'
+-- * 'cacdCertificateId' - The CA certificate ID.
 --
--- * 'cacdAutoRegistrationStatus'
+-- * 'cacdAutoRegistrationStatus' - Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
 --
--- * 'cacdCreationDate'
+-- * 'cacdCreationDate' - The date the CA certificate was created.
 cACertificateDescription
     :: CACertificateDescription
 cACertificateDescription =
@@ -332,7 +332,7 @@ cacdCertificateARN = lens _cacdCertificateARN (\ s a -> s{_cacdCertificateARN = 
 cacdCertificateId :: Lens' CACertificateDescription (Maybe Text)
 cacdCertificateId = lens _cacdCertificateId (\ s a -> s{_cacdCertificateId = a});
 
--- | Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\"
+-- | Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
 cacdAutoRegistrationStatus :: Lens' CACertificateDescription (Maybe AutoRegistrationStatus)
 cacdAutoRegistrationStatus = lens _cacdAutoRegistrationStatus (\ s a -> s{_cacdAutoRegistrationStatus = a});
 
@@ -358,6 +358,8 @@ instance NFData CACertificateDescription
 
 -- | Information about a certificate.
 --
+--
+--
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
     { _cStatus         :: !(Maybe CertificateStatus)
@@ -370,13 +372,13 @@ data Certificate = Certificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cStatus'
+-- * 'cStatus' - The status of the certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
--- * 'cCertificateARN'
+-- * 'cCertificateARN' - The ARN of the certificate.
 --
--- * 'cCertificateId'
+-- * 'cCertificateId' - The ID of the certificate.
 --
--- * 'cCreationDate'
+-- * 'cCreationDate' - The date and time the certificate was created.
 certificate
     :: Certificate
 certificate =
@@ -387,9 +389,7 @@ certificate =
     , _cCreationDate = Nothing
     }
 
--- | The status of the certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- | The status of the certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 cStatus :: Lens' Certificate (Maybe CertificateStatus)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
@@ -420,6 +420,8 @@ instance NFData Certificate
 
 -- | Describes a certificate.
 --
+--
+--
 -- /See:/ 'certificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
     { _cdStatus           :: !(Maybe CertificateStatus)
@@ -438,25 +440,25 @@ data CertificateDescription = CertificateDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdStatus'
+-- * 'cdStatus' - The status of the certificate.
 --
--- * 'cdOwnedBy'
+-- * 'cdOwnedBy' - The ID of the AWS account that owns the certificate.
 --
--- * 'cdLastModifiedDate'
+-- * 'cdLastModifiedDate' - The date and time the certificate was last modified.
 --
--- * 'cdCaCertificateId'
+-- * 'cdCaCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
 --
--- * 'cdPreviousOwnedBy'
+-- * 'cdPreviousOwnedBy' - The ID of the AWS account of the previous owner of the certificate.
 --
--- * 'cdCertificatePem'
+-- * 'cdCertificatePem' - The certificate data, in PEM format.
 --
--- * 'cdCertificateARN'
+-- * 'cdCertificateARN' - The ARN of the certificate.
 --
--- * 'cdCertificateId'
+-- * 'cdCertificateId' - The ID of the certificate.
 --
--- * 'cdCreationDate'
+-- * 'cdCreationDate' - The date and time the certificate was created.
 --
--- * 'cdTransferData'
+-- * 'cdTransferData' - The transfer data.
 certificateDescription
     :: CertificateDescription
 certificateDescription =
@@ -534,6 +536,8 @@ instance NFData CertificateDescription
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
+--
+--
 -- /See:/ 'cloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
     { _caaRoleARN     :: !Text
@@ -546,13 +550,13 @@ data CloudwatchAlarmAction = CloudwatchAlarmAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caaRoleARN'
+-- * 'caaRoleARN' - The IAM role that allows access to the CloudWatch alarm.
 --
--- * 'caaAlarmName'
+-- * 'caaAlarmName' - The CloudWatch alarm name.
 --
--- * 'caaStateReason'
+-- * 'caaStateReason' - The reason for the alarm change.
 --
--- * 'caaStateValue'
+-- * 'caaStateValue' - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 cloudwatchAlarmAction
     :: Text -- ^ 'caaRoleARN'
     -> Text -- ^ 'caaAlarmName'
@@ -607,6 +611,8 @@ instance ToJSON CloudwatchAlarmAction where
 
 -- | Describes an action that captures a CloudWatch metric.
 --
+--
+--
 -- /See:/ 'cloudwatchMetricAction' smart constructor.
 data CloudwatchMetricAction = CloudwatchMetricAction'
     { _cmaMetricTimestamp :: !(Maybe Text)
@@ -621,17 +627,17 @@ data CloudwatchMetricAction = CloudwatchMetricAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmaMetricTimestamp'
+-- * 'cmaMetricTimestamp' - An optional <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
 --
--- * 'cmaRoleARN'
+-- * 'cmaRoleARN' - The IAM role that allows access to the CloudWatch metric.
 --
--- * 'cmaMetricNamespace'
+-- * 'cmaMetricNamespace' - The CloudWatch metric namespace name.
 --
--- * 'cmaMetricName'
+-- * 'cmaMetricName' - The CloudWatch metric name.
 --
--- * 'cmaMetricValue'
+-- * 'cmaMetricValue' - The CloudWatch metric value.
 --
--- * 'cmaMetricUnit'
+-- * 'cmaMetricUnit' - The <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit> supported by CloudWatch.
 cloudwatchMetricAction
     :: Text -- ^ 'cmaRoleARN'
     -> Text -- ^ 'cmaMetricNamespace'
@@ -649,7 +655,7 @@ cloudwatchMetricAction pRoleARN_ pMetricNamespace_ pMetricName_ pMetricValue_ pM
     , _cmaMetricUnit = pMetricUnit_
     }
 
--- | An optional <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
+-- | An optional <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
 cmaMetricTimestamp :: Lens' CloudwatchMetricAction (Maybe Text)
 cmaMetricTimestamp = lens _cmaMetricTimestamp (\ s a -> s{_cmaMetricTimestamp = a});
 
@@ -701,17 +707,19 @@ instance ToJSON CloudwatchMetricAction where
 
 -- | Describes an action to write to a DynamoDB table.
 --
--- The 'tableName', 'hashKeyField', and 'rangeKeyField' values must match the values used when you created the table.
 --
--- The 'hashKeyValue' and 'rangeKeyvalue' fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: >{/sql-expression/}.
+-- The @tableName@ , @hashKeyField@ , and @rangeKeyField@ values must match the values used when you created the table.
+--
+-- The @hashKeyValue@ and @rangeKeyvalue@ fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${/sql-expression/ }.
 --
 -- You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
 --
--- '\"hashKeyValue\": \">{topic(3)}\"'
+-- @"hashKeyValue": "${topic(3)}"@
 --
 -- The following field uses the timestamp:
 --
--- '\"rangeKeyValue\": \">{timestamp()}\"'
+-- @"rangeKeyValue": "${timestamp()}"@
+--
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
@@ -731,25 +739,25 @@ data DynamoDBAction = DynamoDBAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddaHashKeyType'
+-- * 'ddaHashKeyType' - The hash key type. Valid values are "STRING" or "NUMBER"
 --
--- * 'ddaOperation'
+-- * 'ddaOperation' - The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
 --
--- * 'ddaRangeKeyType'
+-- * 'ddaRangeKeyType' - The range key type. Valid values are "STRING" or "NUMBER"
 --
--- * 'ddaPayloadField'
+-- * 'ddaPayloadField' - The action payload. This name can be customized.
 --
--- * 'ddaRangeKeyField'
+-- * 'ddaRangeKeyField' - The range key name.
 --
--- * 'ddaRangeKeyValue'
+-- * 'ddaRangeKeyValue' - The range key value.
 --
--- * 'ddaTableName'
+-- * 'ddaTableName' - The name of the DynamoDB table.
 --
--- * 'ddaRoleARN'
+-- * 'ddaRoleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
 --
--- * 'ddaHashKeyField'
+-- * 'ddaHashKeyField' - The hash key name.
 --
--- * 'ddaHashKeyValue'
+-- * 'ddaHashKeyValue' - The hash key value.
 dynamoDBAction
     :: Text -- ^ 'ddaTableName'
     -> Text -- ^ 'ddaRoleARN'
@@ -770,15 +778,15 @@ dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ =
     , _ddaHashKeyValue = pHashKeyValue_
     }
 
--- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
+-- | The hash key type. Valid values are "STRING" or "NUMBER"
 ddaHashKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
 ddaHashKeyType = lens _ddaHashKeyType (\ s a -> s{_ddaHashKeyType = a});
 
--- | The type of operation to be performed. This follows the substitution template, so it can be '>{operation}', but the substitution must result in one of the following: 'INSERT', 'UPDATE', or 'DELETE'.
+-- | The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
 ddaOperation :: Lens' DynamoDBAction (Maybe Text)
 ddaOperation = lens _ddaOperation (\ s a -> s{_ddaOperation = a});
 
--- | The range key type. Valid values are \"STRING\" or \"NUMBER\"
+-- | The range key type. Valid values are "STRING" or "NUMBER"
 ddaRangeKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
 ddaRangeKeyType = lens _ddaRangeKeyType (\ s a -> s{_ddaRangeKeyType = a});
 
@@ -846,6 +854,8 @@ instance ToJSON DynamoDBAction where
 
 -- | Describes an action that writes data to an Amazon Elasticsearch Service; domain.
 --
+--
+--
 -- /See:/ 'elasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
     { _eaRoleARN  :: !Text
@@ -859,15 +869,15 @@ data ElasticsearchAction = ElasticsearchAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eaRoleARN'
+-- * 'eaRoleARN' - The IAM role ARN that has access to Elasticsearch.
 --
--- * 'eaEndpoint'
+-- * 'eaEndpoint' - The endpoint of your Elasticsearch domain.
 --
--- * 'eaIndex'
+-- * 'eaIndex' - The Elasticsearch index where you want to store your data.
 --
--- * 'eaType'
+-- * 'eaType' - The type of document you are storing.
 --
--- * 'eaId'
+-- * 'eaId' - The unique identifier for the document you are storing.
 elasticsearchAction
     :: Text -- ^ 'eaRoleARN'
     -> Text -- ^ 'eaEndpoint'
@@ -929,6 +939,8 @@ instance ToJSON ElasticsearchAction where
 
 -- | Describes an action that writes data to an Amazon Kinesis Firehose stream.
 --
+--
+--
 -- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
     { _faSeparator          :: !(Maybe Text)
@@ -940,11 +952,11 @@ data FirehoseAction = FirehoseAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'faSeparator'
+-- * 'faSeparator' - A character separator that will be used to separate records written to the firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 --
--- * 'faRoleARN'
+-- * 'faRoleARN' - The IAM role that grants access to the Amazon Kinesis Firehost stream.
 --
--- * 'faDeliveryStreamName'
+-- * 'faDeliveryStreamName' - The delivery stream name.
 firehoseAction
     :: Text -- ^ 'faRoleARN'
     -> Text -- ^ 'faDeliveryStreamName'
@@ -956,7 +968,7 @@ firehoseAction pRoleARN_ pDeliveryStreamName_ =
     , _faDeliveryStreamName = pDeliveryStreamName_
     }
 
--- | A character separator that will be used to separate records written to the firehose stream. Valid values are: \'\\n\' (newline), \'\\t\' (tab), \'\\r\\n\' (Windows newline), \',\' (comma).
+-- | A character separator that will be used to separate records written to the firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 faSeparator :: Lens' FirehoseAction (Maybe Text)
 faSeparator = lens _faSeparator (\ s a -> s{_faSeparator = a});
 
@@ -991,6 +1003,8 @@ instance ToJSON FirehoseAction where
 
 -- | Describes a key pair.
 --
+--
+--
 -- /See:/ 'keyPair' smart constructor.
 data KeyPair = KeyPair'
     { _kpPrivateKey :: !(Maybe (Sensitive Text))
@@ -1001,9 +1015,9 @@ data KeyPair = KeyPair'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kpPrivateKey'
+-- * 'kpPrivateKey' - The private key.
 --
--- * 'kpPublicKey'
+-- * 'kpPublicKey' - The public key.
 keyPair
     :: KeyPair
 keyPair =
@@ -1033,6 +1047,8 @@ instance NFData KeyPair
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
+--
+--
 -- /See:/ 'kinesisAction' smart constructor.
 data KinesisAction = KinesisAction'
     { _kaPartitionKey :: !(Maybe Text)
@@ -1044,11 +1060,11 @@ data KinesisAction = KinesisAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kaPartitionKey'
+-- * 'kaPartitionKey' - The partition key.
 --
--- * 'kaRoleARN'
+-- * 'kaRoleARN' - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 --
--- * 'kaStreamName'
+-- * 'kaStreamName' - The name of the Amazon Kinesis stream.
 kinesisAction
     :: Text -- ^ 'kaRoleARN'
     -> Text -- ^ 'kaStreamName'
@@ -1094,6 +1110,8 @@ instance ToJSON KinesisAction where
 
 -- | Describes an action to invoke a Lambda function.
 --
+--
+--
 -- /See:/ 'lambdaAction' smart constructor.
 newtype LambdaAction = LambdaAction'
     { _laFunctionARN :: Text
@@ -1103,7 +1121,7 @@ newtype LambdaAction = LambdaAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laFunctionARN'
+-- * 'laFunctionARN' - The ARN of the Lambda function.
 lambdaAction
     :: Text -- ^ 'laFunctionARN'
     -> LambdaAction
@@ -1132,6 +1150,8 @@ instance ToJSON LambdaAction where
 
 -- | Describes the logging options payload.
 --
+--
+--
 -- /See:/ 'loggingOptionsPayload' smart constructor.
 data LoggingOptionsPayload = LoggingOptionsPayload'
     { _lopLogLevel :: !(Maybe LogLevel)
@@ -1142,9 +1162,9 @@ data LoggingOptionsPayload = LoggingOptionsPayload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lopLogLevel'
+-- * 'lopLogLevel' - The logging level.
 --
--- * 'lopRoleARN'
+-- * 'lopRoleARN' - The ARN of the IAM role that grants access.
 loggingOptionsPayload
     :: Text -- ^ 'lopRoleARN'
     -> LoggingOptionsPayload
@@ -1175,6 +1195,8 @@ instance ToJSON LoggingOptionsPayload where
 
 -- | A certificate that has been transfered but not yet accepted.
 --
+--
+--
 -- /See:/ 'outgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
     { _ocTransferDate    :: !(Maybe POSIX)
@@ -1189,17 +1211,17 @@ data OutgoingCertificate = OutgoingCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ocTransferDate'
+-- * 'ocTransferDate' - The date the transfer was initiated.
 --
--- * 'ocCertificateARN'
+-- * 'ocCertificateARN' - The certificate ARN.
 --
--- * 'ocCertificateId'
+-- * 'ocCertificateId' - The certificate ID.
 --
--- * 'ocTransferredTo'
+-- * 'ocTransferredTo' - The AWS account to which the transfer was made.
 --
--- * 'ocCreationDate'
+-- * 'ocCreationDate' - The certificate creation date.
 --
--- * 'ocTransferMessage'
+-- * 'ocTransferMessage' - The transfer message.
 outgoingCertificate
     :: OutgoingCertificate
 outgoingCertificate =
@@ -1253,6 +1275,8 @@ instance NFData OutgoingCertificate
 
 -- | Describes an AWS IoT policy.
 --
+--
+--
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
     { _pPolicyName :: !(Maybe Text)
@@ -1263,9 +1287,9 @@ data Policy = Policy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPolicyName'
+-- * 'pPolicyName' - The policy name.
 --
--- * 'pPolicyARN'
+-- * 'pPolicyARN' - The policy ARN.
 policy
     :: Policy
 policy =
@@ -1295,6 +1319,8 @@ instance NFData Policy
 
 -- | Describes a policy version.
 --
+--
+--
 -- /See:/ 'policyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
     { _pvVersionId        :: !(Maybe Text)
@@ -1306,11 +1332,11 @@ data PolicyVersion = PolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvVersionId'
+-- * 'pvVersionId' - The policy version ID.
 --
--- * 'pvCreateDate'
+-- * 'pvCreateDate' - The date and time the policy was created.
 --
--- * 'pvIsDefaultVersion'
+-- * 'pvIsDefaultVersion' - Specifies whether the policy version is the default.
 policyVersion
     :: PolicyVersion
 policyVersion =
@@ -1346,6 +1372,8 @@ instance NFData PolicyVersion
 
 -- | Describes an action to republish to another topic.
 --
+--
+--
 -- /See:/ 'republishAction' smart constructor.
 data RepublishAction = RepublishAction'
     { _raRoleARN :: !Text
@@ -1356,9 +1384,9 @@ data RepublishAction = RepublishAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raRoleARN'
+-- * 'raRoleARN' - The ARN of the IAM role that grants access.
 --
--- * 'raTopic'
+-- * 'raTopic' - The name of the MQTT topic.
 republishAction
     :: Text -- ^ 'raRoleARN'
     -> Text -- ^ 'raTopic'
@@ -1397,6 +1425,8 @@ instance ToJSON RepublishAction where
 
 -- | Describes an action to write data to an Amazon S3 bucket.
 --
+--
+--
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
     { _sRoleARN    :: !Text
@@ -1408,11 +1438,11 @@ data S3Action = S3Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sRoleARN'
+-- * 'sRoleARN' - The ARN of the IAM role that grants access.
 --
--- * 'sBucketName'
+-- * 'sBucketName' - The Amazon S3 bucket.
 --
--- * 'sKey'
+-- * 'sKey' - The object key.
 s3Action
     :: Text -- ^ 'sRoleARN'
     -> Text -- ^ 'sBucketName'
@@ -1459,6 +1489,8 @@ instance ToJSON S3Action where
 
 -- | Describes an action to publish to an Amazon SNS topic.
 --
+--
+--
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
     { _snsaMessageFormat :: !(Maybe MessageFormat)
@@ -1470,11 +1502,11 @@ data SNSAction = SNSAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'snsaMessageFormat'
+-- * 'snsaMessageFormat' - The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
 --
--- * 'snsaTargetARN'
+-- * 'snsaTargetARN' - The ARN of the SNS topic.
 --
--- * 'snsaRoleARN'
+-- * 'snsaRoleARN' - The ARN of the IAM role that grants access.
 snsAction
     :: Text -- ^ 'snsaTargetARN'
     -> Text -- ^ 'snsaRoleARN'
@@ -1486,7 +1518,7 @@ snsAction pTargetARN_ pRoleARN_ =
     , _snsaRoleARN = pRoleARN_
     }
 
--- | The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
+-- | The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
 snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
 snsaMessageFormat = lens _snsaMessageFormat (\ s a -> s{_snsaMessageFormat = a});
 
@@ -1520,6 +1552,8 @@ instance ToJSON SNSAction where
 
 -- | Describes an action to publish data to an Amazon SQS queue.
 --
+--
+--
 -- /See:/ 'sqsAction' smart constructor.
 data SqsAction = SqsAction'
     { _saUseBase64 :: !(Maybe Bool)
@@ -1531,11 +1565,11 @@ data SqsAction = SqsAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'saUseBase64'
+-- * 'saUseBase64' - Specifies whether to use Base64 encoding.
 --
--- * 'saRoleARN'
+-- * 'saRoleARN' - The ARN of the IAM role that grants access.
 --
--- * 'saQueueURL'
+-- * 'saQueueURL' - The URL of the Amazon SQS queue.
 sqsAction
     :: Text -- ^ 'saRoleARN'
     -> Text -- ^ 'saQueueURL'
@@ -1581,6 +1615,8 @@ instance ToJSON SqsAction where
 
 -- | The properties of the thing, including thing name, thing type name, and a list of thing attributes.
 --
+--
+--
 -- /See:/ 'thingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
     { _taThingTypeName :: !(Maybe Text)
@@ -1593,13 +1629,13 @@ data ThingAttribute = ThingAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'taThingTypeName'
+-- * 'taThingTypeName' - The name of the thing type, if the thing has been associated with a type.
 --
--- * 'taAttributes'
+-- * 'taAttributes' - A list of thing attributes which are name-value pairs.
 --
--- * 'taVersion'
+-- * 'taVersion' - The version of the thing record in the registry.
 --
--- * 'taThingName'
+-- * 'taThingName' - The name of the thing.
 thingAttribute
     :: ThingAttribute
 thingAttribute =
@@ -1642,6 +1678,8 @@ instance NFData ThingAttribute
 
 -- | The definition of the thing type, including thing type name and description.
 --
+--
+--
 -- /See:/ 'thingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
     { _ttdThingTypeProperties :: !(Maybe ThingTypeProperties)
@@ -1653,11 +1691,11 @@ data ThingTypeDefinition = ThingTypeDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ttdThingTypeProperties'
+-- * 'ttdThingTypeProperties' - The ThingTypeProperties for the thing type.
 --
--- * 'ttdThingTypeName'
+-- * 'ttdThingTypeName' - The name of the thing type.
 --
--- * 'ttdThingTypeMetadata'
+-- * 'ttdThingTypeMetadata' - Undocumented member.
 thingTypeDefinition
     :: ThingTypeDefinition
 thingTypeDefinition =
@@ -1694,6 +1732,8 @@ instance NFData ThingTypeDefinition
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.
 --
+--
+--
 -- /See:/ 'thingTypeMetadata' smart constructor.
 data ThingTypeMetadata = ThingTypeMetadata'
     { _ttmDeprecationDate :: !(Maybe POSIX)
@@ -1705,11 +1745,11 @@ data ThingTypeMetadata = ThingTypeMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ttmDeprecationDate'
+-- * 'ttmDeprecationDate' - The date and time when the thing type was deprecated.
 --
--- * 'ttmCreationDate'
+-- * 'ttmCreationDate' - The date and time when the thing type was created.
 --
--- * 'ttmDeprecated'
+-- * 'ttmDeprecated' - Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
 thingTypeMetadata
     :: ThingTypeMetadata
 thingTypeMetadata =
@@ -1727,7 +1767,7 @@ ttmDeprecationDate = lens _ttmDeprecationDate (\ s a -> s{_ttmDeprecationDate = 
 ttmCreationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
 ttmCreationDate = lens _ttmCreationDate (\ s a -> s{_ttmCreationDate = a}) . mapping _Time;
 
--- | Whether the thing type is deprecated. If __true__, no new things could be associated with this type.
+-- | Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
 ttmDeprecated :: Lens' ThingTypeMetadata (Maybe Bool)
 ttmDeprecated = lens _ttmDeprecated (\ s a -> s{_ttmDeprecated = a});
 
@@ -1745,6 +1785,8 @@ instance NFData ThingTypeMetadata
 
 -- | The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.
 --
+--
+--
 -- /See:/ 'thingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
     { _ttpSearchableAttributes :: !(Maybe [Text])
@@ -1755,9 +1797,9 @@ data ThingTypeProperties = ThingTypeProperties'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ttpSearchableAttributes'
+-- * 'ttpSearchableAttributes' - A list of searchable thing attribute names.
 --
--- * 'ttpThingTypeDescription'
+-- * 'ttpThingTypeDescription' - The description of the thing type.
 thingTypeProperties
     :: ThingTypeProperties
 thingTypeProperties =
@@ -1797,6 +1839,8 @@ instance ToJSON ThingTypeProperties where
 
 -- | Describes a rule.
 --
+--
+--
 -- /See:/ 'topicRule' smart constructor.
 data TopicRule = TopicRule'
     { _trCreatedAt        :: !(Maybe POSIX)
@@ -1812,19 +1856,19 @@ data TopicRule = TopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trCreatedAt'
+-- * 'trCreatedAt' - The date and time the rule was created.
 --
--- * 'trActions'
+-- * 'trActions' - The actions associated with the rule.
 --
--- * 'trAwsIotSqlVersion'
+-- * 'trAwsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
 --
--- * 'trRuleDisabled'
+-- * 'trRuleDisabled' - Specifies whether the rule is disabled.
 --
--- * 'trRuleName'
+-- * 'trRuleName' - The name of the rule.
 --
--- * 'trSql'
+-- * 'trSql' - The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
 --
--- * 'trDescription'
+-- * 'trDescription' - The description of the rule.
 topicRule
     :: TopicRule
 topicRule =
@@ -1884,6 +1928,8 @@ instance NFData TopicRule
 
 -- | Describes a rule.
 --
+--
+--
 -- /See:/ 'topicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
     { _trliCreatedAt    :: !(Maybe POSIX)
@@ -1897,15 +1943,15 @@ data TopicRuleListItem = TopicRuleListItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trliCreatedAt'
+-- * 'trliCreatedAt' - The date and time the rule was created.
 --
--- * 'trliRuleDisabled'
+-- * 'trliRuleDisabled' - Specifies whether the rule is disabled.
 --
--- * 'trliRuleName'
+-- * 'trliRuleName' - The name of the rule.
 --
--- * 'trliRuleARN'
+-- * 'trliRuleARN' - The rule ARN.
 --
--- * 'trliTopicPattern'
+-- * 'trliTopicPattern' - The pattern for the topic names that apply.
 topicRuleListItem
     :: TopicRuleListItem
 topicRuleListItem =
@@ -1953,6 +1999,8 @@ instance NFData TopicRuleListItem
 
 -- | Describes a rule.
 --
+--
+--
 -- /See:/ 'topicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
     { _trpAwsIotSqlVersion :: !(Maybe Text)
@@ -1966,15 +2014,15 @@ data TopicRulePayload = TopicRulePayload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trpAwsIotSqlVersion'
+-- * 'trpAwsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
 --
--- * 'trpRuleDisabled'
+-- * 'trpRuleDisabled' - Specifies whether the rule is disabled.
 --
--- * 'trpDescription'
+-- * 'trpDescription' - The description of the rule.
 --
--- * 'trpSql'
+-- * 'trpSql' - The SQL statement used to query the topic. For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference AWS IoT SQL Reference> in the /AWS IoT Developer Guide/ .
 --
--- * 'trpActions'
+-- * 'trpActions' - The actions associated with the rule.
 topicRulePayload
     :: Text -- ^ 'trpSql'
     -> TopicRulePayload
@@ -1999,7 +2047,7 @@ trpRuleDisabled = lens _trpRuleDisabled (\ s a -> s{_trpRuleDisabled = a});
 trpDescription :: Lens' TopicRulePayload (Maybe Text)
 trpDescription = lens _trpDescription (\ s a -> s{_trpDescription = a});
 
--- | The SQL statement used to query the topic. For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference AWS IoT SQL Reference> in the /AWS IoT Developer Guide/.
+-- | The SQL statement used to query the topic. For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference AWS IoT SQL Reference> in the /AWS IoT Developer Guide/ .
 trpSql :: Lens' TopicRulePayload Text
 trpSql = lens _trpSql (\ s a -> s{_trpSql = a});
 
@@ -2023,6 +2071,8 @@ instance ToJSON TopicRulePayload where
 
 -- | Data used to transfer a certificate to an AWS account.
 --
+--
+--
 -- /See:/ 'transferData' smart constructor.
 data TransferData = TransferData'
     { _tdTransferDate    :: !(Maybe POSIX)
@@ -2036,15 +2086,15 @@ data TransferData = TransferData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdTransferDate'
+-- * 'tdTransferDate' - The date the transfer took place.
 --
--- * 'tdAcceptDate'
+-- * 'tdAcceptDate' - The date the transfer was accepted.
 --
--- * 'tdTransferMessage'
+-- * 'tdTransferMessage' - The transfer message.
 --
--- * 'tdRejectDate'
+-- * 'tdRejectDate' - The date the transfer was rejected.
 --
--- * 'tdRejectReason'
+-- * 'tdRejectReason' - The reason why the transfer was rejected.
 transferData
     :: TransferData
 transferData =

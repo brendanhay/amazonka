@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables actions for the specified alarms.
+--
+--
 module Network.AWS.CloudWatch.EnableAlarmActions
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for EnableAlarmActions.
 --
+--
+--
 -- /See:/ 'enableAlarmActions' smart constructor.
 newtype EnableAlarmActions = EnableAlarmActions'
     { _eaaAlarmNames :: [Text]
@@ -50,7 +54,7 @@ newtype EnableAlarmActions = EnableAlarmActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eaaAlarmNames'
+-- * 'eaaAlarmNames' - The names of the alarms to enable actions for.
 enableAlarmActions
     :: EnableAlarmActions
 enableAlarmActions =

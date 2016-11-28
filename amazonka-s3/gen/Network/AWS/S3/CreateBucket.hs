@@ -65,21 +65,21 @@ data CreateBucket = CreateBucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbGrantReadACP'
+-- * 'cbGrantReadACP' - Allows grantee to read the bucket ACL.
 --
--- * 'cbGrantWriteACP'
+-- * 'cbGrantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
--- * 'cbGrantRead'
+-- * 'cbGrantRead' - Allows grantee to list the objects in the bucket.
 --
--- * 'cbGrantFullControl'
+-- * 'cbGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'cbCreateBucketConfiguration'
+-- * 'cbCreateBucketConfiguration' - Undocumented member.
 --
--- * 'cbGrantWrite'
+-- * 'cbGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
--- * 'cbACL'
+-- * 'cbACL' - The canned ACL to apply to the bucket.
 --
--- * 'cbBucket'
+-- * 'cbBucket' - Undocumented member.
 createBucket
     :: BucketName -- ^ 'cbBucket'
     -> CreateBucket
@@ -174,9 +174,9 @@ data CreateBucketResponse = CreateBucketResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbrsLocation'
+-- * 'cbrsLocation' - Undocumented member.
 --
--- * 'cbrsResponseStatus'
+-- * 'cbrsResponseStatus' - -- | The response status code.
 createBucketResponse
     :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBucketResponse
@@ -190,7 +190,7 @@ createBucketResponse pResponseStatus_ =
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBucketResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
 

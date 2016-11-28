@@ -20,9 +20,9 @@
 --
 -- Requests a description of a specified set of apps.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeApps
     (
     -- * Creating a Request
@@ -57,9 +57,9 @@ data DescribeApps = DescribeApps'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAppIds'
+-- * 'daAppIds' - An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 --
--- * 'daStackId'
+-- * 'daStackId' - The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 describeApps
     :: DescribeApps
 describeApps =
@@ -68,11 +68,11 @@ describeApps =
     , _daStackId = Nothing
     }
 
--- | An array of app IDs for the apps to be described. If you use this parameter, 'DescribeApps' returns a description of the specified apps. Otherwise, it returns a description of every app.
+-- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
 
--- | The app stack ID. If you use this parameter, 'DescribeApps' returns a description of the apps in the specified stack.
+-- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
@@ -111,7 +111,9 @@ instance ToPath DescribeApps where
 instance ToQuery DescribeApps where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeApps' request.
+-- | Contains the response to a @DescribeApps@ request.
+--
+--
 --
 -- /See:/ 'describeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
@@ -123,9 +125,9 @@ data DescribeAppsResponse = DescribeAppsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsApps'
+-- * 'darsApps' - An array of @App@ objects that describe the specified apps.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAppsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAppsResponse
@@ -135,11 +137,11 @@ describeAppsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'App' objects that describe the specified apps.
+-- | An array of @App@ objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAppsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified cluster subnet group.
+--
+--
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteClusterSubnetGroup' smart constructor.
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName :: Text
@@ -50,7 +54,7 @@ newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsgClusterSubnetGroupName'
+-- * 'dcsgClusterSubnetGroupName' - The name of the cluster subnet group name to be deleted.
 deleteClusterSubnetGroup
     :: Text -- ^ 'dcsgClusterSubnetGroupName'
     -> DeleteClusterSubnetGroup

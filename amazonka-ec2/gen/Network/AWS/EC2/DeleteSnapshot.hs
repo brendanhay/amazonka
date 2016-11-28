@@ -20,11 +20,13 @@
 --
 -- Deletes the specified snapshot.
 --
+--
 -- When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.
 --
 -- You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first de-register the AMI before you can delete the snapshot.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteSnapshot.
 --
+--
+--
 -- /See:/ 'deleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
     { _deleDryRun     :: !(Maybe Bool)
@@ -58,9 +62,9 @@ data DeleteSnapshot = DeleteSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deleDryRun'
+-- * 'deleDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'deleSnapshotId'
+-- * 'deleSnapshotId' - The ID of the EBS snapshot.
 deleteSnapshot
     :: Text -- ^ 'deleSnapshotId'
     -> DeleteSnapshot
@@ -70,7 +74,7 @@ deleteSnapshot pSnapshotId_ =
     , _deleSnapshotId = pSnapshotId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 deleDryRun :: Lens' DeleteSnapshot (Maybe Bool)
 deleDryRun = lens _deleDryRun (\ s a -> s{_deleDryRun = a});
 

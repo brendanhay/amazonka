@@ -20,7 +20,9 @@
 --
 -- Deletes the thing shadow for the specified thing.
 --
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow> in the /AWS IoT Developer Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow> in the /AWS IoT Developer Guide/ .
+--
 module Network.AWS.IoTDataPlane.DeleteThingShadow
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The input for the DeleteThingShadow operation.
 --
+--
+--
 -- /See:/ 'deleteThingShadow' smart constructor.
 newtype DeleteThingShadow = DeleteThingShadow'
     { _dtsThingName :: Text
@@ -55,7 +59,7 @@ newtype DeleteThingShadow = DeleteThingShadow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsThingName'
+-- * 'dtsThingName' - The name of the thing.
 deleteThingShadow
     :: Text -- ^ 'dtsThingName'
     -> DeleteThingShadow
@@ -93,6 +97,8 @@ instance ToQuery DeleteThingShadow where
 
 -- | The output from the DeleteThingShadow operation.
 --
+--
+--
 -- /See:/ 'deleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
     { _dtsrsResponseStatus :: !Int
@@ -103,9 +109,9 @@ data DeleteThingShadowResponse = DeleteThingShadowResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsrsResponseStatus'
+-- * 'dtsrsResponseStatus' - -- | The response status code.
 --
--- * 'dtsrsPayload'
+-- * 'dtsrsPayload' - The state information, in JSON format.
 deleteThingShadowResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> HashMap Text Value -- ^ 'dtsrsPayload'
@@ -116,7 +122,7 @@ deleteThingShadowResponse pResponseStatus_ pPayload_ =
     , _dtsrsPayload = pPayload_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeleteThingShadowResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 

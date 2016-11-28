@@ -20,7 +20,7 @@
 --
 -- Creates an application version for the specified application.
 --
--- Once you create an application version with a specified Amazon S3 bucket and key location, you cannot change that Amazon S3 location. If you change the Amazon S3 location, you receive an exception when you attempt to launch an environment from the application version.
+--
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Creating a Request
@@ -50,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
     { _cavProcess               :: !(Maybe Bool)
@@ -64,17 +66,17 @@ data CreateApplicationVersion = CreateApplicationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cavProcess'
+-- * 'cavProcess' - Preprocesses and validates the environment manifest and configuration files in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
 --
--- * 'cavSourceBundle'
+-- * 'cavSourceBundle' - The Amazon S3 bucket and key that identify the location of the source bundle for this version.  If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error. The maximum size allowed is 512 MB.  Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
 --
--- * 'cavAutoCreateApplication'
+-- * 'cavAutoCreateApplication' - Determines how the system behaves if the specified application for this version does not already exist:      * @true@ : Automatically creates the specified application for this release if it does not already exist.     * @false@ : Throws an @InvalidParameterValue@ if the specified application for this release does not already exist.  Default: @false@  Valid Values: @true@ | @false@
 --
--- * 'cavDescription'
+-- * 'cavDescription' - Describes this version.
 --
--- * 'cavApplicationName'
+-- * 'cavApplicationName' - The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
 --
--- * 'cavVersionLabel'
+-- * 'cavVersionLabel' - A label identifying this version. Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 createApplicationVersion
     :: Text -- ^ 'cavApplicationName'
     -> Text -- ^ 'cavVersionLabel'
@@ -93,22 +95,11 @@ createApplicationVersion pApplicationName_ pVersionLabel_ =
 cavProcess :: Lens' CreateApplicationVersion (Maybe Bool)
 cavProcess = lens _cavProcess (\ s a -> s{_cavProcess = a});
 
--- | The Amazon S3 bucket and key that identify the location of the source bundle for this version.
---
--- If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error. The maximum size allowed is 512 MB.
---
--- Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error.
+-- | The Amazon S3 bucket and key that identify the location of the source bundle for this version.  If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error. The maximum size allowed is 512 MB.  Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
 cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
 cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
 
--- | Determines how the system behaves if the specified application for this version does not already exist:
---
--- -   'true' : Automatically creates the specified application for this release if it does not already exist.
--- -   'false' : Throws an 'InvalidParameterValue' if the specified application for this release does not already exist.
---
--- Default: 'false'
---
--- Valid Values: 'true' | 'false'
+-- | Determines how the system behaves if the specified application for this version does not already exist:      * @true@ : Automatically creates the specified application for this release if it does not already exist.     * @false@ : Throws an @InvalidParameterValue@ if the specified application for this release does not already exist.  Default: @false@  Valid Values: @true@ | @false@
 cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavAutoCreateApplication = lens _cavAutoCreateApplication (\ s a -> s{_cavAutoCreateApplication = a});
 
@@ -116,13 +107,11 @@ cavAutoCreateApplication = lens _cavAutoCreateApplication (\ s a -> s{_cavAutoCr
 cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavDescription = lens _cavDescription (\ s a -> s{_cavDescription = a});
 
--- | The name of the application. If no application is found with this name, and 'AutoCreateApplication' is 'false', returns an 'InvalidParameterValue' error.
+-- | The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
 cavApplicationName :: Lens' CreateApplicationVersion Text
 cavApplicationName = lens _cavApplicationName (\ s a -> s{_cavApplicationName = a});
 
--- | A label identifying this version.
---
--- Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
+-- | A label identifying this version. Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\ s a -> s{_cavVersionLabel = a});
 

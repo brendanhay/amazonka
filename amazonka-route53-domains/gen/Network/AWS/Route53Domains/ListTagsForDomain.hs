@@ -20,7 +20,9 @@
 --
 -- This operation returns all of the tags that are associated with the specified domain.
 --
+--
 -- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
+--
 module Network.AWS.Route53Domains.ListTagsForDomain
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The ListTagsForDomainRequest includes the following elements.
 --
+--
+--
 -- /See:/ 'listTagsForDomain' smart constructor.
 newtype ListTagsForDomain = ListTagsForDomain'
     { _ltfdDomainName :: Text
@@ -55,7 +59,7 @@ newtype ListTagsForDomain = ListTagsForDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfdDomainName'
+-- * 'ltfdDomainName' - The domain for which you want to get a list of tags.
 listTagsForDomain
     :: Text -- ^ 'ltfdDomainName'
     -> ListTagsForDomain
@@ -104,6 +108,8 @@ instance ToQuery ListTagsForDomain where
 
 -- | The ListTagsForDomain response includes the following elements.
 --
+--
+--
 -- /See:/ 'listTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
     { _ltfdrsResponseStatus :: !Int
@@ -114,9 +120,9 @@ data ListTagsForDomainResponse = ListTagsForDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfdrsResponseStatus'
+-- * 'ltfdrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfdrsTagList'
+-- * 'ltfdrsTagList' - A list of the tags that are associated with the specified domain. Type: A complex type containing a list of tags Each tag includes the following elements.     * Key The key (name) of a tag. Type: String     * Value The value of a tag. Type: String
 listTagsForDomainResponse
     :: Int -- ^ 'ltfdrsResponseStatus'
     -> ListTagsForDomainResponse
@@ -126,28 +132,11 @@ listTagsForDomainResponse pResponseStatus_ =
     , _ltfdrsTagList = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
 ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseStatus = a});
 
--- | A list of the tags that are associated with the specified domain.
---
--- Type: A complex type containing a list of tags
---
--- Each tag includes the following elements.
---
--- -   Key
---
---     The key (name) of a tag.
---
---     Type: String
---
--- -   Value
---
---     The value of a tag.
---
---     Type: String
---
+-- | A list of the tags that are associated with the specified domain. Type: A complex type containing a list of tags Each tag includes the following elements.     * Key The key (name) of a tag. Type: String     * Value The value of a tag. Type: String
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;
 

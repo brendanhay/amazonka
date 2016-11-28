@@ -20,9 +20,9 @@
 --
 -- Creates a cached volume on a specified cached gateway. This operation is supported only for the gateway-cached volume architecture.
 --
--- Cache storage must be allocated to the gateway before you can create a cached volume. Use the < AddCache> operation to add cache storage to a gateway.
 --
 -- In the request, you must specify the gateway, size of the volume in bytes, the iSCSI target name, an IP address on which to expose the target, and a unique client token. In response, AWS Storage Gateway creates the volume and returns information about it such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
+--
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Creating a Request
@@ -66,17 +66,17 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccscsivSnapshotId'
+-- * 'ccscsivSnapshotId' - Undocumented member.
 --
--- * 'ccscsivGatewayARN'
+-- * 'ccscsivGatewayARN' - Undocumented member.
 --
--- * 'ccscsivVolumeSizeInBytes'
+-- * 'ccscsivVolumeSizeInBytes' - Undocumented member.
 --
--- * 'ccscsivTargetName'
+-- * 'ccscsivTargetName' - Undocumented member.
 --
--- * 'ccscsivNetworkInterfaceId'
+-- * 'ccscsivNetworkInterfaceId' - Undocumented member.
 --
--- * 'ccscsivClientToken'
+-- * 'ccscsivClientToken' - Undocumented member.
 createCachediSCSIVolume
     :: Text -- ^ 'ccscsivGatewayARN'
     -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
@@ -173,11 +173,11 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccscsivrsTargetARN'
+-- * 'ccscsivrsTargetARN' - Undocumented member.
 --
--- * 'ccscsivrsVolumeARN'
+-- * 'ccscsivrsVolumeARN' - Undocumented member.
 --
--- * 'ccscsivrsResponseStatus'
+-- * 'ccscsivrsResponseStatus' - -- | The response status code.
 createCachediSCSIVolumeResponse
     :: Int -- ^ 'ccscsivrsResponseStatus'
     -> CreateCachediSCSIVolumeResponse
@@ -196,7 +196,7 @@ ccscsivrsTargetARN = lens _ccscsivrsTargetARN (\ s a -> s{_ccscsivrsTargetARN = 
 ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccscsivrsResponseStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrsResponseStatus = lens _ccscsivrsResponseStatus (\ s a -> s{_ccscsivrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified stack. You must first delete all instances, layers, and apps or deregister registered instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Down a Stack>.
+-- Deletes a specified stack. You must first delete all instances, layers, and apps or deregister registered instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Down a Stack> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeleteStack
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeleteStack = DeleteStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsStackId'
+-- * 'dsStackId' - The stack ID.
 deleteStack
     :: Text -- ^ 'dsStackId'
     -> DeleteStack

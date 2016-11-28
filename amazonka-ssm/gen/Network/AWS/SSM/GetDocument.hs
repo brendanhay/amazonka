@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the contents of the specified SSM document.
+--
+--
 module Network.AWS.SSM.GetDocument
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype GetDocument = GetDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdName'
+-- * 'gdName' - The name of the SSM document.
 getDocument
     :: Text -- ^ 'gdName'
     -> GetDocument
@@ -109,11 +111,11 @@ data GetDocumentResponse = GetDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsContent'
+-- * 'gdrsContent' - The contents of the SSM document.
 --
--- * 'gdrsName'
+-- * 'gdrsName' - The name of the SSM document.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDocumentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDocumentResponse
@@ -132,7 +134,7 @@ gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDocumentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

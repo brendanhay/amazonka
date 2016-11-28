@@ -33,9 +33,9 @@ data Artifact = Artifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aURL'
+-- * 'aURL' - Undocumented member.
 --
--- * 'aDescription'
+-- * 'aDescription' - Undocumented member.
 artifact
     :: Artifact
 artifact =
@@ -75,13 +75,13 @@ data Job = Job'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jobJobType'
+-- * 'jobJobType' - Undocumented member.
 --
--- * 'jobJobId'
+-- * 'jobJobId' - Undocumented member.
 --
--- * 'jobIsCanceled'
+-- * 'jobIsCanceled' - Undocumented member.
 --
--- * 'jobCreationDate'
+-- * 'jobCreationDate' - Undocumented member.
 job
     :: JobType -- ^ 'jobJobType'
     -> Text -- ^ 'jobJobId'

@@ -876,7 +876,7 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SWF.Types.Product
 import           Network.AWS.SWF.Types.Sum
 
--- | API version '2012-01-25' of the Amazon Simple Workflow Service SDK configuration.
+-- | API version @2012-01-25@ of the Amazon Simple Workflow Service SDK configuration.
 swf :: Service
 swf =
     Service
@@ -911,24 +911,34 @@ swf =
       | otherwise = Nothing
 
 -- | Returned if the specified domain already exists. You will get this fault even if the existing domain is in deprecated status.
+--
+--
 _DomainAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainAlreadyExistsFault = _ServiceError . hasCode "DomainAlreadyExistsFault"
 
 -- | Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.
+--
+--
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasCode "LimitExceededFault"
 
--- | Returned by < StartWorkflowExecution> when an open execution with the same workflowId is already running in the specified domain.
+-- | Returned by 'StartWorkflowExecution' when an open execution with the same workflowId is already running in the specified domain.
+--
+--
 _WorkflowExecutionAlreadyStartedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _WorkflowExecutionAlreadyStartedFault =
     _ServiceError . hasCode "WorkflowExecutionAlreadyStartedFault"
 
 -- | Returned when the caller does not have sufficient permissions to invoke the action.
+--
+--
 _OperationNotPermittedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedFault =
     _ServiceError . hasCode "OperationNotPermittedFault"
 
 -- | Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.
+--
+--
 _UnknownResourceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UnknownResourceFault = _ServiceError . hasCode "UnknownResourceFault"
 
@@ -937,13 +947,19 @@ _DefaultUndefinedFault :: AsError a => Getting (First ServiceError) a ServiceErr
 _DefaultUndefinedFault = _ServiceError . hasCode "DefaultUndefinedFault"
 
 -- | Returned when the specified activity or workflow type was already deprecated.
+--
+--
 _TypeDeprecatedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _TypeDeprecatedFault = _ServiceError . hasCode "TypeDeprecatedFault"
 
 -- | Returned if the type already exists in the specified domain. You will get this fault even if the existing type is in deprecated status. You can specify another version if the intent is to create a new distinct version of the type.
+--
+--
 _TypeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _TypeAlreadyExistsFault = _ServiceError . hasCode "TypeAlreadyExistsFault"
 
 -- | Returned when the specified domain has been deprecated.
+--
+--
 _DomainDeprecatedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainDeprecatedFault = _ServiceError . hasCode "DomainDeprecatedFault"

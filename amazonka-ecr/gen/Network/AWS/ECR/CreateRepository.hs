@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an image repository.
+--
+--
 module Network.AWS.ECR.CreateRepository
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype CreateRepository = CreateRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRepositoryName'
+-- * 'crRepositoryName' - The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 createRepository
     :: Text -- ^ 'crRepositoryName'
     -> CreateRepository
@@ -60,7 +62,7 @@ createRepository pRepositoryName_ =
     { _crRepositoryName = pRepositoryName_
     }
 
--- | The name to use for the repository. The repository name may be specified on its own (such as 'nginx-web-app') or it can be prepended with a namespace to group the repository into a category (such as 'project-a\/nginx-web-app').
+-- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 crRepositoryName :: Lens' CreateRepository Text
 crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 
@@ -109,9 +111,9 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRepository'
+-- * 'crrsRepository' - Undocumented member.
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 createRepositoryResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRepositoryResponse
@@ -125,7 +127,7 @@ createRepositoryResponse pResponseStatus_ =
 crrsRepository :: Lens' CreateRepositoryResponse (Maybe Repository)
 crrsRepository = lens _crrsRepository (\ s a -> s{_crrsRepository = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

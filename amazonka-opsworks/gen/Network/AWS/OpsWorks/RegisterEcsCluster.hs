@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a specified Amazon ECS cluster with a stack. You can register only one cluster with a stack. A cluster can be registered with only one stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html Resource Management>.
+-- Registers a specified Amazon ECS cluster with a stack. You can register only one cluster with a stack. A cluster can be registered with only one stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterEcsCluster
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data RegisterEcsCluster = RegisterEcsCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'recEcsClusterARN'
+-- * 'recEcsClusterARN' - The cluster's ARN.
 --
--- * 'recStackId'
+-- * 'recStackId' - The stack ID.
 registerEcsCluster
     :: Text -- ^ 'recEcsClusterARN'
     -> Text -- ^ 'recStackId'
@@ -68,7 +70,7 @@ registerEcsCluster pEcsClusterARN_ pStackId_ =
     , _recStackId = pStackId_
     }
 
--- | The cluster\'s ARN.
+-- | The cluster's ARN.
 recEcsClusterARN :: Lens' RegisterEcsCluster Text
 recEcsClusterARN = lens _recEcsClusterARN (\ s a -> s{_recEcsClusterARN = a});
 
@@ -113,7 +115,9 @@ instance ToPath RegisterEcsCluster where
 instance ToQuery RegisterEcsCluster where
         toQuery = const mempty
 
--- | Contains the response to a 'RegisterEcsCluster' request.
+-- | Contains the response to a @RegisterEcsCluster@ request.
+--
+--
 --
 -- /See:/ 'registerEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
@@ -125,9 +129,9 @@ data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'recrsEcsClusterARN'
+-- * 'recrsEcsClusterARN' - The cluster's ARN.
 --
--- * 'recrsResponseStatus'
+-- * 'recrsResponseStatus' - -- | The response status code.
 registerEcsClusterResponse
     :: Int -- ^ 'recrsResponseStatus'
     -> RegisterEcsClusterResponse
@@ -137,11 +141,11 @@ registerEcsClusterResponse pResponseStatus_ =
     , _recrsResponseStatus = pResponseStatus_
     }
 
--- | The cluster\'s ARN.
+-- | The cluster's ARN.
 recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
 recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
 recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});
 

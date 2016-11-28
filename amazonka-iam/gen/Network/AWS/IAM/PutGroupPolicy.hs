@@ -20,11 +20,11 @@
 --
 -- Adds or updates an inline policy document that is embedded in the specified IAM group.
 --
--- A user can also have managed policies attached to it. To attach a managed policy to a group, use < AttachGroupPolicy>. To create a new managed policy, use < CreatePolicy>. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- For information about limits on the number of inline policies that you can embed in a group, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- A user can also have managed policies attached to it. To attach a managed policy to a group, use 'AttachGroupPolicy' . To create a new managed policy, use 'CreatePolicy' . For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- Because policy documents can be large, you should use POST rather than GET when calling 'PutGroupPolicy'. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /IAM User Guide/.
+-- For information about limits on the number of inline policies that you can embed in a group, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Creating a Request
@@ -58,11 +58,11 @@ data PutGroupPolicy = PutGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pgpGroupName'
+-- * 'pgpGroupName' - The name of the group to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pgpPolicyName'
+-- * 'pgpPolicyName' - The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pgpPolicyDocument'
+-- * 'pgpPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 putGroupPolicy
     :: Text -- ^ 'pgpGroupName'
     -> Text -- ^ 'pgpPolicyName'
@@ -75,21 +75,15 @@ putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
     , _pgpPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the group to associate the policy with.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the group to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pgpGroupName :: Lens' PutGroupPolicy Text
 pgpGroupName = lens _pgpGroupName (\ s a -> s{_pgpGroupName = a});
 
--- | The name of the policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\ s a -> s{_pgpPolicyName = a});
 
--- | The policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument = lens _pgpPolicyDocument (\ s a -> s{_pgpPolicyDocument = a});
 

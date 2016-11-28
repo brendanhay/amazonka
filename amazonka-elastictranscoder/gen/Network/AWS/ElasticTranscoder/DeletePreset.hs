@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeletePreset operation removes a preset that you\'ve added in an AWS region.
+-- The DeletePreset operation removes a preset that you've added in an AWS region.
 --
--- You can\'t delete the default presets that are included with Elastic Transcoder.
+--
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'DeletePresetRequest' structure.
+-- | The @DeletePresetRequest@ structure.
+--
+--
 --
 -- /See:/ 'deletePreset' smart constructor.
 newtype DeletePreset = DeletePreset'
@@ -54,7 +56,7 @@ newtype DeletePreset = DeletePreset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpId'
+-- * 'dpId' - The identifier of the preset for which you want to get detailed information.
 deletePreset
     :: Text -- ^ 'dpId'
     -> DeletePreset
@@ -89,7 +91,9 @@ instance ToPath DeletePreset where
 instance ToQuery DeletePreset where
         toQuery = const mempty
 
--- | The 'DeletePresetResponse' structure.
+-- | The @DeletePresetResponse@ structure.
+--
+--
 --
 -- /See:/ 'deletePresetResponse' smart constructor.
 newtype DeletePresetResponse = DeletePresetResponse'
@@ -100,7 +104,7 @@ newtype DeletePresetResponse = DeletePresetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 deletePresetResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DeletePresetResponse
@@ -109,7 +113,7 @@ deletePresetResponse pResponseStatus_ =
     { _dprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DeletePresetResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 

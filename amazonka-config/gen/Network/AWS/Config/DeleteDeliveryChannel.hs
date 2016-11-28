@@ -20,7 +20,9 @@
 --
 -- Deletes the delivery channel.
 --
--- Before you can delete the delivery channel, you must stop the configuration recorder by using the < StopConfigurationRecorder> action.
+--
+-- Before you can delete the delivery channel, you must stop the configuration recorder by using the 'StopConfigurationRecorder' action.
+--
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DeleteDeliveryChannel> action. The action accepts the following data in JSON format.
+-- | The input for the 'DeleteDeliveryChannel' action. The action accepts the following data in JSON format.
+--
+--
 --
 -- /See:/ 'deleteDeliveryChannel' smart constructor.
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
@@ -52,7 +56,7 @@ newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeliveryChannelName'
+-- * 'ddcDeliveryChannelName' - The name of the delivery channel to delete.
 deleteDeliveryChannel
     :: Text -- ^ 'ddcDeliveryChannelName'
     -> DeleteDeliveryChannel

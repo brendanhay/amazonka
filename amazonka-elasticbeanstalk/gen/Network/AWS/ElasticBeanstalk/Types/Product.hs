@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Describes the properties of an application.
 --
+--
+--
 -- /See:/ 'applicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
     { _adVersions               :: !(Maybe [Text])
@@ -37,17 +39,17 @@ data ApplicationDescription = ApplicationDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adVersions'
+-- * 'adVersions' - The names of the versions for this application.
 --
--- * 'adDateUpdated'
+-- * 'adDateUpdated' - The date when the application was last modified.
 --
--- * 'adDateCreated'
+-- * 'adDateCreated' - The date when the application was created.
 --
--- * 'adApplicationName'
+-- * 'adApplicationName' - The name of the application.
 --
--- * 'adConfigurationTemplates'
+-- * 'adConfigurationTemplates' - The names of the configuration templates associated with this application.
 --
--- * 'adDescription'
+-- * 'adDescription' - User-defined description of the application.
 applicationDescription
     :: ApplicationDescription
 applicationDescription =
@@ -103,6 +105,8 @@ instance NFData ApplicationDescription
 
 -- | Result message containing a single description of an application.
 --
+--
+--
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
     { _admApplication :: Maybe ApplicationDescription
@@ -112,7 +116,7 @@ newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'admApplication'
+-- * 'admApplication' - The 'ApplicationDescription' of the application.
 applicationDescriptionMessage
     :: ApplicationDescriptionMessage
 applicationDescriptionMessage =
@@ -120,7 +124,7 @@ applicationDescriptionMessage =
     { _admApplication = Nothing
     }
 
--- | The < ApplicationDescription> of the application.
+-- | The 'ApplicationDescription' of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
 admApplication = lens _admApplication (\ s a -> s{_admApplication = a});
 
@@ -135,6 +139,8 @@ instance NFData ApplicationDescriptionMessage
 
 -- | Represents the application metrics for a specified environment.
 --
+--
+--
 -- /See:/ 'applicationMetrics' smart constructor.
 data ApplicationMetrics = ApplicationMetrics'
     { _amRequestCount :: !(Maybe Int)
@@ -147,13 +153,13 @@ data ApplicationMetrics = ApplicationMetrics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amRequestCount'
+-- * 'amRequestCount' - Average number of requests handled by the web server per second over the last 10 seconds.
 --
--- * 'amLatency'
+-- * 'amLatency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one milisecond resolution.
 --
--- * 'amStatusCodes'
+-- * 'amStatusCodes' - Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
 --
--- * 'amDuration'
+-- * 'amDuration' - The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
 applicationMetrics
     :: ApplicationMetrics
 applicationMetrics =
@@ -176,7 +182,7 @@ amLatency = lens _amLatency (\ s a -> s{_amLatency = a});
 amStatusCodes :: Lens' ApplicationMetrics (Maybe StatusCodes)
 amStatusCodes = lens _amStatusCodes (\ s a -> s{_amStatusCodes = a});
 
--- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests ('request_count') within the most recent time slice of 10 seconds ('duration').
+-- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
 amDuration :: Lens' ApplicationMetrics (Maybe Int)
 amDuration = lens _amDuration (\ s a -> s{_amDuration = a});
 
@@ -193,6 +199,8 @@ instance NFData ApplicationMetrics
 
 -- | Describes the properties of an application version.
 --
+--
+--
 -- /See:/ 'applicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
     { _avdStatus          :: !(Maybe ApplicationVersionStatus)
@@ -208,19 +216,19 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avdStatus'
+-- * 'avdStatus' - The processing status of the application version.
 --
--- * 'avdSourceBundle'
+-- * 'avdSourceBundle' - The location where the source bundle is located for this version.
 --
--- * 'avdDateUpdated'
+-- * 'avdDateUpdated' - The last modified date of the application version.
 --
--- * 'avdDateCreated'
+-- * 'avdDateCreated' - The creation date of the application version.
 --
--- * 'avdVersionLabel'
+-- * 'avdVersionLabel' - A label uniquely identifying the version for the associated application.
 --
--- * 'avdApplicationName'
+-- * 'avdApplicationName' - The name of the application associated with this release.
 --
--- * 'avdDescription'
+-- * 'avdDescription' - The description of this application version.
 applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
@@ -278,6 +286,8 @@ instance NFData ApplicationVersionDescription
 
 -- | Result message wrapping a single description of an application version.
 --
+--
+--
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
@@ -287,7 +297,7 @@ newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMess
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avdmApplicationVersion'
+-- * 'avdmApplicationVersion' - The 'ApplicationVersionDescription' of the application version.
 applicationVersionDescriptionMessage
     :: ApplicationVersionDescriptionMessage
 applicationVersionDescriptionMessage =
@@ -295,7 +305,7 @@ applicationVersionDescriptionMessage =
     { _avdmApplicationVersion = Nothing
     }
 
--- | The < ApplicationVersionDescription> of the application version.
+-- | The 'ApplicationVersionDescription' of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
 avdmApplicationVersion = lens _avdmApplicationVersion (\ s a -> s{_avdmApplicationVersion = a});
 
@@ -312,6 +322,8 @@ instance NFData ApplicationVersionDescriptionMessage
 
 -- | Describes an Auto Scaling launch configuration.
 --
+--
+--
 -- /See:/ 'autoScalingGroup' smart constructor.
 newtype AutoScalingGroup = AutoScalingGroup'
     { _asgName :: Maybe Text
@@ -321,7 +333,7 @@ newtype AutoScalingGroup = AutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgName'
+-- * 'asgName' - The name of the @AutoScalingGroup@ .
 autoScalingGroup
     :: AutoScalingGroup
 autoScalingGroup =
@@ -329,7 +341,7 @@ autoScalingGroup =
     { _asgName = Nothing
     }
 
--- | The name of the 'AutoScalingGroup' .
+-- | The name of the @AutoScalingGroup@ .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\ s a -> s{_asgName = a});
 
@@ -340,7 +352,9 @@ instance Hashable AutoScalingGroup
 
 instance NFData AutoScalingGroup
 
--- | Represents CPU utilization information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId' property to specify the application instance for which you\'d like to return data.
+-- | Represents CPU utilization information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the @instanceId@ property to specify the application instance for which you'd like to return data.
+--
+--
 --
 -- /See:/ 'cpuUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
@@ -357,19 +371,19 @@ data CPUUtilization = CPUUtilization'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuSoftIRQ'
+-- * 'cuSoftIRQ' - Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
 --
--- * 'cuIdle'
+-- * 'cuIdle' - Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
 --
--- * 'cuIRQ'
+-- * 'cuIRQ' - Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
 --
--- * 'cuSystem'
+-- * 'cuSystem' - Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
 --
--- * 'cuUser'
+-- * 'cuUser' - Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
 --
--- * 'cuIOWait'
+-- * 'cuIOWait' - Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
 --
--- * 'cuNice'
+-- * 'cuNice' - Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
 cpuUtilization
     :: CPUUtilization
 cpuUtilization =
@@ -383,31 +397,31 @@ cpuUtilization =
     , _cuNice = Nothing
     }
 
--- | Percentage of time that the CPU has spent in the 'SoftIRQ' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
 cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
 cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a});
 
--- | Percentage of time that the CPU has spent in the 'Idle' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
 cuIdle :: Lens' CPUUtilization (Maybe Double)
 cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
 
--- | Percentage of time that the CPU has spent in the 'IRQ' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
 cuIRQ :: Lens' CPUUtilization (Maybe Double)
 cuIRQ = lens _cuIRQ (\ s a -> s{_cuIRQ = a});
 
--- | Percentage of time that the CPU has spent in the 'System' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
 cuSystem :: Lens' CPUUtilization (Maybe Double)
 cuSystem = lens _cuSystem (\ s a -> s{_cuSystem = a});
 
--- | Percentage of time that the CPU has spent in the 'User' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
 cuUser :: Lens' CPUUtilization (Maybe Double)
 cuUser = lens _cuUser (\ s a -> s{_cuUser = a});
 
--- | Percentage of time that the CPU has spent in the 'I\/O Wait' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
 cuIOWait :: Lens' CPUUtilization (Maybe Double)
 cuIOWait = lens _cuIOWait (\ s a -> s{_cuIOWait = a});
 
--- | Percentage of time that the CPU has spent in the 'Nice' state over the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
 cuNice :: Lens' CPUUtilization (Maybe Double)
 cuNice = lens _cuNice (\ s a -> s{_cuNice = a});
 
@@ -426,6 +440,8 @@ instance Hashable CPUUtilization
 instance NFData CPUUtilization
 
 -- | Describes the possible values for a configuration option.
+--
+--
 --
 -- /See:/ 'configurationOptionDescription' smart constructor.
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
@@ -446,27 +462,27 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'codMaxValue'
+-- * 'codMaxValue' - If specified, the configuration option must be a numeric value less than this value.
 --
--- * 'codRegex'
+-- * 'codRegex' - If specified, the configuration option must be a string value that satisfies this regular expression.
 --
--- * 'codMaxLength'
+-- * 'codMaxLength' - If specified, the configuration option must be a string value no longer than this value.
 --
--- * 'codUserDefined'
+-- * 'codUserDefined' - An indication of whether the user defined this configuration option:      * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user.  Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
 --
--- * 'codNamespace'
+-- * 'codNamespace' - A unique namespace identifying the option's associated AWS resource.
 --
--- * 'codValueOptions'
+-- * 'codValueOptions' - If specified, values for the configuration option are selected from this list.
 --
--- * 'codName'
+-- * 'codName' - The name of the configuration option.
 --
--- * 'codChangeSeverity'
+-- * 'codChangeSeverity' - An indication of which action is required if the value for this configuration option changes:      * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 --
--- * 'codDefaultValue'
+-- * 'codDefaultValue' - The default value for this configuration option.
 --
--- * 'codValueType'
+-- * 'codValueType' - An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:      * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
 --
--- * 'codMinValue'
+-- * 'codMinValue' - If specified, the configuration option must be a numeric value greater than this value.
 configurationOptionDescription
     :: ConfigurationOptionDescription
 configurationOptionDescription =
@@ -496,19 +512,11 @@ codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
 codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
--- | An indication of whether the user defined this configuration option:
---
--- -   'true' : This configuration option was defined by the user. It is a valid choice for specifying if this as an 'Option to Remove' when updating configuration settings.
---
--- -   'false' : This configuration was not defined by the user.
---
--- Constraint: You can remove only 'UserDefined' options from a configuration.
---
--- Valid Values: 'true' | 'false'
+-- | An indication of whether the user defined this configuration option:      * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user.  Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
 
--- | A unique namespace identifying the option\'s associated AWS resource.
+-- | A unique namespace identifying the option's associated AWS resource.
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
 codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a});
 
@@ -520,11 +528,7 @@ codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _De
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
 codName = lens _codName (\ s a -> s{_codName = a});
 
--- | An indication of which action is required if the value for this configuration option changes:
---
--- -   'NoInterruption' : There is no interruption to the environment or application availability.
--- -   'RestartEnvironment' : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
--- -   'RestartApplicationServer' : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
+-- | An indication of which action is required if the value for this configuration option changes:      * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
 codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a});
 
@@ -532,12 +536,7 @@ codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a})
 codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
 codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 
--- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
---
--- -   'Scalar' : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the 'MIN\/MAX\/Regex' constraints.
--- -   'List' : Values for this option are multiple selections from the possible values.
--- -   'Boolean' : Values for this option are either 'true' or 'false' .
--- -   'Json' : Values for this option are a JSON representation of a 'ConfigDocument'.
+-- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:      * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
 
@@ -565,7 +564,9 @@ instance Hashable ConfigurationOptionDescription
 
 instance NFData ConfigurationOptionDescription
 
--- | A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values> in the /AWS Elastic Beanstalk Developer Guide/.
+-- | A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values> in the /AWS Elastic Beanstalk Developer Guide/ .
+--
+--
 --
 -- /See:/ 'configurationOptionSetting' smart constructor.
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
@@ -579,13 +580,13 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cosOptionName'
+-- * 'cosOptionName' - The name of the configuration option.
 --
--- * 'cosResourceName'
+-- * 'cosResourceName' - A unique resource name for a time-based scaling configuration option.
 --
--- * 'cosNamespace'
+-- * 'cosNamespace' - A unique namespace identifying the option's associated AWS resource.
 --
--- * 'cosValue'
+-- * 'cosValue' - The current value for the configuration option.
 configurationOptionSetting
     :: ConfigurationOptionSetting
 configurationOptionSetting =
@@ -604,7 +605,7 @@ cosOptionName = lens _cosOptionName (\ s a -> s{_cosOptionName = a});
 cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a});
 
--- | A unique namespace identifying the option\'s associated AWS resource.
+-- | A unique namespace identifying the option's associated AWS resource.
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a});
 
@@ -632,6 +633,8 @@ instance ToQuery ConfigurationOptionSetting where
 
 -- | Describes the settings for a configuration set.
 --
+--
+--
 -- /See:/ 'configurationSettingsDescription' smart constructor.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
     { _csdTemplateName      :: !(Maybe Text)
@@ -649,23 +652,23 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdTemplateName'
+-- * 'csdTemplateName' - If not @null@ , the name of the configuration template for this configuration set.
 --
--- * 'csdOptionSettings'
+-- * 'csdOptionSettings' - A list of the configuration options and their values in this configuration set.
 --
--- * 'csdDateUpdated'
+-- * 'csdDateUpdated' - The date (in UTC time) when this configuration set was last modified.
 --
--- * 'csdDateCreated'
+-- * 'csdDateCreated' - The date (in UTC time) when this configuration set was created.
 --
--- * 'csdEnvironmentName'
+-- * 'csdEnvironmentName' - If not @null@ , the name of the environment for this configuration set.
 --
--- * 'csdApplicationName'
+-- * 'csdApplicationName' - The name of the application associated with this configuration set.
 --
--- * 'csdDeploymentStatus'
+-- * 'csdDeploymentStatus' - If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:      * @null@ : This configuration is not associated with a running environment.     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.     * @failed@ : This is a draft configuration that failed to successfully deploy.
 --
--- * 'csdSolutionStackName'
+-- * 'csdSolutionStackName' - The name of the solution stack this configuration set uses.
 --
--- * 'csdDescription'
+-- * 'csdDescription' - Describes this configuration set.
 configurationSettingsDescription
     :: ConfigurationSettingsDescription
 configurationSettingsDescription =
@@ -681,7 +684,7 @@ configurationSettingsDescription =
     , _csdDescription = Nothing
     }
 
--- | If not 'null', the name of the configuration template for this configuration set.
+-- | If not @null@ , the name of the configuration template for this configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
 
@@ -697,7 +700,7 @@ csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mappin
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
 
--- | If not 'null', the name of the environment for this configuration set.
+-- | If not @null@ , the name of the environment for this configuration set.
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a});
 
@@ -705,12 +708,7 @@ csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = 
 csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
 
--- | If this configuration set is associated with an environment, the 'DeploymentStatus' parameter indicates the deployment status of this configuration set:
---
--- -   'null': This configuration is not associated with a running environment.
--- -   'pending': This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.
--- -   'deployed': This is the configuration that is currently deployed to the associated running environment.
--- -   'failed': This is a draft configuration that failed to successfully deploy.
+-- | If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:      * @null@ : This configuration is not associated with a running environment.     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.     * @failed@ : This is a draft configuration that failed to successfully deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus = lens _csdDeploymentStatus (\ s a -> s{_csdDeploymentStatus = a});
 
@@ -743,6 +741,8 @@ instance NFData ConfigurationSettingsDescription
 
 -- | Information about an application version deployment.
 --
+--
+--
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
     { _dDeploymentId   :: !(Maybe Integer)
@@ -755,13 +755,13 @@ data Deployment = Deployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDeploymentId'
+-- * 'dDeploymentId' - The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
 --
--- * 'dStatus'
+-- * 'dStatus' - The status of the deployment:     * @In Progress@ : The deployment is in progress.    * @Deployed@ : The deployment succeeded.    * @Failed@ : The deployment failed.
 --
--- * 'dDeploymentTime'
+-- * 'dDeploymentTime' - For in-progress deployments, the time that the deloyment started. For completed deployments, the time that the deployment ended.
 --
--- * 'dVersionLabel'
+-- * 'dVersionLabel' - The version label of the application version in the deployment.
 deployment
     :: Deployment
 deployment =
@@ -776,17 +776,11 @@ deployment =
 dDeploymentId :: Lens' Deployment (Maybe Integer)
 dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 
--- | The status of the deployment:
---
--- -   'In Progress' : The deployment is in progress.
--- -   'Deployed' : The deployment succeeded.
--- -   'Failed' : The deployment failed.
+-- | The status of the deployment:     * @In Progress@ : The deployment is in progress.    * @Deployed@ : The deployment succeeded.    * @Failed@ : The deployment failed.
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | For in-progress deployments, the time that the deloyment started.
---
--- For completed deployments, the time that the deployment ended.
+-- | For in-progress deployments, the time that the deloyment started. For completed deployments, the time that the deployment ended.
 dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
 dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time;
 
@@ -806,6 +800,8 @@ instance Hashable Deployment
 instance NFData Deployment
 
 -- | Describes the properties of an environment.
+--
+--
 --
 -- /See:/ 'environmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
@@ -833,41 +829,41 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eStatus'
+-- * 'eStatus' - The current operational status of the environment:      * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 --
--- * 'eCNAME'
+-- * 'eCNAME' - The URL to the CNAME for this environment.
 --
--- * 'eTemplateName'
+-- * 'eTemplateName' - The name of the configuration template used to originally launch this environment.
 --
--- * 'eAbortableOperationInProgress'
+-- * 'eAbortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel. @true:@ There is an update in progress.  @false:@ There are no updates currently in progress.
 --
--- * 'eEndpointURL'
+-- * 'eEndpointURL' - For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
 --
--- * 'eResources'
+-- * 'eResources' - The description of the AWS resources used by this environment.
 --
--- * 'eDateUpdated'
+-- * 'eDateUpdated' - The last modified date for this environment.
 --
--- * 'eDateCreated'
+-- * 'eDateCreated' - The creation date for this environment.
 --
--- * 'eHealth'
+-- * 'eHealth' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:      * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request.  Default: @Grey@
 --
--- * 'eVersionLabel'
+-- * 'eVersionLabel' - The application version deployed in this environment.
 --
--- * 'eTier'
+-- * 'eTier' - Describes the current tier of this environment.
 --
--- * 'eEnvironmentName'
+-- * 'eEnvironmentName' - The name of this environment.
 --
--- * 'eApplicationName'
+-- * 'eApplicationName' - The name of the application associated with this environment.
 --
--- * 'eSolutionStackName'
+-- * 'eSolutionStackName' - The name of the @SolutionStack@ deployed with this environment.
 --
--- * 'eEnvironmentId'
+-- * 'eEnvironmentId' - The ID of this environment.
 --
--- * 'eHealthStatus'
+-- * 'eHealthStatus' - Returns the health status of the application running in your environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
--- * 'eEnvironmentLinks'
+-- * 'eEnvironmentLinks' - A list of links to other environments in the same group.
 --
--- * 'eDescription'
+-- * 'eDescription' - Describes this environment.
 environmentDescription
     :: EnvironmentDescription
 environmentDescription =
@@ -892,13 +888,7 @@ environmentDescription =
     , _eDescription = Nothing
     }
 
--- | The current operational status of the environment:
---
--- -   'Launching': Environment is in the process of initial deployment.
--- -   'Updating': Environment is in the process of updating its configuration settings or application version.
--- -   'Ready': Environment is available to have an action performed on it, such as update or terminate.
--- -   'Terminating': Environment is in the shut-down process.
--- -   'Terminated': Environment is not running.
+-- | The current operational status of the environment:      * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
@@ -910,11 +900,7 @@ eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 eTemplateName :: Lens' EnvironmentDescription (Maybe Text)
 eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
 
--- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
---
--- 'true:' There is an update in progress.
---
--- 'false:' There are no updates currently in progress.
+-- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel. @true:@ There is an update in progress.  @false:@ There are no updates currently in progress.
 eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
 eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a});
 
@@ -934,14 +920,7 @@ eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Tim
 eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
 eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
 
--- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
---
--- -   'Red': Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
--- -   'Yellow': Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
--- -   'Green': Indicates the environment is healthy and fully functional.
--- -   'Grey': Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an 'UpdateEnvironment' or 'RestartEnvironement' request.
---
--- Default: 'Grey'
+-- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:      * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request.  Default: @Grey@
 eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 
@@ -961,7 +940,7 @@ eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
 eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
 
--- | The name of the 'SolutionStack' deployed with this environment.
+-- | The name of the @SolutionStack@ deployed with this environment.
 eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
 eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
 
@@ -969,7 +948,7 @@ eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = 
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 
--- | Returns the health status of the application running in your environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the health status of the application running in your environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
 eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
 
@@ -1010,6 +989,8 @@ instance NFData EnvironmentDescription
 
 -- | Result message containing a list of environment descriptions.
 --
+--
+--
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
 newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
     { _edmEnvironments :: Maybe [EnvironmentDescription]
@@ -1019,7 +1000,7 @@ newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edmEnvironments'
+-- * 'edmEnvironments' - Returns an 'EnvironmentDescription' list.
 environmentDescriptionsMessage
     :: EnvironmentDescriptionsMessage
 environmentDescriptionsMessage =
@@ -1027,7 +1008,7 @@ environmentDescriptionsMessage =
     { _edmEnvironments = Nothing
     }
 
--- | Returns an < EnvironmentDescription> list.
+-- | Returns an 'EnvironmentDescription' list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
 edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _Default . _Coerce;
 
@@ -1043,6 +1024,8 @@ instance NFData EnvironmentDescriptionsMessage
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
+--
+--
 -- /See:/ 'environmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
     { _eidSampleTimestamp :: !(Maybe ISO8601)
@@ -1055,13 +1038,13 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eidSampleTimestamp'
+-- * 'eidSampleTimestamp' - The time stamp when this information was retrieved.
 --
--- * 'eidEC2InstanceId'
+-- * 'eidEC2InstanceId' - The Amazon EC2 Instance ID for this information.
 --
--- * 'eidInfoType'
+-- * 'eidInfoType' - The type of information retrieved.
 --
--- * 'eidMessage'
+-- * 'eidMessage' - The retrieved information.
 environmentInfoDescription
     :: EnvironmentInfoDescription
 environmentInfoDescription =
@@ -1099,7 +1082,9 @@ instance Hashable EnvironmentInfoDescription
 
 instance NFData EnvironmentInfoDescription
 
--- | A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- | A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+--
+--
 --
 -- /See:/ 'environmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
@@ -1111,9 +1096,9 @@ data EnvironmentLink = EnvironmentLink'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'elLinkName'
+-- * 'elLinkName' - The name of the link.
 --
--- * 'elEnvironmentName'
+-- * 'elEnvironmentName' - The name of the linked environment (the dependency).
 environmentLink
     :: EnvironmentLink
 environmentLink =
@@ -1141,6 +1126,8 @@ instance NFData EnvironmentLink
 
 -- | Describes the AWS resources in use by this environment. This data is live.
 --
+--
+--
 -- /See:/ 'environmentResourceDescription' smart constructor.
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
     { _erdQueues               :: !(Maybe [Queue])
@@ -1156,19 +1143,19 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erdQueues'
+-- * 'erdQueues' - The queues used by this environment.
 --
--- * 'erdTriggers'
+-- * 'erdTriggers' - The @AutoScaling@ triggers in use by this environment.
 --
--- * 'erdLoadBalancers'
+-- * 'erdLoadBalancers' - The LoadBalancers in use by this environment.
 --
--- * 'erdEnvironmentName'
+-- * 'erdEnvironmentName' - The name of the environment.
 --
--- * 'erdInstances'
+-- * 'erdInstances' - The Amazon EC2 instances used by this environment.
 --
--- * 'erdLaunchConfigurations'
+-- * 'erdLaunchConfigurations' - The Auto Scaling launch configurations in use by this environment.
 --
--- * 'erdAutoScalingGroups'
+-- * 'erdAutoScalingGroups' - The @AutoScalingGroups@ used by this environment.
 environmentResourceDescription
     :: EnvironmentResourceDescription
 environmentResourceDescription =
@@ -1186,7 +1173,7 @@ environmentResourceDescription =
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
 erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default . _Coerce;
 
--- | The 'AutoScaling' triggers in use by this environment.
+-- | The @AutoScaling@ triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
 erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coerce;
 
@@ -1206,7 +1193,7 @@ erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
 erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default . _Coerce;
 
--- | The 'AutoScalingGroups' used by this environment.
+-- | The @AutoScalingGroups@ used by this environment.
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
 erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default . _Coerce;
 
@@ -1238,6 +1225,8 @@ instance NFData EnvironmentResourceDescription
 
 -- | Describes the AWS resources in use by this environment. This data is not live data.
 --
+--
+--
 -- /See:/ 'environmentResourcesDescription' smart constructor.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
@@ -1247,7 +1236,7 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erdLoadBalancer'
+-- * 'erdLoadBalancer' - Describes the LoadBalancer.
 environmentResourcesDescription
     :: EnvironmentResourcesDescription
 environmentResourcesDescription =
@@ -1271,6 +1260,8 @@ instance NFData EnvironmentResourcesDescription
 
 -- | Describes the properties of an environment tier
 --
+--
+--
 -- /See:/ 'environmentTier' smart constructor.
 data EnvironmentTier = EnvironmentTier'
     { _etName    :: !(Maybe Text)
@@ -1282,11 +1273,11 @@ data EnvironmentTier = EnvironmentTier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etName'
+-- * 'etName' - The name of this environment tier.
 --
--- * 'etVersion'
+-- * 'etVersion' - The version of this environment tier.
 --
--- * 'etType'
+-- * 'etType' - The type of this environment tier.
 environmentTier
     :: EnvironmentTier
 environmentTier =
@@ -1326,6 +1317,8 @@ instance ToQuery EnvironmentTier where
 
 -- | Describes an event.
 --
+--
+--
 -- /See:/ 'eventDescription' smart constructor.
 data EventDescription = EventDescription'
     { _edRequestId       :: !(Maybe Text)
@@ -1342,21 +1335,21 @@ data EventDescription = EventDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edRequestId'
+-- * 'edRequestId' - The web service request ID for the activity of this event.
 --
--- * 'edTemplateName'
+-- * 'edTemplateName' - The name of the configuration associated with this event.
 --
--- * 'edSeverity'
+-- * 'edSeverity' - The severity level of this event.
 --
--- * 'edVersionLabel'
+-- * 'edVersionLabel' - The release label for the application version associated with this event.
 --
--- * 'edEnvironmentName'
+-- * 'edEnvironmentName' - The name of the environment associated with this event.
 --
--- * 'edApplicationName'
+-- * 'edApplicationName' - The application associated with the event.
 --
--- * 'edEventDate'
+-- * 'edEventDate' - The date when the event occurred.
 --
--- * 'edMessage'
+-- * 'edMessage' - The event message.
 eventDescription
     :: EventDescription
 eventDescription =
@@ -1420,6 +1413,8 @@ instance NFData EventDescription
 
 -- | The description of an Amazon EC2 instance.
 --
+--
+--
 -- /See:/ 'instance'' smart constructor.
 newtype Instance = Instance'
     { _iId :: Maybe Text
@@ -1429,7 +1424,7 @@ newtype Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iId'
+-- * 'iId' - The ID of the Amazon EC2 instance.
 instance'
     :: Instance
 instance' =
@@ -1448,7 +1443,9 @@ instance Hashable Instance
 
 instance NFData Instance
 
--- | Represents summary information about the health of an instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Represents summary information about the health of an instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+--
+--
 --
 -- /See:/ 'instanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
@@ -1466,21 +1463,21 @@ data InstanceHealthSummary = InstanceHealthSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ihsOK'
+-- * 'ihsOK' - __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
 --
--- * 'ihsPending'
+-- * 'ihsPending' - __Grey.__ An operation is in progress on an instance within the command timeout.
 --
--- * 'ihsSevere'
+-- * 'ihsSevere' - __Red.__ The health agent is reporting a very high number of request failures or other issues for an instance or environment.
 --
--- * 'ihsUnknown'
+-- * 'ihsUnknown' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance.
 --
--- * 'ihsNoData'
+-- * 'ihsNoData' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
 --
--- * 'ihsWarning'
+-- * 'ihsWarning' - __Yellow.__ The health agent is reporting a moderate number of request failures or other issues for an instance or environment.
 --
--- * 'ihsDegraded'
+-- * 'ihsDegraded' - __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
 --
--- * 'ihsInfo'
+-- * 'ihsInfo' - __Green.__ An operation is in progress on an instance.
 instanceHealthSummary
     :: InstanceHealthSummary
 instanceHealthSummary =
@@ -1544,6 +1541,8 @@ instance NFData InstanceHealthSummary
 
 -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds.
 --
+--
+--
 -- /See:/ 'latency' smart constructor.
 data Latency = Latency'
     { _lP75  :: !(Maybe Double)
@@ -1560,21 +1559,21 @@ data Latency = Latency'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lP75'
+-- * 'lP75' - The average latency for the slowest 25 percent of requests over the last 10 seconds.
 --
--- * 'lP50'
+-- * 'lP50' - The average latency for the slowest 50 percent of requests over the last 10 seconds.
 --
--- * 'lP85'
+-- * 'lP85' - The average latency for the slowest 15 percent of requests over the last 10 seconds.
 --
--- * 'lP999'
+-- * 'lP999' - The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
 --
--- * 'lP90'
+-- * 'lP90' - The average latency for the slowest 10 percent of requests over the last 10 seconds.
 --
--- * 'lP95'
+-- * 'lP95' - The average latency for the slowest 5 percent of requests over the last 10 seconds.
 --
--- * 'lP99'
+-- * 'lP99' - The average latency for the slowest 1 percent of requests over the last 10 seconds.
 --
--- * 'lP10'
+-- * 'lP10' - The average latency for the slowest 90 percent of requests over the last 10 seconds.
 latency
     :: Latency
 latency =
@@ -1637,6 +1636,8 @@ instance NFData Latency
 
 -- | Describes an Auto Scaling launch configuration.
 --
+--
+--
 -- /See:/ 'launchConfiguration' smart constructor.
 newtype LaunchConfiguration = LaunchConfiguration'
     { _lcName :: Maybe Text
@@ -1646,7 +1647,7 @@ newtype LaunchConfiguration = LaunchConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcName'
+-- * 'lcName' - The name of the launch configuration.
 launchConfiguration
     :: LaunchConfiguration
 launchConfiguration =
@@ -1667,6 +1668,8 @@ instance NFData LaunchConfiguration
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
+--
+--
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
     { _lProtocol :: !(Maybe Text)
@@ -1677,9 +1680,9 @@ data Listener = Listener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lProtocol'
+-- * 'lProtocol' - The protocol that is used by the Listener.
 --
--- * 'lPort'
+-- * 'lPort' - The port that is used by the Listener.
 listener
     :: Listener
 listener =
@@ -1706,6 +1709,8 @@ instance NFData Listener
 
 -- | Describes a LoadBalancer.
 --
+--
+--
 -- /See:/ 'loadBalancer' smart constructor.
 newtype LoadBalancer = LoadBalancer'
     { _lbName :: Maybe Text
@@ -1715,7 +1720,7 @@ newtype LoadBalancer = LoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbName'
+-- * 'lbName' - The name of the LoadBalancer.
 loadBalancer
     :: LoadBalancer
 loadBalancer =
@@ -1736,6 +1741,8 @@ instance NFData LoadBalancer
 
 -- | Describes the details of a LoadBalancer.
 --
+--
+--
 -- /See:/ 'loadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdLoadBalancerName :: !(Maybe Text)
@@ -1747,11 +1754,11 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbdLoadBalancerName'
+-- * 'lbdLoadBalancerName' - The name of the LoadBalancer.
 --
--- * 'lbdDomain'
+-- * 'lbdDomain' - The domain name of the LoadBalancer.
 --
--- * 'lbdListeners'
+-- * 'lbdListeners' - A list of Listeners used by the LoadBalancer.
 loadBalancerDescription
     :: LoadBalancerDescription
 loadBalancerDescription =
@@ -1786,6 +1793,8 @@ instance NFData LoadBalancerDescription
 
 -- | The record of an upcoming or in-progress managed action.
 --
+--
+--
 -- /See:/ 'managedAction' smart constructor.
 data ManagedAction = ManagedAction'
     { _maStatus            :: !(Maybe ActionStatus)
@@ -1799,15 +1808,15 @@ data ManagedAction = ManagedAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'maStatus'
+-- * 'maStatus' - The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
 --
--- * 'maActionId'
+-- * 'maActionId' - A unique identifier for the managed action.
 --
--- * 'maWindowStartTime'
+-- * 'maWindowStartTime' - The start time of the maintenance window in which the managed action will execute.
 --
--- * 'maActionDescription'
+-- * 'maActionDescription' - A description of the managed action.
 --
--- * 'maActionType'
+-- * 'maActionType' - The type of managed action.
 managedAction
     :: ManagedAction
 managedAction =
@@ -1819,7 +1828,7 @@ managedAction =
     , _maActionType = Nothing
     }
 
--- | The status of the managed action. If the action is 'Scheduled', you can apply it immediately with < ApplyEnvironmentManagedAction>.
+-- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
 maStatus :: Lens' ManagedAction (Maybe ActionStatus)
 maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
 
@@ -1853,6 +1862,8 @@ instance NFData ManagedAction
 
 -- | The record of a completed or failed managed action.
 --
+--
+--
 -- /See:/ 'managedActionHistoryItem' smart constructor.
 data ManagedActionHistoryItem = ManagedActionHistoryItem'
     { _mahiStatus             :: !(Maybe ActionHistoryStatus)
@@ -1869,21 +1880,21 @@ data ManagedActionHistoryItem = ManagedActionHistoryItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mahiStatus'
+-- * 'mahiStatus' - The status of the action.
 --
--- * 'mahiFailureType'
+-- * 'mahiFailureType' - If the action failed, the type of failure.
 --
--- * 'mahiActionId'
+-- * 'mahiActionId' - A unique identifier for the managed action.
 --
--- * 'mahiFailureDescription'
+-- * 'mahiFailureDescription' - If the action failed, a description of the failure.
 --
--- * 'mahiFinishedTime'
+-- * 'mahiFinishedTime' - The date and time that the action finished executing.
 --
--- * 'mahiActionDescription'
+-- * 'mahiActionDescription' - A description of the managed action.
 --
--- * 'mahiExecutedTime'
+-- * 'mahiExecutedTime' - The date and time that the action started executing.
 --
--- * 'mahiActionType'
+-- * 'mahiActionType' - The type of the managed action.
 managedActionHistoryItem
     :: ManagedActionHistoryItem
 managedActionHistoryItem =
@@ -1947,6 +1958,8 @@ instance NFData ManagedActionHistoryItem
 
 -- | A regular expression representing a restriction on a string configuration option value.
 --
+--
+--
 -- /See:/ 'optionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
     { _orrPattern :: !(Maybe Text)
@@ -1957,9 +1970,9 @@ data OptionRestrictionRegex = OptionRestrictionRegex'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'orrPattern'
+-- * 'orrPattern' - The regular expression pattern that a string configuration option value with this restriction must match.
 --
--- * 'orrLabel'
+-- * 'orrLabel' - A unique name representing this regular expression.
 optionRestrictionRegex
     :: OptionRestrictionRegex
 optionRestrictionRegex =
@@ -1987,6 +2000,8 @@ instance NFData OptionRestrictionRegex
 
 -- | A specification identifying an individual configuration option.
 --
+--
+--
 -- /See:/ 'optionSpecification' smart constructor.
 data OptionSpecification = OptionSpecification'
     { _osOptionName   :: !(Maybe Text)
@@ -1998,11 +2013,11 @@ data OptionSpecification = OptionSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'osOptionName'
+-- * 'osOptionName' - The name of the configuration option.
 --
--- * 'osResourceName'
+-- * 'osResourceName' - A unique resource name for a time-based scaling configuration option.
 --
--- * 'osNamespace'
+-- * 'osNamespace' - A unique namespace identifying the option's associated AWS resource.
 optionSpecification
     :: OptionSpecification
 optionSpecification =
@@ -2020,7 +2035,7 @@ osOptionName = lens _osOptionName (\ s a -> s{_osOptionName = a});
 osResourceName :: Lens' OptionSpecification (Maybe Text)
 osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
 
--- | A unique namespace identifying the option\'s associated AWS resource.
+-- | A unique namespace identifying the option's associated AWS resource.
 osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
 
@@ -2037,6 +2052,8 @@ instance ToQuery OptionSpecification where
 
 -- | Describes a queue.
 --
+--
+--
 -- /See:/ 'queue' smart constructor.
 data Queue = Queue'
     { _qURL  :: !(Maybe Text)
@@ -2047,9 +2064,9 @@ data Queue = Queue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qURL'
+-- * 'qURL' - The URL of the queue.
 --
--- * 'qName'
+-- * 'qName' - The name of the queue.
 queue
     :: Queue
 queue =
@@ -2076,6 +2093,8 @@ instance NFData Queue
 
 -- | A specification of a location in Amazon S3.
 --
+--
+--
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
     { _slS3Key    :: !(Maybe Text)
@@ -2086,9 +2105,9 @@ data S3Location = S3Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slS3Key'
+-- * 'slS3Key' - The Amazon S3 key where the data is located.
 --
--- * 'slS3Bucket'
+-- * 'slS3Bucket' - The Amazon S3 bucket where the data is located.
 s3Location
     :: S3Location
 s3Location =
@@ -2119,7 +2138,9 @@ instance ToQuery S3Location where
           = mconcat
               ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
 
--- | Represents health information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the 'InstanceId' property to specify the application instance for which you\'d like to return data.
+-- | Represents health information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the @InstanceId@ property to specify the application instance for which you'd like to return data.
+--
+--
 --
 -- /See:/ 'singleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
@@ -2139,25 +2160,25 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sihInstanceId'
+-- * 'sihInstanceId' - The ID of the Amazon EC2 instance.
 --
--- * 'sihCauses'
+-- * 'sihCauses' - Represents the causes, which provide more information about the current health status.
 --
--- * 'sihSystem'
+-- * 'sihSystem' - Undocumented member.
 --
--- * 'sihApplicationMetrics'
+-- * 'sihApplicationMetrics' - Undocumented member.
 --
--- * 'sihColor'
+-- * 'sihColor' - Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
--- * 'sihInstanceType'
+-- * 'sihInstanceType' - The instance's type.
 --
--- * 'sihAvailabilityZone'
+-- * 'sihAvailabilityZone' - The availability zone in which the instance runs.
 --
--- * 'sihHealthStatus'
+-- * 'sihHealthStatus' - Returns the health status of the specified instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
--- * 'sihDeployment'
+-- * 'sihDeployment' - Information about the most recent deployment to an instance.
 --
--- * 'sihLaunchedAt'
+-- * 'sihLaunchedAt' - The time at which the EC2 instance was launched.
 singleInstanceHealth
     :: SingleInstanceHealth
 singleInstanceHealth =
@@ -2190,11 +2211,11 @@ sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
 sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
 sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
 
--- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
 sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
 
--- | The instance\'s type.
+-- | The instance's type.
 sihInstanceType :: Lens' SingleInstanceHealth (Maybe Text)
 sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
 
@@ -2202,7 +2223,7 @@ sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
 sihAvailabilityZone :: Lens' SingleInstanceHealth (Maybe Text)
 sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a});
 
--- | Returns the health status of the specified instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the health status of the specified instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 
@@ -2235,6 +2256,8 @@ instance NFData SingleInstanceHealth
 
 -- | Describes the solution stack.
 --
+--
+--
 -- /See:/ 'solutionStackDescription' smart constructor.
 data SolutionStackDescription = SolutionStackDescription'
     { _ssdPermittedFileTypes :: !(Maybe [Text])
@@ -2245,9 +2268,9 @@ data SolutionStackDescription = SolutionStackDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssdPermittedFileTypes'
+-- * 'ssdPermittedFileTypes' - The permitted file types allowed for a solution stack.
 --
--- * 'ssdSolutionStackName'
+-- * 'ssdSolutionStackName' - The name of the solution stack.
 solutionStackDescription
     :: SolutionStackDescription
 solutionStackDescription =
@@ -2277,6 +2300,8 @@ instance NFData SolutionStackDescription
 
 -- | A specification for an environment configuration
 --
+--
+--
 -- /See:/ 'sourceConfiguration' smart constructor.
 data SourceConfiguration = SourceConfiguration'
     { _scTemplateName    :: !(Maybe Text)
@@ -2287,9 +2312,9 @@ data SourceConfiguration = SourceConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scTemplateName'
+-- * 'scTemplateName' - The name of the configuration template.
 --
--- * 'scApplicationName'
+-- * 'scApplicationName' - The name of the application associated with the configuration.
 sourceConfiguration
     :: SourceConfiguration
 sourceConfiguration =
@@ -2316,7 +2341,9 @@ instance ToQuery SourceConfiguration where
               ["TemplateName" =: _scTemplateName,
                "ApplicationName" =: _scApplicationName]
 
--- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions>.
+-- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions> .
+--
+--
 --
 -- /See:/ 'statusCodes' smart constructor.
 data StatusCodes = StatusCodes'
@@ -2330,13 +2357,13 @@ data StatusCodes = StatusCodes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scStatus2xx'
+-- * 'scStatus2xx' - The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code.
 --
--- * 'scStatus3xx'
+-- * 'scStatus3xx' - The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301, etc.) status code.
 --
--- * 'scStatus4xx'
+-- * 'scStatus4xx' - The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401, etc.) status code.
 --
--- * 'scStatus5xx'
+-- * 'scStatus5xx' - The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501, etc.) status code.
 statusCodes
     :: StatusCodes
 statusCodes =
@@ -2376,6 +2403,8 @@ instance NFData StatusCodes
 
 -- | Represents CPU utilization and load average information for applications running in the specified environment.
 --
+--
+--
 -- /See:/ 'systemStatus' smart constructor.
 data SystemStatus = SystemStatus'
     { _ssCPUUtilization :: !(Maybe CPUUtilization)
@@ -2386,9 +2415,9 @@ data SystemStatus = SystemStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssCPUUtilization'
+-- * 'ssCPUUtilization' - Undocumented member.
 --
--- * 'ssLoadAverage'
+-- * 'ssLoadAverage' - Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 systemStatus
     :: SystemStatus
 systemStatus =
@@ -2401,7 +2430,7 @@ systemStatus =
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
 ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
 
--- | Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
+-- | Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 ssLoadAverage :: Lens' SystemStatus [Double]
 ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce;
 
@@ -2418,6 +2447,8 @@ instance NFData SystemStatus
 
 -- | Describes a tag applied to a resource in an environment.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -2428,9 +2459,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 tag
     :: Tag
 tag =
@@ -2457,6 +2488,8 @@ instance ToQuery Tag where
 
 -- | Describes a trigger.
 --
+--
+--
 -- /See:/ 'trigger' smart constructor.
 newtype Trigger = Trigger'
     { _tName :: Maybe Text
@@ -2466,7 +2499,7 @@ newtype Trigger = Trigger'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tName'
+-- * 'tName' - The name of the trigger.
 trigger
     :: Trigger
 trigger =
@@ -2487,6 +2520,8 @@ instance NFData Trigger
 
 -- | An error or warning for a desired configuration option value.
 --
+--
+--
 -- /See:/ 'validationMessage' smart constructor.
 data ValidationMessage = ValidationMessage'
     { _vmOptionName :: !(Maybe Text)
@@ -2499,13 +2534,13 @@ data ValidationMessage = ValidationMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vmOptionName'
+-- * 'vmOptionName' -
 --
--- * 'vmSeverity'
+-- * 'vmSeverity' - An indication of the severity of this message:      * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 --
--- * 'vmNamespace'
+-- * 'vmNamespace' -
 --
--- * 'vmMessage'
+-- * 'vmMessage' - A message describing the error or warning.
 validationMessage
     :: ValidationMessage
 validationMessage =
@@ -2520,10 +2555,7 @@ validationMessage =
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
 vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 
--- | An indication of the severity of this message:
---
--- -   'error': This message indicates that this is not a valid setting for an option.
--- -   'warning': This message is providing information you should take into account.
+-- | An indication of the severity of this message:      * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
 

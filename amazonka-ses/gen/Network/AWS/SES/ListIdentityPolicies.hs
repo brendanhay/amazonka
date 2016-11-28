@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use 'GetIdentityPolicies'.
+-- Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use @GetIdentityPolicies@ .
 --
--- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.ListIdentityPolicies
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- | Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'listIdentityPolicies' smart constructor.
 newtype ListIdentityPolicies = ListIdentityPolicies'
@@ -59,7 +61,7 @@ newtype ListIdentityPolicies = ListIdentityPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipIdentity'
+-- * 'lipIdentity' - The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 listIdentityPolicies
     :: Text -- ^ 'lipIdentity'
     -> ListIdentityPolicies
@@ -68,9 +70,7 @@ listIdentityPolicies pIdentity_ =
     { _lipIdentity = pIdentity_
     }
 
--- | The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: 'user\'example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
---
--- To successfully call this API, you must own the identity.
+-- | The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 lipIdentity :: Lens' ListIdentityPolicies Text
 lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a});
 
@@ -105,6 +105,8 @@ instance ToQuery ListIdentityPolicies where
 
 -- | A list of names of sending authorization policies that apply to an identity.
 --
+--
+--
 -- /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
     { _liprsResponseStatus :: !Int
@@ -115,9 +117,9 @@ data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liprsResponseStatus'
+-- * 'liprsResponseStatus' - -- | The response status code.
 --
--- * 'liprsPolicyNames'
+-- * 'liprsPolicyNames' - A list of names of policies that apply to the specified identity.
 listIdentityPoliciesResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoliciesResponse
@@ -127,7 +129,7 @@ listIdentityPoliciesResponse pResponseStatus_ =
     , _liprsPolicyNames = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoliciesResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 

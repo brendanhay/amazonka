@@ -20,6 +20,8 @@
 --
 -- Gets information about jobs.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListJobs
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list jobs operation.
 --
+--
+--
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
     { _ljNextToken :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListJobs = ListJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljNextToken'
+-- * 'ljNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ljArn'
+-- * 'ljArn' - The jobs' ARNs.
 listJobs
     :: Text -- ^ 'ljArn'
     -> ListJobs
@@ -75,7 +79,7 @@ listJobs pArn_ =
 ljNextToken :: Lens' ListJobs (Maybe Text)
 ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 
--- | The jobs\' ARNs.
+-- | The jobs' ARNs.
 ljArn :: Lens' ListJobs Text
 ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
 
@@ -124,6 +128,8 @@ instance ToQuery ListJobs where
 
 -- | Represents the result of a list jobs request.
 --
+--
+--
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
     { _ljrsJobs           :: !(Maybe [Job])
@@ -135,11 +141,11 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljrsJobs'
+-- * 'ljrsJobs' - Information about the jobs.
 --
--- * 'ljrsNextToken'
+-- * 'ljrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ljrsResponseStatus'
+-- * 'ljrsResponseStatus' - -- | The response status code.
 listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
@@ -158,7 +164,7 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 

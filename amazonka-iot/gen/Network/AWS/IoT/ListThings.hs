@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling 'ListThings' with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__.
+-- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling @ListThings@ with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__ .
+--
+--
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListThings operation.
 --
+--
+--
 -- /See:/ 'listThings' smart constructor.
 data ListThings = ListThings'
     { _ltAttributeValue :: !(Maybe Text)
@@ -62,15 +66,15 @@ data ListThings = ListThings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltAttributeValue'
+-- * 'ltAttributeValue' - The attribute value used to search for things.
 --
--- * 'ltThingTypeName'
+-- * 'ltThingTypeName' - The name of the thing type used to search for things.
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'ltAttributeName'
+-- * 'ltAttributeName' - The attribute name used to search for things.
 --
--- * 'ltMaxResults'
+-- * 'ltMaxResults' - The maximum number of results to return in this operation.
 listThings
     :: ListThings
 listThings =
@@ -133,6 +137,8 @@ instance ToQuery ListThings where
 
 -- | The output from the ListThings operation.
 --
+--
+--
 -- /See:/ 'listThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
     { _ltrsNextToken      :: !(Maybe Text)
@@ -144,11 +150,11 @@ data ListThingsResponse = ListThingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'ltrsThings'
+-- * 'ltrsThings' - The things.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listThingsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListThingsResponse
@@ -167,7 +173,7 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsThings :: Lens' ListThingsResponse [ThingAttribute]
 ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListThingsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

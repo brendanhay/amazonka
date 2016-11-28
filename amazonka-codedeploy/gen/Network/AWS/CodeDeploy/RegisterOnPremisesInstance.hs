@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an on-premises instance.
+--
+--
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of the register on-premises instance operation.
 --
+--
+--
 -- /See:/ 'registerOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
     { _ropiInstanceName :: !Text
@@ -52,9 +56,9 @@ data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ropiInstanceName'
+-- * 'ropiInstanceName' - The name of the on-premises instance to register.
 --
--- * 'ropiIamUserARN'
+-- * 'ropiIamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
 registerOnPremisesInstance
     :: Text -- ^ 'ropiInstanceName'
     -> Text -- ^ 'ropiIamUserARN'

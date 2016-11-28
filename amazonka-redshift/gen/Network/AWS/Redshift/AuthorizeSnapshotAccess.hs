@@ -20,7 +20,9 @@
 --
 -- Authorizes the specified AWS customer account to restore the specified snapshot.
 --
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'authorizeSnapshotAccess' smart constructor.
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
     { _asaSnapshotClusterIdentifier :: !(Maybe Text)
@@ -59,11 +63,11 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asaSnapshotClusterIdentifier'
+-- * 'asaSnapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 --
--- * 'asaSnapshotIdentifier'
+-- * 'asaSnapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
 --
--- * 'asaAccountWithRestoreAccess'
+-- * 'asaAccountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the specified snapshot.
 authorizeSnapshotAccess
     :: Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
@@ -129,9 +133,9 @@ data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asarsSnapshot'
+-- * 'asarsSnapshot' - Undocumented member.
 --
--- * 'asarsResponseStatus'
+-- * 'asarsResponseStatus' - -- | The response status code.
 authorizeSnapshotAccessResponse
     :: Int -- ^ 'asarsResponseStatus'
     -> AuthorizeSnapshotAccessResponse
@@ -145,7 +149,7 @@ authorizeSnapshotAccessResponse pResponseStatus_ =
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
 asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a});
 

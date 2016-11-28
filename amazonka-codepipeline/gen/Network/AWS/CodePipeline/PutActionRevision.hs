@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides information to AWS CodePipeline about new revisions to a source.
+--
+--
 module Network.AWS.CodePipeline.PutActionRevision
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a put action revision action.
 --
+--
+--
 -- /See:/ 'putActionRevision' smart constructor.
 data PutActionRevision = PutActionRevision'
     { _pPipelineName   :: !Text
@@ -60,13 +64,13 @@ data PutActionRevision = PutActionRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPipelineName'
+-- * 'pPipelineName' - The name of the pipeline that will start processing the revision to the source.
 --
--- * 'pStageName'
+-- * 'pStageName' - The name of the stage that contains the action that will act upon the revision.
 --
--- * 'pActionName'
+-- * 'pActionName' - The name of the action that will process the revision.
 --
--- * 'pActionRevision'
+-- * 'pActionRevision' - Undocumented member.
 putActionRevision
     :: Text -- ^ 'pPipelineName'
     -> Text -- ^ 'pStageName'
@@ -139,6 +143,8 @@ instance ToQuery PutActionRevision where
 
 -- | Represents the output of a put action revision action.
 --
+--
+--
 -- /See:/ 'putActionRevisionResponse' smart constructor.
 data PutActionRevisionResponse = PutActionRevisionResponse'
     { _prsNewRevision         :: !(Maybe Bool)
@@ -150,11 +156,11 @@ data PutActionRevisionResponse = PutActionRevisionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prsNewRevision'
+-- * 'prsNewRevision' - Indicates whether the artifact revision was previously used in an execution of the specified pipeline.
 --
--- * 'prsPipelineExecutionId'
+-- * 'prsPipelineExecutionId' - The ID of the current workflow state of the pipeline.
 --
--- * 'prsResponseStatus'
+-- * 'prsResponseStatus' - -- | The response status code.
 putActionRevisionResponse
     :: Int -- ^ 'prsResponseStatus'
     -> PutActionRevisionResponse
@@ -173,7 +179,7 @@ prsNewRevision = lens _prsNewRevision (\ s a -> s{_prsNewRevision = a});
 prsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
 prsPipelineExecutionId = lens _prsPipelineExecutionId (\ s a -> s{_prsPipelineExecutionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prsResponseStatus :: Lens' PutActionRevisionResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 

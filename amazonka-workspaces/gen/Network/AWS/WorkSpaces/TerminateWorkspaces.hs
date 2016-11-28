@@ -20,11 +20,11 @@
 --
 -- Terminates the specified WorkSpaces.
 --
--- Terminating a WorkSpace is a permanent action and cannot be undone. The user\'s data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
 --
--- You can terminate a WorkSpace that is in any state except 'SUSPENDED'.
+-- Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
 --
--- This operation is asynchronous and returns before the WorkSpaces have been completely terminated.
+-- You can terminate a WorkSpace that is in any state except @SUSPENDED@ .
+--
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < TerminateWorkspaces> operation.
+-- | Contains the inputs for the 'TerminateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'terminateWorkspaces' smart constructor.
 newtype TerminateWorkspaces = TerminateWorkspaces'
@@ -59,7 +61,7 @@ newtype TerminateWorkspaces = TerminateWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'twTerminateWorkspaceRequests'
+-- * 'twTerminateWorkspaceRequests' - An array of structures that specify the WorkSpaces to terminate.
 terminateWorkspaces
     :: NonEmpty TerminateRequest -- ^ 'twTerminateWorkspaceRequests'
     -> TerminateWorkspaces
@@ -111,7 +113,9 @@ instance ToPath TerminateWorkspaces where
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the < TerminateWorkspaces> operation.
+-- | Contains the results of the 'TerminateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
@@ -123,9 +127,9 @@ data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'twrsFailedRequests'
+-- * 'twrsFailedRequests' - An array of structures representing any WorkSpaces that could not be terminated.
 --
--- * 'twrsResponseStatus'
+-- * 'twrsResponseStatus' - -- | The response status code.
 terminateWorkspacesResponse
     :: Int -- ^ 'twrsResponseStatus'
     -> TerminateWorkspacesResponse
@@ -139,7 +143,7 @@ terminateWorkspacesResponse pResponseStatus_ =
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 twrsResponseStatus :: Lens' TerminateWorkspacesResponse Int
 twrsResponseStatus = lens _twrsResponseStatus (\ s a -> s{_twrsResponseStatus = a});
 

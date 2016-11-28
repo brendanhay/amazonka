@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | An object representing authorization data for an Amazon ECR registry.
 --
+--
+--
 -- /See:/ 'authorizationData' smart constructor.
 data AuthorizationData = AuthorizationData'
     { _adExpiresAt          :: !(Maybe POSIX)
@@ -34,11 +36,11 @@ data AuthorizationData = AuthorizationData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adExpiresAt'
+-- * 'adExpiresAt' - The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
 --
--- * 'adProxyEndpoint'
+-- * 'adProxyEndpoint' - The registry URL to use for this authorization token in a @docker login@ command. The Amazon ECR registry URL format is @https://aws_account_id.dkr.ecr.region.amazonaws.com@ . For example, @https://012345678910.dkr.ecr.us-east-1.amazonaws.com@ ..
 --
--- * 'adAuthorizationToken'
+-- * 'adAuthorizationToken' - A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
 authorizationData
     :: AuthorizationData
 authorizationData =
@@ -52,11 +54,11 @@ authorizationData =
 adExpiresAt :: Lens' AuthorizationData (Maybe UTCTime)
 adExpiresAt = lens _adExpiresAt (\ s a -> s{_adExpiresAt = a}) . mapping _Time;
 
--- | The registry URL to use for this authorization token in a 'docker login' command. The Amazon ECR registry URL format is 'https:\/\/aws_account_id.dkr.ecr.region.amazonaws.com'. For example, 'https:\/\/012345678910.dkr.ecr.us-east-1.amazonaws.com'..
+-- | The registry URL to use for this authorization token in a @docker login@ command. The Amazon ECR registry URL format is @https://aws_account_id.dkr.ecr.region.amazonaws.com@ . For example, @https://012345678910.dkr.ecr.us-east-1.amazonaws.com@ ..
 adProxyEndpoint :: Lens' AuthorizationData (Maybe Text)
 adProxyEndpoint = lens _adProxyEndpoint (\ s a -> s{_adProxyEndpoint = a});
 
--- | A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format 'user:password' for private registry authentication using 'docker login'.
+-- | A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
 adAuthorizationToken :: Lens' AuthorizationData (Maybe Text)
 adAuthorizationToken = lens _adAuthorizationToken (\ s a -> s{_adAuthorizationToken = a});
 
@@ -74,6 +76,8 @@ instance NFData AuthorizationData
 
 -- | An object representing an Amazon ECR image.
 --
+--
+--
 -- /See:/ 'image' smart constructor.
 data Image = Image'
     { _iRegistryId     :: !(Maybe Text)
@@ -86,13 +90,13 @@ data Image = Image'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iRegistryId'
+-- * 'iRegistryId' - The AWS account ID associated with the registry containing the image.
 --
--- * 'iImageId'
+-- * 'iImageId' - An object containing the image tag and image digest associated with an image.
 --
--- * 'iRepositoryName'
+-- * 'iRepositoryName' - The name of the repository associated with the image.
 --
--- * 'iImageManifest'
+-- * 'iImageManifest' - The image manifest associated with the image.
 image
     :: Image
 image =
@@ -134,6 +138,8 @@ instance NFData Image
 
 -- | An object representing an Amazon ECR image failure.
 --
+--
+--
 -- /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
     { _ifFailureReason :: !(Maybe Text)
@@ -145,11 +151,11 @@ data ImageFailure = ImageFailure'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ifFailureReason'
+-- * 'ifFailureReason' - The reason for the failure.
 --
--- * 'ifFailureCode'
+-- * 'ifFailureCode' - The code associated with the failure.
 --
--- * 'ifImageId'
+-- * 'ifImageId' - The image ID associated with the failure.
 imageFailure
     :: ImageFailure
 imageFailure =
@@ -185,6 +191,8 @@ instance NFData ImageFailure
 
 -- | An object with identifying information for an Amazon ECR image.
 --
+--
+--
 -- /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
     { _iiImageDigest :: !(Maybe Text)
@@ -195,9 +203,9 @@ data ImageIdentifier = ImageIdentifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiImageDigest'
+-- * 'iiImageDigest' - The @sha256@ digest of the image manifest.
 --
--- * 'iiImageTag'
+-- * 'iiImageTag' - The tag used for the image.
 imageIdentifier
     :: ImageIdentifier
 imageIdentifier =
@@ -206,7 +214,7 @@ imageIdentifier =
     , _iiImageTag = Nothing
     }
 
--- | The 'sha256' digest of the image manifest.
+-- | The @sha256@ digest of the image manifest.
 iiImageDigest :: Lens' ImageIdentifier (Maybe Text)
 iiImageDigest = lens _iiImageDigest (\ s a -> s{_iiImageDigest = a});
 
@@ -234,6 +242,8 @@ instance ToJSON ImageIdentifier where
 
 -- | An object representing an Amazon ECR image layer.
 --
+--
+--
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
     { _lLayerDigest       :: !(Maybe Text)
@@ -245,11 +255,11 @@ data Layer = Layer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lLayerDigest'
+-- * 'lLayerDigest' - The @sha256@ digest of the image layer.
 --
--- * 'lLayerSize'
+-- * 'lLayerSize' - The size, in bytes, of the image layer.
 --
--- * 'lLayerAvailability'
+-- * 'lLayerAvailability' - The availability status of the image layer. Valid values are @AVAILABLE@ and @UNAVAILABLE@ .
 layer
     :: Layer
 layer =
@@ -259,7 +269,7 @@ layer =
     , _lLayerAvailability = Nothing
     }
 
--- | The 'sha256' digest of the image layer.
+-- | The @sha256@ digest of the image layer.
 lLayerDigest :: Lens' Layer (Maybe Text)
 lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a});
 
@@ -267,7 +277,7 @@ lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a});
 lLayerSize :: Lens' Layer (Maybe Integer)
 lLayerSize = lens _lLayerSize (\ s a -> s{_lLayerSize = a});
 
--- | The availability status of the image layer. Valid values are 'AVAILABLE' and 'UNAVAILABLE'.
+-- | The availability status of the image layer. Valid values are @AVAILABLE@ and @UNAVAILABLE@ .
 lLayerAvailability :: Lens' Layer (Maybe LayerAvailability)
 lLayerAvailability = lens _lLayerAvailability (\ s a -> s{_lLayerAvailability = a});
 
@@ -285,6 +295,8 @@ instance NFData Layer
 
 -- | An object representing an Amazon ECR image layer failure.
 --
+--
+--
 -- /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
     { _lfFailureReason :: !(Maybe Text)
@@ -296,11 +308,11 @@ data LayerFailure = LayerFailure'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfFailureReason'
+-- * 'lfFailureReason' - The reason for the failure.
 --
--- * 'lfFailureCode'
+-- * 'lfFailureCode' - The failure code associated with the failure.
 --
--- * 'lfLayerDigest'
+-- * 'lfLayerDigest' - The layer digest associated with the failure.
 layerFailure
     :: LayerFailure
 layerFailure =
@@ -334,7 +346,9 @@ instance Hashable LayerFailure
 
 instance NFData LayerFailure
 
--- | An object representing a filter on a < ListImages> operation.
+-- | An object representing a filter on a 'ListImages' operation.
+--
+--
 --
 -- /See:/ 'listImagesFilter' smart constructor.
 newtype ListImagesFilter = ListImagesFilter'
@@ -345,7 +359,7 @@ newtype ListImagesFilter = ListImagesFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lifTagStatus'
+-- * 'lifTagStatus' - The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 listImagesFilter
     :: ListImagesFilter
 listImagesFilter =
@@ -353,7 +367,7 @@ listImagesFilter =
     { _lifTagStatus = Nothing
     }
 
--- | The tag status with which to filter your < ListImages> results. You can filter results based on whether they are 'TAGGED' or 'UNTAGGED'.
+-- | The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
 lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a});
 
@@ -368,6 +382,8 @@ instance ToJSON ListImagesFilter where
 
 -- | An object representing a repository.
 --
+--
+--
 -- /See:/ 'repository' smart constructor.
 data Repository = Repository'
     { _rRepositoryARN  :: !(Maybe Text)
@@ -380,13 +396,13 @@ data Repository = Repository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rRepositoryARN'
+-- * 'rRepositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 --
--- * 'rRegistryId'
+-- * 'rRegistryId' - The AWS account ID associated with the registry that contains the repository.
 --
--- * 'rRepositoryURI'
+-- * 'rRepositoryURI' - The URI for the repository. You can use this URI for Docker @push@ and @pull@ operations.
 --
--- * 'rRepositoryName'
+-- * 'rRepositoryName' - The name of the repository.
 repository
     :: Repository
 repository =
@@ -397,7 +413,7 @@ repository =
     , _rRepositoryName = Nothing
     }
 
--- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the 'arn:aws:ecr' namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, 'arn:aws:ecr:region:012345678910:repository\/test'.
+-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 rRepositoryARN :: Lens' Repository (Maybe Text)
 rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
 
@@ -405,7 +421,7 @@ rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
 rRegistryId :: Lens' Repository (Maybe Text)
 rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a});
 
--- | The URI for the repository. You can use this URI for Docker 'push' and 'pull' operations.
+-- | The URI for the repository. You can use this URI for Docker @push@ and @pull@ operations.
 rRepositoryURI :: Lens' Repository (Maybe Text)
 rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a});
 

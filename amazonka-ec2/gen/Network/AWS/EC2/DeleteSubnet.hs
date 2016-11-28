@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.
+--
+--
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteSubnet.
 --
+--
+--
 -- /See:/ 'deleteSubnet' smart constructor.
 data DeleteSubnet = DeleteSubnet'
     { _ddDryRun   :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteSubnet = DeleteSubnet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDryRun'
+-- * 'ddDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ddSubnetId'
+-- * 'ddSubnetId' - The ID of the subnet.
 deleteSubnet
     :: Text -- ^ 'ddSubnetId'
     -> DeleteSubnet
@@ -64,7 +68,7 @@ deleteSubnet pSubnetId_ =
     , _ddSubnetId = pSubnetId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
 ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the tags for the specified resources.
+--
+--
 module Network.AWS.ELBv2.DescribeTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeTags.
 --
+--
+--
 -- /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
     { _dtResourceARNs :: [Text]
@@ -53,7 +57,7 @@ newtype DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceARNs'
+-- * 'dtResourceARNs' - The Amazon Resource Names (ARN) of the resources.
 describeTags
     :: DescribeTags
 describeTags =
@@ -96,6 +100,8 @@ instance ToQuery DescribeTags where
 
 -- | Contains the output of DescribeTags.
 --
+--
+--
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
@@ -106,9 +112,9 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTagDescriptions'
+-- * 'dtrsTagDescriptions' - Information about the tags.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -122,7 +128,7 @@ describeTagsResponse pResponseStatus_ =
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

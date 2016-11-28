@@ -20,9 +20,11 @@
 --
 -- Returns the metadata and receipt rules for the receipt rule set that is currently active.
 --
--- For information about setting up receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide>.
+--
+-- For information about setting up receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DescribeActiveReceiptRuleSet
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'describeActiveReceiptRuleSet' smart constructor.
 data DescribeActiveReceiptRuleSet =
@@ -93,6 +97,8 @@ instance ToQuery DescribeActiveReceiptRuleSet where
 
 -- | Represents the metadata and receipt rules for the receipt rule set that is currently active.
 --
+--
+--
 -- /See:/ 'describeActiveReceiptRuleSetResponse' smart constructor.
 data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse'
     { _darrsrsRules          :: !(Maybe [ReceiptRule])
@@ -104,11 +110,11 @@ data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darrsrsRules'
+-- * 'darrsrsRules' - The receipt rules that belong to the active rule set.
 --
--- * 'darrsrsMetadata'
+-- * 'darrsrsMetadata' - The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.
 --
--- * 'darrsrsResponseStatus'
+-- * 'darrsrsResponseStatus' - -- | The response status code.
 describeActiveReceiptRuleSetResponse
     :: Int -- ^ 'darrsrsResponseStatus'
     -> DescribeActiveReceiptRuleSetResponse
@@ -127,7 +133,7 @@ darrsrsRules = lens _darrsrsRules (\ s a -> s{_darrsrsRules = a}) . _Default . _
 darrsrsMetadata :: Lens' DescribeActiveReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
 darrsrsMetadata = lens _darrsrsMetadata (\ s a -> s{_darrsrsMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darrsrsResponseStatus :: Lens' DescribeActiveReceiptRuleSetResponse Int
 darrsrsResponseStatus = lens _darrsrsResponseStatus (\ s a -> s{_darrsrsResponseStatus = a});
 

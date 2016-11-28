@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+--
+--
 module Network.AWS.DirectoryService.DeleteTrust
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Deletes the local side of an existing trust relationship between the Microsoft AD in the AWS cloud and the external domain.
 --
+--
+--
 -- /See:/ 'deleteTrust' smart constructor.
 data DeleteTrust = DeleteTrust'
     { _dtDeleteAssociatedConditionalForwarder :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data DeleteTrust = DeleteTrust'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtDeleteAssociatedConditionalForwarder'
+-- * 'dtDeleteAssociatedConditionalForwarder' - Delete a conditional forwarder as part of a DeleteTrustRequest.
 --
--- * 'dtTrustId'
+-- * 'dtTrustId' - The Trust ID of the trust relationship to be deleted.
 deleteTrust
     :: Text -- ^ 'dtTrustId'
     -> DeleteTrust
@@ -114,6 +118,8 @@ instance ToQuery DeleteTrust where
 
 -- | The result of a DeleteTrust request.
 --
+--
+--
 -- /See:/ 'deleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
     { _dttrsTrustId        :: !(Maybe Text)
@@ -124,9 +130,9 @@ data DeleteTrustResponse = DeleteTrustResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttrsTrustId'
+-- * 'dttrsTrustId' - The Trust ID of the trust relationship that was deleted.
 --
--- * 'dttrsResponseStatus'
+-- * 'dttrsResponseStatus' - -- | The response status code.
 deleteTrustResponse
     :: Int -- ^ 'dttrsResponseStatus'
     -> DeleteTrustResponse
@@ -140,7 +146,7 @@ deleteTrustResponse pResponseStatus_ =
 dttrsTrustId :: Lens' DeleteTrustResponse (Maybe Text)
 dttrsTrustId = lens _dttrsTrustId (\ s a -> s{_dttrsTrustId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dttrsResponseStatus :: Lens' DeleteTrustResponse Int
 dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
 

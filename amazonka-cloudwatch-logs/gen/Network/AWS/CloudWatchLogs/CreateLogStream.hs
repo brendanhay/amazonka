@@ -20,11 +20,14 @@
 --
 -- Creates a new log stream in the specified log group. The name of the log stream must be unique within the log group. There is no limit on the number of log streams that can exist in a log group.
 --
+--
 -- You must use the following guidelines when naming a log stream:
 --
--- -   Log stream names can be between 1 and 512 characters long.
+--     * Log stream names can be between 1 and 512 characters long.
 --
--- -   The \':\' colon character is not allowed.
+--     * The ':' colon character is not allowed.
+--
+--
 --
 module Network.AWS.CloudWatchLogs.CreateLogStream
     (
@@ -57,9 +60,9 @@ data CreateLogStream = CreateLogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clsLogGroupName'
+-- * 'clsLogGroupName' - The name of the log group under which the log stream is to be created.
 --
--- * 'clsLogStreamName'
+-- * 'clsLogStreamName' - The name of the log stream to create.
 createLogStream
     :: Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'

@@ -20,9 +20,11 @@
 --
 -- Retrieves autocomplete suggestions for a partial query string. You can use suggestions enable you to display likely matches before users finish typing. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string. The beginning of the field must match the query string to be considered a match.
 --
--- For more information about configuring suggesters and retrieving suggestions, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Suggestions> in the /Amazon CloudSearch Developer Guide/.
 --
--- The endpoint for submitting 'Suggest' requests is domain-specific. You submit suggest requests to a domain\'s search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service 'DescribeDomains' action. A domain\'s endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console.
+-- For more information about configuring suggesters and retrieving suggestions, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Suggestions> in the /Amazon CloudSearch Developer Guide/ .
+--
+-- The endpoint for submitting @Suggest@ requests is domain-specific. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service @DescribeDomains@ action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console.
+--
 module Network.AWS.CloudSearchDomains.Suggest
     (
     -- * Creating a Request
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'Suggest' request.
+-- | Container for the parameters to the @Suggest@ request.
+--
+--
 --
 -- /See:/ 'suggest' smart constructor.
 data Suggest = Suggest'
@@ -62,11 +66,11 @@ data Suggest = Suggest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSize'
+-- * 'sSize' - Specifies the maximum number of suggestions to return.
 --
--- * 'sQuery'
+-- * 'sQuery' - Specifies the string for which you want to get suggestions.
 --
--- * 'sSuggester'
+-- * 'sSuggester' - Specifies the name of the suggester to use to find suggested matches.
 suggest
     :: Text -- ^ 'sQuery'
     -> Text -- ^ 'sSuggester'
@@ -120,7 +124,9 @@ instance ToQuery Suggest where
               ["size" =: _sSize, "q" =: _sQuery,
                "suggester" =: _sSuggester, "format=sdk&pretty=true"]
 
--- | Contains the response to a 'Suggest' request.
+-- | Contains the response to a @Suggest@ request.
+--
+--
 --
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
@@ -133,11 +139,11 @@ data SuggestResponse = SuggestResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsSuggest'
+-- * 'srsSuggest' - Container for the matching search suggestion information.
 --
--- * 'srsStatus'
+-- * 'srsStatus' - The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 suggestResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SuggestResponse
@@ -152,11 +158,11 @@ suggestResponse pResponseStatus_ =
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
 
--- | The status of a 'SuggestRequest'. Contains the resource ID ('rid') and how long it took to process the request ('timems').
+-- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
 srsStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' SuggestResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

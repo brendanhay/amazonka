@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the inputs for the change set and a list of changes that AWS CloudFormation will make if you execute the change set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html Updating Stacks Using Change Sets> in the AWS CloudFormation User Guide.
+--
+--
 module Network.AWS.CloudFormation.DescribeChangeSet
     (
     -- * Creating a Request
@@ -58,7 +60,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DescribeChangeSet> action.
+-- | The input for the 'DescribeChangeSet' action.
+--
+--
 --
 -- /See:/ 'describeChangeSet' smart constructor.
 data DescribeChangeSet = DescribeChangeSet'
@@ -71,11 +75,11 @@ data DescribeChangeSet = DescribeChangeSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desNextToken'
+-- * 'desNextToken' - A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
 --
--- * 'desStackName'
+-- * 'desStackName' - If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
 --
--- * 'desChangeSetName'
+-- * 'desChangeSetName' - The name or Amazon Resource Name (ARN) of the change set that you want to describe.
 describeChangeSet
     :: Text -- ^ 'desChangeSetName'
     -> DescribeChangeSet
@@ -86,7 +90,7 @@ describeChangeSet pChangeSetName_ =
     , _desChangeSetName = pChangeSetName_
     }
 
--- | A string (provided by the < DescribeChangeSet> response output) that identifies the next page of information that you want to retrieve.
+-- | A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
 desNextToken :: Lens' DescribeChangeSet (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
@@ -149,7 +153,9 @@ instance ToQuery DescribeChangeSet where
                "StackName" =: _desStackName,
                "ChangeSetName" =: _desChangeSetName]
 
--- | The output for the < DescribeChangeSet> action.
+-- | The output for the 'DescribeChangeSet' action.
+--
+--
 --
 -- /See:/ 'describeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
@@ -175,37 +181,37 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsCreationTime'
+-- * 'drsCreationTime' - The start time when the change set was created, in UTC.
 --
--- * 'drsStatus'
+-- * 'drsStatus' - The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 --
--- * 'drsChanges'
+-- * 'drsChanges' - A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
 --
--- * 'drsNotificationARNs'
+-- * 'drsNotificationARNs' - The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
 --
--- * 'drsChangeSetName'
+-- * 'drsChangeSetName' - The name of the change set.
 --
--- * 'drsExecutionStatus'
+-- * 'drsExecutionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
 --
--- * 'drsChangeSetId'
+-- * 'drsChangeSetId' - The ARN of the change set.
 --
--- * 'drsNextToken'
+-- * 'drsNextToken' - If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
 --
--- * 'drsParameters'
+-- * 'drsParameters' - A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 --
--- * 'drsStatusReason'
+-- * 'drsStatusReason' - A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
 --
--- * 'drsStackId'
+-- * 'drsStackId' - The ARN of the stack that is associated with the change set.
 --
--- * 'drsDescription'
+-- * 'drsDescription' - Information about the change set.
 --
--- * 'drsCapabilities'
+-- * 'drsCapabilities' - If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 --
--- * 'drsTags'
+-- * 'drsTags' - If you execute the change set, the tags that will be associated with the stack.
 --
--- * 'drsStackName'
+-- * 'drsStackName' - The name of the stack that is associated with the change set.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeChangeSetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeChangeSetResponse
@@ -233,11 +239,11 @@ describeChangeSetResponse pResponseStatus_ =
 drsCreationTime :: Lens' DescribeChangeSetResponse (Maybe UTCTime)
 drsCreationTime = lens _drsCreationTime (\ s a -> s{_drsCreationTime = a}) . mapping _Time;
 
--- | The current status of the change set, such as 'CREATE_IN_PROGRESS', 'CREATE_COMPLETE', or 'FAILED'.
+-- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 drsStatus :: Lens' DescribeChangeSetResponse (Maybe ChangeSetStatus)
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
--- | A list of 'Change' structures that describes the resources AWS CloudFormation changes if you execute the change set.
+-- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
 drsChanges :: Lens' DescribeChangeSetResponse [Change]
 drsChanges = lens _drsChanges (\ s a -> s{_drsChanges = a}) . _Default . _Coerce;
 
@@ -249,7 +255,7 @@ drsNotificationARNs = lens _drsNotificationARNs (\ s a -> s{_drsNotificationARNs
 drsChangeSetName :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsChangeSetName = lens _drsChangeSetName (\ s a -> s{_drsChangeSetName = a});
 
--- | If the change set execution status is 'AVAILABLE', you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an 'UNAVAILABLE' state because AWS CloudFormation is still creating it or in an 'OBSOLETE' state because the stack was already updated.
+-- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
 drsExecutionStatus :: Lens' DescribeChangeSetResponse (Maybe ExecutionStatus)
 drsExecutionStatus = lens _drsExecutionStatus (\ s a -> s{_drsExecutionStatus = a});
 
@@ -261,11 +267,11 @@ drsChangeSetId = lens _drsChangeSetId (\ s a -> s{_drsChangeSetId = a});
 drsNextToken :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | A list of 'Parameter' structures that describes the input parameters and their values used to create the change set. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
+-- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 drsParameters :: Lens' DescribeChangeSetResponse [Parameter]
 drsParameters = lens _drsParameters (\ s a -> s{_drsParameters = a}) . _Default . _Coerce;
 
--- | A description of the change set\'s status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
+-- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
 drsStatusReason :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsStatusReason = lens _drsStatusReason (\ s a -> s{_drsStatusReason = a});
 
@@ -289,7 +295,7 @@ drsTags = lens _drsTags (\ s a -> s{_drsTags = a}) . _Default . _Coerce;
 drsStackName :: Lens' DescribeChangeSetResponse (Maybe Text)
 drsStackName = lens _drsStackName (\ s a -> s{_drsStackName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeChangeSetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the scaling process types for use with < ResumeProcesses> and < SuspendProcesses>.
+-- Describes the scaling process types for use with 'ResumeProcesses' and 'SuspendProcesses' .
+--
+--
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Creating a Request
@@ -84,6 +86,8 @@ instance ToQuery DescribeScalingProcessTypes where
 
 -- | Contains the output of DescribeScalingProcessTypes.
 --
+--
+--
 -- /See:/ 'describeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses      :: !(Maybe [ProcessType])
@@ -94,9 +98,9 @@ data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsptrsProcesses'
+-- * 'dsptrsProcesses' - The names of the process types.
 --
--- * 'dsptrsResponseStatus'
+-- * 'dsptrsResponseStatus' - -- | The response status code.
 describeScalingProcessTypesResponse
     :: Int -- ^ 'dsptrsResponseStatus'
     -> DescribeScalingProcessTypesResponse
@@ -110,7 +114,7 @@ describeScalingProcessTypesResponse pResponseStatus_ =
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});
 

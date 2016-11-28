@@ -20,7 +20,9 @@
 --
 -- Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.
 --
+--
 -- Note that the default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
+--
 module Network.AWS.Snowball.GetSnowballUsage
     (
     -- * Creating a Request
@@ -98,11 +100,11 @@ data GetSnowballUsageResponse = GetSnowballUsageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsursSnowballsInUse'
+-- * 'gsursSnowballsInUse' - The number of Snowballs that this account is currently using.
 --
--- * 'gsursSnowballLimit'
+-- * 'gsursSnowballLimit' - The service limit for number of Snowballs this account can have at once. The default service limit is 1 (one).
 --
--- * 'gsursResponseStatus'
+-- * 'gsursResponseStatus' - -- | The response status code.
 getSnowballUsageResponse
     :: Int -- ^ 'gsursResponseStatus'
     -> GetSnowballUsageResponse
@@ -121,7 +123,7 @@ gsursSnowballsInUse = lens _gsursSnowballsInUse (\ s a -> s{_gsursSnowballsInUse
 gsursSnowballLimit :: Lens' GetSnowballUsageResponse (Maybe Int)
 gsursSnowballLimit = lens _gsursSnowballLimit (\ s a -> s{_gsursSnowballLimit = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsursResponseStatus :: Lens' GetSnowballUsageResponse Int
 gsursResponseStatus = lens _gsursResponseStatus (\ s a -> s{_gsursResponseStatus = a});
 

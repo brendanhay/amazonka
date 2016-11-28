@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a network interface to an instance.
+--
+--
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachNetworkInterface.
 --
+--
+--
 -- /See:/ 'attachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
     { _aniDryRun             :: !(Maybe Bool)
@@ -59,13 +63,13 @@ data AttachNetworkInterface = AttachNetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aniDryRun'
+-- * 'aniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'aniNetworkInterfaceId'
+-- * 'aniNetworkInterfaceId' - The ID of the network interface.
 --
--- * 'aniInstanceId'
+-- * 'aniInstanceId' - The ID of the instance.
 --
--- * 'aniDeviceIndex'
+-- * 'aniDeviceIndex' - The index of the device for the network interface attachment.
 attachNetworkInterface
     :: Text -- ^ 'aniNetworkInterfaceId'
     -> Text -- ^ 'aniInstanceId'
@@ -79,7 +83,7 @@ attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
     , _aniDeviceIndex = pDeviceIndex_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
 aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a});
 
@@ -128,6 +132,8 @@ instance ToQuery AttachNetworkInterface where
 
 -- | Contains the output of AttachNetworkInterface.
 --
+--
+--
 -- /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirsAttachmentId   :: !(Maybe Text)
@@ -138,9 +144,9 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'anirsAttachmentId'
+-- * 'anirsAttachmentId' - The ID of the network interface attachment.
 --
--- * 'anirsResponseStatus'
+-- * 'anirsResponseStatus' - -- | The response status code.
 attachNetworkInterfaceResponse
     :: Int -- ^ 'anirsResponseStatus'
     -> AttachNetworkInterfaceResponse
@@ -154,7 +160,7 @@ attachNetworkInterfaceResponse pResponseStatus_ =
 anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 anirsResponseStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a});
 

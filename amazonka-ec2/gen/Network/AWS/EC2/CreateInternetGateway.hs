@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Internet gateway for use with a VPC. After creating the Internet gateway, you attach it to a VPC using < AttachInternetGateway>.
+-- Creates an Internet gateway for use with a VPC. After creating the Internet gateway, you attach it to a VPC using 'AttachInternetGateway' .
 --
--- For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
+--
+-- For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide> .
+--
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateInternetGateway.
 --
+--
+--
 -- /See:/ 'createInternetGateway' smart constructor.
 newtype CreateInternetGateway = CreateInternetGateway'
     { _cigDryRun :: Maybe Bool
@@ -55,7 +59,7 @@ newtype CreateInternetGateway = CreateInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cigDryRun'
+-- * 'cigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 createInternetGateway
     :: CreateInternetGateway
 createInternetGateway =
@@ -63,7 +67,7 @@ createInternetGateway =
     { _cigDryRun = Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
 
@@ -96,6 +100,8 @@ instance ToQuery CreateInternetGateway where
 
 -- | Contains the output of CreateInternetGateway.
 --
+--
+--
 -- /See:/ 'createInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrsInternetGateway :: !(Maybe InternetGateway)
@@ -106,9 +112,9 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cigrsInternetGateway'
+-- * 'cigrsInternetGateway' - Information about the Internet gateway.
 --
--- * 'cigrsResponseStatus'
+-- * 'cigrsResponseStatus' - -- | The response status code.
 createInternetGatewayResponse
     :: Int -- ^ 'cigrsResponseStatus'
     -> CreateInternetGatewayResponse
@@ -122,7 +128,7 @@ createInternetGatewayResponse pResponseStatus_ =
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
 

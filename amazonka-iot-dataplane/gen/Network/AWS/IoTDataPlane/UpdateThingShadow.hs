@@ -20,7 +20,9 @@
 --
 -- Updates the thing shadow for the specified thing.
 --
--- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow> in the /AWS IoT Developer Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow> in the /AWS IoT Developer Guide/ .
+--
 module Network.AWS.IoTDataPlane.UpdateThingShadow
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the UpdateThingShadow operation.
 --
+--
+--
 -- /See:/ 'updateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
     { _utsThingName :: !Text
@@ -57,9 +61,9 @@ data UpdateThingShadow = UpdateThingShadow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utsThingName'
+-- * 'utsThingName' - The name of the thing.
 --
--- * 'utsPayload'
+-- * 'utsPayload' - The state information, in JSON format.
 updateThingShadow
     :: Text -- ^ 'utsThingName'
     -> HashMap Text Value -- ^ 'utsPayload'
@@ -106,6 +110,8 @@ instance ToQuery UpdateThingShadow where
 
 -- | The output from the UpdateThingShadow operation.
 --
+--
+--
 -- /See:/ 'updateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
     { _utsrsPayload        :: !(Maybe (HashMap Text Value))
@@ -116,9 +122,9 @@ data UpdateThingShadowResponse = UpdateThingShadowResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utsrsPayload'
+-- * 'utsrsPayload' - The state information, in JSON format.
 --
--- * 'utsrsResponseStatus'
+-- * 'utsrsResponseStatus' - -- | The response status code.
 updateThingShadowResponse
     :: Int -- ^ 'utsrsResponseStatus'
     -> UpdateThingShadowResponse
@@ -132,7 +138,7 @@ updateThingShadowResponse pResponseStatus_ =
 utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe (HashMap Text Value))
 utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a});
 
--- | The response status code.
+-- | -- | The response status code.
 utsrsResponseStatus :: Lens' UpdateThingShadowResponse Int
 utsrsResponseStatus = lens _utsrsResponseStatus (\ s a -> s{_utsrsResponseStatus = a});
 

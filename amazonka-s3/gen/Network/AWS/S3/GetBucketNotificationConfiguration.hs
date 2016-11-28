@@ -52,7 +52,7 @@ newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbncBucket'
+-- * 'gbncBucket' - Name of the bucket to get the notification configuration for.
 getBucketNotificationConfiguration
     :: BucketName -- ^ 'gbncBucket'
     -> GetBucketNotificationConfiguration

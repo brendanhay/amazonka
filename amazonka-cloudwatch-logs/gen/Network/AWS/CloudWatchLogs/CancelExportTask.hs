@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an export task if it is in 'PENDING' or 'RUNNING' state.
+-- Cancels an export task if it is in @PENDING@ or @RUNNING@ state.
+--
+--
 module Network.AWS.CloudWatchLogs.CancelExportTask
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype CancelExportTask = CancelExportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cetTaskId'
+-- * 'cetTaskId' - Id of the export task to cancel.
 cancelExportTask
     :: Text -- ^ 'cetTaskId'
     -> CancelExportTask

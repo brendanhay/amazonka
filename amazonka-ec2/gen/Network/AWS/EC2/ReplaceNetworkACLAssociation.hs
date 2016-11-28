@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes which network ACL a subnet is associated with. By default when you create a subnet, it\'s automatically associated with the default network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+-- Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.ReplaceNetworkACLAssociation
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ReplaceNetworkAclAssociation.
 --
+--
+--
 -- /See:/ 'replaceNetworkACLAssociation' smart constructor.
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
     { _rnaaDryRun        :: !(Maybe Bool)
@@ -57,11 +61,11 @@ data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnaaDryRun'
+-- * 'rnaaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rnaaAssociationId'
+-- * 'rnaaAssociationId' - The ID of the current association between the original network ACL and the subnet.
 --
--- * 'rnaaNetworkACLId'
+-- * 'rnaaNetworkACLId' - The ID of the new network ACL to associate with the subnet.
 replaceNetworkACLAssociation
     :: Text -- ^ 'rnaaAssociationId'
     -> Text -- ^ 'rnaaNetworkACLId'
@@ -73,7 +77,7 @@ replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
     , _rnaaNetworkACLId = pNetworkACLId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
 rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a});
 
@@ -118,6 +122,8 @@ instance ToQuery ReplaceNetworkACLAssociation where
 
 -- | Contains the output of ReplaceNetworkAclAssociation.
 --
+--
+--
 -- /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
@@ -128,9 +134,9 @@ data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnaarsNewAssociationId'
+-- * 'rnaarsNewAssociationId' - The ID of the new association.
 --
--- * 'rnaarsResponseStatus'
+-- * 'rnaarsResponseStatus' - -- | The response status code.
 replaceNetworkACLAssociationResponse
     :: Int -- ^ 'rnaarsResponseStatus'
     -> ReplaceNetworkACLAssociationResponse
@@ -144,7 +150,7 @@ replaceNetworkACLAssociationResponse pResponseStatus_ =
 rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});
 

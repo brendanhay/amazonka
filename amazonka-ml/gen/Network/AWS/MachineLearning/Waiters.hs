@@ -24,8 +24,7 @@ import           Network.AWS.MachineLearning.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 mLModelAvailable :: Wait DescribeMLModels
 mLModelAvailable =
     Wait
@@ -44,8 +43,7 @@ mLModelAvailable =
                               mlmStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 batchPredictionAvailable :: Wait DescribeBatchPredictions
 batchPredictionAvailable =
     Wait
@@ -64,8 +62,7 @@ batchPredictionAvailable =
                               bpStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dataSourceAvailable :: Wait DescribeDataSources
 dataSourceAvailable =
     Wait
@@ -84,8 +81,7 @@ dataSourceAvailable =
                               dsStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 evaluationAvailable :: Wait DescribeEvaluations
 evaluationAvailable =
     Wait

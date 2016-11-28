@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment.
+--
+--
 module Network.AWS.CodeDeploy.GetDeployment
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get deployment operation.
 --
+--
+--
 -- /See:/ 'getDeployment' smart constructor.
 newtype GetDeployment = GetDeployment'
     { _gdDeploymentId :: Text
@@ -53,7 +57,7 @@ newtype GetDeployment = GetDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdDeploymentId'
+-- * 'gdDeploymentId' - A deployment ID associated with the applicable IAM user or AWS account.
 getDeployment
     :: Text -- ^ 'gdDeploymentId'
     -> GetDeployment
@@ -102,6 +106,8 @@ instance ToQuery GetDeployment where
 
 -- | Represents the output of a get deployment operation.
 --
+--
+--
 -- /See:/ 'getDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
@@ -112,9 +118,9 @@ data GetDeploymentResponse = GetDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsDeploymentInfo'
+-- * 'gdrsDeploymentInfo' - Information about the deployment.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDeploymentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeploymentResponse
@@ -128,7 +134,7 @@ getDeploymentResponse pResponseStatus_ =
 gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

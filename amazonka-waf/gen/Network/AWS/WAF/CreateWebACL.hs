@@ -18,20 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 'WebACL', which contains the 'Rules' that identify the CloudFront web requests that you want to allow, block, or count. AWS WAF evaluates 'Rules' in order based on the value of 'Priority' for each 'Rule'.
+-- Creates a @WebACL@ , which contains the @Rules@ that identify the CloudFront web requests that you want to allow, block, or count. AWS WAF evaluates @Rules@ in order based on the value of @Priority@ for each @Rule@ .
 --
--- You also specify a default action, either 'ALLOW' or 'BLOCK'. If a web request doesn\'t match any of the 'Rules' in a 'WebACL', AWS WAF responds to the request with the default action.
 --
--- To create and configure a 'WebACL', perform the following steps:
+-- You also specify a default action, either @ALLOW@ or @BLOCK@ . If a web request doesn't match any of the @Rules@ in a @WebACL@ , AWS WAF responds to the request with the default action.
 --
--- 1.  Create and update the 'ByteMatchSet' objects and other predicates that you want to include in 'Rules'. For more information, see < CreateByteMatchSet>, < UpdateByteMatchSet>, < CreateIPSet>, < UpdateIPSet>, < CreateSqlInjectionMatchSet>, and < UpdateSqlInjectionMatchSet>.
--- 2.  Create and update the 'Rules' that you want to include in the 'WebACL'. For more information, see < CreateRule> and < UpdateRule>.
--- 3.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'CreateWebACL' request.
--- 4.  Submit a 'CreateWebACL' request.
--- 5.  Use 'GetChangeToken' to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateWebACL> request.
--- 6.  Submit an < UpdateWebACL> request to specify the 'Rules' that you want to include in the 'WebACL', to specify the default action, and to associate the 'WebACL' with a CloudFront distribution.
+-- To create and configure a @WebACL@ , perform the following steps:
 --
--- For more information about how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+--     * Create and update the @ByteMatchSet@ objects and other predicates that you want to include in @Rules@ . For more information, see 'CreateByteMatchSet' , 'UpdateByteMatchSet' , 'CreateIPSet' , 'UpdateIPSet' , 'CreateSqlInjectionMatchSet' , and 'UpdateSqlInjectionMatchSet' .    * Create and update the @Rules@ that you want to include in the @WebACL@ . For more information, see 'CreateRule' and 'UpdateRule' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateWebACL@ request.    * Submit a @CreateWebACL@ request.    * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateWebACL' request.    * Submit an 'UpdateWebACL' request to specify the @Rules@ that you want to include in the @WebACL@ , to specify the default action, and to associate the @WebACL@ with a CloudFront distribution.
+--
+-- For more information about how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+--
 module Network.AWS.WAF.CreateWebACL
     (
     -- * Creating a Request
@@ -71,13 +68,13 @@ data CreateWebACL = CreateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwaName'
+-- * 'cwaName' - A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 --
--- * 'cwaMetricName'
+-- * 'cwaMetricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 --
--- * 'cwaDefaultAction'
+-- * 'cwaDefaultAction' - The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
 --
--- * 'cwaChangeToken'
+-- * 'cwaChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 createWebACL
     :: Text -- ^ 'cwaName'
     -> Text -- ^ 'cwaMetricName'
@@ -92,19 +89,19 @@ createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
     , _cwaChangeToken = pChangeToken_
     }
 
--- | A friendly name or description of the < WebACL>. You can\'t change 'Name' after you create the 'WebACL'.
+-- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 cwaName :: Lens' CreateWebACL Text
 cwaName = lens _cwaName (\ s a -> s{_cwaName = a});
 
--- | A friendly name or description for the metrics for this 'WebACL'. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change 'MetricName' after you create the 'WebACL'.
+-- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 cwaMetricName :: Lens' CreateWebACL Text
 cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a});
 
--- | The action that you want AWS WAF to take when a request doesn\'t match the criteria specified in any of the 'Rule' objects that are associated with the 'WebACL'.
+-- | The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
 cwaDefaultAction :: Lens' CreateWebACL WafAction
 cwaDefaultAction = lens _cwaDefaultAction (\ s a -> s{_cwaDefaultAction = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 cwaChangeToken :: Lens' CreateWebACL Text
 cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a});
 
@@ -157,11 +154,11 @@ data CreateWebACLResponse = CreateWebACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwarsWebACL'
+-- * 'cwarsWebACL' - The 'WebACL' returned in the @CreateWebACL@ response.
 --
--- * 'cwarsChangeToken'
+-- * 'cwarsChangeToken' - The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'cwarsResponseStatus'
+-- * 'cwarsResponseStatus' - -- | The response status code.
 createWebACLResponse
     :: Int -- ^ 'cwarsResponseStatus'
     -> CreateWebACLResponse
@@ -172,15 +169,15 @@ createWebACLResponse pResponseStatus_ =
     , _cwarsResponseStatus = pResponseStatus_
     }
 
--- | The < WebACL> returned in the 'CreateWebACL' response.
+-- | The 'WebACL' returned in the @CreateWebACL@ response.
 cwarsWebACL :: Lens' CreateWebACLResponse (Maybe WebACL)
 cwarsWebACL = lens _cwarsWebACL (\ s a -> s{_cwarsWebACL = a});
 
--- | The 'ChangeToken' that you used to submit the 'CreateWebACL' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cwarsChangeToken :: Lens' CreateWebACLResponse (Maybe Text)
 cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cwarsResponseStatus :: Lens' CreateWebACLResponse Int
 cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a});
 

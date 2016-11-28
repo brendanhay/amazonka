@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition that you provided using < PutPipelineDefinition>.
+-- Gets the definition of the specified pipeline. You can call @GetPipelineDefinition@ to retrieve the pipeline definition that you provided using 'PutPipelineDefinition' .
+--
+--
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for GetPipelineDefinition.
 --
+--
+--
 -- /See:/ 'getPipelineDefinition' smart constructor.
 data GetPipelineDefinition = GetPipelineDefinition'
     { _gpdVersion    :: !(Maybe Text)
@@ -57,9 +61,9 @@ data GetPipelineDefinition = GetPipelineDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpdVersion'
+-- * 'gpdVersion' - The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
 --
--- * 'gpdPipelineId'
+-- * 'gpdPipelineId' - The ID of the pipeline.
 getPipelineDefinition
     :: Text -- ^ 'gpdPipelineId'
     -> GetPipelineDefinition
@@ -69,7 +73,7 @@ getPipelineDefinition pPipelineId_ =
     , _gpdPipelineId = pPipelineId_
     }
 
--- | The version of the pipeline definition to retrieve. Set this parameter to 'latest' (default) to use the last definition saved to the pipeline or 'active' to use the last definition that was activated.
+-- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a});
 
@@ -118,6 +122,8 @@ instance ToQuery GetPipelineDefinition where
 
 -- | Contains the output of GetPipelineDefinition.
 --
+--
+--
 -- /See:/ 'getPipelineDefinitionResponse' smart constructor.
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects  :: !(Maybe [PipelineObject])
@@ -130,13 +136,13 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpdrsPipelineObjects'
+-- * 'gpdrsPipelineObjects' - The objects defined in the pipeline.
 --
--- * 'gpdrsParameterObjects'
+-- * 'gpdrsParameterObjects' - The parameter objects used in the pipeline definition.
 --
--- * 'gpdrsParameterValues'
+-- * 'gpdrsParameterValues' - The parameter values used in the pipeline definition.
 --
--- * 'gpdrsResponseStatus'
+-- * 'gpdrsResponseStatus' - -- | The response status code.
 getPipelineDefinitionResponse
     :: Int -- ^ 'gpdrsResponseStatus'
     -> GetPipelineDefinitionResponse
@@ -160,7 +166,7 @@ gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterO
 gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gpdrsResponseStatus :: Lens' GetPipelineDefinitionResponse Int
 gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Deletes a traffic policy.
 --
--- Send a 'DELETE' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource.
+--
+-- Send a @DELETE@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource.
+--
 module Network.AWS.Route53.DeleteTrafficPolicy
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A request to delete a specified traffic policy version.
 --
+--
+--
 -- /See:/ 'deleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
     { _dtpId      :: !Text
@@ -56,9 +60,9 @@ data DeleteTrafficPolicy = DeleteTrafficPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtpId'
+-- * 'dtpId' - The ID of the traffic policy that you want to delete.
 --
--- * 'dtpVersion'
+-- * 'dtpVersion' - The version number of the traffic policy that you want to delete.
 deleteTrafficPolicy
     :: Text -- ^ 'dtpId'
     -> Natural -- ^ 'dtpVersion'
@@ -104,6 +108,8 @@ instance ToQuery DeleteTrafficPolicy where
 
 -- | An empty element.
 --
+--
+--
 -- /See:/ 'deleteTrafficPolicyResponse' smart constructor.
 newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
     { _dtprsResponseStatus :: Int
@@ -113,7 +119,7 @@ newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtprsResponseStatus'
+-- * 'dtprsResponseStatus' - -- | The response status code.
 deleteTrafficPolicyResponse
     :: Int -- ^ 'dtprsResponseStatus'
     -> DeleteTrafficPolicyResponse
@@ -122,7 +128,7 @@ deleteTrafficPolicyResponse pResponseStatus_ =
     { _dtprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
 

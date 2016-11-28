@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB instance.
+--
+--
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Creating a Request
@@ -80,6 +82,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBInstance' smart constructor.
 data CreateDBInstance = CreateDBInstance'
     { _cdiEngineVersion              :: !(Maybe Text)
@@ -125,79 +129,79 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdiEngineVersion'
+-- * 'cdiEngineVersion' - The version number of the database engine to use. The following are the database engines and major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS region. __Amazon Aurora__      * __Version 5.6 (only available in AWS regions ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-west-2):__ @5.6.10a@  __MariaDB__      * __Version 10.1 (available in all AWS regions except us-gov-west-1):__ @10.1.14@      * __Version 10.0 (available in all AWS regions):__ @10.0.17 | 10.0.24@  __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Express Edition (sqlserver-ex)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Standard Edition (sqlserver-se)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Web Edition (sqlserver-web)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __MySQL__      * __Version 5.7 (available in all AWS regions):__ @5.7.10 | 5.7.11@      * __Version 5.6 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@      * __Version 5.6 (available in all AWS regions except ap-south-1):__ @5.6.23@      * __Version 5.6 (available in all AWS regions):__ @5.6.27 | 5.6.29@      * __Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ @5.5.40 | 5.5.40a@      * __Version 5.5 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @5.5.40b | 5.5.41@      * __Version 5.5 (available in all AWS regions except ap-south-1):__ @5.5.42@      * __Version 5.5 (available in all AWS regions):__ @5.5.46@  __Oracle Database Enterprise Edition (oracle-ee)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 12.1 (available in all AWS regions):__ @12.1.0.2.v1@      * __Version 12.1 (available in all AWS regions except us-gov-west-1):__ @12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition (oracle-se)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition One (oracle-se1)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition Two (oracle-se2)__      * __Version 12.1 (available in all AWS regions except us-gov-west-1):__ @12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4@  __PostgreSQL__      * __Version 9.5 (available in all AWS regions except us-gov-west-1):__ @9.5.2@      * __Version 9.4 (available in all AWS regions except ap-south-1):__ @9.4.1 | 9.4.4@      * __Version 9.4 (available in all AWS regions):__ @9.4.5@      * __Version 9.4 (available in all AWS regions except us-gov-west-1):__ @9.4.7@      * __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ @9.3.1 | 9.3.2@      * __Version 9.3 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9@      * __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @9.3.12@
 --
--- * 'cdiDBSecurityGroups'
+-- * 'cdiDBSecurityGroups' - A list of DB security groups to associate with this DB instance. Default: The default DB security group for the database engine.
 --
--- * 'cdiStorageEncrypted'
+-- * 'cdiStorageEncrypted' - Specifies whether the DB instance is encrypted. Default: false
 --
--- * 'cdiDBClusterIdentifier'
+-- * 'cdiDBClusterIdentifier' - The identifier of the DB cluster that the instance will belong to. For information on creating a DB cluster, see 'CreateDBCluster' . Type: String
 --
--- * 'cdiMasterUserPassword'
+-- * 'cdiMasterUserPassword' - The password for the master database user. Can be any printable ASCII character except "/", """, or "@". Type: String __MySQL__  Constraints: Must contain from 8 to 41 characters. __MariaDB__  Constraints: Must contain from 8 to 41 characters. __Oracle__  Constraints: Must contain from 8 to 30 characters. __SQL Server__  Constraints: Must contain from 8 to 128 characters. __PostgreSQL__  Constraints: Must contain from 8 to 128 characters. __Amazon Aurora__  Constraints: Must contain from 8 to 41 characters.
 --
--- * 'cdiPubliclyAccessible'
+-- * 'cdiPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 --
--- * 'cdiAutoMinorVersionUpgrade'
+-- * 'cdiAutoMinorVersionUpgrade' - Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default: @true@
 --
--- * 'cdiMasterUsername'
+-- * 'cdiMasterUsername' - The name of master user for the client DB instance. __MySQL__  Constraints:     * Must be 1 to 16 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __MariaDB__  Constraints:     * Must be 1 to 16 alphanumeric characters.     * Cannot be a reserved word for the chosen database engine. Type: String __Oracle__  Constraints:     * Must be 1 to 30 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __SQL Server__  Constraints:     * Must be 1 to 128 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __PostgreSQL__  Constraints:     * Must be 1 to 63 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
 --
--- * 'cdiDBSubnetGroupName'
+-- * 'cdiDBSubnetGroupName' - A DB subnet group to associate with this DB instance. If there is no DB subnet group, then it is a non-VPC DB instance.
 --
--- * 'cdiMonitoringRoleARN'
+-- * 'cdiMonitoringRoleARN' - The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, @arn:aws:iam:123456789012:role/emaccess@ . For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring> . If @MonitoringInterval@ is set to a value other than 0, then you must supply a @MonitoringRoleArn@ value.
 --
--- * 'cdiIOPS'
+-- * 'cdiIOPS' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be a multiple between 3 and 10 of the storage amount for the DB instance. Must also be an integer multiple of 1000. For example, if the size of your DB instance is 500 GB, then your @Iops@ value can be 2000, 3000, 4000, or 5000.
 --
--- * 'cdiDomain'
+-- * 'cdiDomain' - Specify the Active Directory Domain to create the instance in.
 --
--- * 'cdiMonitoringInterval'
+-- * 'cdiMonitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
 --
--- * 'cdiTDECredentialPassword'
+-- * 'cdiTDECredentialPassword' - The password for the given ARN from the Key Store in order to access the device.
 --
--- * 'cdiPromotionTier'
+-- * 'cdiPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .  Default: 1 Valid Values: 0 - 15
 --
--- * 'cdiLicenseModel'
+-- * 'cdiLicenseModel' - License model information for this DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
 --
--- * 'cdiPreferredMaintenanceWindow'
+-- * 'cdiPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance> .  Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 --
--- * 'cdiCharacterSetName'
+-- * 'cdiCharacterSetName' - For supported engines, indicates that the DB instance should be associated with the specified CharacterSet.
 --
--- * 'cdiKMSKeyId'
+-- * 'cdiKMSKeyId' - The KMS key identifier for an encrypted DB instance. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
--- * 'cdiDBParameterGroupName'
+-- * 'cdiDBParameterGroupName' - The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default DBParameterGroup for the specified engine will be used. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'cdiPreferredBackupWindow'
+-- * 'cdiPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups> .  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
--- * 'cdiAvailabilityZone'
+-- * 'cdiAvailabilityZone' - The EC2 Availability Zone that the database instance will be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .  Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@  Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to @true@ . The specified Availability Zone must be in the same region as the current endpoint.
 --
--- * 'cdiBackupRetentionPeriod'
+-- * 'cdiBackupRetentionPeriod' - The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 35     * Cannot be set to 0 if the DB instance is a source to Read Replicas
 --
--- * 'cdiVPCSecurityGroupIds'
+-- * 'cdiVPCSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance. Default: The default EC2 VPC security group for the DB subnet group's VPC.
 --
--- * 'cdiMultiAZ'
+-- * 'cdiMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment. You cannot set the AvailabilityZone parameter if the MultiAZ parameter is set to true.
 --
--- * 'cdiAllocatedStorage'
+-- * 'cdiAllocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the database instance. Type: Integer __MySQL__  Constraints: Must be an integer from 5 to 6144. __MariaDB__  Constraints: Must be an integer from 5 to 6144. __PostgreSQL__  Constraints: Must be an integer from 5 to 6144. __Oracle__  Constraints: Must be an integer from 10 to 6144. __SQL Server__  Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise Edition) or from 20 to 4096 (Express Edition and Web Edition)
 --
--- * 'cdiOptionGroupName'
+-- * 'cdiOptionGroupName' - Indicates that the DB instance should be associated with the specified option group. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 --
--- * 'cdiCopyTagsToSnapshot'
+-- * 'cdiCopyTagsToSnapshot' - True to copy all tags from the DB instance to snapshots of the DB instance; otherwise false. The default is false.
 --
--- * 'cdiTDECredentialARN'
+-- * 'cdiTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
 --
--- * 'cdiDomainIAMRoleName'
+-- * 'cdiDomainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
 --
--- * 'cdiTags'
+-- * 'cdiTags' - Undocumented member.
 --
--- * 'cdiPort'
+-- * 'cdiPort' - The port number on which the database accepts connections. __MySQL__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer __MariaDB__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer __PostgreSQL__  Default: @5432@  Valid Values: @1150-65535@  Type: Integer __Oracle__  Default: @1521@  Valid Values: @1150-65535@  __SQL Server__  Default: @1433@  Valid Values: @1150-65535@ except for @1434@ , @3389@ , @47001@ , @49152@ , and @49152@ through @49156@ .  __Amazon Aurora__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer
 --
--- * 'cdiStorageType'
+-- * 'cdiStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
--- * 'cdiDBName'
+-- * 'cdiDBName' - The meaning of this parameter differs according to the database engine you use. Type: String __MySQL__  The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine __MariaDB__  The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine __PostgreSQL__  The name of the database to create when the DB instance is created. If this parameter is not specified, the default "postgres" database is created in the DB instance. Constraints:     * Must contain 1 to 63 alphanumeric characters     * Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).     * Cannot be a word reserved by the specified database engine __Oracle__  The Oracle System ID (SID) of the created DB instance. Default: @ORCL@  Constraints:     * Cannot be longer than 8 characters __SQL Server__  Not applicable. Must be null. __Amazon Aurora__  The name of the database to create when the primary instance of the DB cluster is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine
 --
--- * 'cdiDBInstanceIdentifier'
+-- * 'cdiDBInstanceIdentifier' - The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server).     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @mydbinstance@
 --
--- * 'cdiDBInstanceClass'
+-- * 'cdiDBInstanceClass' - The compute and memory capacity of the DB instance. Valid Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@
 --
--- * 'cdiEngine'
+-- * 'cdiEngine' - The name of the database engine to be used for this instance. Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@  Not every database engine is available for every AWS region.
 createDBInstance
     :: Text -- ^ 'cdiDBInstanceIdentifier'
     -> Text -- ^ 'cdiDBInstanceClass'
@@ -244,263 +248,47 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiEngine = pEngine_
     }
 
--- | The version number of the database engine to use.
---
--- The following are the database engines and major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS region.
---
--- __Amazon Aurora__
---
--- -   __Version 5.6 (only available in AWS regions ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-west-2):__ ' 5.6.10a'
---
--- __MariaDB__
---
--- -   __Version 10.1 (available in all AWS regions except us-gov-west-1):__ ' 10.1.14'
---
--- -   __Version 10.0 (available in all AWS regions):__ ' 10.0.17 | 10.0.24'
---
--- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
---
--- -   __Version 11.00 (available in all AWS regions):__ ' 11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1'
---
--- -   __Version 10.50 (available in all AWS regions):__ ' 10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1'
---
--- __Microsoft SQL Server Express Edition (sqlserver-ex)__
---
--- -   __Version 12.00 (available in all AWS regions):__ ' 12.00.4422.0.v1'
---
--- -   __Version 11.00 (available in all AWS regions):__ ' 11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1'
---
--- -   __Version 10.50 (available in all AWS regions):__ ' 10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1'
---
--- __Microsoft SQL Server Standard Edition (sqlserver-se)__
---
--- -   __Version 12.00 (available in all AWS regions):__ ' 12.00.4422.0.v1'
---
--- -   __Version 11.00 (available in all AWS regions):__ ' 11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1'
---
--- -   __Version 10.50 (available in all AWS regions):__ ' 10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1'
---
--- __Microsoft SQL Server Web Edition (sqlserver-web)__
---
--- -   __Version 12.00 (available in all AWS regions):__ ' 12.00.4422.0.v1'
---
--- -   __Version 11.00 (available in all AWS regions):__ ' 11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1'
---
--- -   __Version 10.50 (available in all AWS regions):__ ' 10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1'
---
--- __MySQL__
---
--- -   __Version 5.7 (available in all AWS regions):__ ' 5.7.10 | 5.7.11'
---
--- -   __Version 5.6 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'
---
--- -   __Version 5.6 (available in all AWS regions except ap-south-1):__ ' 5.6.23'
---
--- -   __Version 5.6 (available in all AWS regions):__ ' 5.6.27 | 5.6.29'
---
--- -   __Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
---
--- -   __Version 5.5 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 5.5.40b | 5.5.41'
---
--- -   __Version 5.5 (available in all AWS regions except ap-south-1):__ ' 5.5.42'
---
--- -   __Version 5.5 (available in all AWS regions):__ ' 5.5.46'
---
--- __Oracle Database Enterprise Edition (oracle-ee)__
---
--- -   __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 12.1.0.1.v1 | 12.1.0.1.v2'
---
--- -   __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ ' 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5'
---
--- -   __Version 12.1 (available in all AWS regions):__ ' 12.1.0.2.v1'
---
--- -   __Version 12.1 (available in all AWS regions except us-gov-west-1):__ ' 12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4'
---
--- -   __Version 11.2 (available in all AWS regions):__ ' 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
---
--- -   __Version 11.2 (available in all AWS regions except us-gov-west-1):__ ' 11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8'
---
--- __Oracle Database Standard Edition (oracle-se)__
---
--- -   __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 12.1.0.1.v1 | 12.1.0.1.v2'
---
--- -   __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ ' 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5'
---
--- -   __Version 11.2 (available in all AWS regions):__ ' 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
---
--- -   __Version 11.2 (available in all AWS regions except us-gov-west-1):__ ' 11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8'
---
--- __Oracle Database Standard Edition One (oracle-se1)__
---
--- -   __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 12.1.0.1.v1 | 12.1.0.1.v2'
---
--- -   __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ ' 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5'
---
--- -   __Version 11.2 (available in all AWS regions):__ ' 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4'
---
--- -   __Version 11.2 (available in all AWS regions except us-gov-west-1):__ ' 11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8'
---
--- __Oracle Database Standard Edition Two (oracle-se2)__
---
--- -   __Version 12.1 (available in all AWS regions except us-gov-west-1):__ ' 12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4'
---
--- __PostgreSQL__
---
--- -   __Version 9.5 (available in all AWS regions except us-gov-west-1):__ ' 9.5.2'
---
--- -   __Version 9.4 (available in all AWS regions except ap-south-1):__ ' 9.4.1 | 9.4.4'
---
--- -   __Version 9.4 (available in all AWS regions):__ ' 9.4.5'
---
--- -   __Version 9.4 (available in all AWS regions except us-gov-west-1):__ ' 9.4.7'
---
--- -   __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
---
--- -   __Version 9.3 (available in all AWS regions except ap-south-1, ap-northeast-2):__ ' 9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9'
---
--- -   __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ ' 9.3.12'
---
+-- | The version number of the database engine to use. The following are the database engines and major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS region. __Amazon Aurora__      * __Version 5.6 (only available in AWS regions ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-west-2):__ @5.6.10a@  __MariaDB__      * __Version 10.1 (available in all AWS regions except us-gov-west-1):__ @10.1.14@      * __Version 10.0 (available in all AWS regions):__ @10.0.17 | 10.0.24@  __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Express Edition (sqlserver-ex)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Standard Edition (sqlserver-se)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __Microsoft SQL Server Web Edition (sqlserver-web)__      * __Version 12.00 (available in all AWS regions):__ @12.00.4422.0.v1@      * __Version 11.00 (available in all AWS regions):__ @11.00.2100.60.v1 | 11.00.5058.0.v1 | 11.00.6020.0.v1@      * __Version 10.50 (available in all AWS regions):__ @10.50.2789.0.v1 | 10.50.6000.34.v1 | 10.50.6529.0.v1@  __MySQL__      * __Version 5.7 (available in all AWS regions):__ @5.7.10 | 5.7.11@      * __Version 5.6 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@      * __Version 5.6 (available in all AWS regions except ap-south-1):__ @5.6.23@      * __Version 5.6 (available in all AWS regions):__ @5.6.27 | 5.6.29@      * __Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ @5.5.40 | 5.5.40a@      * __Version 5.5 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @5.5.40b | 5.5.41@      * __Version 5.5 (available in all AWS regions except ap-south-1):__ @5.5.42@      * __Version 5.5 (available in all AWS regions):__ @5.5.46@  __Oracle Database Enterprise Edition (oracle-ee)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 12.1 (available in all AWS regions):__ @12.1.0.2.v1@      * __Version 12.1 (available in all AWS regions except us-gov-west-1):__ @12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition (oracle-se)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition One (oracle-se1)__      * __Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @12.1.0.1.v1 | 12.1.0.1.v2@      * __Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5@      * __Version 11.2 (available in all AWS regions):__ @11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4@      * __Version 11.2 (available in all AWS regions except us-gov-west-1):__ @11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8@  __Oracle Database Standard Edition Two (oracle-se2)__      * __Version 12.1 (available in all AWS regions except us-gov-west-1):__ @12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4@  __PostgreSQL__      * __Version 9.5 (available in all AWS regions except us-gov-west-1):__ @9.5.2@      * __Version 9.4 (available in all AWS regions except ap-south-1):__ @9.4.1 | 9.4.4@      * __Version 9.4 (available in all AWS regions):__ @9.4.5@      * __Version 9.4 (available in all AWS regions except us-gov-west-1):__ @9.4.7@      * __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):__ @9.3.1 | 9.3.2@      * __Version 9.3 (available in all AWS regions except ap-south-1, ap-northeast-2):__ @9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9@      * __Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):__ @9.3.12@
 cdiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdiEngineVersion = lens _cdiEngineVersion (\ s a -> s{_cdiEngineVersion = a});
 
--- | A list of DB security groups to associate with this DB instance.
---
--- Default: The default DB security group for the database engine.
+-- | A list of DB security groups to associate with this DB instance. Default: The default DB security group for the database engine.
 cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
 cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default . _Coerce;
 
--- | Specifies whether the DB instance is encrypted.
---
--- Default: false
+-- | Specifies whether the DB instance is encrypted. Default: false
 cdiStorageEncrypted :: Lens' CreateDBInstance (Maybe Bool)
 cdiStorageEncrypted = lens _cdiStorageEncrypted (\ s a -> s{_cdiStorageEncrypted = a});
 
--- | The identifier of the DB cluster that the instance will belong to.
---
--- For information on creating a DB cluster, see < CreateDBCluster>.
---
--- Type: String
+-- | The identifier of the DB cluster that the instance will belong to. For information on creating a DB cluster, see 'CreateDBCluster' . Type: String
 cdiDBClusterIdentifier :: Lens' CreateDBInstance (Maybe Text)
 cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterIdentifier = a});
 
--- | The password for the master database user. Can be any printable ASCII character except \"\/\", \"\"\", or \"\'\".
---
--- Type: String
---
--- __MySQL__
---
--- Constraints: Must contain from 8 to 41 characters.
---
--- __MariaDB__
---
--- Constraints: Must contain from 8 to 41 characters.
---
--- __Oracle__
---
--- Constraints: Must contain from 8 to 30 characters.
---
--- __SQL Server__
---
--- Constraints: Must contain from 8 to 128 characters.
---
--- __PostgreSQL__
---
--- Constraints: Must contain from 8 to 128 characters.
---
--- __Amazon Aurora__
---
--- Constraints: Must contain from 8 to 41 characters.
+-- | The password for the master database user. Can be any printable ASCII character except "/", """, or "@". Type: String __MySQL__  Constraints: Must contain from 8 to 41 characters. __MariaDB__  Constraints: Must contain from 8 to 41 characters. __Oracle__  Constraints: Must contain from 8 to 30 characters. __SQL Server__  Constraints: Must contain from 8 to 128 characters. __PostgreSQL__  Constraints: Must contain from 8 to 128 characters. __Amazon Aurora__  Constraints: Must contain from 8 to 41 characters.
 cdiMasterUserPassword :: Lens' CreateDBInstance (Maybe Text)
 cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
 
--- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
---
--- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
---
--- -   __Default VPC:__ true
---
--- -   __VPC:__ false
---
--- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 cdiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
 cdiPubliclyAccessible = lens _cdiPubliclyAccessible (\ s a -> s{_cdiPubliclyAccessible = a});
 
--- | Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window.
---
--- Default: 'true'
+-- | Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default: @true@
 cdiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAutoMinorVersionUpgrade = a});
 
--- | The name of master user for the client DB instance.
---
--- __MySQL__
---
--- Constraints:
---
--- -   Must be 1 to 16 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
--- __MariaDB__
---
--- Constraints:
---
--- -   Must be 1 to 16 alphanumeric characters.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
--- Type: String
---
--- __Oracle__
---
--- Constraints:
---
--- -   Must be 1 to 30 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
--- __SQL Server__
---
--- Constraints:
---
--- -   Must be 1 to 128 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
--- __PostgreSQL__
---
--- Constraints:
---
--- -   Must be 1 to 63 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
+-- | The name of master user for the client DB instance. __MySQL__  Constraints:     * Must be 1 to 16 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __MariaDB__  Constraints:     * Must be 1 to 16 alphanumeric characters.     * Cannot be a reserved word for the chosen database engine. Type: String __Oracle__  Constraints:     * Must be 1 to 30 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __SQL Server__  Constraints:     * Must be 1 to 128 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine. __PostgreSQL__  Constraints:     * Must be 1 to 63 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
 cdiMasterUsername :: Lens' CreateDBInstance (Maybe Text)
 cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a});
 
--- | A DB subnet group to associate with this DB instance.
---
--- If there is no DB subnet group, then it is a non-VPC DB instance.
+-- | A DB subnet group to associate with this DB instance. If there is no DB subnet group, then it is a non-VPC DB instance.
 cdiDBSubnetGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBSubnetGroupName = lens _cdiDBSubnetGroupName (\ s a -> s{_cdiDBSubnetGroupName = a});
 
--- | The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, 'arn:aws:iam:123456789012:role\/emaccess'. For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>.
---
--- If 'MonitoringInterval' is set to a value other than 0, then you must supply a 'MonitoringRoleArn' value.
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, @arn:aws:iam:123456789012:role/emaccess@ . For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring> . If @MonitoringInterval@ is set to a value other than 0, then you must supply a @MonitoringRoleArn@ value.
 cdiMonitoringRoleARN :: Lens' CreateDBInstance (Maybe Text)
 cdiMonitoringRoleARN = lens _cdiMonitoringRoleARN (\ s a -> s{_cdiMonitoringRoleARN = a});
 
--- | The amount of Provisioned IOPS (input\/output operations per second) to be initially allocated for the DB instance.
---
--- Constraints: Must be a multiple between 3 and 10 of the storage amount for the DB instance. Must also be an integer multiple of 1000. For example, if the size of your DB instance is 500 GB, then your 'Iops' value can be 2000, 3000, 4000, or 5000.
+-- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be a multiple between 3 and 10 of the storage amount for the DB instance. Must also be an integer multiple of 1000. For example, if the size of your DB instance is 500 GB, then your @Iops@ value can be 2000, 3000, 4000, or 5000.
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
 
@@ -508,11 +296,7 @@ cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
 cdiDomain :: Lens' CreateDBInstance (Maybe Text)
 cdiDomain = lens _cdiDomain (\ s a -> s{_cdiDomain = a});
 
--- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
---
--- If 'MonitoringRoleArn' is specified, then you must also set 'MonitoringInterval' to a value other than 0.
---
--- Valid Values: '0, 1, 5, 10, 15, 30, 60'
+-- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
 cdiMonitoringInterval :: Lens' CreateDBInstance (Maybe Int)
 cdiMonitoringInterval = lens _cdiMonitoringInterval (\ s a -> s{_cdiMonitoringInterval = a});
 
@@ -520,29 +304,15 @@ cdiMonitoringInterval = lens _cdiMonitoringInterval (\ s a -> s{_cdiMonitoringIn
 cdiTDECredentialPassword :: Lens' CreateDBInstance (Maybe Text)
 cdiTDECredentialPassword = lens _cdiTDECredentialPassword (\ s a -> s{_cdiTDECredentialPassword = a});
 
--- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
---
--- Default: 1
---
--- Valid Values: 0 - 15
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .  Default: 1 Valid Values: 0 - 15
 cdiPromotionTier :: Lens' CreateDBInstance (Maybe Int)
 cdiPromotionTier = lens _cdiPromotionTier (\ s a -> s{_cdiPromotionTier = a});
 
--- | License model information for this DB instance.
---
--- Valid values: 'license-included' | 'bring-your-own-license' | 'general-public-license'
+-- | License model information for this DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
 cdiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdiLicenseModel = lens _cdiLicenseModel (\ s a -> s{_cdiLicenseModel = a});
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.
---
--- Format: 'ddd:hh24:mi-ddd:hh24:mi'
---
--- Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
---
--- Constraints: Minimum 30-minute window.
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance> .  Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 cdiPreferredMaintenanceWindow :: Lens' CreateDBInstance (Maybe Text)
 cdiPreferredMaintenanceWindow = lens _cdiPreferredMaintenanceWindow (\ s a -> s{_cdiPreferredMaintenanceWindow = a});
 
@@ -550,70 +320,27 @@ cdiPreferredMaintenanceWindow = lens _cdiPreferredMaintenanceWindow (\ s a -> s{
 cdiCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
 cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName = a});
 
--- | The KMS key identifier for an encrypted DB instance.
---
--- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.
---
--- If the 'StorageEncrypted' parameter is true, and you do not specify a value for the 'KmsKeyId' parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- | The KMS key identifier for an encrypted DB instance. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 cdiKMSKeyId :: Lens' CreateDBInstance (Maybe Text)
 cdiKMSKeyId = lens _cdiKMSKeyId (\ s a -> s{_cdiKMSKeyId = a});
 
--- | The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default DBParameterGroup for the specified engine will be used.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default DBParameterGroup for the specified engine will be used. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 cdiDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParameterGroupName = a});
 
--- | The daily time range during which automated backups are created if automated backups are enabled, using the 'BackupRetentionPeriod' parameter. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.
---
--- Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
---
--- Constraints:
---
--- -   Must be in the format 'hh24:mi-hh24:mi'.
---
--- -   Times should be in Universal Coordinated Time (UTC).
---
--- -   Must not conflict with the preferred maintenance window.
---
--- -   Must be at least 30 minutes.
---
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups> .  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 cdiPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
 cdiPreferredBackupWindow = lens _cdiPreferredBackupWindow (\ s a -> s{_cdiPreferredBackupWindow = a});
 
--- | The EC2 Availability Zone that the database instance will be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>.
---
--- Default: A random, system-chosen Availability Zone in the endpoint\'s region.
---
--- Example: 'us-east-1d'
---
--- Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to 'true'. The specified Availability Zone must be in the same region as the current endpoint.
+-- | The EC2 Availability Zone that the database instance will be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .  Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@  Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to @true@ . The specified Availability Zone must be in the same region as the current endpoint.
 cdiAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
 cdiAvailabilityZone = lens _cdiAvailabilityZone (\ s a -> s{_cdiAvailabilityZone = a});
 
--- | The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 0 to 35
---
--- -   Cannot be set to 0 if the DB instance is a source to Read Replicas
---
+-- | The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 35     * Cannot be set to 0 if the DB instance is a source to Read Replicas
 cdiBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Int)
 cdiBackupRetentionPeriod = lens _cdiBackupRetentionPeriod (\ s a -> s{_cdiBackupRetentionPeriod = a});
 
--- | A list of EC2 VPC security groups to associate with this DB instance.
---
--- Default: The default EC2 VPC security group for the DB subnet group\'s VPC.
+-- | A list of EC2 VPC security groups to associate with this DB instance. Default: The default EC2 VPC security group for the DB subnet group's VPC.
 cdiVPCSecurityGroupIds :: Lens' CreateDBInstance [Text]
 cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
@@ -621,35 +348,11 @@ cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurit
 cdiMultiAZ :: Lens' CreateDBInstance (Maybe Bool)
 cdiMultiAZ = lens _cdiMultiAZ (\ s a -> s{_cdiMultiAZ = a});
 
--- | The amount of storage (in gigabytes) to be initially allocated for the database instance.
---
--- Type: Integer
---
--- __MySQL__
---
--- Constraints: Must be an integer from 5 to 6144.
---
--- __MariaDB__
---
--- Constraints: Must be an integer from 5 to 6144.
---
--- __PostgreSQL__
---
--- Constraints: Must be an integer from 5 to 6144.
---
--- __Oracle__
---
--- Constraints: Must be an integer from 10 to 6144.
---
--- __SQL Server__
---
--- Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise Edition) or from 20 to 4096 (Express Edition and Web Edition)
+-- | The amount of storage (in gigabytes) to be initially allocated for the database instance. Type: Integer __MySQL__  Constraints: Must be an integer from 5 to 6144. __MariaDB__  Constraints: Must be an integer from 5 to 6144. __PostgreSQL__  Constraints: Must be an integer from 5 to 6144. __Oracle__  Constraints: Must be an integer from 10 to 6144. __SQL Server__  Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise Edition) or from 20 to 4096 (Express Edition and Web Edition)
 cdiAllocatedStorage :: Lens' CreateDBInstance (Maybe Int)
 cdiAllocatedStorage = lens _cdiAllocatedStorage (\ s a -> s{_cdiAllocatedStorage = a});
 
--- | Indicates that the DB instance should be associated with the specified option group.
---
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
+-- | Indicates that the DB instance should be associated with the specified option group. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 cdiOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiOptionGroupName = lens _cdiOptionGroupName (\ s a -> s{_cdiOptionGroupName = a});
 
@@ -669,152 +372,27 @@ cdiDomainIAMRoleName = lens _cdiDomainIAMRoleName (\ s a -> s{_cdiDomainIAMRoleN
 cdiTags :: Lens' CreateDBInstance [Tag]
 cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 
--- | The port number on which the database accepts connections.
---
--- __MySQL__
---
--- Default: '3306'
---
--- Valid Values: '1150-65535'
---
--- Type: Integer
---
--- __MariaDB__
---
--- Default: '3306'
---
--- Valid Values: '1150-65535'
---
--- Type: Integer
---
--- __PostgreSQL__
---
--- Default: '5432'
---
--- Valid Values: '1150-65535'
---
--- Type: Integer
---
--- __Oracle__
---
--- Default: '1521'
---
--- Valid Values: '1150-65535'
---
--- __SQL Server__
---
--- Default: '1433'
---
--- Valid Values: '1150-65535' except for '1434', '3389', '47001', '49152', and '49152' through '49156'.
---
--- __Amazon Aurora__
---
--- Default: '3306'
---
--- Valid Values: '1150-65535'
---
--- Type: Integer
+-- | The port number on which the database accepts connections. __MySQL__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer __MariaDB__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer __PostgreSQL__  Default: @5432@  Valid Values: @1150-65535@  Type: Integer __Oracle__  Default: @1521@  Valid Values: @1150-65535@  __SQL Server__  Default: @1433@  Valid Values: @1150-65535@ except for @1434@ , @3389@ , @47001@ , @49152@ , and @49152@ through @49156@ .  __Amazon Aurora__  Default: @3306@  Valid Values: @1150-65535@  Type: Integer
 cdiPort :: Lens' CreateDBInstance (Maybe Int)
 cdiPort = lens _cdiPort (\ s a -> s{_cdiPort = a});
 
--- | Specifies the storage type to be associated with the DB instance.
---
--- Valid values: 'standard | gp2 | io1'
---
--- If you specify 'io1', you must also include a value for the 'Iops' parameter.
---
--- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
+-- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 cdiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 
--- | The meaning of this parameter differs according to the database engine you use.
---
--- Type: String
---
--- __MySQL__
---
--- The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance.
---
--- Constraints:
---
--- -   Must contain 1 to 64 alphanumeric characters
---
--- -   Cannot be a word reserved by the specified database engine
---
--- __MariaDB__
---
--- The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance.
---
--- Constraints:
---
--- -   Must contain 1 to 64 alphanumeric characters
---
--- -   Cannot be a word reserved by the specified database engine
---
--- __PostgreSQL__
---
--- The name of the database to create when the DB instance is created. If this parameter is not specified, the default \"postgres\" database is created in the DB instance.
---
--- Constraints:
---
--- -   Must contain 1 to 63 alphanumeric characters
---
--- -   Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).
---
--- -   Cannot be a word reserved by the specified database engine
---
--- __Oracle__
---
--- The Oracle System ID (SID) of the created DB instance.
---
--- Default: 'ORCL'
---
--- Constraints:
---
--- -   Cannot be longer than 8 characters
---
--- __SQL Server__
---
--- Not applicable. Must be null.
---
--- __Amazon Aurora__
---
--- The name of the database to create when the primary instance of the DB cluster is created. If this parameter is not specified, no database is created in the DB instance.
---
--- Constraints:
---
--- -   Must contain 1 to 64 alphanumeric characters
---
--- -   Cannot be a word reserved by the specified database engine
---
+-- | The meaning of this parameter differs according to the database engine you use. Type: String __MySQL__  The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine __MariaDB__  The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine __PostgreSQL__  The name of the database to create when the DB instance is created. If this parameter is not specified, the default "postgres" database is created in the DB instance. Constraints:     * Must contain 1 to 63 alphanumeric characters     * Must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0-9).     * Cannot be a word reserved by the specified database engine __Oracle__  The Oracle System ID (SID) of the created DB instance. Default: @ORCL@  Constraints:     * Cannot be longer than 8 characters __SQL Server__  Not applicable. Must be null. __Amazon Aurora__  The name of the database to create when the primary instance of the DB cluster is created. If this parameter is not specified, no database is created in the DB instance. Constraints:     * Must contain 1 to 64 alphanumeric characters     * Cannot be a word reserved by the specified database engine
 cdiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
--- | The DB instance identifier. This parameter is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server).
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'mydbinstance'
+-- | The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server).     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @mydbinstance@
 cdiDBInstanceIdentifier :: Lens' CreateDBInstance Text
 cdiDBInstanceIdentifier = lens _cdiDBInstanceIdentifier (\ s a -> s{_cdiDBInstanceIdentifier = a});
 
--- | The compute and memory capacity of the DB instance.
---
--- Valid Values: 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
+-- | The compute and memory capacity of the DB instance. Valid Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@
 cdiDBInstanceClass :: Lens' CreateDBInstance Text
 cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = a});
 
--- | The name of the database engine to be used for this instance.
---
--- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres' | 'aurora'
---
--- Not every database engine is available for every AWS region.
+-- | The name of the database engine to be used for this instance. Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@  Not every database engine is available for every AWS region.
 cdiEngine :: Lens' CreateDBInstance Text
 cdiEngine = lens _cdiEngine (\ s a -> s{_cdiEngine = a});
 
@@ -896,9 +474,9 @@ data CreateDBInstanceResponse = CreateDBInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdirsDBInstance'
+-- * 'cdirsDBInstance' - Undocumented member.
 --
--- * 'cdirsResponseStatus'
+-- * 'cdirsResponseStatus' - -- | The response status code.
 createDBInstanceResponse
     :: Int -- ^ 'cdirsResponseStatus'
     -> CreateDBInstanceResponse
@@ -912,7 +490,7 @@ createDBInstanceResponse pResponseStatus_ =
 cdirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdirsResponseStatus :: Lens' CreateDBInstanceResponse Int
 cdirsResponseStatus = lens _cdirsResponseStatus (\ s a -> s{_cdirsResponseStatus = a});
 

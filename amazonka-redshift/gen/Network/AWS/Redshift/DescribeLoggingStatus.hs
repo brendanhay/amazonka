@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.
+--
+--
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeLoggingStatus' smart constructor.
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
     { _dlsClusterIdentifier :: Text
@@ -57,7 +61,7 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsClusterIdentifier'
+-- * 'dlsClusterIdentifier' - The identifier of the cluster from which to get the logging status.  Example: @examplecluster@
 describeLoggingStatus
     :: Text -- ^ 'dlsClusterIdentifier'
     -> DescribeLoggingStatus
@@ -66,9 +70,7 @@ describeLoggingStatus pClusterIdentifier_ =
     { _dlsClusterIdentifier = pClusterIdentifier_
     }
 
--- | The identifier of the cluster from which to get the logging status.
---
--- Example: 'examplecluster'
+-- | The identifier of the cluster from which to get the logging status.  Example: @examplecluster@
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
 

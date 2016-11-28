@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified rule.
+--
+--
 module Network.AWS.ELBv2.DeleteRule
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteRule.
 --
+--
+--
 -- /See:/ 'deleteRule' smart constructor.
 newtype DeleteRule = DeleteRule'
     { _drRuleARN :: Text
@@ -52,7 +56,7 @@ newtype DeleteRule = DeleteRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRuleARN'
+-- * 'drRuleARN' - The Amazon Resource Name (ARN) of the rule.
 deleteRule
     :: Text -- ^ 'drRuleARN'
     -> DeleteRule
@@ -92,6 +96,8 @@ instance ToQuery DeleteRule where
 
 -- | Contains the output of DeleteRule.
 --
+--
+--
 -- /See:/ 'deleteRuleResponse' smart constructor.
 newtype DeleteRuleResponse = DeleteRuleResponse'
     { _drrsResponseStatus :: Int
@@ -101,7 +107,7 @@ newtype DeleteRuleResponse = DeleteRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 deleteRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRuleResponse
@@ -110,7 +116,7 @@ deleteRuleResponse pResponseStatus_ =
     { _drrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

@@ -312,7 +312,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-05-28' of the Amazon IoT SDK configuration.
+-- | API version @2015-05-28@ of the Amazon IoT SDK configuration.
 ioT :: Service
 ioT =
     Service
@@ -347,102 +347,142 @@ ioT =
       | otherwise = Nothing
 
 -- | Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.
+--
+--
 _CertificateConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateConflictException =
     _ServiceError . hasStatus 409 . hasCode "CertificateConflictException"
 
--- | The Rule-SQL expression can\'t be parsed correctly.
+-- | The Rule-SQL expression can't be parsed correctly.
+--
+--
 _SqlParseException :: AsError a => Getting (First ServiceError) a ServiceError
 _SqlParseException =
     _ServiceError . hasStatus 400 . hasCode "SqlParseException"
 
 -- | The request is not valid.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
--- | You can\'t transfer the certificate because authorization policies are still attached.
+-- | You can't transfer the certificate because authorization policies are still attached.
+--
+--
 _TransferConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferConflictException =
     _ServiceError . hasStatus 409 . hasCode "TransferConflictException"
 
 -- | The certificate operation is not allowed.
+--
+--
 _CertificateStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateStateException =
     _ServiceError . hasStatus 406 . hasCode "CertificateStateException"
 
 -- | The registration code is invalid.
+--
+--
 _RegistrationCodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _RegistrationCodeValidationException =
     _ServiceError .
     hasStatus 400 . hasCode "RegistrationCodeValidationException"
 
 -- | The policy documentation is not valid.
+--
+--
 _MalformedPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyException"
 
--- | You can\'t delete the resource because it is attached to one or more resources.
+-- | You can't delete the resource because it is attached to one or more resources.
+--
+--
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeleteConflictException =
     _ServiceError . hasStatus 409 . hasCode "DeleteConflictException"
 
 -- | The resource already exists.
+--
+--
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
     _ServiceError . hasStatus 409 . hasCode "ResourceAlreadyExistsException"
 
 -- | The certificate is invalid.
+--
+--
 _CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateValidationException =
     _ServiceError . hasStatus 400 . hasCode "CertificateValidationException"
 
--- | You can\'t revert the certificate transfer because the transfer is already complete.
+-- | You can't revert the certificate transfer because the transfer is already complete.
+--
+--
 _TransferAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferAlreadyCompletedException =
     _ServiceError . hasStatus 410 . hasCode "TransferAlreadyCompletedException"
 
 -- | The rate exceeds the limit.
+--
+--
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
     _ServiceError . hasStatus 429 . hasCode "ThrottlingException"
 
 -- | An unexpected error has occurred.
+--
+--
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalFailureException =
     _ServiceError . hasStatus 500 . hasCode "InternalFailureException"
 
 -- | The number of policy versions exceeds the limit.
+--
+--
 _VersionsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _VersionsLimitExceededException =
     _ServiceError . hasStatus 409 . hasCode "VersionsLimitExceededException"
 
 -- | The service is temporarily unavailable.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
 
 -- | An unexpected error has occurred.
+--
+--
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
     _ServiceError . hasStatus 500 . hasCode "InternalException"
 
 -- | An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.
+--
+--
 _VersionConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _VersionConflictException =
     _ServiceError . hasStatus 409 . hasCode "VersionConflictException"
 
 -- | You are not authorized to perform this operation.
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
     _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
 
 -- | The specified resource does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The number of attached entities exceeds the limit.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 410 . hasCode "LimitExceededException"

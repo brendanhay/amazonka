@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns all tags for the given Elasticsearch domain.
+--
+--
 module Network.AWS.ElasticSearch.ListTags
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'ListTags' operation. Specify the 'ARN' for the Elasticsearch domain to which the tags are attached that you want to view are attached.
+-- | Container for the parameters to the @'ListTags' @ operation. Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view are attached.
+--
+--
 --
 -- /See:/ 'listTags' smart constructor.
 newtype ListTags = ListTags'
@@ -53,7 +57,7 @@ newtype ListTags = ListTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltARN'
+-- * 'ltARN' - Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
 listTags
     :: Text -- ^ 'ltARN'
     -> ListTags
@@ -62,7 +66,7 @@ listTags pARN_ =
     { _ltARN = pARN_
     }
 
--- | Specify the 'ARN' for the Elasticsearch domain to which the tags are attached that you want to view.
+-- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
 ltARN :: Lens' ListTags Text
 ltARN = lens _ltARN (\ s a -> s{_ltARN = a});
 
@@ -88,7 +92,9 @@ instance ToPath ListTags where
 instance ToQuery ListTags where
         toQuery ListTags'{..} = mconcat ["arn" =: _ltARN]
 
--- | The result of a 'ListTags' operation. Contains tags for all requested Elasticsearch domains.
+-- | The result of a @ListTags@ operation. Contains tags for all requested Elasticsearch domains.
+--
+--
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
@@ -100,9 +106,9 @@ data ListTagsResponse = ListTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTagList'
+-- * 'ltrsTagList' - List of @Tag@ for the requested Elasticsearch domain.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTagsResponse
@@ -112,11 +118,11 @@ listTagsResponse pResponseStatus_ =
     , _ltrsResponseStatus = pResponseStatus_
     }
 
--- | List of 'Tag' for the requested Elasticsearch domain.
+-- | List of @Tag@ for the requested Elasticsearch domain.
 ltrsTagList :: Lens' ListTagsResponse [Tag]
 ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

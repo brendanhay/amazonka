@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resends the confirmation (for confirmation of registration) to a specific user in the user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to resend the confirmation code.
 --
+--
+--
 -- /See:/ 'resendConfirmationCode' smart constructor.
 data ResendConfirmationCode = ResendConfirmationCode'
     { _rccSecretHash :: !(Maybe (Sensitive Text))
@@ -57,11 +61,11 @@ data ResendConfirmationCode = ResendConfirmationCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccSecretHash'
+-- * 'rccSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'rccClientId'
+-- * 'rccClientId' - The ID of the client associated with the user pool.
 --
--- * 'rccUsername'
+-- * 'rccUsername' - The user name of the user to whom you wish to resend a confirmation code.
 resendConfirmationCode
     :: Text -- ^ 'rccClientId'
     -> Text -- ^ 'rccUsername'
@@ -126,6 +130,8 @@ instance ToQuery ResendConfirmationCode where
 
 -- | The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.
 --
+--
+--
 -- /See:/ 'resendConfirmationCodeResponse' smart constructor.
 data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
     { _rccrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
@@ -136,9 +142,9 @@ data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccrsCodeDeliveryDetails'
+-- * 'rccrsCodeDeliveryDetails' - Undocumented member.
 --
--- * 'rccrsResponseStatus'
+-- * 'rccrsResponseStatus' - -- | The response status code.
 resendConfirmationCodeResponse
     :: Int -- ^ 'rccrsResponseStatus'
     -> ResendConfirmationCodeResponse
@@ -152,7 +158,7 @@ resendConfirmationCodeResponse pResponseStatus_ =
 rccrsCodeDeliveryDetails :: Lens' ResendConfirmationCodeResponse (Maybe CodeDeliveryDetailsType)
 rccrsCodeDeliveryDetails = lens _rccrsCodeDeliveryDetails (\ s a -> s{_rccrsCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rccrsResponseStatus :: Lens' ResendConfirmationCodeResponse Int
 rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
 

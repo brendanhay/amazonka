@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.
+--
+--
 module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data TestMetricFilter = TestMetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tmfFilterPattern'
+-- * 'tmfFilterPattern' - Undocumented member.
 --
--- * 'tmfLogEventMessages'
+-- * 'tmfLogEventMessages' - A list of log event messages to test.
 testMetricFilter
     :: Text -- ^ 'tmfFilterPattern'
     -> NonEmpty Text -- ^ 'tmfLogEventMessages'
@@ -119,9 +121,9 @@ data TestMetricFilterResponse = TestMetricFilterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tmfrsMatches'
+-- * 'tmfrsMatches' - Undocumented member.
 --
--- * 'tmfrsResponseStatus'
+-- * 'tmfrsResponseStatus' - -- | The response status code.
 testMetricFilterResponse
     :: Int -- ^ 'tmfrsResponseStatus'
     -> TestMetricFilterResponse
@@ -135,7 +137,7 @@ testMetricFilterResponse pResponseStatus_ =
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 tmfrsResponseStatus :: Lens' TestMetricFilterResponse Int
 tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a});
 

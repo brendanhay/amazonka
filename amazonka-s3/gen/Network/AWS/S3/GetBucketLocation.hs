@@ -51,7 +51,7 @@ newtype GetBucketLocation = GetBucketLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblBucket'
+-- * 'gblBucket' - Undocumented member.
 getBucketLocation
     :: BucketName -- ^ 'gblBucket'
     -> GetBucketLocation
@@ -97,9 +97,9 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsResponseStatus'
+-- * 'grsResponseStatus' - -- | The response status code.
 --
--- * 'grsLocationConstraint'
+-- * 'grsLocationConstraint' - Undocumented member.
 getBucketLocationResponse
     :: Int -- ^ 'grsResponseStatus'
     -> LocationConstraint -- ^ 'grsLocationConstraint'
@@ -110,7 +110,7 @@ getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
     , _grsLocationConstraint = pLocationConstraint_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 grsResponseStatus :: Lens' GetBucketLocationResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 

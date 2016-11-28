@@ -20,7 +20,9 @@
 --
 -- Returns all the log groups that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by log group name.
 --
--- By default, this operation returns up to 50 log groups. If there are more log groups to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of log groups returned in the response by specifying the 'limit' parameter in the request.
+--
+-- By default, this operation returns up to 50 log groups. If there are more log groups to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of log groups returned in the response by specifying the @limit@ parameter in the request.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
@@ -61,11 +63,11 @@ data DescribeLogGroups = DescribeLogGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgLogGroupNamePrefix'
+-- * 'dlgLogGroupNamePrefix' - Will only return log groups that match the provided logGroupNamePrefix. If you don't specify a value, no prefix filter is applied.
 --
--- * 'dlgNextToken'
+-- * 'dlgNextToken' - A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeLogGroups@ request.
 --
--- * 'dlgLimit'
+-- * 'dlgLimit' - The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
 describeLogGroups
     :: DescribeLogGroups
 describeLogGroups =
@@ -75,15 +77,15 @@ describeLogGroups =
     , _dlgLimit = Nothing
     }
 
--- | Will only return log groups that match the provided logGroupNamePrefix. If you don\'t specify a value, no prefix filter is applied.
+-- | Will only return log groups that match the provided logGroupNamePrefix. If you don't specify a value, no prefix filter is applied.
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous 'DescribeLogGroups' request.
+-- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeLogGroups@ request.
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
 
--- | The maximum number of items returned in the response. If you don\'t specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
 
@@ -144,11 +146,11 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgrsLogGroups'
+-- * 'dlgrsLogGroups' - Undocumented member.
 --
--- * 'dlgrsNextToken'
+-- * 'dlgrsNextToken' - Undocumented member.
 --
--- * 'dlgrsResponseStatus'
+-- * 'dlgrsResponseStatus' - -- | The response status code.
 describeLogGroupsResponse
     :: Int -- ^ 'dlgrsResponseStatus'
     -> DescribeLogGroupsResponse
@@ -167,7 +169,7 @@ dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Defau
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});
 

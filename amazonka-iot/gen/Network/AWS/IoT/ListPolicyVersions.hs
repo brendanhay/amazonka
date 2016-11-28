@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of the specified policy and identifies the default version.
+--
+--
 module Network.AWS.IoT.ListPolicyVersions
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListPolicyVersions operation.
 --
+--
+--
 -- /See:/ 'listPolicyVersions' smart constructor.
 newtype ListPolicyVersions = ListPolicyVersions'
     { _lpvPolicyName :: Text
@@ -53,7 +57,7 @@ newtype ListPolicyVersions = ListPolicyVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpvPolicyName'
+-- * 'lpvPolicyName' - The policy name.
 listPolicyVersions
     :: Text -- ^ 'lpvPolicyName'
     -> ListPolicyVersions
@@ -94,6 +98,8 @@ instance ToQuery ListPolicyVersions where
 
 -- | The output from the ListPolicyVersions operation.
 --
+--
+--
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     { _lpvrsPolicyVersions :: !(Maybe [PolicyVersion])
@@ -104,9 +110,9 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpvrsPolicyVersions'
+-- * 'lpvrsPolicyVersions' - The policy versions.
 --
--- * 'lpvrsResponseStatus'
+-- * 'lpvrsResponseStatus' - -- | The response status code.
 listPolicyVersionsResponse
     :: Int -- ^ 'lpvrsResponseStatus'
     -> ListPolicyVersionsResponse
@@ -120,7 +126,7 @@ listPolicyVersionsResponse pResponseStatus_ =
 lpvrsPolicyVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
 lpvrsPolicyVersions = lens _lpvrsPolicyVersions (\ s a -> s{_lpvrsPolicyVersions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
 

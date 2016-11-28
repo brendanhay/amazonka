@@ -20,7 +20,7 @@
 --
 -- Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
 --
--- If you issue a /DescribeTable/ request immediately after a /CreateTable/ request, DynamoDB might return a /ResourceNotFoundException/. This is because /DescribeTable/ uses an eventually consistent query, and the metadata for your table might not be available at that moment. Wait for a few seconds, and then try the /DescribeTable/ request again.
+--
 module Network.AWS.DynamoDB.DescribeTable
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeTable/ operation.
 --
+--
+--
 -- /See:/ 'describeTable' smart constructor.
 newtype DescribeTable = DescribeTable'
     { _dTableName :: Text
@@ -55,7 +57,7 @@ newtype DescribeTable = DescribeTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTableName'
+-- * 'dTableName' - The name of the table to describe.
 describeTable
     :: Text -- ^ 'dTableName'
     -> DescribeTable
@@ -103,6 +105,8 @@ instance ToQuery DescribeTable where
 
 -- | Represents the output of a /DescribeTable/ operation.
 --
+--
+--
 -- /See:/ 'describeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
     { _drsTable          :: !(Maybe TableDescription)
@@ -113,9 +117,9 @@ data DescribeTableResponse = DescribeTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsTable'
+-- * 'drsTable' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeTableResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeTableResponse
@@ -129,7 +133,7 @@ describeTableResponse pResponseStatus_ =
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeTableResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

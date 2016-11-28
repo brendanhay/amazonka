@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment template that is specified by the ARN of the assessment template.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentTemplate
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteAssessmentTemplate = DeleteAssessmentTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTemplateARN'
+-- * 'datAssessmentTemplateARN' - The ARN that specifies the assessment template that you want to delete.
 deleteAssessmentTemplate
     :: Text -- ^ 'datAssessmentTemplateARN'
     -> DeleteAssessmentTemplate

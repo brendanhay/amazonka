@@ -20,7 +20,7 @@
 --
 -- Notify Amazon ECR that you intend to upload an image layer.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.InitiateLayerUpload
     (
     -- * Creating a Request
@@ -56,9 +56,9 @@ data InitiateLayerUpload = InitiateLayerUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iluRegistryId'
+-- * 'iluRegistryId' - The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed.
 --
--- * 'iluRepositoryName'
+-- * 'iluRepositoryName' - The name of the repository that you intend to upload layers to.
 initiateLayerUpload
     :: Text -- ^ 'iluRepositoryName'
     -> InitiateLayerUpload
@@ -125,11 +125,11 @@ data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ilursPartSize'
+-- * 'ilursPartSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 --
--- * 'ilursUploadId'
+-- * 'ilursUploadId' - The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 --
--- * 'ilursResponseStatus'
+-- * 'ilursResponseStatus' - -- | The response status code.
 initiateLayerUploadResponse
     :: Int -- ^ 'ilursResponseStatus'
     -> InitiateLayerUploadResponse
@@ -144,11 +144,11 @@ initiateLayerUploadResponse pResponseStatus_ =
 ilursPartSize :: Lens' InitiateLayerUploadResponse (Maybe Natural)
 ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat;
 
--- | The upload ID for the layer upload. This parameter is passed to further < UploadLayerPart> and < CompleteLayerUpload> operations.
+-- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 ilursUploadId :: Lens' InitiateLayerUploadResponse (Maybe Text)
 ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ilursResponseStatus :: Lens' InitiateLayerUploadResponse Int
 ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a});
 

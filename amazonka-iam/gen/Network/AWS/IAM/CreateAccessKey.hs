@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is 'Active'.
+-- Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is @Active@ .
+--
 --
 -- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
 --
--- For information about limits on the number of keys you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- For information about limits on the number of keys you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
 --
--- To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
+-- /Important:/ To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
+--
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Creating a Request
@@ -57,7 +59,7 @@ newtype CreateAccessKey = CreateAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cakUserName'
+-- * 'cakUserName' - The name of the IAM user that the new key will belong to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createAccessKey
     :: CreateAccessKey
 createAccessKey =
@@ -65,9 +67,7 @@ createAccessKey =
     { _cakUserName = Nothing
     }
 
--- | The name of the IAM user that the new key will belong to.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the IAM user that the new key will belong to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
@@ -97,7 +97,9 @@ instance ToQuery CreateAccessKey where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _cakUserName]
 
--- | Contains the response to a successful < CreateAccessKey> request.
+-- | Contains the response to a successful 'CreateAccessKey' request.
+--
+--
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
@@ -109,9 +111,9 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cakrsResponseStatus'
+-- * 'cakrsResponseStatus' - -- | The response status code.
 --
--- * 'cakrsAccessKey'
+-- * 'cakrsAccessKey' - A structure with details about the access key.
 createAccessKeyResponse
     :: Int -- ^ 'cakrsResponseStatus'
     -> AccessKey -- ^ 'cakrsAccessKey'
@@ -122,7 +124,7 @@ createAccessKeyResponse pResponseStatus_ pAccessKey_ =
     , _cakrsAccessKey = pAccessKey_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
 cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus = a});
 

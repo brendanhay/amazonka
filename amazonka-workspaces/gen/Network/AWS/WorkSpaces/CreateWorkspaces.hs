@@ -20,7 +20,7 @@
 --
 -- Creates one or more WorkSpaces.
 --
--- This operation is asynchronous and returns before the WorkSpaces are created.
+--
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < CreateWorkspaces> operation.
+-- | Contains the inputs for the 'CreateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'createWorkspaces' smart constructor.
 newtype CreateWorkspaces = CreateWorkspaces'
@@ -56,7 +58,7 @@ newtype CreateWorkspaces = CreateWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwWorkspaces'
+-- * 'cwWorkspaces' - An array of structures that specify the WorkSpaces to create.
 createWorkspaces
     :: NonEmpty WorkspaceRequest -- ^ 'cwWorkspaces'
     -> CreateWorkspaces
@@ -104,7 +106,9 @@ instance ToPath CreateWorkspaces where
 instance ToQuery CreateWorkspaces where
         toQuery = const mempty
 
--- | Contains the result of the < CreateWorkspaces> operation.
+-- | Contains the result of the 'CreateWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'createWorkspacesResponse' smart constructor.
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
@@ -117,11 +121,11 @@ data CreateWorkspacesResponse = CreateWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwrsFailedRequests'
+-- * 'cwrsFailedRequests' - An array of structures that represent the WorkSpaces that could not be created.
 --
--- * 'cwrsPendingRequests'
+-- * 'cwrsPendingRequests' - An array of structures that represent the WorkSpaces that were created. Because this operation is asynchronous, the identifier in @WorkspaceId@ is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information will be returned.
 --
--- * 'cwrsResponseStatus'
+-- * 'cwrsResponseStatus' - -- | The response status code.
 createWorkspacesResponse
     :: Int -- ^ 'cwrsResponseStatus'
     -> CreateWorkspacesResponse
@@ -136,13 +140,11 @@ createWorkspacesResponse pResponseStatus_ =
 cwrsFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
 cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = a}) . _Default . _Coerce;
 
--- | An array of structures that represent the WorkSpaces that were created.
---
--- Because this operation is asynchronous, the identifier in 'WorkspaceId' is not immediately available. If you immediately call < DescribeWorkspaces> with this identifier, no information will be returned.
+-- | An array of structures that represent the WorkSpaces that were created. Because this operation is asynchronous, the identifier in @WorkspaceId@ is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information will be returned.
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 cwrsResponseStatus :: Lens' CreateWorkspacesResponse Int
 cwrsResponseStatus = lens _cwrsResponseStatus (\ s a -> s{_cwrsResponseStatus = a});
 

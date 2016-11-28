@@ -48,7 +48,7 @@ newtype DeleteBucketCORS = DeleteBucketCORS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbcBucket'
+-- * 'dbcBucket' - Undocumented member.
 deleteBucketCORS
     :: BucketName -- ^ 'dbcBucket'
     -> DeleteBucketCORS

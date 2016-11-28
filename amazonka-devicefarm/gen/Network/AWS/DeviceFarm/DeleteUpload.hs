@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an upload given the upload ARN.
+--
+--
 module Network.AWS.DeviceFarm.DeleteUpload
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the delete upload operation.
 --
+--
+--
 -- /See:/ 'deleteUpload' smart constructor.
 newtype DeleteUpload = DeleteUpload'
     { _duArn :: Text
@@ -52,7 +56,7 @@ newtype DeleteUpload = DeleteUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duArn'
+-- * 'duArn' - Represents the Amazon Resource Name (ARN) of the Device Farm upload you wish to delete.
 deleteUpload
     :: Text -- ^ 'duArn'
     -> DeleteUpload
@@ -98,6 +102,8 @@ instance ToQuery DeleteUpload where
 
 -- | Represents the result of a delete upload request.
 --
+--
+--
 -- /See:/ 'deleteUploadResponse' smart constructor.
 newtype DeleteUploadResponse = DeleteUploadResponse'
     { _dursResponseStatus :: Int
@@ -107,7 +113,7 @@ newtype DeleteUploadResponse = DeleteUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dursResponseStatus'
+-- * 'dursResponseStatus' - -- | The response status code.
 deleteUploadResponse
     :: Int -- ^ 'dursResponseStatus'
     -> DeleteUploadResponse
@@ -116,7 +122,7 @@ deleteUploadResponse pResponseStatus_ =
     { _dursResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dursResponseStatus :: Lens' DeleteUploadResponse Int
 dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
 

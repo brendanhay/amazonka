@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a model.
+--
+--
 module Network.AWS.APIGateway.DeleteModel
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing model in an existing < RestApi> resource.
+-- | Request to delete an existing model in an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'deleteModel' smart constructor.
 data DeleteModel = DeleteModel'
@@ -52,9 +56,9 @@ data DeleteModel = DeleteModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRestAPIId'
+-- * 'dRestAPIId' - The 'RestApi' under which the model will be deleted.
 --
--- * 'dModelName'
+-- * 'dModelName' - The name of the model to delete.
 deleteModel
     :: Text -- ^ 'dRestAPIId'
     -> Text -- ^ 'dModelName'
@@ -65,7 +69,7 @@ deleteModel pRestAPIId_ pModelName_ =
     , _dModelName = pModelName_
     }
 
--- | The < RestApi> under which the model will be deleted.
+-- | The 'RestApi' under which the model will be deleted.
 dRestAPIId :: Lens' DeleteModel Text
 dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
 

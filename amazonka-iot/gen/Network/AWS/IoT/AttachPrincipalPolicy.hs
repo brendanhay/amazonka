@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches the specified policy to the specified principal (certificate or other credential).
+--
+--
 module Network.AWS.IoT.AttachPrincipalPolicy
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The input for the AttachPrincipalPolicy operation.
 --
+--
+--
 -- /See:/ 'attachPrincipalPolicy' smart constructor.
 data AttachPrincipalPolicy = AttachPrincipalPolicy'
     { _appPolicyName :: !Text
@@ -52,9 +56,9 @@ data AttachPrincipalPolicy = AttachPrincipalPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'appPolicyName'
+-- * 'appPolicyName' - The policy name.
 --
--- * 'appPrincipal'
+-- * 'appPrincipal' - The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
 attachPrincipalPolicy
     :: Text -- ^ 'appPolicyName'
     -> Text -- ^ 'appPrincipal'

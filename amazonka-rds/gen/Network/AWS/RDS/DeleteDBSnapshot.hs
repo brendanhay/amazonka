@@ -20,7 +20,7 @@
 --
 -- Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is terminated.
 --
--- The DBSnapshot must be in the 'available' state to be deleted.
+--
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBSnapshot' smart constructor.
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
     { _ddbsDBSnapshotIdentifier :: Text
@@ -55,7 +57,7 @@ newtype DeleteDBSnapshot = DeleteDBSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsDBSnapshotIdentifier'
+-- * 'ddbsDBSnapshotIdentifier' - The DBSnapshot identifier. Constraints: Must be the name of an existing DB snapshot in the @available@ state.
 deleteDBSnapshot
     :: Text -- ^ 'ddbsDBSnapshotIdentifier'
     -> DeleteDBSnapshot
@@ -64,9 +66,7 @@ deleteDBSnapshot pDBSnapshotIdentifier_ =
     { _ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
--- | The DBSnapshot identifier.
---
--- Constraints: Must be the name of an existing DB snapshot in the 'available' state.
+-- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB snapshot in the @available@ state.
 ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
 
@@ -106,9 +106,9 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsrsDBSnapshot'
+-- * 'ddbsrsDBSnapshot' - Undocumented member.
 --
--- * 'ddbsrsResponseStatus'
+-- * 'ddbsrsResponseStatus' - -- | The response status code.
 deleteDBSnapshotResponse
     :: Int -- ^ 'ddbsrsResponseStatus'
     -> DeleteDBSnapshotResponse
@@ -122,7 +122,7 @@ deleteDBSnapshotResponse pResponseStatus_ =
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});
 

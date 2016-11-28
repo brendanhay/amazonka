@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a deployment group.
+--
+--
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete deployment group operation.
 --
+--
+--
 -- /See:/ 'deleteDeploymentGroup' smart constructor.
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
     { _ddgApplicationName     :: !Text
@@ -55,9 +59,9 @@ data DeleteDeploymentGroup = DeleteDeploymentGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddgApplicationName'
+-- * 'ddgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'ddgDeploymentGroupName'
+-- * 'ddgDeploymentGroupName' - The name of an existing deployment group for the specified application.
 deleteDeploymentGroup
     :: Text -- ^ 'ddgApplicationName'
     -> Text -- ^ 'ddgDeploymentGroupName'
@@ -117,6 +121,8 @@ instance ToQuery DeleteDeploymentGroup where
 
 -- | Represents the output of a delete deployment group operation.
 --
+--
+--
 -- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
@@ -127,9 +133,9 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddgrsHooksNotCleanedUp'
+-- * 'ddgrsHooksNotCleanedUp' - If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
 --
--- * 'ddgrsResponseStatus'
+-- * 'ddgrsResponseStatus' - -- | The response status code.
 deleteDeploymentGroupResponse
     :: Int -- ^ 'ddgrsResponseStatus'
     -> DeleteDeploymentGroupResponse
@@ -143,7 +149,7 @@ deleteDeploymentGroupResponse pResponseStatus_ =
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});
 

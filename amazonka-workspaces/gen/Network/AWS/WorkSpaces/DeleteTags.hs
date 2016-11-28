@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes tags from a WorkSpace.
+--
+--
 module Network.AWS.WorkSpaces.DeleteTags
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the < DeleteTags> operation.
+-- | The request of the 'DeleteTags' operation.
+--
+--
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
@@ -54,9 +58,9 @@ data DeleteTags = DeleteTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dResourceId'
+-- * 'dResourceId' - The resource ID of the request.
 --
--- * 'dTagKeys'
+-- * 'dTagKeys' - The tag keys of the request.
 deleteTags
     :: Text -- ^ 'dResourceId'
     -> DeleteTags
@@ -108,7 +112,9 @@ instance ToPath DeleteTags where
 instance ToQuery DeleteTags where
         toQuery = const mempty
 
--- | The result of the < DeleteTags> operation.
+-- | The result of the 'DeleteTags' operation.
+--
+--
 --
 -- /See:/ 'deleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
@@ -119,7 +125,7 @@ newtype DeleteTagsResponse = DeleteTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
@@ -128,7 +134,7 @@ deleteTagsResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

@@ -52,11 +52,11 @@ data PutBucketReplication = PutBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbrContentMD5'
+-- * 'pbrContentMD5' - Undocumented member.
 --
--- * 'pbrBucket'
+-- * 'pbrBucket' - Undocumented member.
 --
--- * 'pbrReplicationConfiguration'
+-- * 'pbrReplicationConfiguration' - Undocumented member.
 putBucketReplication
     :: BucketName -- ^ 'pbrBucket'
     -> ReplicationConfiguration -- ^ 'pbrReplicationConfiguration'

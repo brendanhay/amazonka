@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified pipeline.
+--
+--
 module Network.AWS.CodePipeline.DeletePipeline
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete pipeline action.
 --
+--
+--
 -- /See:/ 'deletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
     { _dpName :: Text
@@ -50,7 +54,7 @@ newtype DeletePipeline = DeletePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpName'
+-- * 'dpName' - The name of the pipeline to be deleted.
 deletePipeline
     :: Text -- ^ 'dpName'
     -> DeletePipeline

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn\'t proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.
+-- Sends a signal to the specified resource with a success or failure status. You can use the SignalResource API in conjunction with a creation policy or update policy. AWS CloudFormation doesn't proceed with a stack creation or update until resources receive the required number of signals or the timeout period is exceeded. The SignalResource API is useful in cases where you want to send signals from anywhere other than an Amazon EC2 instance.
+--
+--
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < SignalResource> action.
+-- | The input for the 'SignalResource' action.
+--
+--
 --
 -- /See:/ 'signalResource' smart constructor.
 data SignalResource = SignalResource'
@@ -56,13 +60,13 @@ data SignalResource = SignalResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sigStackName'
+-- * 'sigStackName' - The stack name or unique stack ID that includes the resource that you want to signal.
 --
--- * 'sigLogicalResourceId'
+-- * 'sigLogicalResourceId' - The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
 --
--- * 'sigUniqueId'
+-- * 'sigUniqueId' - A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
 --
--- * 'sigStatus'
+-- * 'sigStatus' - The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
 signalResource
     :: Text -- ^ 'sigStackName'
     -> Text -- ^ 'sigLogicalResourceId'

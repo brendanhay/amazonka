@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the retention of the specified log group. A retention policy allows you to configure the number of days you want to retain log events in the specified log group.
+--
+--
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Creating a Request
@@ -50,9 +52,9 @@ data PutRetentionPolicy = PutRetentionPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prpLogGroupName'
+-- * 'prpLogGroupName' - The name of the log group to associate the retention policy with.
 --
--- * 'prpRetentionInDays'
+-- * 'prpRetentionInDays' - Undocumented member.
 putRetentionPolicy
     :: Text -- ^ 'prpLogGroupName'
     -> Int -- ^ 'prpRetentionInDays'

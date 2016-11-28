@@ -48,7 +48,7 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dblBucket'
+-- * 'dblBucket' - Undocumented member.
 deleteBucketLifecycle
     :: BucketName -- ^ 'dblBucket'
     -> DeleteBucketLifecycle

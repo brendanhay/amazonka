@@ -20,7 +20,9 @@
 --
 -- Adds one or more subnets to the set of configured subnets for the specified load balancer.
 --
--- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancers Guide/.
+--
+-- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachLoaBalancerToSubnets.
 --
+--
+--
 -- /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName :: !Text
@@ -57,9 +61,9 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtsLoadBalancerName'
+-- * 'albtsLoadBalancerName' - The name of the load balancer.
 --
--- * 'albtsSubnets'
+-- * 'albtsSubnets' - The IDs of the subnets to add. You can add only one subnet per Availability Zone.
 attachLoadBalancerToSubnets
     :: Text -- ^ 'albtsLoadBalancerName'
     -> AttachLoadBalancerToSubnets
@@ -111,6 +115,8 @@ instance ToQuery AttachLoadBalancerToSubnets where
 
 -- | Contains the output of AttachLoadBalancerToSubnets.
 --
+--
+--
 -- /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets        :: !(Maybe [Text])
@@ -121,9 +127,9 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtsrsSubnets'
+-- * 'albtsrsSubnets' - The IDs of the subnets attached to the load balancer.
 --
--- * 'albtsrsResponseStatus'
+-- * 'albtsrsResponseStatus' - -- | The response status code.
 attachLoadBalancerToSubnetsResponse
     :: Int -- ^ 'albtsrsResponseStatus'
     -> AttachLoadBalancerToSubnetsResponse
@@ -137,7 +143,7 @@ attachLoadBalancerToSubnetsResponse pResponseStatus_ =
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});
 

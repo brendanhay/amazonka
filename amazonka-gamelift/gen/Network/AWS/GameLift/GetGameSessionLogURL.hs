@@ -20,7 +20,7 @@
 --
 -- Retrieves the location of stored game session logs for a specified game session. When a game session is terminated, Amazon GameLift automatically stores the logs in Amazon S3. Use this URL to download the logs.
 --
--- See the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits> page for maximum log file sizes. Log files that exceed this limit are not saved.
+--
 module Network.AWS.GameLift.GetGameSessionLogURL
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'getGameSessionLogURL' smart constructor.
 newtype GetGameSessionLogURL = GetGameSessionLogURL'
     { _ggsluGameSessionId :: Text
@@ -55,7 +57,7 @@ newtype GetGameSessionLogURL = GetGameSessionLogURL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggsluGameSessionId'
+-- * 'ggsluGameSessionId' - Unique identifier for a game session. Specify the game session you want to get logs for.
 getGameSessionLogURL
     :: Text -- ^ 'ggsluGameSessionId'
     -> GetGameSessionLogURL
@@ -105,6 +107,8 @@ instance ToQuery GetGameSessionLogURL where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'getGameSessionLogURLResponse' smart constructor.
 data GetGameSessionLogURLResponse = GetGameSessionLogURLResponse'
     { _ggslursPreSignedURL   :: !(Maybe Text)
@@ -115,9 +119,9 @@ data GetGameSessionLogURLResponse = GetGameSessionLogURLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggslursPreSignedURL'
+-- * 'ggslursPreSignedURL' - Location of the requested game session logs, available for download.
 --
--- * 'ggslursResponseStatus'
+-- * 'ggslursResponseStatus' - -- | The response status code.
 getGameSessionLogURLResponse
     :: Int -- ^ 'ggslursResponseStatus'
     -> GetGameSessionLogURLResponse
@@ -131,7 +135,7 @@ getGameSessionLogURLResponse pResponseStatus_ =
 ggslursPreSignedURL :: Lens' GetGameSessionLogURLResponse (Maybe Text)
 ggslursPreSignedURL = lens _ggslursPreSignedURL (\ s a -> s{_ggslursPreSignedURL = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ggslursResponseStatus :: Lens' GetGameSessionLogURLResponse Int
 ggslursResponseStatus = lens _ggslursResponseStatus (\ s a -> s{_ggslursResponseStatus = a});
 

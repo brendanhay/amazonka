@@ -20,7 +20,9 @@
 --
 -- Creates a new table from a table in an Amazon Redshift cluster snapshot. You must create the new table within the Amazon Redshift cluster that the snapshot was taken from.
 --
--- You cannot use 'RestoreTableFromClusterSnapshot' to restore a table with the same name as an existing table in an Amazon Redshift cluster. That is, you cannot overwrite an existing table in a cluster with a restored table. If you want to replace your original table with a new, restored table, then rename or drop your original table before you call 'RestoreTableFromClusterSnapshot'. When you have renamed your original table, then you can pass the original name of the table as the 'NewTableName' parameter value in the call to 'RestoreTableFromClusterSnapshot'. This way, you can replace the original table with the table created from the snapshot.
+--
+-- You cannot use @RestoreTableFromClusterSnapshot@ to restore a table with the same name as an existing table in an Amazon Redshift cluster. That is, you cannot overwrite an existing table in a cluster with a restored table. If you want to replace your original table with a new, restored table, then rename or drop your original table before you call @RestoreTableFromClusterSnapshot@ . When you have renamed your original table, then you can pass the original name of the table as the @NewTableName@ parameter value in the call to @RestoreTableFromClusterSnapshot@ . This way, you can replace the original table with the table created from the snapshot.
+--
 module Network.AWS.Redshift.RestoreTableFromClusterSnapshot
     (
     -- * Creating a Request
@@ -67,21 +69,21 @@ data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfcsTargetSchemaName'
+-- * 'rtfcsTargetSchemaName' - The name of the schema to restore the table to.
 --
--- * 'rtfcsTargetDatabaseName'
+-- * 'rtfcsTargetDatabaseName' - The name of the database to restore the table to.
 --
--- * 'rtfcsSourceSchemaName'
+-- * 'rtfcsSourceSchemaName' - The name of the source schema that contains the table to restore from. If you do not specify a @SourceSchemaName@ value, the default is @public@ .
 --
--- * 'rtfcsClusterIdentifier'
+-- * 'rtfcsClusterIdentifier' - The identifier of the Amazon Redshift cluster to restore the table to.
 --
--- * 'rtfcsSnapshotIdentifier'
+-- * 'rtfcsSnapshotIdentifier' - The identifier of the snapshot to restore the table from. This snapshot must have been created from the Amazon Redshift cluster specified by the @ClusterIdentifier@ parameter.
 --
--- * 'rtfcsSourceDatabaseName'
+-- * 'rtfcsSourceDatabaseName' - The name of the source database that contains the table to restore from.
 --
--- * 'rtfcsSourceTableName'
+-- * 'rtfcsSourceTableName' - The name of the source table to restore from.
 --
--- * 'rtfcsNewTableName'
+-- * 'rtfcsNewTableName' - The name of the table to create as a result of the current request.
 restoreTableFromClusterSnapshot
     :: Text -- ^ 'rtfcsClusterIdentifier'
     -> Text -- ^ 'rtfcsSnapshotIdentifier'
@@ -109,7 +111,7 @@ rtfcsTargetSchemaName = lens _rtfcsTargetSchemaName (\ s a -> s{_rtfcsTargetSche
 rtfcsTargetDatabaseName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsTargetDatabaseName = lens _rtfcsTargetDatabaseName (\ s a -> s{_rtfcsTargetDatabaseName = a});
 
--- | The name of the source schema that contains the table to restore from. If you do not specify a 'SourceSchemaName' value, the default is 'public'.
+-- | The name of the source schema that contains the table to restore from. If you do not specify a @SourceSchemaName@ value, the default is @public@ .
 rtfcsSourceSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSchemaName = a});
 
@@ -117,7 +119,7 @@ rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSche
 rtfcsClusterIdentifier :: Lens' RestoreTableFromClusterSnapshot Text
 rtfcsClusterIdentifier = lens _rtfcsClusterIdentifier (\ s a -> s{_rtfcsClusterIdentifier = a});
 
--- | The identifier of the snapshot to restore the table from. This snapshot must have been created from the Amazon Redshift cluster specified by the 'ClusterIdentifier' parameter.
+-- | The identifier of the snapshot to restore the table from. This snapshot must have been created from the Amazon Redshift cluster specified by the @ClusterIdentifier@ parameter.
 rtfcsSnapshotIdentifier :: Lens' RestoreTableFromClusterSnapshot Text
 rtfcsSnapshotIdentifier = lens _rtfcsSnapshotIdentifier (\ s a -> s{_rtfcsSnapshotIdentifier = a});
 
@@ -182,9 +184,9 @@ data RestoreTableFromClusterSnapshotResponse = RestoreTableFromClusterSnapshotRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfcsrsTableRestoreStatus'
+-- * 'rtfcsrsTableRestoreStatus' - Undocumented member.
 --
--- * 'rtfcsrsResponseStatus'
+-- * 'rtfcsrsResponseStatus' - -- | The response status code.
 restoreTableFromClusterSnapshotResponse
     :: Int -- ^ 'rtfcsrsResponseStatus'
     -> RestoreTableFromClusterSnapshotResponse
@@ -198,7 +200,7 @@ restoreTableFromClusterSnapshotResponse pResponseStatus_ =
 rtfcsrsTableRestoreStatus :: Lens' RestoreTableFromClusterSnapshotResponse (Maybe TableRestoreStatus)
 rtfcsrsTableRestoreStatus = lens _rtfcsrsTableRestoreStatus (\ s a -> s{_rtfcsrsTableRestoreStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rtfcsrsResponseStatus :: Lens' RestoreTableFromClusterSnapshotResponse Int
 rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- While a job\'s 'JobState' value is 'New', you can update some of the information associated with a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
+-- While a job's @JobState@ value is @New@ , you can update some of the information associated with a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
+--
+--
 module Network.AWS.Snowball.UpdateJob
     (
     -- * Creating a Request
@@ -64,21 +66,21 @@ data UpdateJob = UpdateJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujNotification'
+-- * 'ujNotification' - The new or updated 'Notification' object.
 --
--- * 'ujAddressId'
+-- * 'ujAddressId' - The ID of the updated 'Address' object.
 --
--- * 'ujShippingOption'
+-- * 'ujShippingOption' - The updated shipping option value of this job's 'ShippingDetails' object.
 --
--- * 'ujResources'
+-- * 'ujResources' - The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
 --
--- * 'ujDescription'
+-- * 'ujDescription' - The updated description of this job's 'JobMetadata' object.
 --
--- * 'ujRoleARN'
+-- * 'ujRoleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
 --
--- * 'ujSnowballCapacityPreference'
+-- * 'ujSnowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. Note that the 50 TB Snowballs are only available in the US regions.
 --
--- * 'ujJobId'
+-- * 'ujJobId' - The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 updateJob
     :: Text -- ^ 'ujJobId'
     -> UpdateJob
@@ -94,23 +96,23 @@ updateJob pJobId_ =
     , _ujJobId = pJobId_
     }
 
--- | The new or updated < Notification> object.
+-- | The new or updated 'Notification' object.
 ujNotification :: Lens' UpdateJob (Maybe Notification)
 ujNotification = lens _ujNotification (\ s a -> s{_ujNotification = a});
 
--- | The ID of the updated < Address> object.
+-- | The ID of the updated 'Address' object.
 ujAddressId :: Lens' UpdateJob (Maybe Text)
 ujAddressId = lens _ujAddressId (\ s a -> s{_ujAddressId = a});
 
--- | The updated shipping option value of this job\'s < ShippingDetails> object.
+-- | The updated shipping option value of this job's 'ShippingDetails' object.
 ujShippingOption :: Lens' UpdateJob (Maybe ShippingOption)
 ujShippingOption = lens _ujShippingOption (\ s a -> s{_ujShippingOption = a});
 
--- | The updated < S3Resource> object (for a single Amazon S3 bucket or key range), or the updated < JobResource> object (for multiple buckets or key ranges).
+-- | The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
 ujResources :: Lens' UpdateJob (Maybe JobResource)
 ujResources = lens _ujResources (\ s a -> s{_ujResources = a});
 
--- | The updated description of this job\'s < JobMetadata> object.
+-- | The updated description of this job's 'JobMetadata' object.
 ujDescription :: Lens' UpdateJob (Maybe Text)
 ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a});
 
@@ -118,11 +120,11 @@ ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a});
 ujRoleARN :: Lens' UpdateJob (Maybe Text)
 ujRoleARN = lens _ujRoleARN (\ s a -> s{_ujRoleARN = a});
 
--- | The updated 'SnowballCapacityPreference' of this job\'s < JobMetadata> object. Note that the 50 TB Snowballs are only available in the US regions.
+-- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. Note that the 50 TB Snowballs are only available in the US regions.
 ujSnowballCapacityPreference :: Lens' UpdateJob (Maybe SnowballCapacity)
 ujSnowballCapacityPreference = lens _ujSnowballCapacityPreference (\ s a -> s{_ujSnowballCapacityPreference = a});
 
--- | The job ID of the job that you want to update, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
 
@@ -177,7 +179,7 @@ newtype UpdateJobResponse = UpdateJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujrsResponseStatus'
+-- * 'ujrsResponseStatus' - -- | The response status code.
 updateJobResponse
     :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
@@ -186,7 +188,7 @@ updateJobResponse pResponseStatus_ =
     { _ujrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
 

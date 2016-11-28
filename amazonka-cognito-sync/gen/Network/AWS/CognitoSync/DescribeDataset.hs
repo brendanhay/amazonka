@@ -20,7 +20,9 @@
 --
 -- Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
+--
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
+--
 module Network.AWS.CognitoSync.DescribeDataset
     (
     -- * Creating a Request
@@ -59,11 +61,11 @@ data DescribeDataset = DescribeDataset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddIdentityPoolId'
+-- * 'ddIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'ddIdentityId'
+-- * 'ddIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'ddDatasetName'
+-- * 'ddDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 describeDataset
     :: Text -- ^ 'ddIdentityPoolId'
     -> Text -- ^ 'ddIdentityId'
@@ -84,7 +86,7 @@ ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a});
 ddIdentityId :: Lens' DescribeDataset Text
 ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 ddDatasetName :: Lens' DescribeDataset Text
 ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
 
@@ -130,9 +132,9 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsDataset'
+-- * 'ddrsDataset' - Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 --
--- * 'ddrsResponseStatus'
+-- * 'ddrsResponseStatus' - -- | The response status code.
 describeDatasetResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDatasetResponse
@@ -142,11 +144,11 @@ describeDatasetResponse pResponseStatus_ =
     , _ddrsResponseStatus = pResponseStatus_
     }
 
--- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Takes a 'caseId' and returns the initial state of the case along with the state of the case after the call to < ResolveCase> completed.
+-- Takes a @caseId@ and returns the initial state of the case along with the state of the case after the call to 'ResolveCase' completed.
+--
+--
 module Network.AWS.Support.ResolveCase
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'resolveCase' smart constructor.
 newtype ResolveCase = ResolveCase'
     { _rcCaseId :: Maybe Text
@@ -54,7 +58,7 @@ newtype ResolveCase = ResolveCase'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcCaseId'
+-- * 'rcCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 resolveCase
     :: ResolveCase
 resolveCase =
@@ -100,7 +104,9 @@ instance ToPath ResolveCase where
 instance ToQuery ResolveCase where
         toQuery = const mempty
 
--- | The status of the case returned by the < ResolveCase> operation.
+-- | The status of the case returned by the 'ResolveCase' operation.
+--
+--
 --
 -- /See:/ 'resolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
@@ -113,11 +119,11 @@ data ResolveCaseResponse = ResolveCaseResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsInitialCaseStatus'
+-- * 'rcrsInitialCaseStatus' - The status of the case when the 'ResolveCase' request was sent.
 --
--- * 'rcrsFinalCaseStatus'
+-- * 'rcrsFinalCaseStatus' - The status of the case after the 'ResolveCase' request was processed.
 --
--- * 'rcrsResponseStatus'
+-- * 'rcrsResponseStatus' - -- | The response status code.
 resolveCaseResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> ResolveCaseResponse
@@ -128,15 +134,15 @@ resolveCaseResponse pResponseStatus_ =
     , _rcrsResponseStatus = pResponseStatus_
     }
 
--- | The status of the case when the < ResolveCase> request was sent.
+-- | The status of the case when the 'ResolveCase' request was sent.
 rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a});
 
--- | The status of the case after the < ResolveCase> request was processed.
+-- | The status of the case after the 'ResolveCase' request was processed.
 rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcrsResponseStatus :: Lens' ResolveCaseResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 

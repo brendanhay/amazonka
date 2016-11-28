@@ -34,7 +34,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-05-28' of the Amazon IoT Data Plane SDK configuration.
+-- | API version @2015-05-28@ of the Amazon IoT Data Plane SDK configuration.
 ioTDataPlane :: Service
 ioTDataPlane =
     Service
@@ -69,51 +69,71 @@ ioTDataPlane =
       | otherwise = Nothing
 
 -- | The request is not valid.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
 -- | The specified version does not match the version of the document.
+--
+--
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
     _ServiceError . hasStatus 409 . hasCode "ConflictException"
 
 -- | The payload exceeds the maximum size allowed.
+--
+--
 _RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestEntityTooLargeException =
     _ServiceError . hasStatus 413 . hasCode "RequestEntityTooLargeException"
 
 -- | The rate exceeds the limit.
+--
+--
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
     _ServiceError . hasStatus 429 . hasCode "ThrottlingException"
 
 -- | The specified combination of HTTP verb and URI is not supported.
+--
+--
 _MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MethodNotAllowedException =
     _ServiceError . hasStatus 405 . hasCode "MethodNotAllowedException"
 
 -- | An unexpected error has occurred.
+--
+--
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalFailureException =
     _ServiceError . hasStatus 500 . hasCode "InternalFailureException"
 
 -- | The service is temporarily unavailable.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
 
 -- | You are not authorized to perform this operation.
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
     _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
 
 -- | The specified resource does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The document encoding is not supported.
+--
+--
 _UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedDocumentEncodingException =
     _ServiceError .

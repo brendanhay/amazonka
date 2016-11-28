@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns AWS resources for this environment.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Request to describe the resources in an environment.
 --
+--
+--
 -- /See:/ 'describeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
     { _derEnvironmentName :: !(Maybe Text)
@@ -55,9 +59,9 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derEnvironmentName'
+-- * 'derEnvironmentName' - The name of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'derEnvironmentId'
+-- * 'derEnvironmentId' - The ID of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 describeEnvironmentResources
     :: DescribeEnvironmentResources
 describeEnvironmentResources =
@@ -66,15 +70,11 @@ describeEnvironmentResources =
     , _derEnvironmentId = Nothing
     }
 
--- | The name of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The name of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
--- | The ID of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
@@ -112,6 +112,8 @@ instance ToQuery DescribeEnvironmentResources where
 
 -- | Result message containing a list of environment resource descriptions.
 --
+--
+--
 -- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
@@ -122,9 +124,9 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derrsEnvironmentResources'
+-- * 'derrsEnvironmentResources' - A list of 'EnvironmentResourceDescription' .
 --
--- * 'derrsResponseStatus'
+-- * 'derrsResponseStatus' - -- | The response status code.
 describeEnvironmentResourcesResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DescribeEnvironmentResourcesResponse
@@ -134,11 +136,11 @@ describeEnvironmentResourcesResponse pResponseStatus_ =
     , _derrsResponseStatus = pResponseStatus_
     }
 
--- | A list of < EnvironmentResourceDescription>.
+-- | A list of 'EnvironmentResourceDescription' .
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
--- | The response status code.
+-- | -- | The response status code.
 derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 

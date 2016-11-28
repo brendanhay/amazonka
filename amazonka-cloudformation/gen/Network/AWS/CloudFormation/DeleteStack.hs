@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the < DescribeStacks> API if the deletion has been completed successfully.
+-- Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the 'DescribeStacks' API if the deletion has been completed successfully.
+--
+--
 module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for < DeleteStack> action.
+-- | The input for 'DeleteStack' action.
+--
+--
 --
 -- /See:/ 'deleteStack' smart constructor.
 data DeleteStack = DeleteStack'
@@ -52,9 +56,9 @@ data DeleteStack = DeleteStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRetainResources'
+-- * 'dsRetainResources' - For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
 --
--- * 'dsStackName'
+-- * 'dsStackName' - The name or the unique stack ID that is associated with the stack.
 deleteStack
     :: Text -- ^ 'dsStackName'
     -> DeleteStack
@@ -64,9 +68,7 @@ deleteStack pStackName_ =
     , _dsStackName = pStackName_
     }
 
--- | For stacks in the 'DELETE_FAILED' state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources.
---
--- Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
+-- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
 dsRetainResources :: Lens' DeleteStack [Text]
 dsRetainResources = lens _dsRetainResources (\ s a -> s{_dsRetainResources = a}) . _Default . _Coerce;
 

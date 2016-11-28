@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from one or more on-premises instances.
+--
+--
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a remove tags from on-premises instances operation.
 --
+--
+--
 -- /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
     { _rtfopiTags          :: ![Tag]
@@ -52,9 +56,9 @@ data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfopiTags'
+-- * 'rtfopiTags' - The tag key-value pairs to remove from the on-premises instances.
 --
--- * 'rtfopiInstanceNames'
+-- * 'rtfopiInstanceNames' - The names of the on-premises instances from which to remove tags.
 removeTagsFromOnPremisesInstances
     :: RemoveTagsFromOnPremisesInstances
 removeTagsFromOnPremisesInstances =

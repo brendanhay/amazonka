@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /CreateSnapshot/ action creates a copy of an entire cache cluster at a specific moment in time.
+--
+--
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /CreateSnapshot/ action.
 --
+--
+--
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
     { _csCacheClusterId :: !Text
@@ -55,9 +59,9 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csCacheClusterId'
+-- * 'csCacheClusterId' - The identifier of an existing cache cluster. The snapshot will be created from this cache cluster.
 --
--- * 'csSnapshotName'
+-- * 'csSnapshotName' - A name for the snapshot being created.
 createSnapshot
     :: Text -- ^ 'csCacheClusterId'
     -> Text -- ^ 'csSnapshotName'
@@ -113,9 +117,9 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crersSnapshot'
+-- * 'crersSnapshot' - Undocumented member.
 --
--- * 'crersResponseStatus'
+-- * 'crersResponseStatus' - -- | The response status code.
 createSnapshotResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateSnapshotResponse
@@ -129,7 +133,7 @@ createSnapshotResponse pResponseStatus_ =
 crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crersResponseStatus :: Lens' CreateSnapshotResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 

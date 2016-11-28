@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified cluster. You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with < ListContainerInstances> and deregister them with < DeregisterContainerInstance>.
+-- Deletes the specified cluster. You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with 'ListContainerInstances' and deregister them with 'DeregisterContainerInstance' .
+--
+--
 module Network.AWS.ECS.DeleteCluster
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DeleteCluster = DeleteCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCluster'
+-- * 'dcCluster' - The short name or full Amazon Resource Name (ARN) of the cluster to delete.
 deleteCluster
     :: Text -- ^ 'dcCluster'
     -> DeleteCluster
@@ -107,9 +109,9 @@ data DeleteClusterResponse = DeleteClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsCluster'
+-- * 'drsCluster' - The full description of the deleted cluster.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteClusterResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteClusterResponse
@@ -123,7 +125,7 @@ deleteClusterResponse pResponseStatus_ =
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

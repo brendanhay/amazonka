@@ -21,7 +21,9 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.SWF.Types.Sum
 
--- | Provides details of the 'ActivityTaskCancelRequested' event.
+-- | Provides details of the @ActivityTaskCancelRequested@ event.
+--
+--
 --
 -- /See:/ 'activityTaskCancelRequestedEventAttributes' smart constructor.
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'
@@ -33,9 +35,9 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atcreaDecisionTaskCompletedEventId'
+-- * 'atcreaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'atcreaActivityId'
+-- * 'atcreaActivityId' - The unique ID of the task.
 activityTaskCancelRequestedEventAttributes
     :: Integer -- ^ 'atcreaDecisionTaskCompletedEventId'
     -> Text -- ^ 'atcreaActivityId'
@@ -46,7 +48,7 @@ activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId_ pActiv
     , _atcreaActivityId = pActivityId_
     }
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RequestCancelActivityTask' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
 atcreaDecisionTaskCompletedEventId = lens _atcreaDecisionTaskCompletedEventId (\ s a -> s{_atcreaDecisionTaskCompletedEventId = a});
 
@@ -70,7 +72,9 @@ instance Hashable
 instance NFData
          ActivityTaskCancelRequestedEventAttributes
 
--- | Provides details of the 'ActivityTaskCanceled' event.
+-- | Provides details of the @ActivityTaskCanceled@ event.
+--
+--
 --
 -- /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
@@ -84,13 +88,13 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aLatestCancelRequestedEventId'
+-- * 'aLatestCancelRequestedEventId' - If set, contains the ID of the last @ActivityTaskCancelRequested@ event recorded for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'aDetails'
+-- * 'aDetails' - Details of the cancellation (if any).
 --
--- * 'aScheduledEventId'
+-- * 'aScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'aStartedEventId'
+-- * 'aStartedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskCanceledEventAttributes
     :: Integer -- ^ 'aScheduledEventId'
     -> Integer -- ^ 'aStartedEventId'
@@ -103,7 +107,7 @@ activityTaskCanceledEventAttributes pScheduledEventId_ pStartedEventId_ =
     , _aStartedEventId = pStartedEventId_
     }
 
--- | If set, contains the ID of the last 'ActivityTaskCancelRequested' event recorded for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | If set, contains the ID of the last @ActivityTaskCancelRequested@ event recorded for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 aLatestCancelRequestedEventId :: Lens' ActivityTaskCanceledEventAttributes (Maybe Integer)
 aLatestCancelRequestedEventId = lens _aLatestCancelRequestedEventId (\ s a -> s{_aLatestCancelRequestedEventId = a});
 
@@ -111,11 +115,11 @@ aLatestCancelRequestedEventId = lens _aLatestCancelRequestedEventId (\ s a -> s{
 aDetails :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
 aDetails = lens _aDetails (\ s a -> s{_aDetails = a});
 
--- | The ID of the 'ActivityTaskScheduled' event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 aScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 aScheduledEventId = lens _aScheduledEventId (\ s a -> s{_aScheduledEventId = a});
 
--- | The ID of the 'ActivityTaskStarted' event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 aStartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 aStartedEventId = lens _aStartedEventId (\ s a -> s{_aStartedEventId = a});
 
@@ -134,7 +138,9 @@ instance Hashable ActivityTaskCanceledEventAttributes
 
 instance NFData ActivityTaskCanceledEventAttributes
 
--- | Provides details of the 'ActivityTaskCompleted' event.
+-- | Provides details of the @ActivityTaskCompleted@ event.
+--
+--
 --
 -- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'
@@ -147,11 +153,11 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atceaResult'
+-- * 'atceaResult' - The results of the activity task (if any).
 --
--- * 'atceaScheduledEventId'
+-- * 'atceaScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'atceaStartedEventId'
+-- * 'atceaStartedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskCompletedEventAttributes
     :: Integer -- ^ 'atceaScheduledEventId'
     -> Integer -- ^ 'atceaStartedEventId'
@@ -167,11 +173,11 @@ activityTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
 atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
 atceaResult = lens _atceaResult (\ s a -> s{_atceaResult = a});
 
--- | The ID of the 'ActivityTaskScheduled' event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaScheduledEventId = lens _atceaScheduledEventId (\ s a -> s{_atceaScheduledEventId = a});
 
--- | The ID of the 'ActivityTaskStarted' event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaStartedEventId = lens _atceaStartedEventId (\ s a -> s{_atceaStartedEventId = a});
 
@@ -189,7 +195,9 @@ instance Hashable
 
 instance NFData ActivityTaskCompletedEventAttributes
 
--- | Provides details of the 'ActivityTaskFailed' event.
+-- | Provides details of the @ActivityTaskFailed@ event.
+--
+--
 --
 -- /See:/ 'activityTaskFailedEventAttributes' smart constructor.
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
@@ -203,13 +211,13 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atfeaReason'
+-- * 'atfeaReason' - The reason provided for the failure (if any).
 --
--- * 'atfeaDetails'
+-- * 'atfeaDetails' - The details of the failure (if any).
 --
--- * 'atfeaScheduledEventId'
+-- * 'atfeaScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'atfeaStartedEventId'
+-- * 'atfeaStartedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskFailedEventAttributes
     :: Integer -- ^ 'atfeaScheduledEventId'
     -> Integer -- ^ 'atfeaStartedEventId'
@@ -230,11 +238,11 @@ atfeaReason = lens _atfeaReason (\ s a -> s{_atfeaReason = a});
 atfeaDetails :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
 atfeaDetails = lens _atfeaDetails (\ s a -> s{_atfeaDetails = a});
 
--- | The ID of the 'ActivityTaskScheduled' event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaScheduledEventId = lens _atfeaScheduledEventId (\ s a -> s{_atfeaScheduledEventId = a});
 
--- | The ID of the 'ActivityTaskStarted' event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaStartedEventId = lens _atfeaStartedEventId (\ s a -> s{_atfeaStartedEventId = a});
 
@@ -252,7 +260,9 @@ instance Hashable ActivityTaskFailedEventAttributes
 
 instance NFData ActivityTaskFailedEventAttributes
 
--- | Provides details of the 'ActivityTaskScheduled' event.
+-- | Provides details of the @ActivityTaskScheduled@ event.
+--
+--
 --
 -- /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'
@@ -273,27 +283,27 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atseaControl'
+-- * 'atseaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks. This data is not sent to the activity.
 --
--- * 'atseaHeartbeatTimeout'
+-- * 'atseaHeartbeatTimeout' - The maximum time before which the worker processing this task must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or return a result, it will be ignored.
 --
--- * 'atseaScheduleToCloseTimeout'
+-- * 'atseaScheduleToCloseTimeout' - The maximum amount of time for this activity task.
 --
--- * 'atseaInput'
+-- * 'atseaInput' - The input provided to the activity task.
 --
--- * 'atseaTaskPriority'
+-- * 'atseaTaskPriority' - /Optional./ The priority to assign to the scheduled activity task. If set, this will override any default priority value that was assigned when the activity type was registered. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'atseaScheduleToStartTimeout'
+-- * 'atseaScheduleToStartTimeout' - The maximum amount of time the activity task can wait to be assigned to a worker.
 --
--- * 'atseaStartToCloseTimeout'
+-- * 'atseaStartToCloseTimeout' - The maximum amount of time a worker may take to process the activity task.
 --
--- * 'atseaActivityType'
+-- * 'atseaActivityType' - The type of the activity task.
 --
--- * 'atseaActivityId'
+-- * 'atseaActivityId' - The unique ID of the activity task.
 --
--- * 'atseaTaskList'
+-- * 'atseaTaskList' - The task list in which the activity task has been scheduled.
 --
--- * 'atseaDecisionTaskCompletedEventId'
+-- * 'atseaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskScheduledEventAttributes
     :: ActivityType -- ^ 'atseaActivityType'
     -> Text -- ^ 'atseaActivityId'
@@ -319,7 +329,7 @@ activityTaskScheduledEventAttributes pActivityType_ pActivityId_ pTaskList_ pDec
 atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
 
--- | The maximum time before which the worker processing this task must report progress by calling < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or return a result, it will be ignored.
+-- | The maximum time before which the worker processing this task must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or return a result, it will be ignored.
 atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
 
@@ -331,11 +341,7 @@ atseaScheduleToCloseTimeout = lens _atseaScheduleToCloseTimeout (\ s a -> s{_ats
 atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaInput = lens _atseaInput (\ s a -> s{_atseaInput = a});
 
--- | /Optional./ The priority to assign to the scheduled activity task. If set, this will override any default priority value that was assigned when the activity type was registered.
---
--- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ The priority to assign to the scheduled activity task. If set, this will override any default priority value that was assigned when the activity type was registered. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 atseaTaskPriority :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaTaskPriority = lens _atseaTaskPriority (\ s a -> s{_atseaTaskPriority = a});
 
@@ -359,7 +365,7 @@ atseaActivityId = lens _atseaActivityId (\ s a -> s{_atseaActivityId = a});
 atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
 atseaTaskList = lens _atseaTaskList (\ s a -> s{_atseaTaskList = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atseaDecisionTaskCompletedEventId :: Lens' ActivityTaskScheduledEventAttributes Integer
 atseaDecisionTaskCompletedEventId = lens _atseaDecisionTaskCompletedEventId (\ s a -> s{_atseaDecisionTaskCompletedEventId = a});
 
@@ -385,7 +391,9 @@ instance Hashable
 
 instance NFData ActivityTaskScheduledEventAttributes
 
--- | Provides details of the 'ActivityTaskStarted' event.
+-- | Provides details of the @ActivityTaskStarted@ event.
+--
+--
 --
 -- /See:/ 'activityTaskStartedEventAttributes' smart constructor.
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
@@ -397,9 +405,9 @@ data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atseaIdentity'
+-- * 'atseaIdentity' - Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.
 --
--- * 'atseaScheduledEventId'
+-- * 'atseaScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskStartedEventAttributes
     :: Integer -- ^ 'atseaScheduledEventId'
     -> ActivityTaskStartedEventAttributes
@@ -413,7 +421,7 @@ activityTaskStartedEventAttributes pScheduledEventId_ =
 atseaIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
 atseaIdentity = lens _atseaIdentity (\ s a -> s{_atseaIdentity = a});
 
--- | The ID of the 'ActivityTaskScheduled' event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 atseaScheduledEventId :: Lens' ActivityTaskStartedEventAttributes Integer
 atseaScheduledEventId = lens _atseaScheduledEventId (\ s a -> s{_atseaScheduledEventId = a});
 
@@ -429,7 +437,9 @@ instance Hashable ActivityTaskStartedEventAttributes
 
 instance NFData ActivityTaskStartedEventAttributes
 
--- | Provides details of the 'ActivityTaskTimedOut' event.
+-- | Provides details of the @ActivityTaskTimedOut@ event.
+--
+--
 --
 -- /See:/ 'activityTaskTimedOutEventAttributes' smart constructor.
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
@@ -443,13 +453,13 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attoeaDetails'
+-- * 'attoeaDetails' - Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
 --
--- * 'attoeaTimeoutType'
+-- * 'attoeaTimeoutType' - The type of the timeout that caused this event.
 --
--- * 'attoeaScheduledEventId'
+-- * 'attoeaScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'attoeaStartedEventId'
+-- * 'attoeaStartedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 activityTaskTimedOutEventAttributes
     :: ActivityTaskTimeoutType -- ^ 'attoeaTimeoutType'
     -> Integer -- ^ 'attoeaScheduledEventId'
@@ -463,7 +473,7 @@ activityTaskTimedOutEventAttributes pTimeoutType_ pScheduledEventId_ pStartedEve
     , _attoeaStartedEventId = pStartedEventId_
     }
 
--- | Contains the content of the 'details' parameter for the last call made by the activity to 'RecordActivityTaskHeartbeat'.
+-- | Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
 attoeaDetails :: Lens' ActivityTaskTimedOutEventAttributes (Maybe Text)
 attoeaDetails = lens _attoeaDetails (\ s a -> s{_attoeaDetails = a});
 
@@ -471,11 +481,11 @@ attoeaDetails = lens _attoeaDetails (\ s a -> s{_attoeaDetails = a});
 attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes ActivityTaskTimeoutType
 attoeaTimeoutType = lens _attoeaTimeoutType (\ s a -> s{_attoeaTimeoutType = a});
 
--- | The ID of the 'ActivityTaskScheduled' event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
 attoeaScheduledEventId = lens _attoeaScheduledEventId (\ s a -> s{_attoeaScheduledEventId = a});
 
--- | The ID of the 'ActivityTaskStarted' event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
 attoeaStartedEventId = lens _attoeaStartedEventId (\ s a -> s{_attoeaStartedEventId = a});
 
@@ -495,6 +505,8 @@ instance NFData ActivityTaskTimedOutEventAttributes
 
 -- | Represents an activity type.
 --
+--
+--
 -- /See:/ 'activityType' smart constructor.
 data ActivityType = ActivityType'
     { _atName    :: !Text
@@ -505,9 +517,9 @@ data ActivityType = ActivityType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atName'
+-- * 'atName' - The name of this activity.
 --
--- * 'atVersion'
+-- * 'atVersion' - The version of this activity.
 activityType
     :: Text -- ^ 'atName'
     -> Text -- ^ 'atVersion'
@@ -519,14 +531,10 @@ activityType pName_ pVersion_ =
     }
 
 -- | The name of this activity.
---
--- The combination of activity type name and version must be unique within a domain.
 atName :: Lens' ActivityType Text
 atName = lens _atName (\ s a -> s{_atName = a});
 
 -- | The version of this activity.
---
--- The combination of activity type name and version must be unique with in a domain.
 atVersion :: Lens' ActivityType Text
 atVersion = lens _atVersion (\ s a -> s{_atVersion = a});
 
@@ -549,6 +557,8 @@ instance ToJSON ActivityType where
 
 -- | Configuration settings registered with the activity type.
 --
+--
+--
 -- /See:/ 'activityTypeConfiguration' smart constructor.
 data ActivityTypeConfiguration = ActivityTypeConfiguration'
     { _atcDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
@@ -563,17 +573,17 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atcDefaultTaskScheduleToStartTimeout'
+-- * 'atcDefaultTaskScheduleToStartTimeout' - /Optional./ The default maximum duration, specified when registering the activity type, that a task of an activity type can wait before being assigned to a worker. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'atcDefaultTaskList'
+-- * 'atcDefaultTaskList' - /Optional./ The default task list specified for this activity type at registration. This default is used if a task list is not provided when a task is scheduled through the @ScheduleActivityTask@ decision. You can override the default registered task list when scheduling a task through the @ScheduleActivityTask@ decision.
 --
--- * 'atcDefaultTaskPriority'
+-- * 'atcDefaultTaskPriority' - /Optional./ The default task priority for tasks of this activity type, specified at registration. If not set, then "0" will be used as the default priority. This default can be overridden when scheduling an activity task. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'atcDefaultTaskHeartbeatTimeout'
+-- * 'atcDefaultTaskHeartbeatTimeout' - /Optional./ The default maximum time, in seconds, before which a worker processing a task must report progress by calling 'RecordActivityTaskHeartbeat' . You can specify this value only when /registering/ an activity type. The registered default value can be overridden when you schedule a task through the @ScheduleActivityTask@ decision. If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'atcDefaultTaskScheduleToCloseTimeout'
+-- * 'atcDefaultTaskScheduleToCloseTimeout' - /Optional./ The default maximum duration, specified when registering the activity type, for tasks of this activity type. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'atcDefaultTaskStartToCloseTimeout'
+-- * 'atcDefaultTaskStartToCloseTimeout' - /Optional./ The default maximum duration for tasks of an activity type specified when registering the activity type. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 activityTypeConfiguration
     :: ActivityTypeConfiguration
 activityTypeConfiguration =
@@ -586,41 +596,27 @@ activityTypeConfiguration =
     , _atcDefaultTaskStartToCloseTimeout = Nothing
     }
 
--- | /Optional./ The default maximum duration, specified when registering the activity type, that a task of an activity type can wait before being assigned to a worker. You can override this default when scheduling a task through the 'ScheduleActivityTask' decision.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum duration, specified when registering the activity type, that a task of an activity type can wait before being assigned to a worker. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToStartTimeout = lens _atcDefaultTaskScheduleToStartTimeout (\ s a -> s{_atcDefaultTaskScheduleToStartTimeout = a});
 
--- | /Optional./ The default task list specified for this activity type at registration. This default is used if a task list is not provided when a task is scheduled through the 'ScheduleActivityTask' decision. You can override the default registered task list when scheduling a task through the 'ScheduleActivityTask' decision.
+-- | /Optional./ The default task list specified for this activity type at registration. This default is used if a task list is not provided when a task is scheduled through the @ScheduleActivityTask@ decision. You can override the default registered task list when scheduling a task through the @ScheduleActivityTask@ decision.
 atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
 atcDefaultTaskList = lens _atcDefaultTaskList (\ s a -> s{_atcDefaultTaskList = a});
 
--- | /Optional./ The default task priority for tasks of this activity type, specified at registration. If not set, then \"0\" will be used as the default priority. This default can be overridden when scheduling an activity task.
---
--- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ The default task priority for tasks of this activity type, specified at registration. If not set, then "0" will be used as the default priority. This default can be overridden when scheduling an activity task. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 atcDefaultTaskPriority :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTaskPriority = a});
 
--- | /Optional./ The default maximum time, in seconds, before which a worker processing a task must report progress by calling < RecordActivityTaskHeartbeat>.
---
--- You can specify this value only when /registering/ an activity type. The registered default value can be overridden when you schedule a task through the 'ScheduleActivityTask' decision. If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an 'UnknownResource' fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum time, in seconds, before which a worker processing a task must report progress by calling 'RecordActivityTaskHeartbeat' . You can specify this value only when /registering/ an activity type. The registered default value can be overridden when you schedule a task through the @ScheduleActivityTask@ decision. If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskHeartbeatTimeout = lens _atcDefaultTaskHeartbeatTimeout (\ s a -> s{_atcDefaultTaskHeartbeatTimeout = a});
 
--- | /Optional./ The default maximum duration, specified when registering the activity type, for tasks of this activity type. You can override this default when scheduling a task through the 'ScheduleActivityTask' decision.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum duration, specified when registering the activity type, for tasks of this activity type. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToCloseTimeout = lens _atcDefaultTaskScheduleToCloseTimeout (\ s a -> s{_atcDefaultTaskScheduleToCloseTimeout = a});
 
--- | /Optional./ The default maximum duration for tasks of an activity type specified when registering the activity type. You can override this default when scheduling a task through the 'ScheduleActivityTask' decision.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum duration for tasks of an activity type specified when registering the activity type. You can override this default when scheduling a task through the @ScheduleActivityTask@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskStartToCloseTimeout = lens _atcDefaultTaskStartToCloseTimeout (\ s a -> s{_atcDefaultTaskStartToCloseTimeout = a});
 
@@ -642,6 +638,8 @@ instance NFData ActivityTypeConfiguration
 
 -- | Detailed information about an activity type.
 --
+--
+--
 -- /See:/ 'activityTypeInfo' smart constructor.
 data ActivityTypeInfo = ActivityTypeInfo'
     { _atiDeprecationDate :: !(Maybe POSIX)
@@ -655,15 +653,15 @@ data ActivityTypeInfo = ActivityTypeInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atiDeprecationDate'
+-- * 'atiDeprecationDate' - If DEPRECATED, the date and time 'DeprecateActivityType' was called.
 --
--- * 'atiDescription'
+-- * 'atiDescription' - The description of the activity type provided in 'RegisterActivityType' .
 --
--- * 'atiActivityType'
+-- * 'atiActivityType' - The 'ActivityType' type structure representing the activity type.
 --
--- * 'atiStatus'
+-- * 'atiStatus' - The current status of the activity type.
 --
--- * 'atiCreationDate'
+-- * 'atiCreationDate' - The date and time this activity type was created through 'RegisterActivityType' .
 activityTypeInfo
     :: ActivityType -- ^ 'atiActivityType'
     -> RegistrationStatus -- ^ 'atiStatus'
@@ -678,15 +676,15 @@ activityTypeInfo pActivityType_ pStatus_ pCreationDate_ =
     , _atiCreationDate = _Time # pCreationDate_
     }
 
--- | If DEPRECATED, the date and time < DeprecateActivityType> was called.
+-- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.
 atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe UTCTime)
 atiDeprecationDate = lens _atiDeprecationDate (\ s a -> s{_atiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the activity type provided in < RegisterActivityType>.
+-- | The description of the activity type provided in 'RegisterActivityType' .
 atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
 atiDescription = lens _atiDescription (\ s a -> s{_atiDescription = a});
 
--- | The < ActivityType> type structure representing the activity type.
+-- | The 'ActivityType' type structure representing the activity type.
 atiActivityType :: Lens' ActivityTypeInfo ActivityType
 atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
 
@@ -694,7 +692,7 @@ atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
 atiStatus :: Lens' ActivityTypeInfo RegistrationStatus
 atiStatus = lens _atiStatus (\ s a -> s{_atiStatus = a});
 
--- | The date and time this activity type was created through < RegisterActivityType>.
+-- | The date and time this activity type was created through 'RegisterActivityType' .
 atiCreationDate :: Lens' ActivityTypeInfo UTCTime
 atiCreationDate = lens _atiCreationDate (\ s a -> s{_atiCreationDate = a}) . _Time;
 
@@ -712,17 +710,17 @@ instance Hashable ActivityTypeInfo
 
 instance NFData ActivityTypeInfo
 
--- | Provides details of the 'CancelTimer' decision.
+-- | Provides details of the @CancelTimer@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'cancelTimerDecisionAttributes' smart constructor.
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
@@ -733,7 +731,7 @@ newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctdaTimerId'
+-- * 'ctdaTimerId' - __Required.__ The unique ID of the timer to cancel.
 cancelTimerDecisionAttributes
     :: Text -- ^ 'ctdaTimerId'
     -> CancelTimerDecisionAttributes
@@ -755,7 +753,9 @@ instance ToJSON CancelTimerDecisionAttributes where
           = object
               (catMaybes [Just ("timerId" .= _ctdaTimerId)])
 
--- | Provides details of the 'CancelTimerFailed' event.
+-- | Provides details of the @CancelTimerFailed@ event.
+--
+--
 --
 -- /See:/ 'cancelTimerFailedEventAttributes' smart constructor.
 data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'
@@ -768,11 +768,11 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctfeaTimerId'
+-- * 'ctfeaTimerId' - The timerId provided in the @CancelTimer@ decision that failed.
 --
--- * 'ctfeaCause'
+-- * 'ctfeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'ctfeaDecisionTaskCompletedEventId'
+-- * 'ctfeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelTimer@ decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cancelTimerFailedEventAttributes
     :: Text -- ^ 'ctfeaTimerId'
     -> CancelTimerFailedCause -- ^ 'ctfeaCause'
@@ -785,17 +785,15 @@ cancelTimerFailedEventAttributes pTimerId_ pCause_ pDecisionTaskCompletedEventId
     , _ctfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The timerId provided in the 'CancelTimer' decision that failed.
+-- | The timerId provided in the @CancelTimer@ decision that failed.
 ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes Text
 ctfeaTimerId = lens _ctfeaTimerId (\ s a -> s{_ctfeaTimerId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
 ctfeaCause = lens _ctfeaCause (\ s a -> s{_ctfeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CancelTimer' decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelTimer@ decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes Integer
 ctfeaDecisionTaskCompletedEventId = lens _ctfeaDecisionTaskCompletedEventId (\ s a -> s{_ctfeaDecisionTaskCompletedEventId = a});
 
@@ -812,17 +810,17 @@ instance Hashable CancelTimerFailedEventAttributes
 
 instance NFData CancelTimerFailedEventAttributes
 
--- | Provides details of the 'CancelWorkflowExecution' decision.
+-- | Provides details of the @CancelWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'cancelWorkflowExecutionDecisionAttributes' smart constructor.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'
@@ -833,7 +831,7 @@ newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecis
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwedaDetails'
+-- * 'cwedaDetails' - /Optional./ details of the cancellation.
 cancelWorkflowExecutionDecisionAttributes
     :: CancelWorkflowExecutionDecisionAttributes
 cancelWorkflowExecutionDecisionAttributes =
@@ -857,7 +855,9 @@ instance ToJSON
           = object
               (catMaybes [("details" .=) <$> _cwedaDetails])
 
--- | Provides details of the 'CancelWorkflowExecutionFailed' event.
+-- | Provides details of the @CancelWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'cancelWorkflowExecutionFailedEventAttributes' smart constructor.
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes'
@@ -869,9 +869,9 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCause'
+-- * 'cCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'cDecisionTaskCompletedEventId'
+-- * 'cDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cancelWorkflowExecutionFailedEventAttributes
     :: CancelWorkflowExecutionFailedCause -- ^ 'cCause'
     -> Integer -- ^ 'cDecisionTaskCompletedEventId'
@@ -883,12 +883,10 @@ cancelWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEvent
     }
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 cCause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
 cCause = lens _cCause (\ s a -> s{_cCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CancelWorkflowExecution' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cDecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes Integer
 cDecisionTaskCompletedEventId = lens _cDecisionTaskCompletedEventId (\ s a -> s{_cDecisionTaskCompletedEventId = a});
 
@@ -908,7 +906,9 @@ instance Hashable
 instance NFData
          CancelWorkflowExecutionFailedEventAttributes
 
--- | Provide details of the 'ChildWorkflowExecutionCanceled' event.
+-- | Provide details of the @ChildWorkflowExecutionCanceled@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionCanceledEventAttributes' smart constructor.
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'
@@ -923,15 +923,15 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cDetails'
+-- * 'cDetails' - Details of the cancellation (if provided).
 --
--- * 'cWorkflowExecution'
+-- * 'cWorkflowExecution' - The child workflow execution that was canceled.
 --
--- * 'cWorkflowType'
+-- * 'cWorkflowType' - The type of the child workflow execution.
 --
--- * 'cInitiatedEventId'
+-- * 'cInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'cStartedEventId'
+-- * 'cStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionCanceledEventAttributes
     :: WorkflowExecution -- ^ 'cWorkflowExecution'
     -> WorkflowType -- ^ 'cWorkflowType'
@@ -959,11 +959,11 @@ cWorkflowExecution = lens _cWorkflowExecution (\ s a -> s{_cWorkflowExecution = 
 cWorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowType
 cWorkflowType = lens _cWorkflowType (\ s a -> s{_cWorkflowType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cInitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
 cInitiatedEventId = lens _cInitiatedEventId (\ s a -> s{_cInitiatedEventId = a});
 
--- | The ID of the 'ChildWorkflowExecutionStarted' event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cStartedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
 cStartedEventId = lens _cStartedEventId (\ s a -> s{_cStartedEventId = a});
 
@@ -985,7 +985,9 @@ instance Hashable
 instance NFData
          ChildWorkflowExecutionCanceledEventAttributes
 
--- | Provides details of the 'ChildWorkflowExecutionCompleted' event.
+-- | Provides details of the @ChildWorkflowExecutionCompleted@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'
@@ -1000,15 +1002,15 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cweceaResult'
+-- * 'cweceaResult' - The result of the child workflow execution (if any).
 --
--- * 'cweceaWorkflowExecution'
+-- * 'cweceaWorkflowExecution' - The child workflow execution that was completed.
 --
--- * 'cweceaWorkflowType'
+-- * 'cweceaWorkflowType' - The type of the child workflow execution.
 --
--- * 'cweceaInitiatedEventId'
+-- * 'cweceaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'cweceaStartedEventId'
+-- * 'cweceaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionCompletedEventAttributes
     :: WorkflowExecution -- ^ 'cweceaWorkflowExecution'
     -> WorkflowType -- ^ 'cweceaWorkflowType'
@@ -1036,11 +1038,11 @@ cweceaWorkflowExecution = lens _cweceaWorkflowExecution (\ s a -> s{_cweceaWorkf
 cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowType
 cweceaWorkflowType = lens _cweceaWorkflowType (\ s a -> s{_cweceaWorkflowType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
 cweceaInitiatedEventId = lens _cweceaInitiatedEventId (\ s a -> s{_cweceaInitiatedEventId = a});
 
--- | The ID of the 'ChildWorkflowExecutionStarted' event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cweceaStartedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
 cweceaStartedEventId = lens _cweceaStartedEventId (\ s a -> s{_cweceaStartedEventId = a});
 
@@ -1062,7 +1064,9 @@ instance Hashable
 instance NFData
          ChildWorkflowExecutionCompletedEventAttributes
 
--- | Provides details of the 'ChildWorkflowExecutionFailed' event.
+-- | Provides details of the @ChildWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'
@@ -1078,17 +1082,17 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwefeaReason'
+-- * 'cwefeaReason' - The reason for the failure (if provided).
 --
--- * 'cwefeaDetails'
+-- * 'cwefeaDetails' - The details of the failure (if provided).
 --
--- * 'cwefeaWorkflowExecution'
+-- * 'cwefeaWorkflowExecution' - The child workflow execution that failed.
 --
--- * 'cwefeaWorkflowType'
+-- * 'cwefeaWorkflowType' - The type of the child workflow execution.
 --
--- * 'cwefeaInitiatedEventId'
+-- * 'cwefeaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'cwefeaStartedEventId'
+-- * 'cwefeaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionFailedEventAttributes
     :: WorkflowExecution -- ^ 'cwefeaWorkflowExecution'
     -> WorkflowType -- ^ 'cwefeaWorkflowType'
@@ -1121,11 +1125,11 @@ cwefeaWorkflowExecution = lens _cwefeaWorkflowExecution (\ s a -> s{_cwefeaWorkf
 cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
 cwefeaWorkflowType = lens _cwefeaWorkflowType (\ s a -> s{_cwefeaWorkflowType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
 cwefeaInitiatedEventId = lens _cwefeaInitiatedEventId (\ s a -> s{_cwefeaInitiatedEventId = a});
 
--- | The ID of the 'ChildWorkflowExecutionStarted' event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cwefeaStartedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
 cwefeaStartedEventId = lens _cwefeaStartedEventId (\ s a -> s{_cwefeaStartedEventId = a});
 
@@ -1148,7 +1152,9 @@ instance Hashable
 instance NFData
          ChildWorkflowExecutionFailedEventAttributes
 
--- | Provides details of the 'ChildWorkflowExecutionStarted' event.
+-- | Provides details of the @ChildWorkflowExecutionStarted@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
 data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes'
@@ -1161,11 +1167,11 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cweseaWorkflowExecution'
+-- * 'cweseaWorkflowExecution' - The child workflow execution that was started.
 --
--- * 'cweseaWorkflowType'
+-- * 'cweseaWorkflowType' - The type of the child workflow execution.
 --
--- * 'cweseaInitiatedEventId'
+-- * 'cweseaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionStartedEventAttributes
     :: WorkflowExecution -- ^ 'cweseaWorkflowExecution'
     -> WorkflowType -- ^ 'cweseaWorkflowType'
@@ -1186,7 +1192,7 @@ cweseaWorkflowExecution = lens _cweseaWorkflowExecution (\ s a -> s{_cweseaWorkf
 cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowType
 cweseaWorkflowType = lens _cweseaWorkflowType (\ s a -> s{_cweseaWorkflowType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
 cweseaInitiatedEventId = lens _cweseaInitiatedEventId (\ s a -> s{_cweseaInitiatedEventId = a});
 
@@ -1206,7 +1212,9 @@ instance Hashable
 instance NFData
          ChildWorkflowExecutionStartedEventAttributes
 
--- | Provides details of the 'ChildWorkflowExecutionTerminated' event.
+-- | Provides details of the @ChildWorkflowExecutionTerminated@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionTerminatedEventAttributes' smart constructor.
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'
@@ -1220,13 +1228,13 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cweteaWorkflowExecution'
+-- * 'cweteaWorkflowExecution' - The child workflow execution that was terminated.
 --
--- * 'cweteaWorkflowType'
+-- * 'cweteaWorkflowType' - The type of the child workflow execution.
 --
--- * 'cweteaInitiatedEventId'
+-- * 'cweteaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'cweteaStartedEventId'
+-- * 'cweteaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionTerminatedEventAttributes
     :: WorkflowExecution -- ^ 'cweteaWorkflowExecution'
     -> WorkflowType -- ^ 'cweteaWorkflowType'
@@ -1249,11 +1257,11 @@ cweteaWorkflowExecution = lens _cweteaWorkflowExecution (\ s a -> s{_cweteaWorkf
 cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowType
 cweteaWorkflowType = lens _cweteaWorkflowType (\ s a -> s{_cweteaWorkflowType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
 cweteaInitiatedEventId = lens _cweteaInitiatedEventId (\ s a -> s{_cweteaInitiatedEventId = a});
 
--- | The ID of the 'ChildWorkflowExecutionStarted' event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cweteaStartedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
 cweteaStartedEventId = lens _cweteaStartedEventId (\ s a -> s{_cweteaStartedEventId = a});
 
@@ -1274,7 +1282,9 @@ instance Hashable
 instance NFData
          ChildWorkflowExecutionTerminatedEventAttributes
 
--- | Provides details of the 'ChildWorkflowExecutionTimedOut' event.
+-- | Provides details of the @ChildWorkflowExecutionTimedOut@ event.
+--
+--
 --
 -- /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'
@@ -1289,15 +1299,15 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwetoeaWorkflowExecution'
+-- * 'cwetoeaWorkflowExecution' - The child workflow execution that timed out.
 --
--- * 'cwetoeaWorkflowType'
+-- * 'cwetoeaWorkflowType' - The type of the child workflow execution.
 --
--- * 'cwetoeaTimeoutType'
+-- * 'cwetoeaTimeoutType' - The type of the timeout that caused the child workflow execution to time out.
 --
--- * 'cwetoeaInitiatedEventId'
+-- * 'cwetoeaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'cwetoeaStartedEventId'
+-- * 'cwetoeaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 childWorkflowExecutionTimedOutEventAttributes
     :: WorkflowExecution -- ^ 'cwetoeaWorkflowExecution'
     -> WorkflowType -- ^ 'cwetoeaWorkflowType'
@@ -1326,11 +1336,11 @@ cwetoeaWorkflowType = lens _cwetoeaWorkflowType (\ s a -> s{_cwetoeaWorkflowType
 cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
 cwetoeaTimeoutType = lens _cwetoeaTimeoutType (\ s a -> s{_cwetoeaTimeoutType = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
 cwetoeaInitiatedEventId = lens _cwetoeaInitiatedEventId (\ s a -> s{_cwetoeaInitiatedEventId = a});
 
--- | The ID of the 'ChildWorkflowExecutionStarted' event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
 cwetoeaStartedEventId = lens _cwetoeaStartedEventId (\ s a -> s{_cwetoeaStartedEventId = a});
 
@@ -1354,6 +1364,8 @@ instance NFData
 
 -- | Used to filter the closed workflow executions in visibility APIs by their close status.
 --
+--
+--
 -- /See:/ 'closeStatusFilter' smart constructor.
 newtype CloseStatusFilter = CloseStatusFilter'
     { _csfStatus :: CloseStatus
@@ -1363,7 +1375,7 @@ newtype CloseStatusFilter = CloseStatusFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfStatus'
+-- * 'csfStatus' - __Required.__ The close status that must match the close status of an execution for it to meet the criteria of this filter.
 closeStatusFilter
     :: CloseStatus -- ^ 'csfStatus'
     -> CloseStatusFilter
@@ -1384,17 +1396,17 @@ instance ToJSON CloseStatusFilter where
         toJSON CloseStatusFilter'{..}
           = object (catMaybes [Just ("status" .= _csfStatus)])
 
--- | Provides details of the 'CompleteWorkflowExecution' decision.
+-- | Provides details of the @CompleteWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'completeWorkflowExecutionDecisionAttributes' smart constructor.
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'
@@ -1405,7 +1417,7 @@ newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionD
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwedaResult'
+-- * 'cwedaResult' - The result of the workflow execution. The form of the result is implementation defined.
 completeWorkflowExecutionDecisionAttributes
     :: CompleteWorkflowExecutionDecisionAttributes
 completeWorkflowExecutionDecisionAttributes =
@@ -1429,7 +1441,9 @@ instance ToJSON
           CompleteWorkflowExecutionDecisionAttributes'{..}
           = object (catMaybes [("result" .=) <$> _cwedaResult])
 
--- | Provides details of the 'CompleteWorkflowExecutionFailed' event.
+-- | Provides details of the @CompleteWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'completeWorkflowExecutionFailedEventAttributes' smart constructor.
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes'
@@ -1441,9 +1455,9 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cwefeaCause'
+-- * 'cwefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'cwefeaDecisionTaskCompletedEventId'
+-- * 'cwefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 completeWorkflowExecutionFailedEventAttributes
     :: CompleteWorkflowExecutionFailedCause -- ^ 'cwefeaCause'
     -> Integer -- ^ 'cwefeaDecisionTaskCompletedEventId'
@@ -1455,12 +1469,10 @@ completeWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEve
     }
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
 cwefeaCause = lens _cwefeaCause (\ s a -> s{_cwefeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CompleteWorkflowExecution' decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes Integer
 cwefeaDecisionTaskCompletedEventId = lens _cwefeaDecisionTaskCompletedEventId (\ s a -> s{_cwefeaDecisionTaskCompletedEventId = a});
 
@@ -1480,20 +1492,19 @@ instance Hashable
 instance NFData
          CompleteWorkflowExecutionFailedEventAttributes
 
--- | Provides details of the 'ContinueAsNewWorkflowExecution' decision.
+-- | Provides details of the @ContinueAsNewWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'tag': /Optional./. A tag used to identify the workflow execution
---     -   'taskList': String constraint. The key is 'swf:taskList.name'.
---     -   'workflowType.version': String constraint. The key is 'swf:workflowType.version'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @tag@ : /Optional./ . A tag used to identify the workflow execution    * @taskList@ : String constraint. The key is @swf:taskList.name@ .    * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+--
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'continueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'
@@ -1512,23 +1523,23 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'canwedaTagList'
+-- * 'canwedaTagList' - The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 --
--- * 'canwedaTaskStartToCloseTimeout'
+-- * 'canwedaTaskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'canwedaLambdaRole'
+-- * 'canwedaLambdaRole' - The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
 --
--- * 'canwedaInput'
+-- * 'canwedaInput' - The input provided to the new workflow execution.
 --
--- * 'canwedaWorkflowTypeVersion'
+-- * 'canwedaWorkflowTypeVersion' - Undocumented member.
 --
--- * 'canwedaExecutionStartToCloseTimeout'
+-- * 'canwedaExecutionStartToCloseTimeout' - If set, specifies the total duration for this workflow execution. This overrides the @defaultExecutionStartToCloseTimeout@ specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'canwedaTaskList'
+-- * 'canwedaTaskList' - Undocumented member.
 --
--- * 'canwedaTaskPriority'
+-- * 'canwedaTaskPriority' - /Optional./ The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'canwedaChildPolicy'
+-- * 'canwedaChildPolicy' - If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 continueAsNewWorkflowExecutionDecisionAttributes
     :: ContinueAsNewWorkflowExecutionDecisionAttributes
 continueAsNewWorkflowExecutionDecisionAttributes =
@@ -1544,21 +1555,15 @@ continueAsNewWorkflowExecutionDecisionAttributes =
     , _canwedaChildPolicy = Nothing
     }
 
--- | The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling < ListOpenWorkflowExecutions> or < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
+-- | The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
 canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default . _Coerce;
 
--- | Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the 'defaultTaskStartToCloseTimout' specified when registering the workflow type using < RegisterWorkflowType>.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A task start-to-close timeout for the new workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault will be returned.
+-- | Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskStartToCloseTimeout = lens _canwedaTaskStartToCloseTimeout (\ s a -> s{_canwedaTaskStartToCloseTimeout = a});
 
 -- | The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
---
--- In order for this workflow execution to invoke AWS Lambda functions, an appropriate IAM role must be specified either as a default for the workflow type or through this field.
 canwedaLambdaRole :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaLambdaRole = lens _canwedaLambdaRole (\ s a -> s{_canwedaLambdaRole = a});
 
@@ -1570,11 +1575,7 @@ canwedaInput = lens _canwedaInput (\ s a -> s{_canwedaInput = a});
 canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
 
--- | If set, specifies the total duration for this workflow execution. This overrides the 'defaultExecutionStartToCloseTimeout' specified when registering the workflow type.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this field. If neither this field is set nor a default execution start-to-close timeout was specified at registration time then a fault will be returned.
+-- | If set, specifies the total duration for this workflow execution. This overrides the @defaultExecutionStartToCloseTimeout@ specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaExecutionStartToCloseTimeout = lens _canwedaExecutionStartToCloseTimeout (\ s a -> s{_canwedaExecutionStartToCloseTimeout = a});
 
@@ -1582,21 +1583,11 @@ canwedaExecutionStartToCloseTimeout = lens _canwedaExecutionStartToCloseTimeout 
 canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
 canwedaTaskList = lens _canwedaTaskList (\ s a -> s{_canwedaTaskList = a});
 
--- | /Optional./ The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 canwedaTaskPriority :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority = a});
 
--- | If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using < RegisterWorkflowType>.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
---
--- A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault will be returned.
+-- | If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = a});
 
@@ -1626,7 +1617,9 @@ instance ToJSON
                   ("taskPriority" .=) <$> _canwedaTaskPriority,
                   ("childPolicy" .=) <$> _canwedaChildPolicy])
 
--- | Provides details of the 'ContinueAsNewWorkflowExecutionFailed' event.
+-- | Provides details of the @ContinueAsNewWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'continueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
 data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes'
@@ -1638,9 +1631,9 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'canwefeaCause'
+-- * 'canwefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'canwefeaDecisionTaskCompletedEventId'
+-- * 'canwefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 continueAsNewWorkflowExecutionFailedEventAttributes
     :: ContinueAsNewWorkflowExecutionFailedCause -- ^ 'canwefeaCause'
     -> Integer -- ^ 'canwefeaDecisionTaskCompletedEventId'
@@ -1652,12 +1645,10 @@ continueAsNewWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskComplet
     }
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
 canwefeaCause = lens _canwefeaCause (\ s a -> s{_canwefeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'ContinueAsNewWorkflowExecution' decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Integer
 canwefeaDecisionTaskCompletedEventId = lens _canwefeaDecisionTaskCompletedEventId (\ s a -> s{_canwefeaDecisionTaskCompletedEventId = a});
 
@@ -1681,68 +1672,31 @@ instance NFData
 
 -- | Specifies a decision made by the decider. A decision can be one of these types:
 --
--- -   __CancelTimer__: cancels a previously started timer and records a 'TimerCanceled' event in the history.
--- -   __CancelWorkflowExecution__: closes the workflow execution and records a 'WorkflowExecutionCanceled' event in the history.
--- -   __CompleteWorkflowExecution__: closes the workflow execution and records a 'WorkflowExecutionCompleted' event in the history .
--- -   __ContinueAsNewWorkflowExecution__: closes the workflow execution and starts a new workflow execution of the same type using the same workflow ID and a unique run ID. A 'WorkflowExecutionContinuedAsNew' event is recorded in the history.
--- -   __FailWorkflowExecution__: closes the workflow execution and records a 'WorkflowExecutionFailed' event in the history.
--- -   __RecordMarker__: records a 'MarkerRecorded' event in the history. Markers can be used for adding custom information in the history for instance to let deciders know that they do not need to look at the history beyond the marker event.
--- -   __RequestCancelActivityTask__: attempts to cancel a previously scheduled activity task. If the activity task was scheduled but has not been assigned to a worker, then it will be canceled. If the activity task was already assigned to a worker, then the worker will be informed that cancellation has been requested in the response to < RecordActivityTaskHeartbeat>.
--- -   __RequestCancelExternalWorkflowExecution__: requests that a request be made to cancel the specified external workflow execution and records a 'RequestCancelExternalWorkflowExecutionInitiated' event in the history.
--- -   __ScheduleActivityTask__: schedules an activity task.
--- -   __ScheduleLambdaFunction__: schedules a AWS Lambda function.
--- -   __SignalExternalWorkflowExecution__: requests a signal to be delivered to the specified external workflow execution and records a 'SignalExternalWorkflowExecutionInitiated' event in the history.
--- -   __StartChildWorkflowExecution__: requests that a child workflow execution be started and records a 'StartChildWorkflowExecutionInitiated' event in the history. The child workflow execution is a separate workflow execution with its own history.
--- -   __StartTimer__: starts a timer for this workflow execution and records a 'TimerStarted' event in the history. This timer will fire after the specified delay and record a 'TimerFired' event.
+--
+--     * __CancelTimer__ : cancels a previously started timer and records a @TimerCanceled@ event in the history.    * __CancelWorkflowExecution__ : closes the workflow execution and records a @WorkflowExecutionCanceled@ event in the history.    * __CompleteWorkflowExecution__ : closes the workflow execution and records a @WorkflowExecutionCompleted@ event in the history .    * __ContinueAsNewWorkflowExecution__ : closes the workflow execution and starts a new workflow execution of the same type using the same workflow ID and a unique run ID. A @WorkflowExecutionContinuedAsNew@ event is recorded in the history.    * __FailWorkflowExecution__ : closes the workflow execution and records a @WorkflowExecutionFailed@ event in the history.    * __RecordMarker__ : records a @MarkerRecorded@ event in the history. Markers can be used for adding custom information in the history for instance to let deciders know that they do not need to look at the history beyond the marker event.    * __RequestCancelActivityTask__ : attempts to cancel a previously scheduled activity task. If the activity task was scheduled but has not been assigned to a worker, then it will be canceled. If the activity task was already assigned to a worker, then the worker will be informed that cancellation has been requested in the response to 'RecordActivityTaskHeartbeat' .    * __RequestCancelExternalWorkflowExecution__ : requests that a request be made to cancel the specified external workflow execution and records a @RequestCancelExternalWorkflowExecutionInitiated@ event in the history.    * __ScheduleActivityTask__ : schedules an activity task.    * __ScheduleLambdaFunction__ : schedules a AWS Lambda function.    * __SignalExternalWorkflowExecution__ : requests a signal to be delivered to the specified external workflow execution and records a @SignalExternalWorkflowExecutionInitiated@ event in the history.    * __StartChildWorkflowExecution__ : requests that a child workflow execution be started and records a @StartChildWorkflowExecutionInitiated@ event in the history. The child workflow execution is a separate workflow execution with its own history.    * __StartTimer__ : starts a timer for this workflow execution and records a @TimerStarted@ event in the history. This timer will fire after the specified delay and record a @TimerFired@ event.
 --
 -- __Access Control__
 --
--- If you grant permission to use 'RespondDecisionTaskCompleted', you can use IAM policies to express permissions for the list of decisions returned by this action as if they were members of the API. Treating decisions as a pseudo API maintains a uniform conceptual model and helps keep policies readable. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If you grant permission to use @RespondDecisionTaskCompleted@ , you can use IAM policies to express permissions for the list of decisions returned by this action as if they were members of the API. Treating decisions as a pseudo API maintains a uniform conceptual model and helps keep policies readable. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
 --
 -- __Decision Failure__
 --
 -- Decisions can fail for several reasons
 --
--- -   The ordering of decisions should follow a logical flow. Some decisions might not make sense in the current context of the workflow execution and will therefore fail.
--- -   A limit on your account was reached.
--- -   The decision lacks sufficient permissions.
+--     * The ordering of decisions should follow a logical flow. Some decisions might not make sense in the current context of the workflow execution and will therefore fail.    * A limit on your account was reached.    * The decision lacks sufficient permissions.
 --
--- One of the following events might be added to the history to indicate an error. The event attribute\'s __cause__ parameter indicates the cause. If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- One of the following events might be added to the history to indicate an error. The event attribute's __cause__ parameter indicates the cause. If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
 --
--- -   __ScheduleActivityTaskFailed__: a ScheduleActivityTask decision failed. This could happen if the activity type specified in the decision is not registered, is in a deprecated state, or the decision is not properly configured.
--- -   __ScheduleLambdaFunctionFailed__: a ScheduleLambdaFunctionFailed decision failed. This could happen if the AWS Lambda function specified in the decision does not exist, or the AWS Lambda service\'s limits are exceeded.
--- -   __RequestCancelActivityTaskFailed__: a RequestCancelActivityTask decision failed. This could happen if there is no open activity task with the specified activityId.
--- -   __StartTimerFailed__: a StartTimer decision failed. This could happen if there is another open timer with the same timerId.
--- -   __CancelTimerFailed__: a CancelTimer decision failed. This could happen if there is no open timer with the specified timerId.
--- -   __StartChildWorkflowExecutionFailed__: a StartChildWorkflowExecution decision failed. This could happen if the workflow type specified is not registered, is deprecated, or the decision is not properly configured.
--- -   __SignalExternalWorkflowExecutionFailed__: a SignalExternalWorkflowExecution decision failed. This could happen if the 'workflowID' specified in the decision was incorrect.
--- -   __RequestCancelExternalWorkflowExecutionFailed__: a RequestCancelExternalWorkflowExecution decision failed. This could happen if the 'workflowID' specified in the decision was incorrect.
--- -   __CancelWorkflowExecutionFailed__: a CancelWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.
--- -   __CompleteWorkflowExecutionFailed__: a CompleteWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.
--- -   __ContinueAsNewWorkflowExecutionFailed__: a ContinueAsNewWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution or the ContinueAsNewWorkflowExecution decision was not configured correctly.
--- -   __FailWorkflowExecutionFailed__: a FailWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.
+--     * __ScheduleActivityTaskFailed__ : a ScheduleActivityTask decision failed. This could happen if the activity type specified in the decision is not registered, is in a deprecated state, or the decision is not properly configured.    * __ScheduleLambdaFunctionFailed__ : a ScheduleLambdaFunctionFailed decision failed. This could happen if the AWS Lambda function specified in the decision does not exist, or the AWS Lambda service's limits are exceeded.    * __RequestCancelActivityTaskFailed__ : a RequestCancelActivityTask decision failed. This could happen if there is no open activity task with the specified activityId.    * __StartTimerFailed__ : a StartTimer decision failed. This could happen if there is another open timer with the same timerId.    * __CancelTimerFailed__ : a CancelTimer decision failed. This could happen if there is no open timer with the specified timerId.    * __StartChildWorkflowExecutionFailed__ : a StartChildWorkflowExecution decision failed. This could happen if the workflow type specified is not registered, is deprecated, or the decision is not properly configured.    * __SignalExternalWorkflowExecutionFailed__ : a SignalExternalWorkflowExecution decision failed. This could happen if the @workflowID@ specified in the decision was incorrect.    * __RequestCancelExternalWorkflowExecutionFailed__ : a RequestCancelExternalWorkflowExecution decision failed. This could happen if the @workflowID@ specified in the decision was incorrect.    * __CancelWorkflowExecutionFailed__ : a CancelWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.    * __CompleteWorkflowExecutionFailed__ : a CompleteWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.    * __ContinueAsNewWorkflowExecutionFailed__ : a ContinueAsNewWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution or the ContinueAsNewWorkflowExecution decision was not configured correctly.    * __FailWorkflowExecutionFailed__ : a FailWorkflowExecution decision failed. This could happen if there is an unhandled decision task pending in the workflow execution.
 --
 -- The preceding error events might occur due to an error in the decider logic, which might put the workflow execution in an unstable state The cause field in the event structure for the error event indicates the cause of the error.
---
--- A workflow execution may be closed by the decider by returning one of the following decisions when completing a decision task: 'CompleteWorkflowExecution', 'FailWorkflowExecution', 'CancelWorkflowExecution' and 'ContinueAsNewWorkflowExecution'. An UnhandledDecision fault will be returned if a workflow closing decision is specified and a signal or activity event had been added to the history while the decision task was being performed by the decider. Unlike the above situations which are logic issues, this fault is always possible because of race conditions in a distributed system. The right action here is to call < RespondDecisionTaskCompleted> without any decisions. This would result in another decision task with these new events included in the history. The decider should handle the new events and may decide to close the workflow execution.
 --
 -- __How to code a decision__
 --
 -- You code a decision by first setting the decision type field to one of the above decision values, and then set the corresponding attributes field shown below:
 --
--- -   < ScheduleActivityTaskDecisionAttributes>
--- -   < ScheduleLambdaFunctionDecisionAttributes>
--- -   < RequestCancelActivityTaskDecisionAttributes>
--- -   < CompleteWorkflowExecutionDecisionAttributes>
--- -   < FailWorkflowExecutionDecisionAttributes>
--- -   < CancelWorkflowExecutionDecisionAttributes>
--- -   < ContinueAsNewWorkflowExecutionDecisionAttributes>
--- -   < RecordMarkerDecisionAttributes>
--- -   < StartTimerDecisionAttributes>
--- -   < CancelTimerDecisionAttributes>
--- -   < SignalExternalWorkflowExecutionDecisionAttributes>
--- -   < RequestCancelExternalWorkflowExecutionDecisionAttributes>
--- -   < StartChildWorkflowExecutionDecisionAttributes>
+--     * 'ScheduleActivityTaskDecisionAttributes'     * 'ScheduleLambdaFunctionDecisionAttributes'     * 'RequestCancelActivityTaskDecisionAttributes'     * 'CompleteWorkflowExecutionDecisionAttributes'     * 'FailWorkflowExecutionDecisionAttributes'     * 'CancelWorkflowExecutionDecisionAttributes'     * 'ContinueAsNewWorkflowExecutionDecisionAttributes'     * 'RecordMarkerDecisionAttributes'     * 'StartTimerDecisionAttributes'     * 'CancelTimerDecisionAttributes'     * 'SignalExternalWorkflowExecutionDecisionAttributes'     * 'RequestCancelExternalWorkflowExecutionDecisionAttributes'     * 'StartChildWorkflowExecutionDecisionAttributes'
+--
 --
 -- /See:/ 'decision' smart constructor.
 data Decision = Decision'
@@ -1766,33 +1720,33 @@ data Decision = Decision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRequestCancelExternalWorkflowExecutionDecisionAttributes'
+-- * 'dRequestCancelExternalWorkflowExecutionDecisionAttributes' - Provides details of the @RequestCancelExternalWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dScheduleActivityTaskDecisionAttributes'
+-- * 'dScheduleActivityTaskDecisionAttributes' - Provides details of the @ScheduleActivityTask@ decision. It is not set for other decision types.
 --
--- * 'dSignalExternalWorkflowExecutionDecisionAttributes'
+-- * 'dSignalExternalWorkflowExecutionDecisionAttributes' - Provides details of the @SignalExternalWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dStartTimerDecisionAttributes'
+-- * 'dStartTimerDecisionAttributes' - Provides details of the @StartTimer@ decision. It is not set for other decision types.
 --
--- * 'dRecordMarkerDecisionAttributes'
+-- * 'dRecordMarkerDecisionAttributes' - Provides details of the @RecordMarker@ decision. It is not set for other decision types.
 --
--- * 'dFailWorkflowExecutionDecisionAttributes'
+-- * 'dFailWorkflowExecutionDecisionAttributes' - Provides details of the @FailWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dStartChildWorkflowExecutionDecisionAttributes'
+-- * 'dStartChildWorkflowExecutionDecisionAttributes' - Provides details of the @StartChildWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dCompleteWorkflowExecutionDecisionAttributes'
+-- * 'dCompleteWorkflowExecutionDecisionAttributes' - Provides details of the @CompleteWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dScheduleLambdaFunctionDecisionAttributes'
+-- * 'dScheduleLambdaFunctionDecisionAttributes' - Undocumented member.
 --
--- * 'dRequestCancelActivityTaskDecisionAttributes'
+-- * 'dRequestCancelActivityTaskDecisionAttributes' - Provides details of the @RequestCancelActivityTask@ decision. It is not set for other decision types.
 --
--- * 'dCancelWorkflowExecutionDecisionAttributes'
+-- * 'dCancelWorkflowExecutionDecisionAttributes' - Provides details of the @CancelWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dCancelTimerDecisionAttributes'
+-- * 'dCancelTimerDecisionAttributes' - Provides details of the @CancelTimer@ decision. It is not set for other decision types.
 --
--- * 'dContinueAsNewWorkflowExecutionDecisionAttributes'
+-- * 'dContinueAsNewWorkflowExecutionDecisionAttributes' - Provides details of the @ContinueAsNewWorkflowExecution@ decision. It is not set for other decision types.
 --
--- * 'dDecisionType'
+-- * 'dDecisionType' - Specifies the type of the decision.
 decision
     :: DecisionType -- ^ 'dDecisionType'
     -> Decision
@@ -1814,35 +1768,35 @@ decision pDecisionType_ =
     , _dDecisionType = pDecisionType_
     }
 
--- | Provides details of the 'RequestCancelExternalWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @RequestCancelExternalWorkflowExecution@ decision. It is not set for other decision types.
 dRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
 dRequestCancelExternalWorkflowExecutionDecisionAttributes = lens _dRequestCancelExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_dRequestCancelExternalWorkflowExecutionDecisionAttributes = a});
 
--- | Provides details of the 'ScheduleActivityTask' decision. It is not set for other decision types.
+-- | Provides details of the @ScheduleActivityTask@ decision. It is not set for other decision types.
 dScheduleActivityTaskDecisionAttributes :: Lens' Decision (Maybe ScheduleActivityTaskDecisionAttributes)
 dScheduleActivityTaskDecisionAttributes = lens _dScheduleActivityTaskDecisionAttributes (\ s a -> s{_dScheduleActivityTaskDecisionAttributes = a});
 
--- | Provides details of the 'SignalExternalWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @SignalExternalWorkflowExecution@ decision. It is not set for other decision types.
 dSignalExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe SignalExternalWorkflowExecutionDecisionAttributes)
 dSignalExternalWorkflowExecutionDecisionAttributes = lens _dSignalExternalWorkflowExecutionDecisionAttributes (\ s a -> s{_dSignalExternalWorkflowExecutionDecisionAttributes = a});
 
--- | Provides details of the 'StartTimer' decision. It is not set for other decision types.
+-- | Provides details of the @StartTimer@ decision. It is not set for other decision types.
 dStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
 dStartTimerDecisionAttributes = lens _dStartTimerDecisionAttributes (\ s a -> s{_dStartTimerDecisionAttributes = a});
 
--- | Provides details of the 'RecordMarker' decision. It is not set for other decision types.
+-- | Provides details of the @RecordMarker@ decision. It is not set for other decision types.
 dRecordMarkerDecisionAttributes :: Lens' Decision (Maybe RecordMarkerDecisionAttributes)
 dRecordMarkerDecisionAttributes = lens _dRecordMarkerDecisionAttributes (\ s a -> s{_dRecordMarkerDecisionAttributes = a});
 
--- | Provides details of the 'FailWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @FailWorkflowExecution@ decision. It is not set for other decision types.
 dFailWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe FailWorkflowExecutionDecisionAttributes)
 dFailWorkflowExecutionDecisionAttributes = lens _dFailWorkflowExecutionDecisionAttributes (\ s a -> s{_dFailWorkflowExecutionDecisionAttributes = a});
 
--- | Provides details of the 'StartChildWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @StartChildWorkflowExecution@ decision. It is not set for other decision types.
 dStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 dStartChildWorkflowExecutionDecisionAttributes = lens _dStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_dStartChildWorkflowExecutionDecisionAttributes = a});
 
--- | Provides details of the 'CompleteWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @CompleteWorkflowExecution@ decision. It is not set for other decision types.
 dCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
 dCompleteWorkflowExecutionDecisionAttributes = lens _dCompleteWorkflowExecutionDecisionAttributes (\ s a -> s{_dCompleteWorkflowExecutionDecisionAttributes = a});
 
@@ -1850,19 +1804,19 @@ dCompleteWorkflowExecutionDecisionAttributes = lens _dCompleteWorkflowExecutionD
 dScheduleLambdaFunctionDecisionAttributes :: Lens' Decision (Maybe ScheduleLambdaFunctionDecisionAttributes)
 dScheduleLambdaFunctionDecisionAttributes = lens _dScheduleLambdaFunctionDecisionAttributes (\ s a -> s{_dScheduleLambdaFunctionDecisionAttributes = a});
 
--- | Provides details of the 'RequestCancelActivityTask' decision. It is not set for other decision types.
+-- | Provides details of the @RequestCancelActivityTask@ decision. It is not set for other decision types.
 dRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
 dRequestCancelActivityTaskDecisionAttributes = lens _dRequestCancelActivityTaskDecisionAttributes (\ s a -> s{_dRequestCancelActivityTaskDecisionAttributes = a});
 
--- | Provides details of the 'CancelWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @CancelWorkflowExecution@ decision. It is not set for other decision types.
 dCancelWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CancelWorkflowExecutionDecisionAttributes)
 dCancelWorkflowExecutionDecisionAttributes = lens _dCancelWorkflowExecutionDecisionAttributes (\ s a -> s{_dCancelWorkflowExecutionDecisionAttributes = a});
 
--- | Provides details of the 'CancelTimer' decision. It is not set for other decision types.
+-- | Provides details of the @CancelTimer@ decision. It is not set for other decision types.
 dCancelTimerDecisionAttributes :: Lens' Decision (Maybe CancelTimerDecisionAttributes)
 dCancelTimerDecisionAttributes = lens _dCancelTimerDecisionAttributes (\ s a -> s{_dCancelTimerDecisionAttributes = a});
 
--- | Provides details of the 'ContinueAsNewWorkflowExecution' decision. It is not set for other decision types.
+-- | Provides details of the @ContinueAsNewWorkflowExecution@ decision. It is not set for other decision types.
 dContinueAsNewWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
 dContinueAsNewWorkflowExecutionDecisionAttributes = lens _dContinueAsNewWorkflowExecutionDecisionAttributes (\ s a -> s{_dContinueAsNewWorkflowExecutionDecisionAttributes = a});
 
@@ -1912,7 +1866,9 @@ instance ToJSON Decision where
                     _dContinueAsNewWorkflowExecutionDecisionAttributes,
                   Just ("decisionType" .= _dDecisionType)])
 
--- | Provides details of the 'DecisionTaskCompleted' event.
+-- | Provides details of the @DecisionTaskCompleted@ event.
+--
+--
 --
 -- /See:/ 'decisionTaskCompletedEventAttributes' smart constructor.
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes'
@@ -1925,11 +1881,11 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtceaExecutionContext'
+-- * 'dtceaExecutionContext' - User defined context for the workflow execution.
 --
--- * 'dtceaScheduledEventId'
+-- * 'dtceaScheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'dtceaStartedEventId'
+-- * 'dtceaStartedEventId' - The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 decisionTaskCompletedEventAttributes
     :: Integer -- ^ 'dtceaScheduledEventId'
     -> Integer -- ^ 'dtceaStartedEventId'
@@ -1945,11 +1901,11 @@ decisionTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
 dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
 dtceaExecutionContext = lens _dtceaExecutionContext (\ s a -> s{_dtceaExecutionContext = a});
 
--- | The ID of the 'DecisionTaskScheduled' event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaScheduledEventId = lens _dtceaScheduledEventId (\ s a -> s{_dtceaScheduledEventId = a});
 
--- | The ID of the 'DecisionTaskStarted' event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaStartedEventId = lens _dtceaStartedEventId (\ s a -> s{_dtceaStartedEventId = a});
 
@@ -1968,7 +1924,9 @@ instance Hashable
 
 instance NFData DecisionTaskCompletedEventAttributes
 
--- | Provides details about the 'DecisionTaskScheduled' event.
+-- | Provides details about the @DecisionTaskScheduled@ event.
+--
+--
 --
 -- /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'
@@ -1981,11 +1939,11 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtseaTaskPriority'
+-- * 'dtseaTaskPriority' - /Optional./ A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'dtseaStartToCloseTimeout'
+-- * 'dtseaStartToCloseTimeout' - The maximum duration for this decision task. The task is considered timed out if it does not completed within this duration. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'dtseaTaskList'
+-- * 'dtseaTaskList' - The name of the task list in which the decision task was scheduled.
 decisionTaskScheduledEventAttributes
     :: TaskList -- ^ 'dtseaTaskList'
     -> DecisionTaskScheduledEventAttributes
@@ -1996,15 +1954,11 @@ decisionTaskScheduledEventAttributes pTaskList_ =
     , _dtseaTaskList = pTaskList_
     }
 
--- | /Optional./ A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ A task priority that, if set, specifies the priority for this decision task. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 dtseaTaskPriority :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
 dtseaTaskPriority = lens _dtseaTaskPriority (\ s a -> s{_dtseaTaskPriority = a});
 
--- | The maximum duration for this decision task. The task is considered timed out if it does not completed within this duration.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration for this decision task. The task is considered timed out if it does not completed within this duration. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
 dtseaStartToCloseTimeout = lens _dtseaStartToCloseTimeout (\ s a -> s{_dtseaStartToCloseTimeout = a});
 
@@ -2027,7 +1981,9 @@ instance Hashable
 
 instance NFData DecisionTaskScheduledEventAttributes
 
--- | Provides details of the 'DecisionTaskStarted' event.
+-- | Provides details of the @DecisionTaskStarted@ event.
+--
+--
 --
 -- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
@@ -2039,9 +1995,9 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtseaIdentity'
+-- * 'dtseaIdentity' - Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 --
--- * 'dtseaScheduledEventId'
+-- * 'dtseaScheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 decisionTaskStartedEventAttributes
     :: Integer -- ^ 'dtseaScheduledEventId'
     -> DecisionTaskStartedEventAttributes
@@ -2055,7 +2011,7 @@ decisionTaskStartedEventAttributes pScheduledEventId_ =
 dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
 dtseaIdentity = lens _dtseaIdentity (\ s a -> s{_dtseaIdentity = a});
 
--- | The ID of the 'DecisionTaskScheduled' event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 dtseaScheduledEventId :: Lens' DecisionTaskStartedEventAttributes Integer
 dtseaScheduledEventId = lens _dtseaScheduledEventId (\ s a -> s{_dtseaScheduledEventId = a});
 
@@ -2071,7 +2027,9 @@ instance Hashable DecisionTaskStartedEventAttributes
 
 instance NFData DecisionTaskStartedEventAttributes
 
--- | Provides details of the 'DecisionTaskTimedOut' event.
+-- | Provides details of the @DecisionTaskTimedOut@ event.
+--
+--
 --
 -- /See:/ 'decisionTaskTimedOutEventAttributes' smart constructor.
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
@@ -2084,11 +2042,11 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttoeaTimeoutType'
+-- * 'dttoeaTimeoutType' - The type of timeout that expired before the decision task could be completed.
 --
--- * 'dttoeaScheduledEventId'
+-- * 'dttoeaScheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'dttoeaStartedEventId'
+-- * 'dttoeaStartedEventId' - The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 decisionTaskTimedOutEventAttributes
     :: DecisionTaskTimeoutType -- ^ 'dttoeaTimeoutType'
     -> Integer -- ^ 'dttoeaScheduledEventId'
@@ -2105,11 +2063,11 @@ decisionTaskTimedOutEventAttributes pTimeoutType_ pScheduledEventId_ pStartedEve
 dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
 dttoeaTimeoutType = lens _dttoeaTimeoutType (\ s a -> s{_dttoeaTimeoutType = a});
 
--- | The ID of the 'DecisionTaskScheduled' event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaScheduledEventId = lens _dttoeaScheduledEventId (\ s a -> s{_dttoeaScheduledEventId = a});
 
--- | The ID of the 'DecisionTaskStarted' event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaStartedEventId = lens _dttoeaStartedEventId (\ s a -> s{_dttoeaStartedEventId = a});
 
@@ -2128,6 +2086,8 @@ instance NFData DecisionTaskTimedOutEventAttributes
 
 -- | Contains the configuration settings of a domain.
 --
+--
+--
 -- /See:/ 'domainConfiguration' smart constructor.
 newtype DomainConfiguration = DomainConfiguration'
     { _dcWorkflowExecutionRetentionPeriodInDays :: Text
@@ -2137,7 +2097,7 @@ newtype DomainConfiguration = DomainConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcWorkflowExecutionRetentionPeriodInDays'
+-- * 'dcWorkflowExecutionRetentionPeriodInDays' - The retention period for workflow executions in this domain.
 domainConfiguration
     :: Text -- ^ 'dcWorkflowExecutionRetentionPeriodInDays'
     -> DomainConfiguration
@@ -2163,6 +2123,8 @@ instance NFData DomainConfiguration
 
 -- | Contains general information about a domain.
 --
+--
+--
 -- /See:/ 'domainInfo' smart constructor.
 data DomainInfo = DomainInfo'
     { _diDescription :: !(Maybe Text)
@@ -2174,11 +2136,11 @@ data DomainInfo = DomainInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diDescription'
+-- * 'diDescription' - The description of the domain provided through 'RegisterDomain' .
 --
--- * 'diName'
+-- * 'diName' - The name of the domain. This name is unique within the account.
 --
--- * 'diStatus'
+-- * 'diStatus' - The status of the domain:     * __REGISTERED__ : The domain is properly registered and available. You can use this domain for registering types and creating new workflow executions.     * __DEPRECATED__ : The domain was deprecated using 'DeprecateDomain' , but is still in use. You should not create new workflow executions in this domain.
 domainInfo
     :: Text -- ^ 'diName'
     -> RegistrationStatus -- ^ 'diStatus'
@@ -2190,7 +2152,7 @@ domainInfo pName_ pStatus_ =
     , _diStatus = pStatus_
     }
 
--- | The description of the domain provided through < RegisterDomain>.
+-- | The description of the domain provided through 'RegisterDomain' .
 diDescription :: Lens' DomainInfo (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
@@ -2198,10 +2160,7 @@ diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 diName :: Lens' DomainInfo Text
 diName = lens _diName (\ s a -> s{_diName = a});
 
--- | The status of the domain:
---
--- -   __REGISTERED__: The domain is properly registered and available. You can use this domain for registering types and creating new workflow executions.
--- -   __DEPRECATED__: The domain was deprecated using < DeprecateDomain>, but is still in use. You should not create new workflow executions in this domain.
+-- | The status of the domain:     * __REGISTERED__ : The domain is properly registered and available. You can use this domain for registering types and creating new workflow executions.     * __DEPRECATED__ : The domain was deprecated using 'DeprecateDomain' , but is still in use. You should not create new workflow executions in this domain.
 diStatus :: Lens' DomainInfo RegistrationStatus
 diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
 
@@ -2217,7 +2176,9 @@ instance Hashable DomainInfo
 
 instance NFData DomainInfo
 
--- | Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <https://en.wikipedia.org/wiki/Unix_time Unix Time format>. For example: '\"oldestDate\": 1325376070.'
+-- | Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <https://en.wikipedia.org/wiki/Unix_time Unix Time format> . For example: @"oldestDate": 1325376070.@
+--
+--
 --
 -- /See:/ 'executionTimeFilter' smart constructor.
 data ExecutionTimeFilter = ExecutionTimeFilter'
@@ -2229,9 +2190,9 @@ data ExecutionTimeFilter = ExecutionTimeFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etfLatestDate'
+-- * 'etfLatestDate' - Specifies the latest start or close date and time to return.
 --
--- * 'etfOldestDate'
+-- * 'etfOldestDate' - Specifies the oldest start or close date and time to return.
 executionTimeFilter
     :: UTCTime -- ^ 'etfOldestDate'
     -> ExecutionTimeFilter
@@ -2260,7 +2221,9 @@ instance ToJSON ExecutionTimeFilter where
                  [("latestDate" .=) <$> _etfLatestDate,
                   Just ("oldestDate" .= _etfOldestDate)])
 
--- | Provides details of the 'ExternalWorkflowExecutionCancelRequested' event.
+-- | Provides details of the @ExternalWorkflowExecutionCancelRequested@ event.
+--
+--
 --
 -- /See:/ 'externalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes'
@@ -2272,9 +2235,9 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ewecreaWorkflowExecution'
+-- * 'ewecreaWorkflowExecution' - The external workflow execution to which the cancellation request was delivered.
 --
--- * 'ewecreaInitiatedEventId'
+-- * 'ewecreaInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 externalWorkflowExecutionCancelRequestedEventAttributes
     :: WorkflowExecution -- ^ 'ewecreaWorkflowExecution'
     -> Integer -- ^ 'ewecreaInitiatedEventId'
@@ -2289,7 +2252,7 @@ externalWorkflowExecutionCancelRequestedEventAttributes pWorkflowExecution_ pIni
 ewecreaWorkflowExecution :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes WorkflowExecution
 ewecreaWorkflowExecution = lens _ewecreaWorkflowExecution (\ s a -> s{_ewecreaWorkflowExecution = a});
 
--- | The ID of the 'RequestCancelExternalWorkflowExecutionInitiated' event corresponding to the 'RequestCancelExternalWorkflowExecution' decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 ewecreaInitiatedEventId :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes Integer
 ewecreaInitiatedEventId = lens _ewecreaInitiatedEventId (\ s a -> s{_ewecreaInitiatedEventId = a});
 
@@ -2311,7 +2274,9 @@ instance Hashable
 instance NFData
          ExternalWorkflowExecutionCancelRequestedEventAttributes
 
--- | Provides details of the 'ExternalWorkflowExecutionSignaled' event.
+-- | Provides details of the @ExternalWorkflowExecutionSignaled@ event.
+--
+--
 --
 -- /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes'
@@ -2323,9 +2288,9 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eweseaWorkflowExecution'
+-- * 'eweseaWorkflowExecution' - The external workflow execution that the signal was delivered to.
 --
--- * 'eweseaInitiatedEventId'
+-- * 'eweseaInitiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 externalWorkflowExecutionSignaledEventAttributes
     :: WorkflowExecution -- ^ 'eweseaWorkflowExecution'
     -> Integer -- ^ 'eweseaInitiatedEventId'
@@ -2340,7 +2305,7 @@ externalWorkflowExecutionSignaledEventAttributes pWorkflowExecution_ pInitiatedE
 eweseaWorkflowExecution :: Lens' ExternalWorkflowExecutionSignaledEventAttributes WorkflowExecution
 eweseaWorkflowExecution = lens _eweseaWorkflowExecution (\ s a -> s{_eweseaWorkflowExecution = a});
 
--- | The ID of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to the 'SignalExternalWorkflowExecution' decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 eweseaInitiatedEventId :: Lens' ExternalWorkflowExecutionSignaledEventAttributes Integer
 eweseaInitiatedEventId = lens _eweseaInitiatedEventId (\ s a -> s{_eweseaInitiatedEventId = a});
 
@@ -2361,17 +2326,17 @@ instance Hashable
 instance NFData
          ExternalWorkflowExecutionSignaledEventAttributes
 
--- | Provides details of the 'FailWorkflowExecution' decision.
+-- | Provides details of the @FailWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'failWorkflowExecutionDecisionAttributes' smart constructor.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
@@ -2383,9 +2348,9 @@ data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttr
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fwedaReason'
+-- * 'fwedaReason' - A descriptive reason for the failure that may help in diagnostics.
 --
--- * 'fwedaDetails'
+-- * 'fwedaDetails' - /Optional./ Details of the failure.
 failWorkflowExecutionDecisionAttributes
     :: FailWorkflowExecutionDecisionAttributes
 failWorkflowExecutionDecisionAttributes =
@@ -2416,7 +2381,9 @@ instance ToJSON
                  [("reason" .=) <$> _fwedaReason,
                   ("details" .=) <$> _fwedaDetails])
 
--- | Provides details of the 'FailWorkflowExecutionFailed' event.
+-- | Provides details of the @FailWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'failWorkflowExecutionFailedEventAttributes' smart constructor.
 data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEventAttributes'
@@ -2428,9 +2395,9 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fwefeaCause'
+-- * 'fwefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'fwefeaDecisionTaskCompletedEventId'
+-- * 'fwefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 failWorkflowExecutionFailedEventAttributes
     :: FailWorkflowExecutionFailedCause -- ^ 'fwefeaCause'
     -> Integer -- ^ 'fwefeaDecisionTaskCompletedEventId'
@@ -2442,12 +2409,10 @@ failWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId
     }
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 fwefeaCause :: Lens' FailWorkflowExecutionFailedEventAttributes FailWorkflowExecutionFailedCause
 fwefeaCause = lens _fwefeaCause (\ s a -> s{_fwefeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'FailWorkflowExecution' decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 fwefeaDecisionTaskCompletedEventId :: Lens' FailWorkflowExecutionFailedEventAttributes Integer
 fwefeaDecisionTaskCompletedEventId = lens _fwefeaDecisionTaskCompletedEventId (\ s a -> s{_fwefeaDecisionTaskCompletedEventId = a});
 
@@ -2469,55 +2434,9 @@ instance NFData
 
 -- | Event within a workflow execution. A history event can be one of these types:
 --
--- -   __WorkflowExecutionStarted__: The workflow execution was started.
--- -   __WorkflowExecutionCompleted__: The workflow execution was closed due to successful completion.
--- -   __WorkflowExecutionFailed__: The workflow execution closed due to a failure.
--- -   __WorkflowExecutionTimedOut__: The workflow execution was closed because a time out was exceeded.
--- -   __WorkflowExecutionCanceled__: The workflow execution was successfully canceled and closed.
--- -   __WorkflowExecutionTerminated__: The workflow execution was terminated.
--- -   __WorkflowExecutionContinuedAsNew__: The workflow execution was closed and a new execution of the same type was created with the same workflowId.
--- -   __WorkflowExecutionCancelRequested__: A request to cancel this workflow execution was made.
--- -   __DecisionTaskScheduled__: A decision task was scheduled for the workflow execution.
--- -   __DecisionTaskStarted__: The decision task was dispatched to a decider.
--- -   __DecisionTaskCompleted__: The decider successfully completed a decision task by calling < RespondDecisionTaskCompleted>.
--- -   __DecisionTaskTimedOut__: The decision task timed out.
--- -   __ActivityTaskScheduled__: An activity task was scheduled for execution.
--- -   __ScheduleActivityTaskFailed__: Failed to process ScheduleActivityTask decision. This happens when the decision is not configured properly, for example the activity type specified is not registered.
--- -   __ActivityTaskStarted__: The scheduled activity task was dispatched to a worker.
--- -   __ActivityTaskCompleted__: An activity worker successfully completed an activity task by calling < RespondActivityTaskCompleted>.
--- -   __ActivityTaskFailed__: An activity worker failed an activity task by calling < RespondActivityTaskFailed>.
--- -   __ActivityTaskTimedOut__: The activity task timed out.
--- -   __ActivityTaskCanceled__: The activity task was successfully canceled.
--- -   __ActivityTaskCancelRequested__: A 'RequestCancelActivityTask' decision was received by the system.
--- -   __RequestCancelActivityTaskFailed__: Failed to process RequestCancelActivityTask decision. This happens when the decision is not configured properly.
--- -   __WorkflowExecutionSignaled__: An external signal was received for the workflow execution.
--- -   __MarkerRecorded__: A marker was recorded in the workflow history as the result of a 'RecordMarker' decision.
--- -   __TimerStarted__: A timer was started for the workflow execution due to a 'StartTimer' decision.
--- -   __StartTimerFailed__: Failed to process StartTimer decision. This happens when the decision is not configured properly, for example a timer already exists with the specified timer ID.
--- -   __TimerFired__: A timer, previously started for this workflow execution, fired.
--- -   __TimerCanceled__: A timer, previously started for this workflow execution, was successfully canceled.
--- -   __CancelTimerFailed__: Failed to process CancelTimer decision. This happens when the decision is not configured properly, for example no timer exists with the specified timer ID.
--- -   __StartChildWorkflowExecutionInitiated__: A request was made to start a child workflow execution.
--- -   __StartChildWorkflowExecutionFailed__: Failed to process StartChildWorkflowExecution decision. This happens when the decision is not configured properly, for example the workflow type specified is not registered.
--- -   __ChildWorkflowExecutionStarted__: A child workflow execution was successfully started.
--- -   __ChildWorkflowExecutionCompleted__: A child workflow execution, started by this workflow execution, completed successfully and was closed.
--- -   __ChildWorkflowExecutionFailed__: A child workflow execution, started by this workflow execution, failed to complete successfully and was closed.
--- -   __ChildWorkflowExecutionTimedOut__: A child workflow execution, started by this workflow execution, timed out and was closed.
--- -   __ChildWorkflowExecutionCanceled__: A child workflow execution, started by this workflow execution, was canceled and closed.
--- -   __ChildWorkflowExecutionTerminated__: A child workflow execution, started by this workflow execution, was terminated.
--- -   __SignalExternalWorkflowExecutionInitiated__: A request to signal an external workflow was made.
--- -   __ExternalWorkflowExecutionSignaled__: A signal, requested by this workflow execution, was successfully delivered to the target external workflow execution.
--- -   __SignalExternalWorkflowExecutionFailed__: The request to signal an external workflow execution failed.
--- -   __RequestCancelExternalWorkflowExecutionInitiated__: A request was made to request the cancellation of an external workflow execution.
--- -   __ExternalWorkflowExecutionCancelRequested__: Request to cancel an external workflow execution was successfully delivered to the target execution.
--- -   __RequestCancelExternalWorkflowExecutionFailed__: Request to cancel an external workflow execution failed.
--- -   __LambdaFunctionScheduled__: An AWS Lambda function was scheduled for execution.
--- -   __LambdaFunctionStarted__: The scheduled function was invoked in the AWS Lambda service.
--- -   __LambdaFunctionCompleted__: The AWS Lambda function successfully completed.
--- -   __LambdaFunctionFailed__: The AWS Lambda function execution failed.
--- -   __LambdaFunctionTimedOut__: The AWS Lambda function execution timed out.
--- -   __ScheduleLambdaFunctionFailed__: Failed to process ScheduleLambdaFunction decision. This happens when the workflow execution does not have the proper IAM role attached to invoke AWS Lambda functions.
--- -   __StartLambdaFunctionFailed__: Failed to invoke the scheduled function in the AWS Lambda service. This happens when the AWS Lambda service is not available in the current region, or received too many requests.
+--
+--     * __WorkflowExecutionStarted__ : The workflow execution was started.    * __WorkflowExecutionCompleted__ : The workflow execution was closed due to successful completion.    * __WorkflowExecutionFailed__ : The workflow execution closed due to a failure.    * __WorkflowExecutionTimedOut__ : The workflow execution was closed because a time out was exceeded.    * __WorkflowExecutionCanceled__ : The workflow execution was successfully canceled and closed.    * __WorkflowExecutionTerminated__ : The workflow execution was terminated.    * __WorkflowExecutionContinuedAsNew__ : The workflow execution was closed and a new execution of the same type was created with the same workflowId.    * __WorkflowExecutionCancelRequested__ : A request to cancel this workflow execution was made.    * __DecisionTaskScheduled__ : A decision task was scheduled for the workflow execution.    * __DecisionTaskStarted__ : The decision task was dispatched to a decider.    * __DecisionTaskCompleted__ : The decider successfully completed a decision task by calling 'RespondDecisionTaskCompleted' .    * __DecisionTaskTimedOut__ : The decision task timed out.    * __ActivityTaskScheduled__ : An activity task was scheduled for execution.    * __ScheduleActivityTaskFailed__ : Failed to process ScheduleActivityTask decision. This happens when the decision is not configured properly, for example the activity type specified is not registered.    * __ActivityTaskStarted__ : The scheduled activity task was dispatched to a worker.    * __ActivityTaskCompleted__ : An activity worker successfully completed an activity task by calling 'RespondActivityTaskCompleted' .    * __ActivityTaskFailed__ : An activity worker failed an activity task by calling 'RespondActivityTaskFailed' .    * __ActivityTaskTimedOut__ : The activity task timed out.    * __ActivityTaskCanceled__ : The activity task was successfully canceled.    * __ActivityTaskCancelRequested__ : A @RequestCancelActivityTask@ decision was received by the system.    * __RequestCancelActivityTaskFailed__ : Failed to process RequestCancelActivityTask decision. This happens when the decision is not configured properly.    * __WorkflowExecutionSignaled__ : An external signal was received for the workflow execution.    * __MarkerRecorded__ : A marker was recorded in the workflow history as the result of a @RecordMarker@ decision.    * __TimerStarted__ : A timer was started for the workflow execution due to a @StartTimer@ decision.    * __StartTimerFailed__ : Failed to process StartTimer decision. This happens when the decision is not configured properly, for example a timer already exists with the specified timer ID.    * __TimerFired__ : A timer, previously started for this workflow execution, fired.    * __TimerCanceled__ : A timer, previously started for this workflow execution, was successfully canceled.    * __CancelTimerFailed__ : Failed to process CancelTimer decision. This happens when the decision is not configured properly, for example no timer exists with the specified timer ID.    * __StartChildWorkflowExecutionInitiated__ : A request was made to start a child workflow execution.    * __StartChildWorkflowExecutionFailed__ : Failed to process StartChildWorkflowExecution decision. This happens when the decision is not configured properly, for example the workflow type specified is not registered.    * __ChildWorkflowExecutionStarted__ : A child workflow execution was successfully started.    * __ChildWorkflowExecutionCompleted__ : A child workflow execution, started by this workflow execution, completed successfully and was closed.    * __ChildWorkflowExecutionFailed__ : A child workflow execution, started by this workflow execution, failed to complete successfully and was closed.    * __ChildWorkflowExecutionTimedOut__ : A child workflow execution, started by this workflow execution, timed out and was closed.    * __ChildWorkflowExecutionCanceled__ : A child workflow execution, started by this workflow execution, was canceled and closed.    * __ChildWorkflowExecutionTerminated__ : A child workflow execution, started by this workflow execution, was terminated.    * __SignalExternalWorkflowExecutionInitiated__ : A request to signal an external workflow was made.    * __ExternalWorkflowExecutionSignaled__ : A signal, requested by this workflow execution, was successfully delivered to the target external workflow execution.    * __SignalExternalWorkflowExecutionFailed__ : The request to signal an external workflow execution failed.    * __RequestCancelExternalWorkflowExecutionInitiated__ : A request was made to request the cancellation of an external workflow execution.    * __ExternalWorkflowExecutionCancelRequested__ : Request to cancel an external workflow execution was successfully delivered to the target execution.    * __RequestCancelExternalWorkflowExecutionFailed__ : Request to cancel an external workflow execution failed.    * __LambdaFunctionScheduled__ : An AWS Lambda function was scheduled for execution.    * __LambdaFunctionStarted__ : The scheduled function was invoked in the AWS Lambda service.    * __LambdaFunctionCompleted__ : The AWS Lambda function successfully completed.    * __LambdaFunctionFailed__ : The AWS Lambda function execution failed.    * __LambdaFunctionTimedOut__ : The AWS Lambda function execution timed out.    * __ScheduleLambdaFunctionFailed__ : Failed to process ScheduleLambdaFunction decision. This happens when the workflow execution does not have the proper IAM role attached to invoke AWS Lambda functions.    * __StartLambdaFunctionFailed__ : Failed to invoke the scheduled function in the AWS Lambda service. This happens when the AWS Lambda service is not available in the current region, or received too many requests.
+--
 --
 -- /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
@@ -2584,119 +2503,119 @@ data HistoryEvent = HistoryEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'heWorkflowExecutionCancelRequestedEventAttributes'
+-- * 'heWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @WorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heRecordMarkerFailedEventAttributes'
+-- * 'heRecordMarkerFailedEventAttributes' - If the event is of type @DecisionTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
+-- * 'heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heLambdaFunctionStartedEventAttributes'
+-- * 'heLambdaFunctionStartedEventAttributes' - Undocumented member.
 --
--- * 'heDecisionTaskScheduledEventAttributes'
+-- * 'heDecisionTaskScheduledEventAttributes' - If the event is of type @DecisionTaskScheduled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionCompletedEventAttributes'
+-- * 'heWorkflowExecutionCompletedEventAttributes' - If the event is of type @WorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heStartTimerFailedEventAttributes'
+-- * 'heStartTimerFailedEventAttributes' - If the event is of type @StartTimerFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskScheduledEventAttributes'
+-- * 'heActivityTaskScheduledEventAttributes' - If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heScheduleActivityTaskFailedEventAttributes'
+-- * 'heScheduleActivityTaskFailedEventAttributes' - If the event is of type @ScheduleActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heChildWorkflowExecutionCompletedEventAttributes'
+-- * 'heChildWorkflowExecutionCompletedEventAttributes' - If the event is of type @ChildWorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heMarkerRecordedEventAttributes'
+-- * 'heMarkerRecordedEventAttributes' - If the event is of type @MarkerRecorded@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heScheduleLambdaFunctionFailedEventAttributes'
+-- * 'heScheduleLambdaFunctionFailedEventAttributes' - Undocumented member.
 --
--- * 'heCompleteWorkflowExecutionFailedEventAttributes'
+-- * 'heCompleteWorkflowExecutionFailedEventAttributes' - If the event is of type @CompleteWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heLambdaFunctionCompletedEventAttributes'
+-- * 'heLambdaFunctionCompletedEventAttributes' - Undocumented member.
 --
--- * 'heRequestCancelExternalWorkflowExecutionFailedEventAttributes'
+-- * 'heRequestCancelExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heTimerCanceledEventAttributes'
+-- * 'heTimerCanceledEventAttributes' - If the event is of type @TimerCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionStartedEventAttributes'
+-- * 'heWorkflowExecutionStartedEventAttributes' - If the event is of type @WorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskCompletedEventAttributes'
+-- * 'heActivityTaskCompletedEventAttributes' - If the event is of type @ActivityTaskCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heDecisionTaskTimedOutEventAttributes'
+-- * 'heDecisionTaskTimedOutEventAttributes' - If the event is of type @DecisionTaskTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heCancelTimerFailedEventAttributes'
+-- * 'heCancelTimerFailedEventAttributes' - If the event is of type @CancelTimerFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heChildWorkflowExecutionStartedEventAttributes'
+-- * 'heChildWorkflowExecutionStartedEventAttributes' - If the event is of type @ChildWorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskCanceledEventAttributes'
+-- * 'heActivityTaskCanceledEventAttributes' - If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskTimedOutEventAttributes'
+-- * 'heActivityTaskTimedOutEventAttributes' - If the event is of type @ActivityTaskTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heDecisionTaskStartedEventAttributes'
+-- * 'heDecisionTaskStartedEventAttributes' - If the event is of type @DecisionTaskStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionTerminatedEventAttributes'
+-- * 'heWorkflowExecutionTerminatedEventAttributes' - If the event is of type @WorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heChildWorkflowExecutionCanceledEventAttributes'
+-- * 'heChildWorkflowExecutionCanceledEventAttributes' - If the event is of type @ChildWorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heRequestCancelActivityTaskFailedEventAttributes'
+-- * 'heRequestCancelActivityTaskFailedEventAttributes' - If the event is of type @RequestCancelActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heLambdaFunctionScheduledEventAttributes'
+-- * 'heLambdaFunctionScheduledEventAttributes' - Undocumented member.
 --
--- * 'heChildWorkflowExecutionTimedOutEventAttributes'
+-- * 'heChildWorkflowExecutionTimedOutEventAttributes' - If the event is of type @ChildWorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heCancelWorkflowExecutionFailedEventAttributes'
+-- * 'heCancelWorkflowExecutionFailedEventAttributes' - If the event is of type @CancelWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heStartChildWorkflowExecutionInitiatedEventAttributes'
+-- * 'heStartChildWorkflowExecutionInitiatedEventAttributes' - If the event is of type @StartChildWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heSignalExternalWorkflowExecutionFailedEventAttributes'
+-- * 'heSignalExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskStartedEventAttributes'
+-- * 'heActivityTaskStartedEventAttributes' - If the event is of type @ActivityTaskStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heStartLambdaFunctionFailedEventAttributes'
+-- * 'heStartLambdaFunctionFailedEventAttributes' - Undocumented member.
 --
--- * 'heChildWorkflowExecutionTerminatedEventAttributes'
+-- * 'heChildWorkflowExecutionTerminatedEventAttributes' - If the event is of type @ChildWorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heLambdaFunctionFailedEventAttributes'
+-- * 'heLambdaFunctionFailedEventAttributes' - Undocumented member.
 --
--- * 'heWorkflowExecutionCanceledEventAttributes'
+-- * 'heWorkflowExecutionCanceledEventAttributes' - If the event is of type @WorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heTimerStartedEventAttributes'
+-- * 'heTimerStartedEventAttributes' - If the event is of type @TimerStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskCancelRequestedEventAttributes'
+-- * 'heActivityTaskCancelRequestedEventAttributes' - If the event is of type @ActivityTaskcancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionTimedOutEventAttributes'
+-- * 'heWorkflowExecutionTimedOutEventAttributes' - If the event is of type @WorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionSignaledEventAttributes'
+-- * 'heWorkflowExecutionSignaledEventAttributes' - If the event is of type @WorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heTimerFiredEventAttributes'
+-- * 'heTimerFiredEventAttributes' - If the event is of type @TimerFired@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heActivityTaskFailedEventAttributes'
+-- * 'heActivityTaskFailedEventAttributes' - If the event is of type @ActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heExternalWorkflowExecutionSignaledEventAttributes'
+-- * 'heExternalWorkflowExecutionSignaledEventAttributes' - If the event is of type @ExternalWorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heDecisionTaskCompletedEventAttributes'
+-- * 'heDecisionTaskCompletedEventAttributes' - If the event is of type @DecisionTaskCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heStartChildWorkflowExecutionFailedEventAttributes'
+-- * 'heStartChildWorkflowExecutionFailedEventAttributes' - If the event is of type @StartChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heChildWorkflowExecutionFailedEventAttributes'
+-- * 'heChildWorkflowExecutionFailedEventAttributes' - If the event is of type @ChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heFailWorkflowExecutionFailedEventAttributes'
+-- * 'heFailWorkflowExecutionFailedEventAttributes' - If the event is of type @FailWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heContinueAsNewWorkflowExecutionFailedEventAttributes'
+-- * 'heContinueAsNewWorkflowExecutionFailedEventAttributes' - If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heSignalExternalWorkflowExecutionInitiatedEventAttributes'
+-- * 'heSignalExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heLambdaFunctionTimedOutEventAttributes'
+-- * 'heLambdaFunctionTimedOutEventAttributes' - Undocumented member.
 --
--- * 'heWorkflowExecutionFailedEventAttributes'
+-- * 'heWorkflowExecutionFailedEventAttributes' - If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heWorkflowExecutionContinuedAsNewEventAttributes'
+-- * 'heWorkflowExecutionContinuedAsNewEventAttributes' - If the event is of type @WorkflowExecutionContinuedAsNew@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heExternalWorkflowExecutionCancelRequestedEventAttributes'
+-- * 'heExternalWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @ExternalWorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 --
--- * 'heEventTimestamp'
+-- * 'heEventTimestamp' - The date and time when the event occurred.
 --
--- * 'heEventType'
+-- * 'heEventType' - The type of the history event.
 --
--- * 'heEventId'
+-- * 'heEventId' - The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
 historyEvent
     :: UTCTime -- ^ 'heEventTimestamp'
     -> EventType -- ^ 'heEventType'
@@ -2763,15 +2682,15 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     , _heEventId = pEventId_
     }
 
--- | If the event is of type 'WorkflowExecutionCancelRequested' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCancelRequestedEventAttributes)
 heWorkflowExecutionCancelRequestedEventAttributes = lens _heWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heWorkflowExecutionCancelRequestedEventAttributes = a});
 
--- | If the event is of type 'DecisionTaskFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @DecisionTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heRecordMarkerFailedEventAttributes :: Lens' HistoryEvent (Maybe RecordMarkerFailedEventAttributes)
 heRecordMarkerFailedEventAttributes = lens _heRecordMarkerFailedEventAttributes (\ s a -> s{_heRecordMarkerFailedEventAttributes = a});
 
--- | If the event is of type 'RequestCancelExternalWorkflowExecutionInitiated' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = a});
 
@@ -2779,31 +2698,31 @@ heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = lens _heReque
 heLambdaFunctionStartedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionStartedEventAttributes)
 heLambdaFunctionStartedEventAttributes = lens _heLambdaFunctionStartedEventAttributes (\ s a -> s{_heLambdaFunctionStartedEventAttributes = a});
 
--- | If the event is of type 'DecisionTaskScheduled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @DecisionTaskScheduled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heDecisionTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskScheduledEventAttributes)
 heDecisionTaskScheduledEventAttributes = lens _heDecisionTaskScheduledEventAttributes (\ s a -> s{_heDecisionTaskScheduledEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionCompleted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCompletedEventAttributes)
 heWorkflowExecutionCompletedEventAttributes = lens _heWorkflowExecutionCompletedEventAttributes (\ s a -> s{_heWorkflowExecutionCompletedEventAttributes = a});
 
--- | If the event is of type 'StartTimerFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @StartTimerFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes = lens _heStartTimerFailedEventAttributes (\ s a -> s{_heStartTimerFailedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskScheduled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskScheduledEventAttributes)
 heActivityTaskScheduledEventAttributes = lens _heActivityTaskScheduledEventAttributes (\ s a -> s{_heActivityTaskScheduledEventAttributes = a});
 
--- | If the event is of type 'ScheduleActivityTaskFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ScheduleActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heScheduleActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleActivityTaskFailedEventAttributes)
 heScheduleActivityTaskFailedEventAttributes = lens _heScheduleActivityTaskFailedEventAttributes (\ s a -> s{_heScheduleActivityTaskFailedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionCompleted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCompletedEventAttributes)
 heChildWorkflowExecutionCompletedEventAttributes = lens _heChildWorkflowExecutionCompletedEventAttributes (\ s a -> s{_heChildWorkflowExecutionCompletedEventAttributes = a});
 
--- | If the event is of type 'MarkerRecorded' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @MarkerRecorded@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heMarkerRecordedEventAttributes :: Lens' HistoryEvent (Maybe MarkerRecordedEventAttributes)
 heMarkerRecordedEventAttributes = lens _heMarkerRecordedEventAttributes (\ s a -> s{_heMarkerRecordedEventAttributes = a});
 
@@ -2811,7 +2730,7 @@ heMarkerRecordedEventAttributes = lens _heMarkerRecordedEventAttributes (\ s a -
 heScheduleLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleLambdaFunctionFailedEventAttributes)
 heScheduleLambdaFunctionFailedEventAttributes = lens _heScheduleLambdaFunctionFailedEventAttributes (\ s a -> s{_heScheduleLambdaFunctionFailedEventAttributes = a});
 
--- | If the event is of type 'CompleteWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @CompleteWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heCompleteWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CompleteWorkflowExecutionFailedEventAttributes)
 heCompleteWorkflowExecutionFailedEventAttributes = lens _heCompleteWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCompleteWorkflowExecutionFailedEventAttributes = a});
 
@@ -2819,55 +2738,55 @@ heCompleteWorkflowExecutionFailedEventAttributes = lens _heCompleteWorkflowExecu
 heLambdaFunctionCompletedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionCompletedEventAttributes)
 heLambdaFunctionCompletedEventAttributes = lens _heLambdaFunctionCompletedEventAttributes (\ s a -> s{_heLambdaFunctionCompletedEventAttributes = a});
 
--- | If the event is of type 'RequestCancelExternalWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @RequestCancelExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'TimerCanceled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @TimerCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heTimerCanceledEventAttributes :: Lens' HistoryEvent (Maybe TimerCanceledEventAttributes)
 heTimerCanceledEventAttributes = lens _heTimerCanceledEventAttributes (\ s a -> s{_heTimerCanceledEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionStarted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionStartedEventAttributes)
 heWorkflowExecutionStartedEventAttributes = lens _heWorkflowExecutionStartedEventAttributes (\ s a -> s{_heWorkflowExecutionStartedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskCompleted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCompletedEventAttributes)
 heActivityTaskCompletedEventAttributes = lens _heActivityTaskCompletedEventAttributes (\ s a -> s{_heActivityTaskCompletedEventAttributes = a});
 
--- | If the event is of type 'DecisionTaskTimedOut' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @DecisionTaskTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heDecisionTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskTimedOutEventAttributes)
 heDecisionTaskTimedOutEventAttributes = lens _heDecisionTaskTimedOutEventAttributes (\ s a -> s{_heDecisionTaskTimedOutEventAttributes = a});
 
--- | If the event is of type 'CancelTimerFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @CancelTimerFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heCancelTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelTimerFailedEventAttributes)
 heCancelTimerFailedEventAttributes = lens _heCancelTimerFailedEventAttributes (\ s a -> s{_heCancelTimerFailedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionStarted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
 heChildWorkflowExecutionStartedEventAttributes = lens _heChildWorkflowExecutionStartedEventAttributes (\ s a -> s{_heChildWorkflowExecutionStartedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskCanceled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskCanceledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCanceledEventAttributes)
 heActivityTaskCanceledEventAttributes = lens _heActivityTaskCanceledEventAttributes (\ s a -> s{_heActivityTaskCanceledEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskTimedOut' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskTimedOutEventAttributes)
 heActivityTaskTimedOutEventAttributes = lens _heActivityTaskTimedOutEventAttributes (\ s a -> s{_heActivityTaskTimedOutEventAttributes = a});
 
--- | If the event is of type 'DecisionTaskStarted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @DecisionTaskStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heDecisionTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskStartedEventAttributes)
 heDecisionTaskStartedEventAttributes = lens _heDecisionTaskStartedEventAttributes (\ s a -> s{_heDecisionTaskStartedEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionTerminated' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTerminatedEventAttributes)
 heWorkflowExecutionTerminatedEventAttributes = lens _heWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heWorkflowExecutionTerminatedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionCanceled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCanceledEventAttributes)
 heChildWorkflowExecutionCanceledEventAttributes = lens _heChildWorkflowExecutionCanceledEventAttributes (\ s a -> s{_heChildWorkflowExecutionCanceledEventAttributes = a});
 
--- | If the event is of type 'RequestCancelActivityTaskFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @RequestCancelActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heRequestCancelActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelActivityTaskFailedEventAttributes)
 heRequestCancelActivityTaskFailedEventAttributes = lens _heRequestCancelActivityTaskFailedEventAttributes (\ s a -> s{_heRequestCancelActivityTaskFailedEventAttributes = a});
 
@@ -2875,23 +2794,23 @@ heRequestCancelActivityTaskFailedEventAttributes = lens _heRequestCancelActivity
 heLambdaFunctionScheduledEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionScheduledEventAttributes)
 heLambdaFunctionScheduledEventAttributes = lens _heLambdaFunctionScheduledEventAttributes (\ s a -> s{_heLambdaFunctionScheduledEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionTimedOut' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTimedOutEventAttributes)
 heChildWorkflowExecutionTimedOutEventAttributes = lens _heChildWorkflowExecutionTimedOutEventAttributes (\ s a -> s{_heChildWorkflowExecutionTimedOutEventAttributes = a});
 
--- | If the event is of type 'CancelWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @CancelWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes = lens _heCancelWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCancelWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'StartChildWorkflowExecutionInitiated' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @StartChildWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heStartChildWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
 heStartChildWorkflowExecutionInitiatedEventAttributes = lens _heStartChildWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heStartChildWorkflowExecutionInitiatedEventAttributes = a});
 
--- | If the event is of type 'SignalExternalWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heSignalExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
 heSignalExternalWorkflowExecutionFailedEventAttributes = lens _heSignalExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heSignalExternalWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskStarted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskStartedEventAttributes)
 heActivityTaskStartedEventAttributes = lens _heActivityTaskStartedEventAttributes (\ s a -> s{_heActivityTaskStartedEventAttributes = a});
 
@@ -2899,7 +2818,7 @@ heActivityTaskStartedEventAttributes = lens _heActivityTaskStartedEventAttribute
 heStartLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartLambdaFunctionFailedEventAttributes)
 heStartLambdaFunctionFailedEventAttributes = lens _heStartLambdaFunctionFailedEventAttributes (\ s a -> s{_heStartLambdaFunctionFailedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionTerminated' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 heChildWorkflowExecutionTerminatedEventAttributes = lens _heChildWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heChildWorkflowExecutionTerminatedEventAttributes = a});
 
@@ -2907,59 +2826,59 @@ heChildWorkflowExecutionTerminatedEventAttributes = lens _heChildWorkflowExecuti
 heLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionFailedEventAttributes)
 heLambdaFunctionFailedEventAttributes = lens _heLambdaFunctionFailedEventAttributes (\ s a -> s{_heLambdaFunctionFailedEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionCanceled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCanceledEventAttributes)
 heWorkflowExecutionCanceledEventAttributes = lens _heWorkflowExecutionCanceledEventAttributes (\ s a -> s{_heWorkflowExecutionCanceledEventAttributes = a});
 
--- | If the event is of type 'TimerStarted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @TimerStarted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heTimerStartedEventAttributes :: Lens' HistoryEvent (Maybe TimerStartedEventAttributes)
 heTimerStartedEventAttributes = lens _heTimerStartedEventAttributes (\ s a -> s{_heTimerStartedEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskcancelRequested' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskcancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
 heActivityTaskCancelRequestedEventAttributes = lens _heActivityTaskCancelRequestedEventAttributes (\ s a -> s{_heActivityTaskCancelRequestedEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionTimedOut' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
 heWorkflowExecutionTimedOutEventAttributes = lens _heWorkflowExecutionTimedOutEventAttributes (\ s a -> s{_heWorkflowExecutionTimedOutEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionSignaled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionSignaledEventAttributes)
 heWorkflowExecutionSignaledEventAttributes = lens _heWorkflowExecutionSignaledEventAttributes (\ s a -> s{_heWorkflowExecutionSignaledEventAttributes = a});
 
--- | If the event is of type 'TimerFired' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @TimerFired@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heTimerFiredEventAttributes :: Lens' HistoryEvent (Maybe TimerFiredEventAttributes)
 heTimerFiredEventAttributes = lens _heTimerFiredEventAttributes (\ s a -> s{_heTimerFiredEventAttributes = a});
 
--- | If the event is of type 'ActivityTaskFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ActivityTaskFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskFailedEventAttributes)
 heActivityTaskFailedEventAttributes = lens _heActivityTaskFailedEventAttributes (\ s a -> s{_heActivityTaskFailedEventAttributes = a});
 
--- | If the event is of type 'ExternalWorkflowExecutionSignaled' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ExternalWorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heExternalWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionSignaledEventAttributes)
 heExternalWorkflowExecutionSignaledEventAttributes = lens _heExternalWorkflowExecutionSignaledEventAttributes (\ s a -> s{_heExternalWorkflowExecutionSignaledEventAttributes = a});
 
--- | If the event is of type 'DecisionTaskCompleted' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @DecisionTaskCompleted@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heDecisionTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskCompletedEventAttributes)
 heDecisionTaskCompletedEventAttributes = lens _heDecisionTaskCompletedEventAttributes (\ s a -> s{_heDecisionTaskCompletedEventAttributes = a});
 
--- | If the event is of type 'StartChildWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @StartChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heStartChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionFailedEventAttributes)
 heStartChildWorkflowExecutionFailedEventAttributes = lens _heStartChildWorkflowExecutionFailedEventAttributes (\ s a -> s{_heStartChildWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'ChildWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionFailedEventAttributes)
 heChildWorkflowExecutionFailedEventAttributes = lens _heChildWorkflowExecutionFailedEventAttributes (\ s a -> s{_heChildWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'FailWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @FailWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heFailWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe FailWorkflowExecutionFailedEventAttributes)
 heFailWorkflowExecutionFailedEventAttributes = lens _heFailWorkflowExecutionFailedEventAttributes (\ s a -> s{_heFailWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'ContinueAsNewWorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heContinueAsNewWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
 heContinueAsNewWorkflowExecutionFailedEventAttributes = lens _heContinueAsNewWorkflowExecutionFailedEventAttributes (\ s a -> s{_heContinueAsNewWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'SignalExternalWorkflowExecutionInitiated' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @SignalExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
 heSignalExternalWorkflowExecutionInitiatedEventAttributes = lens _heSignalExternalWorkflowExecutionInitiatedEventAttributes (\ s a -> s{_heSignalExternalWorkflowExecutionInitiatedEventAttributes = a});
 
@@ -2967,15 +2886,15 @@ heSignalExternalWorkflowExecutionInitiatedEventAttributes = lens _heSignalExtern
 heLambdaFunctionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventAttributes)
 heLambdaFunctionTimedOutEventAttributes = lens _heLambdaFunctionTimedOutEventAttributes (\ s a -> s{_heLambdaFunctionTimedOutEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionFailed' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionFailedEventAttributes)
 heWorkflowExecutionFailedEventAttributes = lens _heWorkflowExecutionFailedEventAttributes (\ s a -> s{_heWorkflowExecutionFailedEventAttributes = a});
 
--- | If the event is of type 'WorkflowExecutionContinuedAsNew' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heWorkflowExecutionContinuedAsNewEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionContinuedAsNewEventAttributes)
 heWorkflowExecutionContinuedAsNewEventAttributes = lens _heWorkflowExecutionContinuedAsNewEventAttributes (\ s a -> s{_heWorkflowExecutionContinuedAsNewEventAttributes = a});
 
--- | If the event is of type 'ExternalWorkflowExecutionCancelRequested' then this member is set and provides detailed information about the event. It is not set for other event types.
+-- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It is not set for other event types.
 heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
 heExternalWorkflowExecutionCancelRequestedEventAttributes = lens _heExternalWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heExternalWorkflowExecutionCancelRequestedEventAttributes = a});
 
@@ -3106,7 +3025,9 @@ instance Hashable HistoryEvent
 
 instance NFData HistoryEvent
 
--- | Provides details for the 'LambdaFunctionCompleted' event.
+-- | Provides details for the @LambdaFunctionCompleted@ event.
+--
+--
 --
 -- /See:/ 'lambdaFunctionCompletedEventAttributes' smart constructor.
 data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttributes'
@@ -3119,11 +3040,11 @@ data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttrib
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfceaResult'
+-- * 'lfceaResult' - The result of the function execution (if any).
 --
--- * 'lfceaScheduledEventId'
+-- * 'lfceaScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'lfceaStartedEventId'
+-- * 'lfceaStartedEventId' - The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lambdaFunctionCompletedEventAttributes
     :: Integer -- ^ 'lfceaScheduledEventId'
     -> Integer -- ^ 'lfceaStartedEventId'
@@ -3139,11 +3060,11 @@ lambdaFunctionCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
 lfceaResult :: Lens' LambdaFunctionCompletedEventAttributes (Maybe Text)
 lfceaResult = lens _lfceaResult (\ s a -> s{_lfceaResult = a});
 
--- | The ID of the 'LambdaFunctionScheduled' event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lfceaScheduledEventId :: Lens' LambdaFunctionCompletedEventAttributes Integer
 lfceaScheduledEventId = lens _lfceaScheduledEventId (\ s a -> s{_lfceaScheduledEventId = a});
 
--- | The ID of the 'LambdaFunctionStarted' event recorded in the history.
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lfceaStartedEventId :: Lens' LambdaFunctionCompletedEventAttributes Integer
 lfceaStartedEventId = lens _lfceaStartedEventId (\ s a -> s{_lfceaStartedEventId = a});
 
@@ -3162,7 +3083,9 @@ instance Hashable
 instance NFData
          LambdaFunctionCompletedEventAttributes
 
--- | Provides details for the 'LambdaFunctionFailed' event.
+-- | Provides details for the @LambdaFunctionFailed@ event.
+--
+--
 --
 -- /See:/ 'lambdaFunctionFailedEventAttributes' smart constructor.
 data LambdaFunctionFailedEventAttributes = LambdaFunctionFailedEventAttributes'
@@ -3176,13 +3099,13 @@ data LambdaFunctionFailedEventAttributes = LambdaFunctionFailedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lffeaReason'
+-- * 'lffeaReason' - The reason provided for the failure (if any).
 --
--- * 'lffeaDetails'
+-- * 'lffeaDetails' - The details of the failure (if any).
 --
--- * 'lffeaScheduledEventId'
+-- * 'lffeaScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'lffeaStartedEventId'
+-- * 'lffeaStartedEventId' - The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lambdaFunctionFailedEventAttributes
     :: Integer -- ^ 'lffeaScheduledEventId'
     -> Integer -- ^ 'lffeaStartedEventId'
@@ -3203,11 +3126,11 @@ lffeaReason = lens _lffeaReason (\ s a -> s{_lffeaReason = a});
 lffeaDetails :: Lens' LambdaFunctionFailedEventAttributes (Maybe Text)
 lffeaDetails = lens _lffeaDetails (\ s a -> s{_lffeaDetails = a});
 
--- | The ID of the 'LambdaFunctionScheduled' event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lffeaScheduledEventId :: Lens' LambdaFunctionFailedEventAttributes Integer
 lffeaScheduledEventId = lens _lffeaScheduledEventId (\ s a -> s{_lffeaScheduledEventId = a});
 
--- | The ID of the 'LambdaFunctionStarted' event recorded in the history.
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lffeaStartedEventId :: Lens' LambdaFunctionFailedEventAttributes Integer
 lffeaStartedEventId = lens _lffeaStartedEventId (\ s a -> s{_lffeaStartedEventId = a});
 
@@ -3225,7 +3148,9 @@ instance Hashable LambdaFunctionFailedEventAttributes
 
 instance NFData LambdaFunctionFailedEventAttributes
 
--- | Provides details for the 'LambdaFunctionScheduled' event.
+-- | Provides details for the @LambdaFunctionScheduled@ event.
+--
+--
 --
 -- /See:/ 'lambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
@@ -3240,15 +3165,15 @@ data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttrib
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfseaInput'
+-- * 'lfseaInput' - Input provided to the AWS Lambda function.
 --
--- * 'lfseaStartToCloseTimeout'
+-- * 'lfseaStartToCloseTimeout' - The maximum time, in seconds, that the AWS Lambda function can take to execute from start to close before it is marked as failed.
 --
--- * 'lfseaId'
+-- * 'lfseaId' - The unique Amazon SWF ID for the AWS Lambda task.
 --
--- * 'lfseaName'
+-- * 'lfseaName' - The name of the scheduled AWS Lambda function.
 --
--- * 'lfseaDecisionTaskCompletedEventId'
+-- * 'lfseaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event for the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lambdaFunctionScheduledEventAttributes
     :: Text -- ^ 'lfseaId'
     -> Text -- ^ 'lfseaName'
@@ -3279,7 +3204,7 @@ lfseaId = lens _lfseaId (\ s a -> s{_lfseaId = a});
 lfseaName :: Lens' LambdaFunctionScheduledEventAttributes Text
 lfseaName = lens _lfseaName (\ s a -> s{_lfseaName = a});
 
--- | The ID of the 'DecisionTaskCompleted' event for the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event for the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lfseaDecisionTaskCompletedEventId :: Lens' LambdaFunctionScheduledEventAttributes Integer
 lfseaDecisionTaskCompletedEventId = lens _lfseaDecisionTaskCompletedEventId (\ s a -> s{_lfseaDecisionTaskCompletedEventId = a});
 
@@ -3300,7 +3225,9 @@ instance Hashable
 instance NFData
          LambdaFunctionScheduledEventAttributes
 
--- | Provides details for the 'LambdaFunctionStarted' event.
+-- | Provides details for the @LambdaFunctionStarted@ event.
+--
+--
 --
 -- /See:/ 'lambdaFunctionStartedEventAttributes' smart constructor.
 newtype LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes'
@@ -3311,7 +3238,7 @@ newtype LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttribu
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfseaScheduledEventId'
+-- * 'lfseaScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lambdaFunctionStartedEventAttributes
     :: Integer -- ^ 'lfseaScheduledEventId'
     -> LambdaFunctionStartedEventAttributes
@@ -3320,7 +3247,7 @@ lambdaFunctionStartedEventAttributes pScheduledEventId_ =
     { _lfseaScheduledEventId = pScheduledEventId_
     }
 
--- | The ID of the 'LambdaFunctionScheduled' event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lfseaScheduledEventId :: Lens' LambdaFunctionStartedEventAttributes Integer
 lfseaScheduledEventId = lens _lfseaScheduledEventId (\ s a -> s{_lfseaScheduledEventId = a});
 
@@ -3337,7 +3264,9 @@ instance Hashable
 
 instance NFData LambdaFunctionStartedEventAttributes
 
--- | Provides details for the 'LambdaFunctionTimedOut' event.
+-- | Provides details for the @LambdaFunctionTimedOut@ event.
+--
+--
 --
 -- /See:/ 'lambdaFunctionTimedOutEventAttributes' smart constructor.
 data LambdaFunctionTimedOutEventAttributes = LambdaFunctionTimedOutEventAttributes'
@@ -3350,11 +3279,11 @@ data LambdaFunctionTimedOutEventAttributes = LambdaFunctionTimedOutEventAttribut
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lftoeaTimeoutType'
+-- * 'lftoeaTimeoutType' - The type of the timeout that caused this event.
 --
--- * 'lftoeaScheduledEventId'
+-- * 'lftoeaScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'lftoeaStartedEventId'
+-- * 'lftoeaStartedEventId' - The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lambdaFunctionTimedOutEventAttributes
     :: Integer -- ^ 'lftoeaScheduledEventId'
     -> Integer -- ^ 'lftoeaStartedEventId'
@@ -3370,11 +3299,11 @@ lambdaFunctionTimedOutEventAttributes pScheduledEventId_ pStartedEventId_ =
 lftoeaTimeoutType :: Lens' LambdaFunctionTimedOutEventAttributes (Maybe LambdaFunctionTimeoutType)
 lftoeaTimeoutType = lens _lftoeaTimeoutType (\ s a -> s{_lftoeaTimeoutType = a});
 
--- | The ID of the 'LambdaFunctionScheduled' event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 lftoeaScheduledEventId :: Lens' LambdaFunctionTimedOutEventAttributes Integer
 lftoeaScheduledEventId = lens _lftoeaScheduledEventId (\ s a -> s{_lftoeaScheduledEventId = a});
 
--- | The ID of the 'LambdaFunctionStarted' event recorded in the history.
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
 lftoeaStartedEventId :: Lens' LambdaFunctionTimedOutEventAttributes Integer
 lftoeaStartedEventId = lens _lftoeaStartedEventId (\ s a -> s{_lftoeaStartedEventId = a});
 
@@ -3392,7 +3321,9 @@ instance Hashable
 
 instance NFData LambdaFunctionTimedOutEventAttributes
 
--- | Provides details of the 'MarkerRecorded' event.
+-- | Provides details of the @MarkerRecorded@ event.
+--
+--
 --
 -- /See:/ 'markerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
@@ -3405,11 +3336,11 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mreaDetails'
+-- * 'mreaDetails' - Details of the marker (if any).
 --
--- * 'mreaMarkerName'
+-- * 'mreaMarkerName' - The name of the marker.
 --
--- * 'mreaDecisionTaskCompletedEventId'
+-- * 'mreaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 markerRecordedEventAttributes
     :: Text -- ^ 'mreaMarkerName'
     -> Integer -- ^ 'mreaDecisionTaskCompletedEventId'
@@ -3429,7 +3360,7 @@ mreaDetails = lens _mreaDetails (\ s a -> s{_mreaDetails = a});
 mreaMarkerName :: Lens' MarkerRecordedEventAttributes Text
 mreaMarkerName = lens _mreaMarkerName (\ s a -> s{_mreaMarkerName = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RecordMarker' decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mreaDecisionTaskCompletedEventId :: Lens' MarkerRecordedEventAttributes Integer
 mreaDecisionTaskCompletedEventId = lens _mreaDecisionTaskCompletedEventId (\ s a -> s{_mreaDecisionTaskCompletedEventId = a});
 
@@ -3447,6 +3378,8 @@ instance NFData MarkerRecordedEventAttributes
 
 -- | Contains the count of tasks in a task list.
 --
+--
+--
 -- /See:/ 'pendingTaskCount' smart constructor.
 data PendingTaskCount = PendingTaskCount'
     { _ptcTruncated :: !(Maybe Bool)
@@ -3457,9 +3390,9 @@ data PendingTaskCount = PendingTaskCount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptcTruncated'
+-- * 'ptcTruncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
 --
--- * 'ptcCount'
+-- * 'ptcCount' - The number of tasks in the task list.
 pendingTaskCount
     :: Natural -- ^ 'ptcCount'
     -> PendingTaskCount
@@ -3488,17 +3421,17 @@ instance Hashable PendingTaskCount
 
 instance NFData PendingTaskCount
 
--- | Provides details of the 'RecordMarker' decision.
+-- | Provides details of the @RecordMarker@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'recordMarkerDecisionAttributes' smart constructor.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
@@ -3510,9 +3443,9 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmdaDetails'
+-- * 'rmdaDetails' - /Optional./ details of the marker.
 --
--- * 'rmdaMarkerName'
+-- * 'rmdaMarkerName' - __Required.__ The name of the marker.
 recordMarkerDecisionAttributes
     :: Text -- ^ 'rmdaMarkerName'
     -> RecordMarkerDecisionAttributes
@@ -3541,7 +3474,9 @@ instance ToJSON RecordMarkerDecisionAttributes where
                  [("details" .=) <$> _rmdaDetails,
                   Just ("markerName" .= _rmdaMarkerName)])
 
--- | Provides details of the 'RecordMarkerFailed' event.
+-- | Provides details of the @RecordMarkerFailed@ event.
+--
+--
 --
 -- /See:/ 'recordMarkerFailedEventAttributes' smart constructor.
 data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes'
@@ -3554,11 +3489,11 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmfeaMarkerName'
+-- * 'rmfeaMarkerName' - The marker's name.
 --
--- * 'rmfeaCause'
+-- * 'rmfeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'rmfeaDecisionTaskCompletedEventId'
+-- * 'rmfeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarkerFailed@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 recordMarkerFailedEventAttributes
     :: Text -- ^ 'rmfeaMarkerName'
     -> RecordMarkerFailedCause -- ^ 'rmfeaCause'
@@ -3571,17 +3506,15 @@ recordMarkerFailedEventAttributes pMarkerName_ pCause_ pDecisionTaskCompletedEve
     , _rmfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The marker\'s name.
+-- | The marker's name.
 rmfeaMarkerName :: Lens' RecordMarkerFailedEventAttributes Text
 rmfeaMarkerName = lens _rmfeaMarkerName (\ s a -> s{_rmfeaMarkerName = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rmfeaCause :: Lens' RecordMarkerFailedEventAttributes RecordMarkerFailedCause
 rmfeaCause = lens _rmfeaCause (\ s a -> s{_rmfeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RecordMarkerFailed' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarkerFailed@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 rmfeaDecisionTaskCompletedEventId :: Lens' RecordMarkerFailedEventAttributes Integer
 rmfeaDecisionTaskCompletedEventId = lens _rmfeaDecisionTaskCompletedEventId (\ s a -> s{_rmfeaDecisionTaskCompletedEventId = a});
 
@@ -3598,17 +3531,17 @@ instance Hashable RecordMarkerFailedEventAttributes
 
 instance NFData RecordMarkerFailedEventAttributes
 
--- | Provides details of the 'RequestCancelActivityTask' decision.
+-- | Provides details of the @RequestCancelActivityTask@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'requestCancelActivityTaskDecisionAttributes' smart constructor.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes'
@@ -3619,7 +3552,7 @@ newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskD
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcatdaActivityId'
+-- * 'rcatdaActivityId' - The @activityId@ of the activity task to be canceled.
 requestCancelActivityTaskDecisionAttributes
     :: Text -- ^ 'rcatdaActivityId'
     -> RequestCancelActivityTaskDecisionAttributes
@@ -3628,7 +3561,7 @@ requestCancelActivityTaskDecisionAttributes pActivityId_ =
     { _rcatdaActivityId = pActivityId_
     }
 
--- | The 'activityId' of the activity task to be canceled.
+-- | The @activityId@ of the activity task to be canceled.
 rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes Text
 rcatdaActivityId = lens _rcatdaActivityId (\ s a -> s{_rcatdaActivityId = a});
 
@@ -3646,7 +3579,9 @@ instance ToJSON
               (catMaybes
                  [Just ("activityId" .= _rcatdaActivityId)])
 
--- | Provides details of the 'RequestCancelActivityTaskFailed' event.
+-- | Provides details of the @RequestCancelActivityTaskFailed@ event.
+--
+--
 --
 -- /See:/ 'requestCancelActivityTaskFailedEventAttributes' smart constructor.
 data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskFailedEventAttributes'
@@ -3659,11 +3594,11 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcatfeaActivityId'
+-- * 'rcatfeaActivityId' - The activityId provided in the @RequestCancelActivityTask@ decision that failed.
 --
--- * 'rcatfeaCause'
+-- * 'rcatfeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'rcatfeaDecisionTaskCompletedEventId'
+-- * 'rcatfeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 requestCancelActivityTaskFailedEventAttributes
     :: Text -- ^ 'rcatfeaActivityId'
     -> RequestCancelActivityTaskFailedCause -- ^ 'rcatfeaCause'
@@ -3676,17 +3611,15 @@ requestCancelActivityTaskFailedEventAttributes pActivityId_ pCause_ pDecisionTas
     , _rcatfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The activityId provided in the 'RequestCancelActivityTask' decision that failed.
+-- | The activityId provided in the @RequestCancelActivityTask@ decision that failed.
 rcatfeaActivityId :: Lens' RequestCancelActivityTaskFailedEventAttributes Text
 rcatfeaActivityId = lens _rcatfeaActivityId (\ s a -> s{_rcatfeaActivityId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rcatfeaCause :: Lens' RequestCancelActivityTaskFailedEventAttributes RequestCancelActivityTaskFailedCause
 rcatfeaCause = lens _rcatfeaCause (\ s a -> s{_rcatfeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RequestCancelActivityTask' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 rcatfeaDecisionTaskCompletedEventId :: Lens' RequestCancelActivityTaskFailedEventAttributes Integer
 rcatfeaDecisionTaskCompletedEventId = lens _rcatfeaDecisionTaskCompletedEventId (\ s a -> s{_rcatfeaDecisionTaskCompletedEventId = a});
 
@@ -3706,17 +3639,17 @@ instance Hashable
 instance NFData
          RequestCancelActivityTaskFailedEventAttributes
 
--- | Provides details of the 'RequestCancelExternalWorkflowExecution' decision.
+-- | Provides details of the @RequestCancelExternalWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
@@ -3729,11 +3662,11 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcewedaControl'
+-- * 'rcewedaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks.
 --
--- * 'rcewedaRunId'
+-- * 'rcewedaRunId' - The @runId@ of the external workflow execution to cancel.
 --
--- * 'rcewedaWorkflowId'
+-- * 'rcewedaWorkflowId' - __Required.__ The @workflowId@ of the external workflow execution to cancel.
 requestCancelExternalWorkflowExecutionDecisionAttributes
     :: Text -- ^ 'rcewedaWorkflowId'
     -> RequestCancelExternalWorkflowExecutionDecisionAttributes
@@ -3748,11 +3681,11 @@ requestCancelExternalWorkflowExecutionDecisionAttributes pWorkflowId_ =
 rcewedaControl :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaControl = lens _rcewedaControl (\ s a -> s{_rcewedaControl = a});
 
--- | The 'runId' of the external workflow execution to cancel.
+-- | The @runId@ of the external workflow execution to cancel.
 rcewedaRunId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaRunId = lens _rcewedaRunId (\ s a -> s{_rcewedaRunId = a});
 
--- | __Required.__ The 'workflowId' of the external workflow execution to cancel.
+-- | __Required.__ The @workflowId@ of the external workflow execution to cancel.
 rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Text
 rcewedaWorkflowId = lens _rcewedaWorkflowId (\ s a -> s{_rcewedaWorkflowId = a});
 
@@ -3773,7 +3706,9 @@ instance ToJSON
                   ("runId" .=) <$> _rcewedaRunId,
                   Just ("workflowId" .= _rcewedaWorkflowId)])
 
--- | Provides details of the 'RequestCancelExternalWorkflowExecutionFailed' event.
+-- | Provides details of the @RequestCancelExternalWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes'
@@ -3789,17 +3724,17 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcewefeaControl'
+-- * 'rcewefeaControl' - Undocumented member.
 --
--- * 'rcewefeaRunId'
+-- * 'rcewefeaRunId' - The @runId@ of the external workflow execution.
 --
--- * 'rcewefeaWorkflowId'
+-- * 'rcewefeaWorkflowId' - The @workflowId@ of the external workflow to which the cancel request was to be delivered.
 --
--- * 'rcewefeaCause'
+-- * 'rcewefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'rcewefeaInitiatedEventId'
+-- * 'rcewefeaInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'rcewefeaDecisionTaskCompletedEventId'
+-- * 'rcewefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 requestCancelExternalWorkflowExecutionFailedEventAttributes
     :: Text -- ^ 'rcewefeaWorkflowId'
     -> RequestCancelExternalWorkflowExecutionFailedCause -- ^ 'rcewefeaCause'
@@ -3820,25 +3755,23 @@ requestCancelExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_
 rcewefeaControl :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaControl = lens _rcewefeaControl (\ s a -> s{_rcewefeaControl = a});
 
--- | The 'runId' of the external workflow execution.
+-- | The @runId@ of the external workflow execution.
 rcewefeaRunId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaRunId = lens _rcewefeaRunId (\ s a -> s{_rcewefeaRunId = a});
 
--- | The 'workflowId' of the external workflow to which the cancel request was to be delivered.
+-- | The @workflowId@ of the external workflow to which the cancel request was to be delivered.
 rcewefeaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Text
 rcewefeaWorkflowId = lens _rcewefeaWorkflowId (\ s a -> s{_rcewefeaWorkflowId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rcewefeaCause :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes RequestCancelExternalWorkflowExecutionFailedCause
 rcewefeaCause = lens _rcewefeaCause (\ s a -> s{_rcewefeaCause = a});
 
--- | The ID of the 'RequestCancelExternalWorkflowExecutionInitiated' event corresponding to the 'RequestCancelExternalWorkflowExecution' decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this external workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 rcewefeaInitiatedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Integer
 rcewefeaInitiatedEventId = lens _rcewefeaInitiatedEventId (\ s a -> s{_rcewefeaInitiatedEventId = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RequestCancelExternalWorkflowExecution' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 rcewefeaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Integer
 rcewefeaDecisionTaskCompletedEventId = lens _rcewefeaDecisionTaskCompletedEventId (\ s a -> s{_rcewefeaDecisionTaskCompletedEventId = a});
 
@@ -3863,7 +3796,9 @@ instance Hashable
 instance NFData
          RequestCancelExternalWorkflowExecutionFailedEventAttributes
 
--- | Provides details of the 'RequestCancelExternalWorkflowExecutionInitiated' event.
+-- | Provides details of the @RequestCancelExternalWorkflowExecutionInitiated@ event.
+--
+--
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
@@ -3877,13 +3812,13 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rceweieaControl'
+-- * 'rceweieaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks.
 --
--- * 'rceweieaRunId'
+-- * 'rceweieaRunId' - The @runId@ of the external workflow execution to be canceled.
 --
--- * 'rceweieaWorkflowId'
+-- * 'rceweieaWorkflowId' - The @workflowId@ of the external workflow execution to be canceled.
 --
--- * 'rceweieaDecisionTaskCompletedEventId'
+-- * 'rceweieaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 requestCancelExternalWorkflowExecutionInitiatedEventAttributes
     :: Text -- ^ 'rceweieaWorkflowId'
     -> Integer -- ^ 'rceweieaDecisionTaskCompletedEventId'
@@ -3900,15 +3835,15 @@ requestCancelExternalWorkflowExecutionInitiatedEventAttributes pWorkflowId_ pDec
 rceweieaControl :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaControl = lens _rceweieaControl (\ s a -> s{_rceweieaControl = a});
 
--- | The 'runId' of the external workflow execution to be canceled.
+-- | The @runId@ of the external workflow execution to be canceled.
 rceweieaRunId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaRunId = lens _rceweieaRunId (\ s a -> s{_rceweieaRunId = a});
 
--- | The 'workflowId' of the external workflow execution to be canceled.
+-- | The @workflowId@ of the external workflow execution to be canceled.
 rceweieaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Text
 rceweieaWorkflowId = lens _rceweieaWorkflowId (\ s a -> s{_rceweieaWorkflowId = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'RequestCancelExternalWorkflowExecution' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelExternalWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 rceweieaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Integer
 rceweieaDecisionTaskCompletedEventId = lens _rceweieaDecisionTaskCompletedEventId (\ s a -> s{_rceweieaDecisionTaskCompletedEventId = a});
 
@@ -3931,20 +3866,19 @@ instance Hashable
 instance NFData
          RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 
--- | Provides details of the 'ScheduleActivityTask' decision.
+-- | Provides details of the @ScheduleActivityTask@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'activityType.name': String constraint. The key is 'swf:activityType.name'.
---     -   'activityType.version': String constraint. The key is 'swf:activityType.version'.
---     -   'taskList': String constraint. The key is 'swf:taskList.name'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .    * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .    * @taskList@ : String constraint. The key is @swf:taskList.name@ .
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+--
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
@@ -3964,25 +3898,25 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'satdaControl'
+-- * 'satdaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks. This data is not sent to the activity.
 --
--- * 'satdaHeartbeatTimeout'
+-- * 'satdaHeartbeatTimeout' - If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it will be ignored. This overrides the default heartbeat timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'satdaScheduleToCloseTimeout'
+-- * 'satdaScheduleToCloseTimeout' - The maximum duration for this activity task. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'satdaInput'
+-- * 'satdaInput' - The input provided to the activity task.
 --
--- * 'satdaTaskList'
+-- * 'satdaTaskList' - If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type will be used. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 --
--- * 'satdaTaskPriority'
+-- * 'satdaTaskPriority' - /Optional./ If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'satdaScheduleToStartTimeout'
+-- * 'satdaScheduleToStartTimeout' - /Optional./ If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'satdaStartToCloseTimeout'
+-- * 'satdaStartToCloseTimeout' - If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'satdaActivityType'
+-- * 'satdaActivityType' - __Required.__ The type of the activity task to schedule.
 --
--- * 'satdaActivityId'
+-- * 'satdaActivityId' - __Required.__ The @activityId@ of the activity task. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 scheduleActivityTaskDecisionAttributes
     :: ActivityType -- ^ 'satdaActivityType'
     -> Text -- ^ 'satdaActivityId'
@@ -4005,17 +3939,11 @@ scheduleActivityTaskDecisionAttributes pActivityType_ pActivityId_ =
 satdaControl :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaControl = lens _satdaControl (\ s a -> s{_satdaControl = a});
 
--- | If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it will be ignored. This overrides the default heartbeat timeout specified when registering the activity type using < RegisterActivityType>.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it will be ignored. This overrides the default heartbeat timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 satdaHeartbeatTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaHeartbeatTimeout = lens _satdaHeartbeatTimeout (\ s a -> s{_satdaHeartbeatTimeout = a});
 
--- | The maximum duration for this activity task.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A schedule-to-close timeout for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default schedule-to-close timeout was specified at registration time then a fault will be returned.
+-- | The maximum duration for this activity task. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToCloseTimeout = lens _satdaScheduleToCloseTimeout (\ s a -> s{_satdaScheduleToCloseTimeout = a});
 
@@ -4023,33 +3951,19 @@ satdaScheduleToCloseTimeout = lens _satdaScheduleToCloseTimeout (\ s a -> s{_sat
 satdaInput :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaInput = lens _satdaInput (\ s a -> s{_satdaInput = a});
 
--- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the 'defaultTaskList' registered with the activity type will be used.
---
--- A task list for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default task list was specified at registration time then a fault will be returned.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type will be used. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 satdaTaskList :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe TaskList)
 satdaTaskList = lens _satdaTaskList (\ s a -> s{_satdaTaskList = a});
 
--- | /Optional./ If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using < RegisterActivityType>. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 satdaTaskPriority :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaTaskPriority = lens _satdaTaskPriority (\ s a -> s{_satdaTaskPriority = a});
 
--- | /Optional./ If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using < RegisterActivityType>.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A schedule-to-start timeout for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default schedule-to-start timeout was specified at registration time then a fault will be returned.
+-- | /Optional./ If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 satdaScheduleToStartTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToStartTimeout = lens _satdaScheduleToStartTimeout (\ s a -> s{_satdaScheduleToStartTimeout = a});
 
--- | If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using < RegisterActivityType>.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A start-to-close timeout for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default start-to-close timeout was specified at registration time then a fault will be returned.
+-- | If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using 'RegisterActivityType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 satdaStartToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaStartToCloseTimeout = lens _satdaStartToCloseTimeout (\ s a -> s{_satdaStartToCloseTimeout = a});
 
@@ -4057,9 +3971,7 @@ satdaStartToCloseTimeout = lens _satdaStartToCloseTimeout (\ s a -> s{_satdaStar
 satdaActivityType :: Lens' ScheduleActivityTaskDecisionAttributes ActivityType
 satdaActivityType = lens _satdaActivityType (\ s a -> s{_satdaActivityType = a});
 
--- | __Required.__ The 'activityId' of the activity task.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | __Required.__ The @activityId@ of the activity task. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 satdaActivityId :: Lens' ScheduleActivityTaskDecisionAttributes Text
 satdaActivityId = lens _satdaActivityId (\ s a -> s{_satdaActivityId = a});
 
@@ -4088,7 +4000,9 @@ instance ToJSON
                   Just ("activityType" .= _satdaActivityType),
                   Just ("activityId" .= _satdaActivityId)])
 
--- | Provides details of the 'ScheduleActivityTaskFailed' event.
+-- | Provides details of the @ScheduleActivityTaskFailed@ event.
+--
+--
 --
 -- /See:/ 'scheduleActivityTaskFailedEventAttributes' smart constructor.
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes'
@@ -4102,13 +4016,13 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'satfeaActivityType'
+-- * 'satfeaActivityType' - The activity type provided in the @ScheduleActivityTask@ decision that failed.
 --
--- * 'satfeaActivityId'
+-- * 'satfeaActivityId' - The activityId provided in the @ScheduleActivityTask@ decision that failed.
 --
--- * 'satfeaCause'
+-- * 'satfeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'satfeaDecisionTaskCompletedEventId'
+-- * 'satfeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 scheduleActivityTaskFailedEventAttributes
     :: ActivityType -- ^ 'satfeaActivityType'
     -> Text -- ^ 'satfeaActivityId'
@@ -4123,21 +4037,19 @@ scheduleActivityTaskFailedEventAttributes pActivityType_ pActivityId_ pCause_ pD
     , _satfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The activity type provided in the 'ScheduleActivityTask' decision that failed.
+-- | The activity type provided in the @ScheduleActivityTask@ decision that failed.
 satfeaActivityType :: Lens' ScheduleActivityTaskFailedEventAttributes ActivityType
 satfeaActivityType = lens _satfeaActivityType (\ s a -> s{_satfeaActivityType = a});
 
--- | The activityId provided in the 'ScheduleActivityTask' decision that failed.
+-- | The activityId provided in the @ScheduleActivityTask@ decision that failed.
 satfeaActivityId :: Lens' ScheduleActivityTaskFailedEventAttributes Text
 satfeaActivityId = lens _satfeaActivityId (\ s a -> s{_satfeaActivityId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 satfeaCause :: Lens' ScheduleActivityTaskFailedEventAttributes ScheduleActivityTaskFailedCause
 satfeaCause = lens _satfeaCause (\ s a -> s{_satfeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 satfeaDecisionTaskCompletedEventId :: Lens' ScheduleActivityTaskFailedEventAttributes Integer
 satfeaDecisionTaskCompletedEventId = lens _satfeaDecisionTaskCompletedEventId (\ s a -> s{_satfeaDecisionTaskCompletedEventId = a});
 
@@ -4158,20 +4070,19 @@ instance Hashable
 instance NFData
          ScheduleActivityTaskFailedEventAttributes
 
--- | Provides details of the 'ScheduleLambdaFunction' decision.
+-- | Provides details of the @ScheduleLambdaFunction@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'activityType.name': String constraint. The key is 'swf:activityType.name'.
---     -   'activityType.version': String constraint. The key is 'swf:activityType.version'.
---     -   'taskList': String constraint. The key is 'swf:taskList.name'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .    * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .    * @taskList@ : String constraint. The key is @swf:taskList.name@ .
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+--
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'scheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
@@ -4185,13 +4096,13 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slfdaInput'
+-- * 'slfdaInput' - The input provided to the AWS Lambda function.
 --
--- * 'slfdaStartToCloseTimeout'
+-- * 'slfdaStartToCloseTimeout' - If set, specifies the maximum duration the function may take to execute.
 --
--- * 'slfdaId'
+-- * 'slfdaId' - __Required.__ The SWF @id@ of the AWS Lambda task. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 --
--- * 'slfdaName'
+-- * 'slfdaName' - __Required.__ The name of the AWS Lambda function to invoke.
 scheduleLambdaFunctionDecisionAttributes
     :: Text -- ^ 'slfdaId'
     -> Text -- ^ 'slfdaName'
@@ -4212,9 +4123,7 @@ slfdaInput = lens _slfdaInput (\ s a -> s{_slfdaInput = a});
 slfdaStartToCloseTimeout :: Lens' ScheduleLambdaFunctionDecisionAttributes (Maybe Text)
 slfdaStartToCloseTimeout = lens _slfdaStartToCloseTimeout (\ s a -> s{_slfdaStartToCloseTimeout = a});
 
--- | __Required.__ The SWF 'id' of the AWS Lambda task.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | __Required.__ The SWF @id@ of the AWS Lambda task. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 slfdaId :: Lens' ScheduleLambdaFunctionDecisionAttributes Text
 slfdaId = lens _slfdaId (\ s a -> s{_slfdaId = a});
 
@@ -4239,7 +4148,9 @@ instance ToJSON
                   Just ("id" .= _slfdaId),
                   Just ("name" .= _slfdaName)])
 
--- | Provides details for the 'ScheduleLambdaFunctionFailed' event.
+-- | Provides details for the @ScheduleLambdaFunctionFailed@ event.
+--
+--
 --
 -- /See:/ 'scheduleLambdaFunctionFailedEventAttributes' smart constructor.
 data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedEventAttributes'
@@ -4253,13 +4164,13 @@ data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedE
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slffeaId'
+-- * 'slffeaId' - The unique Amazon SWF ID of the AWS Lambda task.
 --
--- * 'slffeaName'
+-- * 'slffeaName' - The name of the scheduled AWS Lambda function.
 --
--- * 'slffeaCause'
+-- * 'slffeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'slffeaDecisionTaskCompletedEventId'
+-- * 'slffeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 scheduleLambdaFunctionFailedEventAttributes
     :: Text -- ^ 'slffeaId'
     -> Text -- ^ 'slffeaName'
@@ -4283,12 +4194,10 @@ slffeaName :: Lens' ScheduleLambdaFunctionFailedEventAttributes Text
 slffeaName = lens _slffeaName (\ s a -> s{_slffeaName = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 slffeaCause :: Lens' ScheduleLambdaFunctionFailedEventAttributes ScheduleLambdaFunctionFailedCause
 slffeaCause = lens _slffeaCause (\ s a -> s{_slffeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision that resulted in the scheduling of this AWS Lambda function. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 slffeaDecisionTaskCompletedEventId :: Lens' ScheduleLambdaFunctionFailedEventAttributes Integer
 slffeaDecisionTaskCompletedEventId = lens _slffeaDecisionTaskCompletedEventId (\ s a -> s{_slffeaDecisionTaskCompletedEventId = a});
 
@@ -4308,17 +4217,17 @@ instance Hashable
 instance NFData
          ScheduleLambdaFunctionFailedEventAttributes
 
--- | Provides details of the 'SignalExternalWorkflowExecution' decision.
+-- | Provides details of the @SignalExternalWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'signalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
@@ -4333,15 +4242,15 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sewedaControl'
+-- * 'sewedaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent decision tasks.
 --
--- * 'sewedaInput'
+-- * 'sewedaInput' - /Optional./ Input data to be provided with the signal. The target workflow execution will use the signal name and input data to process the signal.
 --
--- * 'sewedaRunId'
+-- * 'sewedaRunId' - The @runId@ of the workflow execution to be signaled.
 --
--- * 'sewedaWorkflowId'
+-- * 'sewedaWorkflowId' - __Required.__ The @workflowId@ of the workflow execution to be signaled.
 --
--- * 'sewedaSignalName'
+-- * 'sewedaSignalName' - __Required.__ The name of the signal.The target workflow execution will use the signal name and input to process the signal.
 signalExternalWorkflowExecutionDecisionAttributes
     :: Text -- ^ 'sewedaWorkflowId'
     -> Text -- ^ 'sewedaSignalName'
@@ -4363,11 +4272,11 @@ sewedaControl = lens _sewedaControl (\ s a -> s{_sewedaControl = a});
 sewedaInput :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaInput = lens _sewedaInput (\ s a -> s{_sewedaInput = a});
 
--- | The 'runId' of the workflow execution to be signaled.
+-- | The @runId@ of the workflow execution to be signaled.
 sewedaRunId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaRunId = lens _sewedaRunId (\ s a -> s{_sewedaRunId = a});
 
--- | __Required.__ The 'workflowId' of the workflow execution to be signaled.
+-- | __Required.__ The @workflowId@ of the workflow execution to be signaled.
 sewedaWorkflowId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaWorkflowId = lens _sewedaWorkflowId (\ s a -> s{_sewedaWorkflowId = a});
 
@@ -4394,7 +4303,9 @@ instance ToJSON
                   Just ("workflowId" .= _sewedaWorkflowId),
                   Just ("signalName" .= _sewedaSignalName)])
 
--- | Provides details of the 'SignalExternalWorkflowExecutionFailed' event.
+-- | Provides details of the @SignalExternalWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'signalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes'
@@ -4410,17 +4321,17 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sewefeaControl'
+-- * 'sewefeaControl' - Undocumented member.
 --
--- * 'sewefeaRunId'
+-- * 'sewefeaRunId' - The @runId@ of the external workflow execution that the signal was being delivered to.
 --
--- * 'sewefeaWorkflowId'
+-- * 'sewefeaWorkflowId' - The @workflowId@ of the external workflow execution that the signal was being delivered to.
 --
--- * 'sewefeaCause'
+-- * 'sewefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'sewefeaInitiatedEventId'
+-- * 'sewefeaInitiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'sewefeaDecisionTaskCompletedEventId'
+-- * 'sewefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 signalExternalWorkflowExecutionFailedEventAttributes
     :: Text -- ^ 'sewefeaWorkflowId'
     -> SignalExternalWorkflowExecutionFailedCause -- ^ 'sewefeaCause'
@@ -4441,25 +4352,23 @@ signalExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_ pIniti
 sewefeaControl :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaControl = lens _sewefeaControl (\ s a -> s{_sewefeaControl = a});
 
--- | The 'runId' of the external workflow execution that the signal was being delivered to.
+-- | The @runId@ of the external workflow execution that the signal was being delivered to.
 sewefeaRunId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaRunId = lens _sewefeaRunId (\ s a -> s{_sewefeaRunId = a});
 
--- | The 'workflowId' of the external workflow execution that the signal was being delivered to.
+-- | The @workflowId@ of the external workflow execution that the signal was being delivered to.
 sewefeaWorkflowId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Text
 sewefeaWorkflowId = lens _sewefeaWorkflowId (\ s a -> s{_sewefeaWorkflowId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 sewefeaCause :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes SignalExternalWorkflowExecutionFailedCause
 sewefeaCause = lens _sewefeaCause (\ s a -> s{_sewefeaCause = a});
 
--- | The ID of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to the 'SignalExternalWorkflowExecution' decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 sewefeaInitiatedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
 sewefeaInitiatedEventId = lens _sewefeaInitiatedEventId (\ s a -> s{_sewefeaInitiatedEventId = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'SignalExternalWorkflowExecution' decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 sewefeaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
 sewefeaDecisionTaskCompletedEventId = lens _sewefeaDecisionTaskCompletedEventId (\ s a -> s{_sewefeaDecisionTaskCompletedEventId = a});
 
@@ -4484,7 +4393,9 @@ instance Hashable
 instance NFData
          SignalExternalWorkflowExecutionFailedEventAttributes
 
--- | Provides details of the 'SignalExternalWorkflowExecutionInitiated' event.
+-- | Provides details of the @SignalExternalWorkflowExecutionInitiated@ event.
+--
+--
 --
 -- /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
@@ -4500,17 +4411,17 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'seweieaControl'
+-- * 'seweieaControl' - /Optional./ data attached to the event that can be used by the decider in subsequent decision tasks.
 --
--- * 'seweieaInput'
+-- * 'seweieaInput' - Input provided to the signal (if any).
 --
--- * 'seweieaRunId'
+-- * 'seweieaRunId' - The @runId@ of the external workflow execution to send the signal to.
 --
--- * 'seweieaWorkflowId'
+-- * 'seweieaWorkflowId' - The @workflowId@ of the external workflow execution.
 --
--- * 'seweieaSignalName'
+-- * 'seweieaSignalName' - The name of the signal.
 --
--- * 'seweieaDecisionTaskCompletedEventId'
+-- * 'seweieaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 signalExternalWorkflowExecutionInitiatedEventAttributes
     :: Text -- ^ 'seweieaWorkflowId'
     -> Text -- ^ 'seweieaSignalName'
@@ -4534,11 +4445,11 @@ seweieaControl = lens _seweieaControl (\ s a -> s{_seweieaControl = a});
 seweieaInput :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaInput = lens _seweieaInput (\ s a -> s{_seweieaInput = a});
 
--- | The 'runId' of the external workflow execution to send the signal to.
+-- | The @runId@ of the external workflow execution to send the signal to.
 seweieaRunId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaRunId = lens _seweieaRunId (\ s a -> s{_seweieaRunId = a});
 
--- | The 'workflowId' of the external workflow execution.
+-- | The @workflowId@ of the external workflow execution.
 seweieaWorkflowId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
 seweieaWorkflowId = lens _seweieaWorkflowId (\ s a -> s{_seweieaWorkflowId = a});
 
@@ -4546,7 +4457,7 @@ seweieaWorkflowId = lens _seweieaWorkflowId (\ s a -> s{_seweieaWorkflowId = a})
 seweieaSignalName :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
 seweieaSignalName = lens _seweieaSignalName (\ s a -> s{_seweieaSignalName = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'SignalExternalWorkflowExecution' decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 seweieaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Integer
 seweieaDecisionTaskCompletedEventId = lens _seweieaDecisionTaskCompletedEventId (\ s a -> s{_seweieaDecisionTaskCompletedEventId = a});
 
@@ -4571,21 +4482,19 @@ instance Hashable
 instance NFData
          SignalExternalWorkflowExecutionInitiatedEventAttributes
 
--- | Provides details of the 'StartChildWorkflowExecution' decision.
+-- | Provides details of the @StartChildWorkflowExecution@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'tagList.member.N': The key is \"swf:tagList.N\" where N is the tag number from 0 to 4, inclusive.
---     -   'taskList': String constraint. The key is 'swf:taskList.name'.
---     -   'workflowType.name': String constraint. The key is 'swf:workflowType.name'.
---     -   'workflowType.version': String constraint. The key is 'swf:workflowType.version'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @tagList.member.N@ : The key is "swf:tagList.N" where N is the tag number from 0 to 4, inclusive.    * @taskList@ : String constraint. The key is @swf:taskList.name@ .    * @workflowType.name@ : String constraint. The key is @swf:workflowType.name@ .    * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+--
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'startChildWorkflowExecutionDecisionAttributes' smart constructor.
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'
@@ -4606,27 +4515,27 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scwedaControl'
+-- * 'scwedaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks. This data is not sent to the child workflow execution.
 --
--- * 'scwedaTagList'
+-- * 'scwedaTagList' - The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 --
--- * 'scwedaTaskStartToCloseTimeout'
+-- * 'scwedaTaskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'scwedaLambdaRole'
+-- * 'scwedaLambdaRole' - The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
 --
--- * 'scwedaInput'
+-- * 'scwedaInput' - The input to be provided to the workflow execution.
 --
--- * 'scwedaExecutionStartToCloseTimeout'
+-- * 'scwedaExecutionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'scwedaTaskList'
+-- * 'scwedaTaskList' - The name of the task list to be used for decision tasks of the child workflow execution. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 --
--- * 'scwedaTaskPriority'
+-- * 'scwedaTaskPriority' - /Optional./ A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'scwedaChildPolicy'
+-- * 'scwedaChildPolicy' - /Optional./ If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 --
--- * 'scwedaWorkflowType'
+-- * 'scwedaWorkflowType' - __Required.__ The type of the workflow execution to be started.
 --
--- * 'scwedaWorkflowId'
+-- * 'scwedaWorkflowId' - __Required.__ The @workflowId@ of the workflow execution. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 startChildWorkflowExecutionDecisionAttributes
     :: WorkflowType -- ^ 'scwedaWorkflowType'
     -> Text -- ^ 'scwedaWorkflowId'
@@ -4650,21 +4559,15 @@ startChildWorkflowExecutionDecisionAttributes pWorkflowType_ pWorkflowId_ =
 scwedaControl :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 
--- | The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling < ListOpenWorkflowExecutions> or < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
+-- | The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
 scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default . _Coerce;
 
--- | Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the 'defaultTaskStartToCloseTimout' specified when registering the workflow type using < RegisterWorkflowType>.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- A task start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault will be returned.
+-- | Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' . The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 scwedaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskStartToCloseTimeout = lens _scwedaTaskStartToCloseTimeout (\ s a -> s{_scwedaTaskStartToCloseTimeout = a});
 
 -- | The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda functions.
---
--- In order for this workflow execution to invoke AWS Lambda functions, an appropriate IAM role must be specified either as a default for the workflow type or through this field.
 scwedaLambdaRole :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaLambdaRole = lens _scwedaLambdaRole (\ s a -> s{_scwedaLambdaRole = a});
 
@@ -4672,37 +4575,19 @@ scwedaLambdaRole = lens _scwedaLambdaRole (\ s a -> s{_scwedaLambdaRole = a});
 scwedaInput :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaInput = lens _scwedaInput (\ s a -> s{_scwedaInput = a});
 
--- | The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
---
--- An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default execution start-to-close timeout was specified at registration time then a fault will be returned.
+-- | The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 scwedaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaExecutionStartToCloseTimeout = lens _scwedaExecutionStartToCloseTimeout (\ s a -> s{_scwedaExecutionStartToCloseTimeout = a});
 
--- | The name of the task list to be used for decision tasks of the child workflow execution.
---
--- A task list for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task list was specified at registration time then a fault will be returned.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | The name of the task list to be used for decision tasks of the child workflow execution. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 scwedaTaskList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe TaskList)
 scwedaTaskList = lens _scwedaTaskList (\ s a -> s{_scwedaTaskList = a});
 
--- | /Optional./ A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 scwedaTaskPriority :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskPriority = lens _scwedaTaskPriority (\ s a -> s{_scwedaTaskPriority = a});
 
--- | /Optional./ If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using < RegisterWorkflowType>.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
---
--- A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault will be returned.
+-- | /Optional./ If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' . The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 scwedaChildPolicy :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 scwedaChildPolicy = lens _scwedaChildPolicy (\ s a -> s{_scwedaChildPolicy = a});
 
@@ -4710,9 +4595,7 @@ scwedaChildPolicy = lens _scwedaChildPolicy (\ s a -> s{_scwedaChildPolicy = a})
 scwedaWorkflowType :: Lens' StartChildWorkflowExecutionDecisionAttributes WorkflowType
 scwedaWorkflowType = lens _scwedaWorkflowType (\ s a -> s{_scwedaWorkflowType = a});
 
--- | __Required.__ The 'workflowId' of the workflow execution.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | __Required.__ The @workflowId@ of the workflow execution. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 scwedaWorkflowId :: Lens' StartChildWorkflowExecutionDecisionAttributes Text
 scwedaWorkflowId = lens _scwedaWorkflowId (\ s a -> s{_scwedaWorkflowId = a});
 
@@ -4742,7 +4625,9 @@ instance ToJSON
                   Just ("workflowType" .= _scwedaWorkflowType),
                   Just ("workflowId" .= _scwedaWorkflowId)])
 
--- | Provides details of the 'StartChildWorkflowExecutionFailed' event.
+-- | Provides details of the @StartChildWorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'startChildWorkflowExecutionFailedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecutionFailedEventAttributes'
@@ -4758,17 +4643,17 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scwefeaControl'
+-- * 'scwefeaControl' - Undocumented member.
 --
--- * 'scwefeaWorkflowType'
+-- * 'scwefeaWorkflowType' - The workflow type provided in the @StartChildWorkflowExecution@ decision that failed.
 --
--- * 'scwefeaCause'
+-- * 'scwefeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'scwefeaWorkflowId'
+-- * 'scwefeaWorkflowId' - The @workflowId@ of the child workflow execution.
 --
--- * 'scwefeaInitiatedEventId'
+-- * 'scwefeaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'scwefeaDecisionTaskCompletedEventId'
+-- * 'scwefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
 startChildWorkflowExecutionFailedEventAttributes
     :: WorkflowType -- ^ 'scwefeaWorkflowType'
     -> StartChildWorkflowExecutionFailedCause -- ^ 'scwefeaCause'
@@ -4790,25 +4675,23 @@ startChildWorkflowExecutionFailedEventAttributes pWorkflowType_ pCause_ pWorkflo
 scwefeaControl :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 scwefeaControl = lens _scwefeaControl (\ s a -> s{_scwefeaControl = a});
 
--- | The workflow type provided in the 'StartChildWorkflowExecution' decision that failed.
+-- | The workflow type provided in the @StartChildWorkflowExecution@ decision that failed.
 scwefeaWorkflowType :: Lens' StartChildWorkflowExecutionFailedEventAttributes WorkflowType
 scwefeaWorkflowType = lens _scwefeaWorkflowType (\ s a -> s{_scwefeaWorkflowType = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 scwefeaCause :: Lens' StartChildWorkflowExecutionFailedEventAttributes StartChildWorkflowExecutionFailedCause
 scwefeaCause = lens _scwefeaCause (\ s a -> s{_scwefeaCause = a});
 
--- | The 'workflowId' of the child workflow execution.
+-- | The @workflowId@ of the child workflow execution.
 scwefeaWorkflowId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Text
 scwefeaWorkflowId = lens _scwefeaWorkflowId (\ s a -> s{_scwefeaWorkflowId = a});
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 scwefeaInitiatedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaInitiatedEventId = lens _scwefeaInitiatedEventId (\ s a -> s{_scwefeaInitiatedEventId = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'StartChildWorkflowExecution' decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
 scwefeaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaDecisionTaskCompletedEventId = lens _scwefeaDecisionTaskCompletedEventId (\ s a -> s{_scwefeaDecisionTaskCompletedEventId = a});
 
@@ -4832,7 +4715,9 @@ instance Hashable
 instance NFData
          StartChildWorkflowExecutionFailedEventAttributes
 
--- | Provides details of the 'StartChildWorkflowExecutionInitiated' event.
+-- | Provides details of the @StartChildWorkflowExecutionInitiated@ event.
+--
+--
 --
 -- /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'
@@ -4854,29 +4739,29 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scweieaControl'
+-- * 'scweieaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent decision tasks. This data is not sent to the activity.
 --
--- * 'scweieaTagList'
+-- * 'scweieaTagList' - The list of tags to associated with the child workflow execution.
 --
--- * 'scweieaTaskStartToCloseTimeout'
+-- * 'scweieaTaskStartToCloseTimeout' - The maximum duration allowed for the decision tasks for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'scweieaLambdaRole'
+-- * 'scweieaLambdaRole' - The IAM role attached to this workflow execution to use when invoking AWS Lambda functions.
 --
--- * 'scweieaInput'
+-- * 'scweieaInput' - The inputs provided to the child workflow execution (if any).
 --
--- * 'scweieaExecutionStartToCloseTimeout'
+-- * 'scweieaExecutionStartToCloseTimeout' - The maximum duration for the child workflow execution. If the workflow execution is not closed within this duration, it will be timed out and force terminated. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'scweieaTaskPriority'
+-- * 'scweieaTaskPriority' - /Optional./ The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'scweieaWorkflowId'
+-- * 'scweieaWorkflowId' - The @workflowId@ of the child workflow execution.
 --
--- * 'scweieaWorkflowType'
+-- * 'scweieaWorkflowType' - The type of the child workflow execution.
 --
--- * 'scweieaTaskList'
+-- * 'scweieaTaskList' - The name of the task list used for the decision tasks of the child workflow execution.
 --
--- * 'scweieaDecisionTaskCompletedEventId'
+-- * 'scweieaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
 --
--- * 'scweieaChildPolicy'
+-- * 'scweieaChildPolicy' - The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 startChildWorkflowExecutionInitiatedEventAttributes
     :: Text -- ^ 'scweieaWorkflowId'
     -> WorkflowType -- ^ 'scweieaWorkflowType'
@@ -4908,9 +4793,7 @@ scweieaControl = lens _scweieaControl (\ s a -> s{_scweieaControl = a});
 scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes [Text]
 scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a}) . _Default . _Coerce;
 
--- | The maximum duration allowed for the decision tasks for this workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration allowed for the decision tasks for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskStartToCloseTimeout = lens _scweieaTaskStartToCloseTimeout (\ s a -> s{_scweieaTaskStartToCloseTimeout = a});
 
@@ -4922,19 +4805,15 @@ scweieaLambdaRole = lens _scweieaLambdaRole (\ s a -> s{_scweieaLambdaRole = a})
 scweieaInput :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaInput = lens _scweieaInput (\ s a -> s{_scweieaInput = a});
 
--- | The maximum duration for the child workflow execution. If the workflow execution is not closed within this duration, it will be timed out and force terminated.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration for the child workflow execution. If the workflow execution is not closed within this duration, it will be timed out and force terminated. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 scweieaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaExecutionStartToCloseTimeout = lens _scweieaExecutionStartToCloseTimeout (\ s a -> s{_scweieaExecutionStartToCloseTimeout = a});
 
--- | /Optional./ The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 scweieaTaskPriority :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskPriority = lens _scweieaTaskPriority (\ s a -> s{_scweieaTaskPriority = a});
 
--- | The 'workflowId' of the child workflow execution.
+-- | The @workflowId@ of the child workflow execution.
 scweieaWorkflowId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Text
 scweieaWorkflowId = lens _scweieaWorkflowId (\ s a -> s{_scweieaWorkflowId = a});
 
@@ -4946,17 +4825,11 @@ scweieaWorkflowType = lens _scweieaWorkflowType (\ s a -> s{_scweieaWorkflowType
 scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes TaskList
 scweieaTaskList = lens _scweieaTaskList (\ s a -> s{_scweieaTaskList = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'StartChildWorkflowExecution' decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ decision to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
 scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Integer
 scweieaDecisionTaskCompletedEventId = lens _scweieaDecisionTaskCompletedEventId (\ s a -> s{_scweieaDecisionTaskCompletedEventId = a});
 
--- | The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the < TerminateWorkflowExecution> action or due to an expired timeout.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 scweieaChildPolicy :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes ChildPolicy
 scweieaChildPolicy = lens _scweieaChildPolicy (\ s a -> s{_scweieaChildPolicy = a});
 
@@ -4987,7 +4860,9 @@ instance Hashable
 instance NFData
          StartChildWorkflowExecutionInitiatedEventAttributes
 
--- | Provides details for the 'StartLambdaFunctionFailed' event.
+-- | Provides details for the @StartLambdaFunctionFailed@ event.
+--
+--
 --
 -- /See:/ 'startLambdaFunctionFailedEventAttributes' smart constructor.
 data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
@@ -5000,11 +4875,11 @@ data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sScheduledEventId'
+-- * 'sScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'sCause'
+-- * 'sCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'sMessage'
+-- * 'sMessage' - The error message (if any).
 startLambdaFunctionFailedEventAttributes
     :: StartLambdaFunctionFailedEventAttributes
 startLambdaFunctionFailedEventAttributes =
@@ -5014,13 +4889,11 @@ startLambdaFunctionFailedEventAttributes =
     , _sMessage = Nothing
     }
 
--- | The ID of the 'LambdaFunctionScheduled' event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this AWS Lambda function was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 sScheduledEventId :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe Integer)
 sScheduledEventId = lens _sScheduledEventId (\ s a -> s{_sScheduledEventId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 sCause :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe StartLambdaFunctionFailedCause)
 sCause = lens _sCause (\ s a -> s{_sCause = a});
 
@@ -5044,17 +4917,17 @@ instance Hashable
 instance NFData
          StartLambdaFunctionFailedEventAttributes
 
--- | Provides details of the 'StartTimer' decision.
+-- | Provides details of the @StartTimer@ decision.
+--
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this decision\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 --
 -- /See:/ 'startTimerDecisionAttributes' smart constructor.
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
@@ -5067,11 +4940,11 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stdaControl'
+-- * 'stdaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks.
 --
--- * 'stdaTimerId'
+-- * 'stdaTimerId' - __Required.__ The unique ID of the timer. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 --
--- * 'stdaStartToFireTimeout'
+-- * 'stdaStartToFireTimeout' - __Required.__ The duration to wait before firing the timer. The duration is specified in seconds; an integer greater than or equal to 0.
 startTimerDecisionAttributes
     :: Text -- ^ 'stdaTimerId'
     -> Text -- ^ 'stdaStartToFireTimeout'
@@ -5087,15 +4960,11 @@ startTimerDecisionAttributes pTimerId_ pStartToFireTimeout_ =
 stdaControl :: Lens' StartTimerDecisionAttributes (Maybe Text)
 stdaControl = lens _stdaControl (\ s a -> s{_stdaControl = a});
 
--- | __Required.__ The unique ID of the timer.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | __Required.__ The unique ID of the timer. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 stdaTimerId :: Lens' StartTimerDecisionAttributes Text
 stdaTimerId = lens _stdaTimerId (\ s a -> s{_stdaTimerId = a});
 
--- | __Required.__ The duration to wait before firing the timer.
---
--- The duration is specified in seconds; an integer greater than or equal to 0.
+-- | __Required.__ The duration to wait before firing the timer. The duration is specified in seconds; an integer greater than or equal to 0.
 stdaStartToFireTimeout :: Lens' StartTimerDecisionAttributes Text
 stdaStartToFireTimeout = lens _stdaStartToFireTimeout (\ s a -> s{_stdaStartToFireTimeout = a});
 
@@ -5112,7 +4981,9 @@ instance ToJSON StartTimerDecisionAttributes where
                   Just
                     ("startToFireTimeout" .= _stdaStartToFireTimeout)])
 
--- | Provides details of the 'StartTimerFailed' event.
+-- | Provides details of the @StartTimerFailed@ event.
+--
+--
 --
 -- /See:/ 'startTimerFailedEventAttributes' smart constructor.
 data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes'
@@ -5125,11 +4996,11 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stfeaTimerId'
+-- * 'stfeaTimerId' - The timerId provided in the @StartTimer@ decision that failed.
 --
--- * 'stfeaCause'
+-- * 'stfeaCause' - The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
 --
--- * 'stfeaDecisionTaskCompletedEventId'
+-- * 'stfeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 startTimerFailedEventAttributes
     :: Text -- ^ 'stfeaTimerId'
     -> StartTimerFailedCause -- ^ 'stfeaCause'
@@ -5142,17 +5013,15 @@ startTimerFailedEventAttributes pTimerId_ pCause_ pDecisionTaskCompletedEventId_
     , _stfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The timerId provided in the 'StartTimer' decision that failed.
+-- | The timerId provided in the @StartTimer@ decision that failed.
 stfeaTimerId :: Lens' StartTimerFailedEventAttributes Text
 stfeaTimerId = lens _stfeaTimerId (\ s a -> s{_stfeaTimerId = a});
 
 -- | The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.
---
--- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed because it lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 stfeaCause :: Lens' StartTimerFailedEventAttributes StartTimerFailedCause
 stfeaCause = lens _stfeaCause (\ s a -> s{_stfeaCause = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'StartTimer' decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 stfeaDecisionTaskCompletedEventId :: Lens' StartTimerFailedEventAttributes Integer
 stfeaDecisionTaskCompletedEventId = lens _stfeaDecisionTaskCompletedEventId (\ s a -> s{_stfeaDecisionTaskCompletedEventId = a});
 
@@ -5171,6 +5040,8 @@ instance NFData StartTimerFailedEventAttributes
 
 -- | Used to filter the workflow executions in visibility APIs based on a tag.
 --
+--
+--
 -- /See:/ 'tagFilter' smart constructor.
 newtype TagFilter = TagFilter'
     { _tfTag :: Text
@@ -5180,7 +5051,7 @@ newtype TagFilter = TagFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tfTag'
+-- * 'tfTag' - __Required.__ Specifies the tag that must be associated with the execution for it to meet the filter criteria.
 tagFilter
     :: Text -- ^ 'tfTag'
     -> TagFilter
@@ -5203,6 +5074,8 @@ instance ToJSON TagFilter where
 
 -- | Represents a task list.
 --
+--
+--
 -- /See:/ 'taskList' smart constructor.
 newtype TaskList = TaskList'
     { _tlName :: Text
@@ -5212,7 +5085,7 @@ newtype TaskList = TaskList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tlName'
+-- * 'tlName' - The name of the task list.
 taskList
     :: Text -- ^ 'tlName'
     -> TaskList
@@ -5238,7 +5111,9 @@ instance ToJSON TaskList where
         toJSON TaskList'{..}
           = object (catMaybes [Just ("name" .= _tlName)])
 
--- | Provides details of the 'TimerCanceled' event.
+-- | Provides details of the @TimerCanceled@ event.
+--
+--
 --
 -- /See:/ 'timerCanceledEventAttributes' smart constructor.
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
@@ -5251,11 +5126,11 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tceaTimerId'
+-- * 'tceaTimerId' - The unique ID of the timer that was canceled.
 --
--- * 'tceaStartedEventId'
+-- * 'tceaStartedEventId' - The ID of the @TimerStarted@ event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'tceaDecisionTaskCompletedEventId'
+-- * 'tceaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelTimer@ decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 timerCanceledEventAttributes
     :: Text -- ^ 'tceaTimerId'
     -> Integer -- ^ 'tceaStartedEventId'
@@ -5272,11 +5147,11 @@ timerCanceledEventAttributes pTimerId_ pStartedEventId_ pDecisionTaskCompletedEv
 tceaTimerId :: Lens' TimerCanceledEventAttributes Text
 tceaTimerId = lens _tceaTimerId (\ s a -> s{_tceaTimerId = a});
 
--- | The ID of the 'TimerStarted' event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @TimerStarted@ event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 tceaStartedEventId :: Lens' TimerCanceledEventAttributes Integer
 tceaStartedEventId = lens _tceaStartedEventId (\ s a -> s{_tceaStartedEventId = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CancelTimer' decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelTimer@ decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 tceaDecisionTaskCompletedEventId :: Lens' TimerCanceledEventAttributes Integer
 tceaDecisionTaskCompletedEventId = lens _tceaDecisionTaskCompletedEventId (\ s a -> s{_tceaDecisionTaskCompletedEventId = a});
 
@@ -5292,7 +5167,9 @@ instance Hashable TimerCanceledEventAttributes
 
 instance NFData TimerCanceledEventAttributes
 
--- | Provides details of the 'TimerFired' event.
+-- | Provides details of the @TimerFired@ event.
+--
+--
 --
 -- /See:/ 'timerFiredEventAttributes' smart constructor.
 data TimerFiredEventAttributes = TimerFiredEventAttributes'
@@ -5304,9 +5181,9 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tfeaTimerId'
+-- * 'tfeaTimerId' - The unique ID of the timer that fired.
 --
--- * 'tfeaStartedEventId'
+-- * 'tfeaStartedEventId' - The ID of the @TimerStarted@ event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 timerFiredEventAttributes
     :: Text -- ^ 'tfeaTimerId'
     -> Integer -- ^ 'tfeaStartedEventId'
@@ -5321,7 +5198,7 @@ timerFiredEventAttributes pTimerId_ pStartedEventId_ =
 tfeaTimerId :: Lens' TimerFiredEventAttributes Text
 tfeaTimerId = lens _tfeaTimerId (\ s a -> s{_tfeaTimerId = a});
 
--- | The ID of the 'TimerStarted' event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @TimerStarted@ event that was recorded when this timer was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 tfeaStartedEventId :: Lens' TimerFiredEventAttributes Integer
 tfeaStartedEventId = lens _tfeaStartedEventId (\ s a -> s{_tfeaStartedEventId = a});
 
@@ -5336,7 +5213,9 @@ instance Hashable TimerFiredEventAttributes
 
 instance NFData TimerFiredEventAttributes
 
--- | Provides details of the 'TimerStarted' event.
+-- | Provides details of the @TimerStarted@ event.
+--
+--
 --
 -- /See:/ 'timerStartedEventAttributes' smart constructor.
 data TimerStartedEventAttributes = TimerStartedEventAttributes'
@@ -5350,13 +5229,13 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tseaControl'
+-- * 'tseaControl' - /Optional./ Data attached to the event that can be used by the decider in subsequent workflow tasks.
 --
--- * 'tseaTimerId'
+-- * 'tseaTimerId' - The unique ID of the timer that was started.
 --
--- * 'tseaStartToFireTimeout'
+-- * 'tseaStartToFireTimeout' - The duration of time after which the timer will fire. The duration is specified in seconds; an integer greater than or equal to 0.
 --
--- * 'tseaDecisionTaskCompletedEventId'
+-- * 'tseaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 timerStartedEventAttributes
     :: Text -- ^ 'tseaTimerId'
     -> Text -- ^ 'tseaStartToFireTimeout'
@@ -5378,13 +5257,11 @@ tseaControl = lens _tseaControl (\ s a -> s{_tseaControl = a});
 tseaTimerId :: Lens' TimerStartedEventAttributes Text
 tseaTimerId = lens _tseaTimerId (\ s a -> s{_tseaTimerId = a});
 
--- | The duration of time after which the timer will fire.
---
--- The duration is specified in seconds; an integer greater than or equal to 0.
+-- | The duration of time after which the timer will fire. The duration is specified in seconds; an integer greater than or equal to 0.
 tseaStartToFireTimeout :: Lens' TimerStartedEventAttributes Text
 tseaStartToFireTimeout = lens _tseaStartToFireTimeout (\ s a -> s{_tseaStartToFireTimeout = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'StartTimer' decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 tseaDecisionTaskCompletedEventId :: Lens' TimerStartedEventAttributes Integer
 tseaDecisionTaskCompletedEventId = lens _tseaDecisionTaskCompletedEventId (\ s a -> s{_tseaDecisionTaskCompletedEventId = a});
 
@@ -5403,6 +5280,8 @@ instance NFData TimerStartedEventAttributes
 
 -- | Represents a workflow execution.
 --
+--
+--
 -- /See:/ 'workflowExecution' smart constructor.
 data WorkflowExecution = WorkflowExecution'
     { _weWorkflowId :: !Text
@@ -5413,9 +5292,9 @@ data WorkflowExecution = WorkflowExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weWorkflowId'
+-- * 'weWorkflowId' - The user defined identifier associated with the workflow execution.
 --
--- * 'weRunId'
+-- * 'weRunId' - A system-generated unique identifier for the workflow execution.
 workflowExecution
     :: Text -- ^ 'weWorkflowId'
     -> Text -- ^ 'weRunId'
@@ -5452,7 +5331,9 @@ instance ToJSON WorkflowExecution where
                  [Just ("workflowId" .= _weWorkflowId),
                   Just ("runId" .= _weRunId)])
 
--- | Provides details of the 'WorkflowExecutionCancelRequested' event.
+-- | Provides details of the @WorkflowExecutionCancelRequested@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionCancelRequestedEventAttributes' smart constructor.
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes'
@@ -5465,11 +5346,11 @@ data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wecreaExternalWorkflowExecution'
+-- * 'wecreaExternalWorkflowExecution' - The external workflow execution for which the cancellation was requested.
 --
--- * 'wecreaExternalInitiatedEventId'
+-- * 'wecreaExternalInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'wecreaCause'
+-- * 'wecreaCause' - If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.
 workflowExecutionCancelRequestedEventAttributes
     :: WorkflowExecutionCancelRequestedEventAttributes
 workflowExecutionCancelRequestedEventAttributes =
@@ -5483,7 +5364,7 @@ workflowExecutionCancelRequestedEventAttributes =
 wecreaExternalWorkflowExecution :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe WorkflowExecution)
 wecreaExternalWorkflowExecution = lens _wecreaExternalWorkflowExecution (\ s a -> s{_wecreaExternalWorkflowExecution = a});
 
--- | The ID of the 'RequestCancelExternalWorkflowExecutionInitiated' event corresponding to the 'RequestCancelExternalWorkflowExecution' decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 wecreaExternalInitiatedEventId :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe Integer)
 wecreaExternalInitiatedEventId = lens _wecreaExternalInitiatedEventId (\ s a -> s{_wecreaExternalInitiatedEventId = a});
 
@@ -5508,7 +5389,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionCancelRequestedEventAttributes
 
--- | Provides details of the 'WorkflowExecutionCanceled' event.
+-- | Provides details of the @WorkflowExecutionCanceled@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
@@ -5520,9 +5403,9 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wDetails'
+-- * 'wDetails' - Details for the cancellation (if any).
 --
--- * 'wDecisionTaskCompletedEventId'
+-- * 'wDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 workflowExecutionCanceledEventAttributes
     :: Integer -- ^ 'wDecisionTaskCompletedEventId'
     -> WorkflowExecutionCanceledEventAttributes
@@ -5536,7 +5419,7 @@ workflowExecutionCanceledEventAttributes pDecisionTaskCompletedEventId_ =
 wDetails :: Lens' WorkflowExecutionCanceledEventAttributes (Maybe Text)
 wDetails = lens _wDetails (\ s a -> s{_wDetails = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CancelWorkflowExecution' decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 wDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCanceledEventAttributes Integer
 wDecisionTaskCompletedEventId = lens _wDecisionTaskCompletedEventId (\ s a -> s{_wDecisionTaskCompletedEventId = a});
 
@@ -5556,7 +5439,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionCanceledEventAttributes
 
--- | Provides details of the 'WorkflowExecutionCompleted' event.
+-- | Provides details of the @WorkflowExecutionCompleted@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionCompletedEventAttributes' smart constructor.
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes'
@@ -5568,9 +5453,9 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weceaResult'
+-- * 'weceaResult' - The result produced by the workflow execution upon successful completion.
 --
--- * 'weceaDecisionTaskCompletedEventId'
+-- * 'weceaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 workflowExecutionCompletedEventAttributes
     :: Integer -- ^ 'weceaDecisionTaskCompletedEventId'
     -> WorkflowExecutionCompletedEventAttributes
@@ -5584,7 +5469,7 @@ workflowExecutionCompletedEventAttributes pDecisionTaskCompletedEventId_ =
 weceaResult :: Lens' WorkflowExecutionCompletedEventAttributes (Maybe Text)
 weceaResult = lens _weceaResult (\ s a -> s{_weceaResult = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'CompleteWorkflowExecution' decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 weceaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCompletedEventAttributes Integer
 weceaDecisionTaskCompletedEventId = lens _weceaDecisionTaskCompletedEventId (\ s a -> s{_weceaDecisionTaskCompletedEventId = a});
 
@@ -5606,6 +5491,8 @@ instance NFData
 
 -- | The configuration settings for a workflow execution including timeout values, tasklist etc. These configuration settings are determined from the defaults specified when registering the workflow type and those specified when starting the workflow execution.
 --
+--
+--
 -- /See:/ 'workflowExecutionConfiguration' smart constructor.
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
     { _wecLambdaRole                   :: !(Maybe Text)
@@ -5620,17 +5507,17 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wecLambdaRole'
+-- * 'wecLambdaRole' - The IAM role used by this workflow execution when invoking AWS Lambda functions.
 --
--- * 'wecTaskPriority'
+-- * 'wecTaskPriority' - The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'wecTaskStartToCloseTimeout'
+-- * 'wecTaskStartToCloseTimeout' - The maximum duration allowed for decision tasks for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'wecExecutionStartToCloseTimeout'
+-- * 'wecExecutionStartToCloseTimeout' - The total duration for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'wecTaskList'
+-- * 'wecTaskList' - The task list used for the decision tasks generated for this workflow execution.
 --
--- * 'wecChildPolicy'
+-- * 'wecChildPolicy' - The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 workflowExecutionConfiguration
     :: Text -- ^ 'wecTaskStartToCloseTimeout'
     -> Text -- ^ 'wecExecutionStartToCloseTimeout'
@@ -5651,21 +5538,15 @@ workflowExecutionConfiguration pTaskStartToCloseTimeout_ pExecutionStartToCloseT
 wecLambdaRole :: Lens' WorkflowExecutionConfiguration (Maybe Text)
 wecLambdaRole = lens _wecLambdaRole (\ s a -> s{_wecLambdaRole = a});
 
--- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 wecTaskPriority :: Lens' WorkflowExecutionConfiguration (Maybe Text)
 wecTaskPriority = lens _wecTaskPriority (\ s a -> s{_wecTaskPriority = a});
 
--- | The maximum duration allowed for decision tasks for this workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration allowed for decision tasks for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wecTaskStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecTaskStartToCloseTimeout = lens _wecTaskStartToCloseTimeout (\ s a -> s{_wecTaskStartToCloseTimeout = a});
 
--- | The total duration for this workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The total duration for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wecExecutionStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecExecutionStartToCloseTimeout = lens _wecExecutionStartToCloseTimeout (\ s a -> s{_wecExecutionStartToCloseTimeout = a});
 
@@ -5673,13 +5554,7 @@ wecExecutionStartToCloseTimeout = lens _wecExecutionStartToCloseTimeout (\ s a -
 wecTaskList :: Lens' WorkflowExecutionConfiguration TaskList
 wecTaskList = lens _wecTaskList (\ s a -> s{_wecTaskList = a});
 
--- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 wecChildPolicy :: Lens' WorkflowExecutionConfiguration ChildPolicy
 wecChildPolicy = lens _wecChildPolicy (\ s a -> s{_wecChildPolicy = a});
 
@@ -5699,7 +5574,9 @@ instance Hashable WorkflowExecutionConfiguration
 
 instance NFData WorkflowExecutionConfiguration
 
--- | Provides details of the 'WorkflowExecutionContinuedAsNew' event.
+-- | Provides details of the @WorkflowExecutionContinuedAsNew@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionContinuedAsNewEventAttributes' smart constructor.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
@@ -5720,27 +5597,27 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wecaneaTagList'
+-- * 'wecaneaTagList' - The list of tags associated with the new workflow execution.
 --
--- * 'wecaneaTaskStartToCloseTimeout'
+-- * 'wecaneaTaskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'wecaneaLambdaRole'
+-- * 'wecaneaLambdaRole' - The IAM role attached to this workflow execution to use when invoking AWS Lambda functions.
 --
--- * 'wecaneaInput'
+-- * 'wecaneaInput' - The input provided to the new workflow execution.
 --
--- * 'wecaneaExecutionStartToCloseTimeout'
+-- * 'wecaneaExecutionStartToCloseTimeout' - The total duration allowed for the new workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'wecaneaTaskPriority'
+-- * 'wecaneaTaskPriority' - Undocumented member.
 --
--- * 'wecaneaDecisionTaskCompletedEventId'
+-- * 'wecaneaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'wecaneaNewExecutionRunId'
+-- * 'wecaneaNewExecutionRunId' - The @runId@ of the new workflow execution.
 --
--- * 'wecaneaTaskList'
+-- * 'wecaneaTaskList' - Undocumented member.
 --
--- * 'wecaneaChildPolicy'
+-- * 'wecaneaChildPolicy' - The policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 --
--- * 'wecaneaWorkflowType'
+-- * 'wecaneaWorkflowType' - Undocumented member.
 workflowExecutionContinuedAsNewEventAttributes
     :: Integer -- ^ 'wecaneaDecisionTaskCompletedEventId'
     -> Text -- ^ 'wecaneaNewExecutionRunId'
@@ -5767,9 +5644,7 @@ workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId_ pN
 wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes [Text]
 wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a}) . _Default . _Coerce;
 
--- | The maximum duration of decision tasks for the new workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration of decision tasks for the new workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wecaneaTaskStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskStartToCloseTimeout = lens _wecaneaTaskStartToCloseTimeout (\ s a -> s{_wecaneaTaskStartToCloseTimeout = a});
 
@@ -5781,9 +5656,7 @@ wecaneaLambdaRole = lens _wecaneaLambdaRole (\ s a -> s{_wecaneaLambdaRole = a})
 wecaneaInput :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaInput = lens _wecaneaInput (\ s a -> s{_wecaneaInput = a});
 
--- | The total duration allowed for the new workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The total duration allowed for the new workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wecaneaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaExecutionStartToCloseTimeout = lens _wecaneaExecutionStartToCloseTimeout (\ s a -> s{_wecaneaExecutionStartToCloseTimeout = a});
 
@@ -5791,11 +5664,11 @@ wecaneaExecutionStartToCloseTimeout = lens _wecaneaExecutionStartToCloseTimeout 
 wecaneaTaskPriority :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskPriority = lens _wecaneaTaskPriority (\ s a -> s{_wecaneaTaskPriority = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'ContinueAsNewWorkflowExecution' decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 wecaneaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Integer
 wecaneaDecisionTaskCompletedEventId = lens _wecaneaDecisionTaskCompletedEventId (\ s a -> s{_wecaneaDecisionTaskCompletedEventId = a});
 
--- | The 'runId' of the new workflow execution.
+-- | The @runId@ of the new workflow execution.
 wecaneaNewExecutionRunId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Text
 wecaneaNewExecutionRunId = lens _wecaneaNewExecutionRunId (\ s a -> s{_wecaneaNewExecutionRunId = a});
 
@@ -5803,13 +5676,7 @@ wecaneaNewExecutionRunId = lens _wecaneaNewExecutionRunId (\ s a -> s{_wecaneaNe
 wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\ s a -> s{_wecaneaTaskList = a});
 
--- | The policy to use for the child workflow executions of the new execution if it is terminated by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 wecaneaChildPolicy :: Lens' WorkflowExecutionContinuedAsNewEventAttributes ChildPolicy
 wecaneaChildPolicy = lens _wecaneaChildPolicy (\ s a -> s{_wecaneaChildPolicy = a});
 
@@ -5842,7 +5709,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionContinuedAsNewEventAttributes
 
--- | Contains the count of workflow executions returned from < CountOpenWorkflowExecutions> or < CountClosedWorkflowExecutions>
+-- | Contains the count of workflow executions returned from 'CountOpenWorkflowExecutions' or 'CountClosedWorkflowExecutions'
+--
+--
 --
 -- /See:/ 'workflowExecutionCount' smart constructor.
 data WorkflowExecutionCount = WorkflowExecutionCount'
@@ -5854,9 +5723,9 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wecTruncated'
+-- * 'wecTruncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
 --
--- * 'wecCount'
+-- * 'wecCount' - The number of workflow executions.
 workflowExecutionCount
     :: Natural -- ^ 'wecCount'
     -> WorkflowExecutionCount
@@ -5885,7 +5754,9 @@ instance Hashable WorkflowExecutionCount
 
 instance NFData WorkflowExecutionCount
 
--- | Provides details of the 'WorkflowExecutionFailed' event.
+-- | Provides details of the @WorkflowExecutionFailed@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionFailedEventAttributes' smart constructor.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
@@ -5898,11 +5769,11 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wefeaReason'
+-- * 'wefeaReason' - The descriptive reason provided for the failure (if any).
 --
--- * 'wefeaDetails'
+-- * 'wefeaDetails' - The details of the failure (if any).
 --
--- * 'wefeaDecisionTaskCompletedEventId'
+-- * 'wefeaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 workflowExecutionFailedEventAttributes
     :: Integer -- ^ 'wefeaDecisionTaskCompletedEventId'
     -> WorkflowExecutionFailedEventAttributes
@@ -5921,7 +5792,7 @@ wefeaReason = lens _wefeaReason (\ s a -> s{_wefeaReason = a});
 wefeaDetails :: Lens' WorkflowExecutionFailedEventAttributes (Maybe Text)
 wefeaDetails = lens _wefeaDetails (\ s a -> s{_wefeaDetails = a});
 
--- | The ID of the 'DecisionTaskCompleted' event corresponding to the decision task that resulted in the 'FailWorkflowExecution' decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 wefeaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionFailedEventAttributes Integer
 wefeaDecisionTaskCompletedEventId = lens _wefeaDecisionTaskCompletedEventId (\ s a -> s{_wefeaDecisionTaskCompletedEventId = a});
 
@@ -5940,7 +5811,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionFailedEventAttributes
 
--- | Used to filter the workflow executions in visibility APIs by their 'workflowId'.
+-- | Used to filter the workflow executions in visibility APIs by their @workflowId@ .
+--
+--
 --
 -- /See:/ 'workflowExecutionFilter' smart constructor.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
@@ -5951,7 +5824,7 @@ newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wefWorkflowId'
+-- * 'wefWorkflowId' - The workflowId to pass of match the criteria of this filter.
 workflowExecutionFilter
     :: Text -- ^ 'wefWorkflowId'
     -> WorkflowExecutionFilter
@@ -5975,6 +5848,8 @@ instance ToJSON WorkflowExecutionFilter where
 
 -- | Contains information about a workflow execution.
 --
+--
+--
 -- /See:/ 'workflowExecutionInfo' smart constructor.
 data WorkflowExecutionInfo = WorkflowExecutionInfo'
     { _weiParent          :: !(Maybe WorkflowExecution)
@@ -5992,23 +5867,23 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weiParent'
+-- * 'weiParent' - If this workflow execution is a child of another execution then contains the workflow execution that started this execution.
 --
--- * 'weiTagList'
+-- * 'weiTagList' - The list of tags associated with the workflow execution. Tags can be used to identify and list workflow executions of interest through the visibility APIs. A workflow execution can have a maximum of 5 tags.
 --
--- * 'weiCloseStatus'
+-- * 'weiCloseStatus' - If the execution status is closed then this specifies how the execution was closed:     * @COMPLETED@ : the execution was successfully completed.    * @CANCELED@ : the execution was canceled.Cancellation allows the implementation to gracefully clean up before the execution is closed.    * @TERMINATED@ : the execution was force terminated.    * @FAILED@ : the execution failed to complete.    * @TIMED_OUT@ : the execution did not complete in the alloted time and was automatically timed out.    * @CONTINUED_AS_NEW@ : the execution is logically continued. This means the current execution was completed and a new execution was started to carry on the workflow.
 --
--- * 'weiCloseTimestamp'
+-- * 'weiCloseTimestamp' - The time when the workflow execution was closed. Set only if the execution status is CLOSED.
 --
--- * 'weiCancelRequested'
+-- * 'weiCancelRequested' - Set to true if a cancellation is requested for this workflow execution.
 --
--- * 'weiExecution'
+-- * 'weiExecution' - The workflow execution this information is about.
 --
--- * 'weiWorkflowType'
+-- * 'weiWorkflowType' - The type of the workflow execution.
 --
--- * 'weiStartTimestamp'
+-- * 'weiStartTimestamp' - The time when the execution was started.
 --
--- * 'weiExecutionStatus'
+-- * 'weiExecutionStatus' - The current status of the execution.
 workflowExecutionInfo
     :: WorkflowExecution -- ^ 'weiExecution'
     -> WorkflowType -- ^ 'weiWorkflowType'
@@ -6036,14 +5911,7 @@ weiParent = lens _weiParent (\ s a -> s{_weiParent = a});
 weiTagList :: Lens' WorkflowExecutionInfo [Text]
 weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a}) . _Default . _Coerce;
 
--- | If the execution status is closed then this specifies how the execution was closed:
---
--- -   'COMPLETED': the execution was successfully completed.
--- -   'CANCELED': the execution was canceled.Cancellation allows the implementation to gracefully clean up before the execution is closed.
--- -   'TERMINATED': the execution was force terminated.
--- -   'FAILED': the execution failed to complete.
--- -   'TIMED_OUT': the execution did not complete in the alloted time and was automatically timed out.
--- -   'CONTINUED_AS_NEW': the execution is logically continued. This means the current execution was completed and a new execution was started to carry on the workflow.
+-- | If the execution status is closed then this specifies how the execution was closed:     * @COMPLETED@ : the execution was successfully completed.    * @CANCELED@ : the execution was canceled.Cancellation allows the implementation to gracefully clean up before the execution is closed.    * @TERMINATED@ : the execution was force terminated.    * @FAILED@ : the execution failed to complete.    * @TIMED_OUT@ : the execution did not complete in the alloted time and was automatically timed out.    * @CONTINUED_AS_NEW@ : the execution is logically continued. This means the current execution was completed and a new execution was started to carry on the workflow.
 weiCloseStatus :: Lens' WorkflowExecutionInfo (Maybe CloseStatus)
 weiCloseStatus = lens _weiCloseStatus (\ s a -> s{_weiCloseStatus = a});
 
@@ -6091,6 +5959,8 @@ instance NFData WorkflowExecutionInfo
 
 -- | Contains a paginated list of information about workflow executions.
 --
+--
+--
 -- /See:/ 'workflowExecutionInfos' smart constructor.
 data WorkflowExecutionInfos = WorkflowExecutionInfos'
     { _weiNextPageToken  :: !(Maybe Text)
@@ -6101,9 +5971,9 @@ data WorkflowExecutionInfos = WorkflowExecutionInfos'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weiNextPageToken'
+-- * 'weiNextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 --
--- * 'weiExecutionInfos'
+-- * 'weiExecutionInfos' - The list of workflow information structures.
 workflowExecutionInfos
     :: WorkflowExecutionInfos
 workflowExecutionInfos =
@@ -6112,9 +5982,7 @@ workflowExecutionInfos =
     , _weiExecutionInfos = mempty
     }
 
--- | If a 'NextPageToken' was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in 'nextPageToken'. Keep all other arguments unchanged.
---
--- The configured 'maximumPageSize' determines how many results can be returned in a single call.
+-- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 weiNextPageToken :: Lens' WorkflowExecutionInfos (Maybe Text)
 weiNextPageToken = lens _weiNextPageToken (\ s a -> s{_weiNextPageToken = a});
 
@@ -6136,6 +6004,8 @@ instance NFData WorkflowExecutionInfos
 
 -- | Contains the counts of open tasks, child workflow executions and timers for a workflow execution.
 --
+--
+--
 -- /See:/ 'workflowExecutionOpenCounts' smart constructor.
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
     { _weocOpenLambdaFunctions         :: !(Maybe Nat)
@@ -6149,15 +6019,15 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weocOpenLambdaFunctions'
+-- * 'weocOpenLambdaFunctions' - The count of AWS Lambda functions that are currently executing.
 --
--- * 'weocOpenActivityTasks'
+-- * 'weocOpenActivityTasks' - The count of activity tasks whose status is OPEN.
 --
--- * 'weocOpenDecisionTasks'
+-- * 'weocOpenDecisionTasks' - The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.
 --
--- * 'weocOpenTimers'
+-- * 'weocOpenTimers' - The count of timers started by this workflow execution that have not fired yet.
 --
--- * 'weocOpenChildWorkflowExecutions'
+-- * 'weocOpenChildWorkflowExecutions' - The count of child workflow executions whose status is OPEN.
 workflowExecutionOpenCounts
     :: Natural -- ^ 'weocOpenActivityTasks'
     -> Natural -- ^ 'weocOpenDecisionTasks'
@@ -6208,7 +6078,9 @@ instance Hashable WorkflowExecutionOpenCounts
 
 instance NFData WorkflowExecutionOpenCounts
 
--- | Provides details of the 'WorkflowExecutionSignaled' event.
+-- | Provides details of the @WorkflowExecutionSignaled@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes'
@@ -6222,13 +6094,13 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wExternalWorkflowExecution'
+-- * 'wExternalWorkflowExecution' - The workflow execution that sent the signal. This is set only of the signal was sent by another workflow execution.
 --
--- * 'wExternalInitiatedEventId'
+-- * 'wExternalInitiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflow@ decision to signal this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event. This field is set only if the signal was initiated by another workflow execution.
 --
--- * 'wInput'
+-- * 'wInput' - Inputs provided with the signal (if any). The decider can use the signal name and inputs to determine how to process the signal.
 --
--- * 'wSignalName'
+-- * 'wSignalName' - The name of the signal received. The decider can use the signal name and inputs to determine how to the process the signal.
 workflowExecutionSignaledEventAttributes
     :: Text -- ^ 'wSignalName'
     -> WorkflowExecutionSignaledEventAttributes
@@ -6244,7 +6116,7 @@ workflowExecutionSignaledEventAttributes pSignalName_ =
 wExternalWorkflowExecution :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe WorkflowExecution)
 wExternalWorkflowExecution = lens _wExternalWorkflowExecution (\ s a -> s{_wExternalWorkflowExecution = a});
 
--- | The ID of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to the 'SignalExternalWorkflow' decision to signal this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event. This field is set only if the signal was initiated by another workflow execution.
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflow@ decision to signal this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event. This field is set only if the signal was initiated by another workflow execution.
 wExternalInitiatedEventId :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe Integer)
 wExternalInitiatedEventId = lens _wExternalInitiatedEventId (\ s a -> s{_wExternalInitiatedEventId = a});
 
@@ -6274,7 +6146,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionSignaledEventAttributes
 
--- | Provides details of 'WorkflowExecutionStarted' event.
+-- | Provides details of @WorkflowExecutionStarted@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionStartedEventAttributes' smart constructor.
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'
@@ -6296,29 +6170,29 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weseaParentInitiatedEventId'
+-- * 'weseaParentInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this workflow execution. The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- * 'weseaTagList'
+-- * 'weseaTagList' - The list of tags associated with this workflow execution. An execution can have up to 5 tags.
 --
--- * 'weseaTaskStartToCloseTimeout'
+-- * 'weseaTaskStartToCloseTimeout' - The maximum duration of decision tasks for this workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'weseaLambdaRole'
+-- * 'weseaLambdaRole' - The IAM role attached to this workflow execution to use when invoking AWS Lambda functions.
 --
--- * 'weseaInput'
+-- * 'weseaInput' - The input provided to the workflow execution (if any).
 --
--- * 'weseaExecutionStartToCloseTimeout'
+-- * 'weseaExecutionStartToCloseTimeout' - The maximum duration for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'weseaTaskPriority'
+-- * 'weseaTaskPriority' - Undocumented member.
 --
--- * 'weseaParentWorkflowExecution'
+-- * 'weseaParentWorkflowExecution' - The source workflow execution that started this workflow execution. The member is not set if the workflow execution was not started by a workflow.
 --
--- * 'weseaContinuedExecutionRunId'
+-- * 'weseaContinuedExecutionRunId' - If this workflow execution was started due to a @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@ of the previous workflow execution that was closed and continued as this execution.
 --
--- * 'weseaChildPolicy'
+-- * 'weseaChildPolicy' - The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 --
--- * 'weseaTaskList'
+-- * 'weseaTaskList' - The name of the task list for scheduling the decision tasks for this workflow execution.
 --
--- * 'weseaWorkflowType'
+-- * 'weseaWorkflowType' - The workflow type of this execution.
 workflowExecutionStartedEventAttributes
     :: ChildPolicy -- ^ 'weseaChildPolicy'
     -> TaskList -- ^ 'weseaTaskList'
@@ -6340,7 +6214,7 @@ workflowExecutionStartedEventAttributes pChildPolicy_ pTaskList_ pWorkflowType_ 
     , _weseaWorkflowType = pWorkflowType_
     }
 
--- | The ID of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' decision to start this workflow execution. The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ decision to start this workflow execution. The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 weseaParentInitiatedEventId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Integer)
 weseaParentInitiatedEventId = lens _weseaParentInitiatedEventId (\ s a -> s{_weseaParentInitiatedEventId = a});
 
@@ -6348,9 +6222,7 @@ weseaParentInitiatedEventId = lens _weseaParentInitiatedEventId (\ s a -> s{_wes
 weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes [Text]
 weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a}) . _Default . _Coerce;
 
--- | The maximum duration of decision tasks for this workflow type.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration of decision tasks for this workflow type. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 weseaTaskStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskStartToCloseTimeout = lens _weseaTaskStartToCloseTimeout (\ s a -> s{_weseaTaskStartToCloseTimeout = a});
 
@@ -6362,9 +6234,7 @@ weseaLambdaRole = lens _weseaLambdaRole (\ s a -> s{_weseaLambdaRole = a});
 weseaInput :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaInput = lens _weseaInput (\ s a -> s{_weseaInput = a});
 
--- | The maximum duration for this workflow execution.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | The maximum duration for this workflow execution. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 weseaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaExecutionStartToCloseTimeout = lens _weseaExecutionStartToCloseTimeout (\ s a -> s{_weseaExecutionStartToCloseTimeout = a});
 
@@ -6376,17 +6246,11 @@ weseaTaskPriority = lens _weseaTaskPriority (\ s a -> s{_weseaTaskPriority = a})
 weseaParentWorkflowExecution :: Lens' WorkflowExecutionStartedEventAttributes (Maybe WorkflowExecution)
 weseaParentWorkflowExecution = lens _weseaParentWorkflowExecution (\ s a -> s{_weseaParentWorkflowExecution = a});
 
--- | If this workflow execution was started due to a 'ContinueAsNewWorkflowExecution' decision, then it contains the 'runId' of the previous workflow execution that was closed and continued as this execution.
+-- | If this workflow execution was started due to a @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@ of the previous workflow execution that was closed and continued as this execution.
 weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaContinuedExecutionRunId = lens _weseaContinuedExecutionRunId (\ s a -> s{_weseaContinuedExecutionRunId = a});
 
--- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy to use for the child workflow executions if this workflow execution is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 weseaChildPolicy :: Lens' WorkflowExecutionStartedEventAttributes ChildPolicy
 weseaChildPolicy = lens _weseaChildPolicy (\ s a -> s{_weseaChildPolicy = a});
 
@@ -6424,7 +6288,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionStartedEventAttributes
 
--- | Provides details of the 'WorkflowExecutionTerminated' event.
+-- | Provides details of the @WorkflowExecutionTerminated@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionTerminatedEventAttributes' smart constructor.
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes'
@@ -6438,13 +6304,13 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'weteaCause'
+-- * 'weteaCause' - If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
 --
--- * 'weteaReason'
+-- * 'weteaReason' - The reason provided for the termination (if any).
 --
--- * 'weteaDetails'
+-- * 'weteaDetails' - The details provided for the termination (if any).
 --
--- * 'weteaChildPolicy'
+-- * 'weteaChildPolicy' - The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 workflowExecutionTerminatedEventAttributes
     :: ChildPolicy -- ^ 'weteaChildPolicy'
     -> WorkflowExecutionTerminatedEventAttributes
@@ -6468,13 +6334,7 @@ weteaReason = lens _weteaReason (\ s a -> s{_weteaReason = a});
 weteaDetails :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe Text)
 weteaDetails = lens _weteaDetails (\ s a -> s{_weteaDetails = a});
 
--- | The policy used for the child workflow executions of this workflow execution.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 weteaChildPolicy :: Lens' WorkflowExecutionTerminatedEventAttributes ChildPolicy
 weteaChildPolicy = lens _weteaChildPolicy (\ s a -> s{_weteaChildPolicy = a});
 
@@ -6495,7 +6355,9 @@ instance Hashable
 instance NFData
          WorkflowExecutionTerminatedEventAttributes
 
--- | Provides details of the 'WorkflowExecutionTimedOut' event.
+-- | Provides details of the @WorkflowExecutionTimedOut@ event.
+--
+--
 --
 -- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes'
@@ -6507,9 +6369,9 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wetoeaTimeoutType'
+-- * 'wetoeaTimeoutType' - The type of timeout that caused this event.
 --
--- * 'wetoeaChildPolicy'
+-- * 'wetoeaChildPolicy' - The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 workflowExecutionTimedOutEventAttributes
     :: WorkflowExecutionTimeoutType -- ^ 'wetoeaTimeoutType'
     -> ChildPolicy -- ^ 'wetoeaChildPolicy'
@@ -6524,13 +6386,7 @@ workflowExecutionTimedOutEventAttributes pTimeoutType_ pChildPolicy_ =
 wetoeaTimeoutType :: Lens' WorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
 wetoeaTimeoutType = lens _wetoeaTimeoutType (\ s a -> s{_wetoeaTimeoutType = a});
 
--- | The policy used for the child workflow executions of this workflow execution.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 wetoeaChildPolicy :: Lens' WorkflowExecutionTimedOutEventAttributes ChildPolicy
 wetoeaChildPolicy = lens _wetoeaChildPolicy (\ s a -> s{_wetoeaChildPolicy = a});
 
@@ -6551,6 +6407,8 @@ instance NFData
 
 -- | Represents a workflow type.
 --
+--
+--
 -- /See:/ 'workflowType' smart constructor.
 data WorkflowType = WorkflowType'
     { _wtName    :: !Text
@@ -6561,9 +6419,9 @@ data WorkflowType = WorkflowType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wtName'
+-- * 'wtName' - __Required.__ The name of the workflow type.
 --
--- * 'wtVersion'
+-- * 'wtVersion' - __Required.__ The version of the workflow type.
 workflowType
     :: Text -- ^ 'wtName'
     -> Text -- ^ 'wtVersion'
@@ -6575,14 +6433,10 @@ workflowType pName_ pVersion_ =
     }
 
 -- | __Required.__ The name of the workflow type.
---
--- The combination of workflow type name and version must be unique with in a domain.
 wtName :: Lens' WorkflowType Text
 wtName = lens _wtName (\ s a -> s{_wtName = a});
 
 -- | __Required.__ The version of the workflow type.
---
--- The combination of workflow type name and version must be unique with in a domain.
 wtVersion :: Lens' WorkflowType Text
 wtVersion = lens _wtVersion (\ s a -> s{_wtVersion = a});
 
@@ -6605,6 +6459,8 @@ instance ToJSON WorkflowType where
 
 -- | The configuration settings of a workflow type.
 --
+--
+--
 -- /See:/ 'workflowTypeConfiguration' smart constructor.
 data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     { _wtcDefaultLambdaRole                   :: !(Maybe Text)
@@ -6619,17 +6475,17 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wtcDefaultLambdaRole'
+-- * 'wtcDefaultLambdaRole' - The default IAM role to use when a workflow execution invokes a AWS Lambda function.
 --
--- * 'wtcDefaultChildPolicy'
+-- * 'wtcDefaultChildPolicy' - /Optional./ The default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 --
--- * 'wtcDefaultTaskList'
+-- * 'wtcDefaultTaskList' - /Optional./ The default task list, specified when registering the workflow type, for decisions tasks scheduled for workflow executions of this type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision.
 --
--- * 'wtcDefaultTaskPriority'
+-- * 'wtcDefaultTaskPriority' - /Optional./ The default task priority, specified when registering the workflow type, for all decision tasks of this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 --
--- * 'wtcDefaultExecutionStartToCloseTimeout'
+-- * 'wtcDefaultExecutionStartToCloseTimeout' - /Optional./ The default maximum duration, specified when registering the workflow type, for executions of this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 --
--- * 'wtcDefaultTaskStartToCloseTimeout'
+-- * 'wtcDefaultTaskStartToCloseTimeout' - /Optional./ The default maximum duration, specified when registering the workflow type, that a decision task for executions of this workflow type might take before returning completion or failure. If the task does not close in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 workflowTypeConfiguration
     :: WorkflowTypeConfiguration
 workflowTypeConfiguration =
@@ -6646,37 +6502,23 @@ workflowTypeConfiguration =
 wtcDefaultLambdaRole :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultLambdaRole = lens _wtcDefaultLambdaRole (\ s a -> s{_wtcDefaultLambdaRole = a});
 
--- | /Optional./ The default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the < TerminateWorkflowExecution> action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the < StartWorkflowExecution> action or the 'StartChildWorkflowExecution' decision.
---
--- The supported child policies are:
---
--- -   __TERMINATE:__ the child executions will be terminated.
--- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
--- -   __ABANDON:__ no action will be taken. The child executions will continue to run.
+-- | /Optional./ The default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The supported child policies are:     * __TERMINATE:__ the child executions will be terminated.    * __REQUEST_CANCEL:__ a request to cancel will be attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.    * __ABANDON:__ no action will be taken. The child executions will continue to run.
 wtcDefaultChildPolicy :: Lens' WorkflowTypeConfiguration (Maybe ChildPolicy)
 wtcDefaultChildPolicy = lens _wtcDefaultChildPolicy (\ s a -> s{_wtcDefaultChildPolicy = a});
 
--- | /Optional./ The default task list, specified when registering the workflow type, for decisions tasks scheduled for workflow executions of this type. This default can be overridden when starting a workflow execution using the < StartWorkflowExecution> action or the 'StartChildWorkflowExecution' decision.
+-- | /Optional./ The default task list, specified when registering the workflow type, for decisions tasks scheduled for workflow executions of this type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = a});
 
--- | /Optional./ The default task priority, specified when registering the workflow type, for all decision tasks of this workflow type. This default can be overridden when starting a workflow execution using the < StartWorkflowExecution> action or the 'StartChildWorkflowExecution' decision.
---
--- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/.
+-- | /Optional./ The default task priority, specified when registering the workflow type, for all decision tasks of this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon Simple Workflow Developer Guide/ .
 wtcDefaultTaskPriority :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultTaskPriority = lens _wtcDefaultTaskPriority (\ s a -> s{_wtcDefaultTaskPriority = a});
 
--- | /Optional./ The default maximum duration, specified when registering the workflow type, for executions of this workflow type. This default can be overridden when starting a workflow execution using the < StartWorkflowExecution> action or the 'StartChildWorkflowExecution' decision.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum duration, specified when registering the workflow type, for executions of this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wtcDefaultExecutionStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultExecutionStartToCloseTimeout = lens _wtcDefaultExecutionStartToCloseTimeout (\ s a -> s{_wtcDefaultExecutionStartToCloseTimeout = a});
 
--- | /Optional./ The default maximum duration, specified when registering the workflow type, that a decision task for executions of this workflow type might take before returning completion or failure. If the task does not close in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using the < StartWorkflowExecution> action or the 'StartChildWorkflowExecution' decision.
---
--- The duration is specified in seconds; an integer greater than or equal to 0. The value \"NONE\" can be used to specify unlimited duration.
+-- | /Optional./ The default maximum duration, specified when registering the workflow type, that a decision task for executions of this workflow type might take before returning completion or failure. If the task does not close in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ decision. The duration is specified in seconds; an integer greater than or equal to 0. The value "NONE" can be used to specify unlimited duration.
 wtcDefaultTaskStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultTaskStartToCloseTimeout = lens _wtcDefaultTaskStartToCloseTimeout (\ s a -> s{_wtcDefaultTaskStartToCloseTimeout = a});
 
@@ -6698,6 +6540,8 @@ instance NFData WorkflowTypeConfiguration
 
 -- | Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.
 --
+--
+--
 -- /See:/ 'workflowTypeFilter' smart constructor.
 data WorkflowTypeFilter = WorkflowTypeFilter'
     { _wtfVersion :: !(Maybe Text)
@@ -6708,9 +6552,9 @@ data WorkflowTypeFilter = WorkflowTypeFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wtfVersion'
+-- * 'wtfVersion' - Version of the workflow type.
 --
--- * 'wtfName'
+-- * 'wtfName' - __Required.__ Name of the workflow type.
 workflowTypeFilter
     :: Text -- ^ 'wtfName'
     -> WorkflowTypeFilter
@@ -6741,6 +6585,8 @@ instance ToJSON WorkflowTypeFilter where
 
 -- | Contains information about a workflow type.
 --
+--
+--
 -- /See:/ 'workflowTypeInfo' smart constructor.
 data WorkflowTypeInfo = WorkflowTypeInfo'
     { _wtiDeprecationDate :: !(Maybe POSIX)
@@ -6754,15 +6600,15 @@ data WorkflowTypeInfo = WorkflowTypeInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wtiDeprecationDate'
+-- * 'wtiDeprecationDate' - If the type is in deprecated state, then it is set to the date when the type was deprecated.
 --
--- * 'wtiDescription'
+-- * 'wtiDescription' - The description of the type registered through 'RegisterWorkflowType' .
 --
--- * 'wtiWorkflowType'
+-- * 'wtiWorkflowType' - The workflow type this information is about.
 --
--- * 'wtiStatus'
+-- * 'wtiStatus' - The current status of the workflow type.
 --
--- * 'wtiCreationDate'
+-- * 'wtiCreationDate' - The date when this type was registered.
 workflowTypeInfo
     :: WorkflowType -- ^ 'wtiWorkflowType'
     -> RegistrationStatus -- ^ 'wtiStatus'
@@ -6781,7 +6627,7 @@ workflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
 wtiDeprecationDate :: Lens' WorkflowTypeInfo (Maybe UTCTime)
 wtiDeprecationDate = lens _wtiDeprecationDate (\ s a -> s{_wtiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the type registered through < RegisterWorkflowType>.
+-- | The description of the type registered through 'RegisterWorkflowType' .
 wtiDescription :: Lens' WorkflowTypeInfo (Maybe Text)
 wtiDescription = lens _wtiDescription (\ s a -> s{_wtiDescription = a});
 

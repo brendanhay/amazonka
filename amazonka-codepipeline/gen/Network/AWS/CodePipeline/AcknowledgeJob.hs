@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a specified job and whether that job has been received by the job worker. Only used for custom actions.
+--
+--
 module Network.AWS.CodePipeline.AcknowledgeJob
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an acknowledge job action.
 --
+--
+--
 -- /See:/ 'acknowledgeJob' smart constructor.
 data AcknowledgeJob = AcknowledgeJob'
     { _ajJobId :: !Text
@@ -55,9 +59,9 @@ data AcknowledgeJob = AcknowledgeJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ajJobId'
+-- * 'ajJobId' - The unique system-generated ID of the job for which you want to confirm receipt.
 --
--- * 'ajNonce'
+-- * 'ajNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 acknowledgeJob
     :: Text -- ^ 'ajJobId'
     -> Text -- ^ 'ajNonce'
@@ -114,6 +118,8 @@ instance ToQuery AcknowledgeJob where
 
 -- | Represents the output of an acknowledge job action.
 --
+--
+--
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
     { _ajrsStatus         :: !(Maybe JobStatus)
@@ -124,9 +130,9 @@ data AcknowledgeJobResponse = AcknowledgeJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ajrsStatus'
+-- * 'ajrsStatus' - Whether the job worker has received the specified job.
 --
--- * 'ajrsResponseStatus'
+-- * 'ajrsResponseStatus' - -- | The response status code.
 acknowledgeJobResponse
     :: Int -- ^ 'ajrsResponseStatus'
     -> AcknowledgeJobResponse
@@ -140,7 +146,7 @@ acknowledgeJobResponse pResponseStatus_ =
 ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
 ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
 ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});
 

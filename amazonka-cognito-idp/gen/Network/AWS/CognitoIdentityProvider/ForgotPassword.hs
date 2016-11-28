@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the password for the specified client ID or username.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ForgotPassword
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the request to reset a user\'s password.
+-- | Represents the request to reset a user's password.
+--
+--
 --
 -- /See:/ 'forgotPassword' smart constructor.
 data ForgotPassword = ForgotPassword'
@@ -57,11 +61,11 @@ data ForgotPassword = ForgotPassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fpSecretHash'
+-- * 'fpSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'fpClientId'
+-- * 'fpClientId' - The ID of the client associated with the user pool.
 --
--- * 'fpUsername'
+-- * 'fpUsername' - The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 forgotPassword
     :: Text -- ^ 'fpClientId'
     -> Text -- ^ 'fpUsername'
@@ -125,6 +129,8 @@ instance ToQuery ForgotPassword where
 
 -- | Respresents the response from the server regarding the request to reset a password.
 --
+--
+--
 -- /See:/ 'forgotPasswordResponse' smart constructor.
 data ForgotPasswordResponse = ForgotPasswordResponse'
     { _fprsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
@@ -135,9 +141,9 @@ data ForgotPasswordResponse = ForgotPasswordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fprsCodeDeliveryDetails'
+-- * 'fprsCodeDeliveryDetails' - Undocumented member.
 --
--- * 'fprsResponseStatus'
+-- * 'fprsResponseStatus' - -- | The response status code.
 forgotPasswordResponse
     :: Int -- ^ 'fprsResponseStatus'
     -> ForgotPasswordResponse
@@ -151,7 +157,7 @@ forgotPasswordResponse pResponseStatus_ =
 fprsCodeDeliveryDetails :: Lens' ForgotPasswordResponse (Maybe CodeDeliveryDetailsType)
 fprsCodeDeliveryDetails = lens _fprsCodeDeliveryDetails (\ s a -> s{_fprsCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 fprsResponseStatus :: Lens' ForgotPasswordResponse Int
 fprsResponseStatus = lens _fprsResponseStatus (\ s a -> s{_fprsResponseStatus = a});
 

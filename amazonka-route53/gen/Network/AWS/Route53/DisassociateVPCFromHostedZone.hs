@@ -20,9 +20,11 @@
 --
 -- Disassociates a VPC from a Amazon Route 53 private hosted zone.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/hostedzone\/hosted zone ID\/disassociatevpc' resource. The request body must include an XML document with a 'DisassociateVPCFromHostedZoneRequest' element. The response returns the 'DisassociateVPCFromHostedZoneResponse' element.
 --
--- You can only disassociate a VPC from a private hosted zone when two or more VPCs are associated with that hosted zone. You cannot convert a private hosted zone into a public hosted zone.
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /hostedzone//hosted zone ID/ /disassociatevpc@ resource. The request body must include an XML document with a @DisassociateVPCFromHostedZoneRequest@ element. The response returns the @DisassociateVPCFromHostedZoneResponse@ element.
+--
+-- /Important:/ You can only disassociate a VPC from a private hosted zone when two or more VPCs are associated with that hosted zone. You cannot convert a private hosted zone into a public hosted zone.
+--
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the VPC and the hosted zone that you want to disassociate.
 --
+--
+--
 -- /See:/ 'disassociateVPCFromHostedZone' smart constructor.
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
     { _dvfhzComment      :: !(Maybe Text)
@@ -61,11 +65,11 @@ data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvfhzComment'
+-- * 'dvfhzComment' - /Optional:/ A comment about the disassociation request.
 --
--- * 'dvfhzHostedZoneId'
+-- * 'dvfhzHostedZoneId' - The ID of the VPC that you want to disassociate from an Amazon Route 53 hosted zone.
 --
--- * 'dvfhzVPC'
+-- * 'dvfhzVPC' - A complex type containing information about the Amazon VPC that you're disassociating from the specified hosted zone.
 disassociateVPCFromHostedZone
     :: Text -- ^ 'dvfhzHostedZoneId'
     -> VPC -- ^ 'dvfhzVPC'
@@ -85,7 +89,7 @@ dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a});
 dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone Text
 dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a});
 
--- | A complex type containing information about the Amazon VPC that you\'re disassociating from the specified hosted zone.
+-- | A complex type containing information about the Amazon VPC that you're disassociating from the specified hosted zone.
 dvfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
 dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a});
 
@@ -130,6 +134,8 @@ instance ToXML DisassociateVPCFromHostedZone where
 
 -- | A complex type that contains the response information for the disassociate request.
 --
+--
+--
 -- /See:/ 'disassociateVPCFromHostedZoneResponse' smart constructor.
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
     { _dvfhzrsResponseStatus :: !Int
@@ -140,9 +146,9 @@ data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvfhzrsResponseStatus'
+-- * 'dvfhzrsResponseStatus' - -- | The response status code.
 --
--- * 'dvfhzrsChangeInfo'
+-- * 'dvfhzrsChangeInfo' - A complex type that describes the changes made to your hosted zone.
 disassociateVPCFromHostedZoneResponse
     :: Int -- ^ 'dvfhzrsResponseStatus'
     -> ChangeInfo -- ^ 'dvfhzrsChangeInfo'
@@ -153,7 +159,7 @@ disassociateVPCFromHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     , _dvfhzrsChangeInfo = pChangeInfo_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dvfhzrsResponseStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
 dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponseStatus = a});
 

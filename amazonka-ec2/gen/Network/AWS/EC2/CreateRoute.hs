@@ -20,17 +20,21 @@
 --
 -- Creates a route in a route table within a VPC.
 --
+--
 -- You must specify one of the following targets: Internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, or network interface.
 --
--- When determining how to route traffic, we use the route with the most specific match. For example, let\'s say the traffic is destined for '192.0.2.3', and the route table includes the following two routes:
+-- When determining how to route traffic, we use the route with the most specific match. For example, let's say the traffic is destined for @192.0.2.3@ , and the route table includes the following two routes:
 --
--- -   '192.0.2.0\/24' (goes to some target A)
+--     * @192.0.2.0/24@ (goes to some target A)
 --
--- -   '192.0.2.0\/28' (goes to some target B)
+--     * @192.0.2.0/28@ (goes to some target B)
 --
--- Both routes apply to the traffic destined for '192.0.2.3'. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- Both routes apply to the traffic destined for @192.0.2.3@ . However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.
+--
+-- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateRoute
     (
     -- * Creating a Request
@@ -63,6 +67,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateRoute.
 --
+--
+--
 -- /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
     { _crVPCPeeringConnectionId :: !(Maybe Text)
@@ -79,21 +85,21 @@ data CreateRoute = CreateRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crVPCPeeringConnectionId'
+-- * 'crVPCPeeringConnectionId' - The ID of a VPC peering connection.
 --
--- * 'crInstanceId'
+-- * 'crInstanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 --
--- * 'crNatGatewayId'
+-- * 'crNatGatewayId' - The ID of a NAT gateway.
 --
--- * 'crNetworkInterfaceId'
+-- * 'crNetworkInterfaceId' - The ID of a network interface.
 --
--- * 'crGatewayId'
+-- * 'crGatewayId' - The ID of an Internet gateway or virtual private gateway attached to your VPC.
 --
--- * 'crDryRun'
+-- * 'crDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'crRouteTableId'
+-- * 'crRouteTableId' - The ID of the route table for the route.
 --
--- * 'crDestinationCIdRBlock'
+-- * 'crDestinationCIdRBlock' - The CIDR address block used for the destination match. Routing decisions are based on the most specific match.
 createRoute
     :: Text -- ^ 'crRouteTableId'
     -> Text -- ^ 'crDestinationCIdRBlock'
@@ -130,7 +136,7 @@ crNetworkInterfaceId = lens _crNetworkInterfaceId (\ s a -> s{_crNetworkInterfac
 crGatewayId :: Lens' CreateRoute (Maybe Text)
 crGatewayId = lens _crGatewayId (\ s a -> s{_crGatewayId = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 crDryRun :: Lens' CreateRoute (Maybe Bool)
 crDryRun = lens _crDryRun (\ s a -> s{_crDryRun = a});
 
@@ -177,6 +183,8 @@ instance ToQuery CreateRoute where
 
 -- | Contains the output of CreateRoute.
 --
+--
+--
 -- /See:/ 'createRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
     { _crrsReturn         :: !(Maybe Bool)
@@ -187,9 +195,9 @@ data CreateRouteResponse = CreateRouteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsReturn'
+-- * 'crrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 createRouteResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRouteResponse
@@ -199,11 +207,11 @@ createRouteResponse pResponseStatus_ =
     , _crrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRouteResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

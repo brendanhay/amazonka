@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the WorkSpace properties, including the RunningMode and AutoStop time.
+--
+--
 module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data ModifyWorkspaceProperties = ModifyWorkspaceProperties'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwpWorkspaceId'
+-- * 'mwpWorkspaceId' - The ID of the WorkSpace.
 --
--- * 'mwpWorkspaceProperties'
+-- * 'mwpWorkspaceProperties' - The WorkSpace properties of the request.
 modifyWorkspaceProperties
     :: Text -- ^ 'mwpWorkspaceId'
     -> WorkspaceProperties -- ^ 'mwpWorkspaceProperties'
@@ -120,7 +122,7 @@ newtype ModifyWorkspacePropertiesResponse = ModifyWorkspacePropertiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwprsResponseStatus'
+-- * 'mwprsResponseStatus' - -- | The response status code.
 modifyWorkspacePropertiesResponse
     :: Int -- ^ 'mwprsResponseStatus'
     -> ModifyWorkspacePropertiesResponse
@@ -129,7 +131,7 @@ modifyWorkspacePropertiesResponse pResponseStatus_ =
     { _mwprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 mwprsResponseStatus :: Lens' ModifyWorkspacePropertiesResponse Int
 mwprsResponseStatus = lens _mwprsResponseStatus (\ s a -> s{_mwprsResponseStatus = a});
 

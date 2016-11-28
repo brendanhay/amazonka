@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the evaluation results for the specified Config rule. You can specify one Config rule per request. After you delete the evaluation results, you can call the < StartConfigRulesEvaluation> API to start evaluating your AWS resources against the rule.
+-- Deletes the evaluation results for the specified Config rule. You can specify one Config rule per request. After you delete the evaluation results, you can call the 'StartConfigRulesEvaluation' API to start evaluating your AWS resources against the rule.
+--
+--
 module Network.AWS.Config.DeleteEvaluationResults
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeleteEvaluationResults = DeleteEvaluationResults'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derConfigRuleName'
+-- * 'derConfigRuleName' - The name of the Config rule for which you want to delete the evaluation results.
 deleteEvaluationResults
     :: Text -- ^ 'derConfigRuleName'
     -> DeleteEvaluationResults
@@ -101,6 +103,8 @@ instance ToQuery DeleteEvaluationResults where
 
 -- | The output when you delete the evaluation results for the specified Config rule.
 --
+--
+--
 -- /See:/ 'deleteEvaluationResultsResponse' smart constructor.
 newtype DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
     { _derrsResponseStatus :: Int
@@ -110,7 +114,7 @@ newtype DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derrsResponseStatus'
+-- * 'derrsResponseStatus' - -- | The response status code.
 deleteEvaluationResultsResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeleteEvaluationResultsResponse
@@ -119,7 +123,7 @@ deleteEvaluationResultsResponse pResponseStatus_ =
     { _derrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 derrsResponseStatus :: Lens' DeleteEvaluationResultsResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates fleet properties, including name and description, for a fleet. To update metadata, specify the fleet ID and the property values you want to change. If successful, the fleet ID for the updated fleet is returned.
+--
+--
 module Network.AWS.GameLift.UpdateFleetAttributes
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
     { _ufaNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
@@ -59,13 +63,13 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufaNewGameSessionProtectionPolicy'
+-- * 'ufaNewGameSessionProtectionPolicy' - Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
--- * 'ufaName'
+-- * 'ufaName' - Descriptive label associated with a fleet. Fleet names do not need to be unique.
 --
--- * 'ufaDescription'
+-- * 'ufaDescription' - Human-readable description of a fleet.
 --
--- * 'ufaFleetId'
+-- * 'ufaFleetId' - Unique identifier for the fleet you want to update attribute metadata for.
 updateFleetAttributes
     :: Text -- ^ 'ufaFleetId'
     -> UpdateFleetAttributes
@@ -77,10 +81,7 @@ updateFleetAttributes pFleetId_ =
     , _ufaFleetId = pFleetId_
     }
 
--- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using < UpdateGameSession>.
---
--- -   __NoProtection__ – The game session can be terminated during a scale-down event.
--- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
+-- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
 ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s a -> s{_ufaNewGameSessionProtectionPolicy = a});
 
@@ -137,6 +138,8 @@ instance ToQuery UpdateFleetAttributes where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateFleetAttributesResponse' smart constructor.
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
     { _ufarsFleetId        :: !(Maybe Text)
@@ -147,9 +150,9 @@ data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufarsFleetId'
+-- * 'ufarsFleetId' - Unique identifier for the updated fleet.
 --
--- * 'ufarsResponseStatus'
+-- * 'ufarsResponseStatus' - -- | The response status code.
 updateFleetAttributesResponse
     :: Int -- ^ 'ufarsResponseStatus'
     -> UpdateFleetAttributesResponse
@@ -163,7 +166,7 @@ updateFleetAttributesResponse pResponseStatus_ =
 ufarsFleetId :: Lens' UpdateFleetAttributesResponse (Maybe Text)
 ufarsFleetId = lens _ufarsFleetId (\ s a -> s{_ufarsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ufarsResponseStatus :: Lens' UpdateFleetAttributesResponse Int
 ufarsResponseStatus = lens _ufarsResponseStatus (\ s a -> s{_ufarsResponseStatus = a});
 

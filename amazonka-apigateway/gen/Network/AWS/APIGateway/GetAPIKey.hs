@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current < ApiKey> resource.
+-- Gets information about the current 'ApiKey' resource.
+--
+--
 module Network.AWS.APIGateway.GetAPIKey
     (
     -- * Creating a Request
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current < ApiKey> resource.
+-- | A request to get information about the current 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'getAPIKey' smart constructor.
 data GetAPIKey = GetAPIKey'
@@ -61,9 +65,9 @@ data GetAPIKey = GetAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakIncludeValue'
+-- * 'gakIncludeValue' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 --
--- * 'gakApiKey'
+-- * 'gakApiKey' - The identifier of the 'ApiKey' resource.
 getAPIKey
     :: Text -- ^ 'gakApiKey'
     -> GetAPIKey
@@ -73,11 +77,11 @@ getAPIKey pApiKey_ =
     , _gakApiKey = pApiKey_
     }
 
--- | A boolean flag to specify whether ('true') or not ('false') the result contains the key value.
+-- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
 gakIncludeValue :: Lens' GetAPIKey (Maybe Bool)
 gakIncludeValue = lens _gakIncludeValue (\ s a -> s{_gakIncludeValue = a});
 
--- | The identifier of the < ApiKey> resource.
+-- | The identifier of the 'ApiKey' resource.
 gakApiKey :: Lens' GetAPIKey Text
 gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a});
 

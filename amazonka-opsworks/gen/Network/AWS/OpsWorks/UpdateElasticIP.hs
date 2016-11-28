@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a registered Elastic IP address\'s name. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Updates a registered Elastic IP address's name. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateElasticIP
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data UpdateElasticIP = UpdateElasticIP'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ueiName'
+-- * 'ueiName' - The new name.
 --
--- * 'ueiElasticIP'
+-- * 'ueiElasticIP' - The address.
 updateElasticIP
     :: Text -- ^ 'ueiElasticIP'
     -> UpdateElasticIP

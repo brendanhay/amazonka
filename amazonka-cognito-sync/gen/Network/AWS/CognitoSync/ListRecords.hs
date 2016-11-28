@@ -20,7 +20,9 @@
 --
 -- Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
+--
 -- ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
+--
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Creating a Request
@@ -75,19 +77,19 @@ data ListRecords = ListRecords'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrLastSyncCount'
+-- * 'lrLastSyncCount' - The last server sync count for this record.
 --
--- * 'lrNextToken'
+-- * 'lrNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lrSyncSessionToken'
+-- * 'lrSyncSessionToken' - A token containing a session ID, identity ID, and expiration.
 --
--- * 'lrMaxResults'
+-- * 'lrMaxResults' - The maximum number of results to be returned.
 --
--- * 'lrIdentityPoolId'
+-- * 'lrIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'lrIdentityId'
+-- * 'lrIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'lrDatasetName'
+-- * 'lrDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 listRecords
     :: Text -- ^ 'lrIdentityPoolId'
     -> Text -- ^ 'lrIdentityId'
@@ -128,7 +130,7 @@ lrIdentityPoolId = lens _lrIdentityPoolId (\ s a -> s{_lrIdentityPoolId = a});
 lrIdentityId :: Lens' ListRecords Text
 lrIdentityId = lens _lrIdentityId (\ s a -> s{_lrIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 lrDatasetName :: Lens' ListRecords Text
 lrDatasetName = lens _lrDatasetName (\ s a -> s{_lrDatasetName = a});
 
@@ -196,25 +198,25 @@ data ListRecordsResponse = ListRecordsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsDatasetDeletedAfterRequestedSyncCount'
+-- * 'lrrsDatasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
 --
--- * 'lrrsDatasetExists'
+-- * 'lrrsDatasetExists' - Indicates whether the dataset exists.
 --
--- * 'lrrsCount'
+-- * 'lrrsCount' - Total number of records.
 --
--- * 'lrrsRecords'
+-- * 'lrrsRecords' - A list of all records.
 --
--- * 'lrrsNextToken'
+-- * 'lrrsNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lrrsMergedDatasetNames'
+-- * 'lrrsMergedDatasetNames' - Names of merged datasets.
 --
--- * 'lrrsSyncSessionToken'
+-- * 'lrrsSyncSessionToken' - A token containing a session ID, identity ID, and expiration.
 --
--- * 'lrrsLastModifiedBy'
+-- * 'lrrsLastModifiedBy' - The user/device that made the last change to this record.
 --
--- * 'lrrsDatasetSyncCount'
+-- * 'lrrsDatasetSyncCount' - Server sync count for this dataset.
 --
--- * 'lrrsResponseStatus'
+-- * 'lrrsResponseStatus' - -- | The response status code.
 listRecordsResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRecordsResponse
@@ -260,7 +262,7 @@ lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\ s a -> s{_lrrsMergedDat
 lrrsSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\ s a -> s{_lrrsSyncSessionToken = a});
 
--- | The user\/device that made the last change to this record.
+-- | The user/device that made the last change to this record.
 lrrsLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
 lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\ s a -> s{_lrrsLastModifiedBy = a});
 
@@ -268,7 +270,7 @@ lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\ s a -> s{_lrrsLastModifiedBy = 
 lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRecordsResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 

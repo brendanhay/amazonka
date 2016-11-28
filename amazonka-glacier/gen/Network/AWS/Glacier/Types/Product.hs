@@ -23,7 +23,9 @@ import           Network.AWS.Prelude
 
 -- | Contains the Amazon Glacier response to your request.
 --
--- For information about the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive>. For conceptual information, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
+--
+-- For information about the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive> . For conceptual information, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> .
+--
 --
 -- /See:/ 'archiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
@@ -36,11 +38,11 @@ data ArchiveCreationOutput = ArchiveCreationOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acoArchiveId'
+-- * 'acoArchiveId' - The ID of the archive. This value is also included as part of the location.
 --
--- * 'acoChecksum'
+-- * 'acoChecksum' - The checksum of the archive computed by Amazon Glacier.
 --
--- * 'acoLocation'
+-- * 'acoLocation' - The relative URI path of the newly added archive resource.
 archiveCreationOutput
     :: ArchiveCreationOutput
 archiveCreationOutput =
@@ -77,6 +79,8 @@ instance NFData ArchiveCreationOutput
 
 -- | Data retrieval policy.
 --
+--
+--
 -- /See:/ 'dataRetrievalPolicy' smart constructor.
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
     { _drpRules :: Maybe [DataRetrievalRule]
@@ -86,7 +90,7 @@ newtype DataRetrievalPolicy = DataRetrievalPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpRules'
+-- * 'drpRules' - The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
 dataRetrievalPolicy
     :: DataRetrievalPolicy
 dataRetrievalPolicy =
@@ -114,6 +118,8 @@ instance ToJSON DataRetrievalPolicy where
 
 -- | Data retrieval policy rule.
 --
+--
+--
 -- /See:/ 'dataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
     { _drrStrategy     :: !(Maybe Text)
@@ -124,9 +130,9 @@ data DataRetrievalRule = DataRetrievalRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrStrategy'
+-- * 'drrStrategy' - The type of data retrieval policy to set. Valid values: BytesPerHour|FreeTier|None
 --
--- * 'drrBytesPerHour'
+-- * 'drrBytesPerHour' - The maximum number of bytes that can be retrieved in an hour. This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
 dataRetrievalRule
     :: DataRetrievalRule
 dataRetrievalRule =
@@ -135,15 +141,11 @@ dataRetrievalRule =
     , _drrBytesPerHour = Nothing
     }
 
--- | The type of data retrieval policy to set.
---
--- Valid values: BytesPerHour|FreeTier|None
+-- | The type of data retrieval policy to set. Valid values: BytesPerHour|FreeTier|None
 drrStrategy :: Lens' DataRetrievalRule (Maybe Text)
 drrStrategy = lens _drrStrategy (\ s a -> s{_drrStrategy = a});
 
--- | The maximum number of bytes that can be retrieved in an hour.
---
--- This field is required only if the value of the Strategy field is 'BytesPerHour'. Your PUT operation will be rejected if the Strategy field is not set to 'BytesPerHour' and you set this field.
+-- | The maximum number of bytes that can be retrieved in an hour. This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
 drrBytesPerHour :: Lens' DataRetrievalRule (Maybe Integer)
 drrBytesPerHour = lens _drrBytesPerHour (\ s a -> s{_drrBytesPerHour = a});
 
@@ -167,6 +169,8 @@ instance ToJSON DataRetrievalRule where
 
 -- | Contains the Amazon Glacier response to your request.
 --
+--
+--
 -- /See:/ 'describeVaultOutput' smart constructor.
 data DescribeVaultOutput = DescribeVaultOutput'
     { _dvoVaultName         :: !(Maybe Text)
@@ -181,17 +185,17 @@ data DescribeVaultOutput = DescribeVaultOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvoVaultName'
+-- * 'dvoVaultName' - The name of the vault.
 --
--- * 'dvoSizeInBytes'
+-- * 'dvoSizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example, if you just created the vault.
 --
--- * 'dvoLastInventoryDate'
+-- * 'dvoLastInventoryDate' - The UTC date when Amazon Glacier completed the last vault inventory. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 --
--- * 'dvoVaultARN'
+-- * 'dvoVaultARN' - The Amazon Resource Name (ARN) of the vault.
 --
--- * 'dvoCreationDate'
+-- * 'dvoCreationDate' - The UTC date when the vault was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 --
--- * 'dvoNumberOfArchives'
+-- * 'dvoNumberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example, if you just created the vault.
 describeVaultOutput
     :: DescribeVaultOutput
 describeVaultOutput =
@@ -212,7 +216,7 @@ dvoVaultName = lens _dvoVaultName (\ s a -> s{_dvoVaultName = a});
 dvoSizeInBytes :: Lens' DescribeVaultOutput (Maybe Integer)
 dvoSizeInBytes = lens _dvoSizeInBytes (\ s a -> s{_dvoSizeInBytes = a});
 
--- | The UTC date when Amazon Glacier completed the last vault inventory. A string representation of ISO 8601 date format, for example, \"2012-03-20T17:03:43.221Z\".
+-- | The UTC date when Amazon Glacier completed the last vault inventory. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 dvoLastInventoryDate :: Lens' DescribeVaultOutput (Maybe Text)
 dvoLastInventoryDate = lens _dvoLastInventoryDate (\ s a -> s{_dvoLastInventoryDate = a});
 
@@ -220,11 +224,11 @@ dvoLastInventoryDate = lens _dvoLastInventoryDate (\ s a -> s{_dvoLastInventoryD
 dvoVaultARN :: Lens' DescribeVaultOutput (Maybe Text)
 dvoVaultARN = lens _dvoVaultARN (\ s a -> s{_dvoVaultARN = a});
 
--- | The UTC date when the vault was created. A string representation of ISO 8601 date format, for example, \"2012-03-20T17:03:43.221Z\".
+-- | The UTC date when the vault was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 dvoCreationDate :: Lens' DescribeVaultOutput (Maybe Text)
 dvoCreationDate = lens _dvoCreationDate (\ s a -> s{_dvoCreationDate = a});
 
--- | The number of archives in the vault as of the last inventory date. This field will return 'null' if an inventory has not yet run on the vault, for example, if you just created the vault.
+-- | The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example, if you just created the vault.
 dvoNumberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
 dvoNumberOfArchives = lens _dvoNumberOfArchives (\ s a -> s{_dvoNumberOfArchives = a});
 
@@ -244,6 +248,8 @@ instance Hashable DescribeVaultOutput
 instance NFData DescribeVaultOutput
 
 -- | Describes an Amazon Glacier job.
+--
+--
 --
 -- /See:/ 'glacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
@@ -270,39 +276,39 @@ data GlacierJobDescription = GlacierJobDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdSHA256TreeHash'
+-- * 'gjdSHA256TreeHash' - For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.  For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.  This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
 --
--- * 'gjdArchiveId'
+-- * 'gjdArchiveId' - For an ArchiveRetrieval job, this is the archive ID requested for download. Otherwise, this field is null.
 --
--- * 'gjdJobId'
+-- * 'gjdJobId' - An opaque string that identifies an Amazon Glacier job.
 --
--- * 'gjdRetrievalByteRange'
+-- * 'gjdRetrievalByteRange' - The retrieved byte range for archive retrieval jobs in the form "/StartByteValue/ -/EndByteValue/ " If no range was specified in the archive retrieval, then the whole archive is retrieved and /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval jobs this field is null.
 --
--- * 'gjdInventoryRetrievalParameters'
+-- * 'gjdInventoryRetrievalParameters' - Parameters used for range inventory retrieval.
 --
--- * 'gjdAction'
+-- * 'gjdAction' - The job type. It is either ArchiveRetrieval or InventoryRetrieval.
 --
--- * 'gjdJobDescription'
+-- * 'gjdJobDescription' - The job description you provided when you initiated the job.
 --
--- * 'gjdSNSTopic'
+-- * 'gjdSNSTopic' - An Amazon Simple Notification Service (Amazon SNS) topic that receives notification.
 --
--- * 'gjdStatusMessage'
+-- * 'gjdStatusMessage' - A friendly message that describes the job status.
 --
--- * 'gjdVaultARN'
+-- * 'gjdVaultARN' - The Amazon Resource Name (ARN) of the vault from which the archive retrieval was requested.
 --
--- * 'gjdArchiveSHA256TreeHash'
+-- * 'gjdArchiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval jobs, this field is null.
 --
--- * 'gjdCreationDate'
+-- * 'gjdCreationDate' - The UTC date when the job was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 --
--- * 'gjdCompleted'
+-- * 'gjdCompleted' - The job status. When a job is completed, you get the job's output.
 --
--- * 'gjdCompletionDate'
+-- * 'gjdCompletionDate' - The UTC time that the archive retrieval request completed. While the job is in progress, the value will be null.
 --
--- * 'gjdInventorySizeInBytes'
+-- * 'gjdInventorySizeInBytes' - For an InventoryRetrieval job, this is the size in bytes of the inventory requested for download. For the ArchiveRetrieval job, the value is null.
 --
--- * 'gjdArchiveSizeInBytes'
+-- * 'gjdArchiveSizeInBytes' - For an ArchiveRetrieval job, this is the size in bytes of the archive being requested for download. For the InventoryRetrieval job, the value is null.
 --
--- * 'gjdStatusCode'
+-- * 'gjdStatusCode' - The status code can be InProgress, Succeeded, or Failed, and indicates the status of the job.
 glacierJobDescription
     :: GlacierJobDescription
 glacierJobDescription =
@@ -326,20 +332,7 @@ glacierJobDescription =
     , _gjdStatusCode = Nothing
     }
 
--- | For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null.
---
--- The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.
---
--- For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.
---
--- This field is null in the following situations:
---
--- -   Archive retrieval jobs that specify a range that is not tree-hash aligned.
---
--- -   Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.
---
--- -   Inventory jobs.
---
+-- | For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.  For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.  This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
 gjdSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
 gjdSHA256TreeHash = lens _gjdSHA256TreeHash (\ s a -> s{_gjdSHA256TreeHash = a});
 
@@ -351,7 +344,7 @@ gjdArchiveId = lens _gjdArchiveId (\ s a -> s{_gjdArchiveId = a});
 gjdJobId :: Lens' GlacierJobDescription (Maybe Text)
 gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
 
--- | The retrieved byte range for archive retrieval jobs in the form \"/StartByteValue/-/EndByteValue/\" If no range was specified in the archive retrieval, then the whole archive is retrieved and /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval jobs this field is null.
+-- | The retrieved byte range for archive retrieval jobs in the form "/StartByteValue/ -/EndByteValue/ " If no range was specified in the archive retrieval, then the whole archive is retrieved and /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval jobs this field is null.
 gjdRetrievalByteRange :: Lens' GlacierJobDescription (Maybe Text)
 gjdRetrievalByteRange = lens _gjdRetrievalByteRange (\ s a -> s{_gjdRetrievalByteRange = a});
 
@@ -383,11 +376,11 @@ gjdVaultARN = lens _gjdVaultARN (\ s a -> s{_gjdVaultARN = a});
 gjdArchiveSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
 gjdArchiveSHA256TreeHash = lens _gjdArchiveSHA256TreeHash (\ s a -> s{_gjdArchiveSHA256TreeHash = a});
 
--- | The UTC date when the job was created. A string representation of ISO 8601 date format, for example, \"2012-03-20T17:03:43.221Z\".
+-- | The UTC date when the job was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
 gjdCreationDate :: Lens' GlacierJobDescription (Maybe Text)
 gjdCreationDate = lens _gjdCreationDate (\ s a -> s{_gjdCreationDate = a});
 
--- | The job status. When a job is completed, you get the job\'s output.
+-- | The job status. When a job is completed, you get the job's output.
 gjdCompleted :: Lens' GlacierJobDescription (Maybe Bool)
 gjdCompleted = lens _gjdCompleted (\ s a -> s{_gjdCompleted = a});
 
@@ -435,6 +428,8 @@ instance NFData GlacierJobDescription
 
 -- | Describes the options for a range inventory retrieval job.
 --
+--
+--
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
 data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
     { _irjdFormat    :: !(Maybe Text)
@@ -448,15 +443,15 @@ data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irjdFormat'
+-- * 'irjdFormat' - The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are "CSV" and "JSON".
 --
--- * 'irjdEndDate'
+-- * 'irjdEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
 --
--- * 'irjdStartDate'
+-- * 'irjdStartDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
 --
--- * 'irjdMarker'
+-- * 'irjdMarker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
 --
--- * 'irjdLimit'
+-- * 'irjdLimit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
 inventoryRetrievalJobDescription
     :: InventoryRetrievalJobDescription
 inventoryRetrievalJobDescription =
@@ -468,7 +463,7 @@ inventoryRetrievalJobDescription =
     , _irjdLimit = Nothing
     }
 
--- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are \"CSV\" and \"JSON\".
+-- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are "CSV" and "JSON".
 irjdFormat :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdFormat = lens _irjdFormat (\ s a -> s{_irjdFormat = a});
 
@@ -480,7 +475,7 @@ irjdEndDate = lens _irjdEndDate (\ s a -> s{_irjdEndDate = a});
 irjdStartDate :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdStartDate = lens _irjdStartDate (\ s a -> s{_irjdStartDate = a});
 
--- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is 'null'. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval>.
+-- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
 irjdMarker :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdMarker = lens _irjdMarker (\ s a -> s{_irjdMarker = a});
 
@@ -505,6 +500,8 @@ instance NFData InventoryRetrievalJobDescription
 
 -- | Provides options for specifying a range inventory retrieval job.
 --
+--
+--
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
     { _irjiEndDate   :: !(Maybe Text)
@@ -517,13 +514,13 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irjiEndDate'
+-- * 'irjiEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
 --
--- * 'irjiStartDate'
+-- * 'irjiStartDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
 --
--- * 'irjiMarker'
+-- * 'irjiMarker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
 --
--- * 'irjiLimit'
+-- * 'irjiLimit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
 inventoryRetrievalJobInput
     :: InventoryRetrievalJobInput
 inventoryRetrievalJobInput =
@@ -542,7 +539,7 @@ irjiEndDate = lens _irjiEndDate (\ s a -> s{_irjiEndDate = a});
 irjiStartDate :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiStartDate = lens _irjiStartDate (\ s a -> s{_irjiStartDate = a});
 
--- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is 'null'.
+-- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
 irjiMarker :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiMarker = lens _irjiMarker (\ s a -> s{_irjiMarker = a});
 
@@ -565,6 +562,8 @@ instance ToJSON InventoryRetrievalJobInput where
 
 -- | Provides options for defining a job.
 --
+--
+--
 -- /See:/ 'jobParameters' smart constructor.
 data JobParameters = JobParameters'
     { _jpArchiveId                    :: !(Maybe Text)
@@ -580,19 +579,19 @@ data JobParameters = JobParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jpArchiveId'
+-- * 'jpArchiveId' - The ID of the archive that you want to retrieve. This field is required only if @Type@ is set to archive-retrieval. An error occurs if you specify this request parameter for an inventory retrieval job request.
 --
--- * 'jpFormat'
+-- * 'jpFormat' - When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".
 --
--- * 'jpRetrievalByteRange'
+-- * 'jpRetrievalByteRange' - The byte range to retrieve for an archive retrieval. in the form "/StartByteValue/ -/EndByteValue/ " If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that /StartByteValue/ must be divisible by 1 MB and /EndByteValue/ plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response.  An error occurs if you specify this field for an inventory retrieval job request.
 --
--- * 'jpInventoryRetrievalParameters'
+-- * 'jpInventoryRetrievalParameters' - Input parameters used for range inventory retrieval.
 --
--- * 'jpSNSTopic'
+-- * 'jpSNSTopic' - The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist.
 --
--- * 'jpType'
+-- * 'jpType' - The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are "archive-retrieval" and "inventory-retrieval".
 --
--- * 'jpDescription'
+-- * 'jpDescription' - The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
 jobParameters
     :: JobParameters
 jobParameters =
@@ -606,17 +605,15 @@ jobParameters =
     , _jpDescription = Nothing
     }
 
--- | The ID of the archive that you want to retrieve. This field is required only if 'Type' is set to archive-retrieval. An error occurs if you specify this request parameter for an inventory retrieval job request.
+-- | The ID of the archive that you want to retrieve. This field is required only if @Type@ is set to archive-retrieval. An error occurs if you specify this request parameter for an inventory retrieval job request.
 jpArchiveId :: Lens' JobParameters (Maybe Text)
 jpArchiveId = lens _jpArchiveId (\ s a -> s{_jpArchiveId = a});
 
--- | When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are \"CSV\" and \"JSON\".
+-- | When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".
 jpFormat :: Lens' JobParameters (Maybe Text)
 jpFormat = lens _jpFormat (\ s a -> s{_jpFormat = a});
 
--- | The byte range to retrieve for an archive retrieval. in the form \"/StartByteValue/-/EndByteValue/\" If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that /StartByteValue/ must be divisible by 1 MB and /EndByteValue/ plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response.
---
--- An error occurs if you specify this field for an inventory retrieval job request.
+-- | The byte range to retrieve for an archive retrieval. in the form "/StartByteValue/ -/EndByteValue/ " If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that /StartByteValue/ must be divisible by 1 MB and /EndByteValue/ plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response.  An error occurs if you specify this field for an inventory retrieval job request.
 jpRetrievalByteRange :: Lens' JobParameters (Maybe Text)
 jpRetrievalByteRange = lens _jpRetrievalByteRange (\ s a -> s{_jpRetrievalByteRange = a});
 
@@ -628,7 +625,7 @@ jpInventoryRetrievalParameters = lens _jpInventoryRetrievalParameters (\ s a -> 
 jpSNSTopic :: Lens' JobParameters (Maybe Text)
 jpSNSTopic = lens _jpSNSTopic (\ s a -> s{_jpSNSTopic = a});
 
--- | The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are \"archive-retrieval\" and \"inventory-retrieval\".
+-- | The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are "archive-retrieval" and "inventory-retrieval".
 jpType :: Lens' JobParameters (Maybe Text)
 jpType = lens _jpType (\ s a -> s{_jpType = a});
 
@@ -655,6 +652,8 @@ instance ToJSON JobParameters where
 
 -- | A list of the part sizes of the multipart upload.
 --
+--
+--
 -- /See:/ 'partListElement' smart constructor.
 data PartListElement = PartListElement'
     { _pleSHA256TreeHash :: !(Maybe Text)
@@ -665,9 +664,9 @@ data PartListElement = PartListElement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pleSHA256TreeHash'
+-- * 'pleSHA256TreeHash' - The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never @null@ .
 --
--- * 'pleRangeInBytes'
+-- * 'pleRangeInBytes' - The byte range of a part, inclusive of the upper value of the range.
 partListElement
     :: PartListElement
 partListElement =
@@ -676,7 +675,7 @@ partListElement =
     , _pleRangeInBytes = Nothing
     }
 
--- | The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never 'null'.
+-- | The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never @null@ .
 pleSHA256TreeHash :: Lens' PartListElement (Maybe Text)
 pleSHA256TreeHash = lens _pleSHA256TreeHash (\ s a -> s{_pleSHA256TreeHash = a});
 
@@ -697,6 +696,8 @@ instance NFData PartListElement
 
 -- | A list of in-progress multipart uploads for a vault.
 --
+--
+--
 -- /See:/ 'uploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
     { _uleMultipartUploadId  :: !(Maybe Text)
@@ -710,15 +711,15 @@ data UploadListElement = UploadListElement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uleMultipartUploadId'
+-- * 'uleMultipartUploadId' - The ID of a multipart upload.
 --
--- * 'ulePartSizeInBytes'
+-- * 'ulePartSizeInBytes' - The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
 --
--- * 'uleArchiveDescription'
+-- * 'uleArchiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
 --
--- * 'uleVaultARN'
+-- * 'uleVaultARN' - The Amazon Resource Name (ARN) of the vault that contains the archive.
 --
--- * 'uleCreationDate'
+-- * 'uleCreationDate' - The UTC time at which the multipart upload was initiated.
 uploadListElement
     :: UploadListElement
 uploadListElement =
@@ -767,6 +768,8 @@ instance NFData UploadListElement
 
 -- | Contains the vault access policy.
 --
+--
+--
 -- /See:/ 'vaultAccessPolicy' smart constructor.
 newtype VaultAccessPolicy = VaultAccessPolicy'
     { _vapPolicy :: Maybe Text
@@ -776,7 +779,7 @@ newtype VaultAccessPolicy = VaultAccessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vapPolicy'
+-- * 'vapPolicy' - The vault access policy.
 vaultAccessPolicy
     :: VaultAccessPolicy
 vaultAccessPolicy =
@@ -803,6 +806,8 @@ instance ToJSON VaultAccessPolicy where
 
 -- | Contains the vault lock policy.
 --
+--
+--
 -- /See:/ 'vaultLockPolicy' smart constructor.
 newtype VaultLockPolicy = VaultLockPolicy'
     { _vlpPolicy :: Maybe Text
@@ -812,7 +817,7 @@ newtype VaultLockPolicy = VaultLockPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vlpPolicy'
+-- * 'vlpPolicy' - The vault lock policy.
 vaultLockPolicy
     :: VaultLockPolicy
 vaultLockPolicy =
@@ -832,7 +837,9 @@ instance ToJSON VaultLockPolicy where
         toJSON VaultLockPolicy'{..}
           = object (catMaybes [("Policy" .=) <$> _vlpPolicy])
 
--- | Represents a vault\'s notification configuration.
+-- | Represents a vault's notification configuration.
+--
+--
 --
 -- /See:/ 'vaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
@@ -844,9 +851,9 @@ data VaultNotificationConfig = VaultNotificationConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vncSNSTopic'
+-- * 'vncSNSTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
 --
--- * 'vncEvents'
+-- * 'vncEvents' - A list of one or more events for which Amazon Glacier will send a notification to the specified Amazon SNS topic.
 vaultNotificationConfig
     :: VaultNotificationConfig
 vaultNotificationConfig =

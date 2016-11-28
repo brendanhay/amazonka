@@ -20,9 +20,11 @@
 --
 -- Creates a rule for the specified listener.
 --
--- A rule consists conditions and actions. Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, the specified actions are taken. If no rule\'s conditions are met, the default actions for the listener are taken.
 --
--- To view your current rules, use < DescribeRules>. To update a rule, use < ModifyRule>. To set the priorities of your rules, use < SetRulePriorities>. To delete a rule, use < DeleteRule>.
+-- A rule consists conditions and actions. Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, the specified actions are taken. If no rule's conditions are met, the default actions for the listener are taken.
+--
+-- To view your current rules, use 'DescribeRules' . To update a rule, use 'ModifyRule' . To set the priorities of your rules, use 'SetRulePriorities' . To delete a rule, use 'DeleteRule' .
+--
 module Network.AWS.ELBv2.CreateRule
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateRule.
 --
+--
+--
 -- /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
     { _crListenerARN :: !Text
@@ -63,13 +67,13 @@ data CreateRule = CreateRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crListenerARN'
+-- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'crConditions'
+-- * 'crConditions' - The conditions.
 --
--- * 'crPriority'
+-- * 'crPriority' - The priority for the rule. A listener can't have multiple rules with the same priority.
 --
--- * 'crActions'
+-- * 'crActions' - The actions for the rule.
 createRule
     :: Text -- ^ 'crListenerARN'
     -> Natural -- ^ 'crPriority'
@@ -90,7 +94,7 @@ crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a});
 crConditions :: Lens' CreateRule [RuleCondition]
 crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
 
--- | The priority for the rule. A listener can\'t have multiple rules with the same priority.
+-- | The priority for the rule. A listener can't have multiple rules with the same priority.
 crPriority :: Lens' CreateRule Natural
 crPriority = lens _crPriority (\ s a -> s{_crPriority = a}) . _Nat;
 
@@ -131,6 +135,8 @@ instance ToQuery CreateRule where
 
 -- | Contains the output of CreateRule.
 --
+--
+--
 -- /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
     { _crrsRules          :: !(Maybe [Rule])
@@ -141,9 +147,9 @@ data CreateRuleResponse = CreateRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRules'
+-- * 'crrsRules' - Information about the rule.
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 createRuleResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRuleResponse
@@ -157,7 +163,7 @@ createRuleResponse pResponseStatus_ =
 crrsRules :: Lens' CreateRuleResponse [Rule]
 crrsRules = lens _crrsRules (\ s a -> s{_crrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRuleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

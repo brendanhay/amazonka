@@ -20,7 +20,9 @@
 --
 -- Creates an address for a Snowball to be shipped to.
 --
+--
 -- Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.
+--
 module Network.AWS.Snowball.CreateAddress
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype CreateAddress = CreateAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caAddress'
+-- * 'caAddress' - The address that you want the Snowball shipped to.
 createAddress
     :: Address -- ^ 'caAddress'
     -> CreateAddress
@@ -109,9 +111,9 @@ data CreateAddressResponse = CreateAddressResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsAddressId'
+-- * 'carsAddressId' - The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 createAddressResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAddressResponse
@@ -121,11 +123,11 @@ createAddressResponse pResponseStatus_ =
     , _carsResponseStatus = pResponseStatus_
     }
 
--- | The automatically generated ID for a specific address. You\'ll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
+-- | The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to.
 carsAddressId :: Lens' CreateAddressResponse (Maybe Text)
 carsAddressId = lens _carsAddressId (\ s a -> s{_carsAddressId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAddressResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 

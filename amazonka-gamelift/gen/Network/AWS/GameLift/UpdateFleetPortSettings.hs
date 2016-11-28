@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in 'InboundPermissionAuthorizations', and permissions you want to remove in 'InboundPermissionRevocations'. Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+-- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in @InboundPermissionAuthorizations@ , and permissions you want to remove in @InboundPermissionRevocations@ . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+--
+--
 module Network.AWS.GameLift.UpdateFleetPortSettings
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
     { _ufpsInboundPermissionRevocations    :: !(Maybe [IPPermission])
@@ -57,11 +61,11 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufpsInboundPermissionRevocations'
+-- * 'ufpsInboundPermissionRevocations' - Collection of port settings to be removed from the fleet record.
 --
--- * 'ufpsInboundPermissionAuthorizations'
+-- * 'ufpsInboundPermissionAuthorizations' - Collection of port settings to be added to the fleet record.
 --
--- * 'ufpsFleetId'
+-- * 'ufpsFleetId' - Unique identifier for the fleet you want to update port settings for.
 updateFleetPortSettings
     :: Text -- ^ 'ufpsFleetId'
     -> UpdateFleetPortSettings
@@ -125,6 +129,8 @@ instance ToQuery UpdateFleetPortSettings where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
     { _ufpsrsFleetId        :: !(Maybe Text)
@@ -135,9 +141,9 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufpsrsFleetId'
+-- * 'ufpsrsFleetId' - Unique identifier for the updated fleet.
 --
--- * 'ufpsrsResponseStatus'
+-- * 'ufpsrsResponseStatus' - -- | The response status code.
 updateFleetPortSettingsResponse
     :: Int -- ^ 'ufpsrsResponseStatus'
     -> UpdateFleetPortSettingsResponse
@@ -151,7 +157,7 @@ updateFleetPortSettingsResponse pResponseStatus_ =
 ufpsrsFleetId :: Lens' UpdateFleetPortSettingsResponse (Maybe Text)
 ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ufpsrsResponseStatus :: Lens' UpdateFleetPortSettingsResponse Int
 ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\ s a -> s{_ufpsrsResponseStatus = a});
 

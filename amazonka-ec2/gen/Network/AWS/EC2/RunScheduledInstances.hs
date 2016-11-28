@@ -20,9 +20,11 @@
 --
 -- Launches the specified Scheduled Instances.
 --
--- Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using < PurchaseScheduledInstances>.
 --
--- You must launch a Scheduled Instance during its scheduled time period. You can\'t stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html Scheduled Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using 'PurchaseScheduledInstances' .
+--
+-- You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html Scheduled Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.RunScheduledInstances
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RunScheduledInstances.
 --
+--
+--
 -- /See:/ 'runScheduledInstances' smart constructor.
 data RunScheduledInstances = RunScheduledInstances'
     { _rsiClientToken         :: !(Maybe Text)
@@ -65,15 +69,15 @@ data RunScheduledInstances = RunScheduledInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsiClientToken'
+-- * 'rsiClientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
--- * 'rsiInstanceCount'
+-- * 'rsiInstanceCount' - The number of instances. Default: 1
 --
--- * 'rsiDryRun'
+-- * 'rsiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rsiScheduledInstanceId'
+-- * 'rsiScheduledInstanceId' - The Scheduled Instance ID.
 --
--- * 'rsiLaunchSpecification'
+-- * 'rsiLaunchSpecification' - The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
 runScheduledInstances
     :: Text -- ^ 'rsiScheduledInstanceId'
     -> ScheduledInstancesLaunchSpecification -- ^ 'rsiLaunchSpecification'
@@ -87,17 +91,15 @@ runScheduledInstances pScheduledInstanceId_ pLaunchSpecification_ =
     , _rsiLaunchSpecification = pLaunchSpecification_
     }
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 rsiClientToken :: Lens' RunScheduledInstances (Maybe Text)
 rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 
--- | The number of instances.
---
--- Default: 1
+-- | The number of instances. Default: 1
 rsiInstanceCount :: Lens' RunScheduledInstances (Maybe Int)
 rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsiDryRun :: Lens' RunScheduledInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 
@@ -144,6 +146,8 @@ instance ToQuery RunScheduledInstances where
 
 -- | Contains the output of RunScheduledInstances.
 --
+--
+--
 -- /See:/ 'runScheduledInstancesResponse' smart constructor.
 data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
     { _rrsInstanceIdSet  :: !(Maybe [Text])
@@ -154,9 +158,9 @@ data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsInstanceIdSet'
+-- * 'rrsInstanceIdSet' - The IDs of the newly launched instances.
 --
--- * 'rrsResponseStatus'
+-- * 'rrsResponseStatus' - -- | The response status code.
 runScheduledInstancesResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> RunScheduledInstancesResponse
@@ -170,7 +174,7 @@ runScheduledInstancesResponse pResponseStatus_ =
 rrsInstanceIdSet :: Lens' RunScheduledInstancesResponse [Text]
 rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 rrsResponseStatus :: Lens' RunScheduledInstancesResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 

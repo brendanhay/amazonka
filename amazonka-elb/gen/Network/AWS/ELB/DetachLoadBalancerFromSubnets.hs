@@ -20,7 +20,9 @@
 --
 -- Removes the specified subnets from the set of configured subnets for the load balancer.
 --
--- After a subnet is removed, all EC2 instances registered with the load balancer in the removed subnet go into the 'OutOfService' state. Then, the load balancer balances the traffic among the remaining routable subnets.
+--
+-- After a subnet is removed, all EC2 instances registered with the load balancer in the removed subnet go into the @OutOfService@ state. Then, the load balancer balances the traffic among the remaining routable subnets.
+--
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachLoadBalancerFromSubnets.
 --
+--
+--
 -- /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName :: !Text
@@ -57,9 +61,9 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbfsLoadBalancerName'
+-- * 'dlbfsLoadBalancerName' - The name of the load balancer.
 --
--- * 'dlbfsSubnets'
+-- * 'dlbfsSubnets' - The IDs of the subnets.
 detachLoadBalancerFromSubnets
     :: Text -- ^ 'dlbfsLoadBalancerName'
     -> DetachLoadBalancerFromSubnets
@@ -113,6 +117,8 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 
 -- | Contains the output of DetachLoadBalancerFromSubnets.
 --
+--
+--
 -- /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets        :: !(Maybe [Text])
@@ -123,9 +129,9 @@ data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbfsrsSubnets'
+-- * 'dlbfsrsSubnets' - The IDs of the remaining subnets for the load balancer.
 --
--- * 'dlbfsrsResponseStatus'
+-- * 'dlbfsrsResponseStatus' - -- | The response status code.
 detachLoadBalancerFromSubnetsResponse
     :: Int -- ^ 'dlbfsrsResponseStatus'
     -> DetachLoadBalancerFromSubnetsResponse
@@ -139,7 +145,7 @@ detachLoadBalancerFromSubnetsResponse pResponseStatus_ =
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbfsrsResponseStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
 dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a});
 

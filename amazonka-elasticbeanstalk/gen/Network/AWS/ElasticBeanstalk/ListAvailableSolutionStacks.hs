@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the available solution stack names.
+--
+--
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Creating a Request
@@ -88,6 +90,8 @@ instance ToQuery ListAvailableSolutionStacks where
 
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 --
+--
+--
 -- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks       :: !(Maybe [Text])
@@ -99,11 +103,11 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lassrsSolutionStacks'
+-- * 'lassrsSolutionStacks' - A list of available solution stacks.
 --
--- * 'lassrsSolutionStackDetails'
+-- * 'lassrsSolutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
 --
--- * 'lassrsResponseStatus'
+-- * 'lassrsResponseStatus' - -- | The response status code.
 listAvailableSolutionStacksResponse
     :: Int -- ^ 'lassrsResponseStatus'
     -> ListAvailableSolutionStacksResponse
@@ -118,11 +122,11 @@ listAvailableSolutionStacksResponse pResponseStatus_ =
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce;
 
--- | A list of available solution stacks and their < SolutionStackDescription>.
+-- | A list of available solution stacks and their 'SolutionStackDescription' .
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});
 

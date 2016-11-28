@@ -20,7 +20,7 @@
 --
 -- Deletes a DB security group.
 --
--- The specified DB security group must not be associated with any DB instances.
+--
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Creating a Request
@@ -43,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBSecurityGroup' smart constructor.
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
     { _ddsgDBSecurityGroupName :: Text
@@ -52,7 +54,7 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsgDBSecurityGroupName'
+-- * 'ddsgDBSecurityGroupName' - The name of the DB security group to delete. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
 deleteDBSecurityGroup
     :: Text -- ^ 'ddsgDBSecurityGroupName'
     -> DeleteDBSecurityGroup
@@ -61,20 +63,7 @@ deleteDBSecurityGroup pDBSecurityGroupName_ =
     { _ddsgDBSecurityGroupName = pDBSecurityGroupName_
     }
 
--- | The name of the DB security group to delete.
---
--- You cannot delete the default DB security group.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- -   Must not be \"Default\"
---
+-- | The name of the DB security group to delete. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
 ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
 

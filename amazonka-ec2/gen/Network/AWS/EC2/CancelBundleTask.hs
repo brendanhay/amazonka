@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels a bundling operation for an instance store-backed Windows instance.
+--
+--
 module Network.AWS.EC2.CancelBundleTask
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CancelBundleTask.
 --
+--
+--
 -- /See:/ 'cancelBundleTask' smart constructor.
 data CancelBundleTask = CancelBundleTask'
     { _cbtDryRun   :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data CancelBundleTask = CancelBundleTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbtDryRun'
+-- * 'cbtDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cbtBundleId'
+-- * 'cbtBundleId' - The ID of the bundle task.
 cancelBundleTask
     :: Text -- ^ 'cbtBundleId'
     -> CancelBundleTask
@@ -67,7 +71,7 @@ cancelBundleTask pBundleId_ =
     , _cbtBundleId = pBundleId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 
@@ -103,6 +107,8 @@ instance ToQuery CancelBundleTask where
 
 -- | Contains the output of CancelBundleTask.
 --
+--
+--
 -- /See:/ 'cancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrsBundleTask     :: !(Maybe BundleTask)
@@ -113,9 +119,9 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbtrsBundleTask'
+-- * 'cbtrsBundleTask' - Information about the bundle task.
 --
--- * 'cbtrsResponseStatus'
+-- * 'cbtrsResponseStatus' - -- | The response status code.
 cancelBundleTaskResponse
     :: Int -- ^ 'cbtrsResponseStatus'
     -> CancelBundleTaskResponse
@@ -129,7 +135,7 @@ cancelBundleTaskResponse pResponseStatus_ =
 cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cbtrsResponseStatus :: Lens' CancelBundleTaskResponse Int
 cbtrsResponseStatus = lens _cbtrsResponseStatus (\ s a -> s{_cbtrsResponseStatus = a});
 

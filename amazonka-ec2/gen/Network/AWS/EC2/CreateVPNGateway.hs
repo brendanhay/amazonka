@@ -20,7 +20,9 @@
 --
 -- Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
 --
--- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateVPNGateway
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnGateway.
 --
+--
+--
 -- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
@@ -59,11 +63,11 @@ data CreateVPNGateway = CreateVPNGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvgAvailabilityZone'
+-- * 'cvgAvailabilityZone' - The Availability Zone for the virtual private gateway.
 --
--- * 'cvgDryRun'
+-- * 'cvgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cvgType'
+-- * 'cvgType' - The type of VPN connection this virtual private gateway supports.
 createVPNGateway
     :: GatewayType -- ^ 'cvgType'
     -> CreateVPNGateway
@@ -78,7 +82,7 @@ createVPNGateway pType_ =
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
 cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
 
@@ -115,6 +119,8 @@ instance ToQuery CreateVPNGateway where
 
 -- | Contains the output of CreateVpnGateway.
 --
+--
+--
 -- /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
@@ -125,9 +131,9 @@ data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvgrsVPNGateway'
+-- * 'cvgrsVPNGateway' - Information about the virtual private gateway.
 --
--- * 'cvgrsResponseStatus'
+-- * 'cvgrsResponseStatus' - -- | The response status code.
 createVPNGatewayResponse
     :: Int -- ^ 'cvgrsResponseStatus'
     -> CreateVPNGatewayResponse
@@ -141,7 +147,7 @@ createVPNGatewayResponse pResponseStatus_ =
 cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});
 

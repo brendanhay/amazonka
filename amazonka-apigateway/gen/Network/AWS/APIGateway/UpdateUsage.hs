@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Grants a temporary extension to the reamining quota of a usage plan associated with a specified API key.
+--
+--
 module Network.AWS.APIGateway.UpdateUsage
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The PATCH request to grant a temporary extension to the reamining quota of a usage plan associated with a specified API key.
 --
+--
+--
 -- /See:/ 'updateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
     { _uuPatchOperations :: !(Maybe [PatchOperation])
@@ -60,11 +64,11 @@ data UpdateUsage = UpdateUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuPatchOperations'
+-- * 'uuPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uuUsagePlanId'
+-- * 'uuUsagePlanId' - The Id of the usage plan associated with the usage data.
 --
--- * 'uuKeyId'
+-- * 'uuKeyId' - The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
 updateUsage
     :: Text -- ^ 'uuUsagePlanId'
     -> Text -- ^ 'uuKeyId'

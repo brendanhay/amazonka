@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Verifies the specified user attributes in the user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to verify user attributes.
 --
+--
+--
 -- /See:/ 'verifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
     { _vuaAccessToken   :: !(Maybe (Sensitive Text))
@@ -56,11 +60,11 @@ data VerifyUserAttribute = VerifyUserAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vuaAccessToken'
+-- * 'vuaAccessToken' - Represents the access token of the request to verify user attributes.
 --
--- * 'vuaAttributeName'
+-- * 'vuaAttributeName' - The attribute name in the request to verify user attributes.
 --
--- * 'vuaCode'
+-- * 'vuaCode' - The verification code in the request to verify user attributes.
 verifyUserAttribute
     :: Text -- ^ 'vuaAttributeName'
     -> Text -- ^ 'vuaCode'
@@ -123,6 +127,8 @@ instance ToQuery VerifyUserAttribute where
 
 -- | A container representing the response from the server from the request to verify user attributes.
 --
+--
+--
 -- /See:/ 'verifyUserAttributeResponse' smart constructor.
 newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'
     { _vuarsResponseStatus :: Int
@@ -132,7 +138,7 @@ newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vuarsResponseStatus'
+-- * 'vuarsResponseStatus' - -- | The response status code.
 verifyUserAttributeResponse
     :: Int -- ^ 'vuarsResponseStatus'
     -> VerifyUserAttributeResponse
@@ -141,7 +147,7 @@ verifyUserAttributeResponse pResponseStatus_ =
     { _vuarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 vuarsResponseStatus :: Lens' VerifyUserAttributeResponse Int
 vuarsResponseStatus = lens _vuarsResponseStatus (\ s a -> s{_vuarsResponseStatus = a});
 

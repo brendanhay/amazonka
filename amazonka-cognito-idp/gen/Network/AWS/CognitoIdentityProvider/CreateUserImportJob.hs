@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the user import job.
+--
+--
 module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to create the user import job.
 --
+--
+--
 -- /See:/ 'createUserImportJob' smart constructor.
 data CreateUserImportJob = CreateUserImportJob'
     { _cuijJobName               :: !Text
@@ -57,11 +61,11 @@ data CreateUserImportJob = CreateUserImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuijJobName'
+-- * 'cuijJobName' - The job name for the user import job.
 --
--- * 'cuijUserPoolId'
+-- * 'cuijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'cuijCloudWatchLogsRoleARN'
+-- * 'cuijCloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job.
 createUserImportJob
     :: Text -- ^ 'cuijJobName'
     -> Text -- ^ 'cuijUserPoolId'
@@ -128,6 +132,8 @@ instance ToQuery CreateUserImportJob where
 
 -- | Represents the response from the server to the request to create the user import job.
 --
+--
+--
 -- /See:/ 'createUserImportJobResponse' smart constructor.
 data CreateUserImportJobResponse = CreateUserImportJobResponse'
     { _cuijrsUserImportJob  :: !(Maybe UserImportJobType)
@@ -138,9 +144,9 @@ data CreateUserImportJobResponse = CreateUserImportJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuijrsUserImportJob'
+-- * 'cuijrsUserImportJob' - The job object that represents the user import job.
 --
--- * 'cuijrsResponseStatus'
+-- * 'cuijrsResponseStatus' - -- | The response status code.
 createUserImportJobResponse
     :: Int -- ^ 'cuijrsResponseStatus'
     -> CreateUserImportJobResponse
@@ -154,7 +160,7 @@ createUserImportJobResponse pResponseStatus_ =
 cuijrsUserImportJob :: Lens' CreateUserImportJobResponse (Maybe UserImportJobType)
 cuijrsUserImportJob = lens _cuijrsUserImportJob (\ s a -> s{_cuijrsUserImportJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cuijrsResponseStatus :: Lens' CreateUserImportJobResponse Int
 cuijrsResponseStatus = lens _cuijrsResponseStatus (\ s a -> s{_cuijrsResponseStatus = a});
 

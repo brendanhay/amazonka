@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about an < ApiKey> resource.
+-- Changes information about an 'ApiKey' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateAPIKey
     (
     -- * Creating a Request
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about an < ApiKey> resource.
+-- | A request to change information about an 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'updateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
@@ -61,9 +65,9 @@ data UpdateAPIKey = UpdateAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uakPatchOperations'
+-- * 'uakPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uakApiKey'
+-- * 'uakApiKey' - The identifier of the 'ApiKey' resource to be updated.
 updateAPIKey
     :: Text -- ^ 'uakApiKey'
     -> UpdateAPIKey
@@ -77,7 +81,7 @@ updateAPIKey pApiKey_ =
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
 uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the < ApiKey> resource to be updated.
+-- | The identifier of the 'ApiKey' resource to be updated.
 uakApiKey :: Lens' UpdateAPIKey Text
 uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a});
 

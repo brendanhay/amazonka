@@ -20,9 +20,11 @@
 --
 -- Updates the comment for a specified traffic policy version.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy\/' resource.
 --
--- The request body must include a document with an 'UpdateTrafficPolicyCommentRequest' element.
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicy/@ resource.
+--
+-- The request body must include a document with an @UpdateTrafficPolicyCommentRequest@ element.
+--
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy for which you want to update the comment.
 --
+--
+--
 -- /See:/ 'updateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
     { _utpcId      :: !Text
@@ -61,11 +65,11 @@ data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utpcId'
+-- * 'utpcId' - The value of @Id@ for the traffic policy for which you want to update the comment.
 --
--- * 'utpcVersion'
+-- * 'utpcVersion' - The value of @Version@ for the traffic policy for which you want to update the comment.
 --
--- * 'utpcComment'
+-- * 'utpcComment' - The new comment for the specified traffic policy and version.
 updateTrafficPolicyComment
     :: Text -- ^ 'utpcId'
     -> Natural -- ^ 'utpcVersion'
@@ -78,11 +82,11 @@ updateTrafficPolicyComment pId_ pVersion_ pComment_ =
     , _utpcComment = pComment_
     }
 
--- | The value of 'Id' for the traffic policy for which you want to update the comment.
+-- | The value of @Id@ for the traffic policy for which you want to update the comment.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
 utpcId = lens _utpcId (\ s a -> s{_utpcId = a});
 
--- | The value of 'Version' for the traffic policy for which you want to update the comment.
+-- | The value of @Version@ for the traffic policy for which you want to update the comment.
 utpcVersion :: Lens' UpdateTrafficPolicyComment Natural
 utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat;
 
@@ -127,6 +131,8 @@ instance ToXML UpdateTrafficPolicyComment where
 
 -- | A complex type that contains the response information for the traffic policy.
 --
+--
+--
 -- /See:/ 'updateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
     { _utpcrsResponseStatus :: !Int
@@ -137,9 +143,9 @@ data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utpcrsResponseStatus'
+-- * 'utpcrsResponseStatus' - -- | The response status code.
 --
--- * 'utpcrsTrafficPolicy'
+-- * 'utpcrsTrafficPolicy' - A complex type that contains settings for the specified traffic policy.
 updateTrafficPolicyCommentResponse
     :: Int -- ^ 'utpcrsResponseStatus'
     -> TrafficPolicy -- ^ 'utpcrsTrafficPolicy'
@@ -150,7 +156,7 @@ updateTrafficPolicyCommentResponse pResponseStatus_ pTrafficPolicy_ =
     , _utpcrsTrafficPolicy = pTrafficPolicy_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 utpcrsResponseStatus :: Lens' UpdateTrafficPolicyCommentResponse Int
 utpcrsResponseStatus = lens _utpcrsResponseStatus (\ s a -> s{_utpcrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes one or more flow logs.
+--
+--
 module Network.AWS.EC2.DeleteFlowLogs
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteFlowLogs.
 --
+--
+--
 -- /See:/ 'deleteFlowLogs' smart constructor.
 newtype DeleteFlowLogs = DeleteFlowLogs'
     { _dflFlowLogIds :: [Text]
@@ -53,7 +57,7 @@ newtype DeleteFlowLogs = DeleteFlowLogs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dflFlowLogIds'
+-- * 'dflFlowLogIds' - One or more flow log IDs.
 deleteFlowLogs
     :: DeleteFlowLogs
 deleteFlowLogs =
@@ -95,6 +99,8 @@ instance ToQuery DeleteFlowLogs where
 
 -- | Contains the output of DeleteFlowLogs.
 --
+--
+--
 -- /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
     { _dflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
@@ -105,9 +111,9 @@ data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dflrsUnsuccessful'
+-- * 'dflrsUnsuccessful' - Information about the flow logs that could not be deleted successfully.
 --
--- * 'dflrsResponseStatus'
+-- * 'dflrsResponseStatus' - -- | The response status code.
 deleteFlowLogsResponse
     :: Int -- ^ 'dflrsResponseStatus'
     -> DeleteFlowLogsResponse
@@ -121,7 +127,7 @@ deleteFlowLogsResponse pResponseStatus_ =
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dflrsResponseStatus :: Lens' DeleteFlowLogsResponse Int
 dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a});
 

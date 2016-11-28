@@ -51,7 +51,7 @@ newtype GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbacBucket'
+-- * 'gbacBucket' - Name of the bucket for which the accelerate configuration is retrieved.
 getBucketAccelerateConfiguration
     :: BucketName -- ^ 'gbacBucket'
     -> GetBucketAccelerateConfiguration
@@ -102,9 +102,9 @@ data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfiguration
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbacrsStatus'
+-- * 'gbacrsStatus' - The accelerate configuration of the bucket.
 --
--- * 'gbacrsResponseStatus'
+-- * 'gbacrsResponseStatus' - -- | The response status code.
 getBucketAccelerateConfigurationResponse
     :: Int -- ^ 'gbacrsResponseStatus'
     -> GetBucketAccelerateConfigurationResponse
@@ -118,7 +118,7 @@ getBucketAccelerateConfigurationResponse pResponseStatus_ =
 gbacrsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
 gbacrsStatus = lens _gbacrsStatus (\ s a -> s{_gbacrsStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbacrsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
 gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a});
 

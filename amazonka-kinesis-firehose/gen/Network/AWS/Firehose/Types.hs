@@ -233,7 +233,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-08-04' of the Amazon Kinesis Firehose SDK configuration.
+-- | API version @2015-08-04@ of the Amazon Kinesis Firehose SDK configuration.
 firehose :: Service
 firehose =
     Service
@@ -268,28 +268,40 @@ firehose =
       | otherwise = Nothing
 
 -- | The specified input parameter has an value that is not valid.
+--
+--
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
 -- | Another modification has already happened. Fetch __VersionId__ again and use it to update the destination.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
--- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
+-- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits> .
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasCode "ServiceUnavailableException"
 
 -- | The specified resource could not be found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | You have already reached the limit for a requested resource.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
 -- | The resource is already in use and not available for this operation.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

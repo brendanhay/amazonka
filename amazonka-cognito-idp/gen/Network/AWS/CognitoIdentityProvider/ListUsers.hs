@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the users in the Amazon Cognito user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListUsers
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list users.
 --
+--
+--
 -- /See:/ 'listUsers' smart constructor.
 data ListUsers = ListUsers'
     { _luPaginationToken :: !(Maybe Text)
@@ -62,15 +66,15 @@ data ListUsers = ListUsers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luPaginationToken'
+-- * 'luPaginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'luAttributesToGet'
+-- * 'luAttributesToGet' - The attributes to get from the request to list users.
 --
--- * 'luLimit'
+-- * 'luLimit' - The limit of the request to list users.
 --
--- * 'luFilter'
+-- * 'luFilter' - The filter for the list users request.
 --
--- * 'luUserPoolId'
+-- * 'luUserPoolId' - The user pool ID for which you want to list users.
 listUsers
     :: Text -- ^ 'luUserPoolId'
     -> ListUsers
@@ -146,6 +150,8 @@ instance ToQuery ListUsers where
 
 -- | The response from the request to list users.
 --
+--
+--
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
     { _lursPaginationToken :: !(Maybe Text)
@@ -157,11 +163,11 @@ data ListUsersResponse = ListUsersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lursPaginationToken'
+-- * 'lursPaginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lursUsers'
+-- * 'lursUsers' - The users returned in the request to list users.
 --
--- * 'lursResponseStatus'
+-- * 'lursResponseStatus' - -- | The response status code.
 listUsersResponse
     :: Int -- ^ 'lursResponseStatus'
     -> ListUsersResponse
@@ -180,7 +186,7 @@ lursPaginationToken = lens _lursPaginationToken (\ s a -> s{_lursPaginationToken
 lursUsers :: Lens' ListUsersResponse [UserType]
 lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lursResponseStatus :: Lens' ListUsersResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
 

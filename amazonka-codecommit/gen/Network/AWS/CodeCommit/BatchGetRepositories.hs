@@ -20,7 +20,7 @@
 --
 -- Returns information about one or more repositories.
 --
--- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
+--
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
     -- * Creating a Request
@@ -47,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get repositories operation.
 --
+--
+--
 -- /See:/ 'batchGetRepositories' smart constructor.
 newtype BatchGetRepositories = BatchGetRepositories'
     { _bgrRepositoryNames :: [Text]
@@ -56,7 +58,7 @@ newtype BatchGetRepositories = BatchGetRepositories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgrRepositoryNames'
+-- * 'bgrRepositoryNames' - The names of the repositories to get information about.
 batchGetRepositories
     :: BatchGetRepositories
 batchGetRepositories =
@@ -108,6 +110,8 @@ instance ToQuery BatchGetRepositories where
 
 -- | Represents the output of a batch get repositories operation.
 --
+--
+--
 -- /See:/ 'batchGetRepositoriesResponse' smart constructor.
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
     { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
@@ -119,11 +123,11 @@ data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgrrsRepositories'
+-- * 'bgrrsRepositories' - A list of repositories returned by the batch get repositories operation.
 --
--- * 'bgrrsRepositoriesNotFound'
+-- * 'bgrrsRepositoriesNotFound' - Returns a list of repository names for which information could not be found.
 --
--- * 'bgrrsResponseStatus'
+-- * 'bgrrsResponseStatus' - -- | The response status code.
 batchGetRepositoriesResponse
     :: Int -- ^ 'bgrrsResponseStatus'
     -> BatchGetRepositoriesResponse
@@ -142,7 +146,7 @@ bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a})
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
 bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgrrsResponseStatus :: Lens' BatchGetRepositoriesResponse Int
 bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a});
 

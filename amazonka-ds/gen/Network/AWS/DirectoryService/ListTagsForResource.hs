@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags on an Amazon Directory Services directory.
+--
+--
 module Network.AWS.DirectoryService.ListTagsForResource
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrNextToken'
+-- * 'ltfrNextToken' - Reserved for future use.
 --
--- * 'ltfrLimit'
+-- * 'ltfrLimit' - Reserved for future use.
 --
--- * 'ltfrResourceId'
+-- * 'ltfrResourceId' - Identifier (ID) of the directory for which you want to retrieve tags.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceId'
     -> ListTagsForResource
@@ -133,11 +135,11 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsNextToken'
+-- * 'ltfrrsNextToken' - Reserved for future use.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - List of tags returned by the ListTagsForResource operation.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -156,7 +158,7 @@ ltfrrsNextToken = lens _ltfrrsNextToken (\ s a -> s{_ltfrrsNextToken = a});
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

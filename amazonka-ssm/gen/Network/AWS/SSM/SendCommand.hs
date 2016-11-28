@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Executes commands on one or more remote instances.
+--
+--
 module Network.AWS.SSM.SendCommand
     (
     -- * Creating a Request
@@ -71,27 +73,27 @@ data SendCommand = SendCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scServiceRoleARN'
+-- * 'scServiceRoleARN' - The IAM role that SSM uses to send notifications.
 --
--- * 'scNotificationConfig'
+-- * 'scNotificationConfig' - Configurations for sending notifications.
 --
--- * 'scDocumentHashType'
+-- * 'scDocumentHashType' - Sha256 or Sha1.
 --
--- * 'scOutputS3KeyPrefix'
+-- * 'scOutputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
 --
--- * 'scParameters'
+-- * 'scParameters' - The required and optional parameters specified in the SSM document being executed.
 --
--- * 'scDocumentHash'
+-- * 'scDocumentHash' - The Sha256 or Sha1 hash created by the system when the document was created.
 --
--- * 'scTimeoutSeconds'
+-- * 'scTimeoutSeconds' - If this time is reached and the command has not already started executing, it will not execute.
 --
--- * 'scComment'
+-- * 'scComment' - User-specified information about the command, such as a brief description of what the command should do.
 --
--- * 'scOutputS3BucketName'
+-- * 'scOutputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
 --
--- * 'scInstanceIds'
+-- * 'scInstanceIds' - Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
 --
--- * 'scDocumentName'
+-- * 'scDocumentName' - Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
 sendCommand
     :: NonEmpty Text -- ^ 'scInstanceIds'
     -> Text -- ^ 'scDocumentName'
@@ -120,8 +122,6 @@ scNotificationConfig :: Lens' SendCommand (Maybe NotificationConfig)
 scNotificationConfig = lens _scNotificationConfig (\ s a -> s{_scNotificationConfig = a});
 
 -- | Sha256 or Sha1.
---
--- Sha1 hashes have been deprecated.
 scDocumentHashType :: Lens' SendCommand (Maybe DocumentHashType)
 scDocumentHashType = lens _scDocumentHashType (\ s a -> s{_scDocumentHashType = a});
 
@@ -134,8 +134,6 @@ scParameters :: Lens' SendCommand (HashMap Text [Text])
 scParameters = lens _scParameters (\ s a -> s{_scParameters = a}) . _Default . _Map;
 
 -- | The Sha256 or Sha1 hash created by the system when the document was created.
---
--- Sha1 hashes have been deprecated.
 scDocumentHash :: Lens' SendCommand (Maybe Text)
 scDocumentHash = lens _scDocumentHash (\ s a -> s{_scDocumentHash = a});
 
@@ -213,9 +211,9 @@ data SendCommandResponse = SendCommandResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrsCommand'
+-- * 'scrsCommand' - The request as it was received by SSM. Also provides the command ID which can be used future references to this request.
 --
--- * 'scrsResponseStatus'
+-- * 'scrsResponseStatus' - -- | The response status code.
 sendCommandResponse
     :: Int -- ^ 'scrsResponseStatus'
     -> SendCommandResponse
@@ -229,7 +227,7 @@ sendCommandResponse pResponseStatus_ =
 scrsCommand :: Lens' SendCommandResponse (Maybe Command)
 scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a});
 
--- | The response status code.
+-- | -- | The response status code.
 scrsResponseStatus :: Lens' SendCommandResponse Int
 scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a});
 

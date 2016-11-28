@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allocates a Dedicated Host to your account. At minimum you need to specify the instance size type, Availability Zone, and quantity of hosts you want to allocate.
+--
+--
 module Network.AWS.EC2.AllocateHosts
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AllocateHosts.
 --
+--
+--
 -- /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
     { _ahClientToken      :: !(Maybe Text)
@@ -61,15 +65,15 @@ data AllocateHosts = AllocateHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahClientToken'
+-- * 'ahClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'ahAutoPlacement'
+-- * 'ahAutoPlacement' - This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 --
--- * 'ahInstanceType'
+-- * 'ahInstanceType' - Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
 --
--- * 'ahQuantity'
+-- * 'ahQuantity' - The number of Dedicated Hosts you want to allocate to your account with these parameters.
 --
--- * 'ahAvailabilityZone'
+-- * 'ahAvailabilityZone' - The Availability Zone for the Dedicated Hosts.
 allocateHosts
     :: Text -- ^ 'ahInstanceType'
     -> Int -- ^ 'ahQuantity'
@@ -84,13 +88,11 @@ allocateHosts pInstanceType_ pQuantity_ pAvailabilityZone_ =
     , _ahAvailabilityZone = pAvailabilityZone_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ahClientToken :: Lens' AllocateHosts (Maybe Text)
 ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a});
 
--- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID.
---
--- Default: Enabled
+-- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 ahAutoPlacement :: Lens' AllocateHosts (Maybe AutoPlacement)
 ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a});
 
@@ -140,6 +142,8 @@ instance ToQuery AllocateHosts where
 
 -- | Contains the output of AllocateHosts.
 --
+--
+--
 -- /See:/ 'allocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
     { _ahrsHostIds        :: !(Maybe [Text])
@@ -150,9 +154,9 @@ data AllocateHostsResponse = AllocateHostsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahrsHostIds'
+-- * 'ahrsHostIds' - The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
 --
--- * 'ahrsResponseStatus'
+-- * 'ahrsResponseStatus' - -- | The response status code.
 allocateHostsResponse
     :: Int -- ^ 'ahrsResponseStatus'
     -> AllocateHostsResponse
@@ -166,7 +170,7 @@ allocateHostsResponse pResponseStatus_ =
 ahrsHostIds :: Lens' AllocateHostsResponse [Text]
 ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ahrsResponseStatus :: Lens' AllocateHostsResponse Int
 ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a});
 

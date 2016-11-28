@@ -20,7 +20,9 @@
 --
 -- Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.
 --
+--
 -- You can opt in a phone number only once every 30 days.
+--
 module Network.AWS.SNS.OptInPhoneNumber
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for the OptInPhoneNumber action.
 --
+--
+--
 -- /See:/ 'optInPhoneNumber' smart constructor.
 newtype OptInPhoneNumber = OptInPhoneNumber'
     { _oipnPhoneNumber :: Text
@@ -54,7 +58,7 @@ newtype OptInPhoneNumber = OptInPhoneNumber'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oipnPhoneNumber'
+-- * 'oipnPhoneNumber' - The phone number to opt in.
 optInPhoneNumber
     :: Text -- ^ 'oipnPhoneNumber'
     -> OptInPhoneNumber
@@ -94,6 +98,8 @@ instance ToQuery OptInPhoneNumber where
 
 -- | The response for the OptInPhoneNumber action.
 --
+--
+--
 -- /See:/ 'optInPhoneNumberResponse' smart constructor.
 newtype OptInPhoneNumberResponse = OptInPhoneNumberResponse'
     { _oipnrsResponseStatus :: Int
@@ -103,7 +109,7 @@ newtype OptInPhoneNumberResponse = OptInPhoneNumberResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oipnrsResponseStatus'
+-- * 'oipnrsResponseStatus' - -- | The response status code.
 optInPhoneNumberResponse
     :: Int -- ^ 'oipnrsResponseStatus'
     -> OptInPhoneNumberResponse
@@ -112,7 +118,7 @@ optInPhoneNumberResponse pResponseStatus_ =
     { _oipnrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 oipnrsResponseStatus :: Lens' OptInPhoneNumberResponse Int
 oipnrsResponseStatus = lens _oipnrsResponseStatus (\ s a -> s{_oipnrsResponseStatus = a});
 

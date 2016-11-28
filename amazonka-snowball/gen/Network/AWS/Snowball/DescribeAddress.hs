@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Takes an 'AddressId' and returns specific details about that address in the form of an 'Address' object.
+-- Takes an @AddressId@ and returns specific details about that address in the form of an @Address@ object.
+--
+--
 module Network.AWS.Snowball.DescribeAddress
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DescribeAddress = DescribeAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAddressId'
+-- * 'daAddressId' - The automatically generated ID for a specific address.
 describeAddress
     :: Text -- ^ 'daAddressId'
     -> DescribeAddress
@@ -108,9 +110,9 @@ data DescribeAddressResponse = DescribeAddressResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAddress'
+-- * 'darsAddress' - The address that you want the Snowball or Snowballs associated with a specific job to be shipped to.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAddressResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAddressResponse
@@ -124,7 +126,7 @@ describeAddressResponse pResponseStatus_ =
 darsAddress :: Lens' DescribeAddressResponse (Maybe Address)
 darsAddress = lens _darsAddress (\ s a -> s{_darsAddress = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAddressResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

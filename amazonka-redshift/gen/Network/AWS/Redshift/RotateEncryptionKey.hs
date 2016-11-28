@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Rotates the encryption keys for a cluster.
+--
+--
 module Network.AWS.Redshift.RotateEncryptionKey
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'rotateEncryptionKey' smart constructor.
 newtype RotateEncryptionKey = RotateEncryptionKey'
     { _rekClusterIdentifier :: Text
@@ -53,7 +57,7 @@ newtype RotateEncryptionKey = RotateEncryptionKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rekClusterIdentifier'
+-- * 'rekClusterIdentifier' - The unique identifier of the cluster that you want to rotate the encryption keys for.  Constraints: Must be the name of valid cluster that has encryption enabled.
 rotateEncryptionKey
     :: Text -- ^ 'rekClusterIdentifier'
     -> RotateEncryptionKey
@@ -62,9 +66,7 @@ rotateEncryptionKey pClusterIdentifier_ =
     { _rekClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of the cluster that you want to rotate the encryption keys for.
---
--- Constraints: Must be the name of valid cluster that has encryption enabled.
+-- | The unique identifier of the cluster that you want to rotate the encryption keys for.  Constraints: Must be the name of valid cluster that has encryption enabled.
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
 
@@ -105,9 +107,9 @@ data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rekrsCluster'
+-- * 'rekrsCluster' - Undocumented member.
 --
--- * 'rekrsResponseStatus'
+-- * 'rekrsResponseStatus' - -- | The response status code.
 rotateEncryptionKeyResponse
     :: Int -- ^ 'rekrsResponseStatus'
     -> RotateEncryptionKeyResponse
@@ -121,7 +123,7 @@ rotateEncryptionKeyResponse pResponseStatus_ =
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
 

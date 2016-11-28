@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a link to a currently running remote access session.
+--
+--
 module Network.AWS.DeviceFarm.GetRemoteAccessSession
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get information about the specified remote access session.
 --
+--
+--
 -- /See:/ 'getRemoteAccessSession' smart constructor.
 newtype GetRemoteAccessSession = GetRemoteAccessSession'
     { _grasArn :: Text
@@ -53,7 +57,7 @@ newtype GetRemoteAccessSession = GetRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grasArn'
+-- * 'grasArn' - The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
 getRemoteAccessSession
     :: Text -- ^ 'grasArn'
     -> GetRemoteAccessSession
@@ -103,6 +107,8 @@ instance ToQuery GetRemoteAccessSession where
 
 -- | Represents the response from the server that lists detailed information about the remote access session.
 --
+--
+--
 -- /See:/ 'getRemoteAccessSessionResponse' smart constructor.
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
     { _grasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
@@ -113,9 +119,9 @@ data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grasrsRemoteAccessSession'
+-- * 'grasrsRemoteAccessSession' - A container that lists detailed information about the remote access session.
 --
--- * 'grasrsResponseStatus'
+-- * 'grasrsResponseStatus' - -- | The response status code.
 getRemoteAccessSessionResponse
     :: Int -- ^ 'grasrsResponseStatus'
     -> GetRemoteAccessSessionResponse
@@ -129,7 +135,7 @@ getRemoteAccessSessionResponse pResponseStatus_ =
 grasrsRemoteAccessSession :: Lens' GetRemoteAccessSessionResponse (Maybe RemoteAccessSession)
 grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\ s a -> s{_grasrsRemoteAccessSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grasrsResponseStatus :: Lens' GetRemoteAccessSessionResponse Int
 grasrsResponseStatus = lens _grasrsResponseStatus (\ s a -> s{_grasrsResponseStatus = a});
 

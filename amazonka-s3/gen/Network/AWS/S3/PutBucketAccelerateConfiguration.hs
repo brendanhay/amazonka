@@ -50,9 +50,9 @@ data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbacBucket'
+-- * 'pbacBucket' - Name of the bucket for which the accelerate configuration is set.
 --
--- * 'pbacAccelerateConfiguration'
+-- * 'pbacAccelerateConfiguration' - Specifies the Accelerate Configuration you want to set for the bucket.
 putBucketAccelerateConfiguration
     :: BucketName -- ^ 'pbacBucket'
     -> AccelerateConfiguration -- ^ 'pbacAccelerateConfiguration'

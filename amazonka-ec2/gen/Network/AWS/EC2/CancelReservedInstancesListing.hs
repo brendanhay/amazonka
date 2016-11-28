@@ -20,7 +20,9 @@
 --
 -- Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CancelReservedInstancesListing.
 --
+--
+--
 -- /See:/ 'cancelReservedInstancesListing' smart constructor.
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
     { _crilReservedInstancesListingId :: Text
@@ -55,7 +59,7 @@ newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crilReservedInstancesListingId'
+-- * 'crilReservedInstancesListingId' - The ID of the Reserved Instance listing.
 cancelReservedInstancesListing
     :: Text -- ^ 'crilReservedInstancesListingId'
     -> CancelReservedInstancesListing
@@ -103,6 +107,8 @@ instance ToQuery CancelReservedInstancesListing where
 
 -- | Contains the output of CancelReservedInstancesListing.
 --
+--
+--
 -- /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
@@ -113,9 +119,9 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crilrsReservedInstancesListings'
+-- * 'crilrsReservedInstancesListings' - The Reserved Instance listing.
 --
--- * 'crilrsResponseStatus'
+-- * 'crilrsResponseStatus' - -- | The response status code.
 cancelReservedInstancesListingResponse
     :: Int -- ^ 'crilrsResponseStatus'
     -> CancelReservedInstancesListingResponse
@@ -129,7 +135,7 @@ cancelReservedInstancesListingResponse pResponseStatus_ =
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});
 

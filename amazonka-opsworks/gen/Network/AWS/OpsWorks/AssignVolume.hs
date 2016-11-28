@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns one of the stack\'s registered Amazon EBS volumes to a specified instance. The volume must first be registered with the stack by calling < RegisterVolume>. After you register the volume, you must call < UpdateVolume> to specify a mount point before calling 'AssignVolume'. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must first be registered with the stack by calling 'RegisterVolume' . After you register the volume, you must call 'UpdateVolume' to specify a mount point before calling @AssignVolume@ . For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.AssignVolume
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data AssignVolume = AssignVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avInstanceId'
+-- * 'avInstanceId' - The instance ID.
 --
--- * 'avVolumeId'
+-- * 'avVolumeId' - The volume ID.
 assignVolume
     :: Text -- ^ 'avVolumeId'
     -> AssignVolume

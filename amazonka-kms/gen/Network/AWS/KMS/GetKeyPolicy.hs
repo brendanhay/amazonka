@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a policy attached to the specified key.
+--
+--
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data GetKeyPolicy = GetKeyPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkpKeyId'
+-- * 'gkpKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 --
--- * 'gkpPolicyName'
+-- * 'gkpPolicyName' - String that contains the name of the policy. Currently, this must be "default". Policy names can be discovered by calling 'ListKeyPolicies' .
 getKeyPolicy
     :: Text -- ^ 'gkpKeyId'
     -> Text -- ^ 'gkpPolicyName'
@@ -66,16 +68,11 @@ getKeyPolicy pKeyId_ pPolicyName_ =
     , _gkpPolicyName = pPolicyName_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 gkpKeyId :: Lens' GetKeyPolicy Text
 gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
 
--- | String that contains the name of the policy. Currently, this must be \"default\". Policy names can be discovered by calling < ListKeyPolicies>.
+-- | String that contains the name of the policy. Currently, this must be "default". Policy names can be discovered by calling 'ListKeyPolicies' .
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
@@ -124,9 +121,9 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkprsPolicy'
+-- * 'gkprsPolicy' - A policy document in JSON format.
 --
--- * 'gkprsResponseStatus'
+-- * 'gkprsResponseStatus' - -- | The response status code.
 getKeyPolicyResponse
     :: Int -- ^ 'gkprsResponseStatus'
     -> GetKeyPolicyResponse
@@ -140,7 +137,7 @@ getKeyPolicyResponse pResponseStatus_ =
 gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
 gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});
 

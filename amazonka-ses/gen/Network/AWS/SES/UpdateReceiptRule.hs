@@ -20,9 +20,11 @@
 --
 -- Updates a receipt rule.
 --
--- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+--
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.UpdateReceiptRule
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'updateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
@@ -58,9 +62,9 @@ data UpdateReceiptRule = UpdateReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrRuleSetName'
+-- * 'urrRuleSetName' - The name of the receipt rule set to which the receipt rule belongs.
 --
--- * 'urrRule'
+-- * 'urrRule' - A data structure that contains the updated receipt rule information.
 updateReceiptRule
     :: Text -- ^ 'urrRuleSetName'
     -> ReceiptRule -- ^ 'urrRule'
@@ -106,6 +110,8 @@ instance ToQuery UpdateReceiptRule where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'updateReceiptRuleResponse' smart constructor.
 newtype UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
     { _urrrsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrrsResponseStatus'
+-- * 'urrrsResponseStatus' - -- | The response status code.
 updateReceiptRuleResponse
     :: Int -- ^ 'urrrsResponseStatus'
     -> UpdateReceiptRuleResponse
@@ -124,7 +130,7 @@ updateReceiptRuleResponse pResponseStatus_ =
     { _urrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 urrrsResponseStatus :: Lens' UpdateReceiptRuleResponse Int
 urrrsResponseStatus = lens _urrrsResponseStatus (\ s a -> s{_urrrsResponseStatus = a});
 

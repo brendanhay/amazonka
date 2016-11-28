@@ -20,11 +20,11 @@
 --
 -- Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.
 --
--- Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.
 --
 -- This action is throttled at one request per second.
 --
--- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
+-- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
+--
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html Amazon SES Developer Guide>.
+-- | Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
@@ -60,9 +62,9 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siffeIdentity'
+-- * 'siffeIdentity' - The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 --
--- * 'siffeForwardingEnabled'
+-- * 'siffeForwardingEnabled' - Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 setIdentityFeedbackForwardingEnabled
     :: Text -- ^ 'siffeIdentity'
     -> Bool -- ^ 'siffeForwardingEnabled'
@@ -73,11 +75,11 @@ setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
     , _siffeForwardingEnabled = pForwardingEnabled_
     }
 
--- | The identity for which to set bounce and complaint notification forwarding. Examples: 'user\'example.com', 'example.com'.
+-- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
 
--- | Sets whether Amazon SES will forward bounce and complaint notifications as email. 'true' specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. 'false' specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint' notification types.
+-- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
 siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
 
@@ -119,6 +121,8 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _siffersResponseStatus :: Int
@@ -128,7 +132,7 @@ newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwar
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siffersResponseStatus'
+-- * 'siffersResponseStatus' - -- | The response status code.
 setIdentityFeedbackForwardingEnabledResponse
     :: Int -- ^ 'siffersResponseStatus'
     -> SetIdentityFeedbackForwardingEnabledResponse
@@ -137,7 +141,7 @@ setIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
     { _siffersResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 siffersResponseStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
 siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a});
 

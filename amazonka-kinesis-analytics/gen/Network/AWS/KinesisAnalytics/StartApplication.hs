@@ -20,13 +20,15 @@
 --
 -- Starts the specified Amazon Kinesis Analytics application. After creating an application, you must exclusively call this operation to start your application.
 --
+--
 -- After the application starts, it begins consuming the input data, processes it, and writes the output to the configured destination.
 --
--- The application status must be 'READY' for you to start an application. You can get the application status in the console or using the < DescribeApplication> operation.
+-- The application status must be @READY@ for you to start an application. You can get the application status in the console or using the 'DescribeApplication' operation.
 --
--- After you start the application, you can stop the application from processing the input by calling the < StopApplication> operation.
+-- After you start the application, you can stop the application from processing the input by calling the 'StopApplication' operation.
 --
--- This operation requires permissions to perform the 'kinesisanalytics:StartApplication' action.
+-- This operation requires permissions to perform the @kinesisanalytics:StartApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.StartApplication
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'startApplication' smart constructor.
 data StartApplication = StartApplication'
     { _saApplicationName     :: !Text
@@ -62,9 +66,9 @@ data StartApplication = StartApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'saApplicationName'
+-- * 'saApplicationName' - Name of the application.
 --
--- * 'saInputConfigurations'
+-- * 'saInputConfigurations' - Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.
 startApplication
     :: Text -- ^ 'saApplicationName'
     -> StartApplication
@@ -120,6 +124,8 @@ instance ToQuery StartApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'startApplicationResponse' smart constructor.
 newtype StartApplicationResponse = StartApplicationResponse'
     { _sarsResponseStatus :: Int
@@ -129,7 +135,7 @@ newtype StartApplicationResponse = StartApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarsResponseStatus'
+-- * 'sarsResponseStatus' - -- | The response status code.
 startApplicationResponse
     :: Int -- ^ 'sarsResponseStatus'
     -> StartApplicationResponse
@@ -138,7 +144,7 @@ startApplicationResponse pResponseStatus_ =
     { _sarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 sarsResponseStatus :: Lens' StartApplicationResponse Int
 sarsResponseStatus = lens _sarsResponseStatus (\ s a -> s{_sarsResponseStatus = a});
 

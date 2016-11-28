@@ -20,7 +20,9 @@
 --
 -- Removes one or more tags from the specified AWS CloudHSM resource.
 --
--- To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
+--
+-- To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
+--
 module Network.AWS.CloudHSM.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceARN'
+-- * 'rtfrResourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 --
--- * 'rtfrTagKeyList'
+-- * 'rtfrTagKeyList' - The tag key or keys to remove. Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceARN'
     -> RemoveTagsFromResource
@@ -71,9 +73,7 @@ removeTagsFromResource pResourceARN_ =
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
--- | The tag key or keys to remove.
---
--- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
+-- | The tag key or keys to remove. Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 rtfrTagKeyList :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeyList = lens _rtfrTagKeyList (\ s a -> s{_rtfrTagKeyList = a}) . _Coerce;
 
@@ -124,9 +124,9 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 --
--- * 'rtfrrsStatus'
+-- * 'rtfrrsStatus' - The status of the operation.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> Text -- ^ 'rtfrrsStatus'
@@ -137,7 +137,7 @@ removeTagsFromResourceResponse pResponseStatus_ pStatus_ =
     , _rtfrrsStatus = pStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 

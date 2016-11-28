@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a count of all your hosted zones. Send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
+-- Retrieves a count of all your hosted zones. Send a @GET@ request to the @/2013-04-01/hostedzonecount@ resource.
+--
+--
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your hosted zones, send a 'GET' request to the '\/2013-04-01\/hostedzonecount' resource.
+-- | To retrieve a count of all your hosted zones, send a @GET@ request to the @/2013-04-01/hostedzonecount@ resource.
+--
+--
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
@@ -76,7 +80,9 @@ instance ToPath GetHostedZoneCount where
 instance ToQuery GetHostedZoneCount where
         toQuery = const mempty
 
--- | A complex type that contains the response to a 'hostedzonecount' request.
+-- | A complex type that contains the response to a @hostedzonecount@ request.
+--
+--
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
@@ -88,9 +94,9 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghzcrsResponseStatus'
+-- * 'ghzcrsResponseStatus' - -- | The response status code.
 --
--- * 'ghzcrsHostedZoneCount'
+-- * 'ghzcrsHostedZoneCount' - The total number of public and private hosted zones associated with the current AWS account.
 getHostedZoneCountResponse
     :: Int -- ^ 'ghzcrsResponseStatus'
     -> Integer -- ^ 'ghzcrsHostedZoneCount'
@@ -101,7 +107,7 @@ getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
     , _ghzcrsHostedZoneCount = pHostedZoneCount_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseStatus = a});
 

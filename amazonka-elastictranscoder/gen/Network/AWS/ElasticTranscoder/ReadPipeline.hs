@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadPipeline operation gets detailed information about a pipeline.
+--
+--
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'ReadPipelineRequest' structure.
+-- | The @ReadPipelineRequest@ structure.
+--
+--
 --
 -- /See:/ 'readPipeline' smart constructor.
 newtype ReadPipeline = ReadPipeline'
@@ -54,7 +58,7 @@ newtype ReadPipeline = ReadPipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rId'
+-- * 'rId' - The identifier of the pipeline to read.
 readPipeline
     :: Text -- ^ 'rId'
     -> ReadPipeline
@@ -91,7 +95,9 @@ instance ToPath ReadPipeline where
 instance ToQuery ReadPipeline where
         toQuery = const mempty
 
--- | The 'ReadPipelineResponse' structure.
+-- | The @ReadPipelineResponse@ structure.
+--
+--
 --
 -- /See:/ 'readPipelineResponse' smart constructor.
 data ReadPipelineResponse = ReadPipelineResponse'
@@ -104,11 +110,11 @@ data ReadPipelineResponse = ReadPipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsWarnings'
+-- * 'rrsWarnings' - Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline. Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 --
--- * 'rrsPipeline'
+-- * 'rrsPipeline' - A section of the response body that provides information about the pipeline.
 --
--- * 'rrsResponseStatus'
+-- * 'rrsResponseStatus' - -- | The response status code.
 readPipelineResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> ReadPipelineResponse
@@ -119,9 +125,7 @@ readPipelineResponse pResponseStatus_ =
     , _rrsResponseStatus = pResponseStatus_
     }
 
--- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
---
--- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
+-- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline. Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 rrsWarnings :: Lens' ReadPipelineResponse [Warning]
 rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coerce;
 
@@ -129,7 +133,7 @@ rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coe
 rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rrsResponseStatus :: Lens' ReadPipelineResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 

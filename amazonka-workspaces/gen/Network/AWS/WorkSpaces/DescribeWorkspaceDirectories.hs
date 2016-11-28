@@ -20,7 +20,9 @@
 --
 -- Retrieves information about the AWS Directory Service directories in the region that are registered with Amazon WorkSpaces and are available to your account.
 --
--- This operation supports pagination with the use of the 'NextToken' request and response parameters. If more results are available, the 'NextToken' response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
+--
+-- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @NextToken@ response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
+--
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < DescribeWorkspaceDirectories> operation.
+-- | Contains the inputs for the 'DescribeWorkspaceDirectories' operation.
+--
+--
 --
 -- /See:/ 'describeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
@@ -58,9 +62,9 @@ data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwdNextToken'
+-- * 'dwdNextToken' - The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 --
--- * 'dwdDirectoryIds'
+-- * 'dwdDirectoryIds' - An array of strings that contains the directory identifiers to retrieve information for. If this member is null, all directories are retrieved.
 describeWorkspaceDirectories
     :: DescribeWorkspaceDirectories
 describeWorkspaceDirectories =
@@ -69,7 +73,7 @@ describeWorkspaceDirectories =
     , _dwdDirectoryIds = Nothing
     }
 
--- | The 'NextToken' value from a previous call to this operation. Pass null if this is the first call.
+-- | The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
 dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
 
@@ -117,7 +121,9 @@ instance ToPath DescribeWorkspaceDirectories where
 instance ToQuery DescribeWorkspaceDirectories where
         toQuery = const mempty
 
--- | Contains the results of the < DescribeWorkspaceDirectories> operation.
+-- | Contains the results of the 'DescribeWorkspaceDirectories' operation.
+--
+--
 --
 -- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
@@ -130,11 +136,11 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwdrsDirectories'
+-- * 'dwdrsDirectories' - An array of structures that contain information about the directories.
 --
--- * 'dwdrsNextToken'
+-- * 'dwdrsNextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 --
--- * 'dwdrsResponseStatus'
+-- * 'dwdrsResponseStatus' - -- | The response status code.
 describeWorkspaceDirectoriesResponse
     :: Int -- ^ 'dwdrsResponseStatus'
     -> DescribeWorkspaceDirectoriesResponse
@@ -149,11 +155,11 @@ describeWorkspaceDirectoriesResponse pResponseStatus_ =
 dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
 dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
+-- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
 dwdrsResponseStatus = lens _dwdrsResponseStatus (\ s a -> s{_dwdrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
+--
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CancelConversionTask.
 --
+--
+--
 -- /See:/ 'cancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
     { _cctReasonMessage    :: !(Maybe Text)
@@ -56,11 +60,11 @@ data CancelConversionTask = CancelConversionTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cctReasonMessage'
+-- * 'cctReasonMessage' - The reason for canceling the conversion task.
 --
--- * 'cctDryRun'
+-- * 'cctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cctConversionTaskId'
+-- * 'cctConversionTaskId' - The ID of the conversion task.
 cancelConversionTask
     :: Text -- ^ 'cctConversionTaskId'
     -> CancelConversionTask
@@ -75,7 +79,7 @@ cancelConversionTask pConversionTaskId_ =
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
 cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
 

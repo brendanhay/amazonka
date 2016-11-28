@@ -20,9 +20,9 @@
 --
 -- Returns the template body for a specified stack. You can get the template for running or deleted stacks.
 --
+--
 -- For deleted stacks, GetTemplate returns the template for up to 90 days after the stack has been deleted.
 --
--- If the template does not exist, a 'ValidationError' is returned.
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for a < GetTemplate> action.
+-- | The input for a 'GetTemplate' action.
+--
+--
 --
 -- /See:/ 'getTemplate' smart constructor.
 newtype GetTemplate = GetTemplate'
@@ -57,7 +59,7 @@ newtype GetTemplate = GetTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtStackName'
+-- * 'gtStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 getTemplate
     :: Text -- ^ 'gtStackName'
     -> GetTemplate
@@ -66,13 +68,7 @@ getTemplate pStackName_ =
     { _gtStackName = pStackName_
     }
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
---
--- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
---
--- -   Deleted stacks: You must specify the unique stack ID.
---
--- Default: There is no default value.
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 gtStackName :: Lens' GetTemplate Text
 gtStackName = lens _gtStackName (\ s a -> s{_gtStackName = a});
 
@@ -102,7 +98,9 @@ instance ToQuery GetTemplate where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gtStackName]
 
--- | The output for < GetTemplate> action.
+-- | The output for 'GetTemplate' action.
+--
+--
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
@@ -114,9 +112,9 @@ data GetTemplateResponse = GetTemplateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtrsTemplateBody'
+-- * 'gtrsTemplateBody' - Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
 --
--- * 'gtrsResponseStatus'
+-- * 'gtrsResponseStatus' - -- | The response status code.
 getTemplateResponse
     :: Int -- ^ 'gtrsResponseStatus'
     -> GetTemplateResponse
@@ -130,7 +128,7 @@ getTemplateResponse pResponseStatus_ =
 gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gtrsResponseStatus :: Lens' GetTemplateResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
 

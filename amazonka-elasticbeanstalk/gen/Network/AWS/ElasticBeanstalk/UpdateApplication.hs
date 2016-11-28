@@ -20,7 +20,7 @@
 --
 -- Updates the specified application to have the specified properties.
 --
--- If a property (for example, 'description') is not provided, the value remains unchanged. To clear these properties, specify an empty string.
+--
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Request to update an application.
 --
+--
+--
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
     { _uaDescription     :: !(Maybe Text)
@@ -56,9 +58,9 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaDescription'
+-- * 'uaDescription' - A new description for the application.  Default: If not specified, AWS Elastic Beanstalk does not update the description.
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 updateApplication
     :: Text -- ^ 'uaApplicationName'
     -> UpdateApplication
@@ -68,13 +70,11 @@ updateApplication pApplicationName_ =
     , _uaApplicationName = pApplicationName_
     }
 
--- | A new description for the application.
---
--- Default: If not specified, AWS Elastic Beanstalk does not update the description.
+-- | A new description for the application.  Default: If not specified, AWS Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
--- | The name of the application to update. If no such application is found, 'UpdateApplication' returns an 'InvalidParameterValue' error.
+-- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 

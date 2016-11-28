@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the instance for a deployment associated with the applicable IAM user or AWS account.
+--
+--
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list deployment instances operation.
 --
+--
+--
 -- /See:/ 'listDeploymentInstances' smart constructor.
 data ListDeploymentInstances = ListDeploymentInstances'
     { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
@@ -58,11 +62,11 @@ data ListDeploymentInstances = ListDeploymentInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldiInstanceStatusFilter'
+-- * 'ldiInstanceStatusFilter' - A subset of instances to list by status:     * Pending: Include those instance with pending deployments.    * InProgress: Include those instance where deployments are still in progress.    * Succeeded: Include those instances with successful deployments.    * Failed: Include those instance with failed deployments.    * Skipped: Include those instance with skipped deployments.    * Unknown: Include those instance with deployments in an unknown state.
 --
--- * 'ldiNextToken'
+-- * 'ldiNextToken' - An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 --
--- * 'ldiDeploymentId'
+-- * 'ldiDeploymentId' - The unique ID of a deployment.
 listDeploymentInstances
     :: Text -- ^ 'ldiDeploymentId'
     -> ListDeploymentInstances
@@ -73,14 +77,7 @@ listDeploymentInstances pDeploymentId_ =
     , _ldiDeploymentId = pDeploymentId_
     }
 
--- | A subset of instances to list by status:
---
--- -   Pending: Include those instance with pending deployments.
--- -   InProgress: Include those instance where deployments are still in progress.
--- -   Succeeded: Include those instances with successful deployments.
--- -   Failed: Include those instance with failed deployments.
--- -   Skipped: Include those instance with skipped deployments.
--- -   Unknown: Include those instance with deployments in an unknown state.
+-- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.    * InProgress: Include those instance where deployments are still in progress.    * Succeeded: Include those instances with successful deployments.    * Failed: Include those instance with failed deployments.    * Skipped: Include those instance with skipped deployments.    * Unknown: Include those instance with deployments in an unknown state.
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
 ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default . _Coerce;
 
@@ -135,6 +132,8 @@ instance ToQuery ListDeploymentInstances where
 
 -- | Represents the output of a list deployment instances operation.
 --
+--
+--
 -- /See:/ 'listDeploymentInstancesResponse' smart constructor.
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
     { _ldirsNextToken      :: !(Maybe Text)
@@ -146,11 +145,11 @@ data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldirsNextToken'
+-- * 'ldirsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment instances call to return the next set of deployment instances in the list.
 --
--- * 'ldirsInstancesList'
+-- * 'ldirsInstancesList' - A list of instance IDs.
 --
--- * 'ldirsResponseStatus'
+-- * 'ldirsResponseStatus' - -- | The response status code.
 listDeploymentInstancesResponse
     :: Int -- ^ 'ldirsResponseStatus'
     -> ListDeploymentInstancesResponse
@@ -169,7 +168,7 @@ ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldirsResponseStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
 

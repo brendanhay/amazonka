@@ -51,7 +51,7 @@ newtype GetBucketCORS = GetBucketCORS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbcBucket'
+-- * 'gbcBucket' - Undocumented member.
 getBucketCORS
     :: BucketName -- ^ 'gbcBucket'
     -> GetBucketCORS
@@ -98,9 +98,9 @@ data GetBucketCORSResponse = GetBucketCORSResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbcrsCORSRules'
+-- * 'gbcrsCORSRules' - Undocumented member.
 --
--- * 'gbcrsResponseStatus'
+-- * 'gbcrsResponseStatus' - -- | The response status code.
 getBucketCORSResponse
     :: Int -- ^ 'gbcrsResponseStatus'
     -> GetBucketCORSResponse
@@ -114,7 +114,7 @@ getBucketCORSResponse pResponseStatus_ =
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
 gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});
 

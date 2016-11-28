@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < DomainName> resource.
+-- Deletes the 'DomainName' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteDomainName
     (
     -- * Creating a Request
@@ -39,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the < DomainName> resource.
+-- | A request to delete the 'DomainName' resource.
+--
+--
 --
 -- /See:/ 'deleteDomainName' smart constructor.
 newtype DeleteDomainName = DeleteDomainName'
@@ -50,7 +54,7 @@ newtype DeleteDomainName = DeleteDomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddnDomainName'
+-- * 'ddnDomainName' - The name of the 'DomainName' resource to be deleted.
 deleteDomainName
     :: Text -- ^ 'ddnDomainName'
     -> DeleteDomainName
@@ -59,7 +63,7 @@ deleteDomainName pDomainName_ =
     { _ddnDomainName = pDomainName_
     }
 
--- | The name of the < DomainName> resource to be deleted.
+-- | The name of the 'DomainName' resource to be deleted.
 ddnDomainName :: Lens' DeleteDomainName Text
 ddnDomainName = lens _ddnDomainName (\ s a -> s{_ddnDomainName = a});
 

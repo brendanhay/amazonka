@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of < XssMatchSet> objects.
+-- Returns an array of 'XssMatchSet' objects.
+--
+--
 module Network.AWS.WAF.ListXSSMatchSets
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to list the < XssMatchSet> objects created by the current AWS account.
+-- | A request to list the 'XssMatchSet' objects created by the current AWS account.
+--
+--
 --
 -- /See:/ 'listXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
@@ -56,9 +60,9 @@ data ListXSSMatchSets = ListXSSMatchSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lxmsNextMarker'
+-- * 'lxmsNextMarker' - If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
 --
--- * 'lxmsLimit'
+-- * 'lxmsLimit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 listXSSMatchSets
     :: Natural -- ^ 'lxmsLimit'
     -> ListXSSMatchSets
@@ -68,11 +72,11 @@ listXSSMatchSets pLimit_ =
     , _lxmsLimit = _Nat # pLimit_
     }
 
--- | If you specify a value for 'Limit' and you have more < XssMatchSet> objects than the value of 'Limit', AWS WAF returns a 'NextMarker' value in the response that allows you to list another group of 'XssMatchSets'. For the second and subsequent 'ListXssMatchSets' requests, specify the value of 'NextMarker' from the previous response to get information about another batch of 'XssMatchSets'.
+-- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
 lxmsNextMarker :: Lens' ListXSSMatchSets (Maybe Text)
 lxmsNextMarker = lens _lxmsNextMarker (\ s a -> s{_lxmsNextMarker = a});
 
--- | Specifies the number of < XssMatchSet> objects that you want AWS WAF to return for this request. If you have more 'XssMatchSet' objects than the number you specify for 'Limit', the response includes a 'NextMarker' value that you can use to get another batch of 'Rules'.
+-- | Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 lxmsLimit :: Lens' ListXSSMatchSets Natural
 lxmsLimit = lens _lxmsLimit (\ s a -> s{_lxmsLimit = a}) . _Nat;
 
@@ -113,7 +117,9 @@ instance ToPath ListXSSMatchSets where
 instance ToQuery ListXSSMatchSets where
         toQuery = const mempty
 
--- | The response to a < ListXssMatchSets> request.
+-- | The response to a 'ListXssMatchSets' request.
+--
+--
 --
 -- /See:/ 'listXSSMatchSetsResponse' smart constructor.
 data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
@@ -126,11 +132,11 @@ data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lxmsrsXSSMatchSets'
+-- * 'lxmsrsXSSMatchSets' - An array of 'XssMatchSetSummary' objects.
 --
--- * 'lxmsrsNextMarker'
+-- * 'lxmsrsNextMarker' - If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 --
--- * 'lxmsrsResponseStatus'
+-- * 'lxmsrsResponseStatus' - -- | The response status code.
 listXSSMatchSetsResponse
     :: Int -- ^ 'lxmsrsResponseStatus'
     -> ListXSSMatchSetsResponse
@@ -141,15 +147,15 @@ listXSSMatchSetsResponse pResponseStatus_ =
     , _lxmsrsResponseStatus = pResponseStatus_
     }
 
--- | An array of < XssMatchSetSummary> objects.
+-- | An array of 'XssMatchSetSummary' objects.
 lxmsrsXSSMatchSets :: Lens' ListXSSMatchSetsResponse [XSSMatchSetSummary]
 lxmsrsXSSMatchSets = lens _lxmsrsXSSMatchSets (\ s a -> s{_lxmsrsXSSMatchSets = a}) . _Default . _Coerce;
 
--- | If you have more < XssMatchSet> objects than the number that you specified for 'Limit' in the request, the response includes a 'NextMarker' value. To list more 'XssMatchSet' objects, submit another 'ListXssMatchSets' request, and specify the 'NextMarker' value from the response in the 'NextMarker' value in the next request.
+-- | If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lxmsrsNextMarker :: Lens' ListXSSMatchSetsResponse (Maybe Text)
 lxmsrsNextMarker = lens _lxmsrsNextMarker (\ s a -> s{_lxmsrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lxmsrsResponseStatus :: Lens' ListXSSMatchSetsResponse Int
 lxmsrsResponseStatus = lens _lxmsrsResponseStatus (\ s a -> s{_lxmsrsResponseStatus = a});
 

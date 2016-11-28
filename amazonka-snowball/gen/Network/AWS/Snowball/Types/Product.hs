@@ -21,7 +21,9 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Snowball.Types.Sum
 
--- | The address that you want the Snowball or Snowballs associated with a specific job to be shipped to. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. Although no individual elements of the 'Address' are required, if the address is invalid or unsupported, then an exception is thrown.
+-- | The address that you want the Snowball or Snowballs associated with a specific job to be shipped to. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. Although no individual elements of the @Address@ are required, if the address is invalid or unsupported, then an exception is thrown.
+--
+--
 --
 -- /See:/ 'address' smart constructor.
 data Address = Address'
@@ -44,31 +46,31 @@ data Address = Address'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aStreet3'
+-- * 'aStreet3' - The third line in a street address that a Snowball is to be delivered to.
 --
--- * 'aLandmark'
+-- * 'aLandmark' - A landmark listed in an address that a Snowball is to be delivered to.
 --
--- * 'aPostalCode'
+-- * 'aPostalCode' - The postal code in an address that a Snowball is to be delivered to.
 --
--- * 'aCountry'
+-- * 'aCountry' - The country in an address that a Snowball is to be delivered to.
 --
--- * 'aStateOrProvince'
+-- * 'aStateOrProvince' - The state or province in an address that a Snowball is to be delivered to.
 --
--- * 'aStreet2'
+-- * 'aStreet2' - The second line in a street address that a Snowball is to be delivered to.
 --
--- * 'aAddressId'
+-- * 'aAddressId' - The unique ID for an address.
 --
--- * 'aCity'
+-- * 'aCity' - The city in an address that a Snowball is to be delivered to.
 --
--- * 'aPhoneNumber'
+-- * 'aPhoneNumber' - The phone number associated with an address that a Snowball is to be delivered to.
 --
--- * 'aCompany'
+-- * 'aCompany' - The name of the company to receive a Snowball at an address.
 --
--- * 'aName'
+-- * 'aName' - The name of a person to receive a Snowball at an address.
 --
--- * 'aPrefectureOrDistrict'
+-- * 'aPrefectureOrDistrict' - The prefecture or district in an address that a Snowball is to be delivered to.
 --
--- * 'aStreet1'
+-- * 'aStreet1' - The first line in a street address that a Snowball is to be delivered to.
 address
     :: Address
 address =
@@ -180,7 +182,9 @@ instance ToJSON Address where
                     _aPrefectureOrDistrict,
                   ("Street1" .=) <$> _aStreet1])
 
--- | Defines the real-time status of a Snowball\'s data transfer while the appliance is at AWS. Note that this data is only available while a job has a 'JobState' value of 'InProgress', for both import and export jobs.
+-- | Defines the real-time status of a Snowball's data transfer while the appliance is at AWS. Note that this data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+--
+--
 --
 -- /See:/ 'dataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
@@ -194,13 +198,13 @@ data DataTransfer = DataTransfer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTotalObjects'
+-- * 'dtTotalObjects' - The total number of objects for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 --
--- * 'dtTotalBytes'
+-- * 'dtTotalBytes' - The total bytes of data for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 --
--- * 'dtObjectsTransferred'
+-- * 'dtObjectsTransferred' - The number of objects transferred between a Snowball and Amazon S3.
 --
--- * 'dtBytesTransferred'
+-- * 'dtBytesTransferred' - The number of bytes transferred between a Snowball and Amazon S3.
 dataTransfer
     :: DataTransfer
 dataTransfer =
@@ -240,7 +244,9 @@ instance Hashable DataTransfer
 
 instance NFData DataTransfer
 
--- | Each 'JobListEntry' object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of an export job.
+-- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of an export job.
+--
+--
 --
 -- /See:/ 'jobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
@@ -253,11 +259,11 @@ data JobListEntry = JobListEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jleJobId'
+-- * 'jleJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
--- * 'jleJobState'
+-- * 'jleJobState' - The current state of this job.
 --
--- * 'jleIsMaster'
+-- * 'jleIsMaster' - A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
 jobListEntry
     :: JobListEntry
 jobListEntry =
@@ -267,7 +273,7 @@ jobListEntry =
     , _jleIsMaster = Nothing
     }
 
--- | The automatically generated ID for a job, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 jleJobId :: Lens' JobListEntry (Maybe Text)
 jleJobId = lens _jleJobId (\ s a -> s{_jleJobId = a});
 
@@ -275,7 +281,7 @@ jleJobId = lens _jleJobId (\ s a -> s{_jleJobId = a});
 jleJobState :: Lens' JobListEntry (Maybe JobState)
 jleJobState = lens _jleJobState (\ s a -> s{_jleJobState = a});
 
--- | A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren\'t associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
+-- | A value that indicates that this job is a master job. A master job represents a successful request to create an export job. Master jobs aren't associated with any Snowballs. Instead, each master job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular master job are listed, because they are created after the master job is created.
 jleIsMaster :: Lens' JobListEntry (Maybe Bool)
 jleIsMaster = lens _jleIsMaster (\ s a -> s{_jleIsMaster = a});
 
@@ -291,13 +297,15 @@ instance Hashable JobListEntry
 
 instance NFData JobListEntry
 
--- | Contains job logs. Whenever Snowball is used to import data into or export data out of Amazon S3, you\'ll have the option of downloading a PDF job report. Job logs are returned as a part of the response syntax of the 'DescribeJob' action in the 'JobMetadata' data type. The job logs can be accessed for up to 60 minutes after this request has been made. To access any of the job logs after 60 minutes have passed, you\'ll have to make another call to the 'DescribeJob' action.
+-- | Contains job logs. Whenever Snowball is used to import data into or export data out of Amazon S3, you'll have the option of downloading a PDF job report. Job logs are returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type. The job logs can be accessed for up to 60 minutes after this request has been made. To access any of the job logs after 60 minutes have passed, you'll have to make another call to the @DescribeJob@ action.
+--
 --
 -- For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snowball for your job part is being delivered to you.
 --
 -- The job report provides you insight into the state of your Amazon S3 data transfer. The report includes details about your job or job part for your records.
 --
 -- For deeper visibility into the status of your transferred objects, you can look at the two associated logs: a success log and a failure log. The logs are saved in comma-separated value (CSV) format, and the name of each log includes the ID of the job or job part that the log describes.
+--
 --
 -- /See:/ 'jobLogs' smart constructor.
 data JobLogs = JobLogs'
@@ -310,11 +318,11 @@ data JobLogs = JobLogs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jlJobFailureLogURI'
+-- * 'jlJobFailureLogURI' - A link to an Amazon S3 presigned URL where the job failure log is located.
 --
--- * 'jlJobCompletionReportURI'
+-- * 'jlJobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is located.
 --
--- * 'jlJobSuccessLogURI'
+-- * 'jlJobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is located.
 jobLogs
     :: JobLogs
 jobLogs =
@@ -349,7 +357,9 @@ instance Hashable JobLogs
 
 instance NFData JobLogs
 
--- | Contains information about a specific job including shipping information, job status, and other important metadata. This information is returned as a part of the response syntax of the 'DescribeJob' action.
+-- | Contains information about a specific job including shipping information, job status, and other important metadata. This information is returned as a part of the response syntax of the @DescribeJob@ action.
+--
+--
 --
 -- /See:/ 'jobMetadata' smart constructor.
 data JobMetadata = JobMetadata'
@@ -373,33 +383,33 @@ data JobMetadata = JobMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jmJobType'
+-- * 'jmJobType' - The type of job.
 --
--- * 'jmKMSKeyARN'
+-- * 'jmKMSKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the @CreateKey@ API action in AWS KMS.
 --
--- * 'jmJobId'
+-- * 'jmJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
--- * 'jmJobLogInfo'
+-- * 'jmJobLogInfo' - Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snowball for your job part is being delivered to you.
 --
--- * 'jmNotification'
+-- * 'jmNotification' - The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 --
--- * 'jmJobState'
+-- * 'jmJobState' - The current state of the jobs.
 --
--- * 'jmShippingDetails'
+-- * 'jmShippingDetails' - A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 --
--- * 'jmAddressId'
+-- * 'jmAddressId' - The ID for the address that you want the Snowball shipped to.
 --
--- * 'jmDataTransferProgress'
+-- * 'jmDataTransferProgress' - A value that defines the real-time status of a Snowball's data transfer while the appliance is at AWS. Note that this data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 --
--- * 'jmResources'
+-- * 'jmResources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
 --
--- * 'jmCreationDate'
+-- * 'jmCreationDate' - The creation date for this job.
 --
--- * 'jmDescription'
+-- * 'jmDescription' - The description of the job, provided at job creation.
 --
--- * 'jmRoleARN'
+-- * 'jmRoleARN' - The role ARN associated with this job. This ARN was created using the @CreateRole@ API action in AWS Identity and Access Management (IAM).
 --
--- * 'jmSnowballCapacityPreference'
+-- * 'jmSnowballCapacityPreference' - The Snowball capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
 jobMetadata
     :: JobMetadata
 jobMetadata =
@@ -424,11 +434,11 @@ jobMetadata =
 jmJobType :: Lens' JobMetadata (Maybe JobType)
 jmJobType = lens _jmJobType (\ s a -> s{_jmJobType = a});
 
--- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the 'CreateKey' API action in AWS KMS.
+-- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the @CreateKey@ API action in AWS KMS.
 jmKMSKeyARN :: Lens' JobMetadata (Maybe Text)
 jmKMSKeyARN = lens _jmKMSKeyARN (\ s a -> s{_jmKMSKeyARN = a});
 
--- | The automatically generated ID for a job, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 jmJobId :: Lens' JobMetadata (Maybe Text)
 jmJobId = lens _jmJobId (\ s a -> s{_jmJobId = a});
 
@@ -436,7 +446,7 @@ jmJobId = lens _jmJobId (\ s a -> s{_jmJobId = a});
 jmJobLogInfo :: Lens' JobMetadata (Maybe JobLogs)
 jmJobLogInfo = lens _jmJobLogInfo (\ s a -> s{_jmJobLogInfo = a});
 
--- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The 'Notification' object is returned as a part of the response syntax of the 'DescribeJob' action in the 'JobMetadata' data type.
+-- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 jmNotification :: Lens' JobMetadata (Maybe Notification)
 jmNotification = lens _jmNotification (\ s a -> s{_jmNotification = a});
 
@@ -444,7 +454,7 @@ jmNotification = lens _jmNotification (\ s a -> s{_jmNotification = a});
 jmJobState :: Lens' JobMetadata (Maybe JobState)
 jmJobState = lens _jmJobState (\ s a -> s{_jmJobState = a});
 
--- | A job\'s shipping information, including inbound and outbound tracking numbers and shipping speed options.
+-- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 jmShippingDetails :: Lens' JobMetadata (Maybe ShippingDetails)
 jmShippingDetails = lens _jmShippingDetails (\ s a -> s{_jmShippingDetails = a});
 
@@ -452,11 +462,11 @@ jmShippingDetails = lens _jmShippingDetails (\ s a -> s{_jmShippingDetails = a})
 jmAddressId :: Lens' JobMetadata (Maybe Text)
 jmAddressId = lens _jmAddressId (\ s a -> s{_jmAddressId = a});
 
--- | A value that defines the real-time status of a Snowball\'s data transfer while the appliance is at AWS. Note that this data is only available while a job has a 'JobState' value of 'InProgress', for both import and export jobs.
+-- | A value that defines the real-time status of a Snowball's data transfer while the appliance is at AWS. Note that this data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 jmDataTransferProgress :: Lens' JobMetadata (Maybe DataTransfer)
 jmDataTransferProgress = lens _jmDataTransferProgress (\ s a -> s{_jmDataTransferProgress = a});
 
--- | An array of 'S3Resource' objects. Each 'S3Resource' object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+-- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
 jmResources :: Lens' JobMetadata (Maybe JobResource)
 jmResources = lens _jmResources (\ s a -> s{_jmResources = a});
 
@@ -468,7 +478,7 @@ jmCreationDate = lens _jmCreationDate (\ s a -> s{_jmCreationDate = a}) . mappin
 jmDescription :: Lens' JobMetadata (Maybe Text)
 jmDescription = lens _jmDescription (\ s a -> s{_jmDescription = a});
 
--- | The role ARN associated with this job. This ARN was created using the 'CreateRole' API action in AWS Identity and Access Management (IAM).
+-- | The role ARN associated with this job. This ARN was created using the @CreateRole@ API action in AWS Identity and Access Management (IAM).
 jmRoleARN :: Lens' JobMetadata (Maybe Text)
 jmRoleARN = lens _jmRoleARN (\ s a -> s{_jmRoleARN = a});
 
@@ -499,7 +509,9 @@ instance Hashable JobMetadata
 
 instance NFData JobMetadata
 
--- | Contains an array of 'S3Resource' objects. Each 'S3Resource' object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+-- | Contains an array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+--
+--
 --
 -- /See:/ 'jobResource' smart constructor.
 newtype JobResource = JobResource'
@@ -510,7 +522,7 @@ newtype JobResource = JobResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jrS3Resources'
+-- * 'jrS3Resources' - An array of @S3Resource@ objects.
 jobResource
     :: JobResource
 jobResource =
@@ -518,7 +530,7 @@ jobResource =
     { _jrS3Resources = Nothing
     }
 
--- | An array of 'S3Resource' objects.
+-- | An array of @S3Resource@ objects.
 jrS3Resources :: Lens' JobResource [S3Resource]
 jrS3Resources = lens _jrS3Resources (\ s a -> s{_jrS3Resources = a}) . _Default . _Coerce;
 
@@ -537,7 +549,9 @@ instance ToJSON JobResource where
           = object
               (catMaybes [("S3Resources" .=) <$> _jrS3Resources])
 
--- | Contains a key range. For export jobs, a 'S3Resource' object can have an optional 'KeyRange' value. The length of the range is defined at job creation, and has either an inclusive 'BeginMarker', an inclusive 'EndMarker', or both. Ranges are UTF-8 binary sorted.
+-- | Contains a key range. For export jobs, a @S3Resource@ object can have an optional @KeyRange@ value. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
+--
+--
 --
 -- /See:/ 'keyRange' smart constructor.
 data KeyRange = KeyRange'
@@ -549,9 +563,9 @@ data KeyRange = KeyRange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'krEndMarker'
+-- * 'krEndMarker' - The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 --
--- * 'krBeginMarker'
+-- * 'krBeginMarker' - The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 keyRange
     :: KeyRange
 keyRange =
@@ -586,9 +600,11 @@ instance ToJSON KeyRange where
                  [("EndMarker" .=) <$> _krEndMarker,
                   ("BeginMarker" .=) <$> _krBeginMarker])
 
--- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The 'Notification' object is returned as a part of the response syntax of the 'DescribeJob' action in the 'JobMetadata' data type.
+-- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 --
--- When the notification settings are defined during job creation, you can choose to notify based on a specific set of job states using the 'JobStatesToNotify' array of strings, or you can specify that you want to have Amazon SNS notifications sent out for all job states with 'NotifyAll' set to true.
+--
+-- When the notification settings are defined during job creation, you can choose to notify based on a specific set of job states using the @JobStatesToNotify@ array of strings, or you can specify that you want to have Amazon SNS notifications sent out for all job states with @NotifyAll@ set to true.
+--
 --
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
@@ -601,11 +617,11 @@ data Notification = Notification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nNotifyAll'
+-- * 'nNotifyAll' - Any change in job state will trigger a notification for this job.
 --
--- * 'nSNSTopicARN'
+-- * 'nSNSTopicARN' - The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action. Note that you can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
 --
--- * 'nJobStatesToNotify'
+-- * 'nJobStatesToNotify' - The list of job states that will trigger a notification for this job.
 notification
     :: Notification
 notification =
@@ -619,9 +635,7 @@ notification =
 nNotifyAll :: Lens' Notification (Maybe Bool)
 nNotifyAll = lens _nNotifyAll (\ s a -> s{_nNotifyAll = a});
 
--- | The new SNS 'TopicArn' that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
---
--- Note that you can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
+-- | The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action. Note that you can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
 nSNSTopicARN :: Lens' Notification (Maybe Text)
 nSNSTopicARN = lens _nSNSTopicARN (\ s a -> s{_nSNSTopicARN = a});
 
@@ -649,7 +663,9 @@ instance ToJSON Notification where
                   ("SnsTopicARN" .=) <$> _nSNSTopicARN,
                   ("JobStatesToNotify" .=) <$> _nJobStatesToNotify])
 
--- | Each 'S3Resource' object represents an Amazon S3 bucket that your transferred data will be exported from or imported into. For export jobs, this object can have an optional 'KeyRange' value. The length of the range is defined at job creation, and has either an inclusive 'BeginMarker', an inclusive 'EndMarker', or both. Ranges are UTF-8 binary sorted.
+-- | Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into. For export jobs, this object can have an optional @KeyRange@ value. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
+--
+--
 --
 -- /See:/ 's3Resource' smart constructor.
 data S3Resource = S3Resource'
@@ -661,9 +677,9 @@ data S3Resource = S3Resource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srKeyRange'
+-- * 'srKeyRange' - For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 --
--- * 'srBucketARN'
+-- * 'srBucketARN' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 s3Resource
     :: S3Resource
 s3Resource =
@@ -672,7 +688,7 @@ s3Resource =
     , _srBucketARN = Nothing
     }
 
--- | For export jobs, you can provide an optional 'KeyRange' within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive 'BeginMarker', an inclusive 'EndMarker', or both. Ranges are UTF-8 binary sorted.
+-- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 srKeyRange :: Lens' S3Resource (Maybe KeyRange)
 srKeyRange = lens _srKeyRange (\ s a -> s{_srKeyRange = a});
 
@@ -698,7 +714,9 @@ instance ToJSON S3Resource where
                  [("KeyRange" .=) <$> _srKeyRange,
                   ("BucketArn" .=) <$> _srBucketARN])
 
--- | The 'Status' and 'TrackingNumber' information for an inbound or outbound shipment.
+-- | The @Status@ and @TrackingNumber@ information for an inbound or outbound shipment.
+--
+--
 --
 -- /See:/ 'shipment' smart constructor.
 data Shipment = Shipment'
@@ -710,9 +728,9 @@ data Shipment = Shipment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus'
+-- * 'sStatus' - Status information for a shipment. Valid statuses include @NEW@ , @IN_TRANSIT@ , and @DELIVERED@ .
 --
--- * 'sTrackingNumber'
+-- * 'sTrackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 shipment
     :: Shipment
 shipment =
@@ -721,13 +739,11 @@ shipment =
     , _sTrackingNumber = Nothing
     }
 
--- | Status information for a shipment. Valid statuses include 'NEW', 'IN_TRANSIT', and 'DELIVERED'.
+-- | Status information for a shipment. Valid statuses include @NEW@ , @IN_TRANSIT@ , and @DELIVERED@ .
 sStatus :: Lens' Shipment (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
--- | The tracking number for this job. Using this tracking number with your region\'s carrier\'s website, you can track a Snowball as the carrier transports it.
---
--- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
+-- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 sTrackingNumber :: Lens' Shipment (Maybe Text)
 sTrackingNumber = lens _sTrackingNumber (\ s a -> s{_sTrackingNumber = a});
 
@@ -742,7 +758,9 @@ instance Hashable Shipment
 
 instance NFData Shipment
 
--- | A job\'s shipping information, including inbound and outbound tracking numbers and shipping speed options.
+-- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
+--
+--
 --
 -- /See:/ 'shippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
@@ -755,11 +773,11 @@ data ShippingDetails = ShippingDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdShippingOption'
+-- * 'sdShippingOption' - The shipping speed for a particular job. Note that this speed does not dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
 --
--- * 'sdOutboundShipment'
+-- * 'sdOutboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
 --
--- * 'sdInboundShipment'
+-- * 'sdInboundShipment' - The @Status@ and @TrackingNumber@ values for a Snowball being delivered to the address that you specified for a particular job.
 shippingDetails
     :: ShippingDetails
 shippingDetails =
@@ -769,24 +787,15 @@ shippingDetails =
     , _sdInboundShipment = Nothing
     }
 
--- | The shipping speed for a particular job. Note that this speed does not dictate how soon you\'ll get the Snowball from the job\'s creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
---
--- -   In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.
---
--- -   In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
---
--- -   In India, Snowballs are delivered in one to seven days.
---
--- -   In the United States of America (US), you have access to one-day shipping and two-day shipping.
---
+-- | The shipping speed for a particular job. Note that this speed does not dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
 sdShippingOption :: Lens' ShippingDetails (Maybe ShippingOption)
 sdShippingOption = lens _sdShippingOption (\ s a -> s{_sdShippingOption = a});
 
--- | The 'Status' and 'TrackingNumber' values for a Snowball being returned to AWS for a particular job.
+-- | The @Status@ and @TrackingNumber@ values for a Snowball being returned to AWS for a particular job.
 sdOutboundShipment :: Lens' ShippingDetails (Maybe Shipment)
 sdOutboundShipment = lens _sdOutboundShipment (\ s a -> s{_sdOutboundShipment = a});
 
--- | The 'Status' and 'TrackingNumber' values for a Snowball being delivered to the address that you specified for a particular job.
+-- | The @Status@ and @TrackingNumber@ values for a Snowball being delivered to the address that you specified for a particular job.
 sdInboundShipment :: Lens' ShippingDetails (Maybe Shipment)
 sdInboundShipment = lens _sdInboundShipment (\ s a -> s{_sdInboundShipment = a});
 

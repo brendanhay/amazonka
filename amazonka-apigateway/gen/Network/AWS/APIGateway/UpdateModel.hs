@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a model.
+--
+--
 module Network.AWS.APIGateway.UpdateModel
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing model in an existing < RestApi> resource.
+-- | Request to update an existing model in an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'updateModel' smart constructor.
 data UpdateModel = UpdateModel'
@@ -60,11 +64,11 @@ data UpdateModel = UpdateModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uPatchOperations'
+-- * 'uPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uRestAPIId'
+-- * 'uRestAPIId' - The 'RestApi' identifier under which the model exists.
 --
--- * 'uModelName'
+-- * 'uModelName' - The name of the model to update.
 updateModel
     :: Text -- ^ 'uRestAPIId'
     -> Text -- ^ 'uModelName'
@@ -80,7 +84,7 @@ updateModel pRestAPIId_ pModelName_ =
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
 uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier under which the model exists.
+-- | The 'RestApi' identifier under which the model exists.
 uRestAPIId :: Lens' UpdateModel Text
 uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
 

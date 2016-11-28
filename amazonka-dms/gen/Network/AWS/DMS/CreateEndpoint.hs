@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an endpoint using the provided settings.
+--
+--
 module Network.AWS.DMS.CreateEndpoint
     (
     -- * Creating a Request
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
     { _ceCertificateARN            :: !(Maybe Text)
@@ -77,31 +81,31 @@ data CreateEndpoint = CreateEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceCertificateARN'
+-- * 'ceCertificateARN' - The Amazon Resource Number (ARN) for the certificate.
 --
--- * 'ceExtraConnectionAttributes'
+-- * 'ceExtraConnectionAttributes' - Additional attributes associated with the connection.
 --
--- * 'ceKMSKeyId'
+-- * 'ceKMSKeyId' - The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
--- * 'ceSSLMode'
+-- * 'ceSSLMode' - The SSL mode to use for the SSL connection. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
--- * 'ceDatabaseName'
+-- * 'ceDatabaseName' - The name of the endpoint database.
 --
--- * 'ceTags'
+-- * 'ceTags' - Tags to be added to the endpoint.
 --
--- * 'ceEndpointIdentifier'
+-- * 'ceEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 --
--- * 'ceEndpointType'
+-- * 'ceEndpointType' - The type of endpoint.
 --
--- * 'ceEngineName'
+-- * 'ceEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
 --
--- * 'ceUsername'
+-- * 'ceUsername' - The user name to be used to login to the endpoint database.
 --
--- * 'cePassword'
+-- * 'cePassword' - The password to be used to login to the endpoint database.
 --
--- * 'ceServerName'
+-- * 'ceServerName' - The name of the server where the endpoint database resides.
 --
--- * 'cePort'
+-- * 'cePort' - The port used by the endpoint database.
 createEndpoint
     :: Text -- ^ 'ceEndpointIdentifier'
     -> ReplicationEndpointTypeValue -- ^ 'ceEndpointType'
@@ -140,11 +144,7 @@ ceExtraConnectionAttributes = lens _ceExtraConnectionAttributes (\ s a -> s{_ceE
 ceKMSKeyId :: Lens' CreateEndpoint (Maybe Text)
 ceKMSKeyId = lens _ceKMSKeyId (\ s a -> s{_ceKMSKeyId = a});
 
--- | The SSL mode to use for the SSL connection.
---
--- SSL mode can be one of four values: none, require, verify-ca, verify-full.
---
--- The default value is none.
+-- | The SSL mode to use for the SSL connection. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 ceSSLMode :: Lens' CreateEndpoint (Maybe DmsSSLModeValue)
 ceSSLMode = lens _ceSSLMode (\ s a -> s{_ceSSLMode = a});
 
@@ -233,6 +233,8 @@ instance ToQuery CreateEndpoint where
 
 -- |
 --
+--
+--
 -- /See:/ 'createEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
     { _cersEndpoint       :: !(Maybe Endpoint)
@@ -243,9 +245,9 @@ data CreateEndpointResponse = CreateEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cersEndpoint'
+-- * 'cersEndpoint' - The endpoint that was created.
 --
--- * 'cersResponseStatus'
+-- * 'cersResponseStatus' - -- | The response status code.
 createEndpointResponse
     :: Int -- ^ 'cersResponseStatus'
     -> CreateEndpointResponse
@@ -259,7 +261,7 @@ createEndpointResponse pResponseStatus_ =
 cersEndpoint :: Lens' CreateEndpointResponse (Maybe Endpoint)
 cersEndpoint = lens _cersEndpoint (\ s a -> s{_cersEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cersResponseStatus :: Lens' CreateEndpointResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
 

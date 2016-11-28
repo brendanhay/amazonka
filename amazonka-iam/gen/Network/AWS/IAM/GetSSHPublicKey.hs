@@ -20,7 +20,9 @@
 --
 -- Retrieves the specified SSH public key, including metadata about the key.
 --
--- The SSH public key retrieved by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
+--
+-- The SSH public key retrieved by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
+--
 module Network.AWS.IAM.GetSSHPublicKey
     (
     -- * Creating a Request
@@ -57,11 +59,11 @@ data GetSSHPublicKey = GetSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gspkUserName'
+-- * 'gspkUserName' - The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'gspkSSHPublicKeyId'
+-- * 'gspkSSHPublicKeyId' - The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 --
--- * 'gspkEncoding'
+-- * 'gspkEncoding' - Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
 getSSHPublicKey
     :: Text -- ^ 'gspkUserName'
     -> Text -- ^ 'gspkSSHPublicKeyId'
@@ -74,19 +76,15 @@ getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     , _gspkEncoding = pEncoding_
     }
 
--- | The name of the IAM user associated with the SSH public key.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gspkUserName :: Lens' GetSSHPublicKey Text
 gspkUserName = lens _gspkUserName (\ s a -> s{_gspkUserName = a});
 
--- | The unique identifier for the SSH public key.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
 gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
 
--- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use 'SSH'. To retrieve the public key in PEM format, use 'PEM'.
+-- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
 gspkEncoding :: Lens' GetSSHPublicKey EncodingType
 gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 
@@ -118,7 +116,9 @@ instance ToQuery GetSSHPublicKey where
                "SSHPublicKeyId" =: _gspkSSHPublicKeyId,
                "Encoding" =: _gspkEncoding]
 
--- | Contains the response to a successful < GetSSHPublicKey> request.
+-- | Contains the response to a successful 'GetSSHPublicKey' request.
+--
+--
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
@@ -130,9 +130,9 @@ data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gspkrsSSHPublicKey'
+-- * 'gspkrsSSHPublicKey' - A structure containing details about the SSH public key.
 --
--- * 'gspkrsResponseStatus'
+-- * 'gspkrsResponseStatus' - -- | The response status code.
 getSSHPublicKeyResponse
     :: Int -- ^ 'gspkrsResponseStatus'
     -> GetSSHPublicKeyResponse
@@ -146,7 +146,7 @@ getSSHPublicKeyResponse pResponseStatus_ =
 gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
 gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsResponseStatus = lens _gspkrsResponseStatus (\ s a -> s{_gspkrsResponseStatus = a});
 

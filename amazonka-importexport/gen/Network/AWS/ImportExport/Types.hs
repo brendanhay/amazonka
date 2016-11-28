@@ -61,7 +61,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V2
 
--- | API version '2010-06-01' of the Amazon Import/Export SDK configuration.
+-- | API version @2010-06-01@ of the Amazon Import/Export SDK configuration.
 importExport :: Service
 importExport =
     Service
@@ -113,17 +113,17 @@ _InvalidFileSystemException :: AsError a => Getting (First ServiceError) a Servi
 _InvalidFileSystemException =
     _ServiceError . hasCode "InvalidFileSystemException"
 
--- | The AWS Access Key ID specified in the request did not match the manifest\'s accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
+-- | The AWS Access Key ID specified in the request did not match the manifest's accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
 _InvalidAccessKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAccessKeyIdException =
     _ServiceError . hasCode "InvalidAccessKeyIdException"
 
--- | AWS Import\/Export cannot update the job
+-- | AWS Import/Export cannot update the job
 _UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToUpdateJobIdException =
     _ServiceError . hasCode "UnableToUpdateJobIdException"
 
--- | AWS Import\/Export cannot cancel the job
+-- | AWS Import/Export cannot cancel the job
 _UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToCancelJobIdException =
     _ServiceError . hasCode "UnableToCancelJobIdException"
@@ -155,7 +155,7 @@ _BucketPermissionException :: AsError a => Getting (First ServiceError) a Servic
 _BucketPermissionException =
     _ServiceError . hasCode "BucketPermissionException"
 
--- | The specified bucket does not exist. Create the specified bucket or change the manifest\'s bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest\'s Access Key ID, has write permissions to.
+-- | The specified bucket does not exist. Create the specified bucket or change the manifest's bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest's Access Key ID, has write permissions to.
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
@@ -181,7 +181,7 @@ _MissingManifestFieldException :: AsError a => Getting (First ServiceError) a Se
 _MissingManifestFieldException =
     _ServiceError . hasCode "MissingManifestFieldException"
 
--- | Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport\'amazon.com to explain your particular use case.
+-- | Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport@amazon.com to explain your particular use case.
 _CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreateJobQuotaExceededException =
     _ServiceError . hasCode "CreateJobQuotaExceededException"

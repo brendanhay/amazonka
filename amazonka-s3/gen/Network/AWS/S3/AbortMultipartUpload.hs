@@ -20,7 +20,9 @@
 --
 -- Aborts a multipart upload.
 --
--- To verify that all parts have been removed, so you don\'t get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+--
+-- To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
+--
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data AbortMultipartUpload = AbortMultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amuRequestPayer'
+-- * 'amuRequestPayer' - Undocumented member.
 --
--- * 'amuBucket'
+-- * 'amuBucket' - Undocumented member.
 --
--- * 'amuKey'
+-- * 'amuKey' - Undocumented member.
 --
--- * 'amuUploadId'
+-- * 'amuUploadId' - Undocumented member.
 abortMultipartUpload
     :: BucketName -- ^ 'amuBucket'
     -> ObjectKey -- ^ 'amuKey'
@@ -132,9 +134,9 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amursRequestCharged'
+-- * 'amursRequestCharged' - Undocumented member.
 --
--- * 'amursResponseStatus'
+-- * 'amursResponseStatus' - -- | The response status code.
 abortMultipartUploadResponse
     :: Int -- ^ 'amursResponseStatus'
     -> AbortMultipartUploadResponse
@@ -148,7 +150,7 @@ abortMultipartUploadResponse pResponseStatus_ =
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
 
--- | The response status code.
+-- | -- | The response status code.
 amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
 amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});
 

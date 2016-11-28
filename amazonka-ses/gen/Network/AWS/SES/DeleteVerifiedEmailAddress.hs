@@ -20,9 +20,11 @@
 --
 -- Deletes the specified email address from the list of verified addresses.
 --
--- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.
+--
+-- /Important:/ The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.
 --
+--
+--
 -- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
     { _dveaEmailAddress :: Text
@@ -54,7 +58,7 @@ newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dveaEmailAddress'
+-- * 'dveaEmailAddress' - An email address to be removed from the list of verified addresses.
 deleteVerifiedEmailAddress
     :: Text -- ^ 'dveaEmailAddress'
     -> DeleteVerifiedEmailAddress

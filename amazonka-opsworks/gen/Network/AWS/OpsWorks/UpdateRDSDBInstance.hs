@@ -20,7 +20,9 @@
 --
 -- Updates an Amazon RDS instance.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateRDSDBInstance
     (
     -- * Creating a Request
@@ -54,11 +56,11 @@ data UpdateRDSDBInstance = UpdateRDSDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urdiDBUser'
+-- * 'urdiDBUser' - The master user name.
 --
--- * 'urdiDBPassword'
+-- * 'urdiDBPassword' - The database password.
 --
--- * 'urdiRDSDBInstanceARN'
+-- * 'urdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 updateRDSDBInstance
     :: Text -- ^ 'urdiRDSDBInstanceARN'
     -> UpdateRDSDBInstance
@@ -77,7 +79,7 @@ urdiDBUser = lens _urdiDBUser (\ s a -> s{_urdiDBUser = a});
 urdiDBPassword :: Lens' UpdateRDSDBInstance (Maybe Text)
 urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a});
 
--- | The Amazon RDS instance\'s ARN.
+-- | The Amazon RDS instance's ARN.
 urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
 urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
 

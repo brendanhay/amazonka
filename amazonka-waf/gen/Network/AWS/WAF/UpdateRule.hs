@@ -18,24 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes < Predicate> objects in a 'Rule'. Each 'Predicate' object identifies a predicate, such as a < ByteMatchSet> or an < IPSet>, that specifies the web requests that you want to allow, block, or count. If you add more than one predicate to a 'Rule', a request must match all of the specifications to be allowed, blocked, or counted. For example, suppose you add the following to a 'Rule':
+-- Inserts or deletes 'Predicate' objects in a @Rule@ . Each @Predicate@ object identifies a predicate, such as a 'ByteMatchSet' or an 'IPSet' , that specifies the web requests that you want to allow, block, or count. If you add more than one predicate to a @Rule@ , a request must match all of the specifications to be allowed, blocked, or counted. For example, suppose you add the following to a @Rule@ :
 --
--- -   A 'ByteMatchSet' that matches the value 'BadBot' in the 'User-Agent' header
--- -   An 'IPSet' that matches the IP address '192.0.2.44'
 --
--- You then add the 'Rule' to a 'WebACL' and specify that you want to block requests that satisfy the 'Rule'. For a request to be blocked, the 'User-Agent' header in the request must contain the value 'BadBot' /and/ the request must originate from the IP address 192.0.2.44.
+--     * A @ByteMatchSet@ that matches the value @BadBot@ in the @User-Agent@ header    * An @IPSet@ that matches the IP address @192.0.2.44@
 --
--- To create and configure a 'Rule', perform the following steps:
+-- You then add the @Rule@ to a @WebACL@ and specify that you want to block requests that satisfy the @Rule@ . For a request to be blocked, the @User-Agent@ header in the request must contain the value @BadBot@ /and/ the request must originate from the IP address 192.0.2.44.
 --
--- 1.  Create and update the predicates that you want to include in the 'Rule'.
--- 2.  Create the 'Rule'. See < CreateRule>.
--- 3.  Use 'GetChangeToken' to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateRule> request.
--- 4.  Submit an 'UpdateRule' request to add predicates to the 'Rule'.
--- 5.  Create and update a 'WebACL' that contains the 'Rule'. See < CreateWebACL>.
+-- To create and configure a @Rule@ , perform the following steps:
 --
--- If you want to replace one 'ByteMatchSet' or 'IPSet' with another, you delete the existing one and add the new one.
+--     * Create and update the predicates that you want to include in the @Rule@ .    * Create the @Rule@ . See 'CreateRule' .    * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateRule' request.    * Submit an @UpdateRule@ request to add predicates to the @Rule@ .    * Create and update a @WebACL@ that contains the @Rule@ . See 'CreateWebACL' .
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+-- If you want to replace one @ByteMatchSet@ or @IPSet@ with another, you delete the existing one and add the new one.
+--
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+--
 module Network.AWS.WAF.UpdateRule
     (
     -- * Creating a Request
@@ -72,11 +69,11 @@ data UpdateRule = UpdateRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urRuleId'
+-- * 'urRuleId' - The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
 --
--- * 'urChangeToken'
+-- * 'urChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 --
--- * 'urUpdates'
+-- * 'urUpdates' - An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:     * 'RuleUpdate' : Contains @Action@ and @Predicate@     * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@     * 'FieldToMatch' : Contains @Data@ and @Type@
 updateRule
     :: Text -- ^ 'urRuleId'
     -> Text -- ^ 'urChangeToken'
@@ -88,19 +85,15 @@ updateRule pRuleId_ pChangeToken_ =
     , _urUpdates = mempty
     }
 
--- | The 'RuleId' of the 'Rule' that you want to update. 'RuleId' is returned by 'CreateRule' and by < ListRules>.
+-- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
 urRuleId :: Lens' UpdateRule Text
 urRuleId = lens _urRuleId (\ s a -> s{_urRuleId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 urChangeToken :: Lens' UpdateRule Text
 urChangeToken = lens _urChangeToken (\ s a -> s{_urChangeToken = a});
 
--- | An array of 'RuleUpdate' objects that you want to insert into or delete from a < Rule>. For more information, see the applicable data types:
---
--- -   < RuleUpdate>: Contains 'Action' and 'Predicate'
--- -   < Predicate>: Contains 'DataId', 'Negated', and 'Type'
--- -   < FieldToMatch>: Contains 'Data' and 'Type'
+-- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:     * 'RuleUpdate' : Contains @Action@ and @Predicate@     * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@     * 'FieldToMatch' : Contains @Data@ and @Type@
 urUpdates :: Lens' UpdateRule [RuleUpdate]
 urUpdates = lens _urUpdates (\ s a -> s{_urUpdates = a}) . _Coerce;
 
@@ -150,9 +143,9 @@ data UpdateRuleResponse = UpdateRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrsChangeToken'
+-- * 'urrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'urrsResponseStatus'
+-- * 'urrsResponseStatus' - -- | The response status code.
 updateRuleResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRuleResponse
@@ -162,11 +155,11 @@ updateRuleResponse pResponseStatus_ =
     , _urrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'UpdateRule' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urrsChangeToken :: Lens' UpdateRuleResponse (Maybe Text)
 urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRuleResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents an update integration response.
+--
+--
 module Network.AWS.APIGateway.UpdateIntegrationResponse
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents an update integration response request.
 --
+--
+--
 -- /See:/ 'updateIntegrationResponse' smart constructor.
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
     { _uiPatchOperations :: !(Maybe [PatchOperation])
@@ -63,15 +67,15 @@ data UpdateIntegrationResponse = UpdateIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiPatchOperations'
+-- * 'uiPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uiRestAPIId'
+-- * 'uiRestAPIId' - Specifies an update integration response request's API identifier.
 --
--- * 'uiResourceId'
+-- * 'uiResourceId' - Specifies an update integration response request's resource identifier.
 --
--- * 'uiHttpMethod'
+-- * 'uiHttpMethod' - Specifies an update integration response request's HTTP method.
 --
--- * 'uiStatusCode'
+-- * 'uiStatusCode' - Specifies an update integration response request's status code.
 updateIntegrationResponse
     :: Text -- ^ 'uiRestAPIId'
     -> Text -- ^ 'uiResourceId'
@@ -91,19 +95,19 @@ updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
 uiPatchOperations :: Lens' UpdateIntegrationResponse [PatchOperation]
 uiPatchOperations = lens _uiPatchOperations (\ s a -> s{_uiPatchOperations = a}) . _Default . _Coerce;
 
--- | Specifies an update integration response request\'s API identifier.
+-- | Specifies an update integration response request's API identifier.
 uiRestAPIId :: Lens' UpdateIntegrationResponse Text
 uiRestAPIId = lens _uiRestAPIId (\ s a -> s{_uiRestAPIId = a});
 
--- | Specifies an update integration response request\'s resource identifier.
+-- | Specifies an update integration response request's resource identifier.
 uiResourceId :: Lens' UpdateIntegrationResponse Text
 uiResourceId = lens _uiResourceId (\ s a -> s{_uiResourceId = a});
 
--- | Specifies an update integration response request\'s HTTP method.
+-- | Specifies an update integration response request's HTTP method.
 uiHttpMethod :: Lens' UpdateIntegrationResponse Text
 uiHttpMethod = lens _uiHttpMethod (\ s a -> s{_uiHttpMethod = a});
 
--- | Specifies an update integration response request\'s status code.
+-- | Specifies an update integration response request's status code.
 uiStatusCode :: Lens' UpdateIntegrationResponse Text
 uiStatusCode = lens _uiStatusCode (\ s a -> s{_uiStatusCode = a});
 

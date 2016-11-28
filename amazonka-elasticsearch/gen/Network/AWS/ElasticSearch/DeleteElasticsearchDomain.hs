@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.
+--
+--
 module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteElasticsearchDomain' operation. Specifies the name of the Elasticsearch domain that you want to delete.
+-- | Container for the parameters to the @'DeleteElasticsearchDomain' @ operation. Specifies the name of the Elasticsearch domain that you want to delete.
+--
+--
 --
 -- /See:/ 'deleteElasticsearchDomain' smart constructor.
 newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
@@ -53,7 +57,7 @@ newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDomainName'
+-- * 'dDomainName' - The name of the Elasticsearch domain that you want to permanently delete.
 deleteElasticsearchDomain
     :: Text -- ^ 'dDomainName'
     -> DeleteElasticsearchDomain
@@ -91,7 +95,9 @@ instance ToPath DeleteElasticsearchDomain where
 instance ToQuery DeleteElasticsearchDomain where
         toQuery = const mempty
 
--- | The result of a 'DeleteElasticsearchDomain' request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.
+-- | The result of a @DeleteElasticsearchDomain@ request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.
+--
+--
 --
 -- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
@@ -103,9 +109,9 @@ data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsDomainStatus'
+-- * 'delrsDomainStatus' - The status of the Elasticsearch domain being deleted.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteElasticsearchDomainResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteElasticsearchDomainResponse
@@ -119,7 +125,7 @@ deleteElasticsearchDomainResponse pResponseStatus_ =
 delrsDomainStatus :: Lens' DeleteElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
 delrsDomainStatus = lens _delrsDomainStatus (\ s a -> s{_delrsDomainStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the < RestApis> resources for your collection.
+-- Lists the 'RestApis' resources for your collection.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetRestAPIs
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The GET request to list existing < RestApis> defined for your collection.
+-- | The GET request to list existing 'RestApis' defined for your collection.
+--
+--
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
@@ -59,9 +63,9 @@ data GetRestAPIs = GetRestAPIs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'graLimit'
+-- * 'graLimit' - The maximum number of 'RestApi' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'graPosition'
+-- * 'graPosition' - The position of the current 'RestApis' resource in the collection to get information about.
 getRestAPIs
     :: GetRestAPIs
 getRestAPIs =
@@ -70,11 +74,11 @@ getRestAPIs =
     , _graPosition = Nothing
     }
 
--- | The maximum number of < RestApi> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of 'RestApi' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 graLimit :: Lens' GetRestAPIs (Maybe Int)
 graLimit = lens _graLimit (\ s a -> s{_graLimit = a});
 
--- | The position of the current < RestApis> resource in the collection to get information about.
+-- | The position of the current 'RestApis' resource in the collection to get information about.
 graPosition :: Lens' GetRestAPIs (Maybe Text)
 graPosition = lens _graPosition (\ s a -> s{_graPosition = a});
 
@@ -115,6 +119,7 @@ instance ToQuery GetRestAPIs where
 
 -- | Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.
 --
+--
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
@@ -128,11 +133,11 @@ data GetRestAPIsResponse = GetRestAPIsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grarsItems'
+-- * 'grarsItems' - An array of links to the current page of 'RestApi' resources.
 --
--- * 'grarsPosition'
+-- * 'grarsPosition' - Undocumented member.
 --
--- * 'grarsResponseStatus'
+-- * 'grarsResponseStatus' - -- | The response status code.
 getRestAPIsResponse
     :: Int -- ^ 'grarsResponseStatus'
     -> GetRestAPIsResponse
@@ -143,7 +148,7 @@ getRestAPIsResponse pResponseStatus_ =
     , _grarsResponseStatus = pResponseStatus_
     }
 
--- | An array of links to the current page of < RestApi> resources.
+-- | An array of links to the current page of 'RestApi' resources.
 grarsItems :: Lens' GetRestAPIsResponse [RestAPI]
 grarsItems = lens _grarsItems (\ s a -> s{_grarsItems = a}) . _Default . _Coerce;
 
@@ -151,7 +156,7 @@ grarsItems = lens _grarsItems (\ s a -> s{_grarsItems = a}) . _Default . _Coerce
 grarsPosition :: Lens' GetRestAPIsResponse (Maybe Text)
 grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grarsResponseStatus :: Lens' GetRestAPIsResponse Int
 grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a});
 

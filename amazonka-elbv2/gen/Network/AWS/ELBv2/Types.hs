@@ -226,7 +226,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-12-01' of the Amazon Elastic Load Balancing SDK configuration.
+-- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
 eLBv2 :: Service
 eLBv2 =
     Service
@@ -261,153 +261,215 @@ eLBv2 =
       | otherwise = Nothing
 
 -- | The requested configuration is not valid.
+--
+--
 _InvalidConfigurationRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidConfigurationRequest"
 
 -- | The specified subnet does not exist.
+--
+--
 _SubnetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
 
--- | You\'ve reached the limit on the number of targets.
+-- | You've reached the limit on the number of targets.
+--
+--
 _TooManyTargetsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTargetsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyTargets"
 
 -- | The specified rule does not exist.
+--
+--
 _RuleNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _RuleNotFoundException = _ServiceError . hasStatus 400 . hasCode "RuleNotFound"
 
 -- | The specified subnet is out of available addresses.
+--
+--
 _InvalidSubnetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnetException =
     _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
--- | You\'ve reached the limit on the number of rules per load balancer.
+-- | You've reached the limit on the number of rules per load balancer.
+--
+--
 _TooManyRulesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRulesException = _ServiceError . hasStatus 400 . hasCode "TooManyRules"
 
--- | You\'ve reached the limit on the number of target groups for your AWS account.
+-- | You've reached the limit on the number of target groups for your AWS account.
+--
+--
 _TooManyTargetGroupsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTargetGroupsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyTargetGroups"
 
 -- | A load balancer with the specified name already exists for this account.
+--
+--
 _DuplicateLoadBalancerNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateLoadBalancerNameException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateLoadBalancerName"
 
 -- | The specified configuration is not valid with this protocol.
+--
+--
 _IncompatibleProtocolsException :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleProtocolsException =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleProtocols"
 
--- | You\'ve reached the limit on the number of certificates per listener.
+-- | You've reached the limit on the number of certificates per listener.
+--
+--
 _TooManyCertificatesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCertificatesException =
     _ServiceError . hasStatus 400 . hasCode "TooManyCertificates"
 
 -- | A tag key was specified more than once.
+--
+--
 _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTagKeysException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
 
 -- | A listener with the specified port already exists.
+--
+--
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
 
--- | You\'ve reached the limit on the number of tags per load balancer.
+-- | You've reached the limit on the number of tags per load balancer.
+--
+--
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
 
 -- | A target group with the specified name already exists.
+--
+--
 _DuplicateTargetGroupNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTargetGroupNameException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateTargetGroupName"
 
 -- | The health of the specified targets could not be retrieved due to an internal error.
+--
+--
 _HealthUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthUnavailableException =
     _ServiceError . hasStatus 500 . hasCode "HealthUnavailable"
 
 -- | The specified priority is in use.
+--
+--
 _PriorityInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PriorityInUseException =
     _ServiceError . hasStatus 400 . hasCode "PriorityInUse"
 
--- | You\'ve reached the limit on the number of load balancers for your AWS account.
+-- | You've reached the limit on the number of load balancers for your AWS account.
+--
+--
 _TooManyLoadBalancersException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyLoadBalancersException =
     _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
 
 -- | The specified protocol is not supported.
+--
+--
 _UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedProtocolException =
     _ServiceError . hasStatus 400 . hasCode "UnsupportedProtocol"
 
 -- | The specified target does not exist or is not in the same VPC as the target group.
+--
+--
 _InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTargetException =
     _ServiceError . hasStatus 400 . hasCode "InvalidTarget"
 
 -- | The specified security group does not exist.
+--
+--
 _InvalidSecurityGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSecurityGroupException =
     _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup"
 
 -- | The specified target group does not exist.
+--
+--
 _TargetGroupNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _TargetGroupNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "TargetGroupNotFound"
 
 -- | The specified listener does not exist.
+--
+--
 _ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ListenerNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "ListenerNotFound"
 
--- | You\'ve reached the limit on the number of times a target can be registered with a load balancer.
+-- | You've reached the limit on the number of times a target can be registered with a load balancer.
+--
+--
 _TooManyRegistrationsForTargetIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRegistrationsForTargetIdException =
     _ServiceError . hasStatus 400 . hasCode "TooManyRegistrationsForTargetId"
 
--- | You\'ve reached the limit on the number of listeners per load balancer.
+-- | You've reached the limit on the number of listeners per load balancer.
+--
+--
 _TooManyListenersException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyListenersException =
     _ServiceError . hasStatus 400 . hasCode "TooManyListeners"
 
--- | You\'ve reached the limit on the number of load balancers per target group.
+-- | You've reached the limit on the number of load balancers per target group.
+--
+--
 _TargetGroupAssociationLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 _TargetGroupAssociationLimitException =
     _ServiceError . hasStatus 400 . hasCode "TargetGroupAssociationLimit"
 
 -- | This operation is not allowed.
+--
+--
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
     _ServiceError . hasStatus 400 . hasCode "OperationNotPermitted"
 
 -- | The specified SSL policy does not exist.
+--
+--
 _SSLPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _SSLPolicyNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "SSLPolicyNotFound"
 
 -- | The requested scheme is not valid.
+--
+--
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
     _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
 
 -- | The specified load balancer does not exist.
+--
+--
 _LoadBalancerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _LoadBalancerNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "LoadBalancerNotFound"
 
 -- | A specified resource is in use.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException =
     _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
 -- | The specified certificate does not exist.
+--
+--
 _CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"

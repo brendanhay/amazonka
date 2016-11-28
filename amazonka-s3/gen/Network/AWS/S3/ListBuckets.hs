@@ -88,11 +88,11 @@ data ListBucketsResponse = ListBucketsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbrsBuckets'
+-- * 'lbrsBuckets' - Undocumented member.
 --
--- * 'lbrsOwner'
+-- * 'lbrsOwner' - Undocumented member.
 --
--- * 'lbrsResponseStatus'
+-- * 'lbrsResponseStatus' - -- | The response status code.
 listBucketsResponse
     :: Int -- ^ 'lbrsResponseStatus'
     -> ListBucketsResponse
@@ -111,7 +111,7 @@ lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coe
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBucketsResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
 

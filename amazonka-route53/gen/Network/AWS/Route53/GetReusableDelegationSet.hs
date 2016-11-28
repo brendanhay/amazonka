@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the reusable delegation set. Send a 'GET' request to the '\/2013-04-01\/delegationset\/delegation set ID ' resource.
+-- Retrieves the reusable delegation set. Send a @GET@ request to the @/2013-04-01/delegationset//delegation set ID/ @ resource.
+--
+--
 module Network.AWS.Route53.GetReusableDelegationSet
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a 'GetReusableDelegationSet' request.
+-- | The input for a @GetReusableDelegationSet@ request.
+--
+--
 --
 -- /See:/ 'getReusableDelegationSet' smart constructor.
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
@@ -53,7 +57,7 @@ newtype GetReusableDelegationSet = GetReusableDelegationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grdsId'
+-- * 'grdsId' - The ID of the reusable delegation set for which you want to get a list of the name server.
 getReusableDelegationSet
     :: Text -- ^ 'grdsId'
     -> GetReusableDelegationSet
@@ -91,7 +95,9 @@ instance ToPath GetReusableDelegationSet where
 instance ToQuery GetReusableDelegationSet where
         toQuery = const mempty
 
--- | A complex type that contains the response to the 'GetReusableDelegationSet' request.
+-- | A complex type that contains the response to the @GetReusableDelegationSet@ request.
+--
+--
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
@@ -103,9 +109,9 @@ data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grdsrsResponseStatus'
+-- * 'grdsrsResponseStatus' - -- | The response status code.
 --
--- * 'grdsrsDelegationSet'
+-- * 'grdsrsDelegationSet' - A complex type that contains information about the reusable delegation set.
 getReusableDelegationSetResponse
     :: Int -- ^ 'grdsrsResponseStatus'
     -> DelegationSet -- ^ 'grdsrsDelegationSet'
@@ -116,7 +122,7 @@ getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
     , _grdsrsDelegationSet = pDelegationSet_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
 grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseStatus = a});
 

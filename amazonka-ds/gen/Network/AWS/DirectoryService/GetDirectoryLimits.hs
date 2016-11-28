@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains directory limit information for the current region.
+--
+--
 module Network.AWS.DirectoryService.GetDirectoryLimits
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < GetDirectoryLimits> operation.
+-- | Contains the inputs for the 'GetDirectoryLimits' operation.
+--
+--
 --
 -- /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits =
@@ -86,7 +90,9 @@ instance ToPath GetDirectoryLimits where
 instance ToQuery GetDirectoryLimits where
         toQuery = const mempty
 
--- | Contains the results of the < GetDirectoryLimits> operation.
+-- | Contains the results of the 'GetDirectoryLimits' operation.
+--
+--
 --
 -- /See:/ 'getDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
@@ -98,9 +104,9 @@ data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdlrsDirectoryLimits'
+-- * 'gdlrsDirectoryLimits' - A 'DirectoryLimits' object that contains the directory limits for the current region.
 --
--- * 'gdlrsResponseStatus'
+-- * 'gdlrsResponseStatus' - -- | The response status code.
 getDirectoryLimitsResponse
     :: Int -- ^ 'gdlrsResponseStatus'
     -> GetDirectoryLimitsResponse
@@ -110,11 +116,11 @@ getDirectoryLimitsResponse pResponseStatus_ =
     , _gdlrsResponseStatus = pResponseStatus_
     }
 
--- | A < DirectoryLimits> object that contains the directory limits for the current region.
+-- | A 'DirectoryLimits' object that contains the directory limits for the current region.
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
 gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a});
 

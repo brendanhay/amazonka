@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment configuration.
+--
+--
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get deployment configuration operation.
 --
+--
+--
 -- /See:/ 'getDeploymentConfig' smart constructor.
 newtype GetDeploymentConfig = GetDeploymentConfig'
     { _gdcDeploymentConfigName :: Text
@@ -53,7 +57,7 @@ newtype GetDeploymentConfig = GetDeploymentConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcDeploymentConfigName'
+-- * 'gdcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
 getDeploymentConfig
     :: Text -- ^ 'gdcDeploymentConfigName'
     -> GetDeploymentConfig
@@ -107,6 +111,8 @@ instance ToQuery GetDeploymentConfig where
 
 -- | Represents the output of a get deployment configuration operation.
 --
+--
+--
 -- /See:/ 'getDeploymentConfigResponse' smart constructor.
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
@@ -117,9 +123,9 @@ data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcrsDeploymentConfigInfo'
+-- * 'gdcrsDeploymentConfigInfo' - Information about the deployment configuration.
 --
--- * 'gdcrsResponseStatus'
+-- * 'gdcrsResponseStatus' - -- | The response status code.
 getDeploymentConfigResponse
     :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDeploymentConfigResponse
@@ -133,7 +139,7 @@ getDeploymentConfigResponse pResponseStatus_ =
 gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
 

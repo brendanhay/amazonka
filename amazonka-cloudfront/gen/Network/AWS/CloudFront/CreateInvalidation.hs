@@ -56,9 +56,9 @@ data CreateInvalidation = CreateInvalidation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciDistributionId'
+-- * 'ciDistributionId' - The distribution's id.
 --
--- * 'ciInvalidationBatch'
+-- * 'ciInvalidationBatch' - The batch information for the invalidation.
 createInvalidation
     :: Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
@@ -69,7 +69,7 @@ createInvalidation pDistributionId_ pInvalidationBatch_ =
     , _ciInvalidationBatch = pInvalidationBatch_
     }
 
--- | The distribution\'s id.
+-- | The distribution's id.
 ciDistributionId :: Lens' CreateInvalidation Text
 ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a});
 
@@ -124,11 +124,11 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cirsInvalidation'
+-- * 'cirsInvalidation' - The invalidation's information.
 --
--- * 'cirsLocation'
+-- * 'cirsLocation' - The fully qualified URI of the distribution and invalidation batch request, including the Invalidation ID.
 --
--- * 'cirsResponseStatus'
+-- * 'cirsResponseStatus' - -- | The response status code.
 createInvalidationResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateInvalidationResponse
@@ -139,7 +139,7 @@ createInvalidationResponse pResponseStatus_ =
     , _cirsResponseStatus = pResponseStatus_
     }
 
--- | The invalidation\'s information.
+-- | The invalidation's information.
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 
@@ -147,7 +147,7 @@ cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cirsResponseStatus :: Lens' CreateInvalidationResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 

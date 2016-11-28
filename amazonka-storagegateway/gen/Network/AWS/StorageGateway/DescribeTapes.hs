@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a 'TapeARN' is not specified, returns a description of all virtual tapes associated with the specified gateway.
+-- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapes
@@ -51,6 +53,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapesInput
 --
+--
+--
 -- /See:/ 'describeTapes' smart constructor.
 data DescribeTapes = DescribeTapes'
     { _dtMarker     :: !(Maybe Text)
@@ -63,13 +67,13 @@ data DescribeTapes = DescribeTapes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtMarker'
+-- * 'dtMarker' - A marker value, obtained in a previous call to @DescribeTapes@ . This marker indicates which page of results to retrieve.  If not specified, the first page of results is retrieved.
 --
--- * 'dtLimit'
+-- * 'dtLimit' - Specifies that the number of virtual tapes described be limited to the specified number.
 --
--- * 'dtTapeARNs'
+-- * 'dtTapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.
 --
--- * 'dtGatewayARN'
+-- * 'dtGatewayARN' - Undocumented member.
 describeTapes
     :: Text -- ^ 'dtGatewayARN'
     -> DescribeTapes
@@ -81,15 +85,11 @@ describeTapes pGatewayARN_ =
     , _dtGatewayARN = pGatewayARN_
     }
 
--- | A marker value, obtained in a previous call to 'DescribeTapes'. This marker indicates which page of results to retrieve.
---
--- If not specified, the first page of results is retrieved.
+-- | A marker value, obtained in a previous call to @DescribeTapes@ . This marker indicates which page of results to retrieve.  If not specified, the first page of results is retrieved.
 dtMarker :: Lens' DescribeTapes (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
 -- | Specifies that the number of virtual tapes described be limited to the specified number.
---
--- Amazon Web Services may impose its own limit, if this field is not set.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 
@@ -149,6 +149,8 @@ instance ToQuery DescribeTapes where
 
 -- | DescribeTapesOutput
 --
+--
+--
 -- /See:/ 'describeTapesResponse' smart constructor.
 data DescribeTapesResponse = DescribeTapesResponse'
     { _dtsrsMarker         :: !(Maybe Text)
@@ -160,11 +162,11 @@ data DescribeTapesResponse = DescribeTapesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsrsMarker'
+-- * 'dtsrsMarker' - An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results. If a response does not contain a marker, then there are no more results to be retrieved.
 --
--- * 'dtsrsTapes'
+-- * 'dtsrsTapes' - An array of virtual tape descriptions.
 --
--- * 'dtsrsResponseStatus'
+-- * 'dtsrsResponseStatus' - -- | The response status code.
 describeTapesResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> DescribeTapesResponse
@@ -175,9 +177,7 @@ describeTapesResponse pResponseStatus_ =
     , _dtsrsResponseStatus = pResponseStatus_
     }
 
--- | An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results.
---
--- If a response does not contain a marker, then there are no more results to be retrieved.
+-- | An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results. If a response does not contain a marker, then there are no more results to be retrieved.
 dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 
@@ -185,7 +185,7 @@ dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
 dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DescribeTapesResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 

@@ -20,6 +20,8 @@
 --
 -- Lists the commands requested by users of the AWS account.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
     (
@@ -63,15 +65,15 @@ data ListCommands = ListCommands'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcInstanceId'
+-- * 'lcInstanceId' - (Optional) Lists commands issued against this instance ID.
 --
--- * 'lcFilters'
+-- * 'lcFilters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
 --
--- * 'lcNextToken'
+-- * 'lcNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcCommandId'
+-- * 'lcCommandId' - (Optional) If provided, lists only the specified command.
 --
--- * 'lcMaxResults'
+-- * 'lcMaxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 listCommands
     :: ListCommands
 listCommands =
@@ -160,11 +162,11 @@ data ListCommandsResponse = ListCommandsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsCommands'
+-- * 'lcrsCommands' - (Optional) The list of commands requested by the user.
 --
--- * 'lcrsNextToken'
+-- * 'lcrsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listCommandsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCommandsResponse
@@ -183,7 +185,7 @@ lcrsCommands = lens _lcrsCommands (\ s a -> s{_lcrsCommands = a}) . _Default . _
 lcrsNextToken :: Lens' ListCommandsResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCommandsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

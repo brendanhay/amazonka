@@ -20,6 +20,9 @@
 --
 -- Returns information about the schema for the specified endpoint.
 --
+--
+--
+--
 module Network.AWS.DMS.DescribeSchemas
     (
     -- * Creating a Request
@@ -48,6 +51,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
     { _dsMarker      :: !(Maybe Text)
@@ -59,11 +64,11 @@ data DescribeSchemas = DescribeSchemas'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsMarker'
+-- * 'dsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dsMaxRecords'
+-- * 'dsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dsEndpointARN'
+-- * 'dsEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 describeSchemas
     :: Text -- ^ 'dsEndpointARN'
     -> DescribeSchemas
@@ -74,15 +79,11 @@ describeSchemas pEndpointARN_ =
     , _dsEndpointARN = pEndpointARN_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsMarker :: Lens' DescribeSchemas (Maybe Text)
 dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dsMaxRecords :: Lens' DescribeSchemas (Maybe Int)
 dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
 
@@ -129,6 +130,8 @@ instance ToQuery DescribeSchemas where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
     { _dsrsSchemas        :: !(Maybe [Text])
@@ -140,11 +143,11 @@ data DescribeSchemasResponse = DescribeSchemasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSchemas'
+-- * 'dsrsSchemas' - The described schema.
 --
--- * 'dsrsMarker'
+-- * 'dsrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeSchemasResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeSchemasResponse
@@ -159,11 +162,11 @@ describeSchemasResponse pResponseStatus_ =
 dsrsSchemas :: Lens' DescribeSchemasResponse [Text]
 dsrsSchemas = lens _dsrsSchemas (\ s a -> s{_dsrsSchemas = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrsMarker :: Lens' DescribeSchemasResponse (Maybe Text)
 dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSchemasResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

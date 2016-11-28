@@ -20,11 +20,13 @@
 --
 -- Posts updates to records and adds and deletes records for a dataset and user.
 --
+--
 -- The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.
 --
 -- For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.
 --
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
+--
 module Network.AWS.CognitoSync.UpdateRecords
     (
     -- * Creating a Request
@@ -71,19 +73,19 @@ data UpdateRecords = UpdateRecords'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urRecordPatches'
+-- * 'urRecordPatches' - A list of patch operations.
 --
--- * 'urDeviceId'
+-- * 'urDeviceId' - The unique ID generated for this device by Cognito.
 --
--- * 'urClientContext'
+-- * 'urClientContext' - Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
 --
--- * 'urIdentityPoolId'
+-- * 'urIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'urIdentityId'
+-- * 'urIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'urDatasetName'
+-- * 'urDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 --
--- * 'urSyncSessionToken'
+-- * 'urSyncSessionToken' - The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
 updateRecords
     :: Text -- ^ 'urIdentityPoolId'
     -> Text -- ^ 'urIdentityId'
@@ -121,7 +123,7 @@ urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a});
 urIdentityId :: Lens' UpdateRecords Text
 urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 urDatasetName :: Lens' UpdateRecords Text
 urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
 
@@ -179,9 +181,9 @@ data UpdateRecordsResponse = UpdateRecordsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrsRecords'
+-- * 'urrsRecords' - A list of records that have been updated.
 --
--- * 'urrsResponseStatus'
+-- * 'urrsResponseStatus' - -- | The response status code.
 updateRecordsResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRecordsResponse
@@ -195,7 +197,7 @@ updateRecordsResponse pResponseStatus_ =
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
 urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRecordsResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 

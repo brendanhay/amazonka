@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new 'Evaluation' of an 'MLModel'. An 'MLModel' is evaluated on a set of observations associated to a 'DataSource'. Like a 'DataSource' for an 'MLModel', the 'DataSource' for an 'Evaluation' contains values for the 'Target Variable'. The 'Evaluation' compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the 'MLModel' functions on the test data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding 'MLModelType': 'BINARY', 'REGRESSION' or 'MULTICLASS'.
+-- Creates a new @Evaluation@ of an @MLModel@ . An @MLModel@ is evaluated on a set of observations associated to a @DataSource@ . Like a @DataSource@ for an @MLModel@ , the @DataSource@ for an @Evaluation@ contains values for the @Target Variable@ . The @Evaluation@ compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the @MLModel@ functions on the test data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding @MLModelType@ : @BINARY@ , @REGRESSION@ or @MULTICLASS@ .
 --
--- 'CreateEvaluation' is an asynchronous operation. In response to 'CreateEvaluation', Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation status to 'PENDING'. After the 'Evaluation' is created and ready for use, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can use the 'GetEvaluation' operation to check progress of the evaluation during the creation operation.
+-- @CreateEvaluation@ is an asynchronous operation. In response to @CreateEvaluation@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation status to @PENDING@ . After the @Evaluation@ is created and ready for use, Amazon ML sets the status to @COMPLETED@ .
+--
+-- You can use the @GetEvaluation@ operation to check progress of the evaluation during the creation operation.
+--
 module Network.AWS.MachineLearning.CreateEvaluation
     (
     -- * Creating a Request
@@ -61,13 +63,13 @@ data CreateEvaluation = CreateEvaluation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceEvaluationName'
+-- * 'ceEvaluationName' - A user-supplied name or description of the @Evaluation@ .
 --
--- * 'ceEvaluationId'
+-- * 'ceEvaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ .
 --
--- * 'ceMLModelId'
+-- * 'ceMLModelId' - The ID of the @MLModel@ to evaluate. The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
 --
--- * 'ceEvaluationDataSourceId'
+-- * 'ceEvaluationDataSourceId' - The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
 createEvaluation
     :: Text -- ^ 'ceEvaluationId'
     -> Text -- ^ 'ceMLModelId'
@@ -81,21 +83,19 @@ createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
     , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
     }
 
--- | A user-supplied name or description of the 'Evaluation'.
+-- | A user-supplied name or description of the @Evaluation@ .
 ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
 ceEvaluationName = lens _ceEvaluationName (\ s a -> s{_ceEvaluationName = a});
 
--- | A user-supplied ID that uniquely identifies the 'Evaluation'.
+-- | A user-supplied ID that uniquely identifies the @Evaluation@ .
 ceEvaluationId :: Lens' CreateEvaluation Text
 ceEvaluationId = lens _ceEvaluationId (\ s a -> s{_ceEvaluationId = a});
 
--- | The ID of the 'MLModel' to evaluate.
---
--- The schema used in creating the 'MLModel' must match the schema of the 'DataSource' used in the 'Evaluation'.
+-- | The ID of the @MLModel@ to evaluate. The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
 ceMLModelId :: Lens' CreateEvaluation Text
 ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a});
 
--- | The ID of the 'DataSource' for the evaluation. The schema of the 'DataSource' must match the schema used to create the 'MLModel'.
+-- | The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
 ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
 ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
 
@@ -138,9 +138,11 @@ instance ToPath CreateEvaluation where
 instance ToQuery CreateEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a 'CreateEvaluation' operation, and is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a @CreateEvaluation@ operation, and is an acknowledgement that Amazon ML received the request.
 --
--- 'CreateEvaluation' operation is asynchronous. You can poll for status updates by using the 'GetEvcaluation' operation and checking the 'Status' parameter.
+--
+-- @CreateEvaluation@ operation is asynchronous. You can poll for status updates by using the @GetEvcaluation@ operation and checking the @Status@ parameter.
+--
 --
 -- /See:/ 'createEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'
@@ -152,9 +154,9 @@ data CreateEvaluationResponse = CreateEvaluationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cersEvaluationId'
+-- * 'cersEvaluationId' - The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 --
--- * 'cersResponseStatus'
+-- * 'cersResponseStatus' - -- | The response status code.
 createEvaluationResponse
     :: Int -- ^ 'cersResponseStatus'
     -> CreateEvaluationResponse
@@ -164,11 +166,11 @@ createEvaluationResponse pResponseStatus_ =
     , _cersResponseStatus = pResponseStatus_
     }
 
--- | The user-supplied ID that uniquely identifies the 'Evaluation'. This value should be identical to the value of the 'EvaluationId' in the request.
+-- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cersResponseStatus :: Lens' CreateEvaluationResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
 

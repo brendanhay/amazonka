@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the certificate that terminates the specified listener\'s SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
+-- Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
 --
--- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancers Guide/.
+--
+-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.
 --
+--
+--
 -- /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
     { _slblscLoadBalancerName :: !Text
@@ -58,11 +62,11 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slblscLoadBalancerName'
+-- * 'slblscLoadBalancerName' - The name of the load balancer.
 --
--- * 'slblscLoadBalancerPort'
+-- * 'slblscLoadBalancerPort' - The port that uses the specified SSL certificate.
 --
--- * 'slblscSSLCertificateId'
+-- * 'slblscSSLCertificateId' - The Amazon Resource Name (ARN) of the SSL certificate.
 setLoadBalancerListenerSSLCertificate
     :: Text -- ^ 'slblscLoadBalancerName'
     -> Int -- ^ 'slblscLoadBalancerPort'
@@ -126,6 +130,8 @@ instance ToQuery
 
 -- | Contains the output of SetLoadBalancerListenerSSLCertificate.
 --
+--
+--
 -- /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrsResponseStatus :: Int
@@ -135,7 +141,7 @@ newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerS
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slblscrsResponseStatus'
+-- * 'slblscrsResponseStatus' - -- | The response status code.
 setLoadBalancerListenerSSLCertificateResponse
     :: Int -- ^ 'slblscrsResponseStatus'
     -> SetLoadBalancerListenerSSLCertificateResponse
@@ -144,7 +150,7 @@ setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
     { _slblscrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a});
 

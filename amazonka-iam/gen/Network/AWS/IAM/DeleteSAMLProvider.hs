@@ -20,9 +20,9 @@
 --
 -- Deletes a SAML provider resource in IAM.
 --
--- Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource\'s ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+-- Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
+--
 module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype DeleteSAMLProvider = DeleteSAMLProvider'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsamlpSAMLProviderARN'
+-- * 'dsamlpSAMLProviderARN' - The Amazon Resource Name (ARN) of the SAML provider to delete.
 deleteSAMLProvider
     :: Text -- ^ 'dsamlpSAMLProviderARN'
     -> DeleteSAMLProvider

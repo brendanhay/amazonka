@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new < Model> resource to an existing < RestApi> resource.
+-- Adds a new 'Model' resource to an existing 'RestApi' resource.
+--
+--
 module Network.AWS.APIGateway.CreateModel
     (
     -- * Creating a Request
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a new < Model> to an existing < RestApi> resource.
+-- | Request to add a new 'Model' to an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'createModel' smart constructor.
 data CreateModel = CreateModel'
@@ -64,15 +68,15 @@ data CreateModel = CreateModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmSchema'
+-- * 'cmSchema' - The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
 --
--- * 'cmDescription'
+-- * 'cmDescription' - The description of the model.
 --
--- * 'cmRestAPIId'
+-- * 'cmRestAPIId' - The 'RestApi' identifier under which the 'Model' will be created.
 --
--- * 'cmName'
+-- * 'cmName' - The name of the model.
 --
--- * 'cmContentType'
+-- * 'cmContentType' - The content-type for the model.
 createModel
     :: Text -- ^ 'cmRestAPIId'
     -> Text -- ^ 'cmName'
@@ -87,7 +91,7 @@ createModel pRestAPIId_ pName_ pContentType_ =
     , _cmContentType = pContentType_
     }
 
--- | The schema for the model. For 'application\/json' models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- | The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
 cmSchema :: Lens' CreateModel (Maybe Text)
 cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
 
@@ -95,7 +99,7 @@ cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
 cmDescription :: Lens' CreateModel (Maybe Text)
 cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
 
--- | The < RestApi> identifier under which the < Model> will be created.
+-- | The 'RestApi' identifier under which the 'Model' will be created.
 cmRestAPIId :: Lens' CreateModel Text
 cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a});
 

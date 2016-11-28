@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a specified task or tasks.
+--
+--
 module Network.AWS.ECS.DescribeTasks
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeTasks = DescribeTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtCluster'
+-- * 'dtCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dtTasks'
+-- * 'dtTasks' - A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.
 describeTasks
     :: DescribeTasks
 describeTasks =
@@ -122,11 +124,11 @@ data DescribeTasksResponse = DescribeTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsFailures'
+-- * 'dtrsFailures' - Any failures associated with the call.
 --
--- * 'dtrsTasks'
+-- * 'dtrsTasks' - The list of tasks.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTasksResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTasksResponse
@@ -145,7 +147,7 @@ dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _
 dtrsTasks :: Lens' DescribeTasksResponse [Task]
 dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTasksResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

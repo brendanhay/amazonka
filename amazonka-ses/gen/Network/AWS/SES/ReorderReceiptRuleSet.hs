@@ -20,11 +20,11 @@
 --
 -- Reorders the receipt rules within a receipt rule set.
 --
--- All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn\'t explicitly position all of the rules.
 --
--- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.ReorderReceiptRuleSet
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'reorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
@@ -60,9 +62,9 @@ data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrrsRuleSetName'
+-- * 'rrrsRuleSetName' - The name of the receipt rule set to reorder.
 --
--- * 'rrrsRuleNames'
+-- * 'rrrsRuleNames' - A list of the specified receipt rule set's receipt rules in the order that you want to put them.
 reorderReceiptRuleSet
     :: Text -- ^ 'rrrsRuleSetName'
     -> ReorderReceiptRuleSet
@@ -76,7 +78,7 @@ reorderReceiptRuleSet pRuleSetName_ =
 rrrsRuleSetName :: Lens' ReorderReceiptRuleSet Text
 rrrsRuleSetName = lens _rrrsRuleSetName (\ s a -> s{_rrrsRuleSetName = a});
 
--- | A list of the specified receipt rule set\'s receipt rules in the order that you want to put them.
+-- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
 rrrsRuleNames :: Lens' ReorderReceiptRuleSet [Text]
 rrrsRuleNames = lens _rrrsRuleNames (\ s a -> s{_rrrsRuleNames = a}) . _Coerce;
 
@@ -110,6 +112,8 @@ instance ToQuery ReorderReceiptRuleSet where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'reorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
     { _rrrsrsResponseStatus :: Int
@@ -119,7 +123,7 @@ newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrrsrsResponseStatus'
+-- * 'rrrsrsResponseStatus' - -- | The response status code.
 reorderReceiptRuleSetResponse
     :: Int -- ^ 'rrrsrsResponseStatus'
     -> ReorderReceiptRuleSetResponse
@@ -128,7 +132,7 @@ reorderReceiptRuleSetResponse pResponseStatus_ =
     { _rrrsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
 rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a});
 

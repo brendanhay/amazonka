@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Installs an application to the device in a remote access session. For Android applications, the file must be in .apk format. For iOS applications, the file must be in .ipa format.
+--
+--
 module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to install an Android application (in .apk format) or an iOS application (in .ipa format) as part of a remote access session.
 --
+--
+--
 -- /See:/ 'installToRemoteAccessSession' smart constructor.
 data InstallToRemoteAccessSession = InstallToRemoteAccessSession'
     { _itrasRemoteAccessSessionARN :: !Text
@@ -55,9 +59,9 @@ data InstallToRemoteAccessSession = InstallToRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itrasRemoteAccessSessionARN'
+-- * 'itrasRemoteAccessSessionARN' - The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 --
--- * 'itrasAppARN'
+-- * 'itrasAppARN' - The Amazon Resource Name (ARN) of the app about which you are requesting information.
 installToRemoteAccessSession
     :: Text -- ^ 'itrasRemoteAccessSessionARN'
     -> Text -- ^ 'itrasAppARN'
@@ -118,6 +122,8 @@ instance ToQuery InstallToRemoteAccessSession where
 
 -- | Represents the response from the server after AWS Device Farm makes a request to install to a remote access session.
 --
+--
+--
 -- /See:/ 'installToRemoteAccessSessionResponse' smart constructor.
 data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse'
     { _itrasrsAppUpload      :: !(Maybe Upload)
@@ -128,9 +134,9 @@ data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itrasrsAppUpload'
+-- * 'itrasrsAppUpload' - Undocumented member.
 --
--- * 'itrasrsResponseStatus'
+-- * 'itrasrsResponseStatus' - -- | The response status code.
 installToRemoteAccessSessionResponse
     :: Int -- ^ 'itrasrsResponseStatus'
     -> InstallToRemoteAccessSessionResponse
@@ -144,7 +150,7 @@ installToRemoteAccessSessionResponse pResponseStatus_ =
 itrasrsAppUpload :: Lens' InstallToRemoteAccessSessionResponse (Maybe Upload)
 itrasrsAppUpload = lens _itrasrsAppUpload (\ s a -> s{_itrasrsAppUpload = a});
 
--- | The response status code.
+-- | -- | The response status code.
 itrasrsResponseStatus :: Lens' InstallToRemoteAccessSessionResponse Int
 itrasrsResponseStatus = lens _itrasrsResponseStatus (\ s a -> s{_itrasrsResponseStatus = a});
 

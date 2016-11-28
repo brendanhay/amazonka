@@ -20,9 +20,11 @@
 --
 -- Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the operation will fail. Note that the function name is case-sensitive.
 --
--- If you are using versioning, you can also publish a version of the Lambda function you are creating using the 'Publish' parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the 'lambda:CreateFunction' action.
+-- If you are using versioning, you can also publish a version of the Lambda function you are creating using the @Publish@ parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+--
+-- This operation requires permission for the @lambda:CreateFunction@ action.
+--
 module Network.AWS.Lambda.CreateFunction
     (
     -- * Creating a Request
@@ -68,6 +70,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
     { _cfMemorySize   :: !(Maybe Nat)
@@ -86,25 +90,25 @@ data CreateFunction = CreateFunction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfMemorySize'
+-- * 'cfMemorySize' - The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
--- * 'cfVPCConfig'
+-- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
--- * 'cfTimeout'
+-- * 'cfTimeout' - The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 --
--- * 'cfDescription'
+-- * 'cfDescription' - A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
 --
--- * 'cfPublish'
+-- * 'cfPublish' - This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
 --
--- * 'cfFunctionName'
+-- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda APIs, such as 'Invoke' .
 --
--- * 'cfRuntime'
+-- * 'cfRuntime' - The runtime environment for the Lambda function you are uploading. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 --
--- * 'cfRole'
+-- * 'cfRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
 --
--- * 'cfHandler'
+-- * 'cfHandler' - The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/ ./export/ value in your function. For Java, it can be @package.class-name::handler@ or @package.class-name@ . For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)> .
 --
--- * 'cfCode'
+-- * 'cfCode' - The code for the Lambda function.
 createFunction
     :: Text -- ^ 'cfFunctionName'
     -> Runtime -- ^ 'cfRuntime'
@@ -146,21 +150,19 @@ cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 cfPublish :: Lens' CreateFunction (Maybe Bool)
 cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
--- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the < ListFunctions> API. Function names are used to specify functions to other AWS Lambda APIs, such as < Invoke>.
+-- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda APIs, such as 'Invoke' .
 cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
--- | The runtime environment for the Lambda function you are uploading.
---
--- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
+-- | The runtime environment for the Lambda function you are uploading. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
+-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
 cfRole :: Lens' CreateFunction Text
 cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
 
--- | The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/./export/ value in your function. For Java, it can be 'package.class-name::handler' or 'package.class-name'. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
+-- | The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/ ./export/ value in your function. For Java, it can be @package.class-name::handler@ or @package.class-name@ . For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)> .
 cfHandler :: Lens' CreateFunction Text
 cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
 

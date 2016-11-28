@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot be associated with any DB instances.
+--
+--
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBParameterGroup' smart constructor.
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
     { _ddbpgDBParameterGroupName :: Text
@@ -50,7 +54,7 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbpgDBParameterGroupName'
+-- * 'ddbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You cannot delete a default DB parameter group     * Cannot be associated with any DB instances
 deleteDBParameterGroup
     :: Text -- ^ 'ddbpgDBParameterGroupName'
     -> DeleteDBParameterGroup
@@ -59,16 +63,7 @@ deleteDBParameterGroup pDBParameterGroupName_ =
     { _ddbpgDBParameterGroupName = pDBParameterGroupName_
     }
 
--- | The name of the DB parameter group.
---
--- Constraints:
---
--- -   Must be the name of an existing DB parameter group
---
--- -   You cannot delete a default DB parameter group
---
--- -   Cannot be associated with any DB instances
---
+-- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You cannot delete a default DB parameter group     * Cannot be associated with any DB instances
 ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a});
 

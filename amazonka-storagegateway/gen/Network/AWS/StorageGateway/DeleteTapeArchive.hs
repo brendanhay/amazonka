@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified virtual tape from the virtual tape shelf (VTS).
+--
+--
 module Network.AWS.StorageGateway.DeleteTapeArchive
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteTapeArchiveInput
 --
+--
+--
 -- /See:/ 'deleteTapeArchive' smart constructor.
 newtype DeleteTapeArchive = DeleteTapeArchive'
     { _dtaTapeARN :: Text
@@ -53,7 +57,7 @@ newtype DeleteTapeArchive = DeleteTapeArchive'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtaTapeARN'
+-- * 'dtaTapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
 deleteTapeArchive
     :: Text -- ^ 'dtaTapeARN'
     -> DeleteTapeArchive
@@ -102,6 +106,8 @@ instance ToQuery DeleteTapeArchive where
 
 -- | DeleteTapeArchiveOutput
 --
+--
+--
 -- /See:/ 'deleteTapeArchiveResponse' smart constructor.
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
     { _dtatrsTapeARN        :: !(Maybe Text)
@@ -112,9 +118,9 @@ data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtatrsTapeARN'
+-- * 'dtatrsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
 --
--- * 'dtatrsResponseStatus'
+-- * 'dtatrsResponseStatus' - -- | The response status code.
 deleteTapeArchiveResponse
     :: Int -- ^ 'dtatrsResponseStatus'
     -> DeleteTapeArchiveResponse
@@ -128,7 +134,7 @@ deleteTapeArchiveResponse pResponseStatus_ =
 dtatrsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtatrsResponseStatus :: Lens' DeleteTapeArchiveResponse Int
 dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a});
 

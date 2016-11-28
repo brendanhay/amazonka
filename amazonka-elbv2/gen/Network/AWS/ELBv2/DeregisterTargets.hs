@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.
+--
+--
 module Network.AWS.ELBv2.DeregisterTargets
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeregisterTargets.
 --
+--
+--
 -- /See:/ 'deregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
     { _dtTargetGroupARN :: !Text
@@ -54,9 +58,9 @@ data DeregisterTargets = DeregisterTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTargetGroupARN'
+-- * 'dtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'dtTargets'
+-- * 'dtTargets' - The targets.
 deregisterTargets
     :: Text -- ^ 'dtTargetGroupARN'
     -> DeregisterTargets
@@ -102,6 +106,8 @@ instance ToQuery DeregisterTargets where
 
 -- | Contains the output of DeregisterTargets.
 --
+--
+--
 -- /See:/ 'deregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
     { _dtsrsResponseStatus :: Int
@@ -111,7 +117,7 @@ newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtsrsResponseStatus'
+-- * 'dtsrsResponseStatus' - -- | The response status code.
 deregisterTargetsResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> DeregisterTargetsResponse
@@ -120,7 +126,7 @@ deregisterTargetsResponse pResponseStatus_ =
     { _dtsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeregisterTargetsResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 

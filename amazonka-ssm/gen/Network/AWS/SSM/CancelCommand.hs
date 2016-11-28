@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.
+--
+--
 module Network.AWS.SSM.CancelCommand
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SSM.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'cancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
     { _ccInstanceIds :: !(Maybe (List1 Text))
@@ -54,9 +58,9 @@ data CancelCommand = CancelCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccInstanceIds'
+-- * 'ccInstanceIds' - (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
 --
--- * 'ccCommandId'
+-- * 'ccCommandId' - The ID of the command you want to cancel.
 cancelCommand
     :: Text -- ^ 'ccCommandId'
     -> CancelCommand
@@ -110,6 +114,8 @@ instance ToQuery CancelCommand where
 
 -- | Whether or not the command was successfully canceled. There is no guarantee that a request can be canceled.
 --
+--
+--
 -- /See:/ 'cancelCommandResponse' smart constructor.
 newtype CancelCommandResponse = CancelCommandResponse'
     { _ccrsResponseStatus :: Int
@@ -119,7 +125,7 @@ newtype CancelCommandResponse = CancelCommandResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccrsResponseStatus'
+-- * 'ccrsResponseStatus' - -- | The response status code.
 cancelCommandResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CancelCommandResponse
@@ -128,7 +134,7 @@ cancelCommandResponse pResponseStatus_ =
     { _ccrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ccrsResponseStatus :: Lens' CancelCommandResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 

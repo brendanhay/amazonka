@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified API.
+--
+--
 module Network.AWS.APIGateway.DeleteRestAPI
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Request to delete the specified API from your collection.
 --
+--
+--
 -- /See:/ 'deleteRestAPI' smart constructor.
 newtype DeleteRestAPI = DeleteRestAPI'
     { _draRestAPIId :: Text
@@ -50,7 +54,7 @@ newtype DeleteRestAPI = DeleteRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'draRestAPIId'
+-- * 'draRestAPIId' - The ID of the 'RestApi' you want to delete.
 deleteRestAPI
     :: Text -- ^ 'draRestAPIId'
     -> DeleteRestAPI
@@ -59,7 +63,7 @@ deleteRestAPI pRestAPIId_ =
     { _draRestAPIId = pRestAPIId_
     }
 
--- | The ID of the < RestApi> you want to delete.
+-- | The ID of the 'RestApi' you want to delete.
 draRestAPIId :: Lens' DeleteRestAPI Text
 draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
 

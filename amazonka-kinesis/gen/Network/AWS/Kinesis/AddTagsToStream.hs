@@ -20,7 +20,9 @@
 --
 -- Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags.
 --
--- If tags have already been assigned to the stream, 'AddTagsToStream' overwrites any existing tags that correspond to the specified tag keys.
+--
+-- If tags have already been assigned to the stream, @AddTagsToStream@ overwrites any existing tags that correspond to the specified tag keys.
+--
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for 'AddTagsToStream'.
+-- | Represents the input for @AddTagsToStream@ .
+--
+--
 --
 -- /See:/ 'addTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
@@ -54,9 +58,9 @@ data AddTagsToStream = AddTagsToStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attsStreamName'
+-- * 'attsStreamName' - The name of the stream.
 --
--- * 'attsTags'
+-- * 'attsTags' - The set of key-value pairs to use to create the tags.
 addTagsToStream
     :: Text -- ^ 'attsStreamName'
     -> AddTagsToStream

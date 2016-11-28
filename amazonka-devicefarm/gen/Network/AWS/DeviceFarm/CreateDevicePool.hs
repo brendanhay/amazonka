@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a device pool.
+--
+--
 module Network.AWS.DeviceFarm.CreateDevicePool
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the create device pool operation.
 --
+--
+--
 -- /See:/ 'createDevicePool' smart constructor.
 data CreateDevicePool = CreateDevicePool'
     { _cdpDescription :: !(Maybe Text)
@@ -59,13 +63,13 @@ data CreateDevicePool = CreateDevicePool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdpDescription'
+-- * 'cdpDescription' - The device pool's description.
 --
--- * 'cdpProjectARN'
+-- * 'cdpProjectARN' - The ARN of the project for the device pool.
 --
--- * 'cdpName'
+-- * 'cdpName' - The device pool's name.
 --
--- * 'cdpRules'
+-- * 'cdpRules' - The device pool's rules.
 createDevicePool
     :: Text -- ^ 'cdpProjectARN'
     -> Text -- ^ 'cdpName'
@@ -78,7 +82,7 @@ createDevicePool pProjectARN_ pName_ =
     , _cdpRules = mempty
     }
 
--- | The device pool\'s description.
+-- | The device pool's description.
 cdpDescription :: Lens' CreateDevicePool (Maybe Text)
 cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
 
@@ -86,11 +90,11 @@ cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
 cdpProjectARN :: Lens' CreateDevicePool Text
 cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a});
 
--- | The device pool\'s name.
+-- | The device pool's name.
 cdpName :: Lens' CreateDevicePool Text
 cdpName = lens _cdpName (\ s a -> s{_cdpName = a});
 
--- | The device pool\'s rules.
+-- | The device pool's rules.
 cdpRules :: Lens' CreateDevicePool [Rule]
 cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
 
@@ -134,6 +138,8 @@ instance ToQuery CreateDevicePool where
 
 -- | Represents the result of a create device pool request.
 --
+--
+--
 -- /See:/ 'createDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
     { _cdprsDevicePool     :: !(Maybe DevicePool)
@@ -144,9 +150,9 @@ data CreateDevicePoolResponse = CreateDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdprsDevicePool'
+-- * 'cdprsDevicePool' - The newly created device pool.
 --
--- * 'cdprsResponseStatus'
+-- * 'cdprsResponseStatus' - -- | The response status code.
 createDevicePoolResponse
     :: Int -- ^ 'cdprsResponseStatus'
     -> CreateDevicePoolResponse
@@ -160,7 +166,7 @@ createDevicePoolResponse pResponseStatus_ =
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
 cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
 cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});
 

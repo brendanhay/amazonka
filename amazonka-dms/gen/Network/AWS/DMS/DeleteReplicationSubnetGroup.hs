@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a subnet group.
+--
+--
 module Network.AWS.DMS.DeleteReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationSubnetGroup' smart constructor.
 newtype DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
     { _drsgReplicationSubnetGroupIdentifier :: Text
@@ -52,7 +56,7 @@ newtype DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsgReplicationSubnetGroupIdentifier'
+-- * 'drsgReplicationSubnetGroupIdentifier' - The subnet group name of the replication instance.
 deleteReplicationSubnetGroup
     :: Text -- ^ 'drsgReplicationSubnetGroupIdentifier'
     -> DeleteReplicationSubnetGroup
@@ -106,6 +110,8 @@ instance ToQuery DeleteReplicationSubnetGroup where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationSubnetGroupResponse' smart constructor.
 newtype DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupResponse'
     { _drsgrsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupRespo
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsgrsResponseStatus'
+-- * 'drsgrsResponseStatus' - -- | The response status code.
 deleteReplicationSubnetGroupResponse
     :: Int -- ^ 'drsgrsResponseStatus'
     -> DeleteReplicationSubnetGroupResponse
@@ -124,7 +130,7 @@ deleteReplicationSubnetGroupResponse pResponseStatus_ =
     { _drsgrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsgrsResponseStatus :: Lens' DeleteReplicationSubnetGroupResponse Int
 drsgrsResponseStatus = lens _drsgrsResponseStatus (\ s a -> s{_drsgrsResponseStatus = a});
 

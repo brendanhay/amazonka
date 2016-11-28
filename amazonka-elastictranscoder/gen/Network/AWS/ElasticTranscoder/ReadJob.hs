@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadJob operation returns detailed information about a job.
+--
+--
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'ReadJobRequest' structure.
+-- | The @ReadJobRequest@ structure.
+--
+--
 --
 -- /See:/ 'readJob' smart constructor.
 newtype ReadJob = ReadJob'
@@ -53,7 +57,7 @@ newtype ReadJob = ReadJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjId'
+-- * 'rjId' - The identifier of the job for which you want to get detailed information.
 readJob
     :: Text -- ^ 'rjId'
     -> ReadJob
@@ -89,7 +93,9 @@ instance ToPath ReadJob where
 instance ToQuery ReadJob where
         toQuery = const mempty
 
--- | The 'ReadJobResponse' structure.
+-- | The @ReadJobResponse@ structure.
+--
+--
 --
 -- /See:/ 'readJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
@@ -101,9 +107,9 @@ data ReadJobResponse = ReadJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjrsResponseStatus'
+-- * 'rjrsResponseStatus' - -- | The response status code.
 --
--- * 'rjrsJob'
+-- * 'rjrsJob' - A section of the response body that provides information about the job.
 readJobResponse
     :: Int -- ^ 'rjrsResponseStatus'
     -> Job' -- ^ 'rjrsJob'
@@ -114,7 +120,7 @@ readJobResponse pResponseStatus_ pJob_ =
     , _rjrsJob = pJob_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rjrsResponseStatus :: Lens' ReadJobResponse Int
 rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = a});
 

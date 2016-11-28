@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application revision.
+--
+--
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get application revision operation.
 --
+--
+--
 -- /See:/ 'getApplicationRevision' smart constructor.
 data GetApplicationRevision = GetApplicationRevision'
     { _garApplicationName :: !Text
@@ -57,9 +61,9 @@ data GetApplicationRevision = GetApplicationRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garApplicationName'
+-- * 'garApplicationName' - The name of the application that corresponds to the revision.
 --
--- * 'garRevision'
+-- * 'garRevision' - Information about the application revision to get, including type and location.
 getApplicationRevision
     :: Text -- ^ 'garApplicationName'
     -> RevisionLocation -- ^ 'garRevision'
@@ -119,6 +123,8 @@ instance ToQuery GetApplicationRevision where
 
 -- | Represents the output of a get application revision operation.
 --
+--
+--
 -- /See:/ 'getApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
     { _garrsApplicationName :: !(Maybe Text)
@@ -131,13 +137,13 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garrsApplicationName'
+-- * 'garrsApplicationName' - The name of the application that corresponds to the revision.
 --
--- * 'garrsRevisionInfo'
+-- * 'garrsRevisionInfo' - General information about the revision.
 --
--- * 'garrsRevision'
+-- * 'garrsRevision' - Additional information about the revision, including type and location.
 --
--- * 'garrsResponseStatus'
+-- * 'garrsResponseStatus' - -- | The response status code.
 getApplicationRevisionResponse
     :: Int -- ^ 'garrsResponseStatus'
     -> GetApplicationRevisionResponse
@@ -161,7 +167,7 @@ garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a})
 garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
 garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
 

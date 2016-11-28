@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a 'NotEligible' error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support'amazon.com aws-devicefarm-support\'amazon.com> if you believe that you should be able to invoke this operation.
+-- Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
+--
+--
 module Network.AWS.DeviceFarm.GetOfferingStatus
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to retrieve the offering status for the specified customer or account.
 --
+--
+--
 -- /See:/ 'getOfferingStatus' smart constructor.
 newtype GetOfferingStatus = GetOfferingStatus'
     { _gosNextToken :: Maybe Text
@@ -55,7 +59,7 @@ newtype GetOfferingStatus = GetOfferingStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gosNextToken'
+-- * 'gosNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 getOfferingStatus
     :: GetOfferingStatus
 getOfferingStatus =
@@ -106,6 +110,8 @@ instance ToQuery GetOfferingStatus where
 
 -- | Returns the status result for a device offering.
 --
+--
+--
 -- /See:/ 'getOfferingStatusResponse' smart constructor.
 data GetOfferingStatusResponse = GetOfferingStatusResponse'
     { _gosrsNextPeriod     :: !(Maybe (Map Text OfferingStatus))
@@ -118,13 +124,13 @@ data GetOfferingStatusResponse = GetOfferingStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gosrsNextPeriod'
+-- * 'gosrsNextPeriod' - When specified, gets the offering status for the next period.
 --
--- * 'gosrsCurrent'
+-- * 'gosrsCurrent' - When specified, gets the offering status for the current period.
 --
--- * 'gosrsNextToken'
+-- * 'gosrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'gosrsResponseStatus'
+-- * 'gosrsResponseStatus' - -- | The response status code.
 getOfferingStatusResponse
     :: Int -- ^ 'gosrsResponseStatus'
     -> GetOfferingStatusResponse
@@ -148,7 +154,7 @@ gosrsCurrent = lens _gosrsCurrent (\ s a -> s{_gosrsCurrent = a}) . _Default . _
 gosrsNextToken :: Lens' GetOfferingStatusResponse (Maybe Text)
 gosrsNextToken = lens _gosrsNextToken (\ s a -> s{_gosrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gosrsResponseStatus :: Lens' GetOfferingStatusResponse Int
 gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a});
 

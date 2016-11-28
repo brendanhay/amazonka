@@ -20,7 +20,7 @@
 --
 -- Sets or changes the default branch name for the specified repository.
 --
--- If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.
+--
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
     -- * Creating a Request
@@ -44,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an update default branch operation.
 --
+--
+--
 -- /See:/ 'updateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
     { _udbRepositoryName    :: !Text
@@ -54,9 +56,9 @@ data UpdateDefaultBranch = UpdateDefaultBranch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udbRepositoryName'
+-- * 'udbRepositoryName' - The name of the repository to set or change the default branch for.
 --
--- * 'udbDefaultBranchName'
+-- * 'udbDefaultBranchName' - The name of the branch to set as the default.
 updateDefaultBranch
     :: Text -- ^ 'udbRepositoryName'
     -> Text -- ^ 'udbDefaultBranchName'

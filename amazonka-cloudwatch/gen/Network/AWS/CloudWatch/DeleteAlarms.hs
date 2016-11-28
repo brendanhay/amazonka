@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes all specified alarms. In the event of an error, no alarms are deleted.
+--
+--
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for DeleteAlarms.
 --
+--
+--
 -- /See:/ 'deleteAlarms' smart constructor.
 newtype DeleteAlarms = DeleteAlarms'
     { _dAlarmNames :: [Text]
@@ -50,7 +54,7 @@ newtype DeleteAlarms = DeleteAlarms'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAlarmNames'
+-- * 'dAlarmNames' - A list of alarms to be deleted.
 deleteAlarms
     :: DeleteAlarms
 deleteAlarms =

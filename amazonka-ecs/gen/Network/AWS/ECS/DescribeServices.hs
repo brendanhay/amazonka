@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified services running in your cluster.
+--
+--
 module Network.AWS.ECS.DescribeServices
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeServices = DescribeServices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCluster'
+-- * 'dCluster' - The name of the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dServices'
+-- * 'dServices' - A list of services to describe.
 describeServices
     :: DescribeServices
 describeServices =
@@ -122,11 +124,11 @@ data DescribeServicesResponse = DescribeServicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsFailures'
+-- * 'dssrsFailures' - Any failures associated with the call.
 --
--- * 'dssrsServices'
+-- * 'dssrsServices' - The list of services described.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeServicesResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeServicesResponse
@@ -145,7 +147,7 @@ dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default 
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
 dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeServicesResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 

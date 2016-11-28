@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing type.
+--
+--
 module Network.AWS.IoT.DescribeThingType
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The input for the DescribeThingType operation.
 --
+--
+--
 -- /See:/ 'describeThingType' smart constructor.
 newtype DescribeThingType = DescribeThingType'
     { _dThingTypeName :: Text
@@ -55,7 +59,7 @@ newtype DescribeThingType = DescribeThingType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dThingTypeName'
+-- * 'dThingTypeName' - The name of the thing type.
 describeThingType
     :: Text -- ^ 'dThingTypeName'
     -> DescribeThingType
@@ -96,6 +100,8 @@ instance ToQuery DescribeThingType where
 
 -- | The output for the DescribeThingType operation.
 --
+--
+--
 -- /See:/ 'describeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
     { _drsThingTypeProperties :: !(Maybe ThingTypeProperties)
@@ -108,13 +114,13 @@ data DescribeThingTypeResponse = DescribeThingTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsThingTypeProperties'
+-- * 'drsThingTypeProperties' - The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
 --
--- * 'drsThingTypeName'
+-- * 'drsThingTypeName' - The name of the thing type.
 --
--- * 'drsThingTypeMetadata'
+-- * 'drsThingTypeMetadata' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeThingTypeResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeThingTypeResponse
@@ -138,7 +144,7 @@ drsThingTypeName = lens _drsThingTypeName (\ s a -> s{_drsThingTypeName = a});
 drsThingTypeMetadata :: Lens' DescribeThingTypeResponse (Maybe ThingTypeMetadata)
 drsThingTypeMetadata = lens _drsThingTypeMetadata (\ s a -> s{_drsThingTypeMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeThingTypeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

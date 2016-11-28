@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are valid for three days.
+-- Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the @ConfirmSubscription@ action with the token from the confirmation message. Confirmation tokens are valid for three days.
+--
+--
 module Network.AWS.SNS.Subscribe
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for Subscribe action.
 --
+--
+--
 -- /See:/ 'subscribe' smart constructor.
 data Subscribe = Subscribe'
     { _subEndpoint :: !(Maybe Text)
@@ -57,11 +61,11 @@ data Subscribe = Subscribe'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'subEndpoint'
+-- * 'subEndpoint' - The endpoint that you want to receive notifications. Endpoints vary by protocol:     * For the @http@ protocol, the endpoint is an URL beginning with "http://"     * For the @https@ protocol, the endpoint is a URL beginning with "https://"     * For the @email@ protocol, the endpoint is an email address     * For the @email-json@ protocol, the endpoint is an email address     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.     * For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda function.
 --
--- * 'subTopicARN'
+-- * 'subTopicARN' - The ARN of the topic you want to subscribe to.
 --
--- * 'subProtocol'
+-- * 'subProtocol' - The protocol you want to use. Supported protocols include:     * @http@ -- delivery of JSON-encoded message via HTTP POST     * @https@ -- delivery of JSON-encoded message via HTTPS POST     * @email@ -- delivery of message via SMTP     * @email-json@ -- delivery of JSON-encoded message via SMTP     * @sms@ -- delivery of message via SMS     * @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue     * @application@ -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.     * @lambda@ -- delivery of JSON-encoded message to an AWS Lambda function.
 subscribe
     :: Text -- ^ 'subTopicARN'
     -> Text -- ^ 'subProtocol'
@@ -73,24 +77,7 @@ subscribe pTopicARN_ pProtocol_ =
     , _subProtocol = pProtocol_
     }
 
--- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
---
--- -   For the 'http' protocol, the endpoint is an URL beginning with \"http:\/\/\"
---
--- -   For the 'https' protocol, the endpoint is a URL beginning with \"https:\/\/\"
---
--- -   For the 'email' protocol, the endpoint is an email address
---
--- -   For the 'email-json' protocol, the endpoint is an email address
---
--- -   For the 'sms' protocol, the endpoint is a phone number of an SMS-enabled device
---
--- -   For the 'sqs' protocol, the endpoint is the ARN of an Amazon SQS queue
---
--- -   For the 'application' protocol, the endpoint is the EndpointArn of a mobile app and device.
---
--- -   For the 'lambda' protocol, the endpoint is the ARN of an AWS Lambda function.
---
+-- | The endpoint that you want to receive notifications. Endpoints vary by protocol:     * For the @http@ protocol, the endpoint is an URL beginning with "http://"     * For the @https@ protocol, the endpoint is a URL beginning with "https://"     * For the @email@ protocol, the endpoint is an email address     * For the @email-json@ protocol, the endpoint is an email address     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.     * For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda function.
 subEndpoint :: Lens' Subscribe (Maybe Text)
 subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
@@ -98,24 +85,7 @@ subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 subTopicARN :: Lens' Subscribe Text
 subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
 
--- | The protocol you want to use. Supported protocols include:
---
--- -   'http' -- delivery of JSON-encoded message via HTTP POST
---
--- -   'https' -- delivery of JSON-encoded message via HTTPS POST
---
--- -   'email' -- delivery of message via SMTP
---
--- -   'email-json' -- delivery of JSON-encoded message via SMTP
---
--- -   'sms' -- delivery of message via SMS
---
--- -   'sqs' -- delivery of JSON-encoded message to an Amazon SQS queue
---
--- -   'application' -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
---
--- -   'lambda' -- delivery of JSON-encoded message to an AWS Lambda function.
---
+-- | The protocol you want to use. Supported protocols include:     * @http@ -- delivery of JSON-encoded message via HTTP POST     * @https@ -- delivery of JSON-encoded message via HTTPS POST     * @email@ -- delivery of message via SMTP     * @email-json@ -- delivery of JSON-encoded message via SMTP     * @sms@ -- delivery of message via SMS     * @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue     * @application@ -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.     * @lambda@ -- delivery of JSON-encoded message to an AWS Lambda function.
 subProtocol :: Lens' Subscribe Text
 subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 
@@ -149,6 +119,8 @@ instance ToQuery Subscribe where
 
 -- | Response for Subscribe action.
 --
+--
+--
 -- /See:/ 'subscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
     { _srsSubscriptionARN :: !(Maybe Text)
@@ -159,9 +131,9 @@ data SubscribeResponse = SubscribeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsSubscriptionARN'
+-- * 'srsSubscriptionARN' - The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation).
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 subscribeResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SubscribeResponse
@@ -175,7 +147,7 @@ subscribeResponse pResponseStatus_ =
 srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' SubscribeResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

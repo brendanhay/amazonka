@@ -99,7 +99,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-11-01' of the Amazon Application Discovery Service SDK configuration.
+-- | API version @2015-11-01@ of the Amazon Application Discovery Service SDK configuration.
 discovery :: Service
 discovery =
     Service
@@ -134,31 +134,43 @@ discovery =
       | otherwise = Nothing
 
 -- | The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.
+--
+--
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
     _ServiceError . hasCode "AuthorizationErrorException"
 
 -- | One or more parameters are not valid. Verify the parameters and try again.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
 -- | The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasCode "InvalidParameterValueException"
 
 -- | The server experienced an internal error. Try again.
+--
+--
 _ServerInternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerInternalErrorException =
     _ServiceError . hasCode "ServerInternalErrorException"
 
 -- | This operation is not permitted.
+--
+--
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
     _ServiceError . hasCode "OperationNotPermittedException"
 
 -- | The specified configuration ID was not located. Verify the configuration ID and try again.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

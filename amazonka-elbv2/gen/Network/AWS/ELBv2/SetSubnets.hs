@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the Availability Zone for the specified subnets for the specified load balancer. The specified subnets replace the previously enabled subnets.
+--
+--
 module Network.AWS.ELBv2.SetSubnets
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetSubnets.
 --
+--
+--
 -- /See:/ 'setSubnets' smart constructor.
 data SetSubnets = SetSubnets'
     { _ssLoadBalancerARN :: !Text
@@ -55,9 +59,9 @@ data SetSubnets = SetSubnets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssLoadBalancerARN'
+-- * 'ssLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'ssSubnets'
+-- * 'ssSubnets' - The IDs of the subnets. You must specify at least two subnets. You can add only one subnet per Availability Zone.
 setSubnets
     :: Text -- ^ 'ssLoadBalancerARN'
     -> SetSubnets
@@ -106,6 +110,8 @@ instance ToQuery SetSubnets where
 
 -- | Contains the output of SetSubnets.
 --
+--
+--
 -- /See:/ 'setSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
     { _ssrsAvailabilityZones :: !(Maybe [AvailabilityZone])
@@ -116,9 +122,9 @@ data SetSubnetsResponse = SetSubnetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssrsAvailabilityZones'
+-- * 'ssrsAvailabilityZones' - Information about the subnet and Availability Zone.
 --
--- * 'ssrsResponseStatus'
+-- * 'ssrsResponseStatus' - -- | The response status code.
 setSubnetsResponse
     :: Int -- ^ 'ssrsResponseStatus'
     -> SetSubnetsResponse
@@ -132,7 +138,7 @@ setSubnetsResponse pResponseStatus_ =
 ssrsAvailabilityZones :: Lens' SetSubnetsResponse [AvailabilityZone]
 ssrsAvailabilityZones = lens _ssrsAvailabilityZones (\ s a -> s{_ssrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ssrsResponseStatus :: Lens' SetSubnetsResponse Int
 ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a});
 

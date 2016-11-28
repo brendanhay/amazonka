@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to < PurchaseReservedNodeOffering> to reserve one or more nodes for your Amazon Redshift cluster.
+-- Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to 'PurchaseReservedNodeOffering' to reserve one or more nodes for your Amazon Redshift cluster.
 --
--- For more information about reserved node offerings, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about reserved node offerings, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/ .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeReservedNodeOfferings' smart constructor.
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
     { _drnoReservedNodeOfferingId :: !(Maybe Text)
@@ -63,11 +67,11 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drnoReservedNodeOfferingId'
+-- * 'drnoReservedNodeOfferingId' - The unique identifier for the offering.
 --
--- * 'drnoMarker'
+-- * 'drnoMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
--- * 'drnoMaxRecords'
+-- * 'drnoMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 describeReservedNodeOfferings
     :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings =
@@ -81,15 +85,11 @@ describeReservedNodeOfferings =
 drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a});
 
--- | An optional parameter that specifies the starting point to return a set of response records. When the results of a < DescribeReservedNodeOfferings> request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by providing the returned marker value in the 'Marker' parameter and retrying the request.
+-- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified 'MaxRecords' value, a value is returned in a 'marker' field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: '100'
---
--- Constraints: minimum 20, maximum 100.
+-- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
 drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a});
 
@@ -139,6 +139,8 @@ instance ToQuery DescribeReservedNodeOfferings where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
     { _drnorsReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
@@ -150,11 +152,11 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drnorsReservedNodeOfferings'
+-- * 'drnorsReservedNodeOfferings' - A list of @ReservedNodeOffering@ objects.
 --
--- * 'drnorsMarker'
+-- * 'drnorsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
--- * 'drnorsResponseStatus'
+-- * 'drnorsResponseStatus' - -- | The response status code.
 describeReservedNodeOfferingsResponse
     :: Int -- ^ 'drnorsResponseStatus'
     -> DescribeReservedNodeOfferingsResponse
@@ -165,15 +167,15 @@ describeReservedNodeOfferingsResponse pResponseStatus_ =
     , _drnorsResponseStatus = pResponseStatus_
     }
 
--- | A list of 'ReservedNodeOffering' objects.
+-- | A list of @ReservedNodeOffering@ objects.
 drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
 drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drnorsReservedNodeOfferings = a}) . _Default . _Coerce;
 
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the 'Marker' parameter and retrying the command. If the 'Marker' field is empty, all response records have been retrieved for the request.
+-- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drnorsResponseStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorsResponseStatus = lens _drnorsResponseStatus (\ s a -> s{_drnorsResponseStatus = a});
 

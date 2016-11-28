@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the deployment configurations with the applicable IAM user or AWS account.
+--
+--
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list deployment configurations operation.
 --
+--
+--
 -- /See:/ 'listDeploymentConfigs' smart constructor.
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
     { _ldcNextToken :: Maybe Text
@@ -54,7 +58,7 @@ newtype ListDeploymentConfigs = ListDeploymentConfigs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldcNextToken'
+-- * 'ldcNextToken' - An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
 listDeploymentConfigs
     :: ListDeploymentConfigs
 listDeploymentConfigs =
@@ -105,6 +109,8 @@ instance ToQuery ListDeploymentConfigs where
 
 -- | Represents the output of a list deployment configurations operation.
 --
+--
+--
 -- /See:/ 'listDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrsNextToken             :: !(Maybe Text)
@@ -116,11 +122,11 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldcrsNextToken'
+-- * 'ldcrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
 --
--- * 'ldcrsDeploymentConfigsList'
+-- * 'ldcrsDeploymentConfigsList' - A list of deployment configurations, including built-in configurations such as CodeDeployDefault.OneAtATime.
 --
--- * 'ldcrsResponseStatus'
+-- * 'ldcrsResponseStatus' - -- | The response status code.
 listDeploymentConfigsResponse
     :: Int -- ^ 'ldcrsResponseStatus'
     -> ListDeploymentConfigsResponse
@@ -139,7 +145,7 @@ ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
 ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a});
 

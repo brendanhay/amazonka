@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing.
+--
+--
 module Network.AWS.IoT.DescribeThing
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input for the DescribeThing operation.
 --
+--
+--
 -- /See:/ 'describeThing' smart constructor.
 newtype DescribeThing = DescribeThing'
     { _dThingName :: Text
@@ -57,7 +61,7 @@ newtype DescribeThing = DescribeThing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dThingName'
+-- * 'dThingName' - The name of the thing.
 describeThing
     :: Text -- ^ 'dThingName'
     -> DescribeThing
@@ -99,6 +103,8 @@ instance ToQuery DescribeThing where
 
 -- | The output from the DescribeThing operation.
 --
+--
+--
 -- /See:/ 'describeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
     { _dtrsDefaultClientId :: !(Maybe Text)
@@ -113,17 +119,17 @@ data DescribeThingResponse = DescribeThingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsDefaultClientId'
+-- * 'dtrsDefaultClientId' - The default client ID.
 --
--- * 'dtrsThingTypeName'
+-- * 'dtrsThingTypeName' - The thing type name.
 --
--- * 'dtrsAttributes'
+-- * 'dtrsAttributes' - The thing attributes.
 --
--- * 'dtrsVersion'
+-- * 'dtrsVersion' - The current version of the thing record in the registry.
 --
--- * 'dtrsThingName'
+-- * 'dtrsThingName' - The name of the thing.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeThingResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeThingResponse
@@ -150,8 +156,6 @@ dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text Text)
 dtrsAttributes = lens _dtrsAttributes (\ s a -> s{_dtrsAttributes = a}) . _Default . _Map;
 
 -- | The current version of the thing record in the registry.
---
--- To avoid unintentional changes to the information in the registry, you can pass the version information in the 'expectedVersion' parameter of the 'UpdateThing' and 'DeleteThing' calls.
 dtrsVersion :: Lens' DescribeThingResponse (Maybe Integer)
 dtrsVersion = lens _dtrsVersion (\ s a -> s{_dtrsVersion = a});
 
@@ -159,7 +163,7 @@ dtrsVersion = lens _dtrsVersion (\ s a -> s{_dtrsVersion = a});
 dtrsThingName :: Lens' DescribeThingResponse (Maybe Text)
 dtrsThingName = lens _dtrsThingName (\ s a -> s{_dtrsThingName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeThingResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

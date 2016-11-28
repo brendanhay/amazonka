@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a deployment group.
+--
+--
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an update deployment group operation.
 --
+--
+--
 -- /See:/ 'updateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
     { _udgServiceRoleARN               :: !(Maybe Text)
@@ -69,23 +73,23 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udgServiceRoleARN'
+-- * 'udgServiceRoleARN' - A replacement ARN for the service role, if you want to change it.
 --
--- * 'udgDeploymentConfigName'
+-- * 'udgDeploymentConfigName' - The replacement deployment configuration name to use, if you want to change it.
 --
--- * 'udgNewDeploymentGroupName'
+-- * 'udgNewDeploymentGroupName' - The new name of the deployment group, if you want to change it.
 --
--- * 'udgEc2TagFilters'
+-- * 'udgEc2TagFilters' - The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
--- * 'udgOnPremisesInstanceTagFilters'
+-- * 'udgOnPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
--- * 'udgTriggerConfigurations'
+-- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated.
 --
--- * 'udgAutoScalingGroups'
+-- * 'udgAutoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 --
--- * 'udgApplicationName'
+-- * 'udgApplicationName' - The application name corresponding to the deployment group to update.
 --
--- * 'udgCurrentDeploymentGroupName'
+-- * 'udgCurrentDeploymentGroupName' - The current name of the deployment group.
 updateDeploymentGroup
     :: Text -- ^ 'udgApplicationName'
     -> Text -- ^ 'udgCurrentDeploymentGroupName'
@@ -192,6 +196,8 @@ instance ToQuery UpdateDeploymentGroup where
 
 -- | Represents the output of an update deployment group operation.
 --
+--
+--
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
@@ -202,9 +208,9 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udgrsHooksNotCleanedUp'
+-- * 'udgrsHooksNotCleanedUp' - If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS account.
 --
--- * 'udgrsResponseStatus'
+-- * 'udgrsResponseStatus' - -- | The response status code.
 updateDeploymentGroupResponse
     :: Int -- ^ 'udgrsResponseStatus'
     -> UpdateDeploymentGroupResponse
@@ -218,7 +224,7 @@ updateDeploymentGroupResponse pResponseStatus_ =
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 udgrsResponseStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrsResponseStatus = lens _udgrsResponseStatus (\ s a -> s{_udgrsResponseStatus = a});
 

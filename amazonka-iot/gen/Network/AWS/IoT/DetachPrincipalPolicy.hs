@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified policy from the specified certificate.
+--
+--
 module Network.AWS.IoT.DetachPrincipalPolicy
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The input for the DetachPrincipalPolicy operation.
 --
+--
+--
 -- /See:/ 'detachPrincipalPolicy' smart constructor.
 data DetachPrincipalPolicy = DetachPrincipalPolicy'
     { _dppPolicyName :: !Text
@@ -52,9 +56,9 @@ data DetachPrincipalPolicy = DetachPrincipalPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppPolicyName'
+-- * 'dppPolicyName' - The name of the policy to detach.
 --
--- * 'dppPrincipal'
+-- * 'dppPrincipal' - The principal. If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.
 detachPrincipalPolicy
     :: Text -- ^ 'dppPolicyName'
     -> Text -- ^ 'dppPrincipal'
@@ -69,9 +73,7 @@ detachPrincipalPolicy pPolicyName_ pPrincipal_ =
 dppPolicyName :: Lens' DetachPrincipalPolicy Text
 dppPolicyName = lens _dppPolicyName (\ s a -> s{_dppPolicyName = a});
 
--- | The principal.
---
--- If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.
+-- | The principal. If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.
 dppPrincipal :: Lens' DetachPrincipalPolicy Text
 dppPrincipal = lens _dppPrincipal (\ s a -> s{_dppPrincipal = a});
 

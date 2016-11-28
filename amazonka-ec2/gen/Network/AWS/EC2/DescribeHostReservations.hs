@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes Dedicated Host Reservations which are associated with Dedicated Hosts in your account.
+--
+--
 module Network.AWS.EC2.DescribeHostReservations
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data DescribeHostReservations = DescribeHostReservations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrNextToken'
+-- * 'dhrNextToken' - The token to use to retrieve the next page of results.
 --
--- * 'dhrHostReservationIdSet'
+-- * 'dhrHostReservationIdSet' - One or more host reservation IDs.
 --
--- * 'dhrFilter'
+-- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 --
--- * 'dhrMaxResults'
+-- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 describeHostReservations
     :: DescribeHostReservations
 describeHostReservations =
@@ -83,18 +85,11 @@ dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a});
 dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
 dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce;
 
--- | One or more filters.
---
--- -   'instance-family' - The instance family (e.g., 'm4').
---
--- -   'payment-option' - The payment option ('No Upfront' | 'Partial Upfront' | 'All Upfront').
---
--- -   'state' - The state of the reservation ('payment-pending' | 'payment-failed' | 'active' | 'retired').
---
+-- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 dhrFilter :: Lens' DescribeHostReservations [Filter]
 dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'nextToken' value. This value can be between 5 and 500; if 'maxResults' is given a larger value than 500, you will receive an error.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 dhrMaxResults :: Lens' DescribeHostReservations (Maybe Int)
 dhrMaxResults = lens _dhrMaxResults (\ s a -> s{_dhrMaxResults = a});
 
@@ -145,11 +140,11 @@ data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrrsNextToken'
+-- * 'dhrrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dhrrsHostReservationSet'
+-- * 'dhrrsHostReservationSet' - Details about the reservation's configuration.
 --
--- * 'dhrrsResponseStatus'
+-- * 'dhrrsResponseStatus' - -- | The response status code.
 describeHostReservationsResponse
     :: Int -- ^ 'dhrrsResponseStatus'
     -> DescribeHostReservationsResponse
@@ -160,15 +155,15 @@ describeHostReservationsResponse pResponseStatus_ =
     , _dhrrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrrsNextToken :: Lens' DescribeHostReservationsResponse (Maybe Text)
 dhrrsNextToken = lens _dhrrsNextToken (\ s a -> s{_dhrrsNextToken = a});
 
--- | Details about the reservation\'s configuration.
+-- | Details about the reservation's configuration.
 dhrrsHostReservationSet :: Lens' DescribeHostReservationsResponse [HostReservation]
 dhrrsHostReservationSet = lens _dhrrsHostReservationSet (\ s a -> s{_dhrrsHostReservationSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dhrrsResponseStatus :: Lens' DescribeHostReservationsResponse Int
 dhrrsResponseStatus = lens _dhrrsResponseStatus (\ s a -> s{_dhrrsResponseStatus = a});
 

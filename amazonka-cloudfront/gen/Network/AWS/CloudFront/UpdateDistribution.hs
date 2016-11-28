@@ -58,11 +58,11 @@ data UpdateDistribution = UpdateDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udIfMatch'
+-- * 'udIfMatch' - The value of the ETag header you received when retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'udDistributionConfig'
+-- * 'udDistributionConfig' - The distribution's configuration information.
 --
--- * 'udId'
+-- * 'udId' - The distribution's id.
 updateDistribution
     :: DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
@@ -74,15 +74,15 @@ updateDistribution pDistributionConfig_ pId_ =
     , _udId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the distribution\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
 
--- | The distribution\'s configuration information.
+-- | The distribution's configuration information.
 udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
 udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a});
 
--- | The distribution\'s id.
+-- | The distribution's id.
 udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\ s a -> s{_udId = a});
 
@@ -133,11 +133,11 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udrsETag'
+-- * 'udrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'udrsDistribution'
+-- * 'udrsDistribution' - The distribution's information.
 --
--- * 'udrsResponseStatus'
+-- * 'udrsResponseStatus' - -- | The response status code.
 updateDistributionResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDistributionResponse
@@ -152,11 +152,11 @@ updateDistributionResponse pResponseStatus_ =
 udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
 
--- | The distribution\'s information.
+-- | The distribution's information.
 udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDistributionResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 

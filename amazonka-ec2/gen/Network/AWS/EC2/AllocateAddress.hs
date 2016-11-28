@@ -20,7 +20,9 @@
 --
 -- Acquires an Elastic IP address.
 --
--- An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.AllocateAddress
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AllocateAddress.
 --
+--
+--
 -- /See:/ 'allocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
     { _aaDomain :: !(Maybe DomainType)
@@ -59,9 +63,9 @@ data AllocateAddress = AllocateAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaDomain'
+-- * 'aaDomain' - Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 --
--- * 'aaDryRun'
+-- * 'aaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 allocateAddress
     :: AllocateAddress
 allocateAddress =
@@ -70,13 +74,11 @@ allocateAddress =
     , _aaDryRun = Nothing
     }
 
--- | Set to 'vpc' to allocate the address for use with instances in a VPC.
---
--- Default: The address is for use with instances in EC2-Classic.
+-- | Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
@@ -110,6 +112,8 @@ instance ToQuery AllocateAddress where
 
 -- | Contains the output of AllocateAddress.
 --
+--
+--
 -- /See:/ 'allocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
     { _aarsAllocationId   :: !(Maybe Text)
@@ -122,13 +126,13 @@ data AllocateAddressResponse = AllocateAddressResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aarsAllocationId'
+-- * 'aarsAllocationId' - [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 --
--- * 'aarsDomain'
+-- * 'aarsDomain' - Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
 --
--- * 'aarsPublicIP'
+-- * 'aarsPublicIP' - The Elastic IP address.
 --
--- * 'aarsResponseStatus'
+-- * 'aarsResponseStatus' - -- | The response status code.
 allocateAddressResponse
     :: Int -- ^ 'aarsResponseStatus'
     -> AllocateAddressResponse
@@ -144,7 +148,7 @@ allocateAddressResponse pResponseStatus_ =
 aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
 
--- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic ('standard') or instances in a VPC ('vpc').
+-- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
 aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 
@@ -152,7 +156,7 @@ aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
--- | The response status code.
+-- | -- | The response status code.
 aarsResponseStatus :: Lens' AllocateAddressResponse Int
 aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
 

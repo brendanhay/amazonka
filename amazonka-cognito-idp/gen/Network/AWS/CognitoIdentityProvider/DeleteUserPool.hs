@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified Amazon Cognito user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DeleteUserPool
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete a user pool.
 --
+--
+--
 -- /See:/ 'deleteUserPool' smart constructor.
 newtype DeleteUserPool = DeleteUserPool'
     { _dupUserPoolId :: Text
@@ -50,7 +54,7 @@ newtype DeleteUserPool = DeleteUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupUserPoolId'
+-- * 'dupUserPoolId' - The user pool ID for the user pool you want to delete.
 deleteUserPool
     :: Text -- ^ 'dupUserPoolId'
     -> DeleteUserPool

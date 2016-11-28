@@ -20,7 +20,9 @@
 --
 -- Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged in the affected Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for PutScheduledUpdateGroupAction.
 --
+--
+--
 -- /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     { _psugaStartTime            :: !(Maybe ISO8601)
@@ -68,23 +72,23 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psugaStartTime'
+-- * 'psugaStartTime' - The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you try to schedule your action in the past, Auto Scaling returns an error message. When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
 --
--- * 'psugaTime'
+-- * 'psugaTime' - This parameter is deprecated.
 --
--- * 'psugaMaxSize'
+-- * 'psugaMaxSize' - The maximum size for the Auto Scaling group.
 --
--- * 'psugaRecurrence'
+-- * 'psugaRecurrence' - The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia. When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action will start and stop.
 --
--- * 'psugaDesiredCapacity'
+-- * 'psugaDesiredCapacity' - The number of EC2 instances that should be running in the group.
 --
--- * 'psugaMinSize'
+-- * 'psugaMinSize' - The minimum size for the Auto Scaling group.
 --
--- * 'psugaEndTime'
+-- * 'psugaEndTime' - The time for this action to end.
 --
--- * 'psugaAutoScalingGroupName'
+-- * 'psugaAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 --
--- * 'psugaScheduledActionName'
+-- * 'psugaScheduledActionName' - The name of this scaling action.
 putScheduledUpdateGroupAction
     :: Text -- ^ 'psugaAutoScalingGroupName'
     -> Text -- ^ 'psugaScheduledActionName'
@@ -102,11 +106,7 @@ putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     , _psugaScheduledActionName = pScheduledActionName_
     }
 
--- | The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in UTC\/GMT only (for example, '2014-06-01T00:00:00Z').
---
--- If you try to schedule your action in the past, Auto Scaling returns an error message.
---
--- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the boundaries of when the recurring action starts and stops.
+-- | The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you try to schedule your action in the past, Auto Scaling returns an error message. When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
 
@@ -118,9 +118,7 @@ psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a});
 
--- | The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
---
--- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the boundaries of when the recurring action will start and stop.
+-- | The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia. When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
 

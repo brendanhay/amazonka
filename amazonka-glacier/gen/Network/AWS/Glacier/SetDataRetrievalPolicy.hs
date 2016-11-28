@@ -20,7 +20,9 @@
 --
 -- This operation sets and then enacts a data retrieval policy in the region specified in the PUT request. You can set one policy per region for an AWS account. The policy is enacted within a few minutes of a successful PUT operation.
 --
--- The set policy operation does not affect retrieval jobs that were in progress before the policy was enacted. For more information about data retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
+--
+-- The set policy operation does not affect retrieval jobs that were in progress before the policy was enacted. For more information about data retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies> .
+--
 module Network.AWS.Glacier.SetDataRetrievalPolicy
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | SetDataRetrievalPolicy input.
 --
+--
+--
 -- /See:/ 'setDataRetrievalPolicy' smart constructor.
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
     { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
@@ -54,9 +58,9 @@ data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdrpPolicy'
+-- * 'sdrpPolicy' - The data retrieval policy in JSON format.
 --
--- * 'sdrpAccountId'
+-- * 'sdrpAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
 setDataRetrievalPolicy
     :: Text -- ^ 'sdrpAccountId'
     -> SetDataRetrievalPolicy
@@ -70,7 +74,7 @@ setDataRetrievalPolicy pAccountId_ =
 sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
 sdrpPolicy = lens _sdrpPolicy (\ s a -> s{_sdrpPolicy = a});
 
--- | The 'AccountId' value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
 sdrpAccountId :: Lens' SetDataRetrievalPolicy Text
 sdrpAccountId = lens _sdrpAccountId (\ s a -> s{_sdrpAccountId = a});
 

@@ -52,9 +52,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdIfMatch'
+-- * 'dsdIfMatch' - The value of the ETag header you received when you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
 --
--- * 'dsdId'
+-- * 'dsdId' - The distribution id.
 deleteStreamingDistribution
     :: Text -- ^ 'dsdId'
     -> DeleteStreamingDistribution

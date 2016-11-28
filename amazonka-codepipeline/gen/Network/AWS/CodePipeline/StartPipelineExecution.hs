@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the specified pipeline. Specifically, it begins processing the latest commit to the source location specified as part of the pipeline.
+--
+--
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a start pipeline execution action.
 --
+--
+--
 -- /See:/ 'startPipelineExecution' smart constructor.
 newtype StartPipelineExecution = StartPipelineExecution'
     { _speName :: Text
@@ -53,7 +57,7 @@ newtype StartPipelineExecution = StartPipelineExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'speName'
+-- * 'speName' - The name of the pipeline to start.
 startPipelineExecution
     :: Text -- ^ 'speName'
     -> StartPipelineExecution
@@ -103,6 +107,8 @@ instance ToQuery StartPipelineExecution where
 
 -- | Represents the output of a start pipeline execution action.
 --
+--
+--
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
     { _spersPipelineExecutionId :: !(Maybe Text)
@@ -113,9 +119,9 @@ data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spersPipelineExecutionId'
+-- * 'spersPipelineExecutionId' - The unique system-generated ID of the pipeline execution that was started.
 --
--- * 'spersResponseStatus'
+-- * 'spersResponseStatus' - -- | The response status code.
 startPipelineExecutionResponse
     :: Int -- ^ 'spersResponseStatus'
     -> StartPipelineExecutionResponse
@@ -129,7 +135,7 @@ startPipelineExecutionResponse pResponseStatus_ =
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
 spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});
 

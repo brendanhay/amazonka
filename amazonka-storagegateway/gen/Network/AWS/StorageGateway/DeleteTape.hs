@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified virtual tape.
+--
+--
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteTapeInput
 --
+--
+--
 -- /See:/ 'deleteTape' smart constructor.
 data DeleteTape = DeleteTape'
     { _delGatewayARN :: !Text
@@ -55,9 +59,9 @@ data DeleteTape = DeleteTape'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delGatewayARN'
+-- * 'delGatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
--- * 'delTapeARN'
+-- * 'delTapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete.
 deleteTape
     :: Text -- ^ 'delGatewayARN'
     -> Text -- ^ 'delTapeARN'
@@ -68,7 +72,7 @@ deleteTape pGatewayARN_ pTapeARN_ =
     , _delTapeARN = pTapeARN_
     }
 
--- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the < ListGateways> operation to return a list of gateways for your account and region.
+-- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 delGatewayARN :: Lens' DeleteTape Text
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
@@ -113,6 +117,8 @@ instance ToQuery DeleteTape where
 
 -- | DeleteTapeOutput
 --
+--
+--
 -- /See:/ 'deleteTapeResponse' smart constructor.
 data DeleteTapeResponse = DeleteTapeResponse'
     { _dtrsTapeARN        :: !(Maybe Text)
@@ -123,9 +129,9 @@ data DeleteTapeResponse = DeleteTapeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTapeARN'
+-- * 'dtrsTapeARN' - The Amazon Resource Name (ARN) of the deleted virtual tape.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 deleteTapeResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTapeResponse
@@ -139,7 +145,7 @@ deleteTapeResponse pResponseStatus_ =
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTapeResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

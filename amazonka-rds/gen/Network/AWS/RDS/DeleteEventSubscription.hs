@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an RDS event notification subscription.
+--
+--
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
     { _desSubscriptionName :: Text
@@ -53,7 +57,7 @@ newtype DeleteEventSubscription = DeleteEventSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desSubscriptionName'
+-- * 'desSubscriptionName' - The name of the RDS event notification subscription you want to delete.
 deleteEventSubscription
     :: Text -- ^ 'desSubscriptionName'
     -> DeleteEventSubscription
@@ -104,9 +108,9 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsEventSubscription'
+-- * 'drsEventSubscription' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteEventSubscriptionResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteEventSubscriptionResponse
@@ -120,7 +124,7 @@ deleteEventSubscriptionResponse pResponseStatus_ =
 drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

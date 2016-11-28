@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a statement to a topic\'s access control policy, granting access for the specified AWS accounts to the specified actions.
+-- Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.
+--
+--
 module Network.AWS.SNS.AddPermission
     (
     -- * Creating a Request
@@ -54,13 +56,13 @@ data AddPermission = AddPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apTopicARN'
+-- * 'apTopicARN' - The ARN of the topic whose access control policy you wish to modify.
 --
--- * 'apLabel'
+-- * 'apLabel' - A unique identifier for the new policy statement.
 --
--- * 'apAWSAccountId'
+-- * 'apAWSAccountId' - The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
 --
--- * 'apActionName'
+-- * 'apActionName' - The action you want to allow for the specified principal(s). Valid values: any Amazon SNS action name.
 addPermission
     :: Text -- ^ 'apTopicARN'
     -> Text -- ^ 'apLabel'
@@ -85,9 +87,7 @@ apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 apAWSAccountId :: Lens' AddPermission [Text]
 apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
 
--- | The action you want to allow for the specified principal(s).
---
--- Valid values: any Amazon SNS action name.
+-- | The action you want to allow for the specified principal(s). Valid values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
 apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 

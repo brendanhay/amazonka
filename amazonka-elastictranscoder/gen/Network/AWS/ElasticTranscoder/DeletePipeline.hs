@@ -20,7 +20,9 @@
 --
 -- The DeletePipeline operation removes a pipeline.
 --
--- You can only delete a pipeline that has never been used or that is not currently in use (doesn\'t contain any active jobs). If the pipeline is currently in use, 'DeletePipeline' returns an error.
+--
+-- You can only delete a pipeline that has never been used or that is not currently in use (doesn't contain any active jobs). If the pipeline is currently in use, @DeletePipeline@ returns an error.
+--
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'DeletePipelineRequest' structure.
+-- | The @DeletePipelineRequest@ structure.
+--
+--
 --
 -- /See:/ 'deletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
@@ -54,7 +58,7 @@ newtype DeletePipeline = DeletePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dId'
+-- * 'dId' - The identifier of the pipeline that you want to delete.
 deletePipeline
     :: Text -- ^ 'dId'
     -> DeletePipeline
@@ -89,7 +93,9 @@ instance ToPath DeletePipeline where
 instance ToQuery DeletePipeline where
         toQuery = const mempty
 
--- | The 'DeletePipelineResponse' structure.
+-- | The @DeletePipelineResponse@ structure.
+--
+--
 --
 -- /See:/ 'deletePipelineResponse' smart constructor.
 newtype DeletePipelineResponse = DeletePipelineResponse'
@@ -100,7 +106,7 @@ newtype DeletePipelineResponse = DeletePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deletePipelineResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeletePipelineResponse
@@ -109,7 +115,7 @@ deletePipelineResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeletePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

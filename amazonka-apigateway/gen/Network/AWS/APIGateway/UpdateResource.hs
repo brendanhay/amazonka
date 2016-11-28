@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a < Resource> resource.
+-- Changes information about a 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateResource
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to change information about a < Resource> resource.
+-- | Request to change information about a 'Resource' resource.
+--
+--
 --
 -- /See:/ 'updateResource' smart constructor.
 data UpdateResource = UpdateResource'
@@ -60,11 +64,11 @@ data UpdateResource = UpdateResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urPatchOperations'
+-- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'urRestAPIId'
+-- * 'urRestAPIId' - The 'RestApi' identifier for the 'Resource' resource.
 --
--- * 'urResourceId'
+-- * 'urResourceId' - The identifier of the 'Resource' resource.
 updateResource
     :: Text -- ^ 'urRestAPIId'
     -> Text -- ^ 'urResourceId'
@@ -80,11 +84,11 @@ updateResource pRestAPIId_ pResourceId_ =
 urPatchOperations :: Lens' UpdateResource [PatchOperation]
 urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < Resource> resource.
+-- | The 'RestApi' identifier for the 'Resource' resource.
 urRestAPIId :: Lens' UpdateResource Text
 urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
 
--- | The identifier of the < Resource> resource.
+-- | The identifier of the 'Resource' resource.
 urResourceId :: Lens' UpdateResource Text
 urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
 

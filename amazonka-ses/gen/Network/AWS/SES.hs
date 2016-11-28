@@ -11,11 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Simple Email Service
+-- __Amazon Simple Email Service__
 --
--- This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide>.
+-- This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
 --
--- For a list of Amazon SES endpoints to use in service requests, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES> in the Amazon SES Developer Guide.
 module Network.AWS.SES
     (
     -- * Service Configuration

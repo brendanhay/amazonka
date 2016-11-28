@@ -20,9 +20,11 @@
 --
 -- Deletes the specified receipt rule.
 --
--- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
+--
+-- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DeleteReceiptRule
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'deleteReceiptRule' smart constructor.
 data DeleteReceiptRule = DeleteReceiptRule'
@@ -58,9 +62,9 @@ data DeleteReceiptRule = DeleteReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRuleSetName'
+-- * 'delRuleSetName' - The name of the receipt rule set that contains the receipt rule to delete.
 --
--- * 'delRuleName'
+-- * 'delRuleName' - The name of the receipt rule to delete.
 deleteReceiptRule
     :: Text -- ^ 'delRuleSetName'
     -> Text -- ^ 'delRuleName'
@@ -107,6 +111,8 @@ instance ToQuery DeleteReceiptRule where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'deleteReceiptRuleResponse' smart constructor.
 newtype DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
     { _drsResponseStatus :: Int
@@ -116,7 +122,7 @@ newtype DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteReceiptRuleResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteReceiptRuleResponse
@@ -125,7 +131,7 @@ deleteReceiptRuleResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteReceiptRuleResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

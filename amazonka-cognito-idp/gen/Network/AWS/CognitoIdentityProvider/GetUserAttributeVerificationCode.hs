@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the user attribute verification code for the specified attribute name.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get user attribute verification.
 --
+--
+--
 -- /See:/ 'getUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
     { _guavcAccessToken   :: !(Maybe (Sensitive Text))
@@ -55,9 +59,9 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guavcAccessToken'
+-- * 'guavcAccessToken' - The access token returned by the server response to get the user attribute verification code.
 --
--- * 'guavcAttributeName'
+-- * 'guavcAttributeName' - The attribute name returned by the server response to get the user attribute verification code.
 getUserAttributeVerificationCode
     :: Text -- ^ 'guavcAttributeName'
     -> GetUserAttributeVerificationCode
@@ -120,6 +124,8 @@ instance ToQuery GetUserAttributeVerificationCode
 
 -- | The verification code response returned by the server response to get the user attribute verification code.
 --
+--
+--
 -- /See:/ 'getUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
     { _guavcrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
@@ -130,9 +136,9 @@ data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCode
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guavcrsCodeDeliveryDetails'
+-- * 'guavcrsCodeDeliveryDetails' - The code delivery details returned by the server response to get the user attribute verification code.
 --
--- * 'guavcrsResponseStatus'
+-- * 'guavcrsResponseStatus' - -- | The response status code.
 getUserAttributeVerificationCodeResponse
     :: Int -- ^ 'guavcrsResponseStatus'
     -> GetUserAttributeVerificationCodeResponse
@@ -146,7 +152,7 @@ getUserAttributeVerificationCodeResponse pResponseStatus_ =
 guavcrsCodeDeliveryDetails :: Lens' GetUserAttributeVerificationCodeResponse (Maybe CodeDeliveryDetailsType)
 guavcrsCodeDeliveryDetails = lens _guavcrsCodeDeliveryDetails (\ s a -> s{_guavcrsCodeDeliveryDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 guavcrsResponseStatus :: Lens' GetUserAttributeVerificationCodeResponse Int
 guavcrsResponseStatus = lens _guavcrsResponseStatus (\ s a -> s{_guavcrsResponseStatus = a});
 

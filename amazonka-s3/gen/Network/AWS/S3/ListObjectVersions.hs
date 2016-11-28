@@ -78,19 +78,19 @@ data ListObjectVersions = ListObjectVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lovKeyMarker'
+-- * 'lovKeyMarker' - Specifies the key to start with when listing objects in a bucket.
 --
--- * 'lovPrefix'
+-- * 'lovPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lovEncodingType'
+-- * 'lovEncodingType' - Undocumented member.
 --
--- * 'lovVersionIdMarker'
+-- * 'lovVersionIdMarker' - Specifies the object version you want to start listing from.
 --
--- * 'lovMaxKeys'
+-- * 'lovMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lovDelimiter'
+-- * 'lovDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lovBucket'
+-- * 'lovBucket' - Undocumented member.
 listObjectVersions
     :: BucketName -- ^ 'lovBucket'
     -> ListObjectVersions
@@ -209,33 +209,33 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lovrsNextVersionIdMarker'
+-- * 'lovrsNextVersionIdMarker' - Use this value for the next version id marker parameter in a subsequent request.
 --
--- * 'lovrsKeyMarker'
+-- * 'lovrsKeyMarker' - Marks the last Key returned in a truncated response.
 --
--- * 'lovrsDeleteMarkers'
+-- * 'lovrsDeleteMarkers' - Undocumented member.
 --
--- * 'lovrsPrefix'
+-- * 'lovrsPrefix' - Undocumented member.
 --
--- * 'lovrsCommonPrefixes'
+-- * 'lovrsCommonPrefixes' - Undocumented member.
 --
--- * 'lovrsEncodingType'
+-- * 'lovrsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lovrsVersions'
+-- * 'lovrsVersions' - Undocumented member.
 --
--- * 'lovrsName'
+-- * 'lovrsName' - Undocumented member.
 --
--- * 'lovrsNextKeyMarker'
+-- * 'lovrsNextKeyMarker' - Use this value for the key marker request parameter in a subsequent request.
 --
--- * 'lovrsVersionIdMarker'
+-- * 'lovrsVersionIdMarker' - Undocumented member.
 --
--- * 'lovrsMaxKeys'
+-- * 'lovrsMaxKeys' - Undocumented member.
 --
--- * 'lovrsIsTruncated'
+-- * 'lovrsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
 --
--- * 'lovrsDelimiter'
+-- * 'lovrsDelimiter' - Undocumented member.
 --
--- * 'lovrsResponseStatus'
+-- * 'lovrsResponseStatus' - -- | The response status code.
 listObjectVersionsResponse
     :: Int -- ^ 'lovrsResponseStatus'
     -> ListObjectVersionsResponse
@@ -309,7 +309,7 @@ lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lovrsResponseStatus :: Lens' ListObjectVersionsResponse Int
 lovrsResponseStatus = lens _lovrsResponseStatus (\ s a -> s{_lovrsResponseStatus = a});
 

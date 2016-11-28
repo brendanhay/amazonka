@@ -20,6 +20,8 @@
 --
 -- Gets information about artifacts.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListArtifacts
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list artifacts operation.
 --
+--
+--
 -- /See:/ 'listArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
     { _laNextToken :: !(Maybe Text)
@@ -61,11 +65,11 @@ data ListArtifacts = ListArtifacts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laNextToken'
+-- * 'laNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'laArn'
+-- * 'laArn' - The Run, Job, Suite, or Test ARN.
 --
--- * 'laType'
+-- * 'laType' - The artifacts' type. Allowed values include:     * FILE: The artifacts are files.    * LOG: The artifacts are logs.    * SCREENSHOT: The artifacts are screenshots.
 listArtifacts
     :: Text -- ^ 'laArn'
     -> ArtifactCategory -- ^ 'laType'
@@ -85,13 +89,7 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 laArn :: Lens' ListArtifacts Text
 laArn = lens _laArn (\ s a -> s{_laArn = a});
 
--- | The artifacts\' type.
---
--- Allowed values include:
---
--- -   FILE: The artifacts are files.
--- -   LOG: The artifacts are logs.
--- -   SCREENSHOT: The artifacts are screenshots.
+-- | The artifacts' type. Allowed values include:     * FILE: The artifacts are files.    * LOG: The artifacts are logs.    * SCREENSHOT: The artifacts are screenshots.
 laType :: Lens' ListArtifacts ArtifactCategory
 laType = lens _laType (\ s a -> s{_laType = a});
 
@@ -141,6 +139,8 @@ instance ToQuery ListArtifacts where
 
 -- | Represents the result of a list artifacts operation.
 --
+--
+--
 -- /See:/ 'listArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
     { _larsArtifacts      :: !(Maybe [Artifact])
@@ -152,11 +152,11 @@ data ListArtifactsResponse = ListArtifactsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsArtifacts'
+-- * 'larsArtifacts' - Information about the artifacts.
 --
--- * 'larsNextToken'
+-- * 'larsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listArtifactsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListArtifactsResponse
@@ -175,7 +175,7 @@ larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default 
 larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListArtifactsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 

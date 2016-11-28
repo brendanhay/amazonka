@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the jobs associated with the requester. AWS Import\/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
+-- This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.
 --
 -- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
@@ -61,11 +61,11 @@ data ListJobs = ListJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljAPIVersion'
+-- * 'ljAPIVersion' - Undocumented member.
 --
--- * 'ljMarker'
+-- * 'ljMarker' - Undocumented member.
 --
--- * 'ljMaxJobs'
+-- * 'ljMaxJobs' - Undocumented member.
 listJobs
     :: ListJobs
 listJobs =
@@ -140,11 +140,11 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljrsJobs'
+-- * 'ljrsJobs' - Undocumented member.
 --
--- * 'ljrsIsTruncated'
+-- * 'ljrsIsTruncated' - Undocumented member.
 --
--- * 'ljrsResponseStatus'
+-- * 'ljrsResponseStatus' - -- | The response status code.
 listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
@@ -163,7 +163,7 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 

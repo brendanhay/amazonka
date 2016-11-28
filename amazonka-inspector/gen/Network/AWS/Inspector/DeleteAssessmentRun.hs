@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment run that is specified by the ARN of the assessment run.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentRun
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteAssessmentRun = DeleteAssessmentRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darAssessmentRunARN'
+-- * 'darAssessmentRunARN' - The ARN that specifies the assessment run that you want to delete.
 deleteAssessmentRun
     :: Text -- ^ 'darAssessmentRunARN'
     -> DeleteAssessmentRun

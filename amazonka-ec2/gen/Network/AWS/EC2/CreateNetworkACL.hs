@@ -20,7 +20,9 @@
 --
 -- Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.
 --
--- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateNetworkACL
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkAcl.
 --
+--
+--
 -- /See:/ 'createNetworkACL' smart constructor.
 data CreateNetworkACL = CreateNetworkACL'
     { _cnaDryRun :: !(Maybe Bool)
@@ -57,9 +61,9 @@ data CreateNetworkACL = CreateNetworkACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnaDryRun'
+-- * 'cnaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cnaVPCId'
+-- * 'cnaVPCId' - The ID of the VPC.
 createNetworkACL
     :: Text -- ^ 'cnaVPCId'
     -> CreateNetworkACL
@@ -69,7 +73,7 @@ createNetworkACL pVPCId_ =
     , _cnaVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
 cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
 
@@ -105,6 +109,8 @@ instance ToQuery CreateNetworkACL where
 
 -- | Contains the output of CreateNetworkAcl.
 --
+--
+--
 -- /See:/ 'createNetworkACLResponse' smart constructor.
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarsNetworkACL     :: !(Maybe NetworkACL)
@@ -115,9 +121,9 @@ data CreateNetworkACLResponse = CreateNetworkACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnarsNetworkACL'
+-- * 'cnarsNetworkACL' - Information about the network ACL.
 --
--- * 'cnarsResponseStatus'
+-- * 'cnarsResponseStatus' - -- | The response status code.
 createNetworkACLResponse
     :: Int -- ^ 'cnarsResponseStatus'
     -> CreateNetworkACLResponse
@@ -131,7 +137,7 @@ createNetworkACLResponse pResponseStatus_ =
 cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
 cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
 

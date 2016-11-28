@@ -20,9 +20,11 @@
 --
 -- Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.
 --
--- For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html Deleting Instances>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html Deleting Instances> .
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeleteInstance
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DeleteInstance = DeleteInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diDeleteVolumes'
+-- * 'diDeleteVolumes' - Whether to delete the instance's Amazon EBS volumes.
 --
--- * 'diDeleteElasticIP'
+-- * 'diDeleteElasticIP' - Whether to delete the instance Elastic IP address.
 --
--- * 'diInstanceId'
+-- * 'diInstanceId' - The instance ID.
 deleteInstance
     :: Text -- ^ 'diInstanceId'
     -> DeleteInstance
@@ -71,7 +73,7 @@ deleteInstance pInstanceId_ =
     , _diInstanceId = pInstanceId_
     }
 
--- | Whether to delete the instance\'s Amazon EBS volumes.
+-- | Whether to delete the instance's Amazon EBS volumes.
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
 diDeleteVolumes = lens _diDeleteVolumes (\ s a -> s{_diDeleteVolumes = a});
 

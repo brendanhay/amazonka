@@ -20,7 +20,9 @@
 --
 -- Verifies an email address. This action causes a confirmation email message to be sent to the specified address.
 --
+--
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.VerifyEmailIdentity
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide>.
+-- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'verifyEmailIdentity' smart constructor.
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
@@ -54,7 +58,7 @@ newtype VerifyEmailIdentity = VerifyEmailIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veiEmailAddress'
+-- * 'veiEmailAddress' - The email address to be verified.
 verifyEmailIdentity
     :: Text -- ^ 'veiEmailAddress'
     -> VerifyEmailIdentity
@@ -95,6 +99,8 @@ instance ToQuery VerifyEmailIdentity where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'verifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
     { _veirsResponseStatus :: Int
@@ -104,7 +110,7 @@ newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veirsResponseStatus'
+-- * 'veirsResponseStatus' - -- | The response status code.
 verifyEmailIdentityResponse
     :: Int -- ^ 'veirsResponseStatus'
     -> VerifyEmailIdentityResponse
@@ -113,7 +119,7 @@ verifyEmailIdentityResponse pResponseStatus_ =
     { _veirsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 veirsResponseStatus :: Lens' VerifyEmailIdentityResponse Int
 veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a});
 

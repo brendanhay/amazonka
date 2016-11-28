@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified set of tags from the specified Elasticsearch domain.
+--
+--
 module Network.AWS.ElasticSearch.RemoveTags
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'RemoveTags' operation. Specify the 'ARN' for the Elasticsearch domain from which you want to remove the specified 'TagKey'.
+-- | Container for the parameters to the @'RemoveTags' @ operation. Specify the @ARN@ for the Elasticsearch domain from which you want to remove the specified @TagKey@ .
+--
+--
 --
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
@@ -52,9 +56,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtARN'
+-- * 'rtARN' - Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
 --
--- * 'rtTagKeys'
+-- * 'rtTagKeys' - Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
 removeTags
     :: Text -- ^ 'rtARN'
     -> RemoveTags
@@ -64,11 +68,11 @@ removeTags pARN_ =
     , _rtTagKeys = mempty
     }
 
--- | Specifies the 'ARN' for the Elasticsearch domain from which you want to delete the specified tags.
+-- | Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
 rtARN :: Lens' RemoveTags Text
 rtARN = lens _rtARN (\ s a -> s{_rtARN = a});
 
--- | Specifies the 'TagKey' list which you want to remove from the Elasticsearch domain.
+-- | Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 

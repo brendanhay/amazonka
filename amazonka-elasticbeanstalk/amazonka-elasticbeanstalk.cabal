@@ -13,28 +13,19 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    AWS Elastic Beanstalk
-
-    AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on the Amazon Web Services cloud.
-
-    For more information about this product, go to the <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details page. The location of the latest AWS Elastic Beanstalk WSDL is <http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl>. To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <https://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-
-    __Endpoints__
-
-    For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/.
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
     .
-    Use of lenses is required for constructing and manipulating types.
-    This is due to the amount of nesting of AWS types and transparency regarding
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.ElasticBeanstalk" or <https://aws.amazon.com/documentation/ the AWS Documentation>
+    See "Network.AWS.ElasticBeanstalk" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head

@@ -20,9 +20,11 @@
 --
 -- Disables a gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
 --
+--
 -- Use this operation for a gateway-VTL that is not reachable or not functioning.
 --
--- Once a gateway is disabled it cannot be enabled.
+-- /Important:/ Once a gateway is disabled it cannot be enabled.
+--
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | DisableGatewayInput
 --
+--
+--
 -- /See:/ 'disableGateway' smart constructor.
 newtype DisableGateway = DisableGateway'
     { _dGatewayARN :: Text
@@ -57,7 +61,7 @@ newtype DisableGateway = DisableGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGatewayARN'
+-- * 'dGatewayARN' - Undocumented member.
 disableGateway
     :: Text -- ^ 'dGatewayARN'
     -> DisableGateway
@@ -106,6 +110,8 @@ instance ToQuery DisableGateway where
 
 -- | DisableGatewayOutput
 --
+--
+--
 -- /See:/ 'disableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
     { _disrsGatewayARN     :: !(Maybe Text)
@@ -116,9 +122,9 @@ data DisableGatewayResponse = DisableGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'disrsGatewayARN'
+-- * 'disrsGatewayARN' - The unique Amazon Resource Name of the disabled gateway.
 --
--- * 'disrsResponseStatus'
+-- * 'disrsResponseStatus' - -- | The response status code.
 disableGatewayResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DisableGatewayResponse
@@ -132,7 +138,7 @@ disableGatewayResponse pResponseStatus_ =
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 disrsResponseStatus :: Lens' DisableGatewayResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 

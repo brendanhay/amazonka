@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.
+--
+--
 module Network.AWS.EC2.DisableVGWRoutePropagation
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisableVgwRoutePropagation.
 --
+--
+--
 -- /See:/ 'disableVGWRoutePropagation' smart constructor.
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
     { _dvrpRouteTableId :: !Text
@@ -52,9 +56,9 @@ data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvrpRouteTableId'
+-- * 'dvrpRouteTableId' - The ID of the route table.
 --
--- * 'dvrpGatewayId'
+-- * 'dvrpGatewayId' - The ID of the virtual private gateway.
 disableVGWRoutePropagation
     :: Text -- ^ 'dvrpRouteTableId'
     -> Text -- ^ 'dvrpGatewayId'

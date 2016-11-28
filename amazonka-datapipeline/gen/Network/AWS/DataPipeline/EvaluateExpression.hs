@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call 'EvaluateExpression' to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.
+-- Task runners call @EvaluateExpression@ to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.
+--
+--
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EvaluateExpression.
 --
+--
+--
 -- /See:/ 'evaluateExpression' smart constructor.
 data EvaluateExpression = EvaluateExpression'
     { _eePipelineId :: !Text
@@ -57,11 +61,11 @@ data EvaluateExpression = EvaluateExpression'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eePipelineId'
+-- * 'eePipelineId' - The ID of the pipeline.
 --
--- * 'eeObjectId'
+-- * 'eeObjectId' - The ID of the object.
 --
--- * 'eeExpression'
+-- * 'eeExpression' - The expression to evaluate.
 evaluateExpression
     :: Text -- ^ 'eePipelineId'
     -> Text -- ^ 'eeObjectId'
@@ -126,6 +130,8 @@ instance ToQuery EvaluateExpression where
 
 -- | Contains the output of EvaluateExpression.
 --
+--
+--
 -- /See:/ 'evaluateExpressionResponse' smart constructor.
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
     { _eersResponseStatus      :: !Int
@@ -136,9 +142,9 @@ data EvaluateExpressionResponse = EvaluateExpressionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eersResponseStatus'
+-- * 'eersResponseStatus' - -- | The response status code.
 --
--- * 'eersEvaluatedExpression'
+-- * 'eersEvaluatedExpression' - The evaluated expression.
 evaluateExpressionResponse
     :: Int -- ^ 'eersResponseStatus'
     -> Text -- ^ 'eersEvaluatedExpression'
@@ -149,7 +155,7 @@ evaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
     , _eersEvaluatedExpression = pEvaluatedExpression_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 eersResponseStatus :: Lens' EvaluateExpressionResponse Int
 eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = a});
 

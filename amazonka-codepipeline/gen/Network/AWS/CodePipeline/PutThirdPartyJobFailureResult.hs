@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents the failure of a third party job as returned to the pipeline by a job worker. Only used for partner actions.
+--
+--
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a third party job failure result action.
 --
+--
+--
 -- /See:/ 'putThirdPartyJobFailureResult' smart constructor.
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
     { _ptpjfrJobId          :: !Text
@@ -54,11 +58,11 @@ data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptpjfrJobId'
+-- * 'ptpjfrJobId' - The ID of the job that failed. This is the same ID returned from PollForThirdPartyJobs.
 --
--- * 'ptpjfrClientToken'
+-- * 'ptpjfrClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
--- * 'ptpjfrFailureDetails'
+-- * 'ptpjfrFailureDetails' - Undocumented member.
 putThirdPartyJobFailureResult
     :: Text -- ^ 'ptpjfrJobId'
     -> Text -- ^ 'ptpjfrClientToken'

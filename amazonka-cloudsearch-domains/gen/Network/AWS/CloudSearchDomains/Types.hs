@@ -102,7 +102,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2013-01-01' of the Amazon CloudSearch Domain SDK configuration.
+-- | API version @2013-01-01@ of the Amazon CloudSearch Domain SDK configuration.
 cloudSearchDomains :: Service
 cloudSearchDomains =
     Service
@@ -137,9 +137,13 @@ cloudSearchDomains =
       | otherwise = Nothing
 
 -- | Information about any problems encountered while processing an upload request.
+--
+--
 _DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentServiceException = _ServiceError . hasCode "DocumentServiceException"
 
 -- | Information about any problems encountered while processing a search request.
+--
+--
 _SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 _SearchException = _ServiceError . hasCode "SearchException"

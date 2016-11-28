@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the permissions for an SSM document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user’s AWS account ID) or publicly (/All/).
+-- Describes the permissions for an SSM document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user’s AWS account ID) or publicly (/All/ ).
+--
+--
 module Network.AWS.SSM.DescribeDocumentPermission
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DescribeDocumentPermission = DescribeDocumentPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddpName'
+-- * 'ddpName' - The name of the document for which you are the owner.
 --
--- * 'ddpPermissionType'
+-- * 'ddpPermissionType' - The permission type for the document. The permission type can be /Share/ .
 describeDocumentPermission
     :: Text -- ^ 'ddpName'
     -> DocumentPermissionType -- ^ 'ddpPermissionType'
@@ -70,7 +72,7 @@ describeDocumentPermission pName_ pPermissionType_ =
 ddpName :: Lens' DescribeDocumentPermission Text
 ddpName = lens _ddpName (\ s a -> s{_ddpName = a});
 
--- | The permission type for the document. The permission type can be /Share/.
+-- | The permission type for the document. The permission type can be /Share/ .
 ddpPermissionType :: Lens' DescribeDocumentPermission DocumentPermissionType
 ddpPermissionType = lens _ddpPermissionType (\ s a -> s{_ddpPermissionType = a});
 
@@ -122,9 +124,9 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddprsAccountIds'
+-- * 'ddprsAccountIds' - The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
 --
--- * 'ddprsResponseStatus'
+-- * 'ddprsResponseStatus' - -- | The response status code.
 describeDocumentPermissionResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDocumentPermissionResponse
@@ -134,11 +136,11 @@ describeDocumentPermissionResponse pResponseStatus_ =
     , _ddprsResponseStatus = pResponseStatus_
     }
 
--- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/.
+-- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
 ddprsAccountIds :: Lens' DescribeDocumentPermissionResponse [Text]
 ddprsAccountIds = lens _ddprsAccountIds (\ s a -> s{_ddprsAccountIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddprsResponseStatus :: Lens' DescribeDocumentPermissionResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 

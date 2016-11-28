@@ -26,8 +26,7 @@ import           Network.AWS.OpsWorks.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceTerminated :: Wait DescribeInstances
 instanceTerminated =
     Wait
@@ -82,8 +81,7 @@ instanceTerminated =
                               iStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 deploymentSuccessful :: Wait DescribeDeployments
 deploymentSuccessful =
     Wait
@@ -102,8 +100,7 @@ deploymentSuccessful =
                               dStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceStopped :: Wait DescribeInstances
 instanceStopped =
     Wait
@@ -162,8 +159,7 @@ instanceStopped =
                               iStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceOnline :: Wait DescribeInstances
 instanceOnline =
     Wait
@@ -217,8 +213,7 @@ instanceOnline =
                               iStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
 appExists :: Wait DescribeApps
 appExists =
     Wait
@@ -229,8 +224,7 @@ appExists =
                        , matchStatus 400 AcceptFailure]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceRegistered :: Wait DescribeInstances
 instanceRegistered =
     Wait

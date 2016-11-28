@@ -20,7 +20,9 @@
 --
 -- Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.BulkPublish
     (
     -- * Creating a Request
@@ -55,7 +57,7 @@ newtype BulkPublish = BulkPublish'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bpIdentityPoolId'
+-- * 'bpIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 bulkPublish
     :: Text -- ^ 'bpIdentityPoolId'
     -> BulkPublish
@@ -112,9 +114,9 @@ data BulkPublishResponse = BulkPublishResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bprsIdentityPoolId'
+-- * 'bprsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'bprsResponseStatus'
+-- * 'bprsResponseStatus' - -- | The response status code.
 bulkPublishResponse
     :: Int -- ^ 'bprsResponseStatus'
     -> BulkPublishResponse
@@ -128,7 +130,7 @@ bulkPublishResponse pResponseStatus_ =
 bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 bprsResponseStatus :: Lens' BulkPublishResponse Int
 bprsResponseStatus = lens _bprsResponseStatus (\ s a -> s{_bprsResponseStatus = a});
 

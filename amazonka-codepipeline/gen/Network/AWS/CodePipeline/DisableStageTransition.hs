@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Prevents artifacts in a pipeline from transitioning to the next stage in the pipeline.
+--
+--
 module Network.AWS.CodePipeline.DisableStageTransition
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a disable stage transition input action.
 --
+--
+--
 -- /See:/ 'disableStageTransition' smart constructor.
 data DisableStageTransition = DisableStageTransition'
     { _dstPipelineName   :: !Text
@@ -56,13 +60,13 @@ data DisableStageTransition = DisableStageTransition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dstPipelineName'
+-- * 'dstPipelineName' - The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
 --
--- * 'dstStageName'
+-- * 'dstStageName' - The name of the stage where you want to disable the inbound or outbound transition of artifacts.
 --
--- * 'dstTransitionType'
+-- * 'dstTransitionType' - Specifies whether artifacts will be prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
 --
--- * 'dstReason'
+-- * 'dstReason' - The reason given to the user why a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
 disableStageTransition
     :: Text -- ^ 'dstPipelineName'
     -> Text -- ^ 'dstStageName'

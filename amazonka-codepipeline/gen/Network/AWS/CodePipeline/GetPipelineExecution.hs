@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about an execution of a pipeline, including details about artifacts, the pipeline execution ID, and the name, version, and status of the pipeline.
+--
+--
 module Network.AWS.CodePipeline.GetPipelineExecution
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get pipeline execution action.
 --
+--
+--
 -- /See:/ 'getPipelineExecution' smart constructor.
 data GetPipelineExecution = GetPipelineExecution'
     { _gpePipelineName        :: !Text
@@ -55,9 +59,9 @@ data GetPipelineExecution = GetPipelineExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpePipelineName'
+-- * 'gpePipelineName' - The name of the pipeline about which you want to get execution details.
 --
--- * 'gpePipelineExecutionId'
+-- * 'gpePipelineExecutionId' - The ID of the pipeline execution about which you want to get execution details.
 getPipelineExecution
     :: Text -- ^ 'gpePipelineName'
     -> Text -- ^ 'gpePipelineExecutionId'
@@ -116,6 +120,8 @@ instance ToQuery GetPipelineExecution where
 
 -- | Represents the output of a get pipeline execution action.
 --
+--
+--
 -- /See:/ 'getPipelineExecutionResponse' smart constructor.
 data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
     { _gpersPipelineExecution :: !(Maybe PipelineExecution)
@@ -126,9 +132,9 @@ data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpersPipelineExecution'
+-- * 'gpersPipelineExecution' - Represents information about the execution of a pipeline.
 --
--- * 'gpersResponseStatus'
+-- * 'gpersResponseStatus' - -- | The response status code.
 getPipelineExecutionResponse
     :: Int -- ^ 'gpersResponseStatus'
     -> GetPipelineExecutionResponse
@@ -142,7 +148,7 @@ getPipelineExecutionResponse pResponseStatus_ =
 gpersPipelineExecution :: Lens' GetPipelineExecutionResponse (Maybe PipelineExecution)
 gpersPipelineExecution = lens _gpersPipelineExecution (\ s a -> s{_gpersPipelineExecution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gpersResponseStatus :: Lens' GetPipelineExecutionResponse Int
 gpersResponseStatus = lens _gpersResponseStatus (\ s a -> s{_gpersResponseStatus = a});
 

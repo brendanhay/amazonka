@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the user attributes in a user pool as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete user attributes as an administrator.
 --
+--
+--
 -- /See:/ 'adminDeleteUserAttributes' smart constructor.
 data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
     { _aduaUserPoolId         :: !Text
@@ -56,11 +60,11 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aduaUserPoolId'
+-- * 'aduaUserPoolId' - The user pool ID for the user pool where you want to delete user attributes.
 --
--- * 'aduaUsername'
+-- * 'aduaUsername' - The user name of the user from which you would like to delete attributes.
 --
--- * 'aduaUserAttributeNames'
+-- * 'aduaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete.
 adminDeleteUserAttributes
     :: Text -- ^ 'aduaUserPoolId'
     -> Text -- ^ 'aduaUsername'
@@ -125,6 +129,8 @@ instance ToQuery AdminDeleteUserAttributes where
 
 -- | Represents the response received from the server for a request to delete user attributes.
 --
+--
+--
 -- /See:/ 'adminDeleteUserAttributesResponse' smart constructor.
 newtype AdminDeleteUserAttributesResponse = AdminDeleteUserAttributesResponse'
     { _aduarsResponseStatus :: Int
@@ -134,7 +140,7 @@ newtype AdminDeleteUserAttributesResponse = AdminDeleteUserAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aduarsResponseStatus'
+-- * 'aduarsResponseStatus' - -- | The response status code.
 adminDeleteUserAttributesResponse
     :: Int -- ^ 'aduarsResponseStatus'
     -> AdminDeleteUserAttributesResponse
@@ -143,7 +149,7 @@ adminDeleteUserAttributesResponse pResponseStatus_ =
     { _aduarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aduarsResponseStatus :: Lens' AdminDeleteUserAttributesResponse Int
 aduarsResponseStatus = lens _aduarsResponseStatus (\ s a -> s{_aduarsResponseStatus = a});
 

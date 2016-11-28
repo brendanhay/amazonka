@@ -20,9 +20,11 @@
 --
 -- Provisions a public virtual interface to be owned by a different customer.
 --
+--
 -- The owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.
 --
--- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in \'Confirming\' state, and will not be available for handling traffic.
+-- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.
+--
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -63,6 +65,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePublicVirtualInterface operation.
 --
+--
+--
 -- /See:/ 'allocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
     { _aConnectionId                        :: !Text
@@ -74,11 +78,11 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aConnectionId'
+-- * 'aConnectionId' - The connection ID on which the public virtual interface is provisioned. Default: None
 --
--- * 'aOwnerAccount'
+-- * 'aOwnerAccount' - The AWS account that will own the new public virtual interface. Default: None
 --
--- * 'aNewPublicVirtualInterfaceAllocation'
+-- * 'aNewPublicVirtualInterfaceAllocation' - Detailed information for the public virtual interface to be provisioned. Default: None
 allocatePublicVirtualInterface
     :: Text -- ^ 'aConnectionId'
     -> Text -- ^ 'aOwnerAccount'
@@ -91,21 +95,15 @@ allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualIn
     , _aNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation_
     }
 
--- | The connection ID on which the public virtual interface is provisioned.
---
--- Default: None
+-- | The connection ID on which the public virtual interface is provisioned. Default: None
 aConnectionId :: Lens' AllocatePublicVirtualInterface Text
 aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a});
 
--- | The AWS account that will own the new public virtual interface.
---
--- Default: None
+-- | The AWS account that will own the new public virtual interface. Default: None
 aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
 aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a});
 
--- | Detailed information for the public virtual interface to be provisioned.
---
--- Default: None
+-- | Detailed information for the public virtual interface to be provisioned. Default: None
 aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
 aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Ends a specified remote access session.
+--
+--
 module Network.AWS.DeviceFarm.StopRemoteAccessSession
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to stop the remote access session.
 --
+--
+--
 -- /See:/ 'stopRemoteAccessSession' smart constructor.
 newtype StopRemoteAccessSession = StopRemoteAccessSession'
     { _srasArn :: Text
@@ -53,7 +57,7 @@ newtype StopRemoteAccessSession = StopRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srasArn'
+-- * 'srasArn' - The Amazon Resource Name (ARN) of the remote access session you wish to stop.
 stopRemoteAccessSession
     :: Text -- ^ 'srasArn'
     -> StopRemoteAccessSession
@@ -103,6 +107,8 @@ instance ToQuery StopRemoteAccessSession where
 
 -- | Represents the response from the server that describes the remote access session when AWS Device Farm stops the session.
 --
+--
+--
 -- /See:/ 'stopRemoteAccessSessionResponse' smart constructor.
 data StopRemoteAccessSessionResponse = StopRemoteAccessSessionResponse'
     { _srasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
@@ -113,9 +119,9 @@ data StopRemoteAccessSessionResponse = StopRemoteAccessSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srasrsRemoteAccessSession'
+-- * 'srasrsRemoteAccessSession' - A container representing the metadata from the service about the remote access session you are stopping.
 --
--- * 'srasrsResponseStatus'
+-- * 'srasrsResponseStatus' - -- | The response status code.
 stopRemoteAccessSessionResponse
     :: Int -- ^ 'srasrsResponseStatus'
     -> StopRemoteAccessSessionResponse
@@ -129,7 +135,7 @@ stopRemoteAccessSessionResponse pResponseStatus_ =
 srasrsRemoteAccessSession :: Lens' StopRemoteAccessSessionResponse (Maybe RemoteAccessSession)
 srasrsRemoteAccessSession = lens _srasrsRemoteAccessSession (\ s a -> s{_srasrsRemoteAccessSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srasrsResponseStatus :: Lens' StopRemoteAccessSessionResponse Int
 srasrsResponseStatus = lens _srasrsResponseStatus (\ s a -> s{_srasrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Disassociates the specified SSM document from the specified instance.
 --
+--
 -- When you disassociate an SSM document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
+--
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DeleteAssociation = DeleteAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delName'
+-- * 'delName' - The name of the SSM document.
 --
--- * 'delInstanceId'
+-- * 'delInstanceId' - The ID of the instance.
 deleteAssociation
     :: Text -- ^ 'delName'
     -> Text -- ^ 'delInstanceId'
@@ -118,7 +120,7 @@ newtype DeleteAssociationResponse = DeleteAssociationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteAssociationResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteAssociationResponse
@@ -127,7 +129,7 @@ deleteAssociationResponse pResponseStatus_ =
     { _delrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

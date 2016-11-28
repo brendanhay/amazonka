@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a count of all your health checks, send a 'GET' request to the '\/2013-04-01\/healthcheckcount' resource.
+-- To retrieve a count of all your health checks, send a @GET@ request to the @/2013-04-01/healthcheckcount@ resource.
+--
+--
 module Network.AWS.Route53.GetHealthCheckCount
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your health checks, send a 'GET' request to the '\/2013-04-01\/healthcheckcount' resource.
+-- | To retrieve a count of all your health checks, send a @GET@ request to the @/2013-04-01/healthcheckcount@ resource.
+--
+--
 --
 -- /See:/ 'getHealthCheckCount' smart constructor.
 data GetHealthCheckCount =
@@ -76,7 +80,9 @@ instance ToPath GetHealthCheckCount where
 instance ToQuery GetHealthCheckCount where
         toQuery = const mempty
 
--- | A complex type that contains the response to a 'healthcheckcount' request.
+-- | A complex type that contains the response to a @healthcheckcount@ request.
+--
+--
 --
 -- /See:/ 'getHealthCheckCountResponse' smart constructor.
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
@@ -88,9 +94,9 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghccrsResponseStatus'
+-- * 'ghccrsResponseStatus' - -- | The response status code.
 --
--- * 'ghccrsHealthCheckCount'
+-- * 'ghccrsHealthCheckCount' - The number of health checks associated with the current AWS account.
 getHealthCheckCountResponse
     :: Int -- ^ 'ghccrsResponseStatus'
     -> Integer -- ^ 'ghccrsHealthCheckCount'
@@ -101,7 +107,7 @@ getHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
     , _ghccrsHealthCheckCount = pHealthCheckCount_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ghccrsResponseStatus :: Lens' GetHealthCheckCountResponse Int
 ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseStatus = a});
 

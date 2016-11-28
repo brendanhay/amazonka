@@ -404,7 +404,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2009-03-31' of the Amazon Elastic MapReduce SDK configuration.
+-- | API version @2009-03-31@ of the Amazon Elastic MapReduce SDK configuration.
 emr :: Service
 emr =
     Service
@@ -439,13 +439,19 @@ emr =
       | otherwise = Nothing
 
 -- | This exception occurs when there is something wrong with user input.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | Indicates that an error occurred while processing the request and that the request was not completed.
+--
+--
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | This exception occurs when there is an internal failure in the EMR service.
+--
+--
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException = _ServiceError . hasCode "InternalServerException"

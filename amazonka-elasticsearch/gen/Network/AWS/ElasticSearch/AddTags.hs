@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
+--
+--
 module Network.AWS.ElasticSearch.AddTags
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'AddTags' operation. Specify the tags that you want to attach to the Elasticsearch domain.
+-- | Container for the parameters to the @'AddTags' @ operation. Specify the tags that you want to attach to the Elasticsearch domain.
+--
+--
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
@@ -52,9 +56,9 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atARN'
+-- * 'atARN' - Specify the @ARN@ for which you want to add the tags.
 --
--- * 'atTagList'
+-- * 'atTagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
 addTags
     :: Text -- ^ 'atARN'
     -> AddTags
@@ -64,11 +68,11 @@ addTags pARN_ =
     , _atTagList = mempty
     }
 
--- | Specify the 'ARN' for which you want to add the tags.
+-- | Specify the @ARN@ for which you want to add the tags.
 atARN :: Lens' AddTags Text
 atARN = lens _atARN (\ s a -> s{_atARN = a});
 
--- | List of 'Tag' that need to be added for the Elasticsearch domain.
+-- | List of @Tag@ that need to be added for the Elasticsearch domain.
 atTagList :: Lens' AddTags [Tag]
 atTagList = lens _atTagList (\ s a -> s{_atTagList = a}) . _Coerce;
 

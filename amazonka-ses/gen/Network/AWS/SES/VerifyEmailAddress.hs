@@ -20,9 +20,11 @@
 --
 -- Verifies an email address. This action causes a confirmation email message to be sent to the specified address.
 --
--- The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.
+--
+-- /Important:/ The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.VerifyEmailAddress
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide>.
+-- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'verifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
@@ -54,7 +58,7 @@ newtype VerifyEmailAddress = VerifyEmailAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veaEmailAddress'
+-- * 'veaEmailAddress' - The email address to be verified.
 verifyEmailAddress
     :: Text -- ^ 'veaEmailAddress'
     -> VerifyEmailAddress

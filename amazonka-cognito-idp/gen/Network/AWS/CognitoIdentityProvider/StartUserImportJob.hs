@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the user import.
+--
+--
 module Network.AWS.CognitoIdentityProvider.StartUserImportJob
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to start the user import job.
 --
+--
+--
 -- /See:/ 'startUserImportJob' smart constructor.
 data StartUserImportJob = StartUserImportJob'
     { _suijUserPoolId :: !Text
@@ -55,9 +59,9 @@ data StartUserImportJob = StartUserImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suijUserPoolId'
+-- * 'suijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'suijJobId'
+-- * 'suijJobId' - The job ID for the user import job.
 startUserImportJob
     :: Text -- ^ 'suijUserPoolId'
     -> Text -- ^ 'suijJobId'
@@ -115,6 +119,8 @@ instance ToQuery StartUserImportJob where
 
 -- | Represents the response from the server to the request to start the user import job.
 --
+--
+--
 -- /See:/ 'startUserImportJobResponse' smart constructor.
 data StartUserImportJobResponse = StartUserImportJobResponse'
     { _suijrsUserImportJob  :: !(Maybe UserImportJobType)
@@ -125,9 +131,9 @@ data StartUserImportJobResponse = StartUserImportJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'suijrsUserImportJob'
+-- * 'suijrsUserImportJob' - The job object that represents the user import job.
 --
--- * 'suijrsResponseStatus'
+-- * 'suijrsResponseStatus' - -- | The response status code.
 startUserImportJobResponse
     :: Int -- ^ 'suijrsResponseStatus'
     -> StartUserImportJobResponse
@@ -141,7 +147,7 @@ startUserImportJobResponse pResponseStatus_ =
 suijrsUserImportJob :: Lens' StartUserImportJobResponse (Maybe UserImportJobType)
 suijrsUserImportJob = lens _suijrsUserImportJob (\ s a -> s{_suijrsUserImportJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 suijrsResponseStatus :: Lens' StartUserImportJobResponse Int
 suijrsResponseStatus = lens _suijrsResponseStatus (\ s a -> s{_suijrsResponseStatus = a});
 

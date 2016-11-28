@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application.
+--
+--
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get application operation.
 --
+--
+--
 -- /See:/ 'getApplication' smart constructor.
 newtype GetApplication = GetApplication'
     { _gaApplicationName :: Text
@@ -53,7 +57,7 @@ newtype GetApplication = GetApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaApplicationName'
+-- * 'gaApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 getApplication
     :: Text -- ^ 'gaApplicationName'
     -> GetApplication
@@ -102,6 +106,8 @@ instance ToQuery GetApplication where
 
 -- | Represents the output of a get application operation.
 --
+--
+--
 -- /See:/ 'getApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
     { _garsApplication    :: !(Maybe ApplicationInfo)
@@ -112,9 +118,9 @@ data GetApplicationResponse = GetApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsApplication'
+-- * 'garsApplication' - Information about the application.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 getApplicationResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetApplicationResponse
@@ -128,7 +134,7 @@ getApplicationResponse pResponseStatus_ =
 garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GetApplicationResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the custom MAIL FROM attributes for a list of identities (email addresses and\/or domains).
+-- Returns the custom MAIL FROM attributes for a list of identities (email addresses and/or domains).
+--
 --
 -- This action is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
+--
 module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>.
+-- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'getIdentityMailFromDomainAttributes' smart constructor.
 newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttributes'
@@ -55,7 +59,7 @@ newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttribute
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gimfdaIdentities'
+-- * 'gimfdaIdentities' - A list of one or more identities.
 getIdentityMailFromDomainAttributes
     :: GetIdentityMailFromDomainAttributes
 getIdentityMailFromDomainAttributes =
@@ -106,6 +110,8 @@ instance ToQuery GetIdentityMailFromDomainAttributes
 
 -- | Represents the custom MAIL FROM attributes for a list of identities.
 --
+--
+--
 -- /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
     { _gimfdarsResponseStatus           :: !Int
@@ -116,9 +122,9 @@ data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttr
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gimfdarsResponseStatus'
+-- * 'gimfdarsResponseStatus' - -- | The response status code.
 --
--- * 'gimfdarsMailFromDomainAttributes'
+-- * 'gimfdarsMailFromDomainAttributes' - A map of identities to custom MAIL FROM attributes.
 getIdentityMailFromDomainAttributesResponse
     :: Int -- ^ 'gimfdarsResponseStatus'
     -> GetIdentityMailFromDomainAttributesResponse
@@ -128,7 +134,7 @@ getIdentityMailFromDomainAttributesResponse pResponseStatus_ =
     , _gimfdarsMailFromDomainAttributes = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gimfdarsResponseStatus :: Lens' GetIdentityMailFromDomainAttributesResponse Int
 gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\ s a -> s{_gimfdarsResponseStatus = a});
 

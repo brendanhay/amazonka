@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment targets that are specified by the ARNs of the assessment targets.
+--
+--
 module Network.AWS.Inspector.DescribeAssessmentTargets
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeAssessmentTargets = DescribeAssessmentTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTargetARNs'
+-- * 'datAssessmentTargetARNs' - The ARNs that specifies the assessment targets that you want to describe.
 describeAssessmentTargets
     :: NonEmpty Text -- ^ 'datAssessmentTargetARNs'
     -> DescribeAssessmentTargets
@@ -116,11 +118,11 @@ data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 --
--- * 'drsAssessmentTargets'
+-- * 'drsAssessmentTargets' - Information about the assessment targets.
 --
--- * 'drsFailedItems'
+-- * 'drsFailedItems' - Assessment target details that cannot be described. An error code is provided for each failed item.
 describeAssessmentTargetsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeAssessmentTargetsResponse
@@ -131,7 +133,7 @@ describeAssessmentTargetsResponse pResponseStatus_ =
     , _drsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeAssessmentTargetsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

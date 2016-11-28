@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.
+--
+--
 module Network.AWS.EC2.DeleteCustomerGateway
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteCustomerGateway.
 --
+--
+--
 -- /See:/ 'deleteCustomerGateway' smart constructor.
 data DeleteCustomerGateway = DeleteCustomerGateway'
     { _dcgcDryRun            :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcgcDryRun'
+-- * 'dcgcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dcgcCustomerGatewayId'
+-- * 'dcgcCustomerGatewayId' - The ID of the customer gateway.
 deleteCustomerGateway
     :: Text -- ^ 'dcgcCustomerGatewayId'
     -> DeleteCustomerGateway
@@ -64,7 +68,7 @@ deleteCustomerGateway pCustomerGatewayId_ =
     , _dcgcCustomerGatewayId = pCustomerGatewayId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dcgcDryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcgcDryRun = lens _dcgcDryRun (\ s a -> s{_dcgcDryRun = a});
 

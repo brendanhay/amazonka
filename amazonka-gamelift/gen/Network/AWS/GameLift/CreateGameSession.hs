@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a multiplayer game session for players. This action creates a game session record and assigns the new session to an instance in the specified fleet, which initializes a new server process to host the game session. A fleet must be in an 'ACTIVE' status before a game session can be created in it.
+-- Creates a multiplayer game session for players. This action creates a game session record and assigns the new session to an instance in the specified fleet, which initializes a new server process to host the game session. A fleet must be in an @ACTIVE@ status before a game session can be created in it.
 --
--- To create a game session, specify either a fleet ID or an alias ID and indicate the maximum number of players the game session allows. You can also provide a name and a set of properties for your game (optional). If successful, a < GameSession> object is returned containing session properties, including an IP address. By default, newly created game sessions are set to accept adding any new players to the game session. Use < UpdateGameSession> to change the creation policy.
+--
+-- To create a game session, specify either a fleet ID or an alias ID and indicate the maximum number of players the game session allows. You can also provide a name and a set of properties for your game (optional). If successful, a 'GameSession' object is returned containing session properties, including an IP address. By default, newly created game sessions are set to accept adding any new players to the game session. Use 'UpdateGameSession' to change the creation policy.
+--
 module Network.AWS.GameLift.CreateGameSession
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'createGameSession' smart constructor.
 data CreateGameSession = CreateGameSession'
     { _cgsGameProperties            :: !(Maybe [GameProperty])
@@ -63,15 +67,15 @@ data CreateGameSession = CreateGameSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgsGameProperties'
+-- * 'cgsGameProperties' - Set of properties used to administer a game session. These properties are passed to the server process hosting it.
 --
--- * 'cgsAliasId'
+-- * 'cgsAliasId' - Unique identifier for a fleet alias. Each request must reference either a fleet ID or alias ID, but not both.
 --
--- * 'cgsName'
+-- * 'cgsName' - Descriptive label associated with a game session. Session names do not need to be unique.
 --
--- * 'cgsFleetId'
+-- * 'cgsFleetId' - Unique identifier for a fleet. Each request must reference either a fleet ID or alias ID, but not both.
 --
--- * 'cgsMaximumPlayerSessionCount'
+-- * 'cgsMaximumPlayerSessionCount' - Maximum number of players that can be connected simultaneously to the game session.
 createGameSession
     :: Natural -- ^ 'cgsMaximumPlayerSessionCount'
     -> CreateGameSession
@@ -146,6 +150,8 @@ instance ToQuery CreateGameSession where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'createGameSessionResponse' smart constructor.
 data CreateGameSessionResponse = CreateGameSessionResponse'
     { _cgsrsGameSession    :: !(Maybe GameSession)
@@ -156,9 +162,9 @@ data CreateGameSessionResponse = CreateGameSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgsrsGameSession'
+-- * 'cgsrsGameSession' - Object containing the newly created game session record.
 --
--- * 'cgsrsResponseStatus'
+-- * 'cgsrsResponseStatus' - -- | The response status code.
 createGameSessionResponse
     :: Int -- ^ 'cgsrsResponseStatus'
     -> CreateGameSessionResponse
@@ -172,7 +178,7 @@ createGameSessionResponse pResponseStatus_ =
 cgsrsGameSession :: Lens' CreateGameSessionResponse (Maybe GameSession)
 cgsrsGameSession = lens _cgsrsGameSession (\ s a -> s{_cgsrsGameSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cgsrsResponseStatus :: Lens' CreateGameSessionResponse Int
 cgsrsResponseStatus = lens _cgsrsResponseStatus (\ s a -> s{_cgsrsResponseStatus = a});
 

@@ -55,7 +55,7 @@ newtype CreateDistributionWithTags = CreateDistributionWithTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdwtDistributionConfigWithTags'
+-- * 'cdwtDistributionConfigWithTags' - The distribution's configuration information.
 createDistributionWithTags
     :: DistributionConfigWithTags -- ^ 'cdwtDistributionConfigWithTags'
     -> CreateDistributionWithTags
@@ -64,7 +64,7 @@ createDistributionWithTags pDistributionConfigWithTags_ =
     { _cdwtDistributionConfigWithTags = pDistributionConfigWithTags_
     }
 
--- | The distribution\'s configuration information.
+-- | The distribution's configuration information.
 cdwtDistributionConfigWithTags :: Lens' CreateDistributionWithTags DistributionConfigWithTags
 cdwtDistributionConfigWithTags = lens _cdwtDistributionConfigWithTags (\ s a -> s{_cdwtDistributionConfigWithTags = a});
 
@@ -114,13 +114,13 @@ data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdwtrsETag'
+-- * 'cdwtrsETag' - The current version of the distribution created.
 --
--- * 'cdwtrsDistribution'
+-- * 'cdwtrsDistribution' - The distribution's information.
 --
--- * 'cdwtrsLocation'
+-- * 'cdwtrsLocation' - The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 --
--- * 'cdwtrsResponseStatus'
+-- * 'cdwtrsResponseStatus' - -- | The response status code.
 createDistributionWithTagsResponse
     :: Int -- ^ 'cdwtrsResponseStatus'
     -> CreateDistributionWithTagsResponse
@@ -136,15 +136,15 @@ createDistributionWithTagsResponse pResponseStatus_ =
 cdwtrsETag :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
 cdwtrsETag = lens _cdwtrsETag (\ s a -> s{_cdwtrsETag = a});
 
--- | The distribution\'s information.
+-- | The distribution's information.
 cdwtrsDistribution :: Lens' CreateDistributionWithTagsResponse (Maybe Distribution)
 cdwtrsDistribution = lens _cdwtrsDistribution (\ s a -> s{_cdwtrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 cdwtrsLocation :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
 cdwtrsLocation = lens _cdwtrsLocation (\ s a -> s{_cdwtrsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdwtrsResponseStatus :: Lens' CreateDistributionWithTagsResponse Int
 cdwtrsResponseStatus = lens _cdwtrsResponseStatus (\ s a -> s{_cdwtrsResponseStatus = a});
 

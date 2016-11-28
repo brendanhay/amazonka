@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/.
+-- Generates a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Creating a Request
@@ -81,7 +83,9 @@ instance ToQuery GenerateCredentialReport where
                     ("GenerateCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < GenerateCredentialReport> request.
+-- | Contains the response to a successful 'GenerateCredentialReport' request.
+--
+--
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
@@ -94,11 +98,11 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrrsState'
+-- * 'gcrrsState' - Information about the state of the credential report.
 --
--- * 'gcrrsDescription'
+-- * 'gcrrsDescription' - Information about the credential report.
 --
--- * 'gcrrsResponseStatus'
+-- * 'gcrrsResponseStatus' - -- | The response status code.
 generateCredentialReportResponse
     :: Int -- ^ 'gcrrsResponseStatus'
     -> GenerateCredentialReportResponse
@@ -117,7 +121,7 @@ gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a});
 gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
 gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});
 

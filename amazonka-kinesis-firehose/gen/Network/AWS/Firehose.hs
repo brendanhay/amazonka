@@ -11,9 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Kinesis Firehose API Reference
+-- __Amazon Kinesis Firehose API Reference__
 --
 -- Amazon Kinesis Firehose is a fully-managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.
+--
 module Network.AWS.Firehose
     (
     -- * Service Configuration

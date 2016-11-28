@@ -20,7 +20,9 @@
 --
 -- Gets usage information for an identity, including number of datasets and data usage.
 --
+--
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
+--
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
     -- * Creating a Request
@@ -57,9 +59,9 @@ data DescribeIdentityUsage = DescribeIdentityUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diuIdentityPoolId'
+-- * 'diuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'diuIdentityId'
+-- * 'diuIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 describeIdentityUsage
     :: Text -- ^ 'diuIdentityPoolId'
     -> Text -- ^ 'diuIdentityId'
@@ -120,9 +122,9 @@ data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diursIdentityUsage'
+-- * 'diursIdentityUsage' - Usage information for the identity.
 --
--- * 'diursResponseStatus'
+-- * 'diursResponseStatus' - -- | The response status code.
 describeIdentityUsageResponse
     :: Int -- ^ 'diursResponseStatus'
     -> DescribeIdentityUsageResponse
@@ -136,7 +138,7 @@ describeIdentityUsageResponse pResponseStatus_ =
 diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 diursResponseStatus :: Lens' DescribeIdentityUsageResponse Int
 diursResponseStatus = lens _diursResponseStatus (\ s a -> s{_diursResponseStatus = a});
 

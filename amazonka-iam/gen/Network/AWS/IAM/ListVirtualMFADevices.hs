@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the virtual MFA devices defined in the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be 'Assigned', 'Unassigned', or 'Any'.
+-- Lists the virtual MFA devices defined in the AWS account by assignment status. If you do not specify an assignment status, the action returns a list of all virtual MFA devices. Assignment status can be @Assigned@ , @Unassigned@ , or @Any@ .
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListVirtualMFADevices
@@ -62,11 +64,11 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvmdAssignmentStatus'
+-- * 'lvmdAssignmentStatus' - The status (@Unassigned@ or @Assigned@ ) of the devices to list. If you do not specify an @AssignmentStatus@ , the action defaults to @Any@ which lists both assigned and unassigned virtual MFA devices.
 --
--- * 'lvmdMarker'
+-- * 'lvmdMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'lvmdMaxItems'
+-- * 'lvmdMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 listVirtualMFADevices
     :: ListVirtualMFADevices
 listVirtualMFADevices =
@@ -76,17 +78,15 @@ listVirtualMFADevices =
     , _lvmdMaxItems = Nothing
     }
 
--- | The status ('Unassigned' or 'Assigned') of the devices to list. If you do not specify an 'AssignmentStatus', the action defaults to 'Any' which lists both assigned and unassigned virtual MFA devices.
+-- | The status (@Unassigned@ or @Assigned@ ) of the devices to list. If you do not specify an @AssignmentStatus@ , the action defaults to @Any@ which lists both assigned and unassigned virtual MFA devices.
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lvmdMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat;
 
@@ -129,7 +129,9 @@ instance ToQuery ListVirtualMFADevices where
                "AssignmentStatus" =: _lvmdAssignmentStatus,
                "Marker" =: _lvmdMarker, "MaxItems" =: _lvmdMaxItems]
 
--- | Contains the response to a successful < ListVirtualMFADevices> request.
+-- | Contains the response to a successful 'ListVirtualMFADevices' request.
+--
+--
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
@@ -143,13 +145,13 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvmdrsMarker'
+-- * 'lvmdrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'lvmdrsIsTruncated'
+-- * 'lvmdrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'lvmdrsResponseStatus'
+-- * 'lvmdrsResponseStatus' - -- | The response status code.
 --
--- * 'lvmdrsVirtualMFADevices'
+-- * 'lvmdrsVirtualMFADevices' - The list of virtual MFA devices in the current account that match the @AssignmentStatus@ value that was passed in the request.
 listVirtualMFADevicesResponse
     :: Int -- ^ 'lvmdrsResponseStatus'
     -> ListVirtualMFADevicesResponse
@@ -161,19 +163,19 @@ listVirtualMFADevicesResponse pResponseStatus_ =
     , _lvmdrsVirtualMFADevices = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lvmdrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmdrsMarker = lens _lvmdrsMarker (\ s a -> s{_lvmdrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 lvmdrsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrsIsTruncated = lens _lvmdrsIsTruncated (\ s a -> s{_lvmdrsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lvmdrsResponseStatus :: Lens' ListVirtualMFADevicesResponse Int
 lvmdrsResponseStatus = lens _lvmdrsResponseStatus (\ s a -> s{_lvmdrsResponseStatus = a});
 
--- | The list of virtual MFA devices in the current account that match the 'AssignmentStatus' value that was passed in the request.
+-- | The list of virtual MFA devices in the current account that match the @AssignmentStatus@ value that was passed in the request.
 lvmdrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrsVirtualMFADevices = lens _lvmdrsVirtualMFADevices (\ s a -> s{_lvmdrsVirtualMFADevices = a}) . _Coerce;
 

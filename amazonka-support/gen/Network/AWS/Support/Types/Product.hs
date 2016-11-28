@@ -23,6 +23,8 @@ import           Network.AWS.Support.Types.Sum
 
 -- | An attachment to a case communication. The attachment consists of the file name and the content of the file.
 --
+--
+--
 -- /See:/ 'attachment' smart constructor.
 data Attachment = Attachment'
     { _aData     :: !(Maybe Base64)
@@ -33,9 +35,9 @@ data Attachment = Attachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aData'
+-- * 'aData' - The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'aFileName'
+-- * 'aFileName' - The name of the attachment file.
 attachment
     :: Attachment
 attachment =
@@ -44,13 +46,7 @@ attachment =
     , _aFileName = Nothing
     }
 
--- | The content of the attachment file.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 aData :: Lens' Attachment (Maybe ByteString)
 aData = lens _aData (\ s a -> s{_aData = a}) . mapping _Base64;
 
@@ -76,7 +72,9 @@ instance ToJSON Attachment where
                  [("data" .=) <$> _aData,
                   ("fileName" .=) <$> _aFileName])
 
--- | The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the < DescribeAttachment> operation.
+-- | The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the 'DescribeAttachment' operation.
+--
+--
 --
 -- /See:/ 'attachmentDetails' smart constructor.
 data AttachmentDetails = AttachmentDetails'
@@ -88,9 +86,9 @@ data AttachmentDetails = AttachmentDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adAttachmentId'
+-- * 'adAttachmentId' - The ID of the attachment.
 --
--- * 'adFileName'
+-- * 'adFileName' - The file name of the attachment.
 attachmentDetails
     :: AttachmentDetails
 attachmentDetails =
@@ -118,31 +116,34 @@ instance Hashable AttachmentDetails
 
 instance NFData AttachmentDetails
 
--- | A JSON-formatted object that contains the metadata for a support case. It is contained the response from a < DescribeCases> request. __CaseDetails__ contains the following fields:
+-- | A JSON-formatted object that contains the metadata for a support case. It is contained the response from a 'DescribeCases' request. __CaseDetails__ contains the following fields:
 --
--- -   __caseId.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
 --
--- -   __categoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to < DescribeServices>.
+--     * __caseId.__ The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/ .
 --
--- -   __displayId.__ The identifier for the case on pages in the AWS Support Center.
+--     * __categoryCode.__ The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to 'DescribeServices' .
 --
--- -   __language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+--     * __displayId.__ The identifier for the case on pages in the AWS Support Center.
 --
--- -   __recentCommunications.__ One or more < Communication> objects. Fields of these objects are 'attachments', 'body', 'caseId', 'submittedBy', and 'timeCreated'.
+--     * __language.__ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
--- -   __nextToken.__ A resumption point for pagination.
+--     * __recentCommunications.__ One or more 'Communication' objects. Fields of these objects are @attachments@ , @body@ , @caseId@ , @submittedBy@ , and @timeCreated@ .
 --
--- -   __serviceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to < DescribeServices>.
+--     * __nextToken.__ A resumption point for pagination.
 --
--- -   __severityCode.__ The severity code assigned to the case. Contains one of the values returned by the call to < DescribeSeverityLevels>.
+--     * __serviceCode.__ The identifier for the AWS service that corresponds to the service code defined in the call to 'DescribeServices' .
 --
--- -   __status.__ The status of the case in the AWS Support Center.
+--     * __severityCode. __ The severity code assigned to the case. Contains one of the values returned by the call to 'DescribeSeverityLevels' .
 --
--- -   __subject.__ The subject line of the case.
+--     * __status.__ The status of the case in the AWS Support Center.
 --
--- -   __submittedBy.__ The email address of the account that submitted the case.
+--     * __subject.__ The subject line of the case.
 --
--- -   __timeCreated.__ The time the case was created, in ISO-8601 format.
+--     * __submittedBy.__ The email address of the account that submitted the case.
+--
+--     * __timeCreated.__ The time the case was created, in ISO-8601 format.
+--
+--
 --
 --
 -- /See:/ 'caseDetails' smart constructor.
@@ -165,29 +166,29 @@ data CaseDetails = CaseDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdSubject'
+-- * 'cdSubject' - The subject line for the case in the AWS Support Center.
 --
--- * 'cdStatus'
+-- * 'cdStatus' - The status of the case.
 --
--- * 'cdRecentCommunications'
+-- * 'cdRecentCommunications' - The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
 --
--- * 'cdSeverityCode'
+-- * 'cdSeverityCode' - The code for the severity level returned by the call to 'DescribeSeverityLevels' .
 --
--- * 'cdCaseId'
+-- * 'cdCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- * 'cdCcEmailAddresses'
+-- * 'cdCcEmailAddresses' - The email addresses that receive copies of communication about the case.
 --
--- * 'cdDisplayId'
+-- * 'cdDisplayId' - The ID displayed for the case in the AWS Support Center. This is a numeric string.
 --
--- * 'cdSubmittedBy'
+-- * 'cdSubmittedBy' - The email address of the account that submitted the case.
 --
--- * 'cdLanguage'
+-- * 'cdLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
--- * 'cdTimeCreated'
+-- * 'cdTimeCreated' - The time that the case was case created in the AWS Support Center.
 --
--- * 'cdCategoryCode'
+-- * 'cdCategoryCode' - The category of problem for the AWS Support case.
 --
--- * 'cdServiceCode'
+-- * 'cdServiceCode' - The code for the AWS service returned by the call to 'DescribeServices' .
 caseDetails
     :: CaseDetails
 caseDetails =
@@ -214,11 +215,11 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 cdStatus :: Lens' CaseDetails (Maybe Text)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
--- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a 'nextToken' that you can use to retrieve earlier communications.
+-- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
 cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications = lens _cdRecentCommunications (\ s a -> s{_cdRecentCommunications = a});
 
--- | The code for the severity level returned by the call to < DescribeSeverityLevels>.
+-- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
 cdSeverityCode :: Lens' CaseDetails (Maybe Text)
 cdSeverityCode = lens _cdSeverityCode (\ s a -> s{_cdSeverityCode = a});
 
@@ -238,7 +239,7 @@ cdDisplayId = lens _cdDisplayId (\ s a -> s{_cdDisplayId = a});
 cdSubmittedBy :: Lens' CaseDetails (Maybe Text)
 cdSubmittedBy = lens _cdSubmittedBy (\ s a -> s{_cdSubmittedBy = a});
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 cdLanguage :: Lens' CaseDetails (Maybe Text)
 cdLanguage = lens _cdLanguage (\ s a -> s{_cdLanguage = a});
 
@@ -250,7 +251,7 @@ cdTimeCreated = lens _cdTimeCreated (\ s a -> s{_cdTimeCreated = a});
 cdCategoryCode :: Lens' CaseDetails (Maybe Text)
 cdCategoryCode = lens _cdCategoryCode (\ s a -> s{_cdCategoryCode = a});
 
--- | The code for the AWS service returned by the call to < DescribeServices>.
+-- | The code for the AWS service returned by the call to 'DescribeServices' .
 cdServiceCode :: Lens' CaseDetails (Maybe Text)
 cdServiceCode = lens _cdServiceCode (\ s a -> s{_cdServiceCode = a});
 
@@ -275,7 +276,9 @@ instance Hashable CaseDetails
 
 instance NFData CaseDetails
 
--- | A JSON-formatted name\/value pair that represents the category name and category code of the problem, selected from the < DescribeServices> response for each AWS service.
+-- | A JSON-formatted name/value pair that represents the category name and category code of the problem, selected from the 'DescribeServices' response for each AWS service.
+--
+--
 --
 -- /See:/ 'category' smart constructor.
 data Category = Category'
@@ -287,9 +290,9 @@ data Category = Category'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cName'
+-- * 'cName' - The category name for the support case.
 --
--- * 'cCode'
+-- * 'cCode' - The category code for the support case.
 category
     :: Category
 category =
@@ -318,6 +321,8 @@ instance NFData Category
 
 -- | A communication associated with an AWS Support case. The communication consists of the case ID, the message body, attachment information, the account email address, and the date and time of the communication.
 --
+--
+--
 -- /See:/ 'communication' smart constructor.
 data Communication = Communication'
     { _cBody          :: !(Maybe Text)
@@ -331,15 +336,15 @@ data Communication = Communication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cBody'
+-- * 'cBody' - The text of the communication between the customer and AWS Support.
 --
--- * 'cCaseId'
+-- * 'cCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- * 'cSubmittedBy'
+-- * 'cSubmittedBy' - The email address of the account that submitted the AWS Support case.
 --
--- * 'cTimeCreated'
+-- * 'cTimeCreated' - The time the communication was created.
 --
--- * 'cAttachmentSet'
+-- * 'cAttachmentSet' - Information about the attachments to the case communication.
 communication
     :: Communication
 communication =
@@ -387,6 +392,8 @@ instance NFData Communication
 
 -- | The five most recent communications associated with the case.
 --
+--
+--
 -- /See:/ 'recentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
     { _rccNextToken      :: !(Maybe Text)
@@ -397,9 +404,9 @@ data RecentCaseCommunications = RecentCaseCommunications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccNextToken'
+-- * 'rccNextToken' - A resumption point for pagination.
 --
--- * 'rccCommunications'
+-- * 'rccCommunications' - The five most recent communications associated with the case.
 recentCaseCommunications
     :: RecentCaseCommunications
 recentCaseCommunications =
@@ -430,6 +437,8 @@ instance NFData RecentCaseCommunications
 
 -- | A code and name pair that represent a severity level that can be applied to a support case.
 --
+--
+--
 -- /See:/ 'severityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
     { _slName :: !(Maybe Text)
@@ -440,9 +449,9 @@ data SeverityLevel = SeverityLevel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slName'
+-- * 'slName' - The name of the severity level that corresponds to the severity level code.
 --
--- * 'slCode'
+-- * 'slCode' - One of four values: "low," "medium," "high," and "urgent". These values correspond to response times returned to the caller in @severityLevel.name@ .
 severityLevel
     :: SeverityLevel
 severityLevel =
@@ -455,7 +464,7 @@ severityLevel =
 slName :: Lens' SeverityLevel (Maybe Text)
 slName = lens _slName (\ s a -> s{_slName = a});
 
--- | One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These values correspond to response times returned to the caller in 'severityLevel.name'.
+-- | One of four values: "low," "medium," "high," and "urgent". These values correspond to response times returned to the caller in @severityLevel.name@ .
 slCode :: Lens' SeverityLevel (Maybe Text)
 slCode = lens _slCode (\ s a -> s{_slCode = a});
 
@@ -469,7 +478,9 @@ instance Hashable SeverityLevel
 
 instance NFData SeverityLevel
 
--- | Information about an AWS service returned by the < DescribeServices> operation.
+-- | Information about an AWS service returned by the 'DescribeServices' operation.
+--
+--
 --
 -- /See:/ 'supportService' smart constructor.
 data SupportService = SupportService'
@@ -482,11 +493,11 @@ data SupportService = SupportService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssCategories'
+-- * 'ssCategories' - A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
 --
--- * 'ssName'
+-- * 'ssName' - The friendly name for an AWS service. The @code@ element contains the corresponding code.
 --
--- * 'ssCode'
+-- * 'ssCode' - The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 supportService
     :: SupportService
 supportService =
@@ -496,15 +507,15 @@ supportService =
     , _ssCode = Nothing
     }
 
--- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call < CreateCase>.
+-- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
--- | The friendly name for an AWS service. The 'code' element contains the corresponding code.
+-- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a});
 
--- | The code for an AWS service returned by the < DescribeServices> response. The 'name' element contains the corresponding friendly name.
+-- | The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\ s a -> s{_ssCode = a});
 
@@ -522,6 +533,8 @@ instance NFData SupportService
 
 -- | The container for summary information that relates to the category of the Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
@@ -531,7 +544,7 @@ newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSu
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacssCostOptimizing'
+-- * 'tacssCostOptimizing' - The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
 trustedAdvisorCategorySpecificSummary
     :: TrustedAdvisorCategorySpecificSummary
 trustedAdvisorCategorySpecificSummary =
@@ -558,6 +571,8 @@ instance NFData TrustedAdvisorCategorySpecificSummary
 
 -- | The description and metadata for a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckDescription' smart constructor.
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
     { _tacdId          :: !Text
@@ -571,15 +586,15 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacdId'
+-- * 'tacdId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacdName'
+-- * 'tacdName' - The display name for the Trusted Advisor check.
 --
--- * 'tacdDescription'
+-- * 'tacdDescription' - The description of the Trusted Advisor check, which includes the alert criteria and recommended actions (contains HTML markup).
 --
--- * 'tacdCategory'
+-- * 'tacdCategory' - The category of the Trusted Advisor check.
 --
--- * 'tacdMetadata'
+-- * 'tacdMetadata' - The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the 'TrustedAdvisorResourceDetail' for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 trustedAdvisorCheckDescription
     :: Text -- ^ 'tacdId'
     -> Text -- ^ 'tacdName'
@@ -611,7 +626,7 @@ tacdDescription = lens _tacdDescription (\ s a -> s{_tacdDescription = a});
 tacdCategory :: Lens' TrustedAdvisorCheckDescription Text
 tacdCategory = lens _tacdCategory (\ s a -> s{_tacdCategory = a});
 
--- | The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the < TrustedAdvisorResourceDetail> for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
+-- | The column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the __Metadata__ element of the 'TrustedAdvisorResourceDetail' for the check. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
 tacdMetadata = lens _tacdMetadata (\ s a -> s{_tacdMetadata = a}) . _Coerce;
 
@@ -632,6 +647,8 @@ instance NFData TrustedAdvisorCheckDescription
 
 -- | The refresh status of a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     { _tacrsCheckId                    :: !Text
@@ -643,11 +660,11 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacrsCheckId'
+-- * 'tacrsCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacrsStatus'
+-- * 'tacrsStatus' - The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
 --
--- * 'tacrsMillisUntilNextRefreshable'
+-- * 'tacrsMillisUntilNextRefreshable' - The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
 trustedAdvisorCheckRefreshStatus
     :: Text -- ^ 'tacrsCheckId'
     -> Text -- ^ 'tacrsStatus'
@@ -664,7 +681,7 @@ trustedAdvisorCheckRefreshStatus pCheckId_ pStatus_ pMillisUntilNextRefreshable_
 tacrsCheckId :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsCheckId = lens _tacrsCheckId (\ s a -> s{_tacrsCheckId = a});
 
--- | The status of the Trusted Advisor check for which a refresh has been requested: \"none\", \"enqueued\", \"processing\", \"success\", or \"abandoned\".
+-- | The status of the Trusted Advisor check for which a refresh has been requested: "none", "enqueued", "processing", "success", or "abandoned".
 tacrsStatus :: Lens' TrustedAdvisorCheckRefreshStatus Text
 tacrsStatus = lens _tacrsStatus (\ s a -> s{_tacrsStatus = a});
 
@@ -685,7 +702,9 @@ instance Hashable TrustedAdvisorCheckRefreshStatus
 
 instance NFData TrustedAdvisorCheckRefreshStatus
 
--- | The results of a Trusted Advisor check returned by < DescribeTrustedAdvisorCheckResult>.
+-- | The results of a Trusted Advisor check returned by 'DescribeTrustedAdvisorCheckResult' .
+--
+--
 --
 -- /See:/ 'trustedAdvisorCheckResult' smart constructor.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
@@ -701,17 +720,17 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacrCheckId'
+-- * 'tacrCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacrTimestamp'
+-- * 'tacrTimestamp' - The time of the last refresh of the check.
 --
--- * 'tacrStatus'
+-- * 'tacrStatus' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
--- * 'tacrResourcesSummary'
+-- * 'tacrResourcesSummary' - Undocumented member.
 --
--- * 'tacrCategorySpecificSummary'
+-- * 'tacrCategorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
 --
--- * 'tacrFlaggedResources'
+-- * 'tacrFlaggedResources' - The details about each resource listed in the check result.
 trustedAdvisorCheckResult
     :: Text -- ^ 'tacrCheckId'
     -> Text -- ^ 'tacrTimestamp'
@@ -737,7 +756,7 @@ tacrCheckId = lens _tacrCheckId (\ s a -> s{_tacrCheckId = a});
 tacrTimestamp :: Lens' TrustedAdvisorCheckResult Text
 tacrTimestamp = lens _tacrTimestamp (\ s a -> s{_tacrTimestamp = a});
 
--- | The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 tacrStatus :: Lens' TrustedAdvisorCheckResult Text
 tacrStatus = lens _tacrStatus (\ s a -> s{_tacrStatus = a});
 
@@ -770,6 +789,8 @@ instance NFData TrustedAdvisorCheckResult
 
 -- | A summary of a Trusted Advisor check result, including the alert status, last refresh, and number of resources examined.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCheckSummary' smart constructor.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
     { _tacsHasFlaggedResources     :: !(Maybe Bool)
@@ -784,17 +805,17 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacsHasFlaggedResources'
+-- * 'tacsHasFlaggedResources' - Specifies whether the Trusted Advisor check has flagged resources.
 --
--- * 'tacsCheckId'
+-- * 'tacsCheckId' - The unique identifier for the Trusted Advisor check.
 --
--- * 'tacsTimestamp'
+-- * 'tacsTimestamp' - The time of the last refresh of the check.
 --
--- * 'tacsStatus'
+-- * 'tacsStatus' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
--- * 'tacsResourcesSummary'
+-- * 'tacsResourcesSummary' - Undocumented member.
 --
--- * 'tacsCategorySpecificSummary'
+-- * 'tacsCategorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
 trustedAdvisorCheckSummary
     :: Text -- ^ 'tacsCheckId'
     -> Text -- ^ 'tacsTimestamp'
@@ -824,7 +845,7 @@ tacsCheckId = lens _tacsCheckId (\ s a -> s{_tacsCheckId = a});
 tacsTimestamp :: Lens' TrustedAdvisorCheckSummary Text
 tacsTimestamp = lens _tacsTimestamp (\ s a -> s{_tacsTimestamp = a});
 
--- | The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 tacsStatus :: Lens' TrustedAdvisorCheckSummary Text
 tacsStatus = lens _tacsStatus (\ s a -> s{_tacsStatus = a});
 
@@ -853,6 +874,8 @@ instance NFData TrustedAdvisorCheckSummary
 
 -- | The estimated cost savings that might be realized if the recommended actions are taken.
 --
+--
+--
 -- /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
     { _tacosEstimatedMonthlySavings        :: !Double
@@ -863,9 +886,9 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tacosEstimatedMonthlySavings'
+-- * 'tacosEstimatedMonthlySavings' - The estimated monthly savings that might be realized if the recommended actions are taken.
 --
--- * 'tacosEstimatedPercentMonthlySavings'
+-- * 'tacosEstimatedPercentMonthlySavings' - The estimated percentage of savings that might be realized if the recommended actions are taken.
 trustedAdvisorCostOptimizingSummary
     :: Double -- ^ 'tacosEstimatedMonthlySavings'
     -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
@@ -899,6 +922,8 @@ instance NFData TrustedAdvisorCostOptimizingSummary
 
 -- | Contains information about a resource identified by a Trusted Advisor check.
 --
+--
+--
 -- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
     { _tardIsSuppressed :: !(Maybe Bool)
@@ -912,15 +937,15 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tardIsSuppressed'
+-- * 'tardIsSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
 --
--- * 'tardRegion'
+-- * 'tardRegion' - The AWS region in which the identified resource is located.
 --
--- * 'tardStatus'
+-- * 'tardStatus' - The status code for the resource identified in the Trusted Advisor check.
 --
--- * 'tardResourceId'
+-- * 'tardResourceId' - The unique identifier for the identified resource.
 --
--- * 'tardMetadata'
+-- * 'tardMetadata' - Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 trustedAdvisorResourceDetail
     :: Text -- ^ 'tardStatus'
     -> Text -- ^ 'tardResourceId'
@@ -950,7 +975,7 @@ tardStatus = lens _tardStatus (\ s a -> s{_tardStatus = a});
 tardResourceId :: Lens' TrustedAdvisorResourceDetail Text
 tardResourceId = lens _tardResourceId (\ s a -> s{_tardResourceId = a});
 
--- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the < TrustedAdvisorCheckDescription> object returned by the call to < DescribeTrustedAdvisorChecks>. __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
+-- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
 tardMetadata = lens _tardMetadata (\ s a -> s{_tardMetadata = a}) . _Coerce;
 
@@ -968,7 +993,9 @@ instance Hashable TrustedAdvisorResourceDetail
 
 instance NFData TrustedAdvisorResourceDetail
 
--- | Details about AWS resources that were analyzed in a call to Trusted Advisor < DescribeTrustedAdvisorCheckSummaries>.
+-- | Details about AWS resources that were analyzed in a call to Trusted Advisor 'DescribeTrustedAdvisorCheckSummaries' .
+--
+--
 --
 -- /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
@@ -982,13 +1009,13 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tarsResourcesProcessed'
+-- * 'tarsResourcesProcessed' - The number of AWS resources that were analyzed by the Trusted Advisor check.
 --
--- * 'tarsResourcesFlagged'
+-- * 'tarsResourcesFlagged' - The number of AWS resources that were flagged (listed) by the Trusted Advisor check.
 --
--- * 'tarsResourcesIgnored'
+-- * 'tarsResourcesIgnored' - The number of AWS resources ignored by Trusted Advisor because information was unavailable.
 --
--- * 'tarsResourcesSuppressed'
+-- * 'tarsResourcesSuppressed' - The number of AWS resources ignored by Trusted Advisor because they were marked as suppressed by the user.
 trustedAdvisorResourcesSummary
     :: Integer -- ^ 'tarsResourcesProcessed'
     -> Integer -- ^ 'tarsResourcesFlagged'

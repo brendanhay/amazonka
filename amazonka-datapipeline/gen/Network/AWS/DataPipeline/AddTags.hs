@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or modifies tags for the specified pipeline.
+--
+--
 module Network.AWS.DataPipeline.AddTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AddTags.
 --
+--
+--
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
     { _atPipelineId :: !Text
@@ -54,9 +58,9 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atPipelineId'
+-- * 'atPipelineId' - The ID of the pipeline.
 --
--- * 'atTags'
+-- * 'atTags' - The tags to add, as key/value pairs.
 addTags
     :: Text -- ^ 'atPipelineId'
     -> AddTags
@@ -70,7 +74,7 @@ addTags pPipelineId_ =
 atPipelineId :: Lens' AddTags Text
 atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
 
--- | The tags to add, as key\/value pairs.
+-- | The tags to add, as key/value pairs.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
@@ -109,6 +113,8 @@ instance ToQuery AddTags where
 
 -- | Contains the output of AddTags.
 --
+--
+--
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsResponseStatus :: Int
@@ -118,7 +124,7 @@ newtype AddTagsResponse = AddTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atrsResponseStatus'
+-- * 'atrsResponseStatus' - -- | The response status code.
 addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
@@ -127,7 +133,7 @@ addTagsResponse pResponseStatus_ =
     { _atrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
+--
+--
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a register application revision operation.
 --
+--
+--
 -- /See:/ 'registerApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
     { _rarDescription     :: !(Maybe Text)
@@ -54,11 +58,11 @@ data RegisterApplicationRevision = RegisterApplicationRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarDescription'
+-- * 'rarDescription' - A comment about the revision.
 --
--- * 'rarApplicationName'
+-- * 'rarApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'rarRevision'
+-- * 'rarRevision' - Information about the application revision to register, including type and location.
 registerApplicationRevision
     :: Text -- ^ 'rarApplicationName'
     -> RevisionLocation -- ^ 'rarRevision'

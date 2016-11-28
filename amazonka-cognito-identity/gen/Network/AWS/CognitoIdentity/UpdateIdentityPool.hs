@@ -20,7 +20,9 @@
 --
 -- Updates a user pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Creating a Request
@@ -75,21 +77,21 @@ data UpdateIdentityPool = UpdateIdentityPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uipSamlProviderARNs'
+-- * 'uipSamlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 --
--- * 'uipSupportedLoginProviders'
+-- * 'uipSupportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
 --
--- * 'uipDeveloperProviderName'
+-- * 'uipDeveloperProviderName' - The "domain" by which Cognito will refer to your users.
 --
--- * 'uipOpenIdConnectProviderARNs'
+-- * 'uipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'uipCognitoIdentityProviders'
+-- * 'uipCognitoIdentityProviders' - A list representing an Amazon Cognito Identity User Pool and its client ID.
 --
--- * 'uipIdentityPoolId'
+-- * 'uipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'uipIdentityPoolName'
+-- * 'uipIdentityPoolName' - A string that you provide.
 --
--- * 'uipAllowUnauthenticatedIdentities'
+-- * 'uipAllowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
 updateIdentityPool
     :: Text -- ^ 'uipIdentityPoolId'
     -> Text -- ^ 'uipIdentityPoolName'
@@ -115,7 +117,7 @@ uipSamlProviderARNs = lens _uipSamlProviderARNs (\ s a -> s{_uipSamlProviderARNs
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
 uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map;
 
--- | The \"domain\" by which Cognito will refer to your users.
+-- | The "domain" by which Cognito will refer to your users.
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
 uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
 

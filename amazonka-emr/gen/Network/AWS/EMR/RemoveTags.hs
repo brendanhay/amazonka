@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
+--
 --
 -- The following example removes the stack tag with value Prod from a cluster:
+--
 module Network.AWS.EMR.RemoveTags
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
+--
+--
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtResourceId :: !Text
@@ -56,9 +60,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtResourceId'
+-- * 'rtResourceId' - The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
 --
--- * 'rtTagKeys'
+-- * 'rtTagKeys' - A list of tag keys to remove from a resource.
 removeTags
     :: Text -- ^ 'rtResourceId'
     -> RemoveTags
@@ -112,6 +116,8 @@ instance ToQuery RemoveTags where
 
 -- | This output indicates the result of removing tags from a resource.
 --
+--
+--
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
@@ -121,7 +127,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
@@ -130,7 +136,7 @@ removeTagsResponse pResponseStatus_ =
     { _rtrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

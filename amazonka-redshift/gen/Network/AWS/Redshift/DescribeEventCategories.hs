@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
+-- Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications> .
+--
+--
 module Network.AWS.Redshift.DescribeEventCategories
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEventCategories' smart constructor.
 newtype DescribeEventCategories = DescribeEventCategories'
     { _decSourceType :: Maybe Text
@@ -53,7 +57,7 @@ newtype DescribeEventCategories = DescribeEventCategories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decSourceType'
+-- * 'decSourceType' - The source type, such as cluster or parameter group, to which the described event categories apply.  Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 describeEventCategories
     :: DescribeEventCategories
 describeEventCategories =
@@ -61,9 +65,7 @@ describeEventCategories =
     { _decSourceType = Nothing
     }
 
--- | The source type, such as cluster or parameter group, to which the described event categories apply.
---
--- Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
+-- | The source type, such as cluster or parameter group, to which the described event categories apply.  Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
@@ -99,6 +101,8 @@ instance ToQuery DescribeEventCategories where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
@@ -109,9 +113,9 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsEventCategoriesMapList'
+-- * 'decrsEventCategoriesMapList' - A list of event categories descriptions.
 --
--- * 'decrsResponseStatus'
+-- * 'decrsResponseStatus' - -- | The response status code.
 describeEventCategoriesResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
@@ -125,7 +129,7 @@ describeEventCategoriesResponse pResponseStatus_ =
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 

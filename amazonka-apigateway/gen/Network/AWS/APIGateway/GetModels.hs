@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes existing < Models> defined for a < RestApi> resource.
+-- Describes existing 'Models' defined for a 'RestApi' resource.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetModels
@@ -48,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list existing < Models> defined for a < RestApi> resource.
+-- | Request to list existing 'Models' defined for a 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'getModels' smart constructor.
 data GetModels = GetModels'
@@ -61,11 +65,11 @@ data GetModels = GetModels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsLimit'
+-- * 'gmsLimit' - The maximum number of models in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'gmsPosition'
+-- * 'gmsPosition' - The position of the next set of results in the 'Models' resource to get information about.
 --
--- * 'gmsRestAPIId'
+-- * 'gmsRestAPIId' - The 'RestApi' identifier.
 getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
@@ -80,11 +84,11 @@ getModels pRestAPIId_ =
 gmsLimit :: Lens' GetModels (Maybe Int)
 gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
 
--- | The position of the next set of results in the < Models> resource to get information about.
+-- | The position of the next set of results in the 'Models' resource to get information about.
 gmsPosition :: Lens' GetModels (Maybe Text)
 gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 
--- | The < RestApi> identifier.
+-- | The 'RestApi' identifier.
 gmsRestAPIId :: Lens' GetModels Text
 gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
 
@@ -125,9 +129,10 @@ instance ToQuery GetModels where
           = mconcat
               ["limit" =: _gmsLimit, "position" =: _gmsPosition]
 
--- | Represents a collection of < Model> resources.
+-- | Represents a collection of 'Model' resources.
 --
--- < Method>, < MethodResponse>, <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
+--
+-- 'Method' , 'MethodResponse' , <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
@@ -140,11 +145,11 @@ data GetModelsResponse = GetModelsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmrsItems'
+-- * 'gmrsItems' - Gets the current 'Model' resource in the collection.
 --
--- * 'gmrsPosition'
+-- * 'gmrsPosition' - Undocumented member.
 --
--- * 'gmrsResponseStatus'
+-- * 'gmrsResponseStatus' - -- | The response status code.
 getModelsResponse
     :: Int -- ^ 'gmrsResponseStatus'
     -> GetModelsResponse
@@ -155,7 +160,7 @@ getModelsResponse pResponseStatus_ =
     , _gmrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current < Model> resource in the collection.
+-- | Gets the current 'Model' resource in the collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
 gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 
@@ -163,7 +168,7 @@ gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 gmrsPosition :: Lens' GetModelsResponse (Maybe Text)
 gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gmrsResponseStatus :: Lens' GetModelsResponse Int
 gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
 

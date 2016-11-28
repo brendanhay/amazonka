@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified certificate.
+--
+--
 module Network.AWS.IoT.DescribeCertificate
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the DescribeCertificate operation.
 --
+--
+--
 -- /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
     { _desCertificateId :: Text
@@ -53,7 +57,7 @@ newtype DescribeCertificate = DescribeCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desCertificateId'
+-- * 'desCertificateId' - The ID of the certificate.
 describeCertificate
     :: Text -- ^ 'desCertificateId'
     -> DescribeCertificate
@@ -93,6 +97,8 @@ instance ToQuery DescribeCertificate where
 
 -- | The output of the DescribeCertificate operation.
 --
+--
+--
 -- /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
     { _dcrsCertificateDescription :: !(Maybe CertificateDescription)
@@ -103,9 +109,9 @@ data DescribeCertificateResponse = DescribeCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsCertificateDescription'
+-- * 'dcrsCertificateDescription' - The description of the certificate.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCertificateResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificateResponse
@@ -119,7 +125,7 @@ describeCertificateResponse pResponseStatus_ =
 dcrsCertificateDescription :: Lens' DescribeCertificateResponse (Maybe CertificateDescription)
 dcrsCertificateDescription = lens _dcrsCertificateDescription (\ s a -> s{_dcrsCertificateDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

@@ -18,23 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 'Rule', which contains the 'IPSet' objects, 'ByteMatchSet' objects, and other predicates that identify the requests that you want to block. If you add more than one predicate to a 'Rule', a request must match all of the specifications to be allowed or blocked. For example, suppose you add the following to a 'Rule':
+-- Creates a @Rule@ , which contains the @IPSet@ objects, @ByteMatchSet@ objects, and other predicates that identify the requests that you want to block. If you add more than one predicate to a @Rule@ , a request must match all of the specifications to be allowed or blocked. For example, suppose you add the following to a @Rule@ :
 --
--- -   An 'IPSet' that matches the IP address '192.0.2.44\/32'
--- -   A 'ByteMatchSet' that matches 'BadBot' in the 'User-Agent' header
 --
--- You then add the 'Rule' to a 'WebACL' and specify that you want to blocks requests that satisfy the 'Rule'. For a request to be blocked, it must come from the IP address 192.0.2.44 /and/ the 'User-Agent' header in the request must contain the value 'BadBot'.
+--     * An @IPSet@ that matches the IP address @192.0.2.44/32@     * A @ByteMatchSet@ that matches @BadBot@ in the @User-Agent@ header
 --
--- To create and configure a 'Rule', perform the following steps:
+-- You then add the @Rule@ to a @WebACL@ and specify that you want to blocks requests that satisfy the @Rule@ . For a request to be blocked, it must come from the IP address 192.0.2.44 /and/ the @User-Agent@ header in the request must contain the value @BadBot@ .
 --
--- 1.  Create and update the predicates that you want to include in the 'Rule'. For more information, see < CreateByteMatchSet>, < CreateIPSet>, and < CreateSqlInjectionMatchSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'CreateRule' request.
--- 3.  Submit a 'CreateRule' request.
--- 4.  Use 'GetChangeToken' to get the change token that you provide in the 'ChangeToken' parameter of an < UpdateRule> request.
--- 5.  Submit an 'UpdateRule' request to specify the predicates that you want to include in the 'Rule'.
--- 6.  Create and update a 'WebACL' that contains the 'Rule'. For more information, see < CreateWebACL>.
+-- To create and configure a @Rule@ , perform the following steps:
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
+--     * Create and update the predicates that you want to include in the @Rule@ . For more information, see 'CreateByteMatchSet' , 'CreateIPSet' , and 'CreateSqlInjectionMatchSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateRule@ request.    * Submit a @CreateRule@ request.    * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateRule' request.    * Submit an @UpdateRule@ request to specify the predicates that you want to include in the @Rule@ .    * Create and update a @WebACL@ that contains the @Rule@ . For more information, see 'CreateWebACL' .
+--
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+--
 module Network.AWS.WAF.CreateRule
     (
     -- * Creating a Request
@@ -72,11 +68,11 @@ data CreateRule = CreateRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crName'
+-- * 'crName' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 --
--- * 'crMetricName'
+-- * 'crMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @Rule@ .
 --
--- * 'crChangeToken'
+-- * 'crChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 createRule
     :: Text -- ^ 'crName'
     -> Text -- ^ 'crMetricName'
@@ -89,15 +85,15 @@ createRule pName_ pMetricName_ pChangeToken_ =
     , _crChangeToken = pChangeToken_
     }
 
--- | A friendly name or description of the < Rule>. You can\'t change the name of a 'Rule' after you create it.
+-- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 crName :: Lens' CreateRule Text
 crName = lens _crName (\ s a -> s{_crName = a});
 
--- | A friendly name or description for the metrics for this 'Rule'. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can\'t contain whitespace. You can\'t change the name of the metric after you create the 'Rule'.
+-- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @Rule@ .
 crMetricName :: Lens' CreateRule Text
 crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 crChangeToken :: Lens' CreateRule Text
 crChangeToken = lens _crChangeToken (\ s a -> s{_crChangeToken = a});
 
@@ -149,11 +145,11 @@ data CreateRuleResponse = CreateRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRule'
+-- * 'crrsRule' - The 'Rule' returned in the @CreateRule@ response.
 --
--- * 'crrsChangeToken'
+-- * 'crrsChangeToken' - The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 createRuleResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRuleResponse
@@ -164,15 +160,15 @@ createRuleResponse pResponseStatus_ =
     , _crrsResponseStatus = pResponseStatus_
     }
 
--- | The < Rule> returned in the 'CreateRule' response.
+-- | The 'Rule' returned in the @CreateRule@ response.
 crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
 crrsRule = lens _crrsRule (\ s a -> s{_crrsRule = a});
 
--- | The 'ChangeToken' that you used to submit the 'CreateRule' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 crrsChangeToken :: Lens' CreateRuleResponse (Maybe Text)
 crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRuleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

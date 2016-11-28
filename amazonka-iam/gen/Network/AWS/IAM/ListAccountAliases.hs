@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the account alias associated with the AWS account (Note: you can have only one). For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/.
+-- Lists the account alias associated with the AWS account (Note: you can have only one). For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/ .
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAccountAliases
@@ -58,9 +60,9 @@ data ListAccountAliases = ListAccountAliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laaMarker'
+-- * 'laaMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'laaMaxItems'
+-- * 'laaMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 listAccountAliases
     :: ListAccountAliases
 listAccountAliases =
@@ -69,13 +71,11 @@ listAccountAliases =
     , _laaMaxItems = Nothing
     }
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
@@ -117,7 +117,9 @@ instance ToQuery ListAccountAliases where
                "Version" =: ("2010-05-08" :: ByteString),
                "Marker" =: _laaMarker, "MaxItems" =: _laaMaxItems]
 
--- | Contains the response to a successful < ListAccountAliases> request.
+-- | Contains the response to a successful 'ListAccountAliases' request.
+--
+--
 --
 -- /See:/ 'listAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
@@ -131,13 +133,13 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laarsMarker'
+-- * 'laarsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'laarsIsTruncated'
+-- * 'laarsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'laarsResponseStatus'
+-- * 'laarsResponseStatus' - -- | The response status code.
 --
--- * 'laarsAccountAliases'
+-- * 'laarsAccountAliases' - A list of aliases associated with the account. AWS supports only one alias per account.
 listAccountAliasesResponse
     :: Int -- ^ 'laarsResponseStatus'
     -> ListAccountAliasesResponse
@@ -149,15 +151,15 @@ listAccountAliasesResponse pResponseStatus_ =
     , _laarsAccountAliases = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarsMarker = lens _laarsMarker (\ s a -> s{_laarsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 laarsResponseStatus :: Lens' ListAccountAliasesResponse Int
 laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeregisterVolume
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeregisterVolume = DeregisterVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvVolumeId'
+-- * 'dvVolumeId' - The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
 deregisterVolume
     :: Text -- ^ 'dvVolumeId'
     -> DeregisterVolume

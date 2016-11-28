@@ -20,6 +20,8 @@
 --
 -- Describes the policies for the specified Auto Scaling group.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribePolicies
     (
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribePolicies.
 --
+--
+--
 -- /See:/ 'describePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
     { _dpsPolicyNames          :: !(Maybe [Text])
@@ -65,15 +69,15 @@ data DescribePolicies = DescribePolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpsPolicyNames'
+-- * 'dpsPolicyNames' - One or more policy names or policy ARNs to be described. If you omit this parameter, all policy names are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
 --
--- * 'dpsNextToken'
+-- * 'dpsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dpsAutoScalingGroupName'
+-- * 'dpsAutoScalingGroupName' - The name of the group.
 --
--- * 'dpsMaxRecords'
+-- * 'dpsMaxRecords' - The maximum number of items to be returned with each call.
 --
--- * 'dpsPolicyTypes'
+-- * 'dpsPolicyTypes' - One or more policy types. Valid values are @SimpleScaling@ and @StepScaling@ .
 describePolicies
     :: DescribePolicies
 describePolicies =
@@ -101,7 +105,7 @@ dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScal
 dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
 dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 
--- | One or more policy types. Valid values are 'SimpleScaling' and 'StepScaling'.
+-- | One or more policy types. Valid values are @SimpleScaling@ and @StepScaling@ .
 dpsPolicyTypes :: Lens' DescribePolicies [Text]
 dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default . _Coerce;
 
@@ -149,6 +153,8 @@ instance ToQuery DescribePolicies where
 
 -- | Contains the output of DescribePolicies.
 --
+--
+--
 -- /See:/ 'describePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprsNextToken       :: !(Maybe Text)
@@ -160,11 +166,11 @@ data DescribePoliciesResponse = DescribePoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsNextToken'
+-- * 'dprsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dprsScalingPolicies'
+-- * 'dprsScalingPolicies' - The scaling policies.
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 describePoliciesResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePoliciesResponse
@@ -183,7 +189,7 @@ dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePoliciesResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 

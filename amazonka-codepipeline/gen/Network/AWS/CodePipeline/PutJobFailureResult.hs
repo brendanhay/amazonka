@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents the failure of a job as returned to the pipeline by a job worker. Only used for custom actions.
+--
+--
 module Network.AWS.CodePipeline.PutJobFailureResult
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a put job failure result action.
 --
+--
+--
 -- /See:/ 'putJobFailureResult' smart constructor.
 data PutJobFailureResult = PutJobFailureResult'
     { _pjfrJobId          :: !Text
@@ -52,9 +56,9 @@ data PutJobFailureResult = PutJobFailureResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pjfrJobId'
+-- * 'pjfrJobId' - The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
 --
--- * 'pjfrFailureDetails'
+-- * 'pjfrFailureDetails' - The details about the failure of a job.
 putJobFailureResult
     :: Text -- ^ 'pjfrJobId'
     -> FailureDetails -- ^ 'pjfrFailureDetails'

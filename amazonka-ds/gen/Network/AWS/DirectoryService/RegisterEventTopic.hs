@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates a directory with an SNS topic. This establishes the directory as a publisher to the specified SNS topic. You can then receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an Impaired or Inoperable status. You also receive a notification when the directory returns to an Active status.
+--
+--
 module Network.AWS.DirectoryService.RegisterEventTopic
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Registers a new event topic.
 --
+--
+--
 -- /See:/ 'registerEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
     { _retDirectoryId :: !Text
@@ -54,9 +58,9 @@ data RegisterEventTopic = RegisterEventTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'retDirectoryId'
+-- * 'retDirectoryId' - The Directory ID that will publish status messages to the SNS topic.
 --
--- * 'retTopicName'
+-- * 'retTopicName' - The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
 registerEventTopic
     :: Text -- ^ 'retDirectoryId'
     -> Text -- ^ 'retTopicName'
@@ -113,6 +117,8 @@ instance ToQuery RegisterEventTopic where
 
 -- | The result of a RegisterEventTopic request.
 --
+--
+--
 -- /See:/ 'registerEventTopicResponse' smart constructor.
 newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
     { _retrsResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'retrsResponseStatus'
+-- * 'retrsResponseStatus' - -- | The response status code.
 registerEventTopicResponse
     :: Int -- ^ 'retrsResponseStatus'
     -> RegisterEventTopicResponse
@@ -131,7 +137,7 @@ registerEventTopicResponse pResponseStatus_ =
     { _retrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 retrsResponseStatus :: Lens' RegisterEventTopicResponse Int
 retrsResponseStatus = lens _retrsResponseStatus (\ s a -> s{_retrsResponseStatus = a});
 

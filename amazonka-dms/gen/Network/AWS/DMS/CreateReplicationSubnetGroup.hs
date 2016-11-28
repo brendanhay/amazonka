@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a replication subnet group given a list of the subnet IDs in a VPC.
+--
+--
 module Network.AWS.DMS.CreateReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createReplicationSubnetGroup' smart constructor.
 data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
     { _crsgTags                              :: !(Maybe [Tag])
@@ -59,13 +63,13 @@ data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsgTags'
+-- * 'crsgTags' - The tag to be assigned to the subnet group.
 --
--- * 'crsgReplicationSubnetGroupIdentifier'
+-- * 'crsgReplicationSubnetGroupIdentifier' - The name for the replication subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default". Example: @mySubnetgroup@
 --
--- * 'crsgReplicationSubnetGroupDescription'
+-- * 'crsgReplicationSubnetGroupDescription' - The description for the subnet group.
 --
--- * 'crsgSubnetIds'
+-- * 'crsgSubnetIds' - The EC2 subnet IDs for the subnet group.
 createReplicationSubnetGroup
     :: Text -- ^ 'crsgReplicationSubnetGroupIdentifier'
     -> Text -- ^ 'crsgReplicationSubnetGroupDescription'
@@ -82,11 +86,7 @@ createReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ pReplicationSubn
 crsgTags :: Lens' CreateReplicationSubnetGroup [Tag]
 crsgTags = lens _crsgTags (\ s a -> s{_crsgTags = a}) . _Default . _Coerce;
 
--- | The name for the replication subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be \"default\".
---
--- Example: 'mySubnetgroup'
+-- | The name for the replication subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default". Example: @mySubnetgroup@
 crsgReplicationSubnetGroupIdentifier :: Lens' CreateReplicationSubnetGroup Text
 crsgReplicationSubnetGroupIdentifier = lens _crsgReplicationSubnetGroupIdentifier (\ s a -> s{_crsgReplicationSubnetGroupIdentifier = a});
 
@@ -145,6 +145,8 @@ instance ToQuery CreateReplicationSubnetGroup where
 
 -- |
 --
+--
+--
 -- /See:/ 'createReplicationSubnetGroupResponse' smart constructor.
 data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse'
     { _crsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
@@ -155,9 +157,9 @@ data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsgrsReplicationSubnetGroup'
+-- * 'crsgrsReplicationSubnetGroup' - The replication subnet group that was created.
 --
--- * 'crsgrsResponseStatus'
+-- * 'crsgrsResponseStatus' - -- | The response status code.
 createReplicationSubnetGroupResponse
     :: Int -- ^ 'crsgrsResponseStatus'
     -> CreateReplicationSubnetGroupResponse
@@ -171,7 +173,7 @@ createReplicationSubnetGroupResponse pResponseStatus_ =
 crsgrsReplicationSubnetGroup :: Lens' CreateReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
 crsgrsReplicationSubnetGroup = lens _crsgrsReplicationSubnetGroup (\ s a -> s{_crsgrsReplicationSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsgrsResponseStatus :: Lens' CreateReplicationSubnetGroupResponse Int
 crsgrsResponseStatus = lens _crsgrsResponseStatus (\ s a -> s{_crsgrsResponseStatus = a});
 

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the refresh status of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
+-- Returns the refresh status of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks' .
 --
--- Some checks are refreshed automatically, and their refresh statuses cannot be retrieved by using this operation. Use of the 'DescribeTrustedAdvisorCheckRefreshStatuses' operation for these checks causes an 'InvalidParameterValue' error.
+--
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
     { _dtacrsCheckIds :: [Text]
@@ -55,7 +57,7 @@ newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheck
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrsCheckIds'
+-- * 'dtacrsCheckIds' - The IDs of the Trusted Advisor checks to get the status of. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
 describeTrustedAdvisorCheckRefreshStatuses
     :: DescribeTrustedAdvisorCheckRefreshStatuses
 describeTrustedAdvisorCheckRefreshStatuses =
@@ -63,7 +65,7 @@ describeTrustedAdvisorCheckRefreshStatuses =
     { _dtacrsCheckIds = mempty
     }
 
--- | The IDs of the Trusted Advisor checks to get the status of. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an 'InvalidParameterValue' error.
+-- | The IDs of the Trusted Advisor checks to get the status of. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerce;
 
@@ -112,7 +114,9 @@ instance ToQuery
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toQuery = const mempty
 
--- | The statuses of the Trusted Advisor checks returned by the < DescribeTrustedAdvisorCheckRefreshStatuses> operation.
+-- | The statuses of the Trusted Advisor checks returned by the 'DescribeTrustedAdvisorCheckRefreshStatuses' operation.
+--
+--
 --
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
@@ -124,9 +128,9 @@ data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisor
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrsrsResponseStatus'
+-- * 'dtacrsrsResponseStatus' - -- | The response status code.
 --
--- * 'dtacrsrsStatuses'
+-- * 'dtacrsrsStatuses' - The refresh status of the specified Trusted Advisor checks.
 describeTrustedAdvisorCheckRefreshStatusesResponse
     :: Int -- ^ 'dtacrsrsResponseStatus'
     -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
@@ -136,7 +140,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse pResponseStatus_ =
     , _dtacrsrsStatuses = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtacrsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
 dtacrsrsResponseStatus = lens _dtacrsrsResponseStatus (\ s a -> s{_dtacrsrsResponseStatus = a});
 

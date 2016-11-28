@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a token that is valid for a specified registry for 12 hours. This command allows you to use the 'docker' CLI to push and pull images with Amazon ECR. If you do not specify a registry, the default registry is assumed.
+-- Retrieves a token that is valid for a specified registry for 12 hours. This command allows you to use the @docker@ CLI to push and pull images with Amazon ECR. If you do not specify a registry, the default registry is assumed.
 --
--- The 'authorizationToken' returned for each registry specified is a base64 encoded string that can be decoded and used in a 'docker login' command to authenticate to a registry. The AWS CLI offers an 'aws ecr get-login' command that simplifies the login process.
+--
+-- The @authorizationToken@ returned for each registry specified is a base64 encoded string that can be decoded and used in a @docker login@ command to authenticate to a registry. The AWS CLI offers an @aws ecr get-login@ command that simplifies the login process.
+--
 module Network.AWS.ECR.GetAuthorizationToken
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype GetAuthorizationToken = GetAuthorizationToken'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gatRegistryIds'
+-- * 'gatRegistryIds' - A list of AWS account IDs that are associated with the registries for which to get authorization tokens. If you do not specify a registry, the default registry is assumed.
 getAuthorizationToken
     :: GetAuthorizationToken
 getAuthorizationToken =
@@ -111,9 +113,9 @@ data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gatrsAuthorizationData'
+-- * 'gatrsAuthorizationData' - A list of authorization token data objects that correspond to the @registryIds@ values in the request.
 --
--- * 'gatrsResponseStatus'
+-- * 'gatrsResponseStatus' - -- | The response status code.
 getAuthorizationTokenResponse
     :: Int -- ^ 'gatrsResponseStatus'
     -> GetAuthorizationTokenResponse
@@ -123,11 +125,11 @@ getAuthorizationTokenResponse pResponseStatus_ =
     , _gatrsResponseStatus = pResponseStatus_
     }
 
--- | A list of authorization token data objects that correspond to the 'registryIds' values in the request.
+-- | A list of authorization token data objects that correspond to the @registryIds@ values in the request.
 gatrsAuthorizationData :: Lens' GetAuthorizationTokenResponse [AuthorizationData]
 gatrsAuthorizationData = lens _gatrsAuthorizationData (\ s a -> s{_gatrsAuthorizationData = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gatrsResponseStatus :: Lens' GetAuthorizationTokenResponse Int
 gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
 

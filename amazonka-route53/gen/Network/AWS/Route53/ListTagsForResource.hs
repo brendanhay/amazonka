@@ -45,6 +45,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type containing information about a request for a list of the tags that are associated with an individual resource.
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
     { _ltfrResourceType :: !TagResourceType
@@ -55,9 +57,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceType'
+-- * 'ltfrResourceType' - The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 --
--- * 'ltfrResourceId'
+-- * 'ltfrResourceId' - The ID of the resource for which you want to retrieve tags.
 listTagsForResource
     :: TagResourceType -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
@@ -68,12 +70,7 @@ listTagsForResource pResourceType_ pResourceId_ =
     , _ltfrResourceId = pResourceId_
     }
 
--- | The type of the resource.
---
--- -   The resource type for health checks is 'healthcheck'.
---
--- -   The resource type for hosted zones is 'hostedzone'.
---
+-- | The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
 
@@ -109,6 +106,8 @@ instance ToQuery ListTagsForResource where
 
 -- | A complex type that contains information about the health checks or hosted zones for which you want to list tags.
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsResponseStatus :: !Int
@@ -119,9 +118,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsResourceTagSet'
+-- * 'ltfrrsResourceTagSet' - A @ResourceTagSet@ containing tags associated with the specified resource.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ResourceTagSet -- ^ 'ltfrrsResourceTagSet'
@@ -132,11 +131,11 @@ listTagsForResourceResponse pResponseStatus_ pResourceTagSet_ =
     , _ltfrrsResourceTagSet = pResourceTagSet_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
--- | A 'ResourceTagSet' containing tags associated with the specified resource.
+-- | A @ResourceTagSet@ containing tags associated with the specified resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});
 

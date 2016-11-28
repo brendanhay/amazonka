@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a suite.
+--
+--
 module Network.AWS.DeviceFarm.GetSuite
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get suite operation.
 --
+--
+--
 -- /See:/ 'getSuite' smart constructor.
 newtype GetSuite = GetSuite'
     { _gsArn :: Text
@@ -53,7 +57,7 @@ newtype GetSuite = GetSuite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsArn'
+-- * 'gsArn' - The suite's ARN.
 getSuite
     :: Text -- ^ 'gsArn'
     -> GetSuite
@@ -62,7 +66,7 @@ getSuite pArn_ =
     { _gsArn = pArn_
     }
 
--- | The suite\'s ARN.
+-- | The suite's ARN.
 gsArn :: Lens' GetSuite Text
 gsArn = lens _gsArn (\ s a -> s{_gsArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetSuite where
 
 -- | Represents the result of a get suite request.
 --
+--
+--
 -- /See:/ 'getSuiteResponse' smart constructor.
 data GetSuiteResponse = GetSuiteResponse'
     { _gsrsSuite          :: !(Maybe Suite)
@@ -110,9 +116,9 @@ data GetSuiteResponse = GetSuiteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrsSuite'
+-- * 'gsrsSuite' - Undocumented member.
 --
--- * 'gsrsResponseStatus'
+-- * 'gsrsResponseStatus' - -- | The response status code.
 getSuiteResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetSuiteResponse
@@ -126,7 +132,7 @@ getSuiteResponse pResponseStatus_ =
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
 gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetSuiteResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 

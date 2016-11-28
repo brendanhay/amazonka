@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the header information for the .csv file to be used as input for the user import job.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GetCSVHeader
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get the header information for the .csv file for the user import job.
 --
+--
+--
 -- /See:/ 'getCSVHeader' smart constructor.
 newtype GetCSVHeader = GetCSVHeader'
     { _gchUserPoolId :: Text
@@ -54,7 +58,7 @@ newtype GetCSVHeader = GetCSVHeader'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gchUserPoolId'
+-- * 'gchUserPoolId' - The user pool ID for the user pool that the users are to be imported into.
 getCSVHeader
     :: Text -- ^ 'gchUserPoolId'
     -> GetCSVHeader
@@ -105,6 +109,8 @@ instance ToQuery GetCSVHeader where
 
 -- | Represents the response from the server to the request to get the header information for the .csv file for the user import job.
 --
+--
+--
 -- /See:/ 'getCSVHeaderResponse' smart constructor.
 data GetCSVHeaderResponse = GetCSVHeaderResponse'
     { _gchrsUserPoolId     :: !(Maybe Text)
@@ -116,11 +122,11 @@ data GetCSVHeaderResponse = GetCSVHeaderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gchrsUserPoolId'
+-- * 'gchrsUserPoolId' - The user pool ID for the user pool that the users are to be imported into.
 --
--- * 'gchrsCSVHeader'
+-- * 'gchrsCSVHeader' - The header information for the .csv file for the user import job.
 --
--- * 'gchrsResponseStatus'
+-- * 'gchrsResponseStatus' - -- | The response status code.
 getCSVHeaderResponse
     :: Int -- ^ 'gchrsResponseStatus'
     -> GetCSVHeaderResponse
@@ -139,7 +145,7 @@ gchrsUserPoolId = lens _gchrsUserPoolId (\ s a -> s{_gchrsUserPoolId = a});
 gchrsCSVHeader :: Lens' GetCSVHeaderResponse [Text]
 gchrsCSVHeader = lens _gchrsCSVHeader (\ s a -> s{_gchrsCSVHeader = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gchrsResponseStatus :: Lens' GetCSVHeaderResponse Int
 gchrsResponseStatus = lens _gchrsResponseStatus (\ s a -> s{_gchrsResponseStatus = a});
 

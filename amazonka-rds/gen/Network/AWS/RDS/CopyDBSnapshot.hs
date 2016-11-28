@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified DB snapshot. The source DB snapshot must be in the \"available\" state.
+-- Copies the specified DB snapshot. The source DB snapshot must be in the "available" state.
 --
--- If you are copying from a shared manual DB snapshot, the 'SourceDBSnapshotIdentifier' must be the ARN of the shared DB snapshot.
+--
+-- If you are copying from a shared manual DB snapshot, the @SourceDBSnapshotIdentifier@ must be the ARN of the shared DB snapshot.
+--
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'copyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
     { _cdsCopyTags                   :: !(Maybe Bool)
@@ -63,15 +67,15 @@ data CopyDBSnapshot = CopyDBSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsCopyTags'
+-- * 'cdsCopyTags' - True to copy all tags from the source DB snapshot to the target DB snapshot; otherwise false. The default is false.
 --
--- * 'cdsKMSKeyId'
+-- * 'cdsKMSKeyId' - The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or the KMS key alias for the KMS encryption key. If you copy an unencrypted DB snapshot and specify a value for the @KmsKeyId@ parameter, Amazon RDS encrypts the target DB snapshot using the specified KMS encryption key. If you copy an encrypted DB snapshot from your AWS account, you can specify a value for @KmsKeyId@ to encrypt the copy with a new KMS encryption key. If you don't specify a value for @KmsKeyId@ then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot.  If you copy an encrypted DB snapshot that is shared from another AWS account, then you must specify a value for @KmsKeyId@ .
 --
--- * 'cdsTags'
+-- * 'cdsTags' - Undocumented member.
 --
--- * 'cdsSourceDBSnapshotIdentifier'
+-- * 'cdsSourceDBSnapshotIdentifier' - The identifier for the source DB snapshot. If you are copying from a shared manual DB snapshot, this must be the ARN of the shared DB snapshot. Constraints:     * Must specify a valid system snapshot in the "available" state.     * If the source snapshot is in the same region as the copy, specify a valid DB snapshot identifier.     * If the source snapshot is in a different region than the copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html Copying a DB Snapshot> . Example: @rds:mydb-2012-04-02-00-01@  Example: @arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805@
 --
--- * 'cdsTargetDBSnapshotIdentifier'
+-- * 'cdsTargetDBSnapshotIdentifier' - The identifier for the copied snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-snapshot@
 copyDBSnapshot
     :: Text -- ^ 'cdsSourceDBSnapshotIdentifier'
     -> Text -- ^ 'cdsTargetDBSnapshotIdentifier'
@@ -89,13 +93,7 @@ copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
 cdsCopyTags :: Lens' CopyDBSnapshot (Maybe Bool)
 cdsCopyTags = lens _cdsCopyTags (\ s a -> s{_cdsCopyTags = a});
 
--- | The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or the KMS key alias for the KMS encryption key.
---
--- If you copy an unencrypted DB snapshot and specify a value for the 'KmsKeyId' parameter, Amazon RDS encrypts the target DB snapshot using the specified KMS encryption key.
---
--- If you copy an encrypted DB snapshot from your AWS account, you can specify a value for 'KmsKeyId' to encrypt the copy with a new KMS encryption key. If you don\'t specify a value for 'KmsKeyId' then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot.
---
--- If you copy an encrypted DB snapshot that is shared from another AWS account, then you must specify a value for 'KmsKeyId'.
+-- | The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or the KMS key alias for the KMS encryption key. If you copy an unencrypted DB snapshot and specify a value for the @KmsKeyId@ parameter, Amazon RDS encrypts the target DB snapshot using the specified KMS encryption key. If you copy an encrypted DB snapshot from your AWS account, you can specify a value for @KmsKeyId@ to encrypt the copy with a new KMS encryption key. If you don't specify a value for @KmsKeyId@ then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot.  If you copy an encrypted DB snapshot that is shared from another AWS account, then you must specify a value for @KmsKeyId@ .
 cdsKMSKeyId :: Lens' CopyDBSnapshot (Maybe Text)
 cdsKMSKeyId = lens _cdsKMSKeyId (\ s a -> s{_cdsKMSKeyId = a});
 
@@ -103,37 +101,11 @@ cdsKMSKeyId = lens _cdsKMSKeyId (\ s a -> s{_cdsKMSKeyId = a});
 cdsTags :: Lens' CopyDBSnapshot [Tag]
 cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 
--- | The identifier for the source DB snapshot.
---
--- If you are copying from a shared manual DB snapshot, this must be the ARN of the shared DB snapshot.
---
--- Constraints:
---
--- -   Must specify a valid system snapshot in the \"available\" state.
---
--- -   If the source snapshot is in the same region as the copy, specify a valid DB snapshot identifier.
---
--- -   If the source snapshot is in a different region than the copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html Copying a DB Snapshot>.
---
--- Example: 'rds:mydb-2012-04-02-00-01'
---
--- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'
+-- | The identifier for the source DB snapshot. If you are copying from a shared manual DB snapshot, this must be the ARN of the shared DB snapshot. Constraints:     * Must specify a valid system snapshot in the "available" state.     * If the source snapshot is in the same region as the copy, specify a valid DB snapshot identifier.     * If the source snapshot is in a different region than the copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html Copying a DB Snapshot> . Example: @rds:mydb-2012-04-02-00-01@  Example: @arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805@
 cdsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{_cdsSourceDBSnapshotIdentifier = a});
 
--- | The identifier for the copied snapshot.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
---
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-db-snapshot'
+-- | The identifier for the copied snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-snapshot@
 cdsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsTargetDBSnapshotIdentifier = lens _cdsTargetDBSnapshotIdentifier (\ s a -> s{_cdsTargetDBSnapshotIdentifier = a});
 
@@ -179,9 +151,9 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsrsDBSnapshot'
+-- * 'cdsrsDBSnapshot' - Undocumented member.
 --
--- * 'cdsrsResponseStatus'
+-- * 'cdsrsResponseStatus' - -- | The response status code.
 copyDBSnapshotResponse
     :: Int -- ^ 'cdsrsResponseStatus'
     -> CopyDBSnapshotResponse
@@ -195,7 +167,7 @@ copyDBSnapshotResponse pResponseStatus_ =
 cdsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdsrsResponseStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
 

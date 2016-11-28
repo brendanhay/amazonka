@@ -113,7 +113,7 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SQS.Types.Product
 import           Network.AWS.SQS.Types.Sum
 
--- | API version '2012-11-05' of the Amazon Simple Queue Service SDK configuration.
+-- | API version @2012-11-05@ of the Amazon Simple Queue Service SDK configuration.
 sqs :: Service
 sqs =
     Service
@@ -149,13 +149,17 @@ sqs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The 'Id' of a batch entry in a batch request does not abide by the specification.
+-- | The @Id@ of a batch entry in a batch request does not abide by the specification.
+--
+--
 _InvalidBatchEntryId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBatchEntryId =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.InvalidBatchEntryId"
 
 -- | Batch request contains more number of entries than permissible.
+--
+--
 _TooManyEntriesInBatchRequest :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyEntriesInBatchRequest =
     _ServiceError .
@@ -163,72 +167,100 @@ _TooManyEntriesInBatchRequest =
     hasCode "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
 
 -- | You must wait 60 seconds after deleting a queue before you can create another with the same name.
+--
+--
 _QueueDeletedRecently :: AsError a => Getting (First ServiceError) a ServiceError
 _QueueDeletedRecently =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.QueueDeletedRecently"
 
 -- | The queue referred to does not exist.
+--
+--
 _QueueDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 _QueueDoesNotExist =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.NonExistentQueue"
 
 -- | The attribute referred to does not exist.
+--
+--
 _InvalidAttributeName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAttributeName = _ServiceError . hasCode "InvalidAttributeName"
 
 -- | Error code 400. Unsupported operation.
+--
+--
 _UnsupportedOperation :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperation =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.UnsupportedOperation"
 
 -- | The message contains characters outside the allowed set.
+--
+--
 _InvalidMessageContents :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMessageContents = _ServiceError . hasCode "InvalidMessageContents"
 
 -- | The length of all the messages put together is more than the limit.
+--
+--
 _BatchRequestTooLong :: AsError a => Getting (First ServiceError) a ServiceError
 _BatchRequestTooLong =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchRequestTooLong"
 
--- | The action that you requested would violate a limit. For example, ReceiveMessage returns this error if the maximum number of messages inflight has already been reached. < AddPermission> returns this error if the maximum number of permissions for the queue has already been reached.
+-- | The action that you requested would violate a limit. For example, ReceiveMessage returns this error if the maximum number of messages inflight has already been reached. 'AddPermission' returns this error if the maximum number of permissions for the queue has already been reached.
+--
+--
 _OverLimit :: AsError a => Getting (First ServiceError) a ServiceError
 _OverLimit = _ServiceError . hasStatus 403 . hasCode "OverLimit"
 
 -- | A queue already exists with this name. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
+--
+--
 _QueueNameExists :: AsError a => Getting (First ServiceError) a ServiceError
 _QueueNameExists = _ServiceError . hasStatus 400 . hasCode "QueueAlreadyExists"
 
--- | Indicates that the specified queue previously received a 'PurgeQueue' request within the last 60 seconds, the time it can take to delete the messages in the queue.
+-- | Indicates that the specified queue previously received a @PurgeQueue@ request within the last 60 seconds, the time it can take to delete the messages in the queue.
+--
+--
 _PurgeQueueInProgress :: AsError a => Getting (First ServiceError) a ServiceError
 _PurgeQueueInProgress =
     _ServiceError .
     hasStatus 403 . hasCode "AWS.SimpleQueueService.PurgeQueueInProgress"
 
 -- | The receipt handle is not valid for the current version.
+--
+--
 _InvalidIdFormat :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdFormat = _ServiceError . hasCode "InvalidIdFormat"
 
 -- | The receipt handle provided is not valid.
+--
+--
 _ReceiptHandleIsInvalid :: AsError a => Getting (First ServiceError) a ServiceError
 _ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid"
 
 -- | Batch request does not contain an entry.
+--
+--
 _EmptyBatchRequest :: AsError a => Getting (First ServiceError) a ServiceError
 _EmptyBatchRequest =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.EmptyBatchRequest"
 
--- | Two or more batch entries have the same 'Id' in the request.
+-- | Two or more batch entries have the same @Id@ in the request.
+--
+--
 _BatchEntryIdsNotDistinct :: AsError a => Getting (First ServiceError) a ServiceError
 _BatchEntryIdsNotDistinct =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.BatchEntryIdsNotDistinct"
 
 -- | The message referred to is not in flight.
+--
+--
 _MessageNotInflight :: AsError a => Getting (First ServiceError) a ServiceError
 _MessageNotInflight =
     _ServiceError .

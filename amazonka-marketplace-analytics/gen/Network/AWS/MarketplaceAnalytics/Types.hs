@@ -31,7 +31,7 @@ import           Network.AWS.MarketplaceAnalytics.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-07-01' of the Amazon Marketplace Commerce Analytics SDK configuration.
+-- | API version @2015-07-01@ of the Amazon Marketplace Commerce Analytics SDK configuration.
 marketplaceAnalytics :: Service
 marketplaceAnalytics =
     Service

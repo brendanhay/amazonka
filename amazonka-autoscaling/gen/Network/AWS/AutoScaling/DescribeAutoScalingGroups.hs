@@ -20,6 +20,8 @@
 --
 -- Describes one or more Auto Scaling groups.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeAutoScalingGroups.
 --
+--
+--
 -- /See:/ 'describeAutoScalingGroups' smart constructor.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames :: !(Maybe [Text])
@@ -61,11 +65,11 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasgAutoScalingGroupNames'
+-- * 'dasgAutoScalingGroupNames' - The group names. If you omit this parameter, all Auto Scaling groups are described.
 --
--- * 'dasgNextToken'
+-- * 'dasgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dasgMaxRecords'
+-- * 'dasgMaxRecords' - The maximum number of items to return with this call.
 describeAutoScalingGroups
     :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
@@ -131,6 +135,8 @@ instance ToQuery DescribeAutoScalingGroups where
 
 -- | Contains the output for DescribeAutoScalingGroups.
 --
+--
+--
 -- /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken         :: !(Maybe Text)
@@ -142,11 +148,11 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasgrsNextToken'
+-- * 'dasgrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dasgrsResponseStatus'
+-- * 'dasgrsResponseStatus' - -- | The response status code.
 --
--- * 'dasgrsAutoScalingGroups'
+-- * 'dasgrsAutoScalingGroups' - The groups.
 describeAutoScalingGroupsResponse
     :: Int -- ^ 'dasgrsResponseStatus'
     -> DescribeAutoScalingGroupsResponse
@@ -161,7 +167,7 @@ describeAutoScalingGroupsResponse pResponseStatus_ =
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dasgrsResponseStatus :: Lens' DescribeAutoScalingGroupsResponse Int
 dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseStatus = a});
 

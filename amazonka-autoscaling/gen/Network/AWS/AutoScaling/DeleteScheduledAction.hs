@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified scheduled action.
+--
+--
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteScheduledAction.
 --
+--
+--
 -- /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
     { _dsaAutoScalingGroupName :: !Text
@@ -52,9 +56,9 @@ data DeleteScheduledAction = DeleteScheduledAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaAutoScalingGroupName'
+-- * 'dsaAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dsaScheduledActionName'
+-- * 'dsaScheduledActionName' - The name of the action to delete.
 deleteScheduledAction
     :: Text -- ^ 'dsaAutoScalingGroupName'
     -> Text -- ^ 'dsaScheduledActionName'

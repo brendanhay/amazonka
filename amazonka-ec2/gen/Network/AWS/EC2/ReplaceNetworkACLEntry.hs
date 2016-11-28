@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces an entry (rule) in a network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+-- Replaces an entry (rule) in a network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.ReplaceNetworkACLEntry
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ReplaceNetworkAclEntry.
 --
+--
+--
 -- /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
@@ -66,23 +70,23 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnaeICMPTypeCode'
+-- * 'rnaeICMPTypeCode' - ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP) for the protocol.
 --
--- * 'rnaePortRange'
+-- * 'rnaePortRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying 6 (TCP) or 17 (UDP) for the protocol.
 --
--- * 'rnaeDryRun'
+-- * 'rnaeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rnaeNetworkACLId'
+-- * 'rnaeNetworkACLId' - The ID of the ACL.
 --
--- * 'rnaeRuleNumber'
+-- * 'rnaeRuleNumber' - The rule number of the entry to replace.
 --
--- * 'rnaeProtocol'
+-- * 'rnaeProtocol' - The IP protocol. You can specify @all@ or @-1@ to mean all protocols.
 --
--- * 'rnaeRuleAction'
+-- * 'rnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
--- * 'rnaeEgress'
+-- * 'rnaeEgress' - Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
 --
--- * 'rnaeCIdRBlock'
+-- * 'rnaeCIdRBlock' - The network range to allow or deny, in CIDR notation.
 replaceNetworkACLEntry
     :: Text -- ^ 'rnaeNetworkACLId'
     -> Int -- ^ 'rnaeRuleNumber'
@@ -112,7 +116,7 @@ rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a});
 rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
 rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
 
@@ -124,7 +128,7 @@ rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a});
 rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
 
--- | The IP protocol. You can specify 'all' or '-1' to mean all protocols.
+-- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols.
 rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
 rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
 
@@ -132,9 +136,7 @@ rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
 rnaeRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
 rnaeRuleAction = lens _rnaeRuleAction (\ s a -> s{_rnaeRuleAction = a});
 
--- | Indicates whether to replace the egress rule.
---
--- Default: If no value is specified, we replace the ingress rule.
+-- | Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
 rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
 rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
 

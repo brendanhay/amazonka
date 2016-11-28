@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a manual snapshot of the specified cluster. The cluster must be in the 'available' state.
+-- Creates a manual snapshot of the specified cluster. The cluster must be in the @available@ state.
 --
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createClusterSnapshot' smart constructor.
 data CreateClusterSnapshot = CreateClusterSnapshot'
     { _ccsTags               :: !(Maybe [Tag])
@@ -59,11 +63,11 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsTags'
+-- * 'ccsTags' - A list of tag instances.
 --
--- * 'ccsSnapshotIdentifier'
+-- * 'ccsSnapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.  Constraints:     * Cannot be null, empty, or blank    * Must contain from 1 to 255 alphanumeric characters or hyphens    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
--- * 'ccsClusterIdentifier'
+-- * 'ccsClusterIdentifier' - The cluster identifier for which you want a snapshot.
 createClusterSnapshot
     :: Text -- ^ 'ccsSnapshotIdentifier'
     -> Text -- ^ 'ccsClusterIdentifier'
@@ -79,16 +83,7 @@ createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
 ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 
--- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-snapshot-id'
+-- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.  Constraints:     * Cannot be null, empty, or blank    * Must contain from 1 to 255 alphanumeric characters or hyphens    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
 
@@ -135,9 +130,9 @@ data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crersSnapshot'
+-- * 'crersSnapshot' - Undocumented member.
 --
--- * 'crersResponseStatus'
+-- * 'crersResponseStatus' - -- | The response status code.
 createClusterSnapshotResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateClusterSnapshotResponse
@@ -151,7 +146,7 @@ createClusterSnapshotResponse pResponseStatus_ =
 crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 

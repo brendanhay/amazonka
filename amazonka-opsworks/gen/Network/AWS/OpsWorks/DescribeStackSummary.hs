@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as 'running_setup' or 'online'.
+-- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as @running_setup@ or @online@ .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeStackSummary
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype DescribeStackSummary = DescribeStackSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssStackId'
+-- * 'dssStackId' - The stack ID.
 describeStackSummary
     :: Text -- ^ 'dssStackId'
     -> DescribeStackSummary
@@ -101,7 +103,9 @@ instance ToPath DescribeStackSummary where
 instance ToQuery DescribeStackSummary where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeStackSummary' request.
+-- | Contains the response to a @DescribeStackSummary@ request.
+--
+--
 --
 -- /See:/ 'describeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
@@ -113,9 +117,9 @@ data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsStackSummary'
+-- * 'dssrsStackSummary' - A @StackSummary@ object that contains the results.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeStackSummaryResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeStackSummaryResponse
@@ -125,11 +129,11 @@ describeStackSummaryResponse pResponseStatus_ =
     , _dssrsResponseStatus = pResponseStatus_
     }
 
--- | A 'StackSummary' object that contains the results.
+-- | A @StackSummary@ object that contains the results.
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 

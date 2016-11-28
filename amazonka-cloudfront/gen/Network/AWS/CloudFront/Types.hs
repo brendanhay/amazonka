@@ -533,7 +533,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2016-09-07' of the Amazon CloudFront SDK configuration.
+-- | API version @2016-09-07@ of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
@@ -591,7 +591,7 @@ _TooManyCloudFrontOriginAccessIdentities =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyCloudFrontOriginAccessIdentities"
 
--- | The origin access identity is not valid or doesn\'t exist.
+-- | The origin access identity is not valid or doesn't exist.
 _InvalidOriginAccessIdentity :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOriginAccessIdentity =
     _ServiceError . hasStatus 400 . hasCode "InvalidOriginAccessIdentity"
@@ -660,7 +660,7 @@ _TooManyCookieNamesInWhiteList :: AsError a => Getting (First ServiceError) a Se
 _TooManyCookieNamesInWhiteList =
     _ServiceError . hasStatus 400 . hasCode "TooManyCookieNamesInWhiteList"
 
--- | Your request contains forward cookies option which doesn\'t match with the expectation for the whitelisted list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
+-- | Your request contains forward cookies option which doesn't match with the expectation for the whitelisted list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
 _InvalidForwardCookies :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidForwardCookies =
     _ServiceError . hasStatus 400 . hasCode "InvalidForwardCookies"
@@ -785,7 +785,7 @@ _CloudFrontOriginAccessIdentityAlreadyExists =
 _TooManyOrigins :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyOrigins = _ServiceError . hasStatus 400 . hasCode "TooManyOrigins"
 
--- | The relative path is too big, is not URL-encoded, or does not begin with a slash (\/).
+-- | The relative path is too big, is not URL-encoded, or does not begin with a slash (/).
 _InvalidRelativePath :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRelativePath =
     _ServiceError . hasStatus 400 . hasCode "InvalidRelativePath"

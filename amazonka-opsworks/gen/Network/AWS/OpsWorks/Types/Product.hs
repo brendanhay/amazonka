@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Describes an agent version.
 --
+--
+--
 -- /See:/ 'agentVersion' smart constructor.
 data AgentVersion = AgentVersion'
     { _avVersion              :: !(Maybe Text)
@@ -33,9 +35,9 @@ data AgentVersion = AgentVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avVersion'
+-- * 'avVersion' - The agent version.
 --
--- * 'avConfigurationManager'
+-- * 'avConfigurationManager' - The configuration manager.
 agentVersion
     :: AgentVersion
 agentVersion =
@@ -65,6 +67,8 @@ instance NFData AgentVersion
 
 -- | A description of the app.
 --
+--
+--
 -- /See:/ 'app' smart constructor.
 data App = App'
     { _appSSLConfiguration :: !(Maybe SSLConfiguration)
@@ -87,33 +91,33 @@ data App = App'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'appSSLConfiguration'
+-- * 'appSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 --
--- * 'appEnvironment'
+-- * 'appEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 --
--- * 'appEnableSSL'
+-- * 'appEnableSSL' - Whether to enable SSL for the app.
 --
--- * 'appCreatedAt'
+-- * 'appCreatedAt' - When the app was created.
 --
--- * 'appShortname'
+-- * 'appShortname' - The app's short name.
 --
--- * 'appDataSources'
+-- * 'appDataSources' - The app's data sources.
 --
--- * 'appAppSource'
+-- * 'appAppSource' - A @Source@ object that describes the app repository.
 --
--- * 'appAppId'
+-- * 'appAppId' - The app ID.
 --
--- * 'appAttributes'
+-- * 'appAttributes' - The stack attributes.
 --
--- * 'appName'
+-- * 'appName' - The app name.
 --
--- * 'appType'
+-- * 'appType' - The app type.
 --
--- * 'appStackId'
+-- * 'appStackId' - The app stack ID.
 --
--- * 'appDomains'
+-- * 'appDomains' - The app vhost settings with multiple domains separated by commas. For example: @'www.example.com, example.com'@
 --
--- * 'appDescription'
+-- * 'appDescription' - A description of the app.
 app
     :: App
 app =
@@ -134,13 +138,11 @@ app =
     , _appDescription = Nothing
     }
 
--- | An 'SslConfiguration' object with the SSL configuration.
+-- | An @SslConfiguration@ object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
 appSSLConfiguration = lens _appSSLConfiguration (\ s a -> s{_appSSLConfiguration = a});
 
--- | An array of 'EnvironmentVariable' objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
---
--- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an \"Environment: is too large (maximum is 10KB)\" message.
+-- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 appEnvironment :: Lens' App [EnvironmentVariable]
 appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default . _Coerce;
 
@@ -152,15 +154,15 @@ appEnableSSL = lens _appEnableSSL (\ s a -> s{_appEnableSSL = a});
 appCreatedAt :: Lens' App (Maybe Text)
 appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 
--- | The app\'s short name.
+-- | The app's short name.
 appShortname :: Lens' App (Maybe Text)
 appShortname = lens _appShortname (\ s a -> s{_appShortname = a});
 
--- | The app\'s data sources.
+-- | The app's data sources.
 appDataSources :: Lens' App [DataSource]
 appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Default . _Coerce;
 
--- | A 'Source' object that describes the app repository.
+-- | A @Source@ object that describes the app repository.
 appAppSource :: Lens' App (Maybe Source)
 appAppSource = lens _appAppSource (\ s a -> s{_appAppSource = a});
 
@@ -184,7 +186,7 @@ appType = lens _appType (\ s a -> s{_appType = a});
 appStackId :: Lens' App (Maybe Text)
 appStackId = lens _appStackId (\ s a -> s{_appStackId = a});
 
--- | The app vhost settings with multiple domains separated by commas. For example: '\'www.example.com, example.com\''
+-- | The app vhost settings with multiple domains separated by commas. For example: @'www.example.com, example.com'@
 appDomains :: Lens' App [Text]
 appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default . _Coerce;
 
@@ -218,6 +220,8 @@ instance NFData App
 
 -- | Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks starts or stops load-based instances.
 --
+--
+--
 -- /See:/ 'autoScalingThresholds' smart constructor.
 data AutoScalingThresholds = AutoScalingThresholds'
     { _astInstanceCount      :: !(Maybe Int)
@@ -233,19 +237,19 @@ data AutoScalingThresholds = AutoScalingThresholds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'astInstanceCount'
+-- * 'astInstanceCount' - The number of instances to add or remove when the load exceeds a threshold.
 --
--- * 'astIgnoreMetricsTime'
+-- * 'astIgnoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to suppress scaling events long enough to get the new instances online.
 --
--- * 'astLoadThreshold'
+-- * 'astLoadThreshold' - The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)> .
 --
--- * 'astThresholdsWaitTime'
+-- * 'astThresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
 --
--- * 'astAlarms'
+-- * 'astAlarms' - Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
 --
--- * 'astMemoryThreshold'
+-- * 'astMemoryThreshold' - The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 --
--- * 'astCPUThreshold'
+-- * 'astCPUThreshold' - The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 autoScalingThresholds
     :: AutoScalingThresholds
 autoScalingThresholds =
@@ -263,11 +267,11 @@ autoScalingThresholds =
 astInstanceCount :: Lens' AutoScalingThresholds (Maybe Int)
 astInstanceCount = lens _astInstanceCount (\ s a -> s{_astInstanceCount = a});
 
--- | The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won\'t start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. 'IgnoreMetricsTime' allows you to direct AWS OpsWorks to suppress scaling events long enough to get the new instances online.
+-- | The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to suppress scaling events long enough to get the new instances online.
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . mapping _Nat;
 
--- | The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
+-- | The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)> .
 astLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astLoadThreshold = lens _astLoadThreshold (\ s a -> s{_astLoadThreshold = a});
 
@@ -276,8 +280,6 @@ astThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWaitTime = a}) . mapping _Nat;
 
 -- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
---
--- To use custom alarms, you must update your service role to allow 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the role for you when you first use this feature or you can edit the role manually. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
 astAlarms :: Lens' AutoScalingThresholds [Text]
 astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a}) . _Default . _Coerce;
 
@@ -320,6 +322,8 @@ instance ToJSON AutoScalingThresholds where
 
 -- | Describes a block device mapping. This data type maps directly to the Amazon EC2 <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> data type.
 --
+--
+--
 -- /See:/ 'blockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
     { _bdmVirtualName :: !(Maybe Text)
@@ -332,13 +336,13 @@ data BlockDeviceMapping = BlockDeviceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdmVirtualName'
+-- * 'bdmVirtualName' - The virtual device name. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> .
 --
--- * 'bdmNoDevice'
+-- * 'bdmNoDevice' - Suppresses the specified device included in the AMI's block device mapping.
 --
--- * 'bdmEBS'
+-- * 'bdmEBS' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
 --
--- * 'bdmDeviceName'
+-- * 'bdmDeviceName' - The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks will provide the correct device name.
 blockDeviceMapping
     :: BlockDeviceMapping
 blockDeviceMapping =
@@ -349,19 +353,19 @@ blockDeviceMapping =
     , _bdmDeviceName = Nothing
     }
 
--- | The virtual device name. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
+-- | The virtual device name. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> .
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
--- | Suppresses the specified device included in the AMI\'s block device mapping.
+-- | Suppresses the specified device included in the AMI's block device mapping.
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
 bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 
--- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume when the instance is launched.
+-- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name that is exposed to the instance, such as '\/dev\/sdh'. For the root device, you can use the explicit device name or you can set this parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the correct device name.
+-- | The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks will provide the correct device name.
 bdmDeviceName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -389,6 +393,8 @@ instance ToJSON BlockDeviceMapping where
 
 -- | Describes the Chef configuration.
 --
+--
+--
 -- /See:/ 'chefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
     { _ccBerkshelfVersion :: !(Maybe Text)
@@ -399,9 +405,9 @@ data ChefConfiguration = ChefConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccBerkshelfVersion'
+-- * 'ccBerkshelfVersion' - The Berkshelf version.
 --
--- * 'ccManageBerkshelf'
+-- * 'ccManageBerkshelf' - Whether to enable Berkshelf.
 chefConfiguration
     :: ChefConfiguration
 chefConfiguration =
@@ -439,6 +445,8 @@ instance ToJSON ChefConfiguration where
 
 -- | Describes a command.
 --
+--
+--
 -- /See:/ 'command' smart constructor.
 data Command = Command'
     { _cDeploymentId   :: !(Maybe Text)
@@ -457,25 +465,25 @@ data Command = Command'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cDeploymentId'
+-- * 'cDeploymentId' - The command deployment ID.
 --
--- * 'cInstanceId'
+-- * 'cInstanceId' - The ID of the instance where the command was executed.
 --
--- * 'cStatus'
+-- * 'cStatus' - The command status:     * failed     * successful     * skipped     * pending
 --
--- * 'cLogURL'
+-- * 'cLogURL' - The URL of the command log.
 --
--- * 'cCreatedAt'
+-- * 'cCreatedAt' - Date and time when the command was run.
 --
--- * 'cCommandId'
+-- * 'cCommandId' - The command ID.
 --
--- * 'cExitCode'
+-- * 'cExitCode' - The command exit code.
 --
--- * 'cType'
+-- * 'cType' - The command type:     * @deploy@      * @rollback@      * @start@      * @stop@      * @restart@      * @undeploy@      * @update_dependencies@      * @install_dependencies@      * @update_custom_cookbooks@      * @execute_recipes@
 --
--- * 'cCompletedAt'
+-- * 'cCompletedAt' - Date when the command completed.
 --
--- * 'cAcknowledgedAt'
+-- * 'cAcknowledgedAt' - Date and time when the command was acknowledged.
 command
     :: Command
 command =
@@ -500,16 +508,7 @@ cDeploymentId = lens _cDeploymentId (\ s a -> s{_cDeploymentId = a});
 cInstanceId :: Lens' Command (Maybe Text)
 cInstanceId = lens _cInstanceId (\ s a -> s{_cInstanceId = a});
 
--- | The command status:
---
--- -   failed
---
--- -   successful
---
--- -   skipped
---
--- -   pending
---
+-- | The command status:     * failed     * successful     * skipped     * pending
 cStatus :: Lens' Command (Maybe Text)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
@@ -529,28 +528,7 @@ cCommandId = lens _cCommandId (\ s a -> s{_cCommandId = a});
 cExitCode :: Lens' Command (Maybe Int)
 cExitCode = lens _cExitCode (\ s a -> s{_cExitCode = a});
 
--- | The command type:
---
--- -   'deploy'
---
--- -   'rollback'
---
--- -   'start'
---
--- -   'stop'
---
--- -   'restart'
---
--- -   'undeploy'
---
--- -   'update_dependencies'
---
--- -   'install_dependencies'
---
--- -   'update_custom_cookbooks'
---
--- -   'execute_recipes'
---
+-- | The command type:     * @deploy@      * @rollback@      * @start@      * @stop@      * @restart@      * @undeploy@      * @update_dependencies@      * @install_dependencies@      * @update_custom_cookbooks@      * @execute_recipes@
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\ s a -> s{_cType = a});
 
@@ -581,7 +559,9 @@ instance Hashable Command
 
 instance NFData Command
 
--- | Describes an app\'s data source.
+-- | Describes an app's data source.
+--
+--
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
@@ -594,11 +574,11 @@ data DataSource = DataSource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsARN'
+-- * 'dsARN' - The data source's ARN.
 --
--- * 'dsDatabaseName'
+-- * 'dsDatabaseName' - The database name.
 --
--- * 'dsType'
+-- * 'dsType' - The data source's type, @AutoSelectOpsworksMysqlInstance@ , @OpsworksMysqlInstance@ , or @RdsDbInstance@ .
 dataSource
     :: DataSource
 dataSource =
@@ -608,7 +588,7 @@ dataSource =
     , _dsType = Nothing
     }
 
--- | The data source\'s ARN.
+-- | The data source's ARN.
 dsARN :: Lens' DataSource (Maybe Text)
 dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
@@ -616,7 +596,7 @@ dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 dsDatabaseName :: Lens' DataSource (Maybe Text)
 dsDatabaseName = lens _dsDatabaseName (\ s a -> s{_dsDatabaseName = a});
 
--- | The data source\'s type, 'AutoSelectOpsworksMysqlInstance', 'OpsworksMysqlInstance', or 'RdsDbInstance'.
+-- | The data source's type, @AutoSelectOpsworksMysqlInstance@ , @OpsworksMysqlInstance@ , or @RdsDbInstance@ .
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\ s a -> s{_dsType = a});
 
@@ -642,6 +622,8 @@ instance ToJSON DataSource where
 
 -- | Describes a deployment of a stack or app.
 --
+--
+--
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
     { _dDeploymentId :: !(Maybe Text)
@@ -662,29 +644,29 @@ data Deployment = Deployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDeploymentId'
+-- * 'dDeploymentId' - The deployment ID.
 --
--- * 'dStatus'
+-- * 'dStatus' - The deployment status:     * running     * successful     * failed
 --
--- * 'dCommand'
+-- * 'dCommand' - Undocumented member.
 --
--- * 'dCreatedAt'
+-- * 'dCreatedAt' - Date when the deployment was created.
 --
--- * 'dCustomJSON'
+-- * 'dCustomJSON' - A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format and must escape characters such as '"': @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 --
--- * 'dIAMUserARN'
+-- * 'dIAMUserARN' - The user's IAM ARN.
 --
--- * 'dAppId'
+-- * 'dAppId' - The app ID.
 --
--- * 'dInstanceIds'
+-- * 'dInstanceIds' - The IDs of the target instances.
 --
--- * 'dCompletedAt'
+-- * 'dCompletedAt' - Date when the deployment completed.
 --
--- * 'dStackId'
+-- * 'dStackId' - The stack ID.
 --
--- * 'dComment'
+-- * 'dComment' - A user-defined comment.
 --
--- * 'dDuration'
+-- * 'dDuration' - The deployment duration.
 deployment
     :: Deployment
 deployment =
@@ -707,14 +689,7 @@ deployment =
 dDeploymentId :: Lens' Deployment (Maybe Text)
 dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 
--- | The deployment status:
---
--- -   running
---
--- -   successful
---
--- -   failed
---
+-- | The deployment status:     * running     * successful     * failed
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
@@ -726,15 +701,11 @@ dCommand = lens _dCommand (\ s a -> s{_dCommand = a});
 dCreatedAt :: Lens' Deployment (Maybe Text)
 dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a});
 
--- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format and must escape characters such as \'\"\':
---
--- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
---
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+-- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format and must escape characters such as '"': @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 dCustomJSON :: Lens' Deployment (Maybe Text)
 dCustomJSON = lens _dCustomJSON (\ s a -> s{_dCustomJSON = a});
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 dIAMUserARN :: Lens' Deployment (Maybe Text)
 dIAMUserARN = lens _dIAMUserARN (\ s a -> s{_dIAMUserARN = a});
 
@@ -785,6 +756,8 @@ instance NFData Deployment
 
 -- | Used to specify a stack or deployment command.
 --
+--
+--
 -- /See:/ 'deploymentCommand' smart constructor.
 data DeploymentCommand = DeploymentCommand'
     { _dcArgs :: !(Maybe (Map Text [Text]))
@@ -795,9 +768,9 @@ data DeploymentCommand = DeploymentCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcArgs'
+-- * 'dcArgs' - The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2014.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2014.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } @
 --
--- * 'dcName'
+-- * 'dcName' - Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
 deploymentCommand
     :: DeploymentCommandName -- ^ 'dcName'
     -> DeploymentCommand
@@ -807,50 +780,11 @@ deploymentCommand pName_ =
     , _dcName = pName_
     }
 
--- | The arguments of those commands that take arguments. It should be set to a JSON object with the following format:
---
--- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\", ...], ...}'
---
--- The 'update_dependencies' command takes two arguments:
---
--- -   'upgrade_os_to' - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set the 'allow_reboot' argument to true.
---
--- -   'allow_reboot' - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either 'true' or 'false'. The default value is 'false'.
---
--- For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.
---
--- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '
+-- | The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2014.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2014.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } @
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 
--- | Specifies the operation. You can specify only one command.
---
--- For stacks, the following commands are available:
---
--- -   'execute_recipes': Execute one or more recipes. To specify the recipes, set an 'Args' parameter named 'recipes' to the list of recipes to be executed. For example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.
---
--- -   'install_dependencies': Install the stack\'s dependencies.
---
--- -   'update_custom_cookbooks': Update the stack\'s custom cookbooks.
---
--- -   'update_dependencies': Update the stack\'s dependencies.
---
--- The update_dependencies and install_dependencies commands are supported only for Linux instances. You can run the commands successfully on Windows instances, but they do nothing.
---
--- For apps, the following commands are available:
---
--- -   'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.
---
--- -   'rollback' Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.
---
--- -   'start': Start the app\'s web or application server.
---
--- -   'stop': Stop the app\'s web or application server.
---
--- -   'restart': Restart the app\'s web or application server.
---
--- -   'undeploy': Undeploy the app.
---
+-- | Specifies the operation. You can specify only one command. For stacks, the following commands are available:     * @execute_recipes@ : Execute one or more recipes. To specify the recipes, set an @Args@ parameter named @recipes@ to the list of recipes to be executed. For example, to execute @phpapp::appsetup@ , set @Args@ to @{"recipes":["phpapp::appsetup"]}@ .     * @install_dependencies@ : Install the stack's dependencies.     * @update_custom_cookbooks@ : Update the stack's custom cookbooks.     * @update_dependencies@ : Update the stack's dependencies. For apps, the following commands are available:     * @deploy@ : Deploy an app. Ruby on Rails apps have an optional @Args@ parameter named @migrate@ . Set @Args@ to {"migrate":["true"]} to migrate the database. The default setting is {"migrate":["false"]}.     * @rollback@ Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.     * @start@ : Start the app's web or application server.     * @stop@ : Stop the app's web or application server.     * @restart@ : Restart the app's web or application server.     * @undeploy@ : Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -873,6 +807,8 @@ instance ToJSON DeploymentCommand where
 
 -- | Describes an Amazon EBS volume. This data type maps directly to the Amazon EC2 <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> data type.
 --
+--
+--
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
     { _ebdDeleteOnTermination :: !(Maybe Bool)
@@ -886,15 +822,15 @@ data EBSBlockDevice = EBSBlockDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ebdDeleteOnTermination'
+-- * 'ebdDeleteOnTermination' - Whether the volume is deleted on instance termination.
 --
--- * 'ebdVolumeSize'
+-- * 'ebdVolumeSize' - The volume size, in GiB. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
 --
--- * 'ebdIOPS'
+-- * 'ebdIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
 --
--- * 'ebdVolumeType'
+-- * 'ebdVolumeType' - The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, and @standard@ for Magnetic volumes.
 --
--- * 'ebdSnapshotId'
+-- * 'ebdSnapshotId' - The snapshot ID.
 ebsBlockDevice
     :: EBSBlockDevice
 ebsBlockDevice =
@@ -910,15 +846,15 @@ ebsBlockDevice =
 ebdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe Bool)
 ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTermination = a});
 
--- | The volume size, in GiB. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+-- | The volume size, in GiB. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
 ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 
--- | The number of I\/O operations per second (IOPS) that the volume supports. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+-- | The number of I/O operations per second (IOPS) that the volume supports. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
--- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+-- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, and @standard@ for Magnetic volumes.
 ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
 ebdVolumeType = lens _ebdVolumeType (\ s a -> s{_ebdVolumeType = a});
 
@@ -954,6 +890,8 @@ instance ToJSON EBSBlockDevice where
 
 -- | Describes a registered Amazon ECS cluster.
 --
+--
+--
 -- /See:/ 'ecsCluster' smart constructor.
 data EcsCluster = EcsCluster'
     { _ecEcsClusterARN  :: !(Maybe Text)
@@ -966,13 +904,13 @@ data EcsCluster = EcsCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecEcsClusterARN'
+-- * 'ecEcsClusterARN' - The cluster's ARN.
 --
--- * 'ecEcsClusterName'
+-- * 'ecEcsClusterName' - The cluster name.
 --
--- * 'ecRegisteredAt'
+-- * 'ecRegisteredAt' - The time and date that the cluster was registered with the stack.
 --
--- * 'ecStackId'
+-- * 'ecStackId' - The stack ID.
 ecsCluster
     :: EcsCluster
 ecsCluster =
@@ -983,7 +921,7 @@ ecsCluster =
     , _ecStackId = Nothing
     }
 
--- | The cluster\'s ARN.
+-- | The cluster's ARN.
 ecEcsClusterARN :: Lens' EcsCluster (Maybe Text)
 ecEcsClusterARN = lens _ecEcsClusterARN (\ s a -> s{_ecEcsClusterARN = a});
 
@@ -1014,6 +952,8 @@ instance NFData EcsCluster
 
 -- | Describes an Elastic IP address.
 --
+--
+--
 -- /See:/ 'elasticIP' smart constructor.
 data ElasticIP = ElasticIP'
     { _eiInstanceId :: !(Maybe Text)
@@ -1027,15 +967,15 @@ data ElasticIP = ElasticIP'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiInstanceId'
+-- * 'eiInstanceId' - The ID of the instance that the address is attached to.
 --
--- * 'eiDomain'
+-- * 'eiDomain' - The domain.
 --
--- * 'eiIP'
+-- * 'eiIP' - The IP address.
 --
--- * 'eiName'
+-- * 'eiName' - The name.
 --
--- * 'eiRegion'
+-- * 'eiRegion' - The AWS region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 elasticIP
     :: ElasticIP
 elasticIP =
@@ -1063,7 +1003,7 @@ eiIP = lens _eiIP (\ s a -> s{_eiIP = a});
 eiName :: Lens' ElasticIP (Maybe Text)
 eiName = lens _eiName (\ s a -> s{_eiName = a});
 
--- | The AWS region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The AWS region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 eiRegion :: Lens' ElasticIP (Maybe Text)
 eiRegion = lens _eiRegion (\ s a -> s{_eiRegion = a});
 
@@ -1083,6 +1023,8 @@ instance NFData ElasticIP
 
 -- | Describes an Elastic Load Balancing instance.
 --
+--
+--
 -- /See:/ 'elasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
     { _elbSubnetIds               :: !(Maybe [Text])
@@ -1100,23 +1042,23 @@ data ElasticLoadBalancer = ElasticLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'elbSubnetIds'
+-- * 'elbSubnetIds' - A list of subnet IDs, if the stack is running in a VPC.
 --
--- * 'elbVPCId'
+-- * 'elbVPCId' - The VPC ID.
 --
--- * 'elbAvailabilityZones'
+-- * 'elbAvailabilityZones' - A list of Availability Zones.
 --
--- * 'elbRegion'
+-- * 'elbRegion' - The instance's AWS region.
 --
--- * 'elbElasticLoadBalancerName'
+-- * 'elbElasticLoadBalancerName' - The Elastic Load Balancing instance's name.
 --
--- * 'elbStackId'
+-- * 'elbStackId' - The ID of the stack that the instance is associated with.
 --
--- * 'elbEC2InstanceIds'
+-- * 'elbEC2InstanceIds' - A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
 --
--- * 'elbLayerId'
+-- * 'elbLayerId' - The ID of the layer that the instance is attached to.
 --
--- * 'elbDNSName'
+-- * 'elbDNSName' - The instance's public DNS name.
 elasticLoadBalancer
     :: ElasticLoadBalancer
 elasticLoadBalancer =
@@ -1144,11 +1086,11 @@ elbVPCId = lens _elbVPCId (\ s a -> s{_elbVPCId = a});
 elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
 elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The instance\'s AWS region.
+-- | The instance's AWS region.
 elbRegion :: Lens' ElasticLoadBalancer (Maybe Text)
 elbRegion = lens _elbRegion (\ s a -> s{_elbRegion = a});
 
--- | The Elastic Load Balancing instance\'s name.
+-- | The Elastic Load Balancing instance's name.
 elbElasticLoadBalancerName :: Lens' ElasticLoadBalancer (Maybe Text)
 elbElasticLoadBalancerName = lens _elbElasticLoadBalancerName (\ s a -> s{_elbElasticLoadBalancerName = a});
 
@@ -1164,7 +1106,7 @@ elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a})
 elbLayerId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbLayerId = lens _elbLayerId (\ s a -> s{_elbLayerId = a});
 
--- | The instance\'s public DNS name.
+-- | The instance's public DNS name.
 elbDNSName :: Lens' ElasticLoadBalancer (Maybe Text)
 elbDNSName = lens _elbDNSName (\ s a -> s{_elbDNSName = a});
 
@@ -1186,7 +1128,9 @@ instance Hashable ElasticLoadBalancer
 
 instance NFData ElasticLoadBalancer
 
--- | Represents an app\'s environment variable.
+-- | Represents an app's environment variable.
+--
+--
 --
 -- /See:/ 'environmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
@@ -1199,11 +1143,11 @@ data EnvironmentVariable = EnvironmentVariable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evSecure'
+-- * 'evSecure' - (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
 --
--- * 'evKey'
+-- * 'evKey' - (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
 --
--- * 'evValue'
+-- * 'evValue' - (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
 environmentVariable
     :: Text -- ^ 'evKey'
     -> Text -- ^ 'evValue'
@@ -1215,15 +1159,15 @@ environmentVariable pKey_ pValue_ =
     , _evValue = pValue_
     }
 
--- | (Optional) Whether the variable\'s value will be returned by the < DescribeApps> action. To conceal an environment variable\'s value, set 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****' instead of the actual value. The default value for 'Secure' is 'false'.
+-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
 evSecure :: Lens' EnvironmentVariable (Maybe Bool)
 evSecure = lens _evSecure (\ s a -> s{_evSecure = a});
 
--- | (Required) The environment variable\'s name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+-- | (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
 evKey :: Lens' EnvironmentVariable Text
 evKey = lens _evKey (\ s a -> s{_evKey = a});
 
--- | (Optional) The environment variable\'s value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+-- | (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
 evValue :: Lens' EnvironmentVariable Text
 evValue = lens _evValue (\ s a -> s{_evValue = a});
 
@@ -1246,6 +1190,8 @@ instance ToJSON EnvironmentVariable where
                   Just ("Value" .= _evValue)])
 
 -- | Describes an instance.
+--
+--
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
@@ -1295,85 +1241,85 @@ data Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iPrivateDNS'
+-- * 'iPrivateDNS' - The The instance's private DNS name.
 --
--- * 'iReportedAgentVersion'
+-- * 'iReportedAgentVersion' - The instance's reported AWS OpsWorks agent version.
 --
--- * 'iInstanceId'
+-- * 'iInstanceId' - The instance ID.
 --
--- * 'iStatus'
+-- * 'iStatus' - The instance status:     * @booting@      * @connection_lost@      * @online@      * @pending@      * @rebooting@      * @requested@      * @running_setup@      * @setup_failed@      * @shutting_down@      * @start_failed@      * @stop_failed@      * @stopped@      * @stopping@      * @terminated@      * @terminating@
 --
--- * 'iPrivateIP'
+-- * 'iPrivateIP' - The instance's private IP address.
 --
--- * 'iInstallUpdatesOnBoot'
+-- * 'iInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 --
--- * 'iVirtualizationType'
+-- * 'iVirtualizationType' - The instance's virtualization type: @paravirtual@ or @hvm@ .
 --
--- * 'iInstanceProfileARN'
+-- * 'iInstanceProfileARN' - The ARN of the instance's IAM profile. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'iPlatform'
+-- * 'iPlatform' - The instance's platform.
 --
--- * 'iHostname'
+-- * 'iHostname' - The instance host name.
 --
--- * 'iSSHHostRsaKeyFingerprint'
+-- * 'iSSHHostRsaKeyFingerprint' - The SSH key's RSA fingerprint.
 --
--- * 'iSecurityGroupIds'
+-- * 'iSecurityGroupIds' - An array containing the instance security group IDs.
 --
--- * 'iEcsClusterARN'
+-- * 'iEcsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
 --
--- * 'iCreatedAt'
+-- * 'iCreatedAt' - The time that the instance was created.
 --
--- * 'iEC2InstanceId'
+-- * 'iEC2InstanceId' - The ID of the associated Amazon EC2 instance.
 --
--- * 'iSSHKeyName'
+-- * 'iSSHKeyName' - The instance's Amazon EC2 key-pair name.
 --
--- * 'iAgentVersion'
+-- * 'iAgentVersion' - The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
 --
--- * 'iRootDeviceVolumeId'
+-- * 'iRootDeviceVolumeId' - The root device volume ID.
 --
--- * 'iSubnetId'
+-- * 'iSubnetId' - The instance's subnet ID; applicable only if the stack is running in a VPC.
 --
--- * 'iInfrastructureClass'
+-- * 'iInfrastructureClass' - For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
 --
--- * 'iSSHHostDsaKeyFingerprint'
+-- * 'iSSHHostDsaKeyFingerprint' - The SSH key's Deep Security Agent (DSA) fingerprint.
 --
--- * 'iInstanceType'
+-- * 'iInstanceType' - The instance type, such as @t2.micro@ .
 --
--- * 'iEBSOptimized'
+-- * 'iEBSOptimized' - Whether this is an Amazon EBS-optimized instance.
 --
--- * 'iElasticIP'
+-- * 'iElasticIP' - The instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
 --
--- * 'iOS'
+-- * 'iOS' - The instance's operating system.
 --
--- * 'iAvailabilityZone'
+-- * 'iAvailabilityZone' - The instance Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'iLastServiceErrorId'
+-- * 'iLastServiceErrorId' - The ID of the last service error. For more information, call 'DescribeServiceErrors' .
 --
--- * 'iTenancy'
+-- * 'iTenancy' - The instance's tenancy option, such as @dedicated@ or @host@ .
 --
--- * 'iAutoScalingType'
+-- * 'iAutoScalingType' - For load-based or time-based instances, the type.
 --
--- * 'iLayerIds'
+-- * 'iLayerIds' - An array containing the instance layer IDs.
 --
--- * 'iArchitecture'
+-- * 'iArchitecture' - The instance architecture: "i386" or "x86_64".
 --
--- * 'iPublicDNS'
+-- * 'iPublicDNS' - The instance public DNS name.
 --
--- * 'iAMIId'
+-- * 'iAMIId' - A custom AMI ID to be used to create the instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
 --
--- * 'iPublicIP'
+-- * 'iPublicIP' - The instance public IP address.
 --
--- * 'iReportedOS'
+-- * 'iReportedOS' - For registered instances, the reported operating system.
 --
--- * 'iRegisteredBy'
+-- * 'iRegisteredBy' - For registered instances, who performed the registration.
 --
--- * 'iStackId'
+-- * 'iStackId' - The stack ID.
 --
--- * 'iRootDeviceType'
+-- * 'iRootDeviceType' - The instance's root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 --
--- * 'iEcsContainerInstanceARN'
+-- * 'iEcsContainerInstanceARN' - For container instances, the instance's ARN.
 --
--- * 'iBlockDeviceMappings'
+-- * 'iBlockDeviceMappings' - An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
 instance'
     :: Instance
 instance' =
@@ -1420,11 +1366,11 @@ instance' =
     , _iBlockDeviceMappings = Nothing
     }
 
--- | The The instance\'s private DNS name.
+-- | The The instance's private DNS name.
 iPrivateDNS :: Lens' Instance (Maybe Text)
 iPrivateDNS = lens _iPrivateDNS (\ s a -> s{_iPrivateDNS = a});
 
--- | The instance\'s reported AWS OpsWorks agent version.
+-- | The instance's reported AWS OpsWorks agent version.
 iReportedAgentVersion :: Lens' Instance (Maybe Text)
 iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentVersion = a});
 
@@ -1432,60 +1378,27 @@ iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentV
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
--- | The instance status:
---
--- -   'booting'
---
--- -   'connection_lost'
---
--- -   'online'
---
--- -   'pending'
---
--- -   'rebooting'
---
--- -   'requested'
---
--- -   'running_setup'
---
--- -   'setup_failed'
---
--- -   'shutting_down'
---
--- -   'start_failed'
---
--- -   'stop_failed'
---
--- -   'stopped'
---
--- -   'stopping'
---
--- -   'terminated'
---
--- -   'terminating'
---
+-- | The instance status:     * @booting@      * @connection_lost@      * @online@      * @pending@      * @rebooting@      * @requested@      * @running_setup@      * @setup_failed@      * @shutting_down@      * @start_failed@      * @stop_failed@      * @stopped@      * @stopping@      * @terminated@      * @terminating@
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
--- | The instance\'s private IP address.
+-- | The instance's private IP address.
 iPrivateIP :: Lens' Instance (Maybe Text)
 iPrivateIP = lens _iPrivateIP (\ s a -> s{_iPrivateIP = a});
 
--- | Whether to install operating system and package updates when the instance boots. The default value is 'true'. If this value is set to 'false', you must then update your instances manually by using < CreateDeployment> to run the 'update_dependencies' stack command or by manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the instances.
---
--- We strongly recommend using the default value of 'true', to ensure that your instances have the latest security updates.
+-- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 iInstallUpdatesOnBoot = lens _iInstallUpdatesOnBoot (\ s a -> s{_iInstallUpdatesOnBoot = a});
 
--- | The instance\'s virtualization type: 'paravirtual' or 'hvm'.
+-- | The instance's virtualization type: @paravirtual@ or @hvm@ .
 iVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 iVirtualizationType = lens _iVirtualizationType (\ s a -> s{_iVirtualizationType = a});
 
--- | The ARN of the instance\'s IAM profile. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 iInstanceProfileARN :: Lens' Instance (Maybe Text)
 iInstanceProfileARN = lens _iInstanceProfileARN (\ s a -> s{_iInstanceProfileARN = a});
 
--- | The instance\'s platform.
+-- | The instance's platform.
 iPlatform :: Lens' Instance (Maybe Text)
 iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 
@@ -1493,7 +1406,7 @@ iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\ s a -> s{_iHostname = a});
 
--- | The SSH key\'s RSA fingerprint.
+-- | The SSH key's RSA fingerprint.
 iSSHHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
 iSSHHostRsaKeyFingerprint = lens _iSSHHostRsaKeyFingerprint (\ s a -> s{_iSSHHostRsaKeyFingerprint = a});
 
@@ -1501,7 +1414,7 @@ iSSHHostRsaKeyFingerprint = lens _iSSHHostRsaKeyFingerprint (\ s a -> s{_iSSHHos
 iSecurityGroupIds :: Lens' Instance [Text]
 iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | For container instances, the Amazon ECS cluster\'s ARN.
+-- | For container instances, the Amazon ECS cluster's ARN.
 iEcsClusterARN :: Lens' Instance (Maybe Text)
 iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a});
 
@@ -1513,11 +1426,11 @@ iCreatedAt = lens _iCreatedAt (\ s a -> s{_iCreatedAt = a});
 iEC2InstanceId :: Lens' Instance (Maybe Text)
 iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
 
--- | The instance\'s Amazon EC2 key-pair name.
+-- | The instance's Amazon EC2 key-pair name.
 iSSHKeyName :: Lens' Instance (Maybe Text)
 iSSHKeyName = lens _iSSHKeyName (\ s a -> s{_iSSHKeyName = a});
 
--- | The agent version. This parameter is set to 'INHERIT' if the instance inherits the default stack setting or to a a version number for a fixed agent version.
+-- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
 iAgentVersion :: Lens' Instance (Maybe Text)
 iAgentVersion = lens _iAgentVersion (\ s a -> s{_iAgentVersion = a});
 
@@ -1525,19 +1438,19 @@ iAgentVersion = lens _iAgentVersion (\ s a -> s{_iAgentVersion = a});
 iRootDeviceVolumeId :: Lens' Instance (Maybe Text)
 iRootDeviceVolumeId = lens _iRootDeviceVolumeId (\ s a -> s{_iRootDeviceVolumeId = a});
 
--- | The instance\'s subnet ID; applicable only if the stack is running in a VPC.
+-- | The instance's subnet ID; applicable only if the stack is running in a VPC.
 iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\ s a -> s{_iSubnetId = a});
 
--- | For registered instances, the infrastructure class: 'ec2' or 'on-premises'.
+-- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
 iInfrastructureClass :: Lens' Instance (Maybe Text)
 iInfrastructureClass = lens _iInfrastructureClass (\ s a -> s{_iInfrastructureClass = a});
 
--- | The SSH key\'s Deep Security Agent (DSA) fingerprint.
+-- | The SSH key's Deep Security Agent (DSA) fingerprint.
 iSSHHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
 iSSHHostDsaKeyFingerprint = lens _iSSHHostDsaKeyFingerprint (\ s a -> s{_iSSHHostDsaKeyFingerprint = a});
 
--- | The instance type, such as 't2.micro'.
+-- | The instance type, such as @t2.micro@ .
 iInstanceType :: Lens' Instance (Maybe Text)
 iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
 
@@ -1545,23 +1458,23 @@ iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
 iEBSOptimized :: Lens' Instance (Maybe Bool)
 iEBSOptimized = lens _iEBSOptimized (\ s a -> s{_iEBSOptimized = a});
 
--- | The instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>.
+-- | The instance <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
 iElasticIP :: Lens' Instance (Maybe Text)
 iElasticIP = lens _iElasticIP (\ s a -> s{_iElasticIP = a});
 
--- | The instance\'s operating system.
+-- | The instance's operating system.
 iOS :: Lens' Instance (Maybe Text)
 iOS = lens _iOS (\ s a -> s{_iOS = a});
 
--- | The instance Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The instance Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 iAvailabilityZone :: Lens' Instance (Maybe Text)
 iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a});
 
--- | The ID of the last service error. For more information, call < DescribeServiceErrors>.
+-- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId = lens _iLastServiceErrorId (\ s a -> s{_iLastServiceErrorId = a});
 
--- | The instance\'s tenancy option, such as 'dedicated' or 'host'.
+-- | The instance's tenancy option, such as @dedicated@ or @host@ .
 iTenancy :: Lens' Instance (Maybe Text)
 iTenancy = lens _iTenancy (\ s a -> s{_iTenancy = a});
 
@@ -1573,7 +1486,7 @@ iAutoScalingType = lens _iAutoScalingType (\ s a -> s{_iAutoScalingType = a});
 iLayerIds :: Lens' Instance [Text]
 iLayerIds = lens _iLayerIds (\ s a -> s{_iLayerIds = a}) . _Default . _Coerce;
 
--- | The instance architecture: \"i386\" or \"x86_64\".
+-- | The instance architecture: "i386" or "x86_64".
 iArchitecture :: Lens' Instance (Maybe Architecture)
 iArchitecture = lens _iArchitecture (\ s a -> s{_iArchitecture = a});
 
@@ -1601,15 +1514,15 @@ iRegisteredBy = lens _iRegisteredBy (\ s a -> s{_iRegisteredBy = a});
 iStackId :: Lens' Instance (Maybe Text)
 iStackId = lens _iStackId (\ s a -> s{_iStackId = a});
 
--- | The instance\'s root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+-- | The instance's root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\ s a -> s{_iRootDeviceType = a});
 
--- | For container instances, the instance\'s ARN.
+-- | For container instances, the instance's ARN.
 iEcsContainerInstanceARN :: Lens' Instance (Maybe Text)
 iEcsContainerInstanceARN = lens _iEcsContainerInstanceARN (\ s a -> s{_iEcsContainerInstanceARN = a});
 
--- | An array of 'BlockDeviceMapping' objects that specify the instance\'s block device mappings.
+-- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
 iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
 iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -1663,7 +1576,9 @@ instance Hashable Instance
 
 instance NFData Instance
 
--- | Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data>.
+-- | Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data> .
+--
+--
 --
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
@@ -1675,9 +1590,9 @@ data InstanceIdentity = InstanceIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiSignature'
+-- * 'iiSignature' - A signature that can be used to verify the document's accuracy and authenticity.
 --
--- * 'iiDocument'
+-- * 'iiDocument' - A JSON document that contains the metadata.
 instanceIdentity
     :: InstanceIdentity
 instanceIdentity =
@@ -1686,7 +1601,7 @@ instanceIdentity =
     , _iiDocument = Nothing
     }
 
--- | A signature that can be used to verify the document\'s accuracy and authenticity.
+-- | A signature that can be used to verify the document's accuracy and authenticity.
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
 iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
 
@@ -1706,6 +1621,8 @@ instance ToJSON InstanceIdentity where
                   ("Document" .=) <$> _iiDocument])
 
 -- | Describes how many instances a stack has for each status.
+--
+--
 --
 -- /See:/ 'instancesCount' smart constructor.
 data InstancesCount = InstancesCount'
@@ -1734,43 +1651,43 @@ data InstancesCount = InstancesCount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icTerminating'
+-- * 'icTerminating' - The number of instances with @terminating@ status.
 --
--- * 'icPending'
+-- * 'icPending' - The number of instances with @pending@ status.
 --
--- * 'icOnline'
+-- * 'icOnline' - The number of instances with @online@ status.
 --
--- * 'icUnassigning'
+-- * 'icUnassigning' - The number of instances in the Unassigning state.
 --
--- * 'icDeregistering'
+-- * 'icDeregistering' - The number of instances in the Deregistering state.
 --
--- * 'icRunningSetup'
+-- * 'icRunningSetup' - The number of instances with @running_setup@ status.
 --
--- * 'icRequested'
+-- * 'icRequested' - The number of instances with @requested@ status.
 --
--- * 'icBooting'
+-- * 'icBooting' - The number of instances with @booting@ status.
 --
--- * 'icStopped'
+-- * 'icStopped' - The number of instances with @stopped@ status.
 --
--- * 'icRebooting'
+-- * 'icRebooting' - The number of instances with @rebooting@ status.
 --
--- * 'icAssigning'
+-- * 'icAssigning' - The number of instances in the Assigning state.
 --
--- * 'icShuttingDown'
+-- * 'icShuttingDown' - The number of instances with @shutting_down@ status.
 --
--- * 'icSetupFailed'
+-- * 'icSetupFailed' - The number of instances with @setup_failed@ status.
 --
--- * 'icConnectionLost'
+-- * 'icConnectionLost' - The number of instances with @connection_lost@ status.
 --
--- * 'icTerminated'
+-- * 'icTerminated' - The number of instances with @terminated@ status.
 --
--- * 'icStopping'
+-- * 'icStopping' - The number of instances with @stopping@ status.
 --
--- * 'icRegistered'
+-- * 'icRegistered' - The number of instances in the Registered state.
 --
--- * 'icStartFailed'
+-- * 'icStartFailed' - The number of instances with @start_failed@ status.
 --
--- * 'icRegistering'
+-- * 'icRegistering' - The number of instances in the Registering state.
 instancesCount
     :: InstancesCount
 instancesCount =
@@ -1796,15 +1713,15 @@ instancesCount =
     , _icRegistering = Nothing
     }
 
--- | The number of instances with 'terminating' status.
+-- | The number of instances with @terminating@ status.
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\ s a -> s{_icTerminating = a});
 
--- | The number of instances with 'pending' status.
+-- | The number of instances with @pending@ status.
 icPending :: Lens' InstancesCount (Maybe Int)
 icPending = lens _icPending (\ s a -> s{_icPending = a});
 
--- | The number of instances with 'online' status.
+-- | The number of instances with @online@ status.
 icOnline :: Lens' InstancesCount (Maybe Int)
 icOnline = lens _icOnline (\ s a -> s{_icOnline = a});
 
@@ -1816,23 +1733,23 @@ icUnassigning = lens _icUnassigning (\ s a -> s{_icUnassigning = a});
 icDeregistering :: Lens' InstancesCount (Maybe Int)
 icDeregistering = lens _icDeregistering (\ s a -> s{_icDeregistering = a});
 
--- | The number of instances with 'running_setup' status.
+-- | The number of instances with @running_setup@ status.
 icRunningSetup :: Lens' InstancesCount (Maybe Int)
 icRunningSetup = lens _icRunningSetup (\ s a -> s{_icRunningSetup = a});
 
--- | The number of instances with 'requested' status.
+-- | The number of instances with @requested@ status.
 icRequested :: Lens' InstancesCount (Maybe Int)
 icRequested = lens _icRequested (\ s a -> s{_icRequested = a});
 
--- | The number of instances with 'booting' status.
+-- | The number of instances with @booting@ status.
 icBooting :: Lens' InstancesCount (Maybe Int)
 icBooting = lens _icBooting (\ s a -> s{_icBooting = a});
 
--- | The number of instances with 'stopped' status.
+-- | The number of instances with @stopped@ status.
 icStopped :: Lens' InstancesCount (Maybe Int)
 icStopped = lens _icStopped (\ s a -> s{_icStopped = a});
 
--- | The number of instances with 'rebooting' status.
+-- | The number of instances with @rebooting@ status.
 icRebooting :: Lens' InstancesCount (Maybe Int)
 icRebooting = lens _icRebooting (\ s a -> s{_icRebooting = a});
 
@@ -1840,23 +1757,23 @@ icRebooting = lens _icRebooting (\ s a -> s{_icRebooting = a});
 icAssigning :: Lens' InstancesCount (Maybe Int)
 icAssigning = lens _icAssigning (\ s a -> s{_icAssigning = a});
 
--- | The number of instances with 'shutting_down' status.
+-- | The number of instances with @shutting_down@ status.
 icShuttingDown :: Lens' InstancesCount (Maybe Int)
 icShuttingDown = lens _icShuttingDown (\ s a -> s{_icShuttingDown = a});
 
--- | The number of instances with 'setup_failed' status.
+-- | The number of instances with @setup_failed@ status.
 icSetupFailed :: Lens' InstancesCount (Maybe Int)
 icSetupFailed = lens _icSetupFailed (\ s a -> s{_icSetupFailed = a});
 
--- | The number of instances with 'connection_lost' status.
+-- | The number of instances with @connection_lost@ status.
 icConnectionLost :: Lens' InstancesCount (Maybe Int)
 icConnectionLost = lens _icConnectionLost (\ s a -> s{_icConnectionLost = a});
 
--- | The number of instances with 'terminated' status.
+-- | The number of instances with @terminated@ status.
 icTerminated :: Lens' InstancesCount (Maybe Int)
 icTerminated = lens _icTerminated (\ s a -> s{_icTerminated = a});
 
--- | The number of instances with 'stopping' status.
+-- | The number of instances with @stopping@ status.
 icStopping :: Lens' InstancesCount (Maybe Int)
 icStopping = lens _icStopping (\ s a -> s{_icStopping = a});
 
@@ -1864,7 +1781,7 @@ icStopping = lens _icStopping (\ s a -> s{_icStopping = a});
 icRegistered :: Lens' InstancesCount (Maybe Int)
 icRegistered = lens _icRegistered (\ s a -> s{_icRegistered = a});
 
--- | The number of instances with 'start_failed' status.
+-- | The number of instances with @start_failed@ status.
 icStartFailed :: Lens' InstancesCount (Maybe Int)
 icStartFailed = lens _icStartFailed (\ s a -> s{_icStartFailed = a});
 
@@ -1902,6 +1819,8 @@ instance NFData InstancesCount
 
 -- | Describes a layer.
 --
+--
+--
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
     { _lCustomInstanceProfileARN    :: !(Maybe Text)
@@ -1931,47 +1850,47 @@ data Layer = Layer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lCustomInstanceProfileARN'
+-- * 'lCustomInstanceProfileARN' - The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'lCustomSecurityGroupIds'
+-- * 'lCustomSecurityGroupIds' - An array containing the layer's custom security group IDs.
 --
--- * 'lInstallUpdatesOnBoot'
+-- * 'lInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 --
--- * 'lLifecycleEventConfiguration'
+-- * 'lLifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 --
--- * 'lCreatedAt'
+-- * 'lCreatedAt' - Date when the layer was created.
 --
--- * 'lShortname'
+-- * 'lShortname' - The layer short name.
 --
--- * 'lDefaultRecipes'
+-- * 'lDefaultRecipes' - Undocumented member.
 --
--- * 'lCustomRecipes'
+-- * 'lCustomRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 --
--- * 'lCustomJSON'
+-- * 'lCustomJSON' - A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
 --
--- * 'lVolumeConfigurations'
+-- * 'lVolumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
 --
--- * 'lEnableAutoHealing'
+-- * 'lEnableAutoHealing' - Whether auto healing is disabled for the layer.
 --
--- * 'lPackages'
+-- * 'lPackages' - An array of @Package@ objects that describe the layer's packages.
 --
--- * 'lAttributes'
+-- * 'lAttributes' - The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is set to the cluster's ARN.
 --
--- * 'lName'
+-- * 'lName' - The layer name.
 --
--- * 'lAutoAssignPublicIPs'
+-- * 'lAutoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 --
--- * 'lType'
+-- * 'lType' - The layer type.
 --
--- * 'lUseEBSOptimizedInstances'
+-- * 'lUseEBSOptimizedInstances' - Whether the layer uses Amazon EBS-optimized instances.
 --
--- * 'lStackId'
+-- * 'lStackId' - The layer stack ID.
 --
--- * 'lLayerId'
+-- * 'lLayerId' - The layer ID.
 --
--- * 'lDefaultSecurityGroupNames'
+-- * 'lDefaultSecurityGroupNames' - An array containing the layer's security group names.
 --
--- * 'lAutoAssignElasticIPs'
+-- * 'lAutoAssignElasticIPs' - Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 layer
     :: Layer
 layer =
@@ -1999,21 +1918,19 @@ layer =
     , _lAutoAssignElasticIPs = Nothing
     }
 
--- | The ARN of the default IAM profile to be used for the layer\'s EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 lCustomInstanceProfileARN :: Lens' Layer (Maybe Text)
 lCustomInstanceProfileARN = lens _lCustomInstanceProfileARN (\ s a -> s{_lCustomInstanceProfileARN = a});
 
--- | An array containing the layer\'s custom security group IDs.
+-- | An array containing the layer's custom security group IDs.
 lCustomSecurityGroupIds :: Lens' Layer [Text]
 lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | Whether to install operating system and package updates when the instance boots. The default value is 'true'. If this value is set to 'false', you must then update your instances manually by using < CreateDeployment> to run the 'update_dependencies' stack command or manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the instances.
---
--- We strongly recommend using the default value of 'true', to ensure that your instances have the latest security updates.
+-- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdatesOnBoot = a});
 
--- | A 'LifeCycleEventConfiguration' object that specifies the Shutdown event configuration.
+-- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
 lLifecycleEventConfiguration = lens _lLifecycleEventConfiguration (\ s a -> s{_lLifecycleEventConfiguration = a});
 
@@ -2029,15 +1946,15 @@ lShortname = lens _lShortname (\ s a -> s{_lShortname = a});
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lDefaultRecipes = lens _lDefaultRecipes (\ s a -> s{_lDefaultRecipes = a});
 
--- | A 'LayerCustomRecipes' object that specifies the layer\'s custom recipes.
+-- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 lCustomRecipes :: Lens' Layer (Maybe Recipes)
 lCustomRecipes = lens _lCustomRecipes (\ s a -> s{_lCustomRecipes = a});
 
--- | A JSON formatted string containing the layer\'s custom stack configuration and deployment attributes.
+-- | A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
 lCustomJSON :: Lens' Layer (Maybe Text)
 lCustomJSON = lens _lCustomJSON (\ s a -> s{_lCustomJSON = a});
 
--- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS volumes.
+-- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
 
@@ -2045,15 +1962,11 @@ lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigur
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
 lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = a});
 
--- | An array of 'Package' objects that describe the layer\'s packages.
+-- | An array of @Package@ objects that describe the layer's packages.
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
--- | The layer attributes.
---
--- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and 'GangliaPassword' attributes, AWS OpsWorks returns '*****FILTERED*****' instead of the actual value
---
--- For an ECS Cluster layer, AWS OpsWorks the 'EcsClusterArn' attribute is set to the cluster\'s ARN.
+-- | The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is set to the cluster's ARN.
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
@@ -2061,7 +1974,7 @@ lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map
 lName :: Lens' Layer (Maybe Text)
 lName = lens _lName (\ s a -> s{_lName = a});
 
--- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+-- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 lAutoAssignPublicIPs :: Lens' Layer (Maybe Bool)
 lAutoAssignPublicIPs = lens _lAutoAssignPublicIPs (\ s a -> s{_lAutoAssignPublicIPs = a});
 
@@ -2081,11 +1994,11 @@ lStackId = lens _lStackId (\ s a -> s{_lStackId = a});
 lLayerId :: Lens' Layer (Maybe Text)
 lLayerId = lens _lLayerId (\ s a -> s{_lLayerId = a});
 
--- | An array containing the layer\'s security group names.
+-- | An array containing the layer's security group names.
 lDefaultSecurityGroupNames :: Lens' Layer [Text]
 lDefaultSecurityGroupNames = lens _lDefaultSecurityGroupNames (\ s a -> s{_lDefaultSecurityGroupNames = a}) . _Default . _Coerce;
 
--- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer\'s instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+-- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 lAutoAssignElasticIPs :: Lens' Layer (Maybe Bool)
 lAutoAssignElasticIPs = lens _lAutoAssignElasticIPs (\ s a -> s{_lAutoAssignElasticIPs = a});
 
@@ -2122,6 +2035,8 @@ instance NFData Layer
 
 -- | Specifies the lifecycle event configuration
 --
+--
+--
 -- /See:/ 'lifecycleEventConfiguration' smart constructor.
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
     { _lecShutdown :: Maybe ShutdownEventConfiguration
@@ -2131,7 +2046,7 @@ newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lecShutdown'
+-- * 'lecShutdown' - A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
 lifecycleEventConfiguration
     :: LifecycleEventConfiguration
 lifecycleEventConfiguration =
@@ -2139,7 +2054,7 @@ lifecycleEventConfiguration =
     { _lecShutdown = Nothing
     }
 
--- | A 'ShutdownEventConfiguration' object that specifies the Shutdown event configuration.
+-- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
 lecShutdown :: Lens' LifecycleEventConfiguration (Maybe ShutdownEventConfiguration)
 lecShutdown = lens _lecShutdown (\ s a -> s{_lecShutdown = a});
 
@@ -2158,7 +2073,9 @@ instance ToJSON LifecycleEventConfiguration where
           = object
               (catMaybes [("Shutdown" .=) <$> _lecShutdown])
 
--- | Describes a layer\'s load-based auto scaling configuration.
+-- | Describes a layer's load-based auto scaling configuration.
+--
+--
 --
 -- /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
@@ -2172,13 +2089,13 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbascUpScaling'
+-- * 'lbascUpScaling' - An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks increases the number of instances.
 --
--- * 'lbascEnable'
+-- * 'lbascEnable' - Whether load-based auto scaling is enabled for the layer.
 --
--- * 'lbascDownScaling'
+-- * 'lbascDownScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks reduces the number of instances.
 --
--- * 'lbascLayerId'
+-- * 'lbascLayerId' - The layer ID.
 loadBasedAutoScalingConfiguration
     :: LoadBasedAutoScalingConfiguration
 loadBasedAutoScalingConfiguration =
@@ -2189,7 +2106,7 @@ loadBasedAutoScalingConfiguration =
     , _lbascLayerId = Nothing
     }
 
--- | An 'AutoScalingThresholds' object that describes the upscaling configuration, which defines how and when AWS OpsWorks increases the number of instances.
+-- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks increases the number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\ s a -> s{_lbascUpScaling = a});
 
@@ -2197,7 +2114,7 @@ lbascUpScaling = lens _lbascUpScaling (\ s a -> s{_lbascUpScaling = a});
 lbascEnable :: Lens' LoadBasedAutoScalingConfiguration (Maybe Bool)
 lbascEnable = lens _lbascEnable (\ s a -> s{_lbascEnable = a});
 
--- | An 'AutoScalingThresholds' object that describes the downscaling configuration, which defines how and when AWS OpsWorks reduces the number of instances.
+-- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks reduces the number of instances.
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascDownScaling = lens _lbascDownScaling (\ s a -> s{_lbascDownScaling = a});
 
@@ -2221,6 +2138,8 @@ instance NFData LoadBasedAutoScalingConfiguration
 
 -- | Describes stack or user permissions.
 --
+--
+--
 -- /See:/ 'permission' smart constructor.
 data Permission = Permission'
     { _pIAMUserARN :: !(Maybe Text)
@@ -2234,15 +2153,15 @@ data Permission = Permission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pIAMUserARN'
+-- * 'pIAMUserARN' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'pAllowSudo'
+-- * 'pAllowSudo' - Whether the user can use __sudo__ .
 --
--- * 'pStackId'
+-- * 'pStackId' - A stack ID.
 --
--- * 'pLevel'
+-- * 'pLevel' - The user's permission level, which must be the following:     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
 --
--- * 'pAllowSSH'
+-- * 'pAllowSSH' - Whether the user can use SSH.
 permission
     :: Permission
 permission =
@@ -2254,11 +2173,11 @@ permission =
     , _pAllowSSH = Nothing
     }
 
--- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 pIAMUserARN :: Lens' Permission (Maybe Text)
 pIAMUserARN = lens _pIAMUserARN (\ s a -> s{_pIAMUserARN = a});
 
--- | Whether the user can use __sudo__.
+-- | Whether the user can use __sudo__ .
 pAllowSudo :: Lens' Permission (Maybe Bool)
 pAllowSudo = lens _pAllowSudo (\ s a -> s{_pAllowSudo = a});
 
@@ -2266,19 +2185,7 @@ pAllowSudo = lens _pAllowSudo (\ s a -> s{_pAllowSudo = a});
 pStackId :: Lens' Permission (Maybe Text)
 pStackId = lens _pStackId (\ s a -> s{_pStackId = a});
 
--- | The user\'s permission level, which must be the following:
---
--- -   'deny'
---
--- -   'show'
---
--- -   'deploy'
---
--- -   'manage'
---
--- -   'iam_only'
---
--- For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- | The user's permission level, which must be the following:     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
 pLevel :: Lens' Permission (Maybe Text)
 pLevel = lens _pLevel (\ s a -> s{_pLevel = a});
 
@@ -2300,7 +2207,9 @@ instance Hashable Permission
 
 instance NFData Permission
 
--- | Describes an instance\'s RAID array.
+-- | Describes an instance's RAID array.
+--
+--
 --
 -- /See:/ 'rAIdArray' smart constructor.
 data RAIdArray = RAIdArray'
@@ -2323,31 +2232,31 @@ data RAIdArray = RAIdArray'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raiaInstanceId'
+-- * 'raiaInstanceId' - The instance ID.
 --
--- * 'raiaSize'
+-- * 'raiaSize' - The array's size.
 --
--- * 'raiaIOPS'
+-- * 'raiaIOPS' - For PIOPS volumes, the IOPS per disk.
 --
--- * 'raiaCreatedAt'
+-- * 'raiaCreatedAt' - When the RAID array was created.
 --
--- * 'raiaRAIdLevel'
+-- * 'raiaRAIdLevel' - The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
 --
--- * 'raiaDevice'
+-- * 'raiaDevice' - The array's Linux device. For example /dev/mdadm0.
 --
--- * 'raiaNumberOfDisks'
+-- * 'raiaNumberOfDisks' - The number of disks in the array.
 --
--- * 'raiaAvailabilityZone'
+-- * 'raiaAvailabilityZone' - The array's Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'raiaName'
+-- * 'raiaName' - The array name.
 --
--- * 'raiaRAIdArrayId'
+-- * 'raiaRAIdArrayId' - The array ID.
 --
--- * 'raiaVolumeType'
+-- * 'raiaVolumeType' - The volume type, standard or PIOPS.
 --
--- * 'raiaStackId'
+-- * 'raiaStackId' - The stack ID.
 --
--- * 'raiaMountPoint'
+-- * 'raiaMountPoint' - The array's mount point.
 rAIdArray
     :: RAIdArray
 rAIdArray =
@@ -2371,7 +2280,7 @@ rAIdArray =
 raiaInstanceId :: Lens' RAIdArray (Maybe Text)
 raiaInstanceId = lens _raiaInstanceId (\ s a -> s{_raiaInstanceId = a});
 
--- | The array\'s size.
+-- | The array's size.
 raiaSize :: Lens' RAIdArray (Maybe Int)
 raiaSize = lens _raiaSize (\ s a -> s{_raiaSize = a});
 
@@ -2383,11 +2292,11 @@ raiaIOPS = lens _raiaIOPS (\ s a -> s{_raiaIOPS = a});
 raiaCreatedAt :: Lens' RAIdArray (Maybe Text)
 raiaCreatedAt = lens _raiaCreatedAt (\ s a -> s{_raiaCreatedAt = a});
 
--- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+-- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
 raiaRAIdLevel :: Lens' RAIdArray (Maybe Int)
 raiaRAIdLevel = lens _raiaRAIdLevel (\ s a -> s{_raiaRAIdLevel = a});
 
--- | The array\'s Linux device. For example \/dev\/mdadm0.
+-- | The array's Linux device. For example /dev/mdadm0.
 raiaDevice :: Lens' RAIdArray (Maybe Text)
 raiaDevice = lens _raiaDevice (\ s a -> s{_raiaDevice = a});
 
@@ -2395,7 +2304,7 @@ raiaDevice = lens _raiaDevice (\ s a -> s{_raiaDevice = a});
 raiaNumberOfDisks :: Lens' RAIdArray (Maybe Int)
 raiaNumberOfDisks = lens _raiaNumberOfDisks (\ s a -> s{_raiaNumberOfDisks = a});
 
--- | The array\'s Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The array's Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 raiaAvailabilityZone :: Lens' RAIdArray (Maybe Text)
 raiaAvailabilityZone = lens _raiaAvailabilityZone (\ s a -> s{_raiaAvailabilityZone = a});
 
@@ -2415,7 +2324,7 @@ raiaVolumeType = lens _raiaVolumeType (\ s a -> s{_raiaVolumeType = a});
 raiaStackId :: Lens' RAIdArray (Maybe Text)
 raiaStackId = lens _raiaStackId (\ s a -> s{_raiaStackId = a});
 
--- | The array\'s mount point.
+-- | The array's mount point.
 raiaMountPoint :: Lens' RAIdArray (Maybe Text)
 raiaMountPoint = lens _raiaMountPoint (\ s a -> s{_raiaMountPoint = a});
 
@@ -2443,6 +2352,8 @@ instance NFData RAIdArray
 
 -- | Describes an Amazon RDS instance.
 --
+--
+--
 -- /See:/ 'rdsDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
     { _rdiRDSDBInstanceARN     :: !(Maybe Text)
@@ -2460,23 +2371,23 @@ data RDSDBInstance = RDSDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdiRDSDBInstanceARN'
+-- * 'rdiRDSDBInstanceARN' - The instance's ARN.
 --
--- * 'rdiDBUser'
+-- * 'rdiDBUser' - The master user name.
 --
--- * 'rdiMissingOnRDS'
+-- * 'rdiMissingOnRDS' - Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS instance. AWS OpsWorks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance and then register it again.
 --
--- * 'rdiEngine'
+-- * 'rdiEngine' - The instance's database engine.
 --
--- * 'rdiAddress'
+-- * 'rdiAddress' - The instance's address.
 --
--- * 'rdiDBInstanceIdentifier'
+-- * 'rdiDBInstanceIdentifier' - The DB instance identifier.
 --
--- * 'rdiRegion'
+-- * 'rdiRegion' - The instance's AWS region.
 --
--- * 'rdiStackId'
+-- * 'rdiStackId' - The ID of the stack that the instance is registered with.
 --
--- * 'rdiDBPassword'
+-- * 'rdiDBPassword' - AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 rdsDBInstance
     :: RDSDBInstance
 rdsDBInstance =
@@ -2492,7 +2403,7 @@ rdsDBInstance =
     , _rdiDBPassword = Nothing
     }
 
--- | The instance\'s ARN.
+-- | The instance's ARN.
 rdiRDSDBInstanceARN :: Lens' RDSDBInstance (Maybe Text)
 rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\ s a -> s{_rdiRDSDBInstanceARN = a});
 
@@ -2500,15 +2411,15 @@ rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\ s a -> s{_rdiRDSDBInstanceARN
 rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
 rdiDBUser = lens _rdiDBUser (\ s a -> s{_rdiDBUser = a});
 
--- | Set to 'true' if AWS OpsWorks was unable to discover the Amazon RDS instance. AWS OpsWorks attempts to discover the instance only once. If this value is set to 'true', you must deregister the instance and then register it again.
+-- | Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS instance. AWS OpsWorks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance and then register it again.
 rdiMissingOnRDS :: Lens' RDSDBInstance (Maybe Bool)
 rdiMissingOnRDS = lens _rdiMissingOnRDS (\ s a -> s{_rdiMissingOnRDS = a});
 
--- | The instance\'s database engine.
+-- | The instance's database engine.
 rdiEngine :: Lens' RDSDBInstance (Maybe Text)
 rdiEngine = lens _rdiEngine (\ s a -> s{_rdiEngine = a});
 
--- | The instance\'s address.
+-- | The instance's address.
 rdiAddress :: Lens' RDSDBInstance (Maybe Text)
 rdiAddress = lens _rdiAddress (\ s a -> s{_rdiAddress = a});
 
@@ -2516,7 +2427,7 @@ rdiAddress = lens _rdiAddress (\ s a -> s{_rdiAddress = a});
 rdiDBInstanceIdentifier :: Lens' RDSDBInstance (Maybe Text)
 rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
 
--- | The instance\'s AWS region.
+-- | The instance's AWS region.
 rdiRegion :: Lens' RDSDBInstance (Maybe Text)
 rdiRegion = lens _rdiRegion (\ s a -> s{_rdiRegion = a});
 
@@ -2524,7 +2435,7 @@ rdiRegion = lens _rdiRegion (\ s a -> s{_rdiRegion = a});
 rdiStackId :: Lens' RDSDBInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\ s a -> s{_rdiStackId = a});
 
--- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
+-- | AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 rdiDBPassword :: Lens' RDSDBInstance (Maybe Text)
 rdiDBPassword = lens _rdiDBPassword (\ s a -> s{_rdiDBPassword = a});
 
@@ -2546,9 +2457,11 @@ instance Hashable RDSDBInstance
 
 instance NFData RDSDBInstance
 
--- | AWS OpsWorks supports five lifecycle events: __setup__, __configuration__, __deploy__, __undeploy__, and __shutdown__. For each layer, AWS OpsWorks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks runs custom event recipes after the standard recipes. 'LayerCustomRecipes' specifies the custom recipes for a particular layer to be run in response to each of the five events.
+-- | AWS OpsWorks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
 --
--- To specify a recipe, use the cookbook\'s directory name in the repository followed by two colons and the recipe name, which is the recipe\'s file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository\'s phpapp2 folder.
+--
+-- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.
+--
 --
 -- /See:/ 'recipes' smart constructor.
 data Recipes = Recipes'
@@ -2563,15 +2476,15 @@ data Recipes = Recipes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rSetup'
+-- * 'rSetup' - An array of custom recipe names to be run following a @setup@ event.
 --
--- * 'rShutdown'
+-- * 'rShutdown' - An array of custom recipe names to be run following a @shutdown@ event.
 --
--- * 'rUndeploy'
+-- * 'rUndeploy' - An array of custom recipe names to be run following a @undeploy@ event.
 --
--- * 'rConfigure'
+-- * 'rConfigure' - An array of custom recipe names to be run following a @configure@ event.
 --
--- * 'rDeploy'
+-- * 'rDeploy' - An array of custom recipe names to be run following a @deploy@ event.
 recipes
     :: Recipes
 recipes =
@@ -2583,23 +2496,23 @@ recipes =
     , _rDeploy = Nothing
     }
 
--- | An array of custom recipe names to be run following a 'setup' event.
+-- | An array of custom recipe names to be run following a @setup@ event.
 rSetup :: Lens' Recipes [Text]
 rSetup = lens _rSetup (\ s a -> s{_rSetup = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a 'shutdown' event.
+-- | An array of custom recipe names to be run following a @shutdown@ event.
 rShutdown :: Lens' Recipes [Text]
 rShutdown = lens _rShutdown (\ s a -> s{_rShutdown = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a 'undeploy' event.
+-- | An array of custom recipe names to be run following a @undeploy@ event.
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a 'configure' event.
+-- | An array of custom recipe names to be run following a @configure@ event.
 rConfigure :: Lens' Recipes [Text]
 rConfigure = lens _rConfigure (\ s a -> s{_rConfigure = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a 'deploy' event.
+-- | An array of custom recipe names to be run following a @deploy@ event.
 rDeploy :: Lens' Recipes [Text]
 rDeploy = lens _rDeploy (\ s a -> s{_rDeploy = a}) . _Default . _Coerce;
 
@@ -2628,7 +2541,9 @@ instance ToJSON Recipes where
                   ("Configure" .=) <$> _rConfigure,
                   ("Deploy" .=) <$> _rDeploy])
 
--- | A registered instance\'s reported operating system.
+-- | A registered instance's reported operating system.
+--
+--
 --
 -- /See:/ 'reportedOS' smart constructor.
 data ReportedOS = ReportedOS'
@@ -2641,11 +2556,11 @@ data ReportedOS = ReportedOS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roFamily'
+-- * 'roFamily' - The operating system family.
 --
--- * 'roName'
+-- * 'roName' - The operating system name.
 --
--- * 'roVersion'
+-- * 'roVersion' - The operating system version.
 reportedOS
     :: ReportedOS
 reportedOS =
@@ -2679,7 +2594,9 @@ instance Hashable ReportedOS
 
 instance NFData ReportedOS
 
--- | Describes an app\'s SSL configuration.
+-- | Describes an app's SSL configuration.
+--
+--
 --
 -- /See:/ 'sslConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
@@ -2692,11 +2609,11 @@ data SSLConfiguration = SSLConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scChain'
+-- * 'scChain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
 --
--- * 'scCertificate'
+-- * 'scCertificate' - The contents of the certificate's domain.crt file.
 --
--- * 'scPrivateKey'
+-- * 'scPrivateKey' - The private key; the contents of the certificate's domain.kex file.
 sslConfiguration
     :: Text -- ^ 'scCertificate'
     -> Text -- ^ 'scPrivateKey'
@@ -2712,11 +2629,11 @@ sslConfiguration pCertificate_ pPrivateKey_ =
 scChain :: Lens' SSLConfiguration (Maybe Text)
 scChain = lens _scChain (\ s a -> s{_scChain = a});
 
--- | The contents of the certificate\'s domain.crt file.
+-- | The contents of the certificate's domain.crt file.
 scCertificate :: Lens' SSLConfiguration Text
 scCertificate = lens _scCertificate (\ s a -> s{_scCertificate = a});
 
--- | The private key; the contents of the certificate\'s domain.kex file.
+-- | The private key; the contents of the certificate's domain.kex file.
 scPrivateKey :: Lens' SSLConfiguration Text
 scPrivateKey = lens _scPrivateKey (\ s a -> s{_scPrivateKey = a});
 
@@ -2740,7 +2657,9 @@ instance ToJSON SSLConfiguration where
                   Just ("Certificate" .= _scCertificate),
                   Just ("PrivateKey" .= _scPrivateKey)])
 
--- | Describes a user\'s SSH information.
+-- | Describes a user's SSH information.
+--
+--
 --
 -- /See:/ 'selfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
@@ -2754,13 +2673,13 @@ data SelfUserProfile = SelfUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'supSSHPublicKey'
+-- * 'supSSHPublicKey' - The user's SSH public key.
 --
--- * 'supSSHUsername'
+-- * 'supSSHUsername' - The user's SSH user name.
 --
--- * 'supIAMUserARN'
+-- * 'supIAMUserARN' - The user's IAM ARN.
 --
--- * 'supName'
+-- * 'supName' - The user's name.
 selfUserProfile
     :: SelfUserProfile
 selfUserProfile =
@@ -2771,19 +2690,19 @@ selfUserProfile =
     , _supName = Nothing
     }
 
--- | The user\'s SSH public key.
+-- | The user's SSH public key.
 supSSHPublicKey :: Lens' SelfUserProfile (Maybe Text)
 supSSHPublicKey = lens _supSSHPublicKey (\ s a -> s{_supSSHPublicKey = a});
 
--- | The user\'s SSH user name.
+-- | The user's SSH user name.
 supSSHUsername :: Lens' SelfUserProfile (Maybe Text)
 supSSHUsername = lens _supSSHUsername (\ s a -> s{_supSSHUsername = a});
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 supIAMUserARN :: Lens' SelfUserProfile (Maybe Text)
 supIAMUserARN = lens _supIAMUserARN (\ s a -> s{_supIAMUserARN = a});
 
--- | The user\'s name.
+-- | The user's name.
 supName :: Lens' SelfUserProfile (Maybe Text)
 supName = lens _supName (\ s a -> s{_supName = a});
 
@@ -2802,6 +2721,8 @@ instance NFData SelfUserProfile
 
 -- | Describes an AWS OpsWorks service error.
 --
+--
+--
 -- /See:/ 'serviceError'' smart constructor.
 data ServiceError' = ServiceError''
     { _seInstanceId     :: !(Maybe Text)
@@ -2816,17 +2737,17 @@ data ServiceError' = ServiceError''
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'seInstanceId'
+-- * 'seInstanceId' - The instance ID.
 --
--- * 'seCreatedAt'
+-- * 'seCreatedAt' - When the error occurred.
 --
--- * 'seServiceErrorId'
+-- * 'seServiceErrorId' - The error ID.
 --
--- * 'seType'
+-- * 'seType' - The error type.
 --
--- * 'seStackId'
+-- * 'seStackId' - The stack ID.
 --
--- * 'seMessage'
+-- * 'seMessage' - A message that describes the error.
 serviceError'
     :: ServiceError'
 serviceError' =
@@ -2880,6 +2801,8 @@ instance NFData ServiceError'
 
 -- | The Shutdown event configuration.
 --
+--
+--
 -- /See:/ 'shutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
     { _secExecutionTimeout                :: !(Maybe Int)
@@ -2890,9 +2813,9 @@ data ShutdownEventConfiguration = ShutdownEventConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'secExecutionTimeout'
+-- * 'secExecutionTimeout' - The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown event before shutting down an instance.
 --
--- * 'secDelayUntilElbConnectionsDrained'
+-- * 'secDelayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 shutdownEventConfiguration
     :: ShutdownEventConfiguration
 shutdownEventConfiguration =
@@ -2929,7 +2852,9 @@ instance ToJSON ShutdownEventConfiguration where
                   ("DelayUntilElbConnectionsDrained" .=) <$>
                     _secDelayUntilElbConnectionsDrained])
 
--- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps> or <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Custom Recipes and Cookbooks>.
+-- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps> or <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Custom Recipes and Cookbooks> .
+--
+--
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
@@ -2945,17 +2870,17 @@ data Source = Source'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sURL'
+-- * 'sURL' - The source URL.
 --
--- * 'sUsername'
+-- * 'sUsername' - This parameter depends on the repository type.     * For Amazon S3 bundles, set @Username@ to the appropriate IAM access key ID.     * For HTTP bundles, Git repositories, and Subversion repositories, set @Username@ to the user name.
 --
--- * 'sSSHKey'
+-- * 'sSSHKey' - In requests, the repository's SSH key. In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 --
--- * 'sPassword'
+-- * 'sPassword' - When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 --
--- * 'sType'
+-- * 'sType' - The repository type.
 --
--- * 'sRevision'
+-- * 'sRevision' - The application's version. AWS OpsWorks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
 source
     :: Source
 source =
@@ -2972,30 +2897,15 @@ source =
 sURL :: Lens' Source (Maybe Text)
 sURL = lens _sURL (\ s a -> s{_sURL = a});
 
--- | This parameter depends on the repository type.
---
--- -   For Amazon S3 bundles, set 'Username' to the appropriate IAM access key ID.
---
--- -   For HTTP bundles, Git repositories, and Subversion repositories, set 'Username' to the user name.
---
+-- | This parameter depends on the repository type.     * For Amazon S3 bundles, set @Username@ to the appropriate IAM access key ID.     * For HTTP bundles, Git repositories, and Subversion repositories, set @Username@ to the user name.
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\ s a -> s{_sUsername = a});
 
--- | In requests, the repository\'s SSH key.
---
--- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
+-- | In requests, the repository's SSH key. In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 sSSHKey :: Lens' Source (Maybe Text)
 sSSHKey = lens _sSSHKey (\ s a -> s{_sSSHKey = a});
 
--- | When included in a request, the parameter depends on the repository type.
---
--- -   For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access key.
---
--- -   For HTTP bundles and Subversion repositories, set 'Password' to the password.
---
--- For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html>.
---
--- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
+-- | When included in a request, the parameter depends on the repository type.     * For Amazon S3 bundles, set @Password@ to the appropriate IAM secret access key.     * For HTTP bundles and Subversion repositories, set @Password@ to the password. For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html> . In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\ s a -> s{_sPassword = a});
 
@@ -3003,7 +2913,7 @@ sPassword = lens _sPassword (\ s a -> s{_sPassword = a});
 sType :: Lens' Source (Maybe SourceType)
 sType = lens _sType (\ s a -> s{_sType = a});
 
--- | The application\'s version. AWS OpsWorks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
+-- | The application's version. AWS OpsWorks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.
 sRevision :: Lens' Source (Maybe Text)
 sRevision = lens _sRevision (\ s a -> s{_sRevision = a});
 
@@ -3035,6 +2945,8 @@ instance ToJSON Source where
 
 -- | Describes a stack.
 --
+--
+--
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
     { _sDefaultInstanceProfileARN :: !(Maybe Text)
@@ -3065,49 +2977,49 @@ data Stack = Stack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sDefaultInstanceProfileARN'
+-- * 'sDefaultInstanceProfileARN' - The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'sServiceRoleARN'
+-- * 'sServiceRoleARN' - The stack AWS Identity and Access Management (IAM) role.
 --
--- * 'sDefaultRootDeviceType'
+-- * 'sDefaultRootDeviceType' - The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 --
--- * 'sARN'
+-- * 'sARN' - The stack's ARN.
 --
--- * 'sCreatedAt'
+-- * 'sCreatedAt' - The date when the stack was created.
 --
--- * 'sVPCId'
+-- * 'sVPCId' - The VPC ID; applicable only if the stack is running in a VPC.
 --
--- * 'sChefConfiguration'
+-- * 'sChefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
 --
--- * 'sAgentVersion'
+-- * 'sAgentVersion' - The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
 --
--- * 'sDefaultSSHKeyName'
+-- * 'sDefaultSSHKeyName' - A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
 --
--- * 'sCustomJSON'
+-- * 'sCustomJSON' - A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format and must escape characters such as '"': @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 --
--- * 'sCustomCookbooksSource'
+-- * 'sCustomCookbooksSource' - Undocumented member.
 --
--- * 'sDefaultAvailabilityZone'
+-- * 'sDefaultAvailabilityZone' - The stack's default Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'sAttributes'
+-- * 'sAttributes' - The stack's attributes.
 --
--- * 'sName'
+-- * 'sName' - The stack name.
 --
--- * 'sDefaultOS'
+-- * 'sDefaultOS' - The stack's default operating system.
 --
--- * 'sUseOpsworksSecurityGroups'
+-- * 'sUseOpsworksSecurityGroups' - Whether the stack automatically associates the AWS OpsWorks built-in security groups with the stack's layers.
 --
--- * 'sUseCustomCookbooks'
+-- * 'sUseCustomCookbooks' - Whether the stack uses custom cookbooks.
 --
--- * 'sDefaultSubnetId'
+-- * 'sDefaultSubnetId' - The default subnet ID; applicable only if the stack is running in a VPC.
 --
--- * 'sRegion'
+-- * 'sRegion' - The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'sConfigurationManager'
+-- * 'sConfigurationManager' - The configuration manager.
 --
--- * 'sStackId'
+-- * 'sStackId' - The stack ID.
 --
--- * 'sHostnameTheme'
+-- * 'sHostnameTheme' - The stack host name theme, with spaces replaced by underscores.
 stack
     :: Stack
 stack =
@@ -3136,7 +3048,7 @@ stack =
     , _sHostnameTheme = Nothing
     }
 
--- | The ARN of an IAM profile that is the default profile for all of the stack\'s EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 sDefaultInstanceProfileARN :: Lens' Stack (Maybe Text)
 sDefaultInstanceProfileARN = lens _sDefaultInstanceProfileARN (\ s a -> s{_sDefaultInstanceProfileARN = a});
 
@@ -3144,11 +3056,11 @@ sDefaultInstanceProfileARN = lens _sDefaultInstanceProfileARN (\ s a -> s{_sDefa
 sServiceRoleARN :: Lens' Stack (Maybe Text)
 sServiceRoleARN = lens _sServiceRoleARN (\ s a -> s{_sServiceRoleARN = a});
 
--- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+-- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 sDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 sDefaultRootDeviceType = lens _sDefaultRootDeviceType (\ s a -> s{_sDefaultRootDeviceType = a});
 
--- | The stack\'s ARN.
+-- | The stack's ARN.
 sARN :: Lens' Stack (Maybe Text)
 sARN = lens _sARN (\ s a -> s{_sARN = a});
 
@@ -3160,23 +3072,19 @@ sCreatedAt = lens _sCreatedAt (\ s a -> s{_sCreatedAt = a});
 sVPCId :: Lens' Stack (Maybe Text)
 sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
--- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
 sChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 sChefConfiguration = lens _sChefConfiguration (\ s a -> s{_sChefConfiguration = a});
 
--- | The agent version. This parameter is set to 'LATEST' for auto-update. or a version number for a fixed agent version.
+-- | The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
 sAgentVersion :: Lens' Stack (Maybe Text)
 sAgentVersion = lens _sAgentVersion (\ s a -> s{_sAgentVersion = a});
 
--- | A default Amazon EC2 key pair for the stack\'s instances. You can override this value when you create or update an instance.
+-- | A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
 sDefaultSSHKeyName :: Lens' Stack (Maybe Text)
 sDefaultSSHKeyName = lens _sDefaultSSHKeyName (\ s a -> s{_sDefaultSSHKeyName = a});
 
--- | A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format and must escape characters such as \'\"\':
---
--- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
---
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+-- | A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format and must escape characters such as '"': @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 sCustomJSON :: Lens' Stack (Maybe Text)
 sCustomJSON = lens _sCustomJSON (\ s a -> s{_sCustomJSON = a});
 
@@ -3184,11 +3092,11 @@ sCustomJSON = lens _sCustomJSON (\ s a -> s{_sCustomJSON = a});
 sCustomCookbooksSource :: Lens' Stack (Maybe Source)
 sCustomCookbooksSource = lens _sCustomCookbooksSource (\ s a -> s{_sCustomCookbooksSource = a});
 
--- | The stack\'s default Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The stack's default Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 sDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 sDefaultAvailabilityZone = lens _sDefaultAvailabilityZone (\ s a -> s{_sDefaultAvailabilityZone = a});
 
--- | The stack\'s attributes.
+-- | The stack's attributes.
 sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
 sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map;
 
@@ -3196,11 +3104,11 @@ sAttributes = lens _sAttributes (\ s a -> s{_sAttributes = a}) . _Default . _Map
 sName :: Lens' Stack (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a});
 
--- | The stack\'s default operating system.
+-- | The stack's default operating system.
 sDefaultOS :: Lens' Stack (Maybe Text)
 sDefaultOS = lens _sDefaultOS (\ s a -> s{_sDefaultOS = a});
 
--- | Whether the stack automatically associates the AWS OpsWorks built-in security groups with the stack\'s layers.
+-- | Whether the stack automatically associates the AWS OpsWorks built-in security groups with the stack's layers.
 sUseOpsworksSecurityGroups :: Lens' Stack (Maybe Bool)
 sUseOpsworksSecurityGroups = lens _sUseOpsworksSecurityGroups (\ s a -> s{_sUseOpsworksSecurityGroups = a});
 
@@ -3212,7 +3120,7 @@ sUseCustomCookbooks = lens _sUseCustomCookbooks (\ s a -> s{_sUseCustomCookbooks
 sDefaultSubnetId :: Lens' Stack (Maybe Text)
 sDefaultSubnetId = lens _sDefaultSubnetId (\ s a -> s{_sDefaultSubnetId = a});
 
--- | The stack AWS region, such as \"ap-northeast-2\". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 sRegion :: Lens' Stack (Maybe Text)
 sRegion = lens _sRegion (\ s a -> s{_sRegion = a});
 
@@ -3262,6 +3170,8 @@ instance NFData Stack
 
 -- | Describes the configuration manager.
 --
+--
+--
 -- /See:/ 'stackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
     { _scmName    :: !(Maybe Text)
@@ -3272,9 +3182,9 @@ data StackConfigurationManager = StackConfigurationManager'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scmName'
+-- * 'scmName' - The name. This parameter must be set to "Chef".
 --
--- * 'scmVersion'
+-- * 'scmVersion' - The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.
 stackConfigurationManager
     :: StackConfigurationManager
 stackConfigurationManager =
@@ -3283,7 +3193,7 @@ stackConfigurationManager =
     , _scmVersion = Nothing
     }
 
--- | The name. This parameter must be set to \"Chef\".
+-- | The name. This parameter must be set to "Chef".
 scmName :: Lens' StackConfigurationManager (Maybe Text)
 scmName = lens _scmName (\ s a -> s{_scmName = a});
 
@@ -3311,6 +3221,8 @@ instance ToJSON StackConfigurationManager where
 
 -- | Summarizes the number of layers, instances, and apps in a stack.
 --
+--
+--
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
     { _ssARN            :: !(Maybe Text)
@@ -3325,17 +3237,17 @@ data StackSummary = StackSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssARN'
+-- * 'ssARN' - The stack's ARN.
 --
--- * 'ssAppsCount'
+-- * 'ssAppsCount' - The number of apps.
 --
--- * 'ssName'
+-- * 'ssName' - The stack name.
 --
--- * 'ssStackId'
+-- * 'ssStackId' - The stack ID.
 --
--- * 'ssLayersCount'
+-- * 'ssLayersCount' - The number of layers.
 --
--- * 'ssInstancesCount'
+-- * 'ssInstancesCount' - An @InstancesCount@ object with the number of instances in each status.
 stackSummary
     :: StackSummary
 stackSummary =
@@ -3348,7 +3260,7 @@ stackSummary =
     , _ssInstancesCount = Nothing
     }
 
--- | The stack\'s ARN.
+-- | The stack's ARN.
 ssARN :: Lens' StackSummary (Maybe Text)
 ssARN = lens _ssARN (\ s a -> s{_ssARN = a});
 
@@ -3368,7 +3280,7 @@ ssStackId = lens _ssStackId (\ s a -> s{_ssStackId = a});
 ssLayersCount :: Lens' StackSummary (Maybe Int)
 ssLayersCount = lens _ssLayersCount (\ s a -> s{_ssLayersCount = a});
 
--- | An 'InstancesCount' object with the number of instances in each status.
+-- | An @InstancesCount@ object with the number of instances in each status.
 ssInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
 ssInstancesCount = lens _ssInstancesCount (\ s a -> s{_ssInstancesCount = a});
 
@@ -3389,6 +3301,8 @@ instance NFData StackSummary
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.
 --
+--
+--
 -- /See:/ 'temporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
     { _tcInstanceId        :: !(Maybe Text)
@@ -3401,13 +3315,13 @@ data TemporaryCredential = TemporaryCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcInstanceId'
+-- * 'tcInstanceId' - The instance's AWS OpsWorks ID.
 --
--- * 'tcUsername'
+-- * 'tcUsername' - The user name.
 --
--- * 'tcPassword'
+-- * 'tcPassword' - The password.
 --
--- * 'tcValidForInMinutes'
+-- * 'tcValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
 temporaryCredential
     :: TemporaryCredential
 temporaryCredential =
@@ -3418,7 +3332,7 @@ temporaryCredential =
     , _tcValidForInMinutes = Nothing
     }
 
--- | The instance\'s AWS OpsWorks ID.
+-- | The instance's AWS OpsWorks ID.
 tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
 tcInstanceId = lens _tcInstanceId (\ s a -> s{_tcInstanceId = a});
 
@@ -3447,7 +3361,9 @@ instance Hashable TemporaryCredential
 
 instance NFData TemporaryCredential
 
--- | Describes an instance\'s time-based auto scaling configuration.
+-- | Describes an instance's time-based auto scaling configuration.
+--
+--
 --
 -- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
@@ -3459,9 +3375,9 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tbascInstanceId'
+-- * 'tbascInstanceId' - The instance ID.
 --
--- * 'tbascAutoScalingSchedule'
+-- * 'tbascAutoScalingSchedule' - A @WeeklyAutoScalingSchedule@ object with the instance schedule.
 timeBasedAutoScalingConfiguration
     :: TimeBasedAutoScalingConfiguration
 timeBasedAutoScalingConfiguration =
@@ -3474,7 +3390,7 @@ timeBasedAutoScalingConfiguration =
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbascInstanceId = lens _tbascInstanceId (\ s a -> s{_tbascInstanceId = a});
 
--- | A 'WeeklyAutoScalingSchedule' object with the instance schedule.
+-- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
 tbascAutoScalingSchedule :: Lens' TimeBasedAutoScalingConfiguration (Maybe WeeklyAutoScalingSchedule)
 tbascAutoScalingSchedule = lens _tbascAutoScalingSchedule (\ s a -> s{_tbascAutoScalingSchedule = a});
 
@@ -3491,7 +3407,9 @@ instance Hashable TimeBasedAutoScalingConfiguration
 
 instance NFData TimeBasedAutoScalingConfiguration
 
--- | Describes a user\'s SSH information.
+-- | Describes a user's SSH information.
+--
+--
 --
 -- /See:/ 'userProfile' smart constructor.
 data UserProfile = UserProfile'
@@ -3506,15 +3424,15 @@ data UserProfile = UserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upAllowSelfManagement'
+-- * 'upAllowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 --
--- * 'upSSHPublicKey'
+-- * 'upSSHPublicKey' - The user's SSH public key.
 --
--- * 'upSSHUsername'
+-- * 'upSSHUsername' - The user's SSH user name.
 --
--- * 'upIAMUserARN'
+-- * 'upIAMUserARN' - The user's IAM ARN.
 --
--- * 'upName'
+-- * 'upName' - The user's name.
 userProfile
     :: UserProfile
 userProfile =
@@ -3526,23 +3444,23 @@ userProfile =
     , _upName = Nothing
     }
 
--- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+-- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 upAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
 upAllowSelfManagement = lens _upAllowSelfManagement (\ s a -> s{_upAllowSelfManagement = a});
 
--- | The user\'s SSH public key.
+-- | The user's SSH public key.
 upSSHPublicKey :: Lens' UserProfile (Maybe Text)
 upSSHPublicKey = lens _upSSHPublicKey (\ s a -> s{_upSSHPublicKey = a});
 
--- | The user\'s SSH user name.
+-- | The user's SSH user name.
 upSSHUsername :: Lens' UserProfile (Maybe Text)
 upSSHUsername = lens _upSSHUsername (\ s a -> s{_upSSHUsername = a});
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 upIAMUserARN :: Lens' UserProfile (Maybe Text)
 upIAMUserARN = lens _upIAMUserARN (\ s a -> s{_upIAMUserARN = a});
 
--- | The user\'s name.
+-- | The user's name.
 upName :: Lens' UserProfile (Maybe Text)
 upName = lens _upName (\ s a -> s{_upName = a});
 
@@ -3561,7 +3479,9 @@ instance Hashable UserProfile
 
 instance NFData UserProfile
 
--- | Describes an instance\'s Amazon EBS volume.
+-- | Describes an instance's Amazon EBS volume.
+--
+--
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
@@ -3584,31 +3504,31 @@ data Volume = Volume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vInstanceId'
+-- * 'vInstanceId' - The instance ID.
 --
--- * 'vStatus'
+-- * 'vStatus' - The value returned by <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
 --
--- * 'vSize'
+-- * 'vSize' - The volume size.
 --
--- * 'vIOPS'
+-- * 'vIOPS' - For PIOPS volumes, the IOPS per disk.
 --
--- * 'vDevice'
+-- * 'vDevice' - The device name.
 --
--- * 'vAvailabilityZone'
+-- * 'vAvailabilityZone' - The volume Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'vName'
+-- * 'vName' - The volume name.
 --
--- * 'vRAIdArrayId'
+-- * 'vRAIdArrayId' - The RAID array ID.
 --
--- * 'vVolumeId'
+-- * 'vVolumeId' - The volume ID.
 --
--- * 'vRegion'
+-- * 'vRegion' - The AWS region. For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'vVolumeType'
+-- * 'vVolumeType' - The volume type, standard or PIOPS.
 --
--- * 'vEC2VolumeId'
+-- * 'vEC2VolumeId' - The Amazon EC2 volume ID.
 --
--- * 'vMountPoint'
+-- * 'vMountPoint' - The volume mount point. For example, "/mnt/disk1".
 volume
     :: Volume
 volume =
@@ -3632,7 +3552,7 @@ volume =
 vInstanceId :: Lens' Volume (Maybe Text)
 vInstanceId = lens _vInstanceId (\ s a -> s{_vInstanceId = a});
 
--- | The value returned by <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes>.
+-- | The value returned by <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
 vStatus :: Lens' Volume (Maybe Text)
 vStatus = lens _vStatus (\ s a -> s{_vStatus = a});
 
@@ -3648,7 +3568,7 @@ vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 vDevice :: Lens' Volume (Maybe Text)
 vDevice = lens _vDevice (\ s a -> s{_vDevice = a});
 
--- | The volume Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The volume Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 vAvailabilityZone :: Lens' Volume (Maybe Text)
 vAvailabilityZone = lens _vAvailabilityZone (\ s a -> s{_vAvailabilityZone = a});
 
@@ -3664,7 +3584,7 @@ vRAIdArrayId = lens _vRAIdArrayId (\ s a -> s{_vRAIdArrayId = a});
 vVolumeId :: Lens' Volume (Maybe Text)
 vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a});
 
--- | The AWS region. For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- | The AWS region. For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 vRegion :: Lens' Volume (Maybe Text)
 vRegion = lens _vRegion (\ s a -> s{_vRegion = a});
 
@@ -3676,7 +3596,7 @@ vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
 vEC2VolumeId :: Lens' Volume (Maybe Text)
 vEC2VolumeId = lens _vEC2VolumeId (\ s a -> s{_vEC2VolumeId = a});
 
--- | The volume mount point. For example, \"\/mnt\/disk1\".
+-- | The volume mount point. For example, "/mnt/disk1".
 vMountPoint :: Lens' Volume (Maybe Text)
 vMountPoint = lens _vMountPoint (\ s a -> s{_vMountPoint = a});
 
@@ -3704,6 +3624,8 @@ instance NFData Volume
 
 -- | Describes an Amazon EBS volume configuration.
 --
+--
+--
 -- /See:/ 'volumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
     { _vcIOPS          :: !(Maybe Int)
@@ -3718,17 +3640,17 @@ data VolumeConfiguration = VolumeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcIOPS'
+-- * 'vcIOPS' - For PIOPS volumes, the IOPS per disk.
 --
--- * 'vcRAIdLevel'
+-- * 'vcRAIdLevel' - The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
 --
--- * 'vcVolumeType'
+-- * 'vcVolumeType' - The volume type:     * @standard@ - Magnetic     * @io1@ - Provisioned IOPS (SSD)     * @gp2@ - General Purpose (SSD)
 --
--- * 'vcMountPoint'
+-- * 'vcMountPoint' - The volume mount point. For example "/dev/sdh".
 --
--- * 'vcNumberOfDisks'
+-- * 'vcNumberOfDisks' - The number of disks in the volume.
 --
--- * 'vcSize'
+-- * 'vcSize' - The volume size.
 volumeConfiguration
     :: Text -- ^ 'vcMountPoint'
     -> Int -- ^ 'vcNumberOfDisks'
@@ -3748,22 +3670,15 @@ volumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
 vcIOPS :: Lens' VolumeConfiguration (Maybe Int)
 vcIOPS = lens _vcIOPS (\ s a -> s{_vcIOPS = a});
 
--- | The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+-- | The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
 vcRAIdLevel :: Lens' VolumeConfiguration (Maybe Int)
 vcRAIdLevel = lens _vcRAIdLevel (\ s a -> s{_vcRAIdLevel = a});
 
--- | The volume type:
---
--- -   'standard' - Magnetic
---
--- -   'io1' - Provisioned IOPS (SSD)
---
--- -   'gp2' - General Purpose (SSD)
---
+-- | The volume type:     * @standard@ - Magnetic     * @io1@ - Provisioned IOPS (SSD)     * @gp2@ - General Purpose (SSD)
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\ s a -> s{_vcVolumeType = a});
 
--- | The volume mount point. For example \"\/dev\/sdh\".
+-- | The volume mount point. For example "/dev/sdh".
 vcMountPoint :: Lens' VolumeConfiguration Text
 vcMountPoint = lens _vcMountPoint (\ s a -> s{_vcMountPoint = a});
 
@@ -3801,17 +3716,21 @@ instance ToJSON VolumeConfiguration where
                   Just ("NumberOfDisks" .= _vcNumberOfDisks),
                   Just ("Size" .= _vcSize)])
 
--- | Describes a time-based instance\'s auto scaling schedule. The schedule consists of a set of key-value pairs.
+-- | Describes a time-based instance's auto scaling schedule. The schedule consists of a set of key-value pairs.
 --
--- -   The key is the time period (a UTC hour) and must be an integer from 0 - 23.
 --
--- -   The value indicates whether the instance should be online or offline for the specified period, and must be set to \"on\" or \"off\"
+--     * The key is the time period (a UTC hour) and must be an integer from 0 - 23.
 --
--- The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don\'t have to explicitly specify offline periods unless you want to change an online period to an offline period.
+--     * The value indicates whether the instance should be online or offline for the specified period, and must be set to "on" or "off"
+--
+--
+--
+-- The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don't have to explicitly specify offline periods unless you want to change an online period to an offline period.
 --
 -- The following example specifies that the instance should be online for four hours, from UTC 1200 - 1600. It will be off for the remainder of the day.
 --
--- ' { \"12\":\"on\", \"13\":\"on\", \"14\":\"on\", \"15\":\"on\" } '
+-- @{ "12":"on", "13":"on", "14":"on", "15":"on" } @
+--
 --
 -- /See:/ 'weeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
@@ -3828,19 +3747,19 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wassThursday'
+-- * 'wassThursday' - The schedule for Thursday.
 --
--- * 'wassWednesday'
+-- * 'wassWednesday' - The schedule for Wednesday.
 --
--- * 'wassSaturday'
+-- * 'wassSaturday' - The schedule for Saturday.
 --
--- * 'wassMonday'
+-- * 'wassMonday' - The schedule for Monday.
 --
--- * 'wassFriday'
+-- * 'wassFriday' - The schedule for Friday.
 --
--- * 'wassSunday'
+-- * 'wassSunday' - The schedule for Sunday.
 --
--- * 'wassTuesday'
+-- * 'wassTuesday' - The schedule for Tuesday.
 weeklyAutoScalingSchedule
     :: WeeklyAutoScalingSchedule
 weeklyAutoScalingSchedule =

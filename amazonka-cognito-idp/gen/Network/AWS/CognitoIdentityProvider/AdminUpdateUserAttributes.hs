@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified user\'s attributes, including developer attributes, as an administrator. Works on any user.
+-- Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the request to update the user\'s attributes as an administrator.
+-- | Represents the request to update the user's attributes as an administrator.
+--
+--
 --
 -- /See:/ 'adminUpdateUserAttributes' smart constructor.
 data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
@@ -56,11 +60,11 @@ data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auuaUserPoolId'
+-- * 'auuaUserPoolId' - The user pool ID for the user pool where you want to update user attributes.
 --
--- * 'auuaUsername'
+-- * 'auuaUsername' - The user name of the user for whom you want to update user attributes.
 --
--- * 'auuaUserAttributes'
+-- * 'auuaUserAttributes' - An array of name-value pairs representing user attributes.
 adminUpdateUserAttributes
     :: Text -- ^ 'auuaUserPoolId'
     -> Text -- ^ 'auuaUsername'
@@ -124,6 +128,8 @@ instance ToQuery AdminUpdateUserAttributes where
 
 -- | Represents the response from the server for the request to update user attributes as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateUserAttributesResponse' smart constructor.
 newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
     { _auuarsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auuarsResponseStatus'
+-- * 'auuarsResponseStatus' - -- | The response status code.
 adminUpdateUserAttributesResponse
     :: Int -- ^ 'auuarsResponseStatus'
     -> AdminUpdateUserAttributesResponse
@@ -142,7 +148,7 @@ adminUpdateUserAttributesResponse pResponseStatus_ =
     { _auuarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 auuarsResponseStatus :: Lens' AdminUpdateUserAttributesResponse Int
 auuarsResponseStatus = lens _auuarsResponseStatus (\ s a -> s{_auuarsResponseStatus = a});
 

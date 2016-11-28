@@ -20,15 +20,17 @@
 --
 -- Stops an Amazon EBS-backed instance.
 --
--- We don\'t charge hourly usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.
 --
--- You can\'t start or stop Spot instances, and you can\'t stop instance store-backed instances.
+-- We don't charge hourly usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.
+--
+-- You can't start or stop Spot instances, and you can't stop instance store-backed instances.
 --
 -- When you stop an instance, we shut it down. You can restart your instance at any time. Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
 --
--- Stopping an instance is different to rebooting or terminating it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Stopping an instance is different to rebooting or terminating it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance> in the /Amazon Elastic Compute Cloud User Guide/.
+-- When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.StopInstances
     (
     -- * Creating a Request
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for StopInstances.
 --
+--
+--
 -- /See:/ 'stopInstances' smart constructor.
 data StopInstances = StopInstances'
     { _siForce       :: !(Maybe Bool)
@@ -67,11 +71,11 @@ data StopInstances = StopInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siForce'
+-- * 'siForce' - Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. Default: @false@
 --
--- * 'siDryRun'
+-- * 'siDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'siInstanceIds'
+-- * 'siInstanceIds' - One or more instance IDs.
 stopInstances
     :: StopInstances
 stopInstances =
@@ -81,13 +85,11 @@ stopInstances =
     , _siInstanceIds = mempty
     }
 
--- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
---
--- Default: 'false'
+-- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. Default: @false@
 siForce :: Lens' StopInstances (Maybe Bool)
 siForce = lens _siForce (\ s a -> s{_siForce = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 siDryRun :: Lens' StopInstances (Maybe Bool)
 siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
 
@@ -126,6 +128,8 @@ instance ToQuery StopInstances where
 
 -- | Contains the output of StopInstances.
 --
+--
+--
 -- /See:/ 'stopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
     { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
@@ -136,9 +140,9 @@ data StopInstancesResponse = StopInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sirsStoppingInstances'
+-- * 'sirsStoppingInstances' - Information about one or more stopped instances.
 --
--- * 'sirsResponseStatus'
+-- * 'sirsResponseStatus' - -- | The response status code.
 stopInstancesResponse
     :: Int -- ^ 'sirsResponseStatus'
     -> StopInstancesResponse
@@ -152,7 +156,7 @@ stopInstancesResponse pResponseStatus_ =
 sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 sirsResponseStatus :: Lens' StopInstancesResponse Int
 sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
 

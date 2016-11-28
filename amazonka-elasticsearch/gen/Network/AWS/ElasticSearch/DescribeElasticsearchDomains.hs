@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.
+--
+--
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeElasticsearchDomains' operation. By default, the API returns the status of all Elasticsearch domains.
+-- | Container for the parameters to the @'DescribeElasticsearchDomains' @ operation. By default, the API returns the status of all Elasticsearch domains.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomains' smart constructor.
 newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
@@ -53,7 +57,7 @@ newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedDomainNames'
+-- * 'dedDomainNames' - The Elasticsearch domains for which you want information.
 describeElasticsearchDomains
     :: DescribeElasticsearchDomains
 describeElasticsearchDomains =
@@ -95,7 +99,9 @@ instance ToPath DescribeElasticsearchDomains where
 instance ToQuery DescribeElasticsearchDomains where
         toQuery = const mempty
 
--- | The result of a 'DescribeElasticsearchDomains' request. Contains the status of the specified domains or all domains owned by the account.
+-- | The result of a @DescribeElasticsearchDomains@ request. Contains the status of the specified domains or all domains owned by the account.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
@@ -107,9 +113,9 @@ data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 --
--- * 'drsDomainStatusList'
+-- * 'drsDomainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
 describeElasticsearchDomainsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeElasticsearchDomainsResponse
@@ -119,11 +125,11 @@ describeElasticsearchDomainsResponse pResponseStatus_ =
     , _drsDomainStatusList = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
--- | The status of the domains requested in the 'DescribeElasticsearchDomains' request.
+-- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
 drsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
 drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce;
 

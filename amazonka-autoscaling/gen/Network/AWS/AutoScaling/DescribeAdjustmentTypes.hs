@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the policy adjustment types for use with < PutScalingPolicy>.
+-- Describes the policy adjustment types for use with 'PutScalingPolicy' .
+--
+--
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Creating a Request
@@ -83,6 +85,8 @@ instance ToQuery DescribeAdjustmentTypes where
 
 -- | Contains the parameters for DescribeAdjustmentTypes.
 --
+--
+--
 -- /See:/ 'describeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
@@ -93,9 +97,9 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsAdjustmentTypes'
+-- * 'datrsAdjustmentTypes' - The policy adjustment types.
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 describeAdjustmentTypesResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAdjustmentTypesResponse
@@ -109,7 +113,7 @@ describeAdjustmentTypesResponse pResponseStatus_ =
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 

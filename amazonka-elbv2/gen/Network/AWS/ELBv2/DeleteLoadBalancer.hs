@@ -20,9 +20,11 @@
 --
 -- Deletes the specified load balancer and its attached listeners.
 --
--- You can\'t delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.
+--
+-- You can't delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.
 --
 -- Deleting a load balancer does not affect its registered targets. For example, your EC2 instances continue to run and are still registered to their target groups. If you no longer need these EC2 instances, you can stop or terminate them.
+--
 module Network.AWS.ELBv2.DeleteLoadBalancer
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancer.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
     { _dlbLoadBalancerARN :: Text
@@ -56,7 +60,7 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbLoadBalancerARN'
+-- * 'dlbLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 deleteLoadBalancer
     :: Text -- ^ 'dlbLoadBalancerARN'
     -> DeleteLoadBalancer
@@ -97,6 +101,8 @@ instance ToQuery DeleteLoadBalancer where
 
 -- | Contains the output of DeleteLoadBalancer.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
     { _drsResponseStatus :: Int
@@ -106,7 +112,7 @@ newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteLoadBalancerResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteLoadBalancerResponse
@@ -115,7 +121,7 @@ deleteLoadBalancerResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

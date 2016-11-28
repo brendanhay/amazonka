@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes Amazon EC2 Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
+--
+--
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeContainerInstances = DescribeContainerInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dciCluster'
+-- * 'dciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dciContainerInstances'
+-- * 'dciContainerInstances' - A space-separated list of container instance IDs or full Amazon Resource Name (ARN) entries.
 describeContainerInstances
     :: DescribeContainerInstances
 describeContainerInstances =
@@ -124,11 +126,11 @@ data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcisrsFailures'
+-- * 'dcisrsFailures' - Any failures associated with the call.
 --
--- * 'dcisrsContainerInstances'
+-- * 'dcisrsContainerInstances' - The list of container instances.
 --
--- * 'dcisrsResponseStatus'
+-- * 'dcisrsResponseStatus' - -- | The response status code.
 describeContainerInstancesResponse
     :: Int -- ^ 'dcisrsResponseStatus'
     -> DescribeContainerInstancesResponse
@@ -147,7 +149,7 @@ dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Defau
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
 dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});
 

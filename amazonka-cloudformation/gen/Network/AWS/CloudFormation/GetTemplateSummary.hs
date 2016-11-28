@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a new or existing template. The 'GetTemplateSummary' action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack.
+-- Returns information about a new or existing template. The @GetTemplateSummary@ action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack.
 --
--- You can use the 'GetTemplateSummary' action when you submit a template, or you can get template information for a running or deleted stack.
 --
--- For deleted stacks, 'GetTemplateSummary' returns the template information for up to 90 days after the stack has been deleted. If the template does not exist, a 'ValidationError' is returned.
+-- You can use the @GetTemplateSummary@ action when you submit a template, or you can get template information for a running or deleted stack.
+--
+-- For deleted stacks, @GetTemplateSummary@ returns the template information for up to 90 days after the stack has been deleted. If the template does not exist, a @ValidationError@ is returned.
+--
 module Network.AWS.CloudFormation.GetTemplateSummary
     (
     -- * Creating a Request
@@ -54,7 +56,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < GetTemplateSummary> action.
+-- | The input for the 'GetTemplateSummary' action.
+--
+--
 --
 -- /See:/ 'getTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
@@ -67,11 +71,11 @@ data GetTemplateSummary = GetTemplateSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtsTemplateBody'
+-- * 'gtsTemplateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 --
--- * 'gtsTemplateURL'
+-- * 'gtsTemplateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 --
--- * 'gtsStackName'
+-- * 'gtsStackName' - The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 getTemplateSummary
     :: GetTemplateSummary
 getTemplateSummary =
@@ -81,21 +85,15 @@ getTemplateSummary =
     , _gtsStackName = Nothing
     }
 
--- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: 'StackName', 'TemplateBody', or 'TemplateURL'.
+-- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 
--- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: 'StackName', 'TemplateBody', or 'TemplateURL'.
+-- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 
--- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack\'s name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
---
--- Conditional: You must specify only one of the following parameters: 'StackName', 'TemplateBody', or 'TemplateURL'.
+-- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
@@ -140,7 +138,9 @@ instance ToQuery GetTemplateSummary where
                "TemplateURL" =: _gtsTemplateURL,
                "StackName" =: _gtsStackName]
 
--- | The output for the < GetTemplateSummary> action.
+-- | The output for the 'GetTemplateSummary' action.
+--
+--
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
@@ -158,21 +158,21 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtsrsVersion'
+-- * 'gtsrsVersion' - The AWS template format version, which identifies the capabilities of the template.
 --
--- * 'gtsrsCapabilitiesReason'
+-- * 'gtsrsCapabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
 --
--- * 'gtsrsParameters'
+-- * 'gtsrsParameters' - A list of parameter declarations that describe various properties for each parameter.
 --
--- * 'gtsrsMetadata'
+-- * 'gtsrsMetadata' - The value that is defined for the @Metadata@ property of the template.
 --
--- * 'gtsrsDescription'
+-- * 'gtsrsDescription' - The value that is defined in the @Description@ property of the template.
 --
--- * 'gtsrsCapabilities'
+-- * 'gtsrsCapabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 --
--- * 'gtsrsResourceTypes'
+-- * 'gtsrsResourceTypes' - A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
 --
--- * 'gtsrsResponseStatus'
+-- * 'gtsrsResponseStatus' - -- | The response status code.
 getTemplateSummaryResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTemplateSummaryResponse
@@ -192,7 +192,7 @@ getTemplateSummaryResponse pResponseStatus_ =
 gtsrsVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 
--- | The list of resources that generated the values in the 'Capabilities' response element.
+-- | The list of resources that generated the values in the @Capabilities@ response element.
 gtsrsCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabilitiesReason = a});
 
@@ -200,25 +200,23 @@ gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabi
 gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
 gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default . _Coerce;
 
--- | The value that is defined for the 'Metadata' property of the template.
+-- | The value that is defined for the @Metadata@ property of the template.
 gtsrsMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 
--- | The value that is defined in the 'Description' property of the template.
+-- | The value that is defined in the @Description@ property of the template.
 gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
--- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the < CreateStack> or < UpdateStack> actions with your template; otherwise, those actions return an InsufficientCapabilities error.
---
--- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
--- | A list of all the template resource types that are defined in the template, such as 'AWS::EC2::Instance', 'AWS::Dynamo::Table', and 'Custom::MyCustomInstance'.
+-- | A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
 gtsrsResourceTypes :: Lens' GetTemplateSummaryResponse [Text]
 gtsrsResourceTypes = lens _gtsrsResourceTypes (\ s a -> s{_gtsrsResourceTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 

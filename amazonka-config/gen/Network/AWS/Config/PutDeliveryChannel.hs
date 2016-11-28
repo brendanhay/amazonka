@@ -20,11 +20,11 @@
 --
 -- Creates a delivery channel object to deliver configuration information to an Amazon S3 bucket and Amazon SNS topic.
 --
+--
 -- Before you can create a delivery channel, you must create a configuration recorder.
 --
 -- You can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic, call this action and specify the changed values for the S3 bucket and the SNS topic. If you specify a different value for either the S3 bucket or the SNS topic, this action will keep the existing value for the parameter that is not changed.
 --
--- You can have only one delivery channel per AWS account.
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < PutDeliveryChannel> action.
+-- | The input for the 'PutDeliveryChannel' action.
+--
+--
 --
 -- /See:/ 'putDeliveryChannel' smart constructor.
 newtype PutDeliveryChannel = PutDeliveryChannel'
@@ -56,7 +58,7 @@ newtype PutDeliveryChannel = PutDeliveryChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdcDeliveryChannel'
+-- * 'pdcDeliveryChannel' - The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.
 putDeliveryChannel
     :: DeliveryChannel -- ^ 'pdcDeliveryChannel'
     -> PutDeliveryChannel

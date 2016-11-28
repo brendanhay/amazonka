@@ -23,6 +23,8 @@ import           Network.AWS.SSM.Types.Sum
 
 -- | An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.
 --
+--
+--
 -- /See:/ 'activation' smart constructor.
 data Activation = Activation'
     { _aExpired             :: !(Maybe Bool)
@@ -40,23 +42,23 @@ data Activation = Activation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aExpired'
+-- * 'aExpired' - Whether or not the activation is expired.
 --
--- * 'aDefaultInstanceName'
+-- * 'aDefaultInstanceName' - A name for the managed instance when it is created.
 --
--- * 'aActivationId'
+-- * 'aActivationId' - The ID created by SSM when you submitted the activation.
 --
--- * 'aCreatedDate'
+-- * 'aCreatedDate' - The date the activation was created.
 --
--- * 'aRegistrationLimit'
+-- * 'aRegistrationLimit' - The maximum number of managed instances that can be registered using this activation.
 --
--- * 'aExpirationDate'
+-- * 'aExpirationDate' - The date when this activation can no longer be used to register managed instances.
 --
--- * 'aDescription'
+-- * 'aDescription' - A user defined description of the activation.
 --
--- * 'aRegistrationsCount'
+-- * 'aRegistrationsCount' - The number of managed instances already registered with this activation.
 --
--- * 'aIAMRole'
+-- * 'aIAMRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
 activation
     :: Activation
 activation =
@@ -128,6 +130,8 @@ instance NFData Activation
 
 -- | Describes an association of an SSM document and an instance.
 --
+--
+--
 -- /See:/ 'association' smart constructor.
 data Association = Association'
     { _aInstanceId :: !(Maybe Text)
@@ -138,9 +142,9 @@ data Association = Association'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aInstanceId'
+-- * 'aInstanceId' - The ID of the instance.
 --
--- * 'aName'
+-- * 'aName' - The name of the SSM document.
 association
     :: Association
 association =
@@ -170,6 +174,8 @@ instance NFData Association
 
 -- | Describes the parameters for a document.
 --
+--
+--
 -- /See:/ 'associationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
     { _adInstanceId :: !(Maybe Text)
@@ -183,15 +189,15 @@ data AssociationDescription = AssociationDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adInstanceId'
+-- * 'adInstanceId' - The ID of the instance.
 --
--- * 'adStatus'
+-- * 'adStatus' - The association status.
 --
--- * 'adDate'
+-- * 'adDate' - The date when the association was made.
 --
--- * 'adName'
+-- * 'adName' - The name of the SSM document.
 --
--- * 'adParameters'
+-- * 'adParameters' - A description of the parameters for a document.
 associationDescription
     :: AssociationDescription
 associationDescription =
@@ -239,6 +245,8 @@ instance NFData AssociationDescription
 
 -- | Describes a filter.
 --
+--
+--
 -- /See:/ 'associationFilter' smart constructor.
 data AssociationFilter = AssociationFilter'
     { _afKey   :: !AssociationFilterKey
@@ -249,9 +257,9 @@ data AssociationFilter = AssociationFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afKey'
+-- * 'afKey' - The name of the filter.
 --
--- * 'afValue'
+-- * 'afValue' - The filter value.
 associationFilter
     :: AssociationFilterKey -- ^ 'afKey'
     -> Text -- ^ 'afValue'
@@ -282,6 +290,8 @@ instance ToJSON AssociationFilter where
 
 -- | Describes an association status.
 --
+--
+--
 -- /See:/ 'associationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
     { _asAdditionalInfo :: !(Maybe Text)
@@ -294,13 +304,13 @@ data AssociationStatus = AssociationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asAdditionalInfo'
+-- * 'asAdditionalInfo' - A user-defined string.
 --
--- * 'asDate'
+-- * 'asDate' - The date when the status changed.
 --
--- * 'asName'
+-- * 'asName' - The status.
 --
--- * 'asMessage'
+-- * 'asMessage' - The reason for the status.
 associationStatus
     :: UTCTime -- ^ 'asDate'
     -> AssociationStatusName -- ^ 'asName'
@@ -353,6 +363,8 @@ instance ToJSON AssociationStatus where
 
 -- | Describes a command request.
 --
+--
+--
 -- /See:/ 'command' smart constructor.
 data Command = Command'
     { _cStatus             :: !(Maybe CommandStatus)
@@ -373,29 +385,29 @@ data Command = Command'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cStatus'
+-- * 'cStatus' - The status of the command.
 --
--- * 'cExpiresAfter'
+-- * 'cExpiresAfter' - If this time is reached and the command has not already started executing, it will not execute. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
 --
--- * 'cNotificationConfig'
+-- * 'cNotificationConfig' - Configurations for sending notifications about command status changes.
 --
--- * 'cOutputS3KeyPrefix'
+-- * 'cOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cDocumentName'
+-- * 'cDocumentName' - The name of the SSM document requested for execution.
 --
--- * 'cInstanceIds'
+-- * 'cInstanceIds' - The instance IDs against which this command was requested.
 --
--- * 'cCommandId'
+-- * 'cCommandId' - A unique identifier for this command.
 --
--- * 'cParameters'
+-- * 'cParameters' - The parameter values to be inserted in the SSM document when executing the command.
 --
--- * 'cComment'
+-- * 'cComment' - User-specified information about the command, such as a brief description of what the command should do.
 --
--- * 'cOutputS3BucketName'
+-- * 'cOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cRequestedDateTime'
+-- * 'cRequestedDateTime' - The date and time the command was requested.
 --
--- * 'cServiceRole'
+-- * 'cServiceRole' - The IAM service role that SSM uses to act on your behalf when sending notifications about command status changes.
 command
     :: Command
 command =
@@ -485,6 +497,8 @@ instance NFData Command
 
 -- | Describes a command filter.
 --
+--
+--
 -- /See:/ 'commandFilter' smart constructor.
 data CommandFilter = CommandFilter'
     { _cfKey   :: !CommandFilterKey
@@ -495,9 +509,9 @@ data CommandFilter = CommandFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfKey'
+-- * 'cfKey' - The name of the filter. For example, requested date and time.
 --
--- * 'cfValue'
+-- * 'cfValue' - The filter value. For example: June 30, 2015.
 commandFilter
     :: CommandFilterKey -- ^ 'cfKey'
     -> Text -- ^ 'cfValue'
@@ -528,6 +542,8 @@ instance ToJSON CommandFilter where
 
 -- | An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you executed.
 --
+--
+--
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
     { _ciInstanceId         :: !(Maybe Text)
@@ -546,25 +562,25 @@ data CommandInvocation = CommandInvocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciInstanceId'
+-- * 'ciInstanceId' - The instance ID in which this invocation was requested.
 --
--- * 'ciStatus'
+-- * 'ciStatus' - Whether or not the invocation succeeded, failed, or is pending.
 --
--- * 'ciNotificationConfig'
+-- * 'ciNotificationConfig' - Configurations for sending notifications about command status changes on a per instance basis.
 --
--- * 'ciCommandPlugins'
+-- * 'ciCommandPlugins' - Undocumented member.
 --
--- * 'ciDocumentName'
+-- * 'ciDocumentName' - The document name that was requested for execution.
 --
--- * 'ciCommandId'
+-- * 'ciCommandId' - The command against which this invocation was requested.
 --
--- * 'ciComment'
+-- * 'ciComment' - User-specified information about the command, such as a brief description of what the command should do.
 --
--- * 'ciTraceOutput'
+-- * 'ciTraceOutput' - Gets the trace output sent by the agent.
 --
--- * 'ciRequestedDateTime'
+-- * 'ciRequestedDateTime' - The time and date the request was sent to this instance.
 --
--- * 'ciServiceRole'
+-- * 'ciServiceRole' - The IAM service role that SSM uses to act on your behalf when sending notifications about command status changes on a per instance basis.
 commandInvocation
     :: CommandInvocation
 commandInvocation =
@@ -642,6 +658,8 @@ instance NFData CommandInvocation
 
 -- | Describes plugin details.
 --
+--
+--
 -- /See:/ 'commandPlugin' smart constructor.
 data CommandPlugin = CommandPlugin'
     { _cpStatus                 :: !(Maybe CommandPluginStatus)
@@ -658,21 +676,21 @@ data CommandPlugin = CommandPlugin'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpStatus'
+-- * 'cpStatus' - The status of this plugin. You can execute a document with multiple plugins.
 --
--- * 'cpResponseStartDateTime'
+-- * 'cpResponseStartDateTime' - The time the plugin started executing.
 --
--- * 'cpOutputS3KeyPrefix'
+-- * 'cpOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cpResponseCode'
+-- * 'cpResponseCode' - A numeric response code generated after executing the plugin.
 --
--- * 'cpOutput'
+-- * 'cpOutput' - Output of the plugin execution.
 --
--- * 'cpName'
+-- * 'cpName' - The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
 --
--- * 'cpOutputS3BucketName'
+-- * 'cpOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cpResponseFinishDateTime'
+-- * 'cpResponseFinishDateTime' - The time the plugin stopped executing. Could stop prematurely if, for example, a cancel command was sent.
 commandPlugin
     :: CommandPlugin
 commandPlugin =
@@ -738,6 +756,8 @@ instance NFData CommandPlugin
 
 -- | Describes the association of an SSM document and an instance.
 --
+--
+--
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     { _cabreInstanceId :: !(Maybe Text)
@@ -749,11 +769,11 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cabreInstanceId'
+-- * 'cabreInstanceId' - The ID of the instance.
 --
--- * 'cabreName'
+-- * 'cabreName' - The name of the configuration document.
 --
--- * 'cabreParameters'
+-- * 'cabreParameters' - A description of the parameters for a document.
 createAssociationBatchRequestEntry
     :: CreateAssociationBatchRequestEntry
 createAssociationBatchRequestEntry =
@@ -799,6 +819,8 @@ instance ToJSON CreateAssociationBatchRequestEntry
 
 -- | Filter for the DescribeActivation API.
 --
+--
+--
 -- /See:/ 'describeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
     { _dafFilterKey    :: !(Maybe DescribeActivationsFilterKeys)
@@ -809,9 +831,9 @@ data DescribeActivationsFilter = DescribeActivationsFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dafFilterKey'
+-- * 'dafFilterKey' - The name of the filter.
 --
--- * 'dafFilterValues'
+-- * 'dafFilterValues' - The filter values.
 describeActivationsFilter
     :: DescribeActivationsFilter
 describeActivationsFilter =
@@ -841,6 +863,8 @@ instance ToJSON DescribeActivationsFilter where
 
 -- | Describes an SSM document.
 --
+--
+--
 -- /See:/ 'documentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
     { _dStatus        :: !(Maybe DocumentStatus)
@@ -859,25 +883,25 @@ data DocumentDescription = DocumentDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dStatus'
+-- * 'dStatus' - The status of the SSM document.
 --
--- * 'dHash'
+-- * 'dHash' - The Sha256 or Sha1 hash created by the system when the document was created.
 --
--- * 'dSha1'
+-- * 'dSha1' - The SHA1 hash of the document, which you can use for verification purposes.
 --
--- * 'dOwner'
+-- * 'dOwner' - The AWS user account of the person who created the document.
 --
--- * 'dPlatformTypes'
+-- * 'dPlatformTypes' - The list of OS platforms compatible with this SSM document.
 --
--- * 'dCreatedDate'
+-- * 'dCreatedDate' - The date when the SSM document was created.
 --
--- * 'dName'
+-- * 'dName' - The name of the SSM document.
 --
--- * 'dHashType'
+-- * 'dHashType' - Sha256 or Sha1.
 --
--- * 'dParameters'
+-- * 'dParameters' - A description of the parameters for a document.
 --
--- * 'dDescription'
+-- * 'dDescription' - A description of the document.
 documentDescription
     :: DocumentDescription
 documentDescription =
@@ -899,8 +923,6 @@ dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
 -- | The Sha256 or Sha1 hash created by the system when the document was created.
---
--- Sha1 hashes have been deprecated.
 dHash :: Lens' DocumentDescription (Maybe Text)
 dHash = lens _dHash (\ s a -> s{_dHash = a});
 
@@ -925,8 +947,6 @@ dName :: Lens' DocumentDescription (Maybe Text)
 dName = lens _dName (\ s a -> s{_dName = a});
 
 -- | Sha256 or Sha1.
---
--- Sha1 hashes have been deprecated.
 dHashType :: Lens' DocumentDescription (Maybe DocumentHashType)
 dHashType = lens _dHashType (\ s a -> s{_dHashType = a});
 
@@ -959,6 +979,8 @@ instance NFData DocumentDescription
 
 -- | Describes a filter.
 --
+--
+--
 -- /See:/ 'documentFilter' smart constructor.
 data DocumentFilter = DocumentFilter'
     { _dfKey   :: !DocumentFilterKey
@@ -969,9 +991,9 @@ data DocumentFilter = DocumentFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfKey'
+-- * 'dfKey' - The name of the filter.
 --
--- * 'dfValue'
+-- * 'dfValue' - The value of the filter.
 documentFilter
     :: DocumentFilterKey -- ^ 'dfKey'
     -> Text -- ^ 'dfValue'
@@ -1002,6 +1024,8 @@ instance ToJSON DocumentFilter where
 
 -- | Describes the name of an SSM document.
 --
+--
+--
 -- /See:/ 'documentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
     { _diOwner         :: !(Maybe Text)
@@ -1013,11 +1037,11 @@ data DocumentIdentifier = DocumentIdentifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diOwner'
+-- * 'diOwner' - The AWS user account of the person who created the document.
 --
--- * 'diPlatformTypes'
+-- * 'diPlatformTypes' - The operating system platform.
 --
--- * 'diName'
+-- * 'diName' - The name of the SSM document.
 documentIdentifier
     :: DocumentIdentifier
 documentIdentifier =
@@ -1054,6 +1078,8 @@ instance NFData DocumentIdentifier
 
 -- | Parameters specified in the SSM document that execute on the server when the command is run.
 --
+--
+--
 -- /See:/ 'documentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
     { _dpName         :: !(Maybe Text)
@@ -1066,13 +1092,13 @@ data DocumentParameter = DocumentParameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpName'
+-- * 'dpName' - The name of the parameter.
 --
--- * 'dpDefaultValue'
+-- * 'dpDefaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 --
--- * 'dpType'
+-- * 'dpType' - The type of parameter. The type can be either “String” or “StringList”.
 --
--- * 'dpDescription'
+-- * 'dpDescription' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 documentParameter
     :: DocumentParameter
 documentParameter =
@@ -1114,6 +1140,8 @@ instance NFData DocumentParameter
 
 -- | Describes a failed association.
 --
+--
+--
 -- /See:/ 'failedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
     { _fcaEntry   :: !(Maybe CreateAssociationBatchRequestEntry)
@@ -1125,11 +1153,11 @@ data FailedCreateAssociation = FailedCreateAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcaEntry'
+-- * 'fcaEntry' - The association.
 --
--- * 'fcaFault'
+-- * 'fcaFault' - The source of the failure.
 --
--- * 'fcaMessage'
+-- * 'fcaMessage' - A description of the failure.
 failedCreateAssociation
     :: FailedCreateAssociation
 failedCreateAssociation =
@@ -1165,6 +1193,8 @@ instance NFData FailedCreateAssociation
 
 -- | Describes a filter for a specific list of instances.
 --
+--
+--
 -- /See:/ 'instanceInformation' smart constructor.
 data InstanceInformation = InstanceInformation'
     { _iiInstanceId       :: !(Maybe Text)
@@ -1188,35 +1218,35 @@ data InstanceInformation = InstanceInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiInstanceId'
+-- * 'iiInstanceId' - The instance ID.
 --
--- * 'iiPingStatus'
+-- * 'iiPingStatus' - Connection status of the SSM agent.
 --
--- * 'iiIPAddress'
+-- * 'iiIPAddress' - The IP address of the managed instance.
 --
--- * 'iiResourceType'
+-- * 'iiResourceType' - The type of instance. Instances are either EC2 instances or managed instances.
 --
--- * 'iiRegistrationDate'
+-- * 'iiRegistrationDate' - The date the server or VM was registered with AWS as a managed instance.
 --
--- * 'iiPlatformVersion'
+-- * 'iiPlatformVersion' - The version of the OS platform running on your instance.
 --
--- * 'iiIsLatestVersion'
+-- * 'iiIsLatestVersion' - Indicates whether latest version of the SSM agent is running on your instance.
 --
--- * 'iiAgentVersion'
+-- * 'iiAgentVersion' - The version of the SSM agent running on your Linux instance.
 --
--- * 'iiLastPingDateTime'
+-- * 'iiLastPingDateTime' - The date and time when agent last pinged SSM service.
 --
--- * 'iiActivationId'
+-- * 'iiActivationId' - The activation ID created by SSM when the server or VM was registered.
 --
--- * 'iiName'
+-- * 'iiName' - The name of the managed instance.
 --
--- * 'iiPlatformType'
+-- * 'iiPlatformType' - The operating system platform type.
 --
--- * 'iiPlatformName'
+-- * 'iiPlatformName' - The name of the operating system platform running on your instance.
 --
--- * 'iiComputerName'
+-- * 'iiComputerName' - The fully qualified host name of the managed instance.
 --
--- * 'iiIAMRole'
+-- * 'iiIAMRole' - The Amazon Identity and Access Management (IAM) role assigned to EC2 instances or managed instances.
 instanceInformation
     :: InstanceInformation
 instanceInformation =
@@ -1324,6 +1354,8 @@ instance NFData InstanceInformation
 
 -- | Describes a filter for a specific list of instances.
 --
+--
+--
 -- /See:/ 'instanceInformationFilter' smart constructor.
 data InstanceInformationFilter = InstanceInformationFilter'
     { _iifKey      :: !InstanceInformationFilterKey
@@ -1334,9 +1366,9 @@ data InstanceInformationFilter = InstanceInformationFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iifKey'
+-- * 'iifKey' - The name of the filter.
 --
--- * 'iifValueSet'
+-- * 'iifValueSet' - The filter values.
 instanceInformationFilter
     :: InstanceInformationFilterKey -- ^ 'iifKey'
     -> NonEmpty Text -- ^ 'iifValueSet'
@@ -1368,6 +1400,8 @@ instance ToJSON InstanceInformationFilter where
 
 -- | Configurations for sending notifications.
 --
+--
+--
 -- /See:/ 'notificationConfig' smart constructor.
 data NotificationConfig = NotificationConfig'
     { _ncNotificationEvents :: !(Maybe [NotificationEvent])
@@ -1379,11 +1413,11 @@ data NotificationConfig = NotificationConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncNotificationEvents'
+-- * 'ncNotificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide / .
 --
--- * 'ncNotificationType'
+-- * 'ncNotificationType' - Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
 --
--- * 'ncNotificationARN'
+-- * 'ncNotificationARN' - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. SSM pushes notifications about command status changes to this topic.
 notificationConfig
     :: NotificationConfig
 notificationConfig =
@@ -1393,7 +1427,7 @@ notificationConfig =
     , _ncNotificationARN = Nothing
     }
 
--- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html Monitoring Commands> in the /Amazon Elastic Compute Cloud User Guide / .
 ncNotificationEvents :: Lens' NotificationConfig [NotificationEvent]
 ncNotificationEvents = lens _ncNotificationEvents (\ s a -> s{_ncNotificationEvents = a}) . _Default . _Coerce;
 
@@ -1428,6 +1462,8 @@ instance ToJSON NotificationConfig where
 
 -- | Metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -1438,9 +1474,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - The name of the tag.
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies attributes of a specified VPC endpoint. You can modify the policy associated with the endpoint, and you can add and remove route tables associated with the endpoint.
+--
+--
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyVpcEndpoint.
 --
+--
+--
 -- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
     { _mvePolicyDocument      :: !(Maybe Text)
@@ -63,17 +67,17 @@ data ModifyVPCEndpoint = ModifyVPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvePolicyDocument'
+-- * 'mvePolicyDocument' - A policy document to attach to the endpoint. The policy must be in valid JSON format.
 --
--- * 'mveRemoveRouteTableIds'
+-- * 'mveRemoveRouteTableIds' - One or more route table IDs to disassociate from the endpoint.
 --
--- * 'mveResetPolicy'
+-- * 'mveResetPolicy' - Specify @true@ to reset the policy document to the default policy. The default policy allows access to the service.
 --
--- * 'mveAddRouteTableIds'
+-- * 'mveAddRouteTableIds' - One or more route tables IDs to associate with the endpoint.
 --
--- * 'mveDryRun'
+-- * 'mveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'mveVPCEndpointId'
+-- * 'mveVPCEndpointId' - The ID of the endpoint.
 modifyVPCEndpoint
     :: Text -- ^ 'mveVPCEndpointId'
     -> ModifyVPCEndpoint
@@ -95,7 +99,7 @@ mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
 
--- | Specify 'true' to reset the policy document to the default policy. The default policy allows access to the service.
+-- | Specify @true@ to reset the policy document to the default policy. The default policy allows access to the service.
 mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 
@@ -103,7 +107,7 @@ mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
 
@@ -148,6 +152,8 @@ instance ToQuery ModifyVPCEndpoint where
 
 -- | Contains the output of ModifyVpcEndpoint.
 --
+--
+--
 -- /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mversReturn         :: !(Maybe Bool)
@@ -158,9 +164,9 @@ data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mversReturn'
+-- * 'mversReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'mversResponseStatus'
+-- * 'mversResponseStatus' - -- | The response status code.
 modifyVPCEndpointResponse
     :: Int -- ^ 'mversResponseStatus'
     -> ModifyVPCEndpointResponse
@@ -170,11 +176,11 @@ modifyVPCEndpointResponse pResponseStatus_ =
     , _mversResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
 mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
 

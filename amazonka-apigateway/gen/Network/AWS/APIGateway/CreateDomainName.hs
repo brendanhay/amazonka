@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new domain name.
+--
+--
 module Network.AWS.APIGateway.CreateDomainName
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | A request to create a new domain name.
 --
+--
+--
 -- /See:/ 'createDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
     { _cdnDomainName            :: !Text
@@ -63,15 +67,15 @@ data CreateDomainName = CreateDomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdnDomainName'
+-- * 'cdnDomainName' - The name of the 'DomainName' resource.
 --
--- * 'cdnCertificateName'
+-- * 'cdnCertificateName' - The name of the certificate.
 --
--- * 'cdnCertificateBody'
+-- * 'cdnCertificateBody' - The body of the server certificate provided by your certificate authority.
 --
--- * 'cdnCertificatePrivateKey'
+-- * 'cdnCertificatePrivateKey' - Your certificate's private key.
 --
--- * 'cdnCertificateChain'
+-- * 'cdnCertificateChain' - The intermediate certificates and optionally the root certificate, one after the other without any blank lines. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
 createDomainName
     :: Text -- ^ 'cdnDomainName'
     -> Text -- ^ 'cdnCertificateName'
@@ -88,7 +92,7 @@ createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePr
     , _cdnCertificateChain = pCertificateChain_
     }
 
--- | The name of the < DomainName> resource.
+-- | The name of the 'DomainName' resource.
 cdnDomainName :: Lens' CreateDomainName Text
 cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 
@@ -100,7 +104,7 @@ cdnCertificateName = lens _cdnCertificateName (\ s a -> s{_cdnCertificateName = 
 cdnCertificateBody :: Lens' CreateDomainName Text
 cdnCertificateBody = lens _cdnCertificateBody (\ s a -> s{_cdnCertificateBody = a});
 
--- | Your certificate\'s private key.
+-- | Your certificate's private key.
 cdnCertificatePrivateKey :: Lens' CreateDomainName Text
 cdnCertificatePrivateKey = lens _cdnCertificatePrivateKey (\ s a -> s{_cdnCertificatePrivateKey = a});
 

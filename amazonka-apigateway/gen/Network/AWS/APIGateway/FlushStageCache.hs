@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Flushes a stage\'s cache.
+-- Flushes a stage's cache.
+--
+--
 module Network.AWS.APIGateway.FlushStageCache
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to flush a stage\'s cache.
+-- | Requests Amazon API Gateway to flush a stage's cache.
+--
+--
 --
 -- /See:/ 'flushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
@@ -52,9 +56,9 @@ data FlushStageCache = FlushStageCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fscRestAPIId'
+-- * 'fscRestAPIId' - The API identifier of the stage to flush its cache.
 --
--- * 'fscStageName'
+-- * 'fscStageName' - The name of the stage to flush its cache.
 flushStageCache
     :: Text -- ^ 'fscRestAPIId'
     -> Text -- ^ 'fscStageName'

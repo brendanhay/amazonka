@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the existing thing types.
+--
+--
 module Network.AWS.IoT.ListThingTypes
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListThingTypes operation.
 --
+--
+--
 -- /See:/ 'listThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
     { _lttThingTypeName :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListThingTypes = ListThingTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lttThingTypeName'
+-- * 'lttThingTypeName' - The name of the thing type.
 --
--- * 'lttNextToken'
+-- * 'lttNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lttMaxResults'
+-- * 'lttMaxResults' - The maximum number of results to return in this operation.
 listThingTypes
     :: ListThingTypes
 listThingTypes =
@@ -114,6 +118,8 @@ instance ToQuery ListThingTypes where
 
 -- | The output for the ListThingTypes operation.
 --
+--
+--
 -- /See:/ 'listThingTypesResponse' smart constructor.
 data ListThingTypesResponse = ListThingTypesResponse'
     { _lttrsThingTypes     :: !(Maybe [ThingTypeDefinition])
@@ -125,11 +131,11 @@ data ListThingTypesResponse = ListThingTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lttrsThingTypes'
+-- * 'lttrsThingTypes' - The thing types.
 --
--- * 'lttrsNextToken'
+-- * 'lttrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
 --
--- * 'lttrsResponseStatus'
+-- * 'lttrsResponseStatus' - -- | The response status code.
 listThingTypesResponse
     :: Int -- ^ 'lttrsResponseStatus'
     -> ListThingTypesResponse
@@ -148,7 +154,7 @@ lttrsThingTypes = lens _lttrsThingTypes (\ s a -> s{_lttrsThingTypes = a}) . _De
 lttrsNextToken :: Lens' ListThingTypesResponse (Maybe Text)
 lttrsNextToken = lens _lttrsNextToken (\ s a -> s{_lttrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lttrsResponseStatus :: Lens' ListThingTypesResponse Int
 lttrsResponseStatus = lens _lttrsResponseStatus (\ s a -> s{_lttrsResponseStatus = a});
 

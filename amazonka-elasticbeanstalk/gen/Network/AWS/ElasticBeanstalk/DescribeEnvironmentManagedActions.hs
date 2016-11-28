@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists an environment\'s upcoming and in-progress managed actions.
+-- Lists an environment's upcoming and in-progress managed actions.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list an environment\'s upcoming and in-progress managed actions.
+-- | Request to list an environment's upcoming and in-progress managed actions.
+--
+--
 --
 -- /See:/ 'describeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
@@ -57,11 +61,11 @@ data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demaStatus'
+-- * 'demaStatus' - To show only actions with a particular status, specify a status.
 --
--- * 'demaEnvironmentName'
+-- * 'demaEnvironmentName' - The name of the target environment.
 --
--- * 'demaEnvironmentId'
+-- * 'demaEnvironmentId' - The environment ID of the target environment.
 describeEnvironmentManagedActions
     :: DescribeEnvironmentManagedActions
 describeEnvironmentManagedActions =
@@ -122,6 +126,8 @@ instance ToQuery DescribeEnvironmentManagedActions
 
 -- | The result message containing a list of managed actions.
 --
+--
+--
 -- /See:/ 'describeEnvironmentManagedActionsResponse' smart constructor.
 data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActionsResponse'
     { _demarsManagedActions :: !(Maybe (List1 ManagedAction))
@@ -132,9 +138,9 @@ data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActio
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demarsManagedActions'
+-- * 'demarsManagedActions' - A list of upcoming and in-progress managed actions.
 --
--- * 'demarsResponseStatus'
+-- * 'demarsResponseStatus' - -- | The response status code.
 describeEnvironmentManagedActionsResponse
     :: Int -- ^ 'demarsResponseStatus'
     -> DescribeEnvironmentManagedActionsResponse
@@ -148,7 +154,7 @@ describeEnvironmentManagedActionsResponse pResponseStatus_ =
 demarsManagedActions :: Lens' DescribeEnvironmentManagedActionsResponse (Maybe (NonEmpty ManagedAction))
 demarsManagedActions = lens _demarsManagedActions (\ s a -> s{_demarsManagedActions = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 demarsResponseStatus :: Lens' DescribeEnvironmentManagedActionsResponse Int
 demarsResponseStatus = lens _demarsResponseStatus (\ s a -> s{_demarsResponseStatus = a});
 

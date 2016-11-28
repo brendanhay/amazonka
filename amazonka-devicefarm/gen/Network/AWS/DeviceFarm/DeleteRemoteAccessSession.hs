@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a completed remote access session and its results.
+--
+--
 module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete the specified remote access session.
 --
+--
+--
 -- /See:/ 'deleteRemoteAccessSession' smart constructor.
 newtype DeleteRemoteAccessSession = DeleteRemoteAccessSession'
     { _drasArn :: Text
@@ -52,7 +56,7 @@ newtype DeleteRemoteAccessSession = DeleteRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drasArn'
+-- * 'drasArn' - The Amazon Resource Name (ARN) of the sesssion for which you want to delete remote access.
 deleteRemoteAccessSession
     :: Text -- ^ 'drasArn'
     -> DeleteRemoteAccessSession
@@ -101,6 +105,8 @@ instance ToQuery DeleteRemoteAccessSession where
 
 -- | The response from the server when a request is made to delete the remote access session.
 --
+--
+--
 -- /See:/ 'deleteRemoteAccessSessionResponse' smart constructor.
 newtype DeleteRemoteAccessSessionResponse = DeleteRemoteAccessSessionResponse'
     { _drasrsResponseStatus :: Int
@@ -110,7 +116,7 @@ newtype DeleteRemoteAccessSessionResponse = DeleteRemoteAccessSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drasrsResponseStatus'
+-- * 'drasrsResponseStatus' - -- | The response status code.
 deleteRemoteAccessSessionResponse
     :: Int -- ^ 'drasrsResponseStatus'
     -> DeleteRemoteAccessSessionResponse
@@ -119,7 +125,7 @@ deleteRemoteAccessSessionResponse pResponseStatus_ =
     { _drasrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drasrsResponseStatus :: Lens' DeleteRemoteAccessSessionResponse Int
 drasrsResponseStatus = lens _drasrsResponseStatus (\ s a -> s{_drasrsResponseStatus = a});
 

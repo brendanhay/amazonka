@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation sets the transfer lock on the domain (specifically the 'clientTransferProhibited' status) to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
+-- This operation sets the transfer lock on the domain (specifically the @clientTransferProhibited@ status) to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
+--
+--
 module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The EnableDomainTransferLock request includes the following element.
 --
+--
+--
 -- /See:/ 'enableDomainTransferLock' smart constructor.
 newtype EnableDomainTransferLock = EnableDomainTransferLock'
     { _edtlDomainName :: Text
@@ -53,7 +57,7 @@ newtype EnableDomainTransferLock = EnableDomainTransferLock'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edtlDomainName'
+-- * 'edtlDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 enableDomainTransferLock
     :: Text -- ^ 'edtlDomainName'
     -> EnableDomainTransferLock
@@ -62,15 +66,7 @@ enableDomainTransferLock pDomainName_ =
     { _edtlDomainName = pDomainName_
     }
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\ s a -> s{_edtlDomainName = a});
 
@@ -111,6 +107,8 @@ instance ToQuery EnableDomainTransferLock where
 
 -- | The EnableDomainTransferLock response includes the following elements.
 --
+--
+--
 -- /See:/ 'enableDomainTransferLockResponse' smart constructor.
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
     { _edtlrsResponseStatus :: !Int
@@ -121,9 +119,9 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edtlrsResponseStatus'
+-- * 'edtlrsResponseStatus' - -- | The response status code.
 --
--- * 'edtlrsOperationId'
+-- * 'edtlrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 enableDomainTransferLockResponse
     :: Int -- ^ 'edtlrsResponseStatus'
     -> Text -- ^ 'edtlrsOperationId'
@@ -134,17 +132,11 @@ enableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
     , _edtlrsOperationId = pOperationId_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 edtlrsResponseStatus :: Lens' EnableDomainTransferLockResponse Int
 edtlrsResponseStatus = lens _edtlrsResponseStatus (\ s a -> s{_edtlrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrsOperationId = lens _edtlrsOperationId (\ s a -> s{_edtlrsOperationId = a});
 

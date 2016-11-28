@@ -20,17 +20,17 @@
 --
 -- Returns information about the specified activity type. This includes configuration settings provided when the type was registered and other general information about the type.
 --
+--
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
---     -   'activityType.name': String constraint. The key is 'swf:activityType.name'.
---     -   'activityType.version': String constraint. The key is 'swf:activityType.version'.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * Constrain the following parameters by using a @Condition@ element with the appropriate keys.     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .    * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+--
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 module Network.AWS.SWF.DescribeActivityType
     (
     -- * Creating a Request
@@ -66,9 +66,9 @@ data DescribeActivityType = DescribeActivityType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datDomain'
+-- * 'datDomain' - The name of the domain in which the activity type is registered.
 --
--- * 'datActivityType'
+-- * 'datActivityType' - The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 describeActivityType
     :: Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
@@ -83,7 +83,7 @@ describeActivityType pDomain_ pActivityType_ =
 datDomain :: Lens' DescribeActivityType Text
 datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 
--- | The activity type to get information about. Activity types are identified by the 'name' and 'version' that were supplied when the activity was registered.
+-- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
@@ -127,6 +127,8 @@ instance ToQuery DescribeActivityType where
 
 -- | Detailed information about an activity type.
 --
+--
+--
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
     { _datrsResponseStatus :: !Int
@@ -138,11 +140,11 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datrsResponseStatus'
+-- * 'datrsResponseStatus' - -- | The response status code.
 --
--- * 'datrsTypeInfo'
+-- * 'datrsTypeInfo' - General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * __REGISTERED__ : The type is registered and available. Workers supporting this type should be running.     * __DEPRECATED__ : The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 --
--- * 'datrsConfiguration'
+-- * 'datrsConfiguration' - The configuration settings registered with the activity type.
 describeActivityTypeResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> ActivityTypeInfo -- ^ 'datrsTypeInfo'
@@ -155,16 +157,11 @@ describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
     , _datrsConfiguration = pConfiguration_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
 
--- | General information about the activity type.
---
--- The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.
---
--- -   __REGISTERED__: The type is registered and available. Workers supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using < DeprecateActivityType>, but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
+-- | General information about the activity type. The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.     * __REGISTERED__ : The type is registered and available. Workers supporting this type should be running.     * __DEPRECATED__ : The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a specific job including shipping information, job status, and other important metadata.
+--
+--
 module Network.AWS.Snowball.DescribeJob
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeJob = DescribeJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'djJobId'
+-- * 'djJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 describeJob
     :: Text -- ^ 'djJobId'
     -> DescribeJob
@@ -61,7 +63,7 @@ describeJob pJobId_ =
     { _djJobId = pJobId_
     }
 
--- | The automatically generated ID for a job, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 djJobId :: Lens' DescribeJob Text
 djJobId = lens _djJobId (\ s a -> s{_djJobId = a});
 
@@ -111,11 +113,11 @@ data DescribeJobResponse = DescribeJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'djrsJobMetadata'
+-- * 'djrsJobMetadata' - Information about a specific job, including shipping information, job status, and other important metadata.
 --
--- * 'djrsSubJobMetadata'
+-- * 'djrsSubJobMetadata' - Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata.
 --
--- * 'djrsResponseStatus'
+-- * 'djrsResponseStatus' - -- | The response status code.
 describeJobResponse
     :: Int -- ^ 'djrsResponseStatus'
     -> DescribeJobResponse
@@ -134,7 +136,7 @@ djrsJobMetadata = lens _djrsJobMetadata (\ s a -> s{_djrsJobMetadata = a});
 djrsSubJobMetadata :: Lens' DescribeJobResponse [JobMetadata]
 djrsSubJobMetadata = lens _djrsSubJobMetadata (\ s a -> s{_djrsSubJobMetadata = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 djrsResponseStatus :: Lens' DescribeJobResponse Int
 djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
 

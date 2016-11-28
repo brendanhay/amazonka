@@ -20,7 +20,7 @@
 --
 -- Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can only get URLs for image layers that are referenced in an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.GetDownloadURLForLayer
     (
     -- * Creating a Request
@@ -58,11 +58,11 @@ data GetDownloadURLForLayer = GetDownloadURLForLayer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gduflRegistryId'
+-- * 'gduflRegistryId' - The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
 --
--- * 'gduflRepositoryName'
+-- * 'gduflRepositoryName' - The name of the repository that is associated with the image layer to download.
 --
--- * 'gduflLayerDigest'
+-- * 'gduflLayerDigest' - The digest of the image layer to download.
 getDownloadURLForLayer
     :: Text -- ^ 'gduflRepositoryName'
     -> Text -- ^ 'gduflLayerDigest'
@@ -136,11 +136,11 @@ data GetDownloadURLForLayerResponse = GetDownloadURLForLayerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gduflrsLayerDigest'
+-- * 'gduflrsLayerDigest' - The digest of the image layer to download.
 --
--- * 'gduflrsDownloadURL'
+-- * 'gduflrsDownloadURL' - The pre-signed Amazon S3 download URL for the requested layer.
 --
--- * 'gduflrsResponseStatus'
+-- * 'gduflrsResponseStatus' - -- | The response status code.
 getDownloadURLForLayerResponse
     :: Int -- ^ 'gduflrsResponseStatus'
     -> GetDownloadURLForLayerResponse
@@ -159,7 +159,7 @@ gduflrsLayerDigest = lens _gduflrsLayerDigest (\ s a -> s{_gduflrsLayerDigest = 
 gduflrsDownloadURL :: Lens' GetDownloadURLForLayerResponse (Maybe Text)
 gduflrsDownloadURL = lens _gduflrsDownloadURL (\ s a -> s{_gduflrsDownloadURL = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gduflrsResponseStatus :: Lens' GetDownloadURLForLayerResponse Int
 gduflrsResponseStatus = lens _gduflrsResponseStatus (\ s a -> s{_gduflrsResponseStatus = a});
 

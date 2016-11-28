@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified rules or the rules for the specified listener. You must specify either a listener or one or more rules.
+--
+--
 module Network.AWS.ELBv2.DescribeRules
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeRules.
 --
+--
+--
 -- /See:/ 'describeRules' smart constructor.
 data DescribeRules = DescribeRules'
     { _drListenerARN :: !(Maybe Text)
@@ -55,9 +59,9 @@ data DescribeRules = DescribeRules'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drListenerARN'
+-- * 'drListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'drRuleARNs'
+-- * 'drRuleARNs' - The Amazon Resource Names (ARN) of the rules.
 describeRules
     :: DescribeRules
 describeRules =
@@ -106,6 +110,8 @@ instance ToQuery DescribeRules where
 
 -- | Contains the output of DescribeRules.
 --
+--
+--
 -- /See:/ 'describeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
     { _drsrsRules          :: !(Maybe [Rule])
@@ -116,9 +122,9 @@ data DescribeRulesResponse = DescribeRulesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsrsRules'
+-- * 'drsrsRules' - Information about the rules.
 --
--- * 'drsrsResponseStatus'
+-- * 'drsrsResponseStatus' - -- | The response status code.
 describeRulesResponse
     :: Int -- ^ 'drsrsResponseStatus'
     -> DescribeRulesResponse
@@ -132,7 +138,7 @@ describeRulesResponse pResponseStatus_ =
 drsrsRules :: Lens' DescribeRulesResponse [Rule]
 drsrsRules = lens _drsrsRules (\ s a -> s{_drsrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsrsResponseStatus :: Lens' DescribeRulesResponse Int
 drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a});
 

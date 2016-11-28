@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the details of the specified rule.
+--
+--
 module Network.AWS.CloudWatchEvents.DescribeRule
     (
     -- * Creating a Request
@@ -48,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < DescribeRule> operation.
+-- | Container for the parameters to the 'DescribeRule' operation.
+--
+--
 --
 -- /See:/ 'describeRule' smart constructor.
 newtype DescribeRule = DescribeRule'
@@ -59,7 +63,7 @@ newtype DescribeRule = DescribeRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desName'
+-- * 'desName' - The name of the rule you want to describe details for.
 describeRule
     :: Text -- ^ 'desName'
     -> DescribeRule
@@ -110,7 +114,9 @@ instance ToPath DescribeRule where
 instance ToQuery DescribeRule where
         toQuery = const mempty
 
--- | The result of the < DescribeRule> operation.
+-- | The result of the 'DescribeRule' operation.
+--
+--
 --
 -- /See:/ 'describeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
@@ -128,21 +134,21 @@ data DescribeRuleResponse = DescribeRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsEventPattern'
+-- * 'drrsEventPattern' - The event pattern.
 --
--- * 'drrsState'
+-- * 'drrsState' - Specifies whether the rule is enabled or disabled.
 --
--- * 'drrsARN'
+-- * 'drrsARN' - The Amazon Resource Name (ARN) associated with the rule.
 --
--- * 'drrsScheduleExpression'
+-- * 'drrsScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 --
--- * 'drrsName'
+-- * 'drrsName' - The rule's name.
 --
--- * 'drrsDescription'
+-- * 'drrsDescription' - The rule's description.
 --
--- * 'drrsRoleARN'
+-- * 'drrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 describeRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRuleResponse
@@ -170,15 +176,15 @@ drrsState = lens _drrsState (\ s a -> s{_drrsState = a});
 drrsARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsARN = lens _drrsARN (\ s a -> s{_drrsARN = a});
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
+-- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 drrsScheduleExpression :: Lens' DescribeRuleResponse (Maybe Text)
 drrsScheduleExpression = lens _drrsScheduleExpression (\ s a -> s{_drrsScheduleExpression = a});
 
--- | The rule\'s name.
+-- | The rule's name.
 drrsName :: Lens' DescribeRuleResponse (Maybe Text)
 drrsName = lens _drrsName (\ s a -> s{_drrsName = a});
 
--- | The rule\'s description.
+-- | The rule's description.
 drrsDescription :: Lens' DescribeRuleResponse (Maybe Text)
 drrsDescription = lens _drrsDescription (\ s a -> s{_drrsDescription = a});
 
@@ -186,7 +192,7 @@ drrsDescription = lens _drrsDescription (\ s a -> s{_drrsDescription = a});
 drrsRoleARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsRoleARN = lens _drrsRoleARN (\ s a -> s{_drrsRoleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

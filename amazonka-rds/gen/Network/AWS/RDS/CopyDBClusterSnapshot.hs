@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
+--
 module Network.AWS.RDS.CopyDBClusterSnapshot
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'copyDBClusterSnapshot' smart constructor.
 data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     { _cdbcsTags                              :: !(Maybe [Tag])
@@ -57,11 +61,11 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbcsTags'
+-- * 'cdbcsTags' - Undocumented member.
 --
--- * 'cdbcsSourceDBClusterSnapshotIdentifier'
+-- * 'cdbcsSourceDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-snapshot1@
 --
--- * 'cdbcsTargetDBClusterSnapshotIdentifier'
+-- * 'cdbcsTargetDBClusterSnapshotIdentifier' - The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-snapshot2@
 copyDBClusterSnapshot
     :: Text -- ^ 'cdbcsSourceDBClusterSnapshotIdentifier'
     -> Text -- ^ 'cdbcsTargetDBClusterSnapshotIdentifier'
@@ -77,31 +81,11 @@ copyDBClusterSnapshot pSourceDBClusterSnapshotIdentifier_ pTargetDBClusterSnapsh
 cdbcsTags :: Lens' CopyDBClusterSnapshot [Tag]
 cdbcsTags = lens _cdbcsTags (\ s a -> s{_cdbcsTags = a}) . _Default . _Coerce;
 
--- | The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster-snapshot1'
+-- | The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-snapshot1@
 cdbcsSourceDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsSourceDBClusterSnapshotIdentifier = lens _cdbcsSourceDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsSourceDBClusterSnapshotIdentifier = a});
 
--- | The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster-snapshot2'
+-- | The identifier of the new DB cluster snapshot to create from the source DB cluster snapshot. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-snapshot2@
 cdbcsTargetDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsTargetDBClusterSnapshotIdentifier = lens _cdbcsTargetDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsTargetDBClusterSnapshotIdentifier = a});
 
@@ -146,9 +130,9 @@ data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcsrsDBClusterSnapshot'
+-- * 'cdcsrsDBClusterSnapshot' - Undocumented member.
 --
--- * 'cdcsrsResponseStatus'
+-- * 'cdcsrsResponseStatus' - -- | The response status code.
 copyDBClusterSnapshotResponse
     :: Int -- ^ 'cdcsrsResponseStatus'
     -> CopyDBClusterSnapshotResponse
@@ -162,7 +146,7 @@ copyDBClusterSnapshotResponse pResponseStatus_ =
 cdcsrsDBClusterSnapshot :: Lens' CopyDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClusterSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdcsrsResponseStatus :: Lens' CopyDBClusterSnapshotResponse Int
 cdcsrsResponseStatus = lens _cdcsrsResponseStatus (\ s a -> s{_cdcsrsResponseStatus = a});
 

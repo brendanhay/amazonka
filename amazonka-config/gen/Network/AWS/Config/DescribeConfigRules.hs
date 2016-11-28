@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details about your AWS Config rules.
+--
+--
 module Network.AWS.Config.DescribeConfigRules
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeConfigRules = DescribeConfigRules'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrConfigRuleNames'
+-- * 'dcrConfigRuleNames' - The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
 --
--- * 'dcrNextToken'
+-- * 'dcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 describeConfigRules
     :: DescribeConfigRules
 describeConfigRules =
@@ -69,7 +71,7 @@ describeConfigRules =
 dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
 dcrConfigRuleNames = lens _dcrConfigRuleNames (\ s a -> s{_dcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcrNextToken :: Lens' DescribeConfigRules (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
 
@@ -123,11 +125,11 @@ data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrrsConfigRules'
+-- * 'dcrrsConfigRules' - The details about your AWS Config rules.
 --
--- * 'dcrrsNextToken'
+-- * 'dcrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
 --
--- * 'dcrrsResponseStatus'
+-- * 'dcrrsResponseStatus' - -- | The response status code.
 describeConfigRulesResponse
     :: Int -- ^ 'dcrrsResponseStatus'
     -> DescribeConfigRulesResponse
@@ -146,7 +148,7 @@ dcrrsConfigRules = lens _dcrrsConfigRules (\ s a -> s{_dcrrsConfigRules = a}) . 
 dcrrsNextToken :: Lens' DescribeConfigRulesResponse (Maybe Text)
 dcrrsNextToken = lens _dcrrsNextToken (\ s a -> s{_dcrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrrsResponseStatus :: Lens' DescribeConfigRulesResponse Int
 dcrrsResponseStatus = lens _dcrrsResponseStatus (\ s a -> s{_dcrrsResponseStatus = a});
 

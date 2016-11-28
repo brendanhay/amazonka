@@ -20,7 +20,7 @@
 --
 -- Returns list of event descriptions matching criteria up to the last 6 weeks.
 --
--- This action returns the most recent 1,000 events from the specified 'NextToken'.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEvents
@@ -60,6 +60,8 @@ import           Network.AWS.Response
 
 -- | Request to retrieve a list of events for an environment.
 --
+--
+--
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
     { _deRequestId       :: !(Maybe Text)
@@ -79,27 +81,27 @@ data DescribeEvents = DescribeEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deRequestId'
+-- * 'deRequestId' - If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
 --
--- * 'deTemplateName'
+-- * 'deTemplateName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.
 --
--- * 'deStartTime'
+-- * 'deStartTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
 --
--- * 'deSeverity'
+-- * 'deSeverity' - If specified, limits the events returned from this call to include only those with the specified severity or higher.
 --
--- * 'deNextToken'
+-- * 'deNextToken' - Pagination token. If specified, the events return the next batch of results.
 --
--- * 'deVersionLabel'
+-- * 'deVersionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
 --
--- * 'deEnvironmentName'
+-- * 'deEnvironmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 --
--- * 'deMaxRecords'
+-- * 'deMaxRecords' - Specifies the maximum number of events that can be returned, beginning with the most recent event.
 --
--- * 'deEndTime'
+-- * 'deEndTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
 --
--- * 'deApplicationName'
+-- * 'deApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.
 --
--- * 'deEnvironmentId'
+-- * 'deEnvironmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 describeEvents
     :: DescribeEvents
 describeEvents =
@@ -149,7 +151,7 @@ deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a})
 deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the 'EndTime'.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
@@ -209,6 +211,8 @@ instance ToQuery DescribeEvents where
 
 -- | Result message wrapping a list of event descriptions.
 --
+--
+--
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersNextToken      :: !(Maybe Text)
@@ -220,11 +224,11 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersNextToken'
+-- * 'dersNextToken' - If returned, this indicates that there are more results to obtain. Use this token in the next 'DescribeEvents' call to get the next batch of events.
 --
--- * 'dersEvents'
+-- * 'dersEvents' - A list of 'EventDescription' .
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
@@ -235,15 +239,15 @@ describeEventsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | If returned, this indicates that there are more results to obtain. Use this token in the next < DescribeEvents> call to get the next batch of events.
+-- | If returned, this indicates that there are more results to obtain. Use this token in the next 'DescribeEvents' call to get the next batch of events.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 
--- | A list of < EventDescription>.
+-- | A list of 'EventDescription' .
 dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

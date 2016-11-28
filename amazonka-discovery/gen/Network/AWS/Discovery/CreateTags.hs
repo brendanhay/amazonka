@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.
+--
+--
 module Network.AWS.Discovery.CreateTags
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctConfigurationIds'
+-- * 'ctConfigurationIds' - A list of configuration items that you want to tag.
 --
--- * 'ctTags'
+-- * 'ctTags' - Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 createTags
     :: CreateTags
 createTags =
@@ -67,9 +69,7 @@ createTags =
 ctConfigurationIds :: Lens' CreateTags [Text]
 ctConfigurationIds = lens _ctConfigurationIds (\ s a -> s{_ctConfigurationIds = a}) . _Coerce;
 
--- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/-/value/ format. For example:
---
--- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
+-- | Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
@@ -117,7 +117,7 @@ newtype CreateTagsResponse = CreateTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTagsResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTagsResponse
@@ -126,7 +126,7 @@ createTagsResponse pResponseStatus_ =
     { _ctrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 

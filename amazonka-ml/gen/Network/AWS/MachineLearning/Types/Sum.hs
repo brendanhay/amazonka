@@ -19,10 +19,11 @@ module Network.AWS.MachineLearning.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The function used to train an 'MLModel'. Training choices supported by Amazon ML include the following:
+-- | The function used to train an @MLModel@ . Training choices supported by Amazon ML include the following:
 --
--- -   'SGD' - Stochastic Gradient Descent.
--- -   'RandomForest' - Random forest of decision trees.
+--
+--     * @SGD@ - Stochastic Gradient Descent.    * @RandomForest@ - Random forest of decision trees.
+--
 data Algorithm =
     SGD
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -46,15 +47,11 @@ instance ToHeader     Algorithm
 instance FromJSON Algorithm where
     parseJSON = parseJSONText "Algorithm"
 
--- | A list of the variables to use in searching or filtering 'BatchPrediction'.
+-- | A list of the variables to use in searching or filtering @BatchPrediction@ .
 --
--- -   'CreatedAt' - Sets the search criteria to 'BatchPrediction' creation date.
--- -   'Status' - Sets the search criteria to 'BatchPrediction' status.
--- -   'Name' - Sets the search criteria to the contents of 'BatchPrediction' ____ 'Name'.
--- -   'IAMUser' - Sets the search criteria to the user account that invoked the 'BatchPrediction' creation.
--- -   'MLModelId' - Sets the search criteria to the 'MLModel' used in the 'BatchPrediction'.
--- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used in the 'BatchPrediction'.
--- -   'DataURI' - Sets the search criteria to the data file(s) used in the 'BatchPrediction'. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
+--     * @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation date.    * @Status@ - Sets the search criteria to @BatchPrediction@ status.    * @Name@ - Sets the search criteria to the contents of @BatchPrediction@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.    * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .    * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
 data BatchPredictionFilterVariable
     = BatchCreatedAt
     | BatchDataSourceId
@@ -99,17 +96,11 @@ instance ToHeader     BatchPredictionFilterVariable
 instance ToJSON BatchPredictionFilterVariable where
     toJSON = toJSONText
 
--- | A list of the variables to use in searching or filtering 'DataSource'.
+-- | A list of the variables to use in searching or filtering @DataSource@ .
 --
--- -   'CreatedAt' - Sets the search criteria to 'DataSource' creation date.
--- -   'Status' - Sets the search criteria to 'DataSource' status.
--- -   'Name' - Sets the search criteria to the contents of 'DataSource' ____ 'Name'.
--- -   'DataUri' - Sets the search criteria to the URI of data files used to create the 'DataSource'. The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
--- -   'IAMUser' - Sets the search criteria to the user account that invoked the 'DataSource' creation.
 --
--- Note
+--     * @CreatedAt@ - Sets the search criteria to @DataSource@ creation date.    * @Status@ - Sets the search criteria to @DataSource@ status.    * @Name@ - Sets the search criteria to the contents of @DataSource@ ____ @Name@ .    * @DataUri@ - Sets the search criteria to the URI of data files used to create the @DataSource@ . The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.    * @IAMUser@ - Sets the search criteria to the user account that invoked the @DataSource@ creation.
 --
--- The variable names should match the variable names in the 'DataSource'.
 data DataSourceFilterVariable
     = DataCreatedAt
     | DataDATALOCATIONS3
@@ -148,7 +139,7 @@ instance ToHeader     DataSourceFilterVariable
 instance ToJSON DataSourceFilterVariable where
     toJSON = toJSONText
 
--- | Contains the key values of 'DetailsMap': 'PredictiveModelType' - Indicates the type of the 'MLModel'. 'Algorithm' - Indicates the algorithm that was used for the 'MLModel'.
+-- | Contains the key values of @DetailsMap@ : @PredictiveModelType@ - Indicates the type of the @MLModel@ . @Algorithm@ - Indicates the algorithm that was used for the @MLModel@ .
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
@@ -177,11 +168,9 @@ instance FromJSON DetailsAttributes where
 
 -- | Object status with the following possible values:
 --
--- -   'PENDING'
--- -   'INPROGRESS'
--- -   'FAILED'
--- -   'COMPLETED'
--- -   'DELETED'
+--
+--     * @PENDING@     * @INPROGRESS@     * @FAILED@     * @COMPLETED@     * @DELETED@
+--
 data EntityStatus
     = ESCompleted
     | ESDeleted
@@ -217,15 +206,11 @@ instance ToHeader     EntityStatus
 instance FromJSON EntityStatus where
     parseJSON = parseJSONText "EntityStatus"
 
--- | A list of the variables to use in searching or filtering 'Evaluation'.
+-- | A list of the variables to use in searching or filtering @Evaluation@ .
 --
--- -   'CreatedAt' - Sets the search criteria to 'Evaluation' creation date.
--- -   'Status' - Sets the search criteria to 'Evaluation' status.
--- -   'Name' - Sets the search criteria to the contents of 'Evaluation' ____ 'Name'.
--- -   'IAMUser' - Sets the search criteria to the user account that invoked an evaluation.
--- -   'MLModelId' - Sets the search criteria to the 'Predictor' that was evaluated.
--- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used in evaluation.
--- -   'DataUri' - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
+--     * @CreatedAt@ - Sets the search criteria to @Evaluation@ creation date.    * @Status@ - Sets the search criteria to @Evaluation@ status.    * @Name@ - Sets the search criteria to the contents of @Evaluation@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked an evaluation.    * @MLModelId@ - Sets the search criteria to the @Predictor@ that was evaluated.    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in evaluation.    * @DataUri@ - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
 data EvaluationFilterVariable
     = EvalCreatedAt
     | EvalDataSourceId
@@ -386,8 +371,9 @@ instance FromJSON RealtimeEndpointStatus where
 
 -- | The sort order specified in a listing condition. Possible values include the following:
 --
--- -   'asc' - Present the information in ascending order (from A-Z).
--- -   'dsc' - Present the information in descending order (from Z-A).
+--
+--     * @asc@ - Present the information in ascending order (from A-Z).    * @dsc@ - Present the information in descending order (from Z-A).
+--
 data SortOrder
     = Asc
     | Dsc

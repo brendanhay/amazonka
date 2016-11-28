@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the specified rule.
+--
+--
 module Network.AWS.IoT.DisableTopicRule
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | The input for the DisableTopicRuleRequest operation.
 --
+--
+--
 -- /See:/ 'disableTopicRule' smart constructor.
 newtype DisableTopicRule = DisableTopicRule'
     { _dtrRuleName :: Text
@@ -50,7 +54,7 @@ newtype DisableTopicRule = DisableTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrRuleName'
+-- * 'dtrRuleName' - The name of the rule to disable.
 disableTopicRule
     :: Text -- ^ 'dtrRuleName'
     -> DisableTopicRule

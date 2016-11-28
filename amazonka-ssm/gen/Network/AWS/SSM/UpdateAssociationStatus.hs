@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the status of the SSM document associated with the specified instance.
+--
+--
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request
@@ -55,11 +57,11 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasName'
+-- * 'uasName' - The name of the SSM document.
 --
--- * 'uasInstanceId'
+-- * 'uasInstanceId' - The ID of the instance.
 --
--- * 'uasAssociationStatus'
+-- * 'uasAssociationStatus' - The association status.
 updateAssociationStatus
     :: Text -- ^ 'uasName'
     -> Text -- ^ 'uasInstanceId'
@@ -132,9 +134,9 @@ data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasrsAssociationDescription'
+-- * 'uasrsAssociationDescription' - Information about the association.
 --
--- * 'uasrsResponseStatus'
+-- * 'uasrsResponseStatus' - -- | The response status code.
 updateAssociationStatusResponse
     :: Int -- ^ 'uasrsResponseStatus'
     -> UpdateAssociationStatusResponse
@@ -148,7 +150,7 @@ updateAssociationStatusResponse pResponseStatus_ =
 uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
 

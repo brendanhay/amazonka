@@ -20,17 +20,15 @@
 --
 -- Returns information about the specified workflow execution including its type and some statistics.
 --
--- This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 module Network.AWS.SWF.DescribeWorkflowExecution
     (
     -- * Creating a Request
@@ -69,9 +67,9 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dweDomain'
+-- * 'dweDomain' - The name of the domain containing the workflow execution.
 --
--- * 'dweExecution'
+-- * 'dweExecution' - The workflow execution to describe.
 describeWorkflowExecution
     :: Text -- ^ 'dweDomain'
     -> WorkflowExecution -- ^ 'dweExecution'
@@ -134,6 +132,8 @@ instance ToQuery DescribeWorkflowExecution where
 
 -- | Contains details about a workflow execution.
 --
+--
+--
 -- /See:/ 'describeWorkflowExecutionResponse' smart constructor.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
@@ -148,17 +148,17 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwersLatestActivityTaskTimestamp'
+-- * 'dwersLatestActivityTaskTimestamp' - The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
 --
--- * 'dwersLatestExecutionContext'
+-- * 'dwersLatestExecutionContext' - The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
 --
--- * 'dwersResponseStatus'
+-- * 'dwersResponseStatus' - -- | The response status code.
 --
--- * 'dwersExecutionInfo'
+-- * 'dwersExecutionInfo' - Information about the workflow execution.
 --
--- * 'dwersExecutionConfiguration'
+-- * 'dwersExecutionConfiguration' - The configuration settings for this workflow execution including timeout values, tasklist etc.
 --
--- * 'dwersOpenCounts'
+-- * 'dwersOpenCounts' - The number of tasks for this workflow execution. This includes open and closed tasks of all types.
 describeWorkflowExecutionResponse
     :: Int -- ^ 'dwersResponseStatus'
     -> WorkflowExecutionInfo -- ^ 'dwersExecutionInfo'
@@ -179,11 +179,11 @@ describeWorkflowExecutionResponse pResponseStatus_ pExecutionInfo_ pExecutionCon
 dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe UTCTime)
 dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a -> s{_dwersLatestActivityTaskTimestamp = a}) . mapping _Time;
 
--- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using < RespondDecisionTaskCompleted>.
+-- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dwersResponseStatus :: Lens' DescribeWorkflowExecutionResponse Int
 dwersResponseStatus = lens _dwersResponseStatus (\ s a -> s{_dwersResponseStatus = a});
 

@@ -20,11 +20,13 @@
 --
 -- Forces a failover for a DB cluster.
 --
+--
 -- A failover for a DB cluster promotes one of the read-only instances in the DB cluster to the master DB instance (the cluster writer) and deletes the current primary instance.
 --
 -- Amazon Aurora will automatically fail over to a read-only instance, if one exists, when the primary instance fails. You can force a failover when you want to simulate a failure of a DB instance for testing. Because each instance in a DB cluster has its own endpoint address, you will need to clean up and re-establish any existing connections that use those endpoint addresses when the failover is complete.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.FailoverDBCluster
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'failoverDBCluster' smart constructor.
 data FailoverDBCluster = FailoverDBCluster'
     { _fdcDBClusterIdentifier        :: !(Maybe Text)
@@ -61,9 +65,9 @@ data FailoverDBCluster = FailoverDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdcDBClusterIdentifier'
+-- * 'fdcDBClusterIdentifier' - A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'fdcTargetDBInstanceIdentifier'
+-- * 'fdcTargetDBInstanceIdentifier' - The name of the instance to promote to the primary instance. You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
 failoverDBCluster
     :: FailoverDBCluster
 failoverDBCluster =
@@ -72,22 +76,11 @@ failoverDBCluster =
     , _fdcTargetDBInstanceIdentifier = Nothing
     }
 
--- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 fdcDBClusterIdentifier :: Lens' FailoverDBCluster (Maybe Text)
 fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a});
 
--- | The name of the instance to promote to the primary instance.
---
--- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, 'mydbcluster-replica1'.
+-- | The name of the instance to promote to the primary instance. You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
 fdcTargetDBInstanceIdentifier :: Lens' FailoverDBCluster (Maybe Text)
 fdcTargetDBInstanceIdentifier = lens _fdcTargetDBInstanceIdentifier (\ s a -> s{_fdcTargetDBInstanceIdentifier = a});
 
@@ -129,9 +122,9 @@ data FailoverDBClusterResponse = FailoverDBClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdcrsDBCluster'
+-- * 'fdcrsDBCluster' - Undocumented member.
 --
--- * 'fdcrsResponseStatus'
+-- * 'fdcrsResponseStatus' - -- | The response status code.
 failoverDBClusterResponse
     :: Int -- ^ 'fdcrsResponseStatus'
     -> FailoverDBClusterResponse
@@ -145,7 +138,7 @@ failoverDBClusterResponse pResponseStatus_ =
 fdcrsDBCluster :: Lens' FailoverDBClusterResponse (Maybe DBCluster)
 fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 fdcrsResponseStatus :: Lens' FailoverDBClusterResponse Int
 fdcrsResponseStatus = lens _fdcrsResponseStatus (\ s a -> s{_fdcrsResponseStatus = a});
 

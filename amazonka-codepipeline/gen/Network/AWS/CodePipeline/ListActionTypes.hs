@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a summary of all AWS CodePipeline action types associated with your account.
+--
+--
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list action types action.
 --
+--
+--
 -- /See:/ 'listActionTypes' smart constructor.
 data ListActionTypes = ListActionTypes'
     { _latActionOwnerFilter :: !(Maybe ActionOwner)
@@ -56,9 +60,9 @@ data ListActionTypes = ListActionTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'latActionOwnerFilter'
+-- * 'latActionOwnerFilter' - Filters the list of action types to those created by a specified entity.
 --
--- * 'latNextToken'
+-- * 'latNextToken' - An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
 listActionTypes
     :: ListActionTypes
 listActionTypes =
@@ -114,6 +118,8 @@ instance ToQuery ListActionTypes where
 
 -- | Represents the output of a list action types action.
 --
+--
+--
 -- /See:/ 'listActionTypesResponse' smart constructor.
 data ListActionTypesResponse = ListActionTypesResponse'
     { _latrsNextToken      :: !(Maybe Text)
@@ -125,11 +131,11 @@ data ListActionTypesResponse = ListActionTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'latrsNextToken'
+-- * 'latrsNextToken' - If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list.
 --
--- * 'latrsResponseStatus'
+-- * 'latrsResponseStatus' - -- | The response status code.
 --
--- * 'latrsActionTypes'
+-- * 'latrsActionTypes' - Provides details of the action types.
 listActionTypesResponse
     :: Int -- ^ 'latrsResponseStatus'
     -> ListActionTypesResponse
@@ -144,7 +150,7 @@ listActionTypesResponse pResponseStatus_ =
 latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 latrsResponseStatus :: Lens' ListActionTypesResponse Int
 latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a});
 

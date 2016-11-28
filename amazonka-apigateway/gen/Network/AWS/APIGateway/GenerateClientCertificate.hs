@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a < ClientCertificate> resource.
+-- Generates a 'ClientCertificate' resource.
+--
+--
 module Network.AWS.APIGateway.GenerateClientCertificate
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to generate a < ClientCertificate> resource.
+-- | A request to generate a 'ClientCertificate' resource.
+--
+--
 --
 -- /See:/ 'generateClientCertificate' smart constructor.
 newtype GenerateClientCertificate = GenerateClientCertificate'
@@ -56,7 +60,7 @@ newtype GenerateClientCertificate = GenerateClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccDescription'
+-- * 'gccDescription' - The description of the 'ClientCertificate' .
 generateClientCertificate
     :: GenerateClientCertificate
 generateClientCertificate =
@@ -64,7 +68,7 @@ generateClientCertificate =
     { _gccDescription = Nothing
     }
 
--- | The description of the < ClientCertificate>.
+-- | The description of the 'ClientCertificate' .
 gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
 gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a});
 

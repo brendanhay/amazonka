@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the < DescribeReservedNodeOfferings> API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.
+-- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the 'DescribeReservedNodeOfferings' API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.
 --
--- For more information about reserved node offerings, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For more information about reserved node offerings, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'purchaseReservedNodeOffering' smart constructor.
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
     { _prnoNodeCount              :: !(Maybe Int)
@@ -57,9 +61,9 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prnoNodeCount'
+-- * 'prnoNodeCount' - The number of reserved nodes that you want to purchase. Default: @1@
 --
--- * 'prnoReservedNodeOfferingId'
+-- * 'prnoReservedNodeOfferingId' - The unique identifier of the reserved node offering you want to purchase.
 purchaseReservedNodeOffering
     :: Text -- ^ 'prnoReservedNodeOfferingId'
     -> PurchaseReservedNodeOffering
@@ -69,9 +73,7 @@ purchaseReservedNodeOffering pReservedNodeOfferingId_ =
     , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
     }
 
--- | The number of reserved nodes that you want to purchase.
---
--- Default: '1'
+-- | The number of reserved nodes that you want to purchase. Default: @1@
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
 prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 
@@ -121,9 +123,9 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prnorsReservedNode'
+-- * 'prnorsReservedNode' - Undocumented member.
 --
--- * 'prnorsResponseStatus'
+-- * 'prnorsResponseStatus' - -- | The response status code.
 purchaseReservedNodeOfferingResponse
     :: Int -- ^ 'prnorsResponseStatus'
     -> PurchaseReservedNodeOfferingResponse
@@ -137,7 +139,7 @@ purchaseReservedNodeOfferingResponse pResponseStatus_ =
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a});
 

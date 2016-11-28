@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information> in the /Amazon CloudSearch Developer Guide/.
+-- Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeIndexFields' operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
+-- | Container for the parameters to the @'DescribeIndexFields' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
+--
+--
 --
 -- /See:/ 'describeIndexFields' smart constructor.
 data DescribeIndexFields = DescribeIndexFields'
@@ -57,11 +61,11 @@ data DescribeIndexFields = DescribeIndexFields'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difDeployed'
+-- * 'difDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 --
--- * 'difFieldNames'
+-- * 'difFieldNames' - A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
 --
--- * 'difDomainName'
+-- * 'difDomainName' - The name of the domain you want to describe.
 describeIndexFields
     :: Text -- ^ 'difDomainName'
     -> DescribeIndexFields
@@ -72,7 +76,7 @@ describeIndexFields pDomainName_ =
     , _difDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
 
@@ -116,7 +120,9 @@ instance ToQuery DescribeIndexFields where
                  toQuery (toQueryList "member" <$> _difFieldNames),
                "DomainName" =: _difDomainName]
 
--- | The result of a 'DescribeIndexFields' request. Contains the index fields configured for the domain specified in the request.
+-- | The result of a @DescribeIndexFields@ request. Contains the index fields configured for the domain specified in the request.
+--
+--
 --
 -- /See:/ 'describeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
@@ -128,9 +134,9 @@ data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'difsrsResponseStatus'
+-- * 'difsrsResponseStatus' - -- | The response status code.
 --
--- * 'difsrsIndexFields'
+-- * 'difsrsIndexFields' - The index fields configured for the domain.
 describeIndexFieldsResponse
     :: Int -- ^ 'difsrsResponseStatus'
     -> DescribeIndexFieldsResponse
@@ -140,7 +146,7 @@ describeIndexFieldsResponse pResponseStatus_ =
     , _difsrsIndexFields = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 difsrsResponseStatus :: Lens' DescribeIndexFieldsResponse Int
 difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseStatus = a});
 

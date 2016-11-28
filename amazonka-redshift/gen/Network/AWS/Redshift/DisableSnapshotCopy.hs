@@ -20,7 +20,9 @@
 --
 -- Disables the automatic copying of snapshots from one region to another region for a specified cluster.
 --
--- If your cluster and its snapshots are encrypted using a customer master key (CMK) from AWS KMS, use < DeleteSnapshotCopyGrant> to delete the grant that grants Amazon Redshift permission to the CMK in the destination region.
+--
+-- If your cluster and its snapshots are encrypted using a customer master key (CMK) from AWS KMS, use 'DeleteSnapshotCopyGrant' to delete the grant that grants Amazon Redshift permission to the CMK in the destination region.
+--
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'disableSnapshotCopy' smart constructor.
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
     { _dscClusterIdentifier :: Text
@@ -55,7 +59,7 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscClusterIdentifier'
+-- * 'dscClusterIdentifier' - The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.  Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 disableSnapshotCopy
     :: Text -- ^ 'dscClusterIdentifier'
     -> DisableSnapshotCopy
@@ -64,9 +68,7 @@ disableSnapshotCopy pClusterIdentifier_ =
     { _dscClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
---
--- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
+-- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.  Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 
@@ -107,9 +109,9 @@ data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscrsCluster'
+-- * 'dscrsCluster' - Undocumented member.
 --
--- * 'dscrsResponseStatus'
+-- * 'dscrsResponseStatus' - -- | The response status code.
 disableSnapshotCopyResponse
     :: Int -- ^ 'dscrsResponseStatus'
     -> DisableSnapshotCopyResponse
@@ -123,7 +125,7 @@ disableSnapshotCopyResponse pResponseStatus_ =
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
 

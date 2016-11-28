@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. For information about the cluster steps, see < ListSteps>.
+-- Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. For information about the cluster steps, see 'ListSteps' .
+--
+--
 module Network.AWS.EMR.DescribeCluster
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | This input determines which cluster to describe.
 --
+--
+--
 -- /See:/ 'describeCluster' smart constructor.
 newtype DescribeCluster = DescribeCluster'
     { _dcClusterId :: Text
@@ -53,7 +57,7 @@ newtype DescribeCluster = DescribeCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcClusterId'
+-- * 'dcClusterId' - The identifier of the cluster to describe.
 describeCluster
     :: Text -- ^ 'dcClusterId'
     -> DescribeCluster
@@ -101,6 +105,8 @@ instance ToQuery DescribeCluster where
 
 -- | This output contains the description of the cluster.
 --
+--
+--
 -- /See:/ 'describeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
     { _dcrsResponseStatus :: !Int
@@ -111,9 +117,9 @@ data DescribeClusterResponse = DescribeClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 --
--- * 'dcrsCluster'
+-- * 'dcrsCluster' - This output contains the details for the requested cluster.
 describeClusterResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> Cluster -- ^ 'dcrsCluster'
@@ -124,7 +130,7 @@ describeClusterResponse pResponseStatus_ pCluster_ =
     , _dcrsCluster = pCluster_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClusterResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

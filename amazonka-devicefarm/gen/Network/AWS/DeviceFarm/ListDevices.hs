@@ -20,6 +20,8 @@
 --
 -- Gets information about unique device types.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevices
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the result of a list devices request.
 --
+--
+--
 -- /See:/ 'listDevices' smart constructor.
 data ListDevices = ListDevices'
     { _ldArn       :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListDevices = ListDevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldArn'
+-- * 'ldArn' - The device types' ARNs.
 --
--- * 'ldNextToken'
+-- * 'ldNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listDevices
     :: ListDevices
 listDevices =
@@ -70,7 +74,7 @@ listDevices =
     , _ldNextToken = Nothing
     }
 
--- | The device types\' ARNs.
+-- | The device types' ARNs.
 ldArn :: Lens' ListDevices (Maybe Text)
 ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 
@@ -123,6 +127,8 @@ instance ToQuery ListDevices where
 
 -- | Represents the result of a list devices operation.
 --
+--
+--
 -- /See:/ 'listDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
     { _ldrsNextToken      :: !(Maybe Text)
@@ -134,11 +140,11 @@ data ListDevicesResponse = ListDevicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsNextToken'
+-- * 'ldrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ldrsDevices'
+-- * 'ldrsDevices' - Information about the devices.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDevicesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDevicesResponse
@@ -157,7 +163,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDevices :: Lens' ListDevicesResponse [Device]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

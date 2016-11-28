@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of 'host', but without targeting a specific host ID, onto any available Dedicated Host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
+-- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of @host@ , but without targeting a specific host ID, onto any available Dedicated Host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
+--
+--
 module Network.AWS.EC2.ModifyHosts
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyHosts.
 --
+--
+--
 -- /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
     { _mhHostIds       :: ![Text]
@@ -56,9 +60,9 @@ data ModifyHosts = ModifyHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhHostIds'
+-- * 'mhHostIds' - The host IDs of the Dedicated Hosts you want to modify.
 --
--- * 'mhAutoPlacement'
+-- * 'mhAutoPlacement' - Specify whether to enable or disable auto-placement.
 modifyHosts
     :: AutoPlacement -- ^ 'mhAutoPlacement'
     -> ModifyHosts
@@ -110,6 +114,8 @@ instance ToQuery ModifyHosts where
 
 -- | Contains the output of ModifyHosts.
 --
+--
+--
 -- /See:/ 'modifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
     { _mhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
@@ -121,11 +127,11 @@ data ModifyHostsResponse = ModifyHostsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhrsUnsuccessful'
+-- * 'mhrsUnsuccessful' - The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
 --
--- * 'mhrsSuccessful'
+-- * 'mhrsSuccessful' - The IDs of the Dedicated Hosts that were successfully modified.
 --
--- * 'mhrsResponseStatus'
+-- * 'mhrsResponseStatus' - -- | The response status code.
 modifyHostsResponse
     :: Int -- ^ 'mhrsResponseStatus'
     -> ModifyHostsResponse
@@ -144,7 +150,7 @@ mhrsUnsuccessful = lens _mhrsUnsuccessful (\ s a -> s{_mhrsUnsuccessful = a}) . 
 mhrsSuccessful :: Lens' ModifyHostsResponse [Text]
 mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHostsResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the data feed for Spot instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes the data feed for Spot instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
+--
+--
 -- /See:/ 'describeSpotDatafeedSubscription' smart constructor.
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
     { _dsdsDryRun :: Maybe Bool
@@ -53,7 +57,7 @@ newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdsDryRun'
+-- * 'dsdsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeSpotDatafeedSubscription
     :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription =
@@ -61,7 +65,7 @@ describeSpotDatafeedSubscription =
     { _dsdsDryRun = Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
 
@@ -100,6 +104,8 @@ instance ToQuery DescribeSpotDatafeedSubscription
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.
 --
+--
+--
 -- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
@@ -110,9 +116,9 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdsrsSpotDatafeedSubscription'
+-- * 'dsdsrsSpotDatafeedSubscription' - The Spot instance data feed subscription.
 --
--- * 'dsdsrsResponseStatus'
+-- * 'dsdsrsResponseStatus' - -- | The response status code.
 describeSpotDatafeedSubscriptionResponse
     :: Int -- ^ 'dsdsrsResponseStatus'
     -> DescribeSpotDatafeedSubscriptionResponse
@@ -126,7 +132,7 @@ describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
 dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a});
 

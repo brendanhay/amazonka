@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from the specified load balancer.
+--
+--
 module Network.AWS.ELB.RemoveTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtLoadBalancerNames :: ![Text]
@@ -54,9 +58,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtLoadBalancerNames'
+-- * 'rtLoadBalancerNames' - The name of the load balancer. You can specify a maximum of one load balancer name.
 --
--- * 'rtTags'
+-- * 'rtTags' - The list of tag keys to remove.
 removeTags
     :: NonEmpty TagKeyOnly -- ^ 'rtTags'
     -> RemoveTags
@@ -103,6 +107,8 @@ instance ToQuery RemoveTags where
 
 -- | Contains the output of RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
@@ -112,7 +118,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
@@ -121,7 +127,7 @@ removeTagsResponse pResponseStatus_ =
     { _rtrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

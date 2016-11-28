@@ -20,7 +20,9 @@
 --
 -- Returns a description of the gateway volumes specified in the request. This operation is supported only for the gateway-cached volume architecture.
 --
+--
 -- The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume Amazon Resource Name (ARN).
+--
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcscsivVolumeARNs'
+-- * 'dcscsivVolumeARNs' - Undocumented member.
 describeCachediSCSIVolumes
     :: DescribeCachediSCSIVolumes
 describeCachediSCSIVolumes =
@@ -104,6 +106,8 @@ instance ToQuery DescribeCachediSCSIVolumes where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
     { _dcscsivrsCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
@@ -114,9 +118,9 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcscsivrsCachediSCSIVolumes'
+-- * 'dcscsivrsCachediSCSIVolumes' - An array of objects where each object contains metadata about one cached volume.
 --
--- * 'dcscsivrsResponseStatus'
+-- * 'dcscsivrsResponseStatus' - -- | The response status code.
 describeCachediSCSIVolumesResponse
     :: Int -- ^ 'dcscsivrsResponseStatus'
     -> DescribeCachediSCSIVolumesResponse
@@ -130,7 +134,7 @@ describeCachediSCSIVolumesResponse pResponseStatus_ =
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
 dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
 dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a});
 

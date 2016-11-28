@@ -20,7 +20,9 @@
 --
 -- Enables a rule. If the rule does not exist, the operation fails.
 --
+--
 -- __Note:__ When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
+--
 module Network.AWS.CloudWatchEvents.EnableRule
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < EnableRule> operation.
+-- | Container for the parameters to the 'EnableRule' operation.
+--
+--
 --
 -- /See:/ 'enableRule' smart constructor.
 newtype EnableRule = EnableRule'
@@ -52,7 +56,7 @@ newtype EnableRule = EnableRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erName'
+-- * 'erName' - The name of the rule that you want to enable.
 enableRule
     :: Text -- ^ 'erName'
     -> EnableRule

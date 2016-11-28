@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /DeleteCacheParameterGroup/ action deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters.
+--
+--
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheParameterGroup/ action.
 --
+--
+--
 -- /See:/ 'deleteCacheParameterGroup' smart constructor.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
     { _dCacheParameterGroupName :: Text
@@ -50,7 +54,7 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCacheParameterGroupName'
+-- * 'dCacheParameterGroupName' - The name of the cache parameter group to delete.
 deleteCacheParameterGroup
     :: Text -- ^ 'dCacheParameterGroupName'
     -> DeleteCacheParameterGroup
@@ -60,8 +64,6 @@ deleteCacheParameterGroup pCacheParameterGroupName_ =
     }
 
 -- | The name of the cache parameter group to delete.
---
--- The specified cache security group must not be associated with any cache clusters.
 dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
 

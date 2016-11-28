@@ -67,7 +67,7 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.SNS.Types.Product
 import           Network.AWS.SNS.Types.Sum
 
--- | API version '2010-03-31' of the Amazon Simple Notification Service SDK configuration.
+-- | API version @2010-03-31@ of the Amazon Simple Notification Service SDK configuration.
 sns :: Service
 sns =
     Service
@@ -102,49 +102,69 @@ sns =
       | otherwise = Nothing
 
 -- | Exception error indicating endpoint disabled.
+--
+--
 _EndpointDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EndpointDisabledException =
     _ServiceError . hasStatus 400 . hasCode "EndpointDisabled"
 
 -- | Indicates that the user has been denied access to the requested resource.
+--
+--
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
     _ServiceError . hasStatus 403 . hasCode "AuthorizationError"
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
 
 -- | Indicates that the customer already owns the maximum allowed number of subscriptions.
+--
+--
 _SubscriptionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionLimitExceededException =
     _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded"
 
 -- | Exception error indicating platform application disabled.
+--
+--
 _PlatformApplicationDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _PlatformApplicationDisabledException =
     _ServiceError . hasStatus 400 . hasCode "PlatformApplicationDisabled"
 
 -- | Indicates an internal service error.
+--
+--
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException =
     _ServiceError . hasStatus 500 . hasCode "InternalError"
 
 -- | Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.
+--
+--
 _ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottledException = _ServiceError . hasStatus 429 . hasCode "Throttled"
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid"
 
 -- | Indicates that the requested resource does not exist.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
 -- | Indicates that the customer already owns the maximum allowed number of topics.
+--
+--
 _TopicLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TopicLimitExceededException =
     _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded"

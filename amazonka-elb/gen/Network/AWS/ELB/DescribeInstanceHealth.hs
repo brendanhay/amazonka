@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.
+--
+--
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeInstanceHealth.
 --
+--
+--
 -- /See:/ 'describeInstanceHealth' smart constructor.
 data DescribeInstanceHealth = DescribeInstanceHealth'
     { _dihInstances        :: !(Maybe [Instance])
@@ -55,9 +59,9 @@ data DescribeInstanceHealth = DescribeInstanceHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihInstances'
+-- * 'dihInstances' - The IDs of the instances.
 --
--- * 'dihLoadBalancerName'
+-- * 'dihLoadBalancerName' - The name of the load balancer.
 describeInstanceHealth
     :: Text -- ^ 'dihLoadBalancerName'
     -> DescribeInstanceHealth
@@ -109,6 +113,8 @@ instance ToQuery DescribeInstanceHealth where
 
 -- | Contains the output for DescribeInstanceHealth.
 --
+--
+--
 -- /See:/ 'describeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrsInstanceStates :: !(Maybe [InstanceState])
@@ -119,9 +125,9 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihrsInstanceStates'
+-- * 'dihrsInstanceStates' - Information about the health of the instances.
 --
--- * 'dihrsResponseStatus'
+-- * 'dihrsResponseStatus' - -- | The response status code.
 describeInstanceHealthResponse
     :: Int -- ^ 'dihrsResponseStatus'
     -> DescribeInstanceHealthResponse
@@ -135,7 +141,7 @@ describeInstanceHealthResponse pResponseStatus_ =
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstanceHealthResponse Int
 dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
 

@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the parts of an archive that have been uploaded in a specific multipart upload. You can make this request at any time during an in-progress multipart upload before you complete the upload (see < CompleteMultipartUpload>. List Parts returns an error for completed uploads. The list returned in the List Parts response is sorted by part range.
+-- This operation lists the parts of an archive that have been uploaded in a specific multipart upload. You can make this request at any time during an in-progress multipart upload before you complete the upload (see 'CompleteMultipartUpload' . List Parts returns an error for completed uploads. The list returned in the List Parts response is sorted by part range.
 --
--- The List Parts operation supports pagination. By default, this operation returns up to 1,000 uploaded parts in the response. You should always check the response for a 'marker' at which to continue the list; if there are no more items the 'marker' is 'null'. To return a list of parts that begins at a specific part, set the 'marker' request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the 'limit' parameter in the request.
 --
--- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don\'t have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
+-- The List Parts operation supports pagination. By default, this operation returns up to 1,000 uploaded parts in the response. You should always check the response for a @marker@ at which to continue the list; if there are no more items the @marker@ is @null@ . To return a list of parts that begins at a specific part, set the @marker@ request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the @limit@ parameter in the request.
 --
--- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts> in the /Amazon Glacier Developer Guide/.
+-- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
+--
+-- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts> in the /Amazon Glacier Developer Guide/ .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListParts
@@ -63,6 +65,8 @@ import           Network.AWS.Response
 
 -- | Provides options for retrieving a list of parts of an archive that have been uploaded in a specific multipart upload.
 --
+--
+--
 -- /See:/ 'listParts' smart constructor.
 data ListParts = ListParts'
     { _lpMarker    :: !(Maybe Text)
@@ -76,15 +80,15 @@ data ListParts = ListParts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpMarker'
+-- * 'lpMarker' - An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
 --
--- * 'lpLimit'
+-- * 'lpLimit' - Specifies the maximum number of parts returned in the response body. If this value is not specified, the List Parts operation returns up to 1,000 uploads.
 --
--- * 'lpAccountId'
+-- * 'lpAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 --
--- * 'lpVaultName'
+-- * 'lpVaultName' - The name of the vault.
 --
--- * 'lpUploadId'
+-- * 'lpUploadId' - The upload ID of the multipart upload.
 listParts
     :: Text -- ^ 'lpAccountId'
     -> Text -- ^ 'lpVaultName'
@@ -107,7 +111,7 @@ lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 lpLimit :: Lens' ListParts (Maybe Text)
 lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a});
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 lpAccountId :: Lens' ListParts Text
 lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a});
 
@@ -163,6 +167,8 @@ instance ToQuery ListParts where
 
 -- | Contains the Amazon Glacier response to your request.
 --
+--
+--
 -- /See:/ 'listPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
     { _lprsParts              :: !(Maybe [PartListElement])
@@ -179,21 +185,21 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsParts'
+-- * 'lprsParts' - A list of the part sizes of the multipart upload.
 --
--- * 'lprsMultipartUploadId'
+-- * 'lprsMultipartUploadId' - The ID of the upload to which the parts are associated.
 --
--- * 'lprsPartSizeInBytes'
+-- * 'lprsPartSizeInBytes' - The part size in bytes.
 --
--- * 'lprsArchiveDescription'
+-- * 'lprsArchiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
 --
--- * 'lprsVaultARN'
+-- * 'lprsVaultARN' - The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
 --
--- * 'lprsMarker'
+-- * 'lprsMarker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
 --
--- * 'lprsCreationDate'
+-- * 'lprsCreationDate' - The UTC time at which the multipart upload was initiated.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPartsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
@@ -229,7 +235,7 @@ lprsArchiveDescription = lens _lprsArchiveDescription (\ s a -> s{_lprsArchiveDe
 lprsVaultARN :: Lens' ListPartsResponse (Maybe Text)
 lprsVaultARN = lens _lprsVaultARN (\ s a -> s{_lprsVaultARN = a});
 
--- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is 'null'.
+-- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
 lprsMarker :: Lens' ListPartsResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
@@ -237,7 +243,7 @@ lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 lprsCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

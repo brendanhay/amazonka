@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the data feed for Spot instances.
+--
+--
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
+--
+--
 -- /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
     { _dsdssDryRun :: Maybe Bool
@@ -50,7 +54,7 @@ newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdssDryRun'
+-- * 'dsdssDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 deleteSpotDatafeedSubscription
     :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription =
@@ -58,7 +62,7 @@ deleteSpotDatafeedSubscription =
     { _dsdssDryRun = Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
 

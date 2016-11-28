@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
+-- Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format> .
+--
+--
 module Network.AWS.IoT.ListPrincipalPolicies
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListPrincipalPolicies operation.
 --
+--
+--
 -- /See:/ 'listPrincipalPolicies' smart constructor.
 data ListPrincipalPolicies = ListPrincipalPolicies'
     { _lppMarker         :: !(Maybe Text)
@@ -60,13 +64,13 @@ data ListPrincipalPolicies = ListPrincipalPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lppMarker'
+-- * 'lppMarker' - The marker for the next set of results.
 --
--- * 'lppAscendingOrder'
+-- * 'lppAscendingOrder' - Specifies the order for results. If true, results are returned in ascending creation order.
 --
--- * 'lppPageSize'
+-- * 'lppPageSize' - The result page size.
 --
--- * 'lppPrincipal'
+-- * 'lppPrincipal' - The principal.
 listPrincipalPolicies
     :: Text -- ^ 'lppPrincipal'
     -> ListPrincipalPolicies
@@ -126,6 +130,8 @@ instance ToQuery ListPrincipalPolicies where
 
 -- | The output from the ListPrincipalPolicies operation.
 --
+--
+--
 -- /See:/ 'listPrincipalPoliciesResponse' smart constructor.
 data ListPrincipalPoliciesResponse = ListPrincipalPoliciesResponse'
     { _lpprsNextMarker     :: !(Maybe Text)
@@ -137,11 +143,11 @@ data ListPrincipalPoliciesResponse = ListPrincipalPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpprsNextMarker'
+-- * 'lpprsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lpprsPolicies'
+-- * 'lpprsPolicies' - The policies.
 --
--- * 'lpprsResponseStatus'
+-- * 'lpprsResponseStatus' - -- | The response status code.
 listPrincipalPoliciesResponse
     :: Int -- ^ 'lpprsResponseStatus'
     -> ListPrincipalPoliciesResponse
@@ -160,7 +166,7 @@ lpprsNextMarker = lens _lpprsNextMarker (\ s a -> s{_lpprsNextMarker = a});
 lpprsPolicies :: Lens' ListPrincipalPoliciesResponse [Policy]
 lpprsPolicies = lens _lpprsPolicies (\ s a -> s{_lpprsPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lpprsResponseStatus :: Lens' ListPrincipalPoliciesResponse Int
 lpprsResponseStatus = lens _lpprsResponseStatus (\ s a -> s{_lpprsResponseStatus = a});
 

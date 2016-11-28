@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of < ByteMatchSetSummary> objects.
+-- Returns an array of 'ByteMatchSetSummary' objects.
+--
+--
 module Network.AWS.WAF.ListByteMatchSets
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data ListByteMatchSets = ListByteMatchSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbmsNextMarker'
+-- * 'lbmsNextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
 --
--- * 'lbmsLimit'
+-- * 'lbmsLimit' - Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
 listByteMatchSets
     :: Natural -- ^ 'lbmsLimit'
     -> ListByteMatchSets
@@ -66,11 +68,11 @@ listByteMatchSets pLimit_ =
     , _lbmsLimit = _Nat # pLimit_
     }
 
--- | If you specify a value for 'Limit' and you have more 'ByteMatchSets' than the value of 'Limit', AWS WAF returns a 'NextMarker' value in the response that allows you to list another group of 'ByteMatchSets'. For the second and subsequent 'ListByteMatchSets' requests, specify the value of 'NextMarker' from the previous response to get information about another batch of 'ByteMatchSets'.
+-- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
 lbmsNextMarker :: Lens' ListByteMatchSets (Maybe Text)
 lbmsNextMarker = lens _lbmsNextMarker (\ s a -> s{_lbmsNextMarker = a});
 
--- | Specifies the number of 'ByteMatchSet' objects that you want AWS WAF to return for this request. If you have more 'ByteMatchSets' objects than the number you specify for 'Limit', the response includes a 'NextMarker' value that you can use to get another batch of 'ByteMatchSet' objects.
+-- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
 lbmsLimit :: Lens' ListByteMatchSets Natural
 lbmsLimit = lens _lbmsLimit (\ s a -> s{_lbmsLimit = a}) . _Nat;
 
@@ -122,11 +124,11 @@ data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbmsrsByteMatchSets'
+-- * 'lbmsrsByteMatchSets' - An array of 'ByteMatchSetSummary' objects.
 --
--- * 'lbmsrsNextMarker'
+-- * 'lbmsrsNextMarker' - If you have more @ByteMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another @ListByteMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 --
--- * 'lbmsrsResponseStatus'
+-- * 'lbmsrsResponseStatus' - -- | The response status code.
 listByteMatchSetsResponse
     :: Int -- ^ 'lbmsrsResponseStatus'
     -> ListByteMatchSetsResponse
@@ -137,15 +139,15 @@ listByteMatchSetsResponse pResponseStatus_ =
     , _lbmsrsResponseStatus = pResponseStatus_
     }
 
--- | An array of < ByteMatchSetSummary> objects.
+-- | An array of 'ByteMatchSetSummary' objects.
 lbmsrsByteMatchSets :: Lens' ListByteMatchSetsResponse [ByteMatchSetSummary]
 lbmsrsByteMatchSets = lens _lbmsrsByteMatchSets (\ s a -> s{_lbmsrsByteMatchSets = a}) . _Default . _Coerce;
 
--- | If you have more 'ByteMatchSet' objects than the number that you specified for 'Limit' in the request, the response includes a 'NextMarker' value. To list more 'ByteMatchSet' objects, submit another 'ListByteMatchSets' request, and specify the 'NextMarker' value from the response in the 'NextMarker' value in the next request.
+-- | If you have more @ByteMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another @ListByteMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lbmsrsNextMarker :: Lens' ListByteMatchSetsResponse (Maybe Text)
 lbmsrsNextMarker = lens _lbmsrsNextMarker (\ s a -> s{_lbmsrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lbmsrsResponseStatus :: Lens' ListByteMatchSetsResponse Int
 lbmsrsResponseStatus = lens _lbmsrsResponseStatus (\ s a -> s{_lbmsrsResponseStatus = a});
 

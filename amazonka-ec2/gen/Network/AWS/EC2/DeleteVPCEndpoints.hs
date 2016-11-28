@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes one or more specified VPC endpoints. Deleting the endpoint also deletes the endpoint routes in the route tables that were associated with the endpoint.
+--
+--
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpcEndpoints.
 --
+--
+--
 -- /See:/ 'deleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
     { _dveDryRun         :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data DeleteVPCEndpoints = DeleteVPCEndpoints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dveDryRun'
+-- * 'dveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dveVPCEndpointIds'
+-- * 'dveVPCEndpointIds' - One or more endpoint IDs.
 deleteVPCEndpoints
     :: DeleteVPCEndpoints
 deleteVPCEndpoints =
@@ -66,7 +70,7 @@ deleteVPCEndpoints =
     , _dveVPCEndpointIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
 dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 
@@ -106,6 +110,8 @@ instance ToQuery DeleteVPCEndpoints where
 
 -- | Contains the output of DeleteVpcEndpoints.
 --
+--
+--
 -- /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dversUnsuccessful   :: !(Maybe [UnsuccessfulItem])
@@ -116,9 +122,9 @@ data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dversUnsuccessful'
+-- * 'dversUnsuccessful' - Information about the endpoints that were not successfully deleted.
 --
--- * 'dversResponseStatus'
+-- * 'dversResponseStatus' - -- | The response status code.
 deleteVPCEndpointsResponse
     :: Int -- ^ 'dversResponseStatus'
     -> DeleteVPCEndpointsResponse
@@ -132,7 +138,7 @@ deleteVPCEndpointsResponse pResponseStatus_ =
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.
 --
+--
 -- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EnableAvailabilityZonesForLoadBalancer.
 --
+--
+--
 -- /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
     { _eazflbLoadBalancerName  :: !Text
@@ -59,9 +63,9 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eazflbLoadBalancerName'
+-- * 'eazflbLoadBalancerName' - The name of the load balancer.
 --
--- * 'eazflbAvailabilityZones'
+-- * 'eazflbAvailabilityZones' - The Availability Zones. These must be in the same region as the load balancer.
 enableAvailabilityZonesForLoadBalancer
     :: Text -- ^ 'eazflbLoadBalancerName'
     -> EnableAvailabilityZonesForLoadBalancer
@@ -121,6 +125,8 @@ instance ToQuery
 
 -- | Contains the output of EnableAvailabilityZonesForLoadBalancer.
 --
+--
+--
 -- /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones :: !(Maybe [Text])
@@ -131,9 +137,9 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eazflbrsAvailabilityZones'
+-- * 'eazflbrsAvailabilityZones' - The updated list of Availability Zones for the load balancer.
 --
--- * 'eazflbrsResponseStatus'
+-- * 'eazflbrsResponseStatus' - -- | The response status code.
 enableAvailabilityZonesForLoadBalancerResponse
     :: Int -- ^ 'eazflbrsResponseStatus'
     -> EnableAvailabilityZonesForLoadBalancerResponse
@@ -147,7 +153,7 @@ enableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
 eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 eazflbrsResponseStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
 eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\ s a -> s{_eazflbrsResponseStatus = a});
 

@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the user\'s sending statistics. The result is a list of data points, representing the last two weeks of sending activity.
+-- Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity.
+--
 --
 -- Each data point in the list contains statistics for a 15-minute interval.
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Creating a Request
@@ -85,6 +87,8 @@ instance ToQuery GetSendStatistics where
 
 -- | Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.
 --
+--
+--
 -- /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
@@ -95,9 +99,9 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gssrsSendDataPoints'
+-- * 'gssrsSendDataPoints' - A list of data points, each of which represents 15 minutes of activity.
 --
--- * 'gssrsResponseStatus'
+-- * 'gssrsResponseStatus' - -- | The response status code.
 getSendStatisticsResponse
     :: Int -- ^ 'gssrsResponseStatus'
     -> GetSendStatisticsResponse
@@ -111,7 +115,7 @@ getSendStatisticsResponse pResponseStatus_ =
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
 gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});
 

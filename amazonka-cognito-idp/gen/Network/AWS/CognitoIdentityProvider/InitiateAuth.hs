@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Initiates the authentication flow.
+--
+--
 module Network.AWS.CognitoIdentityProvider.InitiateAuth
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Initiates the authentication request.
 --
+--
+--
 -- /See:/ 'initiateAuth' smart constructor.
 data InitiateAuth = InitiateAuth'
     { _iaClientMetadata :: !(Maybe (Map Text Text))
@@ -62,13 +66,13 @@ data InitiateAuth = InitiateAuth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iaClientMetadata'
+-- * 'iaClientMetadata' - The client app's metadata.
 --
--- * 'iaAuthParameters'
+-- * 'iaAuthParameters' - The authentication parameters.
 --
--- * 'iaAuthFlow'
+-- * 'iaAuthFlow' - The authentication flow.
 --
--- * 'iaClientId'
+-- * 'iaClientId' - The client ID.
 initiateAuth
     :: AuthFlowType -- ^ 'iaAuthFlow'
     -> Text -- ^ 'iaClientId'
@@ -81,7 +85,7 @@ initiateAuth pAuthFlow_ pClientId_ =
     , _iaClientId = _Sensitive # pClientId_
     }
 
--- | The client app\'s metadata.
+-- | The client app's metadata.
 iaClientMetadata :: Lens' InitiateAuth (HashMap Text Text)
 iaClientMetadata = lens _iaClientMetadata (\ s a -> s{_iaClientMetadata = a}) . _Default . _Map;
 
@@ -141,6 +145,8 @@ instance ToQuery InitiateAuth where
 
 -- | Initiates the authentication response.
 --
+--
+--
 -- /See:/ 'initiateAuthResponse' smart constructor.
 data InitiateAuthResponse = InitiateAuthResponse'
     { _iarsChallengeName        :: !(Maybe ChallengeNameType)
@@ -154,15 +160,15 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iarsChallengeName'
+-- * 'iarsChallengeName' - The name of the challenge.
 --
--- * 'iarsChallengeParameters'
+-- * 'iarsChallengeParameters' - The challenge parameters.
 --
--- * 'iarsAuthenticationResult'
+-- * 'iarsAuthenticationResult' - Undocumented member.
 --
--- * 'iarsSession'
+-- * 'iarsSession' - The session.
 --
--- * 'iarsResponseStatus'
+-- * 'iarsResponseStatus' - -- | The response status code.
 initiateAuthResponse
     :: Int -- ^ 'iarsResponseStatus'
     -> InitiateAuthResponse
@@ -191,7 +197,7 @@ iarsAuthenticationResult = lens _iarsAuthenticationResult (\ s a -> s{_iarsAuthe
 iarsSession :: Lens' InitiateAuthResponse (Maybe Text)
 iarsSession = lens _iarsSession (\ s a -> s{_iarsSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 iarsResponseStatus :: Lens' InitiateAuthResponse Int
 iarsResponseStatus = lens _iarsResponseStatus (\ s a -> s{_iarsResponseStatus = a});
 

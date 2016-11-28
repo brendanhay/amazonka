@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a high-availability partition group.
+--
+--
 module Network.AWS.CloudHSM.DeleteHAPG
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DeleteHapg> action.
+-- | Contains the inputs for the 'DeleteHapg' action.
+--
+--
 --
 -- /See:/ 'deleteHAPG' smart constructor.
 newtype DeleteHAPG = DeleteHAPG'
@@ -53,7 +57,7 @@ newtype DeleteHAPG = DeleteHAPG'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhHAPGARN'
+-- * 'dhHAPGARN' - The ARN of the high-availability partition group to delete.
 deleteHAPG
     :: Text -- ^ 'dhHAPGARN'
     -> DeleteHAPG
@@ -98,7 +102,9 @@ instance ToPath DeleteHAPG where
 instance ToQuery DeleteHAPG where
         toQuery = const mempty
 
--- | Contains the output of the < DeleteHapg> action.
+-- | Contains the output of the 'DeleteHapg' action.
+--
+--
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
@@ -110,9 +116,9 @@ data DeleteHAPGResponse = DeleteHAPGResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhrsResponseStatus'
+-- * 'dhrsResponseStatus' - -- | The response status code.
 --
--- * 'dhrsStatus'
+-- * 'dhrsStatus' - The status of the action.
 deleteHAPGResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> Text -- ^ 'dhrsStatus'
@@ -123,7 +129,7 @@ deleteHAPGResponse pResponseStatus_ pStatus_ =
     , _dhrsStatus = pStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 

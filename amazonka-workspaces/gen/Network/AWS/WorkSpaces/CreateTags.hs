@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates tags for a WorkSpace.
+--
+--
 module Network.AWS.WorkSpaces.CreateTags
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the < CreateTags> operation.
+-- | The request of the 'CreateTags' operation.
+--
+--
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
@@ -54,9 +58,9 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctResourceId'
+-- * 'ctResourceId' - The resource ID of the request.
 --
--- * 'ctTags'
+-- * 'ctTags' - The tags of the request.
 createTags
     :: Text -- ^ 'ctResourceId'
     -> CreateTags
@@ -108,7 +112,9 @@ instance ToPath CreateTags where
 instance ToQuery CreateTags where
         toQuery = const mempty
 
--- | The result of the < CreateTags> operation.
+-- | The result of the 'CreateTags' operation.
+--
+--
 --
 -- /See:/ 'createTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'
@@ -119,7 +125,7 @@ newtype CreateTagsResponse = CreateTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTagsResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTagsResponse
@@ -128,7 +134,7 @@ createTagsResponse pResponseStatus_ =
     { _ctrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 

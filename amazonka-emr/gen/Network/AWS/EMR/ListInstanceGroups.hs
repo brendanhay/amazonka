@@ -20,6 +20,8 @@
 --
 -- Provides all available details about the instance groups in a cluster.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstanceGroups
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | This input determines which instance groups to retrieve.
 --
+--
+--
 -- /See:/ 'listInstanceGroups' smart constructor.
 data ListInstanceGroups = ListInstanceGroups'
     { _ligMarker    :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListInstanceGroups = ListInstanceGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ligMarker'
+-- * 'ligMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'ligClusterId'
+-- * 'ligClusterId' - The identifier of the cluster for which to list the instance groups.
 listInstanceGroups
     :: Text -- ^ 'ligClusterId'
     -> ListInstanceGroups
@@ -127,6 +131,8 @@ instance ToQuery ListInstanceGroups where
 
 -- | This input determines which instance groups to retrieve.
 --
+--
+--
 -- /See:/ 'listInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
     { _ligrsMarker         :: !(Maybe Text)
@@ -138,11 +144,11 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ligrsMarker'
+-- * 'ligrsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'ligrsInstanceGroups'
+-- * 'ligrsInstanceGroups' - The list of instance groups for the cluster and given filters.
 --
--- * 'ligrsResponseStatus'
+-- * 'ligrsResponseStatus' - -- | The response status code.
 listInstanceGroupsResponse
     :: Int -- ^ 'ligrsResponseStatus'
     -> ListInstanceGroupsResponse
@@ -161,7 +167,7 @@ ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
 ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});
 

@@ -20,6 +20,8 @@
 --
 -- Describes one or more of your SSM documents.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
     (
@@ -59,11 +61,11 @@ data ListDocuments = ListDocuments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldDocumentFilterList'
+-- * 'ldDocumentFilterList' - One or more filters. Use a filter to return a more specific list of results.
 --
--- * 'ldNextToken'
+-- * 'ldNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'ldMaxResults'
+-- * 'ldMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 listDocuments
     :: ListDocuments
 listDocuments =
@@ -141,11 +143,11 @@ data ListDocumentsResponse = ListDocumentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsDocumentIdentifiers'
+-- * 'ldrsDocumentIdentifiers' - The names of the SSM documents.
 --
--- * 'ldrsNextToken'
+-- * 'ldrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDocumentsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDocumentsResponse
@@ -164,7 +166,7 @@ ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumen
 ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDocumentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

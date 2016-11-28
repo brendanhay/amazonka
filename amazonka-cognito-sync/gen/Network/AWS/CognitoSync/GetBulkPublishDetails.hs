@@ -20,7 +20,9 @@
 --
 -- Get the status of the last BulkPublish operation for an identity pool.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.GetBulkPublishDetails
     (
     -- * Creating a Request
@@ -59,7 +61,7 @@ newtype GetBulkPublishDetails = GetBulkPublishDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpdIdentityPoolId'
+-- * 'gbpdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 getBulkPublishDetails
     :: Text -- ^ 'gbpdIdentityPoolId'
     -> GetBulkPublishDetails
@@ -126,17 +128,17 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpdrsBulkPublishStartTime'
+-- * 'gbpdrsBulkPublishStartTime' - The date/time at which the last bulk publish was initiated.
 --
--- * 'gbpdrsIdentityPoolId'
+-- * 'gbpdrsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'gbpdrsBulkPublishCompleteTime'
+-- * 'gbpdrsBulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
 --
--- * 'gbpdrsFailureMessage'
+-- * 'gbpdrsFailureMessage' - If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
 --
--- * 'gbpdrsBulkPublishStatus'
+-- * 'gbpdrsBulkPublishStatus' - Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool IN_PROGRESS - Data is being published to the configured stream SUCCEEDED - All data for the identity pool has been published to the configured stream FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
 --
--- * 'gbpdrsResponseStatus'
+-- * 'gbpdrsResponseStatus' - -- | The response status code.
 getBulkPublishDetailsResponse
     :: Int -- ^ 'gbpdrsResponseStatus'
     -> GetBulkPublishDetailsResponse
@@ -150,7 +152,7 @@ getBulkPublishDetailsResponse pResponseStatus_ =
     , _gbpdrsResponseStatus = pResponseStatus_
     }
 
--- | The date\/time at which the last bulk publish was initiated.
+-- | The date/time at which the last bulk publish was initiated.
 gbpdrsBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 gbpdrsBulkPublishStartTime = lens _gbpdrsBulkPublishStartTime (\ s a -> s{_gbpdrsBulkPublishStartTime = a}) . mapping _Time;
 
@@ -166,19 +168,11 @@ gbpdrsBulkPublishCompleteTime = lens _gbpdrsBulkPublishCompleteTime (\ s a -> s{
 gbpdrsFailureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
 gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMessage = a});
 
--- | Status of the last bulk publish operation, valid values are:
---
--- NOT_STARTED - No bulk publish has been requested for this identity pool
---
--- IN_PROGRESS - Data is being published to the configured stream
---
--- SUCCEEDED - All data for the identity pool has been published to the configured stream
---
--- FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
+-- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool IN_PROGRESS - Data is being published to the configured stream SUCCEEDED - All data for the identity pool has been published to the configured stream FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
 gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbpdrsResponseStatus :: Lens' GetBulkPublishDetailsResponse Int
 gbpdrsResponseStatus = lens _gbpdrsResponseStatus (\ s a -> s{_gbpdrsResponseStatus = a});
 

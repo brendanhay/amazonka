@@ -20,6 +20,7 @@
 --
 -- Creates an X.509 certificate using the specified certificate signing request.
 --
+--
 -- __Note__ Reusing the same certificate signing request (CSR) results in a distinct certificate.
 --
 -- You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.
@@ -28,21 +29,22 @@
 --
 -- On Linux and OS X, the command is:
 --
--- > ls my-csr-directory\/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file:\/\/my-csr-directory\/{}
+-- >  ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}
 --
 -- This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.
 --
 -- The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:
 --
--- > ls my-csr-directory\/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file:\/\/my-csr-directory\/{}
+-- >  ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}
 --
 -- On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:
 --
--- > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file:\/\/my-csr-directory\/>_}
+-- > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}
 --
 -- On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:
 --
--- > forfiles \/p my-csr-directory \/c \"cmd \/c aws iot create-certificate-from-csr --certificate-signing-request file:\/\/\'path\"
+-- > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"
+--
 module Network.AWS.IoT.CreateCertificateFromCsr
     (
     -- * Creating a Request
@@ -71,6 +73,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreateCertificateFromCsr operation.
 --
+--
+--
 -- /See:/ 'createCertificateFromCsr' smart constructor.
 data CreateCertificateFromCsr = CreateCertificateFromCsr'
     { _ccfcSetAsActive               :: !(Maybe Bool)
@@ -81,9 +85,9 @@ data CreateCertificateFromCsr = CreateCertificateFromCsr'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfcSetAsActive'
+-- * 'ccfcSetAsActive' - Specifies whether the certificate is active.
 --
--- * 'ccfcCertificateSigningRequest'
+-- * 'ccfcCertificateSigningRequest' - The certificate signing request (CSR).
 createCertificateFromCsr
     :: Text -- ^ 'ccfcCertificateSigningRequest'
     -> CreateCertificateFromCsr
@@ -137,6 +141,8 @@ instance ToQuery CreateCertificateFromCsr where
 
 -- | The output from the CreateCertificateFromCsr operation.
 --
+--
+--
 -- /See:/ 'createCertificateFromCsrResponse' smart constructor.
 data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
     { _ccfcrsCertificatePem :: !(Maybe Text)
@@ -149,13 +155,13 @@ data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfcrsCertificatePem'
+-- * 'ccfcrsCertificatePem' - The certificate data, in PEM format.
 --
--- * 'ccfcrsCertificateARN'
+-- * 'ccfcrsCertificateARN' - The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
 --
--- * 'ccfcrsCertificateId'
+-- * 'ccfcrsCertificateId' - The ID of the certificate. Certificate management operations only take a certificateId.
 --
--- * 'ccfcrsResponseStatus'
+-- * 'ccfcrsResponseStatus' - -- | The response status code.
 createCertificateFromCsrResponse
     :: Int -- ^ 'ccfcrsResponseStatus'
     -> CreateCertificateFromCsrResponse
@@ -179,7 +185,7 @@ ccfcrsCertificateARN = lens _ccfcrsCertificateARN (\ s a -> s{_ccfcrsCertificate
 ccfcrsCertificateId :: Lens' CreateCertificateFromCsrResponse (Maybe Text)
 ccfcrsCertificateId = lens _ccfcrsCertificateId (\ s a -> s{_ccfcrsCertificateId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccfcrsResponseStatus :: Lens' CreateCertificateFromCsrResponse Int
 ccfcrsResponseStatus = lens _ccfcrsResponseStatus (\ s a -> s{_ccfcrsResponseStatus = a});
 

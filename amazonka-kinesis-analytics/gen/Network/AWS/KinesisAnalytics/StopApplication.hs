@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops the application from processing input data. You can stop an application only if it is in the running state. You can use the < DescribeApplication> operation to find the application state. After the application is stopped, Amazon Kinesis Analytics stops reading data from the input, the application stops processing data, and there is no output written to the destination.
+-- Stops the application from processing input data. You can stop an application only if it is in the running state. You can use the 'DescribeApplication' operation to find the application state. After the application is stopped, Amazon Kinesis Analytics stops reading data from the input, the application stops processing data, and there is no output written to the destination.
 --
--- This operation requires permissions to perform the 'kinesisanalytics:StopApplication' action.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:StopApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.StopApplication
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'stopApplication' smart constructor.
 newtype StopApplication = StopApplication'
     { _sApplicationName :: Text
@@ -54,7 +58,7 @@ newtype StopApplication = StopApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sApplicationName'
+-- * 'sApplicationName' - Name of the running application to stop.
 stopApplication
     :: Text -- ^ 'sApplicationName'
     -> StopApplication
@@ -103,6 +107,8 @@ instance ToQuery StopApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'stopApplicationResponse' smart constructor.
 newtype StopApplicationResponse = StopApplicationResponse'
     { _srsResponseStatus :: Int
@@ -112,7 +118,7 @@ newtype StopApplicationResponse = StopApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopApplicationResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopApplicationResponse
@@ -121,7 +127,7 @@ stopApplicationResponse pResponseStatus_ =
     { _srsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopApplicationResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

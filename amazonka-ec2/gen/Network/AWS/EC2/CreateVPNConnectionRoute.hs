@@ -20,7 +20,9 @@
 --
 -- Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 --
--- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateVPNConnectionRoute
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnConnectionRoute.
 --
+--
+--
 -- /See:/ 'createVPNConnectionRoute' smart constructor.
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId      :: !Text
@@ -54,9 +58,9 @@ data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvcrVPNConnectionId'
+-- * 'cvcrVPNConnectionId' - The ID of the VPN connection.
 --
--- * 'cvcrDestinationCIdRBlock'
+-- * 'cvcrDestinationCIdRBlock' - The CIDR block associated with the local subnet of the customer network.
 createVPNConnectionRoute
     :: Text -- ^ 'cvcrVPNConnectionId'
     -> Text -- ^ 'cvcrDestinationCIdRBlock'

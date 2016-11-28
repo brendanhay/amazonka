@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a usage plan of a given plan identifier.
+--
+--
 module Network.AWS.APIGateway.GetUsagePlan
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The GET request to get a usage plan of a given plan identifier.
 --
+--
+--
 -- /See:/ 'getUsagePlan' smart constructor.
 newtype GetUsagePlan = GetUsagePlan'
     { _gupUsagePlanId :: Text
@@ -57,7 +61,7 @@ newtype GetUsagePlan = GetUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupUsagePlanId'
+-- * 'gupUsagePlanId' - The identifier of the 'UsagePlan' resource to be retrieved.
 getUsagePlan
     :: Text -- ^ 'gupUsagePlanId'
     -> GetUsagePlan
@@ -66,7 +70,7 @@ getUsagePlan pUsagePlanId_ =
     { _gupUsagePlanId = pUsagePlanId_
     }
 
--- | The identifier of the < UsagePlan> resource to be retrieved.
+-- | The identifier of the 'UsagePlan' resource to be retrieved.
 gupUsagePlanId :: Lens' GetUsagePlan Text
 gupUsagePlanId = lens _gupUsagePlanId (\ s a -> s{_gupUsagePlanId = a});
 

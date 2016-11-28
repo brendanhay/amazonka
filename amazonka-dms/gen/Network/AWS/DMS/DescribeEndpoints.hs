@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the endpoints for your account in the current region.
+--
+--
 module Network.AWS.DMS.DescribeEndpoints
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
     { _deFilters    :: !(Maybe [Filter])
@@ -58,11 +62,11 @@ data DescribeEndpoints = DescribeEndpoints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deFilters'
+-- * 'deFilters' - Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 --
--- * 'deMarker'
+-- * 'deMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'deMaxRecords'
+-- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeEndpoints
     :: DescribeEndpoints
 describeEndpoints =
@@ -72,21 +76,15 @@ describeEndpoints =
     , _deMaxRecords = Nothing
     }
 
--- | Filters applied to the describe action.
---
--- Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
+-- | Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 deFilters :: Lens' DescribeEndpoints [Filter]
 deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 deMarker :: Lens' DescribeEndpoints (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 deMaxRecords :: Lens' DescribeEndpoints (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
@@ -130,6 +128,8 @@ instance ToQuery DescribeEndpoints where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
     { _dersMarker         :: !(Maybe Text)
@@ -141,11 +141,11 @@ data DescribeEndpointsResponse = DescribeEndpointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersMarker'
+-- * 'dersMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dersEndpoints'
+-- * 'dersEndpoints' - Endpoint description.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEndpointsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEndpointsResponse
@@ -156,7 +156,7 @@ describeEndpointsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
@@ -164,7 +164,7 @@ dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 dersEndpoints :: Lens' DescribeEndpointsResponse [Endpoint]
 dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

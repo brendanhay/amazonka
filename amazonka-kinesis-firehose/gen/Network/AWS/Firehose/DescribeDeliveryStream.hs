@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call < DescribeDeliveryStream> to see if the delivery stream is 'ACTIVE' and therefore ready for data to be sent to it.
+-- Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call 'DescribeDeliveryStream' to see if the delivery stream is @ACTIVE@ and therefore ready for data to be sent to it.
+--
+--
 module Network.AWS.Firehose.DescribeDeliveryStream
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for < DescribeDeliveryStream>.
+-- | Contains the parameters for 'DescribeDeliveryStream' .
+--
+--
 --
 -- /See:/ 'describeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
@@ -57,11 +61,11 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsExclusiveStartDestinationId'
+-- * 'ddsExclusiveStartDestinationId' - Specifies the destination ID to start returning the destination information. Currently Firehose supports one destination per delivery stream.
 --
--- * 'ddsLimit'
+-- * 'ddsLimit' - The limit on the number of destinations to return. Currently, you can have one destination per delivery stream.
 --
--- * 'ddsDeliveryStreamName'
+-- * 'ddsDeliveryStreamName' - The name of the delivery stream.
 describeDeliveryStream
     :: Text -- ^ 'ddsDeliveryStreamName'
     -> DescribeDeliveryStream
@@ -125,7 +129,9 @@ instance ToPath DescribeDeliveryStream where
 instance ToQuery DescribeDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of < DescribeDeliveryStream>.
+-- | Contains the output of 'DescribeDeliveryStream' .
+--
+--
 --
 -- /See:/ 'describeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
@@ -137,9 +143,9 @@ data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsrsResponseStatus'
+-- * 'ddsrsResponseStatus' - -- | The response status code.
 --
--- * 'ddsrsDeliveryStreamDescription'
+-- * 'ddsrsDeliveryStreamDescription' - Information about the delivery stream.
 describeDeliveryStreamResponse
     :: Int -- ^ 'ddsrsResponseStatus'
     -> DeliveryStreamDescription -- ^ 'ddsrsDeliveryStreamDescription'
@@ -150,7 +156,7 @@ describeDeliveryStreamResponse pResponseStatus_ pDeliveryStreamDescription_ =
     , _ddsrsDeliveryStreamDescription = pDeliveryStreamDescription_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ddsrsResponseStatus :: Lens' DescribeDeliveryStreamResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
 

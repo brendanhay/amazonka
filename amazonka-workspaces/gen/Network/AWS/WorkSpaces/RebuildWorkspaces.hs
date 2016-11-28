@@ -20,15 +20,17 @@
 --
 -- Rebuilds the specified WorkSpaces.
 --
+--
 -- Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. Rebuilding a WorkSpace causes the following to occur:
 --
--- -   The system is restored to the image of the bundle that the WorkSpace is created from. Any applications that have been installed, or system settings that have been made since the WorkSpace was created will be lost.
+--     * The system is restored to the image of the bundle that the WorkSpace is created from. Any applications that have been installed, or system settings that have been made since the WorkSpace was created will be lost.
 --
--- -   The data drive (D drive) is re-created from the last automatic snapshot taken of the data drive. The current contents of the data drive are overwritten. Automatic snapshots of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours old.
+--     * The data drive (D drive) is re-created from the last automatic snapshot taken of the data drive. The current contents of the data drive are overwritten. Automatic snapshots of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours old.
 --
--- To be able to rebuild a WorkSpace, the WorkSpace must have a __State__ of 'AVAILABLE' or 'ERROR'.
 --
--- This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.
+--
+-- To be able to rebuild a WorkSpace, the WorkSpace must have a __State__ of @AVAILABLE@ or @ERROR@ .
+--
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
     -- * Creating a Request
@@ -52,7 +54,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < RebuildWorkspaces> operation.
+-- | Contains the inputs for the 'RebuildWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'rebuildWorkspaces' smart constructor.
 newtype RebuildWorkspaces = RebuildWorkspaces'
@@ -63,7 +67,7 @@ newtype RebuildWorkspaces = RebuildWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rwRebuildWorkspaceRequests'
+-- * 'rwRebuildWorkspaceRequests' - An array of structures that specify the WorkSpaces to rebuild.
 rebuildWorkspaces
     :: NonEmpty RebuildRequest -- ^ 'rwRebuildWorkspaceRequests'
     -> RebuildWorkspaces
@@ -114,7 +118,9 @@ instance ToPath RebuildWorkspaces where
 instance ToQuery RebuildWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the < RebuildWorkspaces> operation.
+-- | Contains the results of the 'RebuildWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'rebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
@@ -126,9 +132,9 @@ data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rwrsFailedRequests'
+-- * 'rwrsFailedRequests' - An array of structures representing any WorkSpaces that could not be rebuilt.
 --
--- * 'rwrsResponseStatus'
+-- * 'rwrsResponseStatus' - -- | The response status code.
 rebuildWorkspacesResponse
     :: Int -- ^ 'rwrsResponseStatus'
     -> RebuildWorkspacesResponse
@@ -142,7 +148,7 @@ rebuildWorkspacesResponse pResponseStatus_ =
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
 rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 rwrsResponseStatus :: Lens' RebuildWorkspacesResponse Int
 rwrsResponseStatus = lens _rwrsResponseStatus (\ s a -> s{_rwrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector directory.
+--
+--
 module Network.AWS.DirectoryService.UpdateRadius
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < UpdateRadius> operation.
+-- | Contains the inputs for the 'UpdateRadius' operation.
+--
+--
 --
 -- /See:/ 'updateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
@@ -54,9 +58,9 @@ data UpdateRadius = UpdateRadius'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urDirectoryId'
+-- * 'urDirectoryId' - The identifier of the directory for which to update the RADIUS server information.
 --
--- * 'urRadiusSettings'
+-- * 'urRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
 updateRadius
     :: Text -- ^ 'urDirectoryId'
     -> RadiusSettings -- ^ 'urRadiusSettings'
@@ -71,7 +75,7 @@ updateRadius pDirectoryId_ pRadiusSettings_ =
 urDirectoryId :: Lens' UpdateRadius Text
 urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS server.
+-- | A 'RadiusSettings' object that contains information about the RADIUS server.
 urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 
@@ -110,7 +114,9 @@ instance ToPath UpdateRadius where
 instance ToQuery UpdateRadius where
         toQuery = const mempty
 
--- | Contains the results of the < UpdateRadius> operation.
+-- | Contains the results of the 'UpdateRadius' operation.
+--
+--
 --
 -- /See:/ 'updateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
@@ -121,7 +127,7 @@ newtype UpdateRadiusResponse = UpdateRadiusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrsResponseStatus'
+-- * 'urrsResponseStatus' - -- | The response status code.
 updateRadiusResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRadiusResponse
@@ -130,7 +136,7 @@ updateRadiusResponse pResponseStatus_ =
     { _urrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRadiusResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 

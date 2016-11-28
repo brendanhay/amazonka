@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values.
+--
+--
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Creating a Request
@@ -57,7 +59,7 @@ newtype DomainMetadata = DomainMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmDomainName'
+-- * 'dmDomainName' - The name of the domain for which to display the metadata of.
 domainMetadata
     :: Text -- ^ 'dmDomainName'
     -> DomainMetadata
@@ -119,21 +121,21 @@ data DomainMetadataResponse = DomainMetadataResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmrsItemNamesSizeBytes'
+-- * 'dmrsItemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
 --
--- * 'dmrsAttributeValuesSizeBytes'
+-- * 'dmrsAttributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
 --
--- * 'dmrsAttributeNameCount'
+-- * 'dmrsAttributeNameCount' - The number of unique attribute names in the domain.
 --
--- * 'dmrsAttributeNamesSizeBytes'
+-- * 'dmrsAttributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
 --
--- * 'dmrsAttributeValueCount'
+-- * 'dmrsAttributeValueCount' - The number of all attribute name/value pairs in the domain.
 --
--- * 'dmrsItemCount'
+-- * 'dmrsItemCount' - The number of all items in the domain.
 --
--- * 'dmrsTimestamp'
+-- * 'dmrsTimestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 --
--- * 'dmrsResponseStatus'
+-- * 'dmrsResponseStatus' - -- | The response status code.
 domainMetadataResponse
     :: Int -- ^ 'dmrsResponseStatus'
     -> DomainMetadataResponse
@@ -165,7 +167,7 @@ dmrsAttributeNameCount = lens _dmrsAttributeNameCount (\ s a -> s{_dmrsAttribute
 dmrsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmrsAttributeNamesSizeBytes = lens _dmrsAttributeNamesSizeBytes (\ s a -> s{_dmrsAttributeNamesSizeBytes = a});
 
--- | The number of all attribute name\/value pairs in the domain.
+-- | The number of all attribute name/value pairs in the domain.
 dmrsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrsAttributeValueCount = lens _dmrsAttributeValueCount (\ s a -> s{_dmrsAttributeValueCount = a});
 
@@ -177,7 +179,7 @@ dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a});
 dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
 dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dmrsResponseStatus :: Lens' DomainMetadataResponse Int
 dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
 

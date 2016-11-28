@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides the response to a manual approval request to AWS CodePipeline. Valid responses include Approved and Rejected.
+--
+--
 module Network.AWS.CodePipeline.PutApprovalResult
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a put approval result action.
 --
+--
+--
 -- /See:/ 'putApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
     { _parPipelineName :: !Text
@@ -61,15 +65,15 @@ data PutApprovalResult = PutApprovalResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'parPipelineName'
+-- * 'parPipelineName' - The name of the pipeline that contains the action.
 --
--- * 'parStageName'
+-- * 'parStageName' - The name of the stage that contains the action.
 --
--- * 'parActionName'
+-- * 'parActionName' - The name of the action for which approval is requested.
 --
--- * 'parResult'
+-- * 'parResult' - Represents information about the result of the approval request.
 --
--- * 'parToken'
+-- * 'parToken' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action and is used to validate that the approval request corresponding to this token is still valid.
 putApprovalResult
     :: Text -- ^ 'parPipelineName'
     -> Text -- ^ 'parStageName'
@@ -102,7 +106,7 @@ parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
 parResult :: Lens' PutApprovalResult ApprovalResult
 parResult = lens _parResult (\ s a -> s{_parResult = a});
 
--- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the < GetPipelineState> action and is used to validate that the approval request corresponding to this token is still valid.
+-- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action and is used to validate that the approval request corresponding to this token is still valid.
 parToken :: Lens' PutApprovalResult Text
 parToken = lens _parToken (\ s a -> s{_parToken = a});
 
@@ -147,6 +151,8 @@ instance ToQuery PutApprovalResult where
 
 -- | Represents the output of a put approval result action.
 --
+--
+--
 -- /See:/ 'putApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
     { _parrsApprovedAt     :: !(Maybe POSIX)
@@ -157,9 +163,9 @@ data PutApprovalResultResponse = PutApprovalResultResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'parrsApprovedAt'
+-- * 'parrsApprovedAt' - The timestamp showing when the approval or rejection was submitted.
 --
--- * 'parrsResponseStatus'
+-- * 'parrsResponseStatus' - -- | The response status code.
 putApprovalResultResponse
     :: Int -- ^ 'parrsResponseStatus'
     -> PutApprovalResultResponse
@@ -173,7 +179,7 @@ putApprovalResultResponse pResponseStatus_ =
 parrsApprovedAt :: Lens' PutApprovalResultResponse (Maybe UTCTime)
 parrsApprovedAt = lens _parrsApprovedAt (\ s a -> s{_parrsApprovedAt = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 parrsResponseStatus :: Lens' PutApprovalResultResponse Int
 parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});
 

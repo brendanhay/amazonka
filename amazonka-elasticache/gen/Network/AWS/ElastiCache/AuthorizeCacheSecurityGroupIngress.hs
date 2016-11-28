@@ -20,7 +20,7 @@
 --
 -- The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.
 --
--- You cannot authorize ingress from an Amazon EC2 security group in one region to an ElastiCache cluster in another region.
+--
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Creating a Request
@@ -48,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
 --
+--
+--
 -- /See:/ 'authorizeCacheSecurityGroupIngress' smart constructor.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
     { _acsgiCacheSecurityGroupName  :: !Text
@@ -59,11 +61,11 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsgiCacheSecurityGroupName'
+-- * 'acsgiCacheSecurityGroupName' - The cache security group which will allow network ingress.
 --
--- * 'acsgiEC2SecurityGroupName'
+-- * 'acsgiEC2SecurityGroupName' - The Amazon EC2 security group to be authorized for ingress to the cache security group.
 --
--- * 'acsgiEC2SecurityGroupOwnerId'
+-- * 'acsgiEC2SecurityGroupOwnerId' - The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 authorizeCacheSecurityGroupIngress
     :: Text -- ^ 'acsgiCacheSecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
@@ -135,9 +137,9 @@ data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIng
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsgirsCacheSecurityGroup'
+-- * 'acsgirsCacheSecurityGroup' - Undocumented member.
 --
--- * 'acsgirsResponseStatus'
+-- * 'acsgirsResponseStatus' - -- | The response status code.
 authorizeCacheSecurityGroupIngressResponse
     :: Int -- ^ 'acsgirsResponseStatus'
     -> AuthorizeCacheSecurityGroupIngressResponse
@@ -151,7 +153,7 @@ authorizeCacheSecurityGroupIngressResponse pResponseStatus_ =
 acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirsCacheSecurityGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 acsgirsResponseStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
 acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});
 

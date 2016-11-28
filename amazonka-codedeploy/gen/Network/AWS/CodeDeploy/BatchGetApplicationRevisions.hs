@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more application revisions.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get application revisions operation.
 --
+--
+--
 -- /See:/ 'batchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
     { _bgarApplicationName :: !Text
@@ -57,9 +61,9 @@ data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgarApplicationName'
+-- * 'bgarApplicationName' - The name of an AWS CodeDeploy application about which to get revision information.
 --
--- * 'bgarRevisions'
+-- * 'bgarRevisions' - Information to get about the application revisions, including type and location.
 batchGetApplicationRevisions
     :: Text -- ^ 'bgarApplicationName'
     -> BatchGetApplicationRevisions
@@ -120,6 +124,8 @@ instance ToQuery BatchGetApplicationRevisions where
 
 -- | Represents the output of a batch get application revisions operation.
 --
+--
+--
 -- /See:/ 'batchGetApplicationRevisionsResponse' smart constructor.
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
     { _bgarrsApplicationName :: !(Maybe Text)
@@ -132,13 +138,13 @@ data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgarrsApplicationName'
+-- * 'bgarrsApplicationName' - The name of the application that corresponds to the revisions.
 --
--- * 'bgarrsRevisions'
+-- * 'bgarrsRevisions' - Additional information about the revisions, including the type and location.
 --
--- * 'bgarrsErrorMessage'
+-- * 'bgarrsErrorMessage' - Information about errors that may have occurred during the API call.
 --
--- * 'bgarrsResponseStatus'
+-- * 'bgarrsResponseStatus' - -- | The response status code.
 batchGetApplicationRevisionsResponse
     :: Int -- ^ 'bgarrsResponseStatus'
     -> BatchGetApplicationRevisionsResponse
@@ -162,7 +168,7 @@ bgarrsRevisions = lens _bgarrsRevisions (\ s a -> s{_bgarrsRevisions = a}) . _De
 bgarrsErrorMessage :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
 bgarrsErrorMessage = lens _bgarrsErrorMessage (\ s a -> s{_bgarrsErrorMessage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 bgarrsResponseStatus :: Lens' BatchGetApplicationRevisionsResponse Int
 bgarrsResponseStatus = lens _bgarrsResponseStatus (\ s a -> s{_bgarrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and returns it to your control. This action can not be used with instances that were created with AWS OpsWorks.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeregisterInstance
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeregisterInstance = DeregisterInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dInstanceId'
+-- * 'dInstanceId' - The instance ID.
 deregisterInstance
     :: Text -- ^ 'dInstanceId'
     -> DeregisterInstance

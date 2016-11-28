@@ -45,7 +45,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2014-05-30' of the Amazon CloudHSM SDK configuration.
+-- | API version @2014-05-30@ of the Amazon CloudHSM SDK configuration.
 cloudHSM :: Service
 cloudHSM =
     Service
@@ -80,14 +80,20 @@ cloudHSM =
       | otherwise = Nothing
 
 -- | Indicates that one or more of the request parameters are not valid.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | Indicates that an exception occurred in the AWS CloudHSM service.
+--
+--
 _CloudHSMServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException"
 
 -- | Indicates that an internal error occurred.
+--
+--
 _CloudHSMInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudHSMInternalException =
     _ServiceError . hasCode "CloudHsmInternalException"

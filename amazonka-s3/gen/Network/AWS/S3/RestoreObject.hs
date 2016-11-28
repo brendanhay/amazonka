@@ -59,15 +59,15 @@ data RestoreObject = RestoreObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roVersionId'
+-- * 'roVersionId' - Undocumented member.
 --
--- * 'roRequestPayer'
+-- * 'roRequestPayer' - Undocumented member.
 --
--- * 'roRestoreRequest'
+-- * 'roRestoreRequest' - Undocumented member.
 --
--- * 'roBucket'
+-- * 'roBucket' - Undocumented member.
 --
--- * 'roKey'
+-- * 'roKey' - Undocumented member.
 restoreObject
     :: BucketName -- ^ 'roBucket'
     -> ObjectKey -- ^ 'roKey'
@@ -144,9 +144,9 @@ data RestoreObjectResponse = RestoreObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rorsRequestCharged'
+-- * 'rorsRequestCharged' - Undocumented member.
 --
--- * 'rorsResponseStatus'
+-- * 'rorsResponseStatus' - -- | The response status code.
 restoreObjectResponse
     :: Int -- ^ 'rorsResponseStatus'
     -> RestoreObjectResponse
@@ -160,7 +160,7 @@ restoreObjectResponse pResponseStatus_ =
 rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rorsResponseStatus :: Lens' RestoreObjectResponse Int
 rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
 

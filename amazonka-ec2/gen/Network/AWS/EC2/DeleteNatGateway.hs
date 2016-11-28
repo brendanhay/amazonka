@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.
+--
+--
 module Network.AWS.EC2.DeleteNatGateway
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteNatGateway.
 --
+--
+--
 -- /See:/ 'deleteNatGateway' smart constructor.
 newtype DeleteNatGateway = DeleteNatGateway'
     { _dngNatGatewayId :: Text
@@ -53,7 +57,7 @@ newtype DeleteNatGateway = DeleteNatGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dngNatGatewayId'
+-- * 'dngNatGatewayId' - The ID of the NAT gateway.
 deleteNatGateway
     :: Text -- ^ 'dngNatGatewayId'
     -> DeleteNatGateway
@@ -94,6 +98,8 @@ instance ToQuery DeleteNatGateway where
 
 -- | Contains the output of DeleteNatGateway.
 --
+--
+--
 -- /See:/ 'deleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
     { _delrsNatGatewayId   :: !(Maybe Text)
@@ -104,9 +110,9 @@ data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsNatGatewayId'
+-- * 'delrsNatGatewayId' - The ID of the NAT gateway.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteNatGatewayResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteNatGatewayResponse
@@ -120,7 +126,7 @@ deleteNatGatewayResponse pResponseStatus_ =
 delrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
 delrsNatGatewayId = lens _delrsNatGatewayId (\ s a -> s{_delrsNatGatewayId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

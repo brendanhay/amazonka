@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an alias. This action removes all record of the alias; game clients attempting to access a server process using the deleted alias receive an error. To delete an alias, specify the alias ID to be deleted.
+--
+--
 module Network.AWS.GameLift.DeleteAlias
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteAlias' smart constructor.
 newtype DeleteAlias = DeleteAlias'
     { _daAliasId :: Text
@@ -50,7 +54,7 @@ newtype DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAliasId'
+-- * 'daAliasId' - Unique identifier for a fleet alias. Specify the alias you want to delete.
 deleteAlias
     :: Text -- ^ 'daAliasId'
     -> DeleteAlias

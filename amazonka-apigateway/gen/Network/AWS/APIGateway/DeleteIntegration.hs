@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration.
+--
+--
 module Network.AWS.APIGateway.DeleteIntegration
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents a delete integration request.
 --
+--
+--
 -- /See:/ 'deleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
     { _delRestAPIId  :: !Text
@@ -54,11 +58,11 @@ data DeleteIntegration = DeleteIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRestAPIId'
+-- * 'delRestAPIId' - Specifies a delete integration request's API identifier.
 --
--- * 'delResourceId'
+-- * 'delResourceId' - Specifies a delete integration request's resource identifier.
 --
--- * 'delHttpMethod'
+-- * 'delHttpMethod' - Specifies a delete integration request's HTTP method.
 deleteIntegration
     :: Text -- ^ 'delRestAPIId'
     -> Text -- ^ 'delResourceId'
@@ -71,15 +75,15 @@ deleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _delHttpMethod = pHttpMethod_
     }
 
--- | Specifies a delete integration request\'s API identifier.
+-- | Specifies a delete integration request's API identifier.
 delRestAPIId :: Lens' DeleteIntegration Text
 delRestAPIId = lens _delRestAPIId (\ s a -> s{_delRestAPIId = a});
 
--- | Specifies a delete integration request\'s resource identifier.
+-- | Specifies a delete integration request's resource identifier.
 delResourceId :: Lens' DeleteIntegration Text
 delResourceId = lens _delResourceId (\ s a -> s{_delResourceId = a});
 
--- | Specifies a delete integration request\'s HTTP method.
+-- | Specifies a delete integration request's HTTP method.
 delHttpMethod :: Lens' DeleteIntegration Text
 delHttpMethod = lens _delHttpMethod (\ s a -> s{_delHttpMethod = a});
 

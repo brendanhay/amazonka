@@ -20,7 +20,9 @@
 --
 -- Obtains information about which SNS topics receive status messages from the specified directory.
 --
+--
 -- If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.
+--
 module Network.AWS.DirectoryService.DescribeEventTopics
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Describes event topics.
 --
+--
+--
 -- /See:/ 'describeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
     { _dDirectoryId :: !(Maybe Text)
@@ -57,9 +61,9 @@ data DescribeEventTopics = DescribeEventTopics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDirectoryId'
+-- * 'dDirectoryId' - The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
 --
--- * 'dTopicNames'
+-- * 'dTopicNames' - A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned. An empty list results in an @InvalidParameterException@ being thrown.
 describeEventTopics
     :: DescribeEventTopics
 describeEventTopics =
@@ -72,9 +76,7 @@ describeEventTopics =
 dDirectoryId :: Lens' DescribeEventTopics (Maybe Text)
 dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
 
--- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.
---
--- An empty list results in an 'InvalidParameterException' being thrown.
+-- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned. An empty list results in an @InvalidParameterException@ being thrown.
 dTopicNames :: Lens' DescribeEventTopics [Text]
 dTopicNames = lens _dTopicNames (\ s a -> s{_dTopicNames = a}) . _Default . _Coerce;
 
@@ -118,6 +120,8 @@ instance ToQuery DescribeEventTopics where
 
 -- | The result of a DescribeEventTopic request.
 --
+--
+--
 -- /See:/ 'describeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
     { _detrsEventTopics    :: !(Maybe [EventTopic])
@@ -128,9 +132,9 @@ data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detrsEventTopics'
+-- * 'detrsEventTopics' - A list of SNS topic names that receive status messages from the specified Directory ID.
 --
--- * 'detrsResponseStatus'
+-- * 'detrsResponseStatus' - -- | The response status code.
 describeEventTopicsResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeEventTopicsResponse
@@ -144,7 +148,7 @@ describeEventTopicsResponse pResponseStatus_ =
 detrsEventTopics :: Lens' DescribeEventTopicsResponse [EventTopic]
 detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeEventTopicsResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 

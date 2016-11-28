@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds additional user attributes to the user pool schema.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to add custom attributes.
 --
+--
+--
 -- /See:/ 'addCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
     { _acaUserPoolId       :: !Text
@@ -54,9 +58,9 @@ data AddCustomAttributes = AddCustomAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acaUserPoolId'
+-- * 'acaUserPoolId' - The user pool ID for the user pool where you want to add custom attributes.
 --
--- * 'acaCustomAttributes'
+-- * 'acaCustomAttributes' - An array of custom attributes, such as Mutable and Name.
 addCustomAttributes
     :: Text -- ^ 'acaUserPoolId'
     -> NonEmpty SchemaAttributeType -- ^ 'acaCustomAttributes'
@@ -113,6 +117,8 @@ instance ToQuery AddCustomAttributes where
 
 -- | Represents the response from the server for the request to add custom attributes.
 --
+--
+--
 -- /See:/ 'addCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
     { _acarsResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acarsResponseStatus'
+-- * 'acarsResponseStatus' - -- | The response status code.
 addCustomAttributesResponse
     :: Int -- ^ 'acarsResponseStatus'
     -> AddCustomAttributesResponse
@@ -131,7 +137,7 @@ addCustomAttributesResponse pResponseStatus_ =
     { _acarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 acarsResponseStatus :: Lens' AddCustomAttributesResponse Int
 acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GlobalSignOut
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to sign out all devices.
 --
+--
+--
 -- /See:/ 'globalSignOut' smart constructor.
 newtype GlobalSignOut = GlobalSignOut'
     { _gsoAccessToken :: Maybe (Sensitive Text)
@@ -52,7 +56,7 @@ newtype GlobalSignOut = GlobalSignOut'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsoAccessToken'
+-- * 'gsoAccessToken' - The access token.
 globalSignOut
     :: GlobalSignOut
 globalSignOut =
@@ -99,6 +103,8 @@ instance ToQuery GlobalSignOut where
 
 -- | The response to the request to sign out all devices.
 --
+--
+--
 -- /See:/ 'globalSignOutResponse' smart constructor.
 newtype GlobalSignOutResponse = GlobalSignOutResponse'
     { _gsorsResponseStatus :: Int
@@ -108,7 +114,7 @@ newtype GlobalSignOutResponse = GlobalSignOutResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsorsResponseStatus'
+-- * 'gsorsResponseStatus' - -- | The response status code.
 globalSignOutResponse
     :: Int -- ^ 'gsorsResponseStatus'
     -> GlobalSignOutResponse
@@ -117,7 +123,7 @@ globalSignOutResponse pResponseStatus_ =
     { _gsorsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gsorsResponseStatus :: Lens' GlobalSignOutResponse Int
 gsorsResponseStatus = lens _gsorsResponseStatus (\ s a -> s{_gsorsResponseStatus = a});
 

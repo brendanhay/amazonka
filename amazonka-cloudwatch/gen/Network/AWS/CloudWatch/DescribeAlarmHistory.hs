@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner\'s alarms.
+-- Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms.
 --
--- Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you delete the alarm.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
@@ -55,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for DescribeAlarmHistory.
 --
+--
+--
 -- /See:/ 'describeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
     { _dahAlarmName       :: !(Maybe Text)
@@ -69,17 +71,17 @@ data DescribeAlarmHistory = DescribeAlarmHistory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dahAlarmName'
+-- * 'dahAlarmName' - The name of the alarm.
 --
--- * 'dahHistoryItemType'
+-- * 'dahHistoryItemType' - The type of alarm histories to retrieve.
 --
--- * 'dahEndDate'
+-- * 'dahEndDate' - The ending date to retrieve alarm history.
 --
--- * 'dahStartDate'
+-- * 'dahStartDate' - The starting date to retrieve alarm history.
 --
--- * 'dahNextToken'
+-- * 'dahNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'dahMaxRecords'
+-- * 'dahMaxRecords' - The maximum number of alarm history records to retrieve.
 describeAlarmHistory
     :: DescribeAlarmHistory
 describeAlarmHistory =
@@ -158,7 +160,9 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for < DescribeAlarmHistory>.
+-- | The output for 'DescribeAlarmHistory' .
+--
+--
 --
 -- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
@@ -171,11 +175,11 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dahrsAlarmHistoryItems'
+-- * 'dahrsAlarmHistoryItems' - A list of alarm histories in JSON format.
 --
--- * 'dahrsNextToken'
+-- * 'dahrsNextToken' - A string that marks the start of the next batch of returned results.
 --
--- * 'dahrsResponseStatus'
+-- * 'dahrsResponseStatus' - -- | The response status code.
 describeAlarmHistoryResponse
     :: Int -- ^ 'dahrsResponseStatus'
     -> DescribeAlarmHistoryResponse
@@ -194,7 +198,7 @@ dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHis
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
 dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a});
 

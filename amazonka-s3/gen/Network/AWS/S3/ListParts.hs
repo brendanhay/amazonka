@@ -77,17 +77,17 @@ data ListParts = ListParts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpMaxParts'
+-- * 'lpMaxParts' - Sets the maximum number of parts to return.
 --
--- * 'lpRequestPayer'
+-- * 'lpRequestPayer' - Undocumented member.
 --
--- * 'lpPartNumberMarker'
+-- * 'lpPartNumberMarker' - Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
 --
--- * 'lpBucket'
+-- * 'lpBucket' - Undocumented member.
 --
--- * 'lpKey'
+-- * 'lpKey' - Undocumented member.
 --
--- * 'lpUploadId'
+-- * 'lpUploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 listParts
     :: BucketName -- ^ 'lpBucket'
     -> ObjectKey -- ^ 'lpKey'
@@ -201,35 +201,35 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsParts'
+-- * 'lprsParts' - Undocumented member.
 --
--- * 'lprsRequestCharged'
+-- * 'lprsRequestCharged' - Undocumented member.
 --
--- * 'lprsMaxParts'
+-- * 'lprsMaxParts' - Maximum number of parts that were allowed in the response.
 --
--- * 'lprsInitiator'
+-- * 'lprsInitiator' - Identifies who initiated the multipart upload.
 --
--- * 'lprsBucket'
+-- * 'lprsBucket' - Name of the bucket to which the multipart upload was initiated.
 --
--- * 'lprsAbortDate'
+-- * 'lprsAbortDate' - Date when multipart upload will become eligible for abort operation by lifecycle.
 --
--- * 'lprsNextPartNumberMarker'
+-- * 'lprsNextPartNumberMarker' - When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
 --
--- * 'lprsAbortRuleId'
+-- * 'lprsAbortRuleId' - Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
 --
--- * 'lprsOwner'
+-- * 'lprsOwner' - Undocumented member.
 --
--- * 'lprsKey'
+-- * 'lprsKey' - Object key for which the multipart upload was initiated.
 --
--- * 'lprsStorageClass'
+-- * 'lprsStorageClass' - The class of storage used to store the object.
 --
--- * 'lprsIsTruncated'
+-- * 'lprsIsTruncated' - Indicates whether the returned list of parts is truncated.
 --
--- * 'lprsPartNumberMarker'
+-- * 'lprsPartNumberMarker' - Part number after which listing begins.
 --
--- * 'lprsUploadId'
+-- * 'lprsUploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPartsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
@@ -308,7 +308,7 @@ lprsPartNumberMarker = lens _lprsPartNumberMarker (\ s a -> s{_lprsPartNumberMar
 lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

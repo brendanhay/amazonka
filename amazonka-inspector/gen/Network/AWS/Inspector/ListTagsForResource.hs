@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags associated with an assessment template.
+--
+--
 module Network.AWS.Inspector.ListTagsForResource
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The ARN that specifies the assessment template whose tags you want to list.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
@@ -110,9 +112,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - A collection of key and value pairs.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -122,7 +124,7 @@ listTagsForResourceResponse pResponseStatus_ =
     , _ltfrrsTags = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

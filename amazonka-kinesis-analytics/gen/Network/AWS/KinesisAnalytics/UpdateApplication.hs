@@ -20,9 +20,11 @@
 --
 -- Updates an existing Kinesis Analytics application. Using this API, you can update application code, input configuration, and output configuration.
 --
--- Note that Kinesis Analytics updates the 'CurrentApplicationVersionId' each time you update your application.
 --
--- This opeation requires permission for the 'kinesisanalytics:UpdateApplication' action.
+-- Note that Kinesis Analytics updates the @CurrentApplicationVersionId@ each time you update your application.
+--
+-- This opeation requires permission for the @kinesisanalytics:UpdateApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.UpdateApplication
     (
     -- * Creating a Request
@@ -58,11 +60,11 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - Name of the Kinesis Analytics application to update.
 --
--- * 'uaCurrentApplicationVersionId'
+-- * 'uaCurrentApplicationVersionId' - The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 --
--- * 'uaApplicationUpdate'
+-- * 'uaApplicationUpdate' - Describes application updates.
 updateApplication
     :: Text -- ^ 'uaApplicationName'
     -> Natural -- ^ 'uaCurrentApplicationVersionId'
@@ -79,7 +81,7 @@ updateApplication pApplicationName_ pCurrentApplicationVersionId_ pApplicationUp
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
--- | The current application version ID. You can use the < DescribeApplication> operation to get this value.
+-- | The current application version ID. You can use the 'DescribeApplication' operation to get this value.
 uaCurrentApplicationVersionId :: Lens' UpdateApplication Natural
 uaCurrentApplicationVersionId = lens _uaCurrentApplicationVersionId (\ s a -> s{_uaCurrentApplicationVersionId = a}) . _Nat;
 
@@ -134,7 +136,7 @@ newtype UpdateApplicationResponse = UpdateApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarsResponseStatus'
+-- * 'uarsResponseStatus' - -- | The response status code.
 updateApplicationResponse
     :: Int -- ^ 'uarsResponseStatus'
     -> UpdateApplicationResponse
@@ -143,7 +145,7 @@ updateApplicationResponse pResponseStatus_ =
     { _uarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateApplicationResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
 

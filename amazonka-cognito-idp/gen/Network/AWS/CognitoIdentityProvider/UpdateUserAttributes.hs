@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows a user to update a specific attribute (one at a time).
+--
+--
 module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to update user attributes.
 --
+--
+--
 -- /See:/ 'updateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
     { _uuaAccessToken    :: !(Maybe (Sensitive Text))
@@ -55,9 +59,9 @@ data UpdateUserAttributes = UpdateUserAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuaAccessToken'
+-- * 'uuaAccessToken' - The access token for the request to update user attributes.
 --
--- * 'uuaUserAttributes'
+-- * 'uuaUserAttributes' - An array of name-value pairs representing user attributes.
 updateUserAttributes
     :: UpdateUserAttributes
 updateUserAttributes =
@@ -114,6 +118,8 @@ instance ToQuery UpdateUserAttributes where
 
 -- | Represents the response from the server for the request to update user attributes.
 --
+--
+--
 -- /See:/ 'updateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
     { _uuarsCodeDeliveryDetailsList :: !(Maybe [CodeDeliveryDetailsType])
@@ -124,9 +130,9 @@ data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuarsCodeDeliveryDetailsList'
+-- * 'uuarsCodeDeliveryDetailsList' - The code delivery details list from the server for the request to update user attributes.
 --
--- * 'uuarsResponseStatus'
+-- * 'uuarsResponseStatus' - -- | The response status code.
 updateUserAttributesResponse
     :: Int -- ^ 'uuarsResponseStatus'
     -> UpdateUserAttributesResponse
@@ -140,7 +146,7 @@ updateUserAttributesResponse pResponseStatus_ =
 uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
 uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 uuarsResponseStatus :: Lens' UpdateUserAttributesResponse Int
 uuarsResponseStatus = lens _uuarsResponseStatus (\ s a -> s{_uuarsResponseStatus = a});
 

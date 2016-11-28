@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the name, description, and rules in a device pool given the attributes and the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a whole (or not at all).
+--
+--
 module Network.AWS.DeviceFarm.UpdateDevicePool
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the update device pool operation.
 --
+--
+--
 -- /See:/ 'updateDevicePool' smart constructor.
 data UpdateDevicePool = UpdateDevicePool'
     { _udpRules       :: !(Maybe [Rule])
@@ -59,13 +63,13 @@ data UpdateDevicePool = UpdateDevicePool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udpRules'
+-- * 'udpRules' - Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 --
--- * 'udpName'
+-- * 'udpName' - A string representing the name of the device pool you wish to update.
 --
--- * 'udpDescription'
+-- * 'udpDescription' - A description of the device pool you wish to update.
 --
--- * 'udpArn'
+-- * 'udpArn' - The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
 updateDevicePool
     :: Text -- ^ 'udpArn'
     -> UpdateDevicePool
@@ -133,6 +137,8 @@ instance ToQuery UpdateDevicePool where
 
 -- | Represents the result of an update device pool request.
 --
+--
+--
 -- /See:/ 'updateDevicePoolResponse' smart constructor.
 data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
     { _udprsDevicePool     :: !(Maybe DevicePool)
@@ -143,9 +149,9 @@ data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udprsDevicePool'
+-- * 'udprsDevicePool' - Undocumented member.
 --
--- * 'udprsResponseStatus'
+-- * 'udprsResponseStatus' - -- | The response status code.
 updateDevicePoolResponse
     :: Int -- ^ 'udprsResponseStatus'
     -> UpdateDevicePoolResponse
@@ -159,7 +165,7 @@ updateDevicePoolResponse pResponseStatus_ =
 udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
 udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
 udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
 

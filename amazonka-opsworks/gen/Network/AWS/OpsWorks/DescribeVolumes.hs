@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an instance\'s Amazon EBS volumes.
+-- Describes an instance's Amazon EBS volumes.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Creating a Request
@@ -61,13 +61,13 @@ data DescribeVolumes = DescribeVolumes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvInstanceId'
+-- * 'dvInstanceId' - The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
 --
--- * 'dvVolumeIds'
+-- * 'dvVolumeIds' - Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 --
--- * 'dvRAIdArrayId'
+-- * 'dvRAIdArrayId' - The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
 --
--- * 'dvStackId'
+-- * 'dvStackId' - A stack ID. The action describes the stack's registered Amazon EBS volumes.
 describeVolumes
     :: DescribeVolumes
 describeVolumes =
@@ -78,19 +78,19 @@ describeVolumes =
     , _dvStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, 'DescribeVolumes' returns descriptions of the volumes associated with the specified instance.
+-- | The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 
--- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes' returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
+-- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce;
 
--- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns descriptions of the volumes associated with the specified RAID array.
+-- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
 dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
 
--- | A stack ID. The action describes the stack\'s registered Amazon EBS volumes.
+-- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
 
@@ -131,7 +131,9 @@ instance ToPath DescribeVolumes where
 instance ToQuery DescribeVolumes where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeVolumes' request.
+-- | Contains the response to a @DescribeVolumes@ request.
+--
+--
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
@@ -143,9 +145,9 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvrsVolumes'
+-- * 'dvrsVolumes' - An array of volume IDs.
 --
--- * 'dvrsResponseStatus'
+-- * 'dvrsResponseStatus' - -- | The response status code.
 describeVolumesResponse
     :: Int -- ^ 'dvrsResponseStatus'
     -> DescribeVolumesResponse
@@ -159,7 +161,7 @@ describeVolumesResponse pResponseStatus_ =
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dvrsResponseStatus :: Lens' DescribeVolumesResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
 

@@ -51,7 +51,7 @@ newtype GetBucketReplication = GetBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrBucket'
+-- * 'gbrBucket' - Undocumented member.
 getBucketReplication
     :: BucketName -- ^ 'gbrBucket'
     -> GetBucketReplication
@@ -98,9 +98,9 @@ data GetBucketReplicationResponse = GetBucketReplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrrsReplicationConfiguration'
+-- * 'gbrrsReplicationConfiguration' - Undocumented member.
 --
--- * 'gbrrsResponseStatus'
+-- * 'gbrrsResponseStatus' - -- | The response status code.
 getBucketReplicationResponse
     :: Int -- ^ 'gbrrsResponseStatus'
     -> GetBucketReplicationResponse
@@ -114,7 +114,7 @@ getBucketReplicationResponse pResponseStatus_ =
 gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
 gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
 gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a});
 

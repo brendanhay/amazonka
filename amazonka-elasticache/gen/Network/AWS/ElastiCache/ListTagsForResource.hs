@@ -20,7 +20,9 @@
 --
 -- The /ListTagsForResource/ action lists all cost allocation tags currently on the named resource. A /cost allocation tag/ is a key-value pair where the key is case-sensitive and the value is optional. Cost allocation tags can be used to categorize and track your AWS costs.
 --
--- You can have a maximum of 10 cost allocation tags on an ElastiCache resource. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache>.
+--
+-- You can have a maximum of 10 cost allocation tags on an ElastiCache resource. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache> .
+--
 module Network.AWS.ElastiCache.ListTagsForResource
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The input parameters for the /ListTagsForResource/ action.
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
     { _ltfrResourceName :: Text
@@ -54,7 +58,7 @@ newtype ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceName'
+-- * 'ltfrResourceName' - The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 listTagsForResource
     :: Text -- ^ 'ltfrResourceName'
     -> ListTagsForResource
@@ -63,9 +67,7 @@ listTagsForResource pResourceName_ =
     { _ltfrResourceName = pResourceName_
     }
 
--- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster' or 'arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot'.
---
--- For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 

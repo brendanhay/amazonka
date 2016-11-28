@@ -20,7 +20,9 @@
 --
 -- Lists the CA certificates registered for your AWS account.
 --
+--
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
+--
 module Network.AWS.IoT.ListCACertificates
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Input for the ListCACertificates operation.
 --
+--
+--
 -- /See:/ 'listCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
     { _lcacMarker         :: !(Maybe Text)
@@ -60,11 +64,11 @@ data ListCACertificates = ListCACertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcacMarker'
+-- * 'lcacMarker' - The marker for the next set of results.
 --
--- * 'lcacAscendingOrder'
+-- * 'lcacAscendingOrder' - Determines the order of the results.
 --
--- * 'lcacPageSize'
+-- * 'lcacPageSize' - The result page size.
 listCACertificates
     :: ListCACertificates
 listCACertificates =
@@ -117,6 +121,8 @@ instance ToQuery ListCACertificates where
 
 -- | The output from the ListCACertificates operation.
 --
+--
+--
 -- /See:/ 'listCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
     { _lcacrsCertificates   :: !(Maybe [CACertificate])
@@ -128,11 +134,11 @@ data ListCACertificatesResponse = ListCACertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcacrsCertificates'
+-- * 'lcacrsCertificates' - The CA certificates registered in your AWS account.
 --
--- * 'lcacrsNextMarker'
+-- * 'lcacrsNextMarker' - The current position within the list of CA certificates.
 --
--- * 'lcacrsResponseStatus'
+-- * 'lcacrsResponseStatus' - -- | The response status code.
 listCACertificatesResponse
     :: Int -- ^ 'lcacrsResponseStatus'
     -> ListCACertificatesResponse
@@ -151,7 +157,7 @@ lcacrsCertificates = lens _lcacrsCertificates (\ s a -> s{_lcacrsCertificates = 
 lcacrsNextMarker :: Lens' ListCACertificatesResponse (Maybe Text)
 lcacrsNextMarker = lens _lcacrsNextMarker (\ s a -> s{_lcacrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcacrsResponseStatus :: Lens' ListCACertificatesResponse Int
 lcacrsResponseStatus = lens _lcacrsResponseStatus (\ s a -> s{_lcacrsResponseStatus = a});
 

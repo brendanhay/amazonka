@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of 'DBClusterParameterGroup' descriptions. If a 'DBClusterParameterGroupName' parameter is specified, the list will contain only the description of the specified DB cluster parameter group.
+-- Returns a list of @DBClusterParameterGroup@ descriptions. If a @DBClusterParameterGroupName@ parameter is specified, the list will contain only the description of the specified DB cluster parameter group.
+--
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.DescribeDBClusterParameterGroups
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
     { _ddcpgFilters                     :: !(Maybe [Filter])
@@ -62,13 +66,13 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcpgFilters'
+-- * 'ddcpgFilters' - This parameter is not currently supported.
 --
--- * 'ddcpgMarker'
+-- * 'ddcpgMarker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddcpgMaxRecords'
+-- * 'ddcpgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddcpgDBClusterParameterGroupName'
+-- * 'ddcpgDBClusterParameterGroupName' - The name of a specific DB cluster parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 describeDBClusterParameterGroups
     :: DescribeDBClusterParameterGroups
 describeDBClusterParameterGroups =
@@ -83,28 +87,15 @@ describeDBClusterParameterGroups =
 ddcpgFilters :: Lens' DescribeDBClusterParameterGroups [Filter]
 ddcpgFilters = lens _ddcpgFilters (\ s a -> s{_ddcpgFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous 'DescribeDBClusterParameterGroups' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcpgMarker :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
 ddcpgMarker = lens _ddcpgMarker (\ s a -> s{_ddcpgMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddcpgMaxRecords :: Lens' DescribeDBClusterParameterGroups (Maybe Int)
 ddcpgMaxRecords = lens _ddcpgMaxRecords (\ s a -> s{_ddcpgMaxRecords = a});
 
--- | The name of a specific DB cluster parameter group to return details for.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of a specific DB cluster parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddcpgDBClusterParameterGroupName :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
 ddcpgDBClusterParameterGroupName = lens _ddcpgDBClusterParameterGroupName (\ s a -> s{_ddcpgDBClusterParameterGroupName = a});
 
@@ -151,6 +142,8 @@ instance ToQuery DescribeDBClusterParameterGroups
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBClusterParameterGroupsResponse' smart constructor.
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
     { _ddcpgrsMarker                   :: !(Maybe Text)
@@ -162,11 +155,11 @@ data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroups
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcpgrsMarker'
+-- * 'ddcpgrsMarker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddcpgrsDBClusterParameterGroups'
+-- * 'ddcpgrsDBClusterParameterGroups' - A list of DB cluster parameter groups.
 --
--- * 'ddcpgrsResponseStatus'
+-- * 'ddcpgrsResponseStatus' - -- | The response status code.
 describeDBClusterParameterGroupsResponse
     :: Int -- ^ 'ddcpgrsResponseStatus'
     -> DescribeDBClusterParameterGroupsResponse
@@ -177,7 +170,7 @@ describeDBClusterParameterGroupsResponse pResponseStatus_ =
     , _ddcpgrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous 'DescribeDBClusterParameterGroups' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcpgrsMarker :: Lens' DescribeDBClusterParameterGroupsResponse (Maybe Text)
 ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
 
@@ -185,7 +178,7 @@ ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
 ddcpgrsDBClusterParameterGroups :: Lens' DescribeDBClusterParameterGroupsResponse [DBClusterParameterGroup]
 ddcpgrsDBClusterParameterGroups = lens _ddcpgrsDBClusterParameterGroups (\ s a -> s{_ddcpgrsDBClusterParameterGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddcpgrsResponseStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
 ddcpgrsResponseStatus = lens _ddcpgrsResponseStatus (\ s a -> s{_ddcpgrsResponseStatus = a});
 

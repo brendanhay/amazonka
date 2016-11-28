@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add a method to an existing < Resource> resource.
+-- Add a method to an existing 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.PutMethod
     (
     -- * Creating a Request
@@ -55,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a method to an existing < Resource> resource.
+-- | Request to add a method to an existing 'Resource' resource.
+--
+--
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
@@ -73,21 +77,21 @@ data PutMethod = PutMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'putRequestModels'
+-- * 'putRequestModels' - Specifies the 'Model' resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 --
--- * 'putRequestParameters'
+-- * 'putRequestParameters' - A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key defines a method request parameter name matching the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (@true@ ) or optional (@false@ ). The method request parameter names defined here are available in 'Integration' to be mapped to integration request parameters or body-mapping templates.
 --
--- * 'putAuthorizerId'
+-- * 'putAuthorizerId' - Specifies the identifier of an 'Authorizer' to use on this Method, if the type is CUSTOM.
 --
--- * 'putApiKeyRequired'
+-- * 'putApiKeyRequired' - Specifies whether the method required a valid 'ApiKey' .
 --
--- * 'putRestAPIId'
+-- * 'putRestAPIId' - The 'RestApi' identifier for the new 'Method' resource.
 --
--- * 'putResourceId'
+-- * 'putResourceId' - The 'Resource' identifier for the new 'Method' resource.
 --
--- * 'putHttpMethod'
+-- * 'putHttpMethod' - Specifies the method request's HTTP method type.
 --
--- * 'putAuthorizationType'
+-- * 'putAuthorizationType' - Specifies the type of authorization used for the method.
 putMethod
     :: Text -- ^ 'putRestAPIId'
     -> Text -- ^ 'putResourceId'
@@ -106,31 +110,31 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     , _putAuthorizationType = pAuthorizationType_
     }
 
--- | Specifies the < Model> resources used for the request\'s content type. Request models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
+-- | Specifies the 'Model' resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 putRequestModels :: Lens' PutMethod (HashMap Text Text)
 putRequestModels = lens _putRequestModels (\ s a -> s{_putRequestModels = a}) . _Default . _Map;
 
--- | A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key defines a method request parameter name matching the pattern of 'method.request.{location}.{name}', where 'location' is 'querystring', 'path', or 'header' and 'name' is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ('true') or optional ('false'). The method request parameter names defined here are available in < Integration> to be mapped to integration request parameters or body-mapping templates.
+-- | A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key defines a method request parameter name matching the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (@true@ ) or optional (@false@ ). The method request parameter names defined here are available in 'Integration' to be mapped to integration request parameters or body-mapping templates.
 putRequestParameters :: Lens' PutMethod (HashMap Text Bool)
 putRequestParameters = lens _putRequestParameters (\ s a -> s{_putRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the identifier of an < Authorizer> to use on this Method, if the type is CUSTOM.
+-- | Specifies the identifier of an 'Authorizer' to use on this Method, if the type is CUSTOM.
 putAuthorizerId :: Lens' PutMethod (Maybe Text)
 putAuthorizerId = lens _putAuthorizerId (\ s a -> s{_putAuthorizerId = a});
 
--- | Specifies whether the method required a valid < ApiKey>.
+-- | Specifies whether the method required a valid 'ApiKey' .
 putApiKeyRequired :: Lens' PutMethod (Maybe Bool)
 putApiKeyRequired = lens _putApiKeyRequired (\ s a -> s{_putApiKeyRequired = a});
 
--- | The < RestApi> identifier for the new < Method> resource.
+-- | The 'RestApi' identifier for the new 'Method' resource.
 putRestAPIId :: Lens' PutMethod Text
 putRestAPIId = lens _putRestAPIId (\ s a -> s{_putRestAPIId = a});
 
--- | The < Resource> identifier for the new < Method> resource.
+-- | The 'Resource' identifier for the new 'Method' resource.
 putResourceId :: Lens' PutMethod Text
 putResourceId = lens _putResourceId (\ s a -> s{_putResourceId = a});
 
--- | Specifies the method request\'s HTTP method type.
+-- | Specifies the method request's HTTP method type.
 putHttpMethod :: Lens' PutMethod Text
 putHttpMethod = lens _putHttpMethod (\ s a -> s{_putHttpMethod = a});
 

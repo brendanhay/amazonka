@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists of targets assigned to the rule.
+--
+--
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < ListTargetsByRule> operation.
+-- | Container for the parameters to the 'ListTargetsByRule' operation.
+--
+--
 --
 -- /See:/ 'listTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
@@ -58,11 +62,11 @@ data ListTargetsByRule = ListTargetsByRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltbrNextToken'
+-- * 'ltbrNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'ltbrLimit'
+-- * 'ltbrLimit' - The maximum number of results to return.
 --
--- * 'ltbrRule'
+-- * 'ltbrRule' - The name of the rule whose targets you want to list.
 listTargetsByRule
     :: Text -- ^ 'ltbrRule'
     -> ListTargetsByRule
@@ -122,7 +126,9 @@ instance ToPath ListTargetsByRule where
 instance ToQuery ListTargetsByRule where
         toQuery = const mempty
 
--- | The result of the < ListTargetsByRule> operation.
+-- | The result of the 'ListTargetsByRule' operation.
+--
+--
 --
 -- /See:/ 'listTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
@@ -135,11 +141,11 @@ data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltbrrsNextToken'
+-- * 'ltbrrsNextToken' - Indicates that there are additional results to retrieve.
 --
--- * 'ltbrrsTargets'
+-- * 'ltbrrsTargets' - Lists the targets assigned to the rule.
 --
--- * 'ltbrrsResponseStatus'
+-- * 'ltbrrsResponseStatus' - -- | The response status code.
 listTargetsByRuleResponse
     :: Int -- ^ 'ltbrrsResponseStatus'
     -> ListTargetsByRuleResponse
@@ -158,7 +164,7 @@ ltbrrsNextToken = lens _ltbrrsNextToken (\ s a -> s{_ltbrrsNextToken = a});
 ltbrrsTargets :: Lens' ListTargetsByRuleResponse [Target]
 ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
 ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Confirm the creation of a hosted connection on an interconnect.
 --
--- Upon creation, the hosted connection is initially in the \'Ordering\' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.
+--
+-- Upon creation, the hosted connection is initially in the 'Ordering' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.
+--
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmConnection operation.
 --
+--
+--
 -- /See:/ 'confirmConnection' smart constructor.
 newtype ConfirmConnection = ConfirmConnection'
     { _ccConnectionId :: Text
@@ -55,7 +59,7 @@ newtype ConfirmConnection = ConfirmConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccConnectionId'
+-- * 'ccConnectionId' - Undocumented member.
 confirmConnection
     :: Text -- ^ 'ccConnectionId'
     -> ConfirmConnection
@@ -104,6 +108,8 @@ instance ToQuery ConfirmConnection where
 
 -- | The response received when ConfirmConnection is called.
 --
+--
+--
 -- /See:/ 'confirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrsConnectionState :: !(Maybe ConnectionState)
@@ -114,9 +120,9 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccrsConnectionState'
+-- * 'ccrsConnectionState' - Undocumented member.
 --
--- * 'ccrsResponseStatus'
+-- * 'ccrsResponseStatus' - -- | The response status code.
 confirmConnectionResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> ConfirmConnectionResponse
@@ -130,7 +136,7 @@ confirmConnectionResponse pResponseStatus_ =
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 

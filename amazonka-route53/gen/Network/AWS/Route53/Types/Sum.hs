@@ -193,6 +193,8 @@ instance ToXML Failover where
     toXML = toXMLText
 
 -- | An Amazon EC2 region that you want Amazon Route 53 to use to perform health checks.
+--
+--
 data HealthCheckRegion
     = HCRApNortheast1
     | HCRApSoutheast1

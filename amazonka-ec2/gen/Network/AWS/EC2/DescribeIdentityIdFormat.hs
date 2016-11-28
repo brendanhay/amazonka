@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- The following resource types support longer IDs: 'instance' | 'reservation' | 'snapshot' | 'volume'.
+--
+-- The following resource types support longer IDs: @instance@ | @reservation@ | @snapshot@ | @volume@ .
 --
 -- These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.
+--
 module Network.AWS.EC2.DescribeIdentityIdFormat
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeIdentityIdFormat.
 --
+--
+--
 -- /See:/ 'describeIdentityIdFormat' smart constructor.
 data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
     { _diifResource     :: !(Maybe Text)
@@ -59,9 +63,9 @@ data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diifResource'
+-- * 'diifResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 --
--- * 'diifPrincipalARN'
+-- * 'diifPrincipalARN' - The ARN of the principal, which can be an IAM role, IAM user, or the root user.
 describeIdentityIdFormat
     :: Text -- ^ 'diifPrincipalARN'
     -> DescribeIdentityIdFormat
@@ -71,7 +75,7 @@ describeIdentityIdFormat pPrincipalARN_ =
     , _diifPrincipalARN = pPrincipalARN_
     }
 
--- | The type of resource: 'instance' | 'reservation' | 'snapshot' | 'volume'
+-- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 diifResource :: Lens' DescribeIdentityIdFormat (Maybe Text)
 diifResource = lens _diifResource (\ s a -> s{_diifResource = a});
 
@@ -112,6 +116,8 @@ instance ToQuery DescribeIdentityIdFormat where
 
 -- | Contains the output of DescribeIdentityIdFormat.
 --
+--
+--
 -- /See:/ 'describeIdentityIdFormatResponse' smart constructor.
 data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
     { _diifrsStatuses       :: !(Maybe [IdFormat])
@@ -122,9 +128,9 @@ data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diifrsStatuses'
+-- * 'diifrsStatuses' - Information about the ID format for the resources.
 --
--- * 'diifrsResponseStatus'
+-- * 'diifrsResponseStatus' - -- | The response status code.
 describeIdentityIdFormatResponse
     :: Int -- ^ 'diifrsResponseStatus'
     -> DescribeIdentityIdFormatResponse
@@ -138,7 +144,7 @@ describeIdentityIdFormatResponse pResponseStatus_ =
 diifrsStatuses :: Lens' DescribeIdentityIdFormatResponse [IdFormat]
 diifrsStatuses = lens _diifrsStatuses (\ s a -> s{_diifrsStatuses = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diifrsResponseStatus :: Lens' DescribeIdentityIdFormatResponse Int
 diifrsResponseStatus = lens _diifrsResponseStatus (\ s a -> s{_diifrsResponseStatus = a});
 

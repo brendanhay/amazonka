@@ -20,7 +20,9 @@
 --
 -- Modifies the certificate used by the client.
 --
--- This action can potentially start a workflow to install the new certificate on the client\'s HSMs.
+--
+-- This action can potentially start a workflow to install the new certificate on the client's HSMs.
+--
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data ModifyLunaClient = ModifyLunaClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlcClientARN'
+-- * 'mlcClientARN' - The ARN of the client.
 --
--- * 'mlcCertificate'
+-- * 'mlcCertificate' - The new certificate for the client.
 modifyLunaClient
     :: Text -- ^ 'mlcClientARN'
     -> Text -- ^ 'mlcCertificate'
@@ -122,9 +124,9 @@ data ModifyLunaClientResponse = ModifyLunaClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlcrsClientARN'
+-- * 'mlcrsClientARN' - The ARN of the client.
 --
--- * 'mlcrsResponseStatus'
+-- * 'mlcrsResponseStatus' - -- | The response status code.
 modifyLunaClientResponse
     :: Int -- ^ 'mlcrsResponseStatus'
     -> ModifyLunaClientResponse
@@ -138,7 +140,7 @@ modifyLunaClientResponse pResponseStatus_ =
 mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mlcrsResponseStatus :: Lens' ModifyLunaClientResponse Int
 mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a});
 

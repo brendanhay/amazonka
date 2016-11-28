@@ -20,7 +20,7 @@
 --
 -- Returns the name of one or more specified configuration recorders. If the recorder name is not specified, this action returns the names of all the configuration recorders associated with the account.
 --
--- Currently, you can specify only one configuration recorder per account.
+--
 module Network.AWS.Config.DescribeConfigurationRecorders
     (
     -- * Creating a Request
@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DescribeConfigurationRecorders> action.
+-- | The input for the 'DescribeConfigurationRecorders' action.
+--
+--
 --
 -- /See:/ 'describeConfigurationRecorders' smart constructor.
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
@@ -55,7 +57,7 @@ newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrConfigurationRecorderNames'
+-- * 'dcrConfigurationRecorderNames' - A list of configuration recorder names.
 describeConfigurationRecorders
     :: DescribeConfigurationRecorders
 describeConfigurationRecorders =
@@ -107,7 +109,9 @@ instance ToPath DescribeConfigurationRecorders where
 instance ToQuery DescribeConfigurationRecorders where
         toQuery = const mempty
 
--- | The output for the < DescribeConfigurationRecorders> action.
+-- | The output for the 'DescribeConfigurationRecorders' action.
+--
+--
 --
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
@@ -119,9 +123,9 @@ data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsConfigurationRecorders'
+-- * 'drsConfigurationRecorders' - A list that contains the descriptions of the specified configuration recorders.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeConfigurationRecordersResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeConfigurationRecordersResponse
@@ -135,7 +139,7 @@ describeConfigurationRecordersResponse pResponseStatus_ =
 drsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
 drsConfigurationRecorders = lens _drsConfigurationRecorders (\ s a -> s{_drsConfigurationRecorders = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeConfigurationRecordersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

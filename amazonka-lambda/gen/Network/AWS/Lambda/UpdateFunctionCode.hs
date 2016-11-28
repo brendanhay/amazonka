@@ -20,9 +20,11 @@
 --
 -- Updates the code for the specified Lambda function. This operation must only be used on an existing Lambda function and cannot be used to update the function configuration.
 --
--- If you are using the versioning feature, note this API will always update the >LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the 'lambda:UpdateFunctionCode' action.
+-- If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+--
+-- This operation requires permission for the @lambda:UpdateFunctionCode@ action.
+--
 module Network.AWS.Lambda.UpdateFunctionCode
     (
     -- * Creating a Request
@@ -64,6 +66,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'updateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
     { _uS3ObjectVersion :: !(Maybe Text)
@@ -78,17 +82,17 @@ data UpdateFunctionCode = UpdateFunctionCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uS3ObjectVersion'
+-- * 'uS3ObjectVersion' - The Amazon S3 object (the deployment package) version you want to upload.
 --
--- * 'uS3Key'
+-- * 'uS3Key' - The Amazon S3 object (the deployment package) key name you want to upload.
 --
--- * 'uZipFile'
+-- * 'uZipFile' - The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'uS3Bucket'
+-- * 'uS3Bucket' - Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 --
--- * 'uPublish'
+-- * 'uPublish' - This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation.
 --
--- * 'uFunctionName'
+-- * 'uFunctionName' - The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 updateFunctionCode
     :: Text -- ^ 'uFunctionName'
     -> UpdateFunctionCode
@@ -110,13 +114,7 @@ uS3ObjectVersion = lens _uS3ObjectVersion (\ s a -> s{_uS3ObjectVersion = a});
 uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
--- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 uZipFile :: Lens' UpdateFunctionCode (Maybe ByteString)
 uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping _Base64;
 
@@ -128,9 +126,7 @@ uS3Bucket = lens _uS3Bucket (\ s a -> s{_uS3Bucket = a});
 uPublish :: Lens' UpdateFunctionCode (Maybe Bool)
 uPublish = lens _uPublish (\ s a -> s{_uPublish = a});
 
--- | The existing Lambda function name whose code you want to replace.
---
--- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail'). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 

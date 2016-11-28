@@ -24,8 +24,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a
--- successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackCreateComplete :: Wait DescribeStacks
 stackCreateComplete =
     Wait
@@ -75,8 +74,7 @@ stackCreateComplete =
                        , matchError "ValidationError" AcceptFailure]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a
--- successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackUpdateComplete :: Wait DescribeStacks
 stackUpdateComplete =
     Wait
@@ -116,8 +114,7 @@ stackUpdateComplete =
                        , matchError "ValidationError" AcceptFailure]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 stackExists :: Wait DescribeStacks
 stackExists =
     Wait
@@ -128,8 +125,7 @@ stackExists =
                        , matchError "ValidationError" AcceptRetry]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a
--- successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackDeleteComplete :: Wait DescribeStacks
 stackDeleteComplete =
     Wait

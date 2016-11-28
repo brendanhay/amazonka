@@ -20,7 +20,9 @@
 --
 -- Deletes the specified application. Amazon Kinesis Analytics halts application execution and deletes the application, including any application artifacts (such as in-application streams, reference table, and application code).
 --
--- This operation requires permissions to perform the 'kinesisanalytics:DeleteApplication' action.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:DeleteApplication@ action.
+--
 module Network.AWS.KinesisAnalytics.DeleteApplication
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
     { _dApplicationName :: !Text
@@ -56,9 +60,9 @@ data DeleteApplication = DeleteApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dApplicationName'
+-- * 'dApplicationName' - Name of the Amazon Kinesis Analytics application to delete.
 --
--- * 'dCreateTimestamp'
+-- * 'dCreateTimestamp' - You can use the @DescribeApplication@ operation to get this value.
 deleteApplication
     :: Text -- ^ 'dApplicationName'
     -> UTCTime -- ^ 'dCreateTimestamp'
@@ -73,7 +77,7 @@ deleteApplication pApplicationName_ pCreateTimestamp_ =
 dApplicationName :: Lens' DeleteApplication Text
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
--- | You can use the 'DescribeApplication' operation to get this value.
+-- | You can use the @DescribeApplication@ operation to get this value.
 dCreateTimestamp :: Lens' DeleteApplication UTCTime
 dCreateTimestamp = lens _dCreateTimestamp (\ s a -> s{_dCreateTimestamp = a}) . _Time;
 
@@ -114,6 +118,8 @@ instance ToQuery DeleteApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplicationResponse' smart constructor.
 newtype DeleteApplicationResponse = DeleteApplicationResponse'
     { _drsResponseStatus :: Int
@@ -123,7 +129,7 @@ newtype DeleteApplicationResponse = DeleteApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteApplicationResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteApplicationResponse
@@ -132,7 +138,7 @@ deleteApplicationResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteApplicationResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

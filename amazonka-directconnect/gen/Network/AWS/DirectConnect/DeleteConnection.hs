@@ -20,7 +20,9 @@
 --
 -- Deletes the connection.
 --
+--
 -- Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. You need to cancel separately with the providers any services or charges for cross-connects or network circuits that connect you to the AWS Direct Connect location.
+--
 module Network.AWS.DirectConnect.DeleteConnection
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteConnection operation.
 --
+--
+--
 -- /See:/ 'deleteConnection' smart constructor.
 newtype DeleteConnection = DeleteConnection'
     { _dcConnectionId :: Text
@@ -63,7 +67,7 @@ newtype DeleteConnection = DeleteConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcConnectionId'
+-- * 'dcConnectionId' - Undocumented member.
 deleteConnection
     :: Text -- ^ 'dcConnectionId'
     -> DeleteConnection

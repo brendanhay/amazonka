@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified policy version.
+--
+--
 module Network.AWS.IoT.GetPolicyVersion
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The input for the GetPolicyVersion operation.
 --
+--
+--
 -- /See:/ 'getPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
     { _gpvPolicyName      :: !Text
@@ -59,9 +63,9 @@ data GetPolicyVersion = GetPolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpvPolicyName'
+-- * 'gpvPolicyName' - The name of the policy.
 --
--- * 'gpvPolicyVersionId'
+-- * 'gpvPolicyVersionId' - The policy version ID.
 getPolicyVersion
     :: Text -- ^ 'gpvPolicyName'
     -> Text -- ^ 'gpvPolicyVersionId'
@@ -111,6 +115,8 @@ instance ToQuery GetPolicyVersion where
 
 -- | The output from the GetPolicyVersion operation.
 --
+--
+--
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
     { _gpvrsPolicyName       :: !(Maybe Text)
@@ -125,17 +131,17 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpvrsPolicyName'
+-- * 'gpvrsPolicyName' - The policy name.
 --
--- * 'gpvrsPolicyDocument'
+-- * 'gpvrsPolicyDocument' - The JSON document that describes the policy.
 --
--- * 'gpvrsPolicyVersionId'
+-- * 'gpvrsPolicyVersionId' - The policy version ID.
 --
--- * 'gpvrsPolicyARN'
+-- * 'gpvrsPolicyARN' - The policy ARN.
 --
--- * 'gpvrsIsDefaultVersion'
+-- * 'gpvrsIsDefaultVersion' - Specifies whether the policy version is the default.
 --
--- * 'gpvrsResponseStatus'
+-- * 'gpvrsResponseStatus' - -- | The response status code.
 getPolicyVersionResponse
     :: Int -- ^ 'gpvrsResponseStatus'
     -> GetPolicyVersionResponse
@@ -169,7 +175,7 @@ gpvrsPolicyARN = lens _gpvrsPolicyARN (\ s a -> s{_gpvrsPolicyARN = a});
 gpvrsIsDefaultVersion :: Lens' GetPolicyVersionResponse (Maybe Bool)
 gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\ s a -> s{_gpvrsIsDefaultVersion = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});
 

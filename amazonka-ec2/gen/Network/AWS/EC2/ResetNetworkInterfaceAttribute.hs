@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resets a network interface attribute. You can specify only one attribute at a time.
+--
+--
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ResetNetworkInterfaceAttribute.
 --
+--
+--
 -- /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck    :: !(Maybe Text)
@@ -54,11 +58,11 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rniaSourceDestCheck'
+-- * 'rniaSourceDestCheck' - The source/destination checking attribute. Resets the value to @true@ .
 --
--- * 'rniaDryRun'
+-- * 'rniaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rniaNetworkInterfaceId'
+-- * 'rniaNetworkInterfaceId' - The ID of the network interface.
 resetNetworkInterfaceAttribute
     :: Text -- ^ 'rniaNetworkInterfaceId'
     -> ResetNetworkInterfaceAttribute
@@ -69,11 +73,11 @@ resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
     , _rniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | The source\/destination checking attribute. Resets the value to 'true'.
+-- | The source/destination checking attribute. Resets the value to @true@ .
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck = lens _rniaSourceDestCheck (\ s a -> s{_rniaSourceDestCheck = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
 rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a});
 

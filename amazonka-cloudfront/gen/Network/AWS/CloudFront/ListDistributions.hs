@@ -58,9 +58,9 @@ data ListDistributions = ListDistributions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldMarker'
+-- * 'ldMarker' - Use Marker and MaxItems to control pagination of results. If you have more than MaxItems distributions that satisfy the request, the response includes a NextMarker element. To get the next page of results, submit another request. For the value of Marker, specify the value of NextMarker from the last response. (For the first request, omit Marker.)
 --
--- * 'ldMaxItems'
+-- * 'ldMaxItems' - The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
 listDistributions
     :: ListDistributions
 listDistributions =
@@ -125,9 +125,9 @@ data ListDistributionsResponse = ListDistributionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 --
--- * 'ldrsDistributionList'
+-- * 'ldrsDistributionList' - The DistributionList type.
 listDistributionsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> DistributionList -- ^ 'ldrsDistributionList'
@@ -138,7 +138,7 @@ listDistributionsResponse pResponseStatus_ pDistributionList_ =
     , _ldrsDistributionList = pDistributionList_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDistributionsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

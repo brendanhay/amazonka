@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a unique device type.
+--
+--
 module Network.AWS.DeviceFarm.GetDevice
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get device request.
 --
+--
+--
 -- /See:/ 'getDevice' smart constructor.
 newtype GetDevice = GetDevice'
     { _gdArn :: Text
@@ -53,7 +57,7 @@ newtype GetDevice = GetDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdArn'
+-- * 'gdArn' - The device type's ARN.
 getDevice
     :: Text -- ^ 'gdArn'
     -> GetDevice
@@ -62,7 +66,7 @@ getDevice pArn_ =
     { _gdArn = pArn_
     }
 
--- | The device type\'s ARN.
+-- | The device type's ARN.
 gdArn :: Lens' GetDevice Text
 gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetDevice where
 
 -- | Represents the result of a get device request.
 --
+--
+--
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
     { _gdrsDevice         :: !(Maybe Device)
@@ -110,9 +116,9 @@ data GetDeviceResponse = GetDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsDevice'
+-- * 'gdrsDevice' - Undocumented member.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDeviceResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeviceResponse
@@ -126,7 +132,7 @@ getDeviceResponse pResponseStatus_ =
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

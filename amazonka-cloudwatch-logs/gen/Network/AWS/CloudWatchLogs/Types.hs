@@ -164,7 +164,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2014-03-28' of the Amazon CloudWatch Logs SDK configuration.
+-- | API version @2014-03-28@ of the Amazon CloudWatch Logs SDK configuration.
 cloudWatchLogs :: Service
 cloudWatchLogs =
     Service
@@ -199,6 +199,8 @@ cloudWatchLogs =
       | otherwise = Nothing
 
 -- | Returned if a parameter of the request is incorrectly specified.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
@@ -209,16 +211,22 @@ _InvalidSequenceTokenException =
     _ServiceError . hasCode "InvalidSequenceTokenException"
 
 -- | Returned if the specified resource already exists.
+--
+--
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
     _ServiceError . hasCode "ResourceAlreadyExistsException"
 
 -- | Returned if multiple requests to update the same resource were in conflict.
+--
+--
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
     _ServiceError . hasCode "OperationAbortedException"
 
 -- | Returned if the service cannot complete the request.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasCode "ServiceUnavailableException"
@@ -229,15 +237,21 @@ _DataAlreadyAcceptedException =
     _ServiceError . hasCode "DataAlreadyAcceptedException"
 
 -- | Returned if the operation is not valid on the specified resource
+--
+--
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
     _ServiceError . hasCode "InvalidOperationException"
 
 -- | Returned if the specified resource does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | Returned if you have reached the maximum number of resources that can be created.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

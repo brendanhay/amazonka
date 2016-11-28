@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A feature of the Amazon API Gateway control service for updating an existing API with an input of external API definitions. The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.
+--
+--
 module Network.AWS.APIGateway.PutRestAPI
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | A PUT request to update an existing API, with external API definitions specified as the request body.
 --
+--
+--
 -- /See:/ 'putRestAPI' smart constructor.
 data PutRestAPI = PutRestAPI'
     { _praMode           :: !(Maybe PutMode)
@@ -64,15 +68,15 @@ data PutRestAPI = PutRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'praMode'
+-- * 'praMode' - The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
 --
--- * 'praFailOnWarnings'
+-- * 'praFailOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'praParameters'
+-- * 'praParameters' - Custom headers supplied as part of the request.
 --
--- * 'praRestAPIId'
+-- * 'praRestAPIId' - The identifier of the 'RestApi' to be updated.
 --
--- * 'praBody'
+-- * 'praBody' - The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
 putRestAPI
     :: Text -- ^ 'praRestAPIId'
     -> HashMap Text Value -- ^ 'praBody'
@@ -86,11 +90,11 @@ putRestAPI pRestAPIId_ pBody_ =
     , _praBody = pBody_
     }
 
--- | The 'mode' query parameter to specify the update mode. Valid values are \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
+-- | The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
 praMode :: Lens' PutRestAPI (Maybe PutMode)
 praMode = lens _praMode (\ s a -> s{_praMode = a});
 
--- | A query parameter to indicate whether to rollback the API update ('true') or not ('false') when a warning is encountered. The default value is 'false'.
+-- | A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 praFailOnWarnings :: Lens' PutRestAPI (Maybe Bool)
 praFailOnWarnings = lens _praFailOnWarnings (\ s a -> s{_praFailOnWarnings = a});
 
@@ -98,7 +102,7 @@ praFailOnWarnings = lens _praFailOnWarnings (\ s a -> s{_praFailOnWarnings = a})
 praParameters :: Lens' PutRestAPI (HashMap Text Text)
 praParameters = lens _praParameters (\ s a -> s{_praParameters = a}) . _Default . _Map;
 
--- | The identifier of the < RestApi> to be updated.
+-- | The identifier of the 'RestApi' to be updated.
 praRestAPIId :: Lens' PutRestAPI Text
 praRestAPIId = lens _praRestAPIId (\ s a -> s{_praRestAPIId = a});
 

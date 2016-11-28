@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about an < ClientCertificate> resource.
+-- Changes information about an 'ClientCertificate' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateClientCertificate
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about an < ClientCertificate> resource.
+-- | A request to change information about an 'ClientCertificate' resource.
+--
+--
 --
 -- /See:/ 'updateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
@@ -58,9 +62,9 @@ data UpdateClientCertificate = UpdateClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uccPatchOperations'
+-- * 'uccPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uccClientCertificateId'
+-- * 'uccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be updated.
 updateClientCertificate
     :: Text -- ^ 'uccClientCertificateId'
     -> UpdateClientCertificate
@@ -74,7 +78,7 @@ updateClientCertificate pClientCertificateId_ =
 uccPatchOperations :: Lens' UpdateClientCertificate [PatchOperation]
 uccPatchOperations = lens _uccPatchOperations (\ s a -> s{_uccPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the < ClientCertificate> resource to be updated.
+-- | The identifier of the 'ClientCertificate' resource to be updated.
 uccClientCertificateId :: Lens' UpdateClientCertificate Text
 uccClientCertificateId = lens _uccClientCertificateId (\ s a -> s{_uccClientCertificateId = a});
 

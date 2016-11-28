@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the configuration information and metadata of the specified user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserPool
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to describe the user pool.
 --
+--
+--
 -- /See:/ 'describeUserPool' smart constructor.
 newtype DescribeUserPool = DescribeUserPool'
     { _dUserPoolId :: Text
@@ -53,7 +57,7 @@ newtype DescribeUserPool = DescribeUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dUserPoolId'
+-- * 'dUserPoolId' - The user pool ID for the user pool you want to describe.
 describeUserPool
     :: Text -- ^ 'dUserPoolId'
     -> DescribeUserPool
@@ -102,6 +106,8 @@ instance ToQuery DescribeUserPool where
 
 -- | Represents the response to describe the user pool.
 --
+--
+--
 -- /See:/ 'describeUserPoolResponse' smart constructor.
 data DescribeUserPoolResponse = DescribeUserPoolResponse'
     { _duprsUserPool       :: !(Maybe UserPoolType)
@@ -112,9 +118,9 @@ data DescribeUserPoolResponse = DescribeUserPoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duprsUserPool'
+-- * 'duprsUserPool' - The container of metadata returned by the server to describe the pool.
 --
--- * 'duprsResponseStatus'
+-- * 'duprsResponseStatus' - -- | The response status code.
 describeUserPoolResponse
     :: Int -- ^ 'duprsResponseStatus'
     -> DescribeUserPoolResponse
@@ -128,7 +134,7 @@ describeUserPoolResponse pResponseStatus_ =
 duprsUserPool :: Lens' DescribeUserPoolResponse (Maybe UserPoolType)
 duprsUserPool = lens _duprsUserPool (\ s a -> s{_duprsUserPool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserPoolResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
 

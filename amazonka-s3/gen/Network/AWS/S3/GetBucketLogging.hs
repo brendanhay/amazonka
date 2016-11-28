@@ -51,7 +51,7 @@ newtype GetBucketLogging = GetBucketLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gBucket'
+-- * 'gBucket' - Undocumented member.
 getBucketLogging
     :: BucketName -- ^ 'gBucket'
     -> GetBucketLogging
@@ -97,9 +97,9 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblrsLoggingEnabled'
+-- * 'gblrsLoggingEnabled' - Undocumented member.
 --
--- * 'gblrsResponseStatus'
+-- * 'gblrsResponseStatus' - -- | The response status code.
 getBucketLoggingResponse
     :: Int -- ^ 'gblrsResponseStatus'
     -> GetBucketLoggingResponse
@@ -113,7 +113,7 @@ getBucketLoggingResponse pResponseStatus_ =
 gblrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
 gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});
 

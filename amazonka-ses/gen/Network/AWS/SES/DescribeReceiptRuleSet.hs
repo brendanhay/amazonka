@@ -20,9 +20,11 @@
 --
 -- Returns the details of the specified receipt rule set.
 --
--- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+--
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DescribeReceiptRuleSet
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'describeReceiptRuleSet' smart constructor.
 newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
@@ -58,7 +62,7 @@ newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsRuleSetName'
+-- * 'drrsRuleSetName' - The name of the receipt rule set to describe.
 describeReceiptRuleSet
     :: Text -- ^ 'drrsRuleSetName'
     -> DescribeReceiptRuleSet
@@ -104,6 +108,8 @@ instance ToQuery DescribeReceiptRuleSet where
 
 -- | Represents the details of the specified receipt rule set.
 --
+--
+--
 -- /See:/ 'describeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
     { _desrsRules          :: !(Maybe [ReceiptRule])
@@ -115,11 +121,11 @@ data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsRules'
+-- * 'desrsRules' - A list of the receipt rules that belong to the specified receipt rule set.
 --
--- * 'desrsMetadata'
+-- * 'desrsMetadata' - The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeReceiptRuleSetResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeReceiptRuleSetResponse
@@ -138,7 +144,7 @@ desrsRules = lens _desrsRules (\ s a -> s{_desrsRules = a}) . _Default . _Coerce
 desrsMetadata :: Lens' DescribeReceiptRuleSetResponse (Maybe ReceiptRuleSetMetadata)
 desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeReceiptRuleSetResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Deletes the configuration recorder.
 --
+--
 -- After the configuration recorder is deleted, AWS Config will not record resource configuration changes until you create a new configuration recorder.
 --
--- This action does not delete the configuration information that was previously recorded. You will be able to access the previously recorded information by using the 'GetResourceConfigHistory' action, but you will not be able to access this information in the AWS Config console until you create a new configuration recorder.
+-- This action does not delete the configuration information that was previously recorded. You will be able to access the previously recorded information by using the @GetResourceConfigHistory@ action, but you will not be able to access this information in the AWS Config console until you create a new configuration recorder.
+--
 module Network.AWS.Config.DeleteConfigurationRecorder
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request object for the 'DeleteConfigurationRecorder' action.
+-- | The request object for the @DeleteConfigurationRecorder@ action.
+--
+--
 --
 -- /See:/ 'deleteConfigurationRecorder' smart constructor.
 newtype DeleteConfigurationRecorder = DeleteConfigurationRecorder'
@@ -54,7 +58,7 @@ newtype DeleteConfigurationRecorder = DeleteConfigurationRecorder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrConfigurationRecorderName'
+-- * 'dcrConfigurationRecorderName' - The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
 deleteConfigurationRecorder
     :: Text -- ^ 'dcrConfigurationRecorderName'
     -> DeleteConfigurationRecorder
@@ -63,7 +67,7 @@ deleteConfigurationRecorder pConfigurationRecorderName_ =
     { _dcrConfigurationRecorderName = pConfigurationRecorderName_
     }
 
--- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the 'DescribeConfigurationRecorders' action.
+-- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
 dcrConfigurationRecorderName :: Lens' DeleteConfigurationRecorder Text
 dcrConfigurationRecorderName = lens _dcrConfigurationRecorderName (\ s a -> s{_dcrConfigurationRecorderName = a});
 

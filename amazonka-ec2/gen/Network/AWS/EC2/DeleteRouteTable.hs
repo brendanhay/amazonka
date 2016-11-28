@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can\'t delete the main route table.
+-- Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.
+--
+--
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteRouteTable.
 --
+--
+--
 -- /See:/ 'deleteRouteTable' smart constructor.
 data DeleteRouteTable = DeleteRouteTable'
     { _drtrDryRun       :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteRouteTable = DeleteRouteTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drtrDryRun'
+-- * 'drtrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'drtrRouteTableId'
+-- * 'drtrRouteTableId' - The ID of the route table.
 deleteRouteTable
     :: Text -- ^ 'drtrRouteTableId'
     -> DeleteRouteTable
@@ -64,7 +68,7 @@ deleteRouteTable pRouteTableId_ =
     , _drtrRouteTableId = pRouteTableId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drtrDryRun :: Lens' DeleteRouteTable (Maybe Bool)
 drtrDryRun = lens _drtrDryRun (\ s a -> s{_drtrDryRun = a});
 

@@ -20,15 +20,15 @@
 --
 -- Registers a new domain.
 --
+--
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
--- -   You cannot use an IAM policy to control domain access for this action. The name of the domain being registered is available as the resource of this action.
--- -   Use an 'Action' element to allow or deny permission to call this action.
--- -   You cannot use an IAM policy to constrain this action\'s parameters.
+--     * You cannot use an IAM policy to control domain access for this action. The name of the domain being registered is available as the resource of this action.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--
 module Network.AWS.SWF.RegisterDomain
     (
     -- * Creating a Request
@@ -62,11 +62,11 @@ data RegisterDomain = RegisterDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdDescription'
+-- * 'rdDescription' - A text description of the domain.
 --
--- * 'rdName'
+-- * 'rdName' - Name of the domain to register. The name must be unique in the region that the domain is registered in. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 --
--- * 'rdWorkflowExecutionRetentionPeriodInDays'
+-- * 'rdWorkflowExecutionRetentionPeriodInDays' - The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution is not available in the results of visibility calls. If you pass the value @NONE@ or @0@ (zero), then the workflow execution history will not be retained. As soon as the workflow execution completes, the execution record and its history are deleted. The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/ .
 registerDomain
     :: Text -- ^ 'rdName'
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
@@ -82,17 +82,11 @@ registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
 rdDescription :: Lens' RegisterDomain (Maybe Text)
 rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a});
 
--- | Name of the domain to register. The name must be unique in the region that the domain is registered in.
---
--- The specified string must not start or end with whitespace. It must not contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not contain the literal string quotarnquot.
+-- | Name of the domain to register. The name must be unique in the region that the domain is registered in. The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string quotarnquot.
 rdName :: Lens' RegisterDomain Text
 rdName = lens _rdName (\ s a -> s{_rdName = a});
 
--- | The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution is not available in the results of visibility calls.
---
--- If you pass the value 'NONE' or '0' (zero), then the workflow execution history will not be retained. As soon as the workflow execution completes, the execution record and its history are deleted.
---
--- The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/.
+-- | The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution is not available in the results of visibility calls. If you pass the value @NONE@ or @0@ (zero), then the workflow execution history will not be retained. As soon as the workflow execution completes, the execution record and its history are deleted. The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/ .
 rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
 rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a});
 

@@ -20,11 +20,11 @@
 --
 -- Associates an Amazon VPC with a private hosted zone.
 --
--- The VPC and the hosted zone must already exist, and you must have created a private hosted zone. You cannot convert a public hosted zone into a private hosted zone.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/hostedzone\/hosted zone ID\/associatevpc' resource. The request body must include an XML document with a 'AssociateVPCWithHostedZoneRequest' element. The response returns the 'AssociateVPCWithHostedZoneResponse' element.
+-- /Important:/ The VPC and the hosted zone must already exist, and you must have created a private hosted zone. You cannot convert a public hosted zone into a private hosted zone.
 --
--- If you used different accounts to create the hosted zone and to create the Amazon VPCs that you want to associate with the hosted zone, we need to update account permissions for you. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html Associating Amazon VPCs and Private Hosted Zones That You Create with Different AWS Accounts> in the Amazon Route 53 Developer Guide.
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /hostedzone//hosted zone ID/ /associatevpc@ resource. The request body must include an XML document with a @AssociateVPCWithHostedZoneRequest@ element. The response returns the @AssociateVPCWithHostedZoneResponse@ element.
+--
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request
@@ -52,6 +52,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the VPC and the hosted zone that you want to associate.
 --
+--
+--
 -- /See:/ 'associateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
     { _avwhzComment      :: !(Maybe Text)
@@ -63,11 +65,11 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avwhzComment'
+-- * 'avwhzComment' - /Optional:/ A comment about the association request.
 --
--- * 'avwhzHostedZoneId'
+-- * 'avwhzHostedZoneId' - The ID of the hosted zone you want to associate your VPC with. Note that you cannot associate a VPC with a hosted zone that doesn't have an existing VPC association.
 --
--- * 'avwhzVPC'
+-- * 'avwhzVPC' - A complex type containing information about the Amazon VPC that you're associating with the specified hosted zone.
 associateVPCWithHostedZone
     :: Text -- ^ 'avwhzHostedZoneId'
     -> VPC -- ^ 'avwhzVPC'
@@ -83,13 +85,11 @@ associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
--- | The ID of the hosted zone you want to associate your VPC with.
---
--- Note that you cannot associate a VPC with a hosted zone that doesn\'t have an existing VPC association.
+-- | The ID of the hosted zone you want to associate your VPC with. Note that you cannot associate a VPC with a hosted zone that doesn't have an existing VPC association.
 avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
 avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
 
--- | A complex type containing information about the Amazon VPC that you\'re associating with the specified hosted zone.
+-- | A complex type containing information about the Amazon VPC that you're associating with the specified hosted zone.
 avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
@@ -131,6 +131,8 @@ instance ToXML AssociateVPCWithHostedZone where
 
 -- | A complex type that contains the response information for the hosted zone.
 --
+--
+--
 -- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
     { _avwhzrsResponseStatus :: !Int
@@ -141,9 +143,9 @@ data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avwhzrsResponseStatus'
+-- * 'avwhzrsResponseStatus' - -- | The response status code.
 --
--- * 'avwhzrsChangeInfo'
+-- * 'avwhzrsChangeInfo' - A complex type that describes the changes made to your hosted zone.
 associateVPCWithHostedZoneResponse
     :: Int -- ^ 'avwhzrsResponseStatus'
     -> ChangeInfo -- ^ 'avwhzrsChangeInfo'
@@ -154,7 +156,7 @@ associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     , _avwhzrsChangeInfo = pChangeInfo_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
 avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponseStatus = a});
 

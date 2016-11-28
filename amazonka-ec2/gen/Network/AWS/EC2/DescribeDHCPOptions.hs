@@ -20,7 +20,9 @@
 --
 -- Describes one or more of your DHCP options sets.
 --
--- For more information about DHCP options sets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about DHCP options sets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeDHCPOptions
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeDhcpOptions.
 --
+--
+--
 -- /See:/ 'describeDHCPOptions' smart constructor.
 data DescribeDHCPOptions = DescribeDHCPOptions'
     { _ddoFilters        :: !(Maybe [Filter])
@@ -59,11 +63,11 @@ data DescribeDHCPOptions = DescribeDHCPOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddoFilters'
+-- * 'ddoFilters' - One or more filters.     * @dhcp-options-id@ - The ID of a set of DHCP options.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.
 --
--- * 'ddoDHCPOptionsIds'
+-- * 'ddoDHCPOptionsIds' - The IDs of one or more DHCP options sets. Default: Describes all your DHCP options sets.
 --
--- * 'ddoDryRun'
+-- * 'ddoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeDHCPOptions
     :: DescribeDHCPOptions
 describeDHCPOptions =
@@ -73,30 +77,15 @@ describeDHCPOptions =
     , _ddoDryRun = Nothing
     }
 
--- | One or more filters.
---
--- -   'dhcp-options-id' - The ID of a set of DHCP options.
---
--- -   'key' - The key for one of the options (for example, 'domain-name').
---
--- -   'value' - The value for one of the options.
---
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
---
--- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
---
--- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
---
+-- | One or more filters.     * @dhcp-options-id@ - The ID of a set of DHCP options.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.
 ddoFilters :: Lens' DescribeDHCPOptions [Filter]
 ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default . _Coerce;
 
--- | The IDs of one or more DHCP options sets.
---
--- Default: Describes all your DHCP options sets.
+-- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP options sets.
 ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
 ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
 
@@ -134,6 +123,8 @@ instance ToQuery DescribeDHCPOptions where
 
 -- | Contains the output of DescribeDhcpOptions.
 --
+--
+--
 -- /See:/ 'describeDHCPOptionsResponse' smart constructor.
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions    :: !(Maybe [DHCPOptions])
@@ -144,9 +135,9 @@ data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddorsDHCPOptions'
+-- * 'ddorsDHCPOptions' - Information about one or more DHCP options sets.
 --
--- * 'ddorsResponseStatus'
+-- * 'ddorsResponseStatus' - -- | The response status code.
 describeDHCPOptionsResponse
     :: Int -- ^ 'ddorsResponseStatus'
     -> DescribeDHCPOptionsResponse
@@ -160,7 +151,7 @@ describeDHCPOptionsResponse pResponseStatus_ =
 ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddorsResponseStatus :: Lens' DescribeDHCPOptionsResponse Int
 ddorsResponseStatus = lens _ddorsResponseStatus (\ s a -> s{_ddorsResponseStatus = a});
 

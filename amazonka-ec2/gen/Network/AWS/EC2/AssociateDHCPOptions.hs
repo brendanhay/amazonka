@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a set of DHCP options (that you\'ve previously created) with the specified VPC, or associates no DHCP options with the VPC.
+-- Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.
 --
--- After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don\'t need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
 --
--- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+-- After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
+--
+-- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.AssociateDHCPOptions
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AssociateDhcpOptions.
 --
+--
+--
 -- /See:/ 'associateDHCPOptions' smart constructor.
 data AssociateDHCPOptions = AssociateDHCPOptions'
     { _adoDryRun        :: !(Maybe Bool)
@@ -58,11 +62,11 @@ data AssociateDHCPOptions = AssociateDHCPOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adoDryRun'
+-- * 'adoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'adoDHCPOptionsId'
+-- * 'adoDHCPOptionsId' - The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
 --
--- * 'adoVPCId'
+-- * 'adoVPCId' - The ID of the VPC.
 associateDHCPOptions
     :: Text -- ^ 'adoDHCPOptionsId'
     -> Text -- ^ 'adoVPCId'
@@ -74,11 +78,11 @@ associateDHCPOptions pDHCPOptionsId_ pVPCId_ =
     , _adoVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 adoDryRun :: Lens' AssociateDHCPOptions (Maybe Bool)
 adoDryRun = lens _adoDryRun (\ s a -> s{_adoDryRun = a});
 
--- | The ID of the DHCP options set, or 'default' to associate no DHCP options with the VPC.
+-- | The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
 adoDHCPOptionsId :: Lens' AssociateDHCPOptions Text
 adoDHCPOptionsId = lens _adoDHCPOptionsId (\ s a -> s{_adoDHCPOptionsId = a});
 

@@ -20,9 +20,11 @@
 --
 -- Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.
 --
--- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call < DeactivatePipeline>.
+--
+-- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call 'DeactivatePipeline' .
 --
 -- To activate a finished pipeline, modify the end date for the pipeline and then activate it.
+--
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ActivatePipeline.
 --
+--
+--
 -- /See:/ 'activatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
     { _apStartTimestamp  :: !(Maybe POSIX)
@@ -60,11 +64,11 @@ data ActivatePipeline = ActivatePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apStartTimestamp'
+-- * 'apStartTimestamp' - The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 --
--- * 'apParameterValues'
+-- * 'apParameterValues' - A list of parameter values to pass to the pipeline at activation.
 --
--- * 'apPipelineId'
+-- * 'apPipelineId' - The ID of the pipeline.
 activatePipeline
     :: Text -- ^ 'apPipelineId'
     -> ActivatePipeline
@@ -124,6 +128,8 @@ instance ToQuery ActivatePipeline where
 
 -- | Contains the output of ActivatePipeline.
 --
+--
+--
 -- /See:/ 'activatePipelineResponse' smart constructor.
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
     { _aprsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype ActivatePipelineResponse = ActivatePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aprsResponseStatus'
+-- * 'aprsResponseStatus' - -- | The response status code.
 activatePipelineResponse
     :: Int -- ^ 'aprsResponseStatus'
     -> ActivatePipelineResponse
@@ -142,7 +148,7 @@ activatePipelineResponse pResponseStatus_ =
     { _aprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aprsResponseStatus :: Lens' ActivatePipelineResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
 

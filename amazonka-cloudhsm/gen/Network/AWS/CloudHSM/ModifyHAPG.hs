@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing high-availability partition group.
+--
+--
 module Network.AWS.CloudHSM.ModifyHAPG
     (
     -- * Creating a Request
@@ -55,11 +57,11 @@ data ModifyHAPG = ModifyHAPG'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhPartitionSerialList'
+-- * 'mhPartitionSerialList' - The list of partition serial numbers to make members of the high-availability partition group.
 --
--- * 'mhLabel'
+-- * 'mhLabel' - The new label for the high-availability partition group.
 --
--- * 'mhHAPGARN'
+-- * 'mhHAPGARN' - The ARN of the high-availability partition group to modify.
 modifyHAPG
     :: Text -- ^ 'mhHAPGARN'
     -> ModifyHAPG
@@ -129,9 +131,9 @@ data ModifyHAPGResponse = ModifyHAPGResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhrsHAPGARN'
+-- * 'mhrsHAPGARN' - The ARN of the high-availability partition group.
 --
--- * 'mhrsResponseStatus'
+-- * 'mhrsResponseStatus' - -- | The response status code.
 modifyHAPGResponse
     :: Int -- ^ 'mhrsResponseStatus'
     -> ModifyHAPGResponse
@@ -145,7 +147,7 @@ modifyHAPGResponse pResponseStatus_ =
 mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
 

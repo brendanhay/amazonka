@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the user import job.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to describe the user import job.
 --
+--
+--
 -- /See:/ 'describeUserImportJob' smart constructor.
 data DescribeUserImportJob = DescribeUserImportJob'
     { _duijUserPoolId :: !Text
@@ -55,9 +59,9 @@ data DescribeUserImportJob = DescribeUserImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duijUserPoolId'
+-- * 'duijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'duijJobId'
+-- * 'duijJobId' - The job ID for the user import job.
 describeUserImportJob
     :: Text -- ^ 'duijUserPoolId'
     -> Text -- ^ 'duijJobId'
@@ -115,6 +119,8 @@ instance ToQuery DescribeUserImportJob where
 
 -- | Represents the response from the server to the request to describe the user import job.
 --
+--
+--
 -- /See:/ 'describeUserImportJobResponse' smart constructor.
 data DescribeUserImportJobResponse = DescribeUserImportJobResponse'
     { _duijrsUserImportJob  :: !(Maybe UserImportJobType)
@@ -125,9 +131,9 @@ data DescribeUserImportJobResponse = DescribeUserImportJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duijrsUserImportJob'
+-- * 'duijrsUserImportJob' - The job object that represents the user import job.
 --
--- * 'duijrsResponseStatus'
+-- * 'duijrsResponseStatus' - -- | The response status code.
 describeUserImportJobResponse
     :: Int -- ^ 'duijrsResponseStatus'
     -> DescribeUserImportJobResponse
@@ -141,7 +147,7 @@ describeUserImportJobResponse pResponseStatus_ =
 duijrsUserImportJob :: Lens' DescribeUserImportJobResponse (Maybe UserImportJobType)
 duijrsUserImportJob = lens _duijrsUserImportJob (\ s a -> s{_duijrsUserImportJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 duijrsResponseStatus :: Lens' DescribeUserImportJobResponse Int
 duijrsResponseStatus = lens _duijrsResponseStatus (\ s a -> s{_duijrsResponseStatus = a});
 

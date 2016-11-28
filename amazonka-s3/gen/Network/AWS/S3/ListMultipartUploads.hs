@@ -77,19 +77,19 @@ data ListMultipartUploads = ListMultipartUploads'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmuKeyMarker'
+-- * 'lmuKeyMarker' - Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
 --
--- * 'lmuPrefix'
+-- * 'lmuPrefix' - Lists in-progress uploads only for those keys that begin with the specified prefix.
 --
--- * 'lmuEncodingType'
+-- * 'lmuEncodingType' - Undocumented member.
 --
--- * 'lmuUploadIdMarker'
+-- * 'lmuUploadIdMarker' - Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
 --
--- * 'lmuMaxUploads'
+-- * 'lmuMaxUploads' - Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
 --
--- * 'lmuDelimiter'
+-- * 'lmuDelimiter' - Character you use to group keys.
 --
--- * 'lmuBucket'
+-- * 'lmuBucket' - Undocumented member.
 listMultipartUploads
     :: BucketName -- ^ 'lmuBucket'
     -> ListMultipartUploads
@@ -205,31 +205,31 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmursKeyMarker'
+-- * 'lmursKeyMarker' - The key at or after which the listing began.
 --
--- * 'lmursPrefix'
+-- * 'lmursPrefix' - When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
 --
--- * 'lmursCommonPrefixes'
+-- * 'lmursCommonPrefixes' - Undocumented member.
 --
--- * 'lmursEncodingType'
+-- * 'lmursEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lmursBucket'
+-- * 'lmursBucket' - Name of the bucket to which the multipart upload was initiated.
 --
--- * 'lmursUploadIdMarker'
+-- * 'lmursUploadIdMarker' - Upload ID after which listing began.
 --
--- * 'lmursMaxUploads'
+-- * 'lmursMaxUploads' - Maximum number of multipart uploads that could have been included in the response.
 --
--- * 'lmursNextKeyMarker'
+-- * 'lmursNextKeyMarker' - When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
 --
--- * 'lmursUploads'
+-- * 'lmursUploads' - Undocumented member.
 --
--- * 'lmursIsTruncated'
+-- * 'lmursIsTruncated' - Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
 --
--- * 'lmursNextUploadIdMarker'
+-- * 'lmursNextUploadIdMarker' - When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
 --
--- * 'lmursDelimiter'
+-- * 'lmursDelimiter' - Undocumented member.
 --
--- * 'lmursResponseStatus'
+-- * 'lmursResponseStatus' - -- | The response status code.
 listMultipartUploadsResponse
     :: Int -- ^ 'lmursResponseStatus'
     -> ListMultipartUploadsResponse
@@ -298,7 +298,7 @@ lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUp
 lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
 lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
 

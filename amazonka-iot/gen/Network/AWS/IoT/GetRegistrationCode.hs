@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a registration code used to register a CA certificate with AWS IoT.
+--
+--
 module Network.AWS.IoT.GetRegistrationCode
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The input to the GetRegistrationCode operation.
+--
+--
 --
 -- /See:/ 'getRegistrationCode' smart constructor.
 data GetRegistrationCode =
@@ -78,6 +82,8 @@ instance ToQuery GetRegistrationCode where
 
 -- | The output from the GetRegistrationCode operation.
 --
+--
+--
 -- /See:/ 'getRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
     { _grcrsRegistrationCode :: !(Maybe Text)
@@ -88,9 +94,9 @@ data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grcrsRegistrationCode'
+-- * 'grcrsRegistrationCode' - The CA certificate registration code.
 --
--- * 'grcrsResponseStatus'
+-- * 'grcrsResponseStatus' - -- | The response status code.
 getRegistrationCodeResponse
     :: Int -- ^ 'grcrsResponseStatus'
     -> GetRegistrationCodeResponse
@@ -104,7 +110,7 @@ getRegistrationCodeResponse pResponseStatus_ =
 grcrsRegistrationCode :: Lens' GetRegistrationCodeResponse (Maybe Text)
 grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrationCode = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grcrsResponseStatus :: Lens' GetRegistrationCodeResponse Int
 grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a});
 

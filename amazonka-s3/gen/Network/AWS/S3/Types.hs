@@ -482,7 +482,7 @@ import           Network.AWS.S3.Types.Product
 import           Network.AWS.S3.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | API version '2006-03-01' of the Amazon Simple Storage Service SDK configuration.
+-- | API version @2006-03-01@ of the Amazon Simple Storage Service SDK configuration.
 s3 :: Service
 s3 =
     Service

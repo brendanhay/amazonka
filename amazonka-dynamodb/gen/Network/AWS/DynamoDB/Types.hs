@@ -270,7 +270,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2012-08-10' of the Amazon DynamoDB SDK configuration.
+-- | API version @2012-08-10@ of the Amazon DynamoDB SDK configuration.
 dynamoDB :: Service
 dynamoDB =
     Service
@@ -308,38 +308,52 @@ dynamoDB =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/.
+-- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/ .
+--
+--
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | A condition specified in the operation could not be evaluated.
+--
+--
 _ConditionalCheckFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConditionalCheckFailedException =
     _ServiceError . hasCode "ConditionalCheckFailedException"
 
 -- | An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
+--
+--
 _ItemCollectionSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ItemCollectionSizeLimitExceededException =
     _ServiceError . hasCode "ItemCollectionSizeLimitExceededException"
 
 -- | An error occurred on the server side.
+--
+--
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
--- | The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be 'ACTIVE'.
+-- | The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be @ACTIVE@ .
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | The number of concurrent table requests (cumulative number of tables in the 'CREATING', 'DELETING' or 'UPDATING' state) exceeds the maximum allowed of 10.
+-- | The number of concurrent table requests (cumulative number of tables in the @CREATING@ , @DELETING@ or @UPDATING@ state) exceeds the maximum allowed of 10.
 --
--- Also, for tables with secondary indexes, only one of those tables can be in the 'CREATING' state at any point in time. Do not attempt to create more than one such table simultaneously.
 --
--- The total limit of tables in the 'ACTIVE' state is 250.
+-- Also, for tables with secondary indexes, only one of those tables can be in the @CREATING@ state at any point in time. Do not attempt to create more than one such table simultaneously.
+--
+-- The total limit of tables in the @ACTIVE@ state is 250.
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
--- | The operation conflicts with the resource\'s availability. For example, you attempted to recreate an existing table, or tried to delete a table currently in the 'CREATING' state.
+-- | The operation conflicts with the resource's availability. For example, you attempted to recreate an existing table, or tried to delete a table currently in the @CREATING@ state.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

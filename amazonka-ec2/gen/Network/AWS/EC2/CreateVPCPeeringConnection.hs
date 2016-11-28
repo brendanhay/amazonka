@@ -20,9 +20,11 @@
 --
 -- Requests a VPC peering connection between two VPCs: a requester VPC that you own and a peer VPC with which to create the connection. The peer VPC can belong to another AWS account. The requester VPC and peer VPC cannot have overlapping CIDR blocks.
 --
+--
 -- The owner of the peer VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.
 --
--- A 'CreateVpcPeeringConnection' request between VPCs with overlapping CIDR blocks results in the VPC peering connection having a status of 'failed'.
+-- A @CreateVpcPeeringConnection@ request between VPCs with overlapping CIDR blocks results in the VPC peering connection having a status of @failed@ .
+--
 module Network.AWS.EC2.CreateVPCPeeringConnection
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
     { _cvpcPeerVPCId   :: !(Maybe Text)
@@ -63,13 +67,13 @@ data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvpcPeerVPCId'
+-- * 'cvpcPeerVPCId' - The ID of the VPC with which you are creating the VPC peering connection.
 --
--- * 'cvpcVPCId'
+-- * 'cvpcVPCId' - The ID of the requester VPC.
 --
--- * 'cvpcPeerOwnerId'
+-- * 'cvpcPeerOwnerId' - The AWS account ID of the owner of the peer VPC. Default: Your AWS account ID
 --
--- * 'cvpcDryRun'
+-- * 'cvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 createVPCPeeringConnection
     :: CreateVPCPeeringConnection
 createVPCPeeringConnection =
@@ -88,13 +92,11 @@ cvpcPeerVPCId = lens _cvpcPeerVPCId (\ s a -> s{_cvpcPeerVPCId = a});
 cvpcVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
 cvpcVPCId = lens _cvpcVPCId (\ s a -> s{_cvpcVPCId = a});
 
--- | The AWS account ID of the owner of the peer VPC.
---
--- Default: Your AWS account ID
+-- | The AWS account ID of the owner of the peer VPC. Default: Your AWS account ID
 cvpcPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
 cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\ s a -> s{_cvpcPeerOwnerId = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
 
@@ -131,6 +133,8 @@ instance ToQuery CreateVPCPeeringConnection where
 
 -- | Contains the output of CreateVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
@@ -141,9 +145,9 @@ data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvpcrsVPCPeeringConnection'
+-- * 'cvpcrsVPCPeeringConnection' - Information about the VPC peering connection.
 --
--- * 'cvpcrsResponseStatus'
+-- * 'cvpcrsResponseStatus' - -- | The response status code.
 createVPCPeeringConnectionResponse
     :: Int -- ^ 'cvpcrsResponseStatus'
     -> CreateVPCPeeringConnectionResponse
@@ -157,7 +161,7 @@ createVPCPeeringConnectionResponse pResponseStatus_ =
 cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\ s a -> s{_cvpcrsVPCPeeringConnection = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cvpcrsResponseStatus :: Lens' CreateVPCPeeringConnectionResponse Int
 cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\ s a -> s{_cvpcrsResponseStatus = a});
 

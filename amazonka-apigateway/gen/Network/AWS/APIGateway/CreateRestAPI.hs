@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new < RestApi> resource.
+-- Creates a new 'RestApi' resource.
+--
+--
 module Network.AWS.APIGateway.CreateRestAPI
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The POST Request to add a new < RestApi> resource to your collection.
+-- | The POST Request to add a new 'RestApi' resource to your collection.
+--
+--
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
@@ -60,11 +64,11 @@ data CreateRestAPI = CreateRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'craCloneFrom'
+-- * 'craCloneFrom' - The ID of the 'RestApi' that you want to clone from.
 --
--- * 'craDescription'
+-- * 'craDescription' - The description of the 'RestApi' .
 --
--- * 'craName'
+-- * 'craName' - The name of the 'RestApi' .
 createRestAPI
     :: Text -- ^ 'craName'
     -> CreateRestAPI
@@ -75,15 +79,15 @@ createRestAPI pName_ =
     , _craName = pName_
     }
 
--- | The ID of the < RestApi> that you want to clone from.
+-- | The ID of the 'RestApi' that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
 craCloneFrom = lens _craCloneFrom (\ s a -> s{_craCloneFrom = a});
 
--- | The description of the < RestApi>.
+-- | The description of the 'RestApi' .
 craDescription :: Lens' CreateRestAPI (Maybe Text)
 craDescription = lens _craDescription (\ s a -> s{_craDescription = a});
 
--- | The name of the < RestApi>.
+-- | The name of the 'RestApi' .
 craName :: Lens' CreateRestAPI Text
 craName = lens _craName (\ s a -> s{_craName = a});
 

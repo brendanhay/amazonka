@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
+--
 module Network.AWS.RDS.CreateDBClusterSnapshot
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBClusterSnapshot' smart constructor.
 data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
     { _cdcsTags                        :: !(Maybe [Tag])
@@ -57,11 +61,11 @@ data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcsTags'
+-- * 'cdcsTags' - The tags to be assigned to the DB cluster snapshot.
 --
--- * 'cdcsDBClusterSnapshotIdentifier'
+-- * 'cdcsDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
 --
--- * 'cdcsDBClusterIdentifier'
+-- * 'cdcsDBClusterIdentifier' - The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 createDBClusterSnapshot
     :: Text -- ^ 'cdcsDBClusterSnapshotIdentifier'
     -> Text -- ^ 'cdcsDBClusterIdentifier'
@@ -77,31 +81,11 @@ createDBClusterSnapshot pDBClusterSnapshotIdentifier_ pDBClusterIdentifier_ =
 cdcsTags :: Lens' CreateDBClusterSnapshot [Tag]
 cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce;
 
--- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster1-snapshot1'
+-- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
 cdcsDBClusterSnapshotIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -> s{_cdcsDBClusterSnapshotIdentifier = a});
 
--- | The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster1'
+-- | The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 cdcsDBClusterIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterIdentifier = lens _cdcsDBClusterIdentifier (\ s a -> s{_cdcsDBClusterIdentifier = a});
 
@@ -146,9 +130,9 @@ data CreateDBClusterSnapshotResponse = CreateDBClusterSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbcsrsDBClusterSnapshot'
+-- * 'cdbcsrsDBClusterSnapshot' - Undocumented member.
 --
--- * 'cdbcsrsResponseStatus'
+-- * 'cdbcsrsResponseStatus' - -- | The response status code.
 createDBClusterSnapshotResponse
     :: Int -- ^ 'cdbcsrsResponseStatus'
     -> CreateDBClusterSnapshotResponse
@@ -162,7 +146,7 @@ createDBClusterSnapshotResponse pResponseStatus_ =
 cdbcsrsDBClusterSnapshot :: Lens' CreateDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDBClusterSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdbcsrsResponseStatus :: Lens' CreateDBClusterSnapshotResponse Int
 cdbcsrsResponseStatus = lens _cdbcsrsResponseStatus (\ s a -> s{_cdbcsrsResponseStatus = a});
 

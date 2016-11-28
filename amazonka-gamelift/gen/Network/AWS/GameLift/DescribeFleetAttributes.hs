@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < FleetAttributes> object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
+-- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'FleetAttributes' object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
--- Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
+--
 module Network.AWS.GameLift.DescribeFleetAttributes
     (
     -- * Creating a Request
@@ -49,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeFleetAttributes' smart constructor.
 data DescribeFleetAttributes = DescribeFleetAttributes'
     { _dfaNextToken :: !(Maybe Text)
@@ -60,11 +62,11 @@ data DescribeFleetAttributes = DescribeFleetAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfaNextToken'
+-- * 'dfaNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
--- * 'dfaLimit'
+-- * 'dfaLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
--- * 'dfaFleetIds'
+-- * 'dfaFleetIds' - Unique identifiers for the fleet(s) that you want to retrieve attributes for. To request attributes for all fleets, leave this parameter empty.
 describeFleetAttributes
     :: DescribeFleetAttributes
 describeFleetAttributes =
@@ -78,7 +80,7 @@ describeFleetAttributes =
 dfaNextToken :: Lens' DescribeFleetAttributes (Maybe Text)
 dfaNextToken = lens _dfaNextToken (\ s a -> s{_dfaNextToken = a});
 
--- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaLimit :: Lens' DescribeFleetAttributes (Maybe Natural)
 dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat;
 
@@ -127,6 +129,8 @@ instance ToQuery DescribeFleetAttributes where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeFleetAttributesResponse' smart constructor.
 data DescribeFleetAttributesResponse = DescribeFleetAttributesResponse'
     { _dfarsNextToken       :: !(Maybe Text)
@@ -138,11 +142,11 @@ data DescribeFleetAttributesResponse = DescribeFleetAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfarsNextToken'
+-- * 'dfarsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'dfarsFleetAttributes'
+-- * 'dfarsFleetAttributes' - Collection of objects containing attribute metadata for each requested fleet ID.
 --
--- * 'dfarsResponseStatus'
+-- * 'dfarsResponseStatus' - -- | The response status code.
 describeFleetAttributesResponse
     :: Int -- ^ 'dfarsResponseStatus'
     -> DescribeFleetAttributesResponse
@@ -154,8 +158,6 @@ describeFleetAttributesResponse pResponseStatus_ =
     }
 
 -- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dfarsNextToken :: Lens' DescribeFleetAttributesResponse (Maybe Text)
 dfarsNextToken = lens _dfarsNextToken (\ s a -> s{_dfarsNextToken = a});
 
@@ -163,7 +165,7 @@ dfarsNextToken = lens _dfarsNextToken (\ s a -> s{_dfarsNextToken = a});
 dfarsFleetAttributes :: Lens' DescribeFleetAttributesResponse [FleetAttributes]
 dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dfarsResponseStatus :: Lens' DescribeFleetAttributesResponse Int
 dfarsResponseStatus = lens _dfarsResponseStatus (\ s a -> s{_dfarsResponseStatus = a});
 

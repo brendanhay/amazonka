@@ -20,7 +20,9 @@
 --
 -- Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.
 --
+--
 -- The returned content is Base64-encoded.
+--
 module Network.AWS.EC2.GetConsoleScreenshot
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for the request.
 --
+--
+--
 -- /See:/ 'getConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
     { _gcsWakeUp     :: !(Maybe Bool)
@@ -60,11 +64,11 @@ data GetConsoleScreenshot = GetConsoleScreenshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsWakeUp'
+-- * 'gcsWakeUp' - When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
 --
--- * 'gcsDryRun'
+-- * 'gcsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'gcsInstanceId'
+-- * 'gcsInstanceId' - The ID of the instance.
 getConsoleScreenshot
     :: Text -- ^ 'gcsInstanceId'
     -> GetConsoleScreenshot
@@ -75,11 +79,11 @@ getConsoleScreenshot pInstanceId_ =
     , _gcsInstanceId = pInstanceId_
     }
 
--- | When set to 'true', acts as keystroke input and wakes up an instance that\'s in standby or \"sleep\" mode.
+-- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
 gcsWakeUp :: Lens' GetConsoleScreenshot (Maybe Bool)
 gcsWakeUp = lens _gcsWakeUp (\ s a -> s{_gcsWakeUp = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 gcsDryRun :: Lens' GetConsoleScreenshot (Maybe Bool)
 gcsDryRun = lens _gcsDryRun (\ s a -> s{_gcsDryRun = a});
 
@@ -118,6 +122,8 @@ instance ToQuery GetConsoleScreenshot where
 
 -- | Contains the output of the request.
 --
+--
+--
 -- /See:/ 'getConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
     { _gcsrsInstanceId     :: !(Maybe Text)
@@ -129,11 +135,11 @@ data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsrsInstanceId'
+-- * 'gcsrsInstanceId' - The ID of the instance.
 --
--- * 'gcsrsImageData'
+-- * 'gcsrsImageData' - The data that comprises the image.
 --
--- * 'gcsrsResponseStatus'
+-- * 'gcsrsResponseStatus' - -- | The response status code.
 getConsoleScreenshotResponse
     :: Int -- ^ 'gcsrsResponseStatus'
     -> GetConsoleScreenshotResponse
@@ -152,7 +158,7 @@ gcsrsInstanceId = lens _gcsrsInstanceId (\ s a -> s{_gcsrsInstanceId = a});
 gcsrsImageData :: Lens' GetConsoleScreenshotResponse (Maybe Text)
 gcsrsImageData = lens _gcsrsImageData (\ s a -> s{_gcsrsImageData = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcsrsResponseStatus :: Lens' GetConsoleScreenshotResponse Int
 gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.
+--
+--
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DeleteHsm> operation.
+-- | Contains the inputs for the 'DeleteHsm' operation.
+--
+--
 --
 -- /See:/ 'deleteHSM' smart constructor.
 newtype DeleteHSM = DeleteHSM'
@@ -53,7 +57,7 @@ newtype DeleteHSM = DeleteHSM'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhHSMARN'
+-- * 'dhHSMARN' - The ARN of the HSM to delete.
 deleteHSM
     :: Text -- ^ 'dhHSMARN'
     -> DeleteHSM
@@ -98,7 +102,9 @@ instance ToPath DeleteHSM where
 instance ToQuery DeleteHSM where
         toQuery = const mempty
 
--- | Contains the output of the < DeleteHsm> operation.
+-- | Contains the output of the 'DeleteHsm' operation.
+--
+--
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
@@ -110,9 +116,9 @@ data DeleteHSMResponse = DeleteHSMResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmrsResponseStatus'
+-- * 'dhsmrsResponseStatus' - -- | The response status code.
 --
--- * 'dhsmrsStatus'
+-- * 'dhsmrsStatus' - The status of the operation.
 deleteHSMResponse
     :: Int -- ^ 'dhsmrsResponseStatus'
     -> Text -- ^ 'dhsmrsStatus'
@@ -123,7 +129,7 @@ deleteHSMResponse pResponseStatus_ pStatus_ =
     , _dhsmrsStatus = pStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
 dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
 

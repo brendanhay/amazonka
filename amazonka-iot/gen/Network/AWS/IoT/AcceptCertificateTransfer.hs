@@ -20,7 +20,9 @@
 --
 -- Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.
 --
--- To check for pending certificate transfers, call < ListCertificates> to enumerate your certificates.
+--
+-- To check for pending certificate transfers, call 'ListCertificates' to enumerate your certificates.
+--
 module Network.AWS.IoT.AcceptCertificateTransfer
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the AcceptCertificateTransfer operation.
 --
+--
+--
 -- /See:/ 'acceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
     { _actSetAsActive   :: !(Maybe Bool)
@@ -54,9 +58,9 @@ data AcceptCertificateTransfer = AcceptCertificateTransfer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'actSetAsActive'
+-- * 'actSetAsActive' - Specifies whether the certificate is active.
 --
--- * 'actCertificateId'
+-- * 'actCertificateId' - The ID of the certificate.
 acceptCertificateTransfer
     :: Text -- ^ 'actCertificateId'
     -> AcceptCertificateTransfer

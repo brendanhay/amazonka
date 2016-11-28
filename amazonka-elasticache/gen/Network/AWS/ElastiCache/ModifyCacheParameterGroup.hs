@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /ModifyCacheParameterGroup/ action modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
+--
+--
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheParameterGroup/ action.
 --
+--
+--
 -- /See:/ 'modifyCacheParameterGroup' smart constructor.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
     { _mcpgCacheParameterGroupName :: !Text
@@ -54,9 +58,9 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcpgCacheParameterGroupName'
+-- * 'mcpgCacheParameterGroupName' - The name of the cache parameter group to modify.
 --
--- * 'mcpgParameterNameValues'
+-- * 'mcpgParameterNameValues' - An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
 modifyCacheParameterGroup
     :: Text -- ^ 'mcpgCacheParameterGroupName'
     -> ModifyCacheParameterGroup

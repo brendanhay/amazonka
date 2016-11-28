@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use < GetFunction> to retrieve the code for your function.
+-- Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use 'GetFunction' to retrieve the code for your function.
 --
--- This operation requires permission for the 'lambda:ListFunctions' action.
 --
--- If you are using versioning feature, the response returns list of >LATEST versions of your functions. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- This operation requires permission for the @lambda:ListFunctions@ action.
+--
+-- If you are using versioning feature, the response returns list of $LATEST versions of your functions. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'listFunctions' smart constructor.
 data ListFunctions = ListFunctions'
     { _lfMarker   :: !(Maybe Text)
@@ -63,9 +67,9 @@ data ListFunctions = ListFunctions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfMarker'
+-- * 'lfMarker' - Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
 --
--- * 'lfMaxItems'
+-- * 'lfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
 listFunctions
     :: ListFunctions
 listFunctions =
@@ -74,7 +78,7 @@ listFunctions =
     , _lfMaxItems = Nothing
     }
 
--- | Optional string. An opaque pagination token returned from a previous 'ListFunctions' operation. If present, indicates where to continue the listing.
+-- | Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
 
@@ -115,7 +119,9 @@ instance ToQuery ListFunctions where
           = mconcat
               ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
 
--- | Contains a list of AWS Lambda function configurations (see < FunctionConfiguration>.
+-- | Contains a list of AWS Lambda function configurations (see 'FunctionConfiguration' .
+--
+--
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
@@ -128,11 +134,11 @@ data ListFunctionsResponse = ListFunctionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfrsNextMarker'
+-- * 'lfrsNextMarker' - A string, present if there are more functions.
 --
--- * 'lfrsFunctions'
+-- * 'lfrsFunctions' - A list of Lambda functions.
 --
--- * 'lfrsResponseStatus'
+-- * 'lfrsResponseStatus' - -- | The response status code.
 listFunctionsResponse
     :: Int -- ^ 'lfrsResponseStatus'
     -> ListFunctionsResponse
@@ -151,7 +157,7 @@ lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a});
 lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lfrsResponseStatus :: Lens' ListFunctionsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
 

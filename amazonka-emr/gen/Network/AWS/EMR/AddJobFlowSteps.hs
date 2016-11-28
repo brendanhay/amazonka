@@ -20,13 +20,15 @@
 --
 -- AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps are allowed in each job flow.
 --
--- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce Developer\'s Guide/.
+--
+-- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce Developer's Guide/ .
 --
 -- A step specifies the location of a JAR file stored either on the master node of the job flow or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.
 --
 -- Elastic MapReduce executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.
 --
 -- You can only add steps to a job flow that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
+--
 module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Creating a Request
@@ -51,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the < AddJobFlowSteps> operation.
+-- | The input argument to the 'AddJobFlowSteps' operation.
+--
+--
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
@@ -63,9 +67,9 @@ data AddJobFlowSteps = AddJobFlowSteps'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ajfsJobFlowId'
+-- * 'ajfsJobFlowId' - A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
 --
--- * 'ajfsSteps'
+-- * 'ajfsSteps' - A list of 'StepConfig' to be executed by the job flow.
 addJobFlowSteps
     :: Text -- ^ 'ajfsJobFlowId'
     -> AddJobFlowSteps
@@ -75,11 +79,11 @@ addJobFlowSteps pJobFlowId_ =
     , _ajfsSteps = mempty
     }
 
--- | A string that uniquely identifies the job flow. This identifier is returned by < RunJobFlow> and can also be obtained from < ListClusters>.
+-- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
--- | A list of < StepConfig> to be executed by the job flow.
+-- | A list of 'StepConfig' to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
@@ -118,7 +122,9 @@ instance ToPath AddJobFlowSteps where
 instance ToQuery AddJobFlowSteps where
         toQuery = const mempty
 
--- | The output for the < AddJobFlowSteps> operation.
+-- | The output for the 'AddJobFlowSteps' operation.
+--
+--
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
@@ -130,9 +136,9 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ajfsrsStepIds'
+-- * 'ajfsrsStepIds' - The identifiers of the list of steps added to the job flow.
 --
--- * 'ajfsrsResponseStatus'
+-- * 'ajfsrsResponseStatus' - -- | The response status code.
 addJobFlowStepsResponse
     :: Int -- ^ 'ajfsrsResponseStatus'
     -> AddJobFlowStepsResponse
@@ -146,7 +152,7 @@ addJobFlowStepsResponse pResponseStatus_ =
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ajfsrsResponseStatus :: Lens' AddJobFlowStepsResponse Int
 ajfsrsResponseStatus = lens _ajfsrsResponseStatus (\ s a -> s{_ajfsrsResponseStatus = a});
 

@@ -109,7 +109,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2014-06-30' of the Amazon Cognito Sync SDK configuration.
+-- | API version @2014-06-30@ of the Amazon Cognito Sync SDK configuration.
 cognitoSync :: Service
 cognitoSync =
     Service
@@ -169,6 +169,8 @@ _DuplicateRequestException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
 
 -- | AWS Lambda throttled your account, please contact AWS Support
+--
+--
 _LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _LambdaThrottledException =
     _ServiceError . hasStatus 429 . hasCode "LambdaThrottled"
@@ -179,6 +181,8 @@ _AlreadyStreamedException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed"
 
 -- | The AWS Lambda function returned invalid output or an exception.
+--
+--
 _InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionOutputException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
@@ -189,16 +193,18 @@ _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequests"
 
 -- | Thrown if there are parallel requests to modify a resource.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
 
--- | Thrown if an update can\'t be applied because the resource was changed by another call and this would result in a conflict.
+-- | Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasStatus 409 . hasCode "ResourceConflict"
 
--- | Thrown if the resource doesn\'t exist.
+-- | Thrown if the resource doesn't exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"

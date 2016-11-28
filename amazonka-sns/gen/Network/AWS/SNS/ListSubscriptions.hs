@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester\'s subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptions' call to get further results.
+-- Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListSubscriptions@ call to get further results.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
@@ -48,6 +50,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for ListSubscriptions action.
 --
+--
+--
 -- /See:/ 'listSubscriptions' smart constructor.
 newtype ListSubscriptions = ListSubscriptions'
     { _lsNextToken :: Maybe Text
@@ -57,7 +61,7 @@ newtype ListSubscriptions = ListSubscriptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsNextToken'
+-- * 'lsNextToken' - Token returned by the previous @ListSubscriptions@ request.
 listSubscriptions
     :: ListSubscriptions
 listSubscriptions =
@@ -65,7 +69,7 @@ listSubscriptions =
     { _lsNextToken = Nothing
     }
 
--- | Token returned by the previous 'ListSubscriptions' request.
+-- | Token returned by the previous @ListSubscriptions@ request.
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
@@ -107,6 +111,8 @@ instance ToQuery ListSubscriptions where
 
 -- | Response for ListSubscriptions action
 --
+--
+--
 -- /See:/ 'listSubscriptionsResponse' smart constructor.
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
     { _lsrsNextToken      :: !(Maybe Text)
@@ -118,11 +124,11 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsNextToken'
+-- * 'lsrsNextToken' - Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
 --
--- * 'lsrsSubscriptions'
+-- * 'lsrsSubscriptions' - A list of subscriptions.
 --
--- * 'lsrsResponseStatus'
+-- * 'lsrsResponseStatus' - -- | The response status code.
 listSubscriptionsResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListSubscriptionsResponse
@@ -133,7 +139,7 @@ listSubscriptionsResponse pResponseStatus_ =
     , _lsrsResponseStatus = pResponseStatus_
     }
 
--- | Token to pass along to the next 'ListSubscriptions' request. This element is returned if there are more subscriptions to retrieve.
+-- | Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
 lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
@@ -141,7 +147,7 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListSubscriptionsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 

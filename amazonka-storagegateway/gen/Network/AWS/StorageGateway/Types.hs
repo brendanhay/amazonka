@@ -174,7 +174,7 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.StorageGateway.Types.Product
 import           Network.AWS.StorageGateway.Types.Sum
 
--- | API version '2013-06-30' of the Amazon Storage Gateway SDK configuration.
+-- | API version @2013-06-30@ of the Amazon Storage Gateway SDK configuration.
 storageGateway :: Service
 storageGateway =
     Service
@@ -209,10 +209,14 @@ storageGateway =
       | otherwise = Nothing
 
 -- | An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
+--
+--
 _InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
     _ServiceError . hasCode "InvalidGatewayRequestException"
 
 -- | An internal server error has occurred during the request. For more information, see the error and message fields.
+--
+--
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"

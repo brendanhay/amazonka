@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation disables automatic renewal of domain registration for the specified domain.
+--
+--
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddarDomainName'
+-- * 'ddarDomainName' - Undocumented member.
 disableDomainAutoRenew
     :: Text -- ^ 'ddarDomainName'
     -> DisableDomainAutoRenew
@@ -107,7 +109,7 @@ newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddarrsResponseStatus'
+-- * 'ddarrsResponseStatus' - -- | The response status code.
 disableDomainAutoRenewResponse
     :: Int -- ^ 'ddarrsResponseStatus'
     -> DisableDomainAutoRenewResponse
@@ -116,7 +118,7 @@ disableDomainAutoRenewResponse pResponseStatus_ =
     { _ddarrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
 ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});
 

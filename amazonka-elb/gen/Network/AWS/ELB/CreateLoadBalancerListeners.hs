@@ -20,7 +20,9 @@
 --
 -- Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'createLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
     { _clblLoadBalancerName :: !Text
@@ -56,9 +60,9 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clblLoadBalancerName'
+-- * 'clblLoadBalancerName' - The name of the load balancer.
 --
--- * 'clblListeners'
+-- * 'clblListeners' - The listeners.
 createLoadBalancerListeners
     :: Text -- ^ 'clblLoadBalancerName'
     -> CreateLoadBalancerListeners
@@ -108,6 +112,8 @@ instance ToQuery CreateLoadBalancerListeners where
 
 -- | Contains the parameters for CreateLoadBalancerListener.
 --
+--
+--
 -- /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
     { _clblrsResponseStatus :: Int
@@ -117,7 +123,7 @@ newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersRespons
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clblrsResponseStatus'
+-- * 'clblrsResponseStatus' - -- | The response status code.
 createLoadBalancerListenersResponse
     :: Int -- ^ 'clblrsResponseStatus'
     -> CreateLoadBalancerListenersResponse
@@ -126,7 +132,7 @@ createLoadBalancerListenersResponse pResponseStatus_ =
     { _clblrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets all the usage plan keys representing the API keys added to a specified usage plan.
+--
+--
 module Network.AWS.APIGateway.GetUsagePlanKeys
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.
 --
+--
+--
 -- /See:/ 'getUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
     { _gupkNameQuery   :: !(Maybe Text)
@@ -60,13 +64,13 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupkNameQuery'
+-- * 'gupkNameQuery' - A query parameter specifying the name of the to-be-returned usage plan keys.
 --
--- * 'gupkLimit'
+-- * 'gupkLimit' - A query parameter specifying the maximum number usage plan keys returned by the GET request.
 --
--- * 'gupkPosition'
+-- * 'gupkPosition' - A query parameter specifying the zero-based index specifying the position of a usage plan key.
 --
--- * 'gupkUsagePlanId'
+-- * 'gupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 getUsagePlanKeys
     :: Text -- ^ 'gupkUsagePlanId'
     -> GetUsagePlanKeys
@@ -90,7 +94,7 @@ gupkLimit = lens _gupkLimit (\ s a -> s{_gupkLimit = a});
 gupkPosition :: Lens' GetUsagePlanKeys (Maybe Text)
 gupkPosition = lens _gupkPosition (\ s a -> s{_gupkPosition = a});
 
--- | The Id of the < UsagePlan> resource representing the usage plan containing the to-be-retrieved < UsagePlanKey> resource representing a plan customer.
+-- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gupkUsagePlanId :: Lens' GetUsagePlanKeys Text
 gupkUsagePlanId = lens _gupkUsagePlanId (\ s a -> s{_gupkUsagePlanId = a});
 
@@ -127,6 +131,7 @@ instance ToQuery GetUsagePlanKeys where
 
 -- | Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.
 --
+--
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'getUsagePlanKeysResponse' smart constructor.
@@ -140,11 +145,11 @@ data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupkrsItems'
+-- * 'gupkrsItems' - Gets the current item of the usage plan keys collection.
 --
--- * 'gupkrsPosition'
+-- * 'gupkrsPosition' - Undocumented member.
 --
--- * 'gupkrsResponseStatus'
+-- * 'gupkrsResponseStatus' - -- | The response status code.
 getUsagePlanKeysResponse
     :: Int -- ^ 'gupkrsResponseStatus'
     -> GetUsagePlanKeysResponse
@@ -163,7 +168,7 @@ gupkrsItems = lens _gupkrsItems (\ s a -> s{_gupkrsItems = a}) . _Default . _Coe
 gupkrsPosition :: Lens' GetUsagePlanKeysResponse (Maybe Text)
 gupkrsPosition = lens _gupkrsPosition (\ s a -> s{_gupkrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gupkrsResponseStatus :: Lens' GetUsagePlanKeysResponse Int
 gupkrsResponseStatus = lens _gupkrsResponseStatus (\ s a -> s{_gupkrsResponseStatus = a});
 

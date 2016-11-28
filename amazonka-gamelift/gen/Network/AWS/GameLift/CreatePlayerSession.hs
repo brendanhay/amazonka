@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a player to a game session and creates a player session record. A game session must be in an 'ACTIVE' status, have a creation policy of 'ALLOW_ALL', and have an open player slot before players can be added to the session.
+-- Adds a player to a game session and creates a player session record. A game session must be in an @ACTIVE@ status, have a creation policy of @ALLOW_ALL@ , and have an open player slot before players can be added to the session.
 --
--- To create a player session, specify a game session ID and player ID. If successful, the player is added to the game session and a new < PlayerSession> object is returned.
+--
+-- To create a player session, specify a game session ID and player ID. If successful, the player is added to the game session and a new 'PlayerSession' object is returned.
+--
 module Network.AWS.GameLift.CreatePlayerSession
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSession' smart constructor.
 data CreatePlayerSession = CreatePlayerSession'
     { _cGameSessionId :: !Text
@@ -57,9 +61,9 @@ data CreatePlayerSession = CreatePlayerSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cGameSessionId'
+-- * 'cGameSessionId' - Unique identifier for a game session. Specify the game session you want to add a player to.
 --
--- * 'cPlayerId'
+-- * 'cPlayerId' - Unique identifier for the player to be added.
 createPlayerSession
     :: Text -- ^ 'cGameSessionId'
     -> Text -- ^ 'cPlayerId'
@@ -116,6 +120,8 @@ instance ToQuery CreatePlayerSession where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSessionResponse' smart constructor.
 data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
     { _cpsrsPlayerSession  :: !(Maybe PlayerSession)
@@ -126,9 +132,9 @@ data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpsrsPlayerSession'
+-- * 'cpsrsPlayerSession' - Object containing the newly created player session record.
 --
--- * 'cpsrsResponseStatus'
+-- * 'cpsrsResponseStatus' - -- | The response status code.
 createPlayerSessionResponse
     :: Int -- ^ 'cpsrsResponseStatus'
     -> CreatePlayerSessionResponse
@@ -142,7 +148,7 @@ createPlayerSessionResponse pResponseStatus_ =
 cpsrsPlayerSession :: Lens' CreatePlayerSessionResponse (Maybe PlayerSession)
 cpsrsPlayerSession = lens _cpsrsPlayerSession (\ s a -> s{_cpsrsPlayerSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePlayerSessionResponse Int
 cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
 

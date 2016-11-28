@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names (ARNs). If you don\'t specify a tape ARN, the operation lists all virtual tapes in both your VTL and VTS.
+-- Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both your VTL and VTS.
 --
--- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the 'Limit' parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a 'Marker' element that you can use in your subsequent request to retrieve the next set of tapes.
+--
+-- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the @Limit@ parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tapes.
+--
 module Network.AWS.StorageGateway.ListTapes
     (
     -- * Creating a Request
@@ -49,11 +51,14 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
--- -   < ListTapesInput>Limit>
 --
--- -   < ListTapesInput>Marker>
+--     * 'ListTapesInput$Limit'
 --
--- -   < ListTapesInput>TapeARNs>
+--     * 'ListTapesInput$Marker'
+--
+--     * 'ListTapesInput$TapeARNs'
+--
+--
 --
 --
 -- /See:/ 'listTapes' smart constructor.
@@ -67,11 +72,11 @@ data ListTapes = ListTapes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltMarker'
+-- * 'ltMarker' - A string that indicates the position at which to begin the returned list of tapes.
 --
--- * 'ltLimit'
+-- * 'ltLimit' - An optional number limit for the tapes in the list returned by this call.
 --
--- * 'ltTapeARNs'
+-- * 'ltTapeARNs' - Undocumented member.
 listTapes
     :: ListTapes
 listTapes =
@@ -132,9 +137,12 @@ instance ToQuery ListTapes where
 
 -- | A JSON object containing the following fields:
 --
--- -   < ListTapesOutput>Marker>
 --
--- -   < ListTapesOutput>VolumeInfos>
+--     * 'ListTapesOutput$Marker'
+--
+--     * 'ListTapesOutput$VolumeInfos'
+--
+--
 --
 --
 -- /See:/ 'listTapesResponse' smart constructor.
@@ -148,11 +156,11 @@ data ListTapesResponse = ListTapesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsMarker'
+-- * 'ltrsMarker' - A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
 --
--- * 'ltrsTapeInfos'
+-- * 'ltrsTapeInfos' - Undocumented member.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTapesResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTapesResponse
@@ -171,7 +179,7 @@ ltrsMarker = lens _ltrsMarker (\ s a -> s{_ltrsMarker = a});
 ltrsTapeInfos :: Lens' ListTapesResponse [TapeInfo]
 ltrsTapeInfos = lens _ltrsTapeInfos (\ s a -> s{_ltrsTapeInfos = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTapesResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates capacity settings for a fleet. Use this action to specify the number of EC2 instances (hosts) that you want this fleet to contain. Before calling this action, you may want to call < DescribeEC2InstanceLimits> to get the maximum capacity based on the fleet\'s EC2 instance type.
+-- Updates capacity settings for a fleet. Use this action to specify the number of EC2 instances (hosts) that you want this fleet to contain. Before calling this action, you may want to call 'DescribeEC2InstanceLimits' to get the maximum capacity based on the fleet's EC2 instance type.
 --
--- If you\'re using autoscaling (see < PutScalingPolicy>), you may want to specify a minimum and\/or maximum capacity. If you don\'t provide these, autoscaling can set capacity anywhere between zero and the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift service limits>.
 --
--- To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet\'s active instance count matches the desired instance count. You can view a fleet\'s current capacity information by calling < DescribeFleetCapacity>. If the desired instance count is higher than the instance type\'s limit, the \"Limit Exceeded\" exception occurs.
+-- If you're using autoscaling (see 'PutScalingPolicy' ), you may want to specify a minimum and/or maximum capacity. If you don't provide these, autoscaling can set capacity anywhere between zero and the <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift service limits> .
+--
+-- To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet's active instance count matches the desired instance count. You can view a fleet's current capacity information by calling 'DescribeFleetCapacity' . If the desired instance count is higher than the instance type's limit, the "Limit Exceeded" exception occurs.
+--
 module Network.AWS.GameLift.UpdateFleetCapacity
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
     { _ufcMaxSize          :: !(Maybe Nat)
@@ -63,13 +67,13 @@ data UpdateFleetCapacity = UpdateFleetCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufcMaxSize'
+-- * 'ufcMaxSize' - Maximum value allowed for the fleet's instance count. Default if not set is 1.
 --
--- * 'ufcMinSize'
+-- * 'ufcMinSize' - Minimum value allowed for the fleet's instance count. Default if not set is 0.
 --
--- * 'ufcDesiredInstances'
+-- * 'ufcDesiredInstances' - Number of EC2 instances you want this fleet to host.
 --
--- * 'ufcFleetId'
+-- * 'ufcFleetId' - Unique identifier for the fleet you want to update capacity for.
 updateFleetCapacity
     :: Text -- ^ 'ufcFleetId'
     -> UpdateFleetCapacity
@@ -81,11 +85,11 @@ updateFleetCapacity pFleetId_ =
     , _ufcFleetId = pFleetId_
     }
 
--- | Maximum value allowed for the fleet\'s instance count. Default if not set is 1.
+-- | Maximum value allowed for the fleet's instance count. Default if not set is 1.
 ufcMaxSize :: Lens' UpdateFleetCapacity (Maybe Natural)
 ufcMaxSize = lens _ufcMaxSize (\ s a -> s{_ufcMaxSize = a}) . mapping _Nat;
 
--- | Minimum value allowed for the fleet\'s instance count. Default if not set is 0.
+-- | Minimum value allowed for the fleet's instance count. Default if not set is 0.
 ufcMinSize :: Lens' UpdateFleetCapacity (Maybe Natural)
 ufcMinSize = lens _ufcMinSize (\ s a -> s{_ufcMinSize = a}) . mapping _Nat;
 
@@ -137,6 +141,8 @@ instance ToQuery UpdateFleetCapacity where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
     { _ufcrsFleetId        :: !(Maybe Text)
@@ -147,9 +153,9 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufcrsFleetId'
+-- * 'ufcrsFleetId' - Unique identifier for the updated fleet.
 --
--- * 'ufcrsResponseStatus'
+-- * 'ufcrsResponseStatus' - -- | The response status code.
 updateFleetCapacityResponse
     :: Int -- ^ 'ufcrsResponseStatus'
     -> UpdateFleetCapacityResponse
@@ -163,7 +169,7 @@ updateFleetCapacityResponse pResponseStatus_ =
 ufcrsFleetId :: Lens' UpdateFleetCapacityResponse (Maybe Text)
 ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ufcrsResponseStatus :: Lens' UpdateFleetCapacityResponse Int
 ufcrsResponseStatus = lens _ufcrsResponseStatus (\ s a -> s{_ufcrsResponseStatus = a});
 

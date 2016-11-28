@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a device pool.
+--
+--
 module Network.AWS.DeviceFarm.GetDevicePool
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get device pool operation.
 --
+--
+--
 -- /See:/ 'getDevicePool' smart constructor.
 newtype GetDevicePool = GetDevicePool'
     { _gdpArn :: Text
@@ -53,7 +57,7 @@ newtype GetDevicePool = GetDevicePool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdpArn'
+-- * 'gdpArn' - The device pool's ARN.
 getDevicePool
     :: Text -- ^ 'gdpArn'
     -> GetDevicePool
@@ -62,7 +66,7 @@ getDevicePool pArn_ =
     { _gdpArn = pArn_
     }
 
--- | The device pool\'s ARN.
+-- | The device pool's ARN.
 gdpArn :: Lens' GetDevicePool Text
 gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetDevicePool where
 
 -- | Represents the result of a get device pool request.
 --
+--
+--
 -- /See:/ 'getDevicePoolResponse' smart constructor.
 data GetDevicePoolResponse = GetDevicePoolResponse'
     { _gdprsDevicePool     :: !(Maybe DevicePool)
@@ -110,9 +116,9 @@ data GetDevicePoolResponse = GetDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdprsDevicePool'
+-- * 'gdprsDevicePool' - Undocumented member.
 --
--- * 'gdprsResponseStatus'
+-- * 'gdprsResponseStatus' - -- | The response status code.
 getDevicePoolResponse
     :: Int -- ^ 'gdprsResponseStatus'
     -> GetDevicePoolResponse
@@ -126,7 +132,7 @@ getDevicePoolResponse pResponseStatus_ =
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdprsResponseStatus :: Lens' GetDevicePoolResponse Int
 gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
 

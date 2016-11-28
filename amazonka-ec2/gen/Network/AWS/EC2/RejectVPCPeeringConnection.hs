@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rejects a VPC peering connection request. The VPC peering connection must be in the 'pending-acceptance' state. Use the < DescribeVpcPeeringConnections> request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use < DeleteVpcPeeringConnection>.
+-- Rejects a VPC peering connection request. The VPC peering connection must be in the @pending-acceptance@ state. Use the 'DescribeVpcPeeringConnections' request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use 'DeleteVpcPeeringConnection' .
+--
+--
 module Network.AWS.EC2.RejectVPCPeeringConnection
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RejectVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'rejectVPCPeeringConnection' smart constructor.
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
     { _rvpcDryRun                 :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rvpcDryRun'
+-- * 'rvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rvpcVPCPeeringConnectionId'
+-- * 'rvpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
 rejectVPCPeeringConnection
     :: Text -- ^ 'rvpcVPCPeeringConnectionId'
     -> RejectVPCPeeringConnection
@@ -67,7 +71,7 @@ rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
     , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
 rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a});
 
@@ -107,6 +111,8 @@ instance ToQuery RejectVPCPeeringConnection where
 
 -- | Contains the output of RejectVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
     { _rvpcrsReturn         :: !(Maybe Bool)
@@ -117,9 +123,9 @@ data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rvpcrsReturn'
+-- * 'rvpcrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'rvpcrsResponseStatus'
+-- * 'rvpcrsResponseStatus' - -- | The response status code.
 rejectVPCPeeringConnectionResponse
     :: Int -- ^ 'rvpcrsResponseStatus'
     -> RejectVPCPeeringConnectionResponse
@@ -129,11 +135,11 @@ rejectVPCPeeringConnectionResponse pResponseStatus_ =
     , _rvpcrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
 rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});
 

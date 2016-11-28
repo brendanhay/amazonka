@@ -20,7 +20,9 @@
 --
 -- Returns information about the cache of a gateway. This operation is supported only for the gateway-cached volume architecture.
 --
+--
 -- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.
+--
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Creating a Request
@@ -59,7 +61,7 @@ newtype DescribeCache = DescribeCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcGatewayARN'
+-- * 'dcGatewayARN' - Undocumented member.
 describeCache
     :: Text -- ^ 'dcGatewayARN'
     -> DescribeCache
@@ -128,21 +130,21 @@ data DescribeCacheResponse = DescribeCacheResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsGatewayARN'
+-- * 'dcrsGatewayARN' - Undocumented member.
 --
--- * 'dcrsDiskIds'
+-- * 'dcrsDiskIds' - Undocumented member.
 --
--- * 'dcrsCacheUsedPercentage'
+-- * 'dcrsCacheUsedPercentage' - Undocumented member.
 --
--- * 'dcrsCacheHitPercentage'
+-- * 'dcrsCacheHitPercentage' - Undocumented member.
 --
--- * 'dcrsCacheMissPercentage'
+-- * 'dcrsCacheMissPercentage' - Undocumented member.
 --
--- * 'dcrsCacheAllocatedInBytes'
+-- * 'dcrsCacheAllocatedInBytes' - Undocumented member.
 --
--- * 'dcrsCacheDirtyPercentage'
+-- * 'dcrsCacheDirtyPercentage' - Undocumented member.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCacheResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCacheResponse
@@ -186,7 +188,7 @@ dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCac
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCacheResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

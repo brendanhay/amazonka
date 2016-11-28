@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of 'JobListEntry' objects of the specified length. Each 'JobListEntry' object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
+-- Returns an array of @JobListEntry@ objects of the specified length. Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
+--
+--
 module Network.AWS.Snowball.ListJobs
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data ListJobs = ListJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljNextToken'
+-- * 'ljNextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 --
--- * 'ljMaxResults'
+-- * 'ljMaxResults' - The number of @JobListEntry@ objects to return.
 listJobs
     :: ListJobs
 listJobs =
@@ -65,11 +67,11 @@ listJobs =
     , _ljMaxResults = Nothing
     }
 
--- | HTTP requests are stateless. To identify what object comes \"next\" in the list of 'JobListEntry' objects, you have the option of specifying 'NextToken' as the starting point for your returned list.
+-- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 ljNextToken :: Lens' ListJobs (Maybe Text)
 ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 
--- | The number of 'JobListEntry' objects to return.
+-- | The number of @JobListEntry@ objects to return.
 ljMaxResults :: Lens' ListJobs (Maybe Natural)
 ljMaxResults = lens _ljMaxResults (\ s a -> s{_ljMaxResults = a}) . mapping _Nat;
 
@@ -122,11 +124,11 @@ data ListJobsResponse = ListJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljrsJobListEntries'
+-- * 'ljrsJobListEntries' - Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 --
--- * 'ljrsNextToken'
+-- * 'ljrsNextToken' - HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
 --
--- * 'ljrsResponseStatus'
+-- * 'ljrsResponseStatus' - -- | The response status code.
 listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
@@ -137,15 +139,15 @@ listJobsResponse pResponseStatus_ =
     , _ljrsResponseStatus = pResponseStatus_
     }
 
--- | Each 'JobListEntry' object contains a job\'s state, a job\'s ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+-- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 ljrsJobListEntries :: Lens' ListJobsResponse [JobListEntry]
 ljrsJobListEntries = lens _ljrsJobListEntries (\ s a -> s{_ljrsJobListEntries = a}) . _Default . _Coerce;
 
--- | HTTP requests are stateless. If you use this automatically generated 'NextToken' value in your next 'ListJobs' call, your returned 'JobListEntry' objects will start from this point in the array.
+-- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 

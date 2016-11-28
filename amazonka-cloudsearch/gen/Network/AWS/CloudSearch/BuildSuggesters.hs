@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters> in the /Amazon CloudSearch Developer Guide/.
+-- Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'BuildSuggester' operation. Specifies the name of the domain you want to update.
+-- | Container for the parameters to the @'BuildSuggester' @ operation. Specifies the name of the domain you want to update.
+--
+--
 --
 -- /See:/ 'buildSuggesters' smart constructor.
 newtype BuildSuggesters = BuildSuggesters'
@@ -53,7 +57,7 @@ newtype BuildSuggesters = BuildSuggesters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bsDomainName'
+-- * 'bsDomainName' - Undocumented member.
 buildSuggesters
     :: Text -- ^ 'bsDomainName'
     -> BuildSuggesters
@@ -94,7 +98,9 @@ instance ToQuery BuildSuggesters where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _bsDomainName]
 
--- | The result of a 'BuildSuggester' request. Contains a list of the fields used for suggestions.
+-- | The result of a @BuildSuggester@ request. Contains a list of the fields used for suggestions.
+--
+--
 --
 -- /See:/ 'buildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'
@@ -106,9 +112,9 @@ data BuildSuggestersResponse = BuildSuggestersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bsrsFieldNames'
+-- * 'bsrsFieldNames' - Undocumented member.
 --
--- * 'bsrsResponseStatus'
+-- * 'bsrsResponseStatus' - -- | The response status code.
 buildSuggestersResponse
     :: Int -- ^ 'bsrsResponseStatus'
     -> BuildSuggestersResponse
@@ -122,7 +128,7 @@ buildSuggestersResponse pResponseStatus_ =
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
 bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.
+--
+--
 module Network.AWS.CognitoIdentityProvider.SetUserSettings
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to set user settings.
 --
+--
+--
 -- /See:/ 'setUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
     { _susAccessToken :: !(Sensitive Text)
@@ -54,9 +58,9 @@ data SetUserSettings = SetUserSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'susAccessToken'
+-- * 'susAccessToken' - The access token for the set user settings request.
 --
--- * 'susMFAOptions'
+-- * 'susMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
 setUserSettings
     :: Text -- ^ 'susAccessToken'
     -> SetUserSettings
@@ -111,6 +115,8 @@ instance ToQuery SetUserSettings where
 
 -- | The response from the server for a set user settings request.
 --
+--
+--
 -- /See:/ 'setUserSettingsResponse' smart constructor.
 newtype SetUserSettingsResponse = SetUserSettingsResponse'
     { _susrsResponseStatus :: Int
@@ -120,7 +126,7 @@ newtype SetUserSettingsResponse = SetUserSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'susrsResponseStatus'
+-- * 'susrsResponseStatus' - -- | The response status code.
 setUserSettingsResponse
     :: Int -- ^ 'susrsResponseStatus'
     -> SetUserSettingsResponse
@@ -129,7 +135,7 @@ setUserSettingsResponse pResponseStatus_ =
     { _susrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 susrsResponseStatus :: Lens' SetUserSettingsResponse Int
 susrsResponseStatus = lens _susrsResponseStatus (\ s a -> s{_susrsResponseStatus = a});
 

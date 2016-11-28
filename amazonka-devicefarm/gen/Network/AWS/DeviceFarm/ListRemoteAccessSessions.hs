@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all currently running remote access sessions.
+--
+--
 module Network.AWS.DeviceFarm.ListRemoteAccessSessions
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to return information about the remote access session.
 --
+--
+--
 -- /See:/ 'listRemoteAccessSessions' smart constructor.
 data ListRemoteAccessSessions = ListRemoteAccessSessions'
     { _lrasNextToken :: !(Maybe Text)
@@ -56,9 +60,9 @@ data ListRemoteAccessSessions = ListRemoteAccessSessions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrasNextToken'
+-- * 'lrasNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lrasArn'
+-- * 'lrasArn' - The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 listRemoteAccessSessions
     :: Text -- ^ 'lrasArn'
     -> ListRemoteAccessSessions
@@ -117,6 +121,8 @@ instance ToQuery ListRemoteAccessSessions where
 
 -- | Represents the response from the server after AWS Device Farm makes a request to return information about the remote access session.
 --
+--
+--
 -- /See:/ 'listRemoteAccessSessionsResponse' smart constructor.
 data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
     { _lrasrsNextToken            :: !(Maybe Text)
@@ -128,11 +134,11 @@ data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrasrsNextToken'
+-- * 'lrasrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lrasrsRemoteAccessSessions'
+-- * 'lrasrsRemoteAccessSessions' - A container representing the metadata from the service about each remote access session you are requesting.
 --
--- * 'lrasrsResponseStatus'
+-- * 'lrasrsResponseStatus' - -- | The response status code.
 listRemoteAccessSessionsResponse
     :: Int -- ^ 'lrasrsResponseStatus'
     -> ListRemoteAccessSessionsResponse
@@ -151,7 +157,7 @@ lrasrsNextToken = lens _lrasrsNextToken (\ s a -> s{_lrasrsNextToken = a});
 lrasrsRemoteAccessSessions :: Lens' ListRemoteAccessSessionsResponse [RemoteAccessSession]
 lrasrsRemoteAccessSessions = lens _lrasrsRemoteAccessSessions (\ s a -> s{_lrasrsRemoteAccessSessions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lrasrsResponseStatus :: Lens' ListRemoteAccessSessionsResponse Int
 lrasrsResponseStatus = lens _lrasrsResponseStatus (\ s a -> s{_lrasrsResponseStatus = a});
 

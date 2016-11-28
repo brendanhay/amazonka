@@ -20,7 +20,9 @@
 --
 -- Deletes the specified identity (an email address or a domain) from the list of verified identities.
 --
+--
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete one of your Amazon SES identities (an email address or domain).
 --
+--
+--
 -- /See:/ 'deleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
@@ -54,7 +58,7 @@ newtype DeleteIdentity = DeleteIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentity'
+-- * 'diIdentity' - The identity to be removed from the list of identities for the AWS Account.
 deleteIdentity
     :: Text -- ^ 'diIdentity'
     -> DeleteIdentity
@@ -94,6 +98,8 @@ instance ToQuery DeleteIdentity where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirsResponseStatus :: Int
@@ -103,7 +109,7 @@ newtype DeleteIdentityResponse = DeleteIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsResponseStatus'
+-- * 'dirsResponseStatus' - -- | The response status code.
 deleteIdentityResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DeleteIdentityResponse
@@ -112,7 +118,7 @@ deleteIdentityResponse pResponseStatus_ =
     { _dirsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentityResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 

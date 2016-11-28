@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Executes the specified policy.
+--
+--
 module Network.AWS.AutoScaling.ExecutePolicy
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ExecutePolicy.
 --
+--
+--
 -- /See:/ 'executePolicy' smart constructor.
 data ExecutePolicy = ExecutePolicy'
     { _epHonorCooldown        :: !(Maybe Bool)
@@ -58,15 +62,15 @@ data ExecutePolicy = ExecutePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'epHonorCooldown'
+-- * 'epHonorCooldown' - If this parameter is true, Auto Scaling waits for the cooldown period to complete before executing the policy. Otherwise, Auto Scaling executes the policy without waiting for the cooldown period to complete. This parameter is not supported if the policy type is @StepScaling@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 --
--- * 'epMetricValue'
+-- * 'epMetricValue' - The metric value to compare to @BreachThreshold@ . This enables you to execute a policy of type @StepScaling@ and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59. If you specify a metric value that doesn't correspond to a step adjustment for the policy, the call returns an error. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 --
--- * 'epAutoScalingGroupName'
+-- * 'epAutoScalingGroupName' - The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 --
--- * 'epBreachThreshold'
+-- * 'epBreachThreshold' - The breach threshold for the alarm. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 --
--- * 'epPolicyName'
+-- * 'epPolicyName' - The name or ARN of the policy.
 executePolicy
     :: Text -- ^ 'epPolicyName'
     -> ExecutePolicy
@@ -79,19 +83,11 @@ executePolicy pPolicyName_ =
     , _epPolicyName = pPolicyName_
     }
 
--- | If this parameter is true, Auto Scaling waits for the cooldown period to complete before executing the policy. Otherwise, Auto Scaling executes the policy without waiting for the cooldown period to complete.
---
--- This parameter is not supported if the policy type is 'StepScaling'.
---
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/.
+-- | If this parameter is true, Auto Scaling waits for the cooldown period to complete before executing the policy. Otherwise, Auto Scaling executes the policy without waiting for the cooldown period to complete. This parameter is not supported if the policy type is @StepScaling@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 
--- | The metric value to compare to 'BreachThreshold'. This enables you to execute a policy of type 'StepScaling' and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.
---
--- If you specify a metric value that doesn\'t correspond to a step adjustment for the policy, the call returns an error.
---
--- This parameter is required if the policy type is 'StepScaling' and not supported otherwise.
+-- | The metric value to compare to @BreachThreshold@ . This enables you to execute a policy of type @StepScaling@ and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59. If you specify a metric value that doesn't correspond to a step adjustment for the policy, the call returns an error. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 epMetricValue :: Lens' ExecutePolicy (Maybe Double)
 epMetricValue = lens _epMetricValue (\ s a -> s{_epMetricValue = a});
 
@@ -99,9 +95,7 @@ epMetricValue = lens _epMetricValue (\ s a -> s{_epMetricValue = a});
 epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScalingGroupName = a});
 
--- | The breach threshold for the alarm.
---
--- This parameter is required if the policy type is 'StepScaling' and not supported otherwise.
+-- | The breach threshold for the alarm. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 epBreachThreshold :: Lens' ExecutePolicy (Maybe Double)
 epBreachThreshold = lens _epBreachThreshold (\ s a -> s{_epBreachThreshold = a});
 

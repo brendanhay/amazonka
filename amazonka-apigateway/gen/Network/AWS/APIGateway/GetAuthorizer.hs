@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing < Authorizer> resource.
+-- Describe an existing 'Authorizer' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizer
@@ -53,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe an existing < Authorizer> resource.
+-- | Request to describe an existing 'Authorizer' resource.
+--
+--
 --
 -- /See:/ 'getAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
@@ -65,9 +68,9 @@ data GetAuthorizer = GetAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaaRestAPIId'
+-- * 'gaaRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
 --
--- * 'gaaAuthorizerId'
+-- * 'gaaAuthorizerId' - The identifier of the 'Authorizer' resource.
 getAuthorizer
     :: Text -- ^ 'gaaRestAPIId'
     -> Text -- ^ 'gaaAuthorizerId'
@@ -78,11 +81,11 @@ getAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _gaaAuthorizerId = pAuthorizerId_
     }
 
--- | The < RestApi> identifier for the < Authorizer> resource.
+-- | The 'RestApi' identifier for the 'Authorizer' resource.
 gaaRestAPIId :: Lens' GetAuthorizer Text
 gaaRestAPIId = lens _gaaRestAPIId (\ s a -> s{_gaaRestAPIId = a});
 
--- | The identifier of the < Authorizer> resource.
+-- | The identifier of the 'Authorizer' resource.
 gaaAuthorizerId :: Lens' GetAuthorizer Text
 gaaAuthorizerId = lens _gaaAuthorizerId (\ s a -> s{_gaaAuthorizerId = a});
 

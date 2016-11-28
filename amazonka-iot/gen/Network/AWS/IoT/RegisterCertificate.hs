@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.
+--
+--
 module Network.AWS.IoT.RegisterCertificate
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input to the RegisterCertificate operation.
 --
+--
+--
 -- /See:/ 'registerCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
     { _rcCaCertificatePem :: !(Maybe Text)
@@ -58,11 +62,11 @@ data RegisterCertificate = RegisterCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcCaCertificatePem'
+-- * 'rcCaCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
--- * 'rcSetAsActive'
+-- * 'rcSetAsActive' - A boolean value that specifies if the CA certificate is set to active.
 --
--- * 'rcCertificatePem'
+-- * 'rcCertificatePem' - The certificate data, in PEM format.
 registerCertificate
     :: Text -- ^ 'rcCertificatePem'
     -> RegisterCertificate
@@ -119,6 +123,8 @@ instance ToQuery RegisterCertificate where
 
 -- | The output from the RegisterCertificate operation.
 --
+--
+--
 -- /See:/ 'registerCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
     { _rcrsCertificateARN :: !(Maybe Text)
@@ -130,11 +136,11 @@ data RegisterCertificateResponse = RegisterCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsCertificateARN'
+-- * 'rcrsCertificateARN' - The certificate ARN.
 --
--- * 'rcrsCertificateId'
+-- * 'rcrsCertificateId' - The certificate identifier.
 --
--- * 'rcrsResponseStatus'
+-- * 'rcrsResponseStatus' - -- | The response status code.
 registerCertificateResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RegisterCertificateResponse
@@ -153,7 +159,7 @@ rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = 
 rcrsCertificateId :: Lens' RegisterCertificateResponse (Maybe Text)
 rcrsCertificateId = lens _rcrsCertificateId (\ s a -> s{_rcrsCertificateId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcrsResponseStatus :: Lens' RegisterCertificateResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 

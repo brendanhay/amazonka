@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | A provider representing an Amazon Cognito Identity User Pool and its client ID.
 --
+--
+--
 -- /See:/ 'cognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
     { _cipClientId     :: !(Maybe Text)
@@ -33,9 +35,9 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipClientId'
+-- * 'cipClientId' - The client ID for the Amazon Cognito Identity User Pool.
 --
--- * 'cipProviderName'
+-- * 'cipProviderName' - The provider name for an Amazon Cognito Identity User Pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 cognitoIdentityProvider
     :: CognitoIdentityProvider
 cognitoIdentityProvider =
@@ -48,7 +50,7 @@ cognitoIdentityProvider =
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
 cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
 
--- | The provider name for an Amazon Cognito Identity User Pool. For example, 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
+-- | The provider name for an Amazon Cognito Identity User Pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
 cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
 
@@ -72,6 +74,8 @@ instance ToJSON CognitoIdentityProvider where
 
 -- | Credentials for the provided identity ID.
 --
+--
+--
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'
     { _cSessionToken :: !(Maybe Text)
@@ -84,13 +88,13 @@ data Credentials = Credentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cSessionToken'
+-- * 'cSessionToken' - The Session Token portion of the credentials
 --
--- * 'cExpiration'
+-- * 'cExpiration' - The date at which these credentials will expire.
 --
--- * 'cSecretKey'
+-- * 'cSecretKey' - The Secret Access Key portion of the credentials
 --
--- * 'cAccessKeyId'
+-- * 'cAccessKeyId' - The Access Key portion of the credentials.
 credentials
     :: Credentials
 credentials =
@@ -144,13 +148,13 @@ data IdentityDescription = IdentityDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'idLastModifiedDate'
+-- * 'idLastModifiedDate' - Date on which the identity was last modified.
 --
--- * 'idCreationDate'
+-- * 'idCreationDate' - Date on which the identity was created.
 --
--- * 'idLogins'
+-- * 'idLogins' - A set of optional name-value pairs that map provider names to provider tokens.
 --
--- * 'idIdentityId'
+-- * 'idIdentityId' - A unique identifier in the format REGION:GUID.
 identityDescription
     :: IdentityDescription
 identityDescription =
@@ -208,21 +212,21 @@ data IdentityPool = IdentityPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipSamlProviderARNs'
+-- * 'ipSamlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 --
--- * 'ipSupportedLoginProviders'
+-- * 'ipSupportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
 --
--- * 'ipDeveloperProviderName'
+-- * 'ipDeveloperProviderName' - The "domain" by which Cognito will refer to your users.
 --
--- * 'ipOpenIdConnectProviderARNs'
+-- * 'ipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'ipCognitoIdentityProviders'
+-- * 'ipCognitoIdentityProviders' - A list representing an Amazon Cognito Identity User Pool and its client ID.
 --
--- * 'ipIdentityPoolId'
+-- * 'ipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'ipIdentityPoolName'
+-- * 'ipIdentityPoolName' - A string that you provide.
 --
--- * 'ipAllowUnauthenticatedIdentities'
+-- * 'ipAllowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
 identityPool
     :: Text -- ^ 'ipIdentityPoolId'
     -> Text -- ^ 'ipIdentityPoolName'
@@ -248,7 +252,7 @@ ipSamlProviderARNs = lens _ipSamlProviderARNs (\ s a -> s{_ipSamlProviderARNs = 
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
 ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . _Default . _Map;
 
--- | The \"domain\" by which Cognito will refer to your users.
+-- | The "domain" by which Cognito will refer to your users.
 ipDeveloperProviderName :: Lens' IdentityPool (Maybe Text)
 ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloperProviderName = a});
 
@@ -321,9 +325,9 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipsdIdentityPoolId'
+-- * 'ipsdIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'ipsdIdentityPoolName'
+-- * 'ipsdIdentityPoolName' - A string that you provide.
 identityPoolShortDescription
     :: IdentityPoolShortDescription
 identityPoolShortDescription =
@@ -354,6 +358,8 @@ instance NFData IdentityPoolShortDescription
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 --
+--
+--
 -- /See:/ 'unprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
     { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
@@ -364,9 +370,9 @@ data UnprocessedIdentityId = UnprocessedIdentityId'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiiErrorCode'
+-- * 'uiiErrorCode' - The error code indicating the type of error that occurred.
 --
--- * 'uiiIdentityId'
+-- * 'uiiIdentityId' - A unique identifier in the format REGION:GUID.
 unprocessedIdentityId
     :: UnprocessedIdentityId
 unprocessedIdentityId =

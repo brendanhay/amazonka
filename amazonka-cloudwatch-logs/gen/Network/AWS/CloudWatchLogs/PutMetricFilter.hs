@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through 'PutLogEvents' requests.
+-- Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through @PutLogEvents@ requests.
+--
 --
 -- The maximum number of metric filters that can be associated with a log group is 100.
+--
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
     -- * Creating a Request
@@ -56,13 +58,13 @@ data PutMetricFilter = PutMetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmfLogGroupName'
+-- * 'pmfLogGroupName' - The name of the log group to associate the metric filter with.
 --
--- * 'pmfFilterName'
+-- * 'pmfFilterName' - A name for the metric filter.
 --
--- * 'pmfFilterPattern'
+-- * 'pmfFilterPattern' - A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events.
 --
--- * 'pmfMetricTransformations'
+-- * 'pmfMetricTransformations' - A collection of information needed to define how metric data gets emitted.
 putMetricFilter
     :: Text -- ^ 'pmfLogGroupName'
     -> Text -- ^ 'pmfFilterName'

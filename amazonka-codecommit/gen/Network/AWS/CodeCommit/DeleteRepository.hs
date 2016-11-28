@@ -20,7 +20,8 @@
 --
 -- Deletes a repository. If a specified repository was already deleted, a null repository ID will be returned.
 --
--- Deleting a repository also deletes all associated objects and metadata. After a repository is deleted, all future push calls to the deleted repository will fail.
+--
+-- /Important:/ Deleting a repository also deletes all associated objects and metadata. After a repository is deleted, all future push calls to the deleted repository will fail.
 module Network.AWS.CodeCommit.DeleteRepository
     (
     -- * Creating a Request
@@ -46,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete repository operation.
 --
+--
+--
 -- /See:/ 'deleteRepository' smart constructor.
 newtype DeleteRepository = DeleteRepository'
     { _drRepositoryName :: Text
@@ -55,7 +58,7 @@ newtype DeleteRepository = DeleteRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRepositoryName'
+-- * 'drRepositoryName' - The name of the repository to delete.
 deleteRepository
     :: Text -- ^ 'drRepositoryName'
     -> DeleteRepository
@@ -105,6 +108,8 @@ instance ToQuery DeleteRepository where
 
 -- | Represents the output of a delete repository operation.
 --
+--
+--
 -- /See:/ 'deleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
     { _drrsRepositoryId   :: !(Maybe Text)
@@ -115,9 +120,9 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsRepositoryId'
+-- * 'drrsRepositoryId' - The ID of the repository that was deleted.
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 deleteRepositoryResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRepositoryResponse
@@ -131,7 +136,7 @@ deleteRepositoryResponse pResponseStatus_ =
 drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
 drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRepositoryResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

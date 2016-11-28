@@ -52,9 +52,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcfoaiIfMatch'
+-- * 'dcfoaiIfMatch' - The value of the ETag header you received from a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
 --
--- * 'dcfoaiId'
+-- * 'dcfoaiId' - The origin access identity's id.
 deleteCloudFrontOriginAccessIdentity
     :: Text -- ^ 'dcfoaiId'
     -> DeleteCloudFrontOriginAccessIdentity
@@ -68,7 +68,7 @@ deleteCloudFrontOriginAccessIdentity pId_ =
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 
--- | The origin access identity\'s id.
+-- | The origin access identity's id.
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
 dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 

@@ -20,7 +20,9 @@
 --
 -- Requests a /Provision/ of a specified product. A /ProvisionedProduct/ is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it.
 --
--- You can check the status of this request using the < DescribeRecord> operation.
+--
+-- You can check the status of this request using the 'DescribeRecord' operation.
+--
 module Network.AWS.ServiceCatalog.ProvisionProduct
     (
     -- * Creating a Request
@@ -69,23 +71,23 @@ data ProvisionProduct = ProvisionProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppNotificationARNs'
+-- * 'ppNotificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 --
--- * 'ppAcceptLanguage'
+-- * 'ppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'ppPathId'
+-- * 'ppPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
--- * 'ppProvisioningParameters'
+-- * 'ppProvisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
 --
--- * 'ppTags'
+-- * 'ppTags' - (Optional) A list of tags to use as provisioning options.
 --
--- * 'ppProductId'
+-- * 'ppProductId' - The identifier of the product.
 --
--- * 'ppProvisioningArtifactId'
+-- * 'ppProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
--- * 'ppProvisionedProductName'
+-- * 'ppProvisionedProductName' - A user-friendly name to identify the ProvisionedProduct object. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
 --
--- * 'ppProvisionToken'
+-- * 'ppProvisionToken' - An idempotency token that uniquely identifies the provisioning request.
 provisionProduct
     :: Text -- ^ 'ppProductId'
     -> Text -- ^ 'ppProvisioningArtifactId'
@@ -109,19 +111,11 @@ provisionProduct pProductId_ pProvisioningArtifactId_ pProvisionedProductName_ p
 ppNotificationARNs :: Lens' ProvisionProduct [Text]
 ppNotificationARNs = lens _ppNotificationARNs (\ s a -> s{_ppNotificationARNs = a}) . _Default . _Coerce;
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 ppAcceptLanguage :: Lens' ProvisionProduct (Maybe Text)
 ppAcceptLanguage = lens _ppAcceptLanguage (\ s a -> s{_ppAcceptLanguage = a});
 
--- | The identifier of the path for this product\'s provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
+-- | The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 ppPathId :: Lens' ProvisionProduct (Maybe Text)
 ppPathId = lens _ppPathId (\ s a -> s{_ppPathId = a});
 
@@ -207,9 +201,9 @@ data ProvisionProductResponse = ProvisionProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pprsRecordDetail'
+-- * 'pprsRecordDetail' - The detailed result of the 'ProvisionProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered.
 --
--- * 'pprsResponseStatus'
+-- * 'pprsResponseStatus' - -- | The response status code.
 provisionProductResponse
     :: Int -- ^ 'pprsResponseStatus'
     -> ProvisionProductResponse
@@ -219,11 +213,11 @@ provisionProductResponse pResponseStatus_ =
     , _pprsResponseStatus = pResponseStatus_
     }
 
--- | The detailed result of the < ProvisionProduct> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered.
+-- | The detailed result of the 'ProvisionProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered.
 pprsRecordDetail :: Lens' ProvisionProductResponse (Maybe RecordDetail)
 pprsRecordDetail = lens _pprsRecordDetail (\ s a -> s{_pprsRecordDetail = a});
 
--- | The response status code.
+-- | -- | The response status code.
 pprsResponseStatus :: Lens' ProvisionProductResponse Int
 pprsResponseStatus = lens _pprsResponseStatus (\ s a -> s{_pprsResponseStatus = a});
 

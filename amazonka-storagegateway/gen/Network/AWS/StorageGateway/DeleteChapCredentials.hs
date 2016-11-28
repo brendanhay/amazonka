@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.
+--
+--
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request
@@ -46,9 +48,12 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < DeleteChapCredentialsInput>InitiatorName>
 --
--- -   < DeleteChapCredentialsInput>TargetARN>
+--     * 'DeleteChapCredentialsInput$InitiatorName'
+--
+--     * 'DeleteChapCredentialsInput$TargetARN'
+--
+--
 --
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
@@ -61,9 +66,9 @@ data DeleteChapCredentials = DeleteChapCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTargetARN'
+-- * 'dTargetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 --
--- * 'dInitiatorName'
+-- * 'dInitiatorName' - The iSCSI initiator that connects to the target.
 deleteChapCredentials
     :: Text -- ^ 'dTargetARN'
     -> Text -- ^ 'dInitiatorName'
@@ -74,7 +79,7 @@ deleteChapCredentials pTargetARN_ pInitiatorName_ =
     , _dInitiatorName = pInitiatorName_
     }
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the < DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN for specified VolumeARN.
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
@@ -122,6 +127,8 @@ instance ToQuery DeleteChapCredentials where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'deleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
     { _drsTargetARN      :: !(Maybe Text)
@@ -133,11 +140,11 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsTargetARN'
+-- * 'drsTargetARN' - The Amazon Resource Name (ARN) of the target.
 --
--- * 'drsInitiatorName'
+-- * 'drsInitiatorName' - The iSCSI initiator that connects to the target.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteChapCredentialsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteChapCredentialsResponse
@@ -156,7 +163,7 @@ drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
 drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

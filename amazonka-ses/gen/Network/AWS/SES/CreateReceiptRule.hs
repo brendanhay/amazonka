@@ -20,9 +20,11 @@
 --
 -- Creates a receipt rule.
 --
--- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
+--
+-- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.CreateReceiptRule
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'createReceiptRule' smart constructor.
 data CreateReceiptRule = CreateReceiptRule'
@@ -60,11 +64,11 @@ data CreateReceiptRule = CreateReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrAfter'
+-- * 'crrAfter' - The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
 --
--- * 'crrRuleSetName'
+-- * 'crrRuleSetName' - The name of the rule set to which to add the rule.
 --
--- * 'crrRule'
+-- * 'crrRule' - A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 createReceiptRule
     :: Text -- ^ 'crrRuleSetName'
     -> ReceiptRule -- ^ 'crrRule'
@@ -84,7 +88,7 @@ crrAfter = lens _crrAfter (\ s a -> s{_crrAfter = a});
 crrRuleSetName :: Lens' CreateReceiptRule Text
 crrRuleSetName = lens _crrRuleSetName (\ s a -> s{_crrRuleSetName = a});
 
--- | A data structure that contains the specified rule\'s name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+-- | A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 crrRule :: Lens' CreateReceiptRule ReceiptRule
 crrRule = lens _crrRule (\ s a -> s{_crrRule = a});
 
@@ -116,6 +120,8 @@ instance ToQuery CreateReceiptRule where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'createReceiptRuleResponse' smart constructor.
 newtype CreateReceiptRuleResponse = CreateReceiptRuleResponse'
     { _crrrsResponseStatus :: Int
@@ -125,7 +131,7 @@ newtype CreateReceiptRuleResponse = CreateReceiptRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrrsResponseStatus'
+-- * 'crrrsResponseStatus' - -- | The response status code.
 createReceiptRuleResponse
     :: Int -- ^ 'crrrsResponseStatus'
     -> CreateReceiptRuleResponse
@@ -134,7 +140,7 @@ createReceiptRuleResponse pResponseStatus_ =
     { _crrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crrrsResponseStatus :: Lens' CreateReceiptRuleResponse Int
 crrrsResponseStatus = lens _crrrsResponseStatus (\ s a -> s{_crrrsResponseStatus = a});
 

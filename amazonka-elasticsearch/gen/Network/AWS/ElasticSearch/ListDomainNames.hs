@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name of all Elasticsearch domains owned by the current user\'s account.
+-- Returns the name of all Elasticsearch domains owned by the current user's account.
+--
+--
 module Network.AWS.ElasticSearch.ListDomainNames
     (
     -- * Creating a Request
@@ -74,7 +76,9 @@ instance ToPath ListDomainNames where
 instance ToQuery ListDomainNames where
         toQuery = const mempty
 
--- | The result of a 'ListDomainNames' operation. Contains the names of all Elasticsearch domains owned by this account.
+-- | The result of a @ListDomainNames@ operation. Contains the names of all Elasticsearch domains owned by this account.
+--
+--
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
@@ -86,9 +90,9 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldnrsDomainNames'
+-- * 'ldnrsDomainNames' - List of Elasticsearch domain names.
 --
--- * 'ldnrsResponseStatus'
+-- * 'ldnrsResponseStatus' - -- | The response status code.
 listDomainNamesResponse
     :: Int -- ^ 'ldnrsResponseStatus'
     -> ListDomainNamesResponse
@@ -102,7 +106,7 @@ listDomainNamesResponse pResponseStatus_ =
 ldnrsDomainNames :: Lens' ListDomainNamesResponse [DomainInfo]
 ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
 ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});
 

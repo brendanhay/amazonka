@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources. Send a 'GET' request to the '\/Amazon Route 53 API version\/checkeripranges' resource. Use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.
+-- Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources. Send a @GET@ request to the @//Amazon Route 53 API version/ /checkeripranges@ resource. Use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.
+--
+--
 module Network.AWS.Route53.GetCheckerIPRanges
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | Empty request.
+--
+--
 --
 -- /See:/ 'getCheckerIPRanges' smart constructor.
 data GetCheckerIPRanges =
@@ -78,7 +82,9 @@ instance ToPath GetCheckerIPRanges where
 instance ToQuery GetCheckerIPRanges where
         toQuery = const mempty
 
--- | A complex type that contains the 'CheckerIpRanges' element.
+-- | A complex type that contains the @CheckerIpRanges@ element.
+--
+--
 --
 -- /See:/ 'getCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
@@ -90,9 +96,9 @@ data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcirrsResponseStatus'
+-- * 'gcirrsResponseStatus' - -- | The response status code.
 --
--- * 'gcirrsCheckerIPRanges'
+-- * 'gcirrsCheckerIPRanges' - A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.
 getCheckerIPRangesResponse
     :: Int -- ^ 'gcirrsResponseStatus'
     -> GetCheckerIPRangesResponse
@@ -102,7 +108,7 @@ getCheckerIPRangesResponse pResponseStatus_ =
     , _gcirrsCheckerIPRanges = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
 gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a});
 

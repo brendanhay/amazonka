@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns communications (and attachments) for one or more support cases. You can use the 'afterTime' and 'beforeTime' parameters to filter by date. You can use the 'caseId' parameter to restrict the results to a particular case.
+-- Returns communications (and attachments) for one or more support cases. You can use the @afterTime@ and @beforeTime@ parameters to filter by date. You can use the @caseId@ parameter to restrict the results to a particular case.
+--
 --
 -- Case data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error.
 --
--- You can use the 'maxResults' and 'nextToken' parameters to control the pagination of the result set. Set 'maxResults' to the number of cases you want displayed on each page, and use 'nextToken' to specify the resumption of pagination.
+-- You can use the @maxResults@ and @nextToken@ parameters to control the pagination of the result set. Set @maxResults@ to the number of cases you want displayed on each page, and use @nextToken@ to specify the resumption of pagination.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
@@ -56,6 +58,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'describeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
     { _dAfterTime  :: !(Maybe Text)
@@ -69,15 +73,15 @@ data DescribeCommunications = DescribeCommunications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAfterTime'
+-- * 'dAfterTime' - The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 --
--- * 'dBeforeTime'
+-- * 'dBeforeTime' - The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 --
--- * 'dNextToken'
+-- * 'dNextToken' - A resumption point for pagination.
 --
--- * 'dMaxResults'
+-- * 'dMaxResults' - The maximum number of results to return before paginating.
 --
--- * 'dCaseId'
+-- * 'dCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 describeCommunications
     :: Text -- ^ 'dCaseId'
     -> DescribeCommunications
@@ -159,7 +163,9 @@ instance ToPath DescribeCommunications where
 instance ToQuery DescribeCommunications where
         toQuery = const mempty
 
--- | The communications returned by the < DescribeCommunications> operation.
+-- | The communications returned by the 'DescribeCommunications' operation.
+--
+--
 --
 -- /See:/ 'describeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
@@ -172,11 +178,11 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsNextToken'
+-- * 'dcrsNextToken' - A resumption point for pagination.
 --
--- * 'dcrsCommunications'
+-- * 'dcrsCommunications' - The communications for the case.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCommunicationsResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommunicationsResponse
@@ -195,7 +201,7 @@ dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
 dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCommunicationsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

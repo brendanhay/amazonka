@@ -20,9 +20,11 @@
 --
 -- Adds the specified tags to the specified resource. You can tag your Application load balancers and your target groups.
 --
--- Each tag consists of a key and an optional value. If a resource already has a tag with the same key, 'AddTags' updates its value.
 --
--- To list the current tags for your resources, use < DescribeTags>. To remove tags from your resources, use < RemoveTags>.
+-- Each tag consists of a key and an optional value. If a resource already has a tag with the same key, @AddTags@ updates its value.
+--
+-- To list the current tags for your resources, use 'DescribeTags' . To remove tags from your resources, use 'RemoveTags' .
+--
 module Network.AWS.ELBv2.AddTags
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AddTags.
 --
+--
+--
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
     { _atResourceARNs :: ![Text]
@@ -58,9 +62,9 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atResourceARNs'
+-- * 'atResourceARNs' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'atTags'
+-- * 'atTags' - The tags. Each resource can have a maximum of 10 tags.
 addTags
     :: NonEmpty Tag -- ^ 'atTags'
     -> AddTags
@@ -106,6 +110,8 @@ instance ToQuery AddTags where
 
 -- | Contains the output of AddTags.
 --
+--
+--
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype AddTagsResponse = AddTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atrsResponseStatus'
+-- * 'atrsResponseStatus' - -- | The response status code.
 addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
@@ -124,7 +130,7 @@ addTagsResponse pResponseStatus_ =
     { _atrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn\'t a null version, Amazon S3 does not remove any objects.
+-- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
 module Network.AWS.S3.DeleteObject
     (
     -- * Creating a Request
@@ -61,15 +61,15 @@ data DeleteObject = DeleteObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doVersionId'
+-- * 'doVersionId' - VersionId used to reference a specific version of the object.
 --
--- * 'doMFA'
+-- * 'doMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'doRequestPayer'
+-- * 'doRequestPayer' - Undocumented member.
 --
--- * 'doBucket'
+-- * 'doBucket' - Undocumented member.
 --
--- * 'doKey'
+-- * 'doKey' - Undocumented member.
 deleteObject
     :: BucketName -- ^ 'doBucket'
     -> ObjectKey -- ^ 'doKey'
@@ -87,7 +87,7 @@ deleteObject pBucket_ pKey_ =
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
 doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 
--- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
 
@@ -145,13 +145,13 @@ data DeleteObjectResponse = DeleteObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorsRequestCharged'
+-- * 'dorsRequestCharged' - Undocumented member.
 --
--- * 'dorsVersionId'
+-- * 'dorsVersionId' - Returns the version ID of the delete marker created as a result of the DELETE operation.
 --
--- * 'dorsDeleteMarker'
+-- * 'dorsDeleteMarker' - Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
 --
--- * 'dorsResponseStatus'
+-- * 'dorsResponseStatus' - -- | The response status code.
 deleteObjectResponse
     :: Int -- ^ 'dorsResponseStatus'
     -> DeleteObjectResponse
@@ -175,7 +175,7 @@ dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dorsResponseStatus :: Lens' DeleteObjectResponse Int
 dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
 

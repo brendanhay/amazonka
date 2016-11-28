@@ -20,11 +20,14 @@
 --
 -- Creates a new log group with the specified name. The name of the log group must be unique within a region for an AWS account. You can create up to 500 log groups per account.
 --
+--
 -- You must use the following guidelines when naming a log group:
 --
--- -   Log group names can be between 1 and 512 characters long.
+--     * Log group names can be between 1 and 512 characters long.
 --
--- -   Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (hyphen), \'\/\' (forward slash), and \'.\' (period).
+--     * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+--
+--
 --
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
@@ -55,7 +58,7 @@ newtype CreateLogGroup = CreateLogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clgLogGroupName'
+-- * 'clgLogGroupName' - The name of the log group to create.
 createLogGroup
     :: Text -- ^ 'clgLogGroupName'
     -> CreateLogGroup

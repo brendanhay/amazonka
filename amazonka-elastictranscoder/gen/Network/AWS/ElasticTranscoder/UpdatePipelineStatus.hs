@@ -20,7 +20,9 @@
 --
 -- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs.
 --
--- Changing the pipeline status is useful if you want to cancel one or more jobs. You can\'t cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a < CancelJob> request.
+--
+-- Changing the pipeline status is useful if you want to cancel one or more jobs. You can't cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a 'CancelJob' request.
+--
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'UpdatePipelineStatusRequest' structure.
+-- | The @UpdatePipelineStatusRequest@ structure.
+--
+--
 --
 -- /See:/ 'updatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
@@ -57,9 +61,9 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upsId'
+-- * 'upsId' - The identifier of the pipeline to update.
 --
--- * 'upsStatus'
+-- * 'upsStatus' - The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.    * @Paused@ : The pipeline is not currently processing jobs.
 updatePipelineStatus
     :: Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
@@ -74,10 +78,7 @@ updatePipelineStatus pId_ pStatus_ =
 upsId :: Lens' UpdatePipelineStatus Text
 upsId = lens _upsId (\ s a -> s{_upsId = a});
 
--- | The desired status of the pipeline:
---
--- -   'Active': The pipeline is processing jobs.
--- -   'Paused': The pipeline is not currently processing jobs.
+-- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.    * @Paused@ : The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
@@ -122,9 +123,9 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upsrsPipeline'
+-- * 'upsrsPipeline' - A section of the response body that provides information about the pipeline.
 --
--- * 'upsrsResponseStatus'
+-- * 'upsrsResponseStatus' - -- | The response status code.
 updatePipelineStatusResponse
     :: Int -- ^ 'upsrsResponseStatus'
     -> UpdatePipelineStatusResponse
@@ -138,7 +139,7 @@ updatePipelineStatusResponse pResponseStatus_ =
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
 upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a});
 

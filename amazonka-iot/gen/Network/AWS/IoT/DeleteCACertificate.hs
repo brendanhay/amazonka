@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a registered CA certificate.
+--
+--
 module Network.AWS.IoT.DeleteCACertificate
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Input for the DeleteCACertificate operation.
 --
+--
+--
 -- /See:/ 'deleteCACertificate' smart constructor.
 newtype DeleteCACertificate = DeleteCACertificate'
     { _dcacCertificateId :: Text
@@ -52,7 +56,7 @@ newtype DeleteCACertificate = DeleteCACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcacCertificateId'
+-- * 'dcacCertificateId' - The ID of the certificate to delete.
 deleteCACertificate
     :: Text -- ^ 'dcacCertificateId'
     -> DeleteCACertificate
@@ -91,6 +95,8 @@ instance ToQuery DeleteCACertificate where
 
 -- | The output for the DeleteCACertificate operation.
 --
+--
+--
 -- /See:/ 'deleteCACertificateResponse' smart constructor.
 newtype DeleteCACertificateResponse = DeleteCACertificateResponse'
     { _dcacrsResponseStatus :: Int
@@ -100,7 +106,7 @@ newtype DeleteCACertificateResponse = DeleteCACertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcacrsResponseStatus'
+-- * 'dcacrsResponseStatus' - -- | The response status code.
 deleteCACertificateResponse
     :: Int -- ^ 'dcacrsResponseStatus'
     -> DeleteCACertificateResponse
@@ -109,7 +115,7 @@ deleteCACertificateResponse pResponseStatus_ =
     { _dcacrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dcacrsResponseStatus :: Lens' DeleteCACertificateResponse Int
 dcacrsResponseStatus = lens _dcacrsResponseStatus (\ s a -> s{_dcacrsResponseStatus = a});
 

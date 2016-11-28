@@ -20,7 +20,9 @@
 --
 -- Lists all tags on an Amazon RDS resource.
 --
--- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
+--
+-- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> .
+--
 module Network.AWS.RDS.ListTagsForResource
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
     { _ltfrFilters      :: !(Maybe [Filter])
@@ -57,9 +61,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrFilters'
+-- * 'ltfrFilters' - This parameter is not currently supported.
 --
--- * 'ltfrResourceName'
+-- * 'ltfrResourceName' - The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 listTagsForResource
     :: Text -- ^ 'ltfrResourceName'
     -> ListTagsForResource
@@ -73,7 +77,7 @@ listTagsForResource pResourceName_ =
 ltfrFilters :: Lens' ListTagsForResource [Filter]
 ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default . _Coerce;
 
--- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
+-- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 
@@ -110,6 +114,8 @@ instance ToQuery ListTagsForResource where
 
 -- |
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsTagList        :: !(Maybe [Tag])
@@ -120,9 +126,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsTagList'
+-- * 'ltfrrsTagList' - List of tags returned by the ListTagsForResource operation.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -136,7 +142,7 @@ listTagsForResourceResponse pResponseStatus_ =
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

@@ -54,7 +54,7 @@ newtype GetBucketWebsite = GetBucketWebsite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbwBucket'
+-- * 'gbwBucket' - Undocumented member.
 getBucketWebsite
     :: BucketName -- ^ 'gbwBucket'
     -> GetBucketWebsite
@@ -109,15 +109,15 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbwrsRedirectAllRequestsTo'
+-- * 'gbwrsRedirectAllRequestsTo' - Undocumented member.
 --
--- * 'gbwrsErrorDocument'
+-- * 'gbwrsErrorDocument' - Undocumented member.
 --
--- * 'gbwrsIndexDocument'
+-- * 'gbwrsIndexDocument' - Undocumented member.
 --
--- * 'gbwrsRoutingRules'
+-- * 'gbwrsRoutingRules' - Undocumented member.
 --
--- * 'gbwrsResponseStatus'
+-- * 'gbwrsResponseStatus' - -- | The response status code.
 getBucketWebsiteResponse
     :: Int -- ^ 'gbwrsResponseStatus'
     -> GetBucketWebsiteResponse
@@ -146,7 +146,7 @@ gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = 
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});
 

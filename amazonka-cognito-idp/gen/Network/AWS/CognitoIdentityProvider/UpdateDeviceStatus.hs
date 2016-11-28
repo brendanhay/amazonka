@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the device status.
+--
+--
 module Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to update the device status.
 --
+--
+--
 -- /See:/ 'updateDeviceStatus' smart constructor.
 data UpdateDeviceStatus = UpdateDeviceStatus'
     { _udsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
@@ -56,11 +60,11 @@ data UpdateDeviceStatus = UpdateDeviceStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udsDeviceRememberedStatus'
+-- * 'udsDeviceRememberedStatus' - The status of whether a device is remembered.
 --
--- * 'udsAccessToken'
+-- * 'udsAccessToken' - The access token.
 --
--- * 'udsDeviceKey'
+-- * 'udsDeviceKey' - The device key.
 updateDeviceStatus
     :: Text -- ^ 'udsAccessToken'
     -> Text -- ^ 'udsDeviceKey'
@@ -124,6 +128,8 @@ instance ToQuery UpdateDeviceStatus where
 
 -- | The response to the request to update the device status.
 --
+--
+--
 -- /See:/ 'updateDeviceStatusResponse' smart constructor.
 newtype UpdateDeviceStatusResponse = UpdateDeviceStatusResponse'
     { _udsrsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype UpdateDeviceStatusResponse = UpdateDeviceStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udsrsResponseStatus'
+-- * 'udsrsResponseStatus' - -- | The response status code.
 updateDeviceStatusResponse
     :: Int -- ^ 'udsrsResponseStatus'
     -> UpdateDeviceStatusResponse
@@ -142,7 +148,7 @@ updateDeviceStatusResponse pResponseStatus_ =
     { _udsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 udsrsResponseStatus :: Lens' UpdateDeviceStatusResponse Int
 udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
 

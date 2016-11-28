@@ -20,7 +20,9 @@
 --
 -- Describes Amazon RDS instances.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeRDSDBInstances
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data DescribeRDSDBInstances = DescribeRDSDBInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdiRDSDBInstanceARNs'
+-- * 'drdiRDSDBInstanceARNs' - An array containing the ARNs of the instances to be described.
 --
--- * 'drdiStackId'
+-- * 'drdiStackId' - The stack ID that the instances are registered with. The operation returns descriptions of all registered Amazon RDS instances.
 describeRDSDBInstances
     :: Text -- ^ 'drdiStackId'
     -> DescribeRDSDBInstances
@@ -113,7 +115,9 @@ instance ToPath DescribeRDSDBInstances where
 instance ToQuery DescribeRDSDBInstances where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeRdsDbInstances' request.
+-- | Contains the response to a @DescribeRdsDbInstances@ request.
+--
+--
 --
 -- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
@@ -125,9 +129,9 @@ data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdirsRDSDBInstances'
+-- * 'drdirsRDSDBInstances' - An a array of @RdsDbInstance@ objects that describe the instances.
 --
--- * 'drdirsResponseStatus'
+-- * 'drdirsResponseStatus' - -- | The response status code.
 describeRDSDBInstancesResponse
     :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeRDSDBInstancesResponse
@@ -137,11 +141,11 @@ describeRDSDBInstancesResponse pResponseStatus_ =
     , _drdirsResponseStatus = pResponseStatus_
     }
 
--- | An a array of 'RdsDbInstance' objects that describe the instances.
+-- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
 

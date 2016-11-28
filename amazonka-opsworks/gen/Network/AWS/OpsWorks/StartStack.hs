@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a stack\'s instances.
+-- Starts a stack's instances.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.StartStack
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype StartStack = StartStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'staStackId'
+-- * 'staStackId' - The stack ID.
 startStack
     :: Text -- ^ 'staStackId'
     -> StartStack

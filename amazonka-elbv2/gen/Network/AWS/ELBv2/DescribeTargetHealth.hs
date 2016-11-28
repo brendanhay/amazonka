@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the health of the specified targets or all of your targets.
+--
+--
 module Network.AWS.ELBv2.DescribeTargetHealth
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeTargetHealth.
 --
+--
+--
 -- /See:/ 'describeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
     { _dthTargets        :: !(Maybe [TargetDescription])
@@ -55,9 +59,9 @@ data DescribeTargetHealth = DescribeTargetHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dthTargets'
+-- * 'dthTargets' - The targets.
 --
--- * 'dthTargetGroupARN'
+-- * 'dthTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 describeTargetHealth
     :: Text -- ^ 'dthTargetGroupARN'
     -> DescribeTargetHealth
@@ -108,6 +112,8 @@ instance ToQuery DescribeTargetHealth where
 
 -- | Contains the output of DescribeTargetHealth.
 --
+--
+--
 -- /See:/ 'describeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
     { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
@@ -118,9 +124,9 @@ data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dthrsTargetHealthDescriptions'
+-- * 'dthrsTargetHealthDescriptions' - Information about the health of the targets.
 --
--- * 'dthrsResponseStatus'
+-- * 'dthrsResponseStatus' - -- | The response status code.
 describeTargetHealthResponse
     :: Int -- ^ 'dthrsResponseStatus'
     -> DescribeTargetHealthResponse
@@ -134,7 +140,7 @@ describeTargetHealthResponse pResponseStatus_ =
 dthrsTargetHealthDescriptions :: Lens' DescribeTargetHealthResponse [TargetHealthDescription]
 dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\ s a -> s{_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dthrsResponseStatus :: Lens' DescribeTargetHealthResponse Int
 dthrsResponseStatus = lens _dthrsResponseStatus (\ s a -> s{_dthrsResponseStatus = a});
 

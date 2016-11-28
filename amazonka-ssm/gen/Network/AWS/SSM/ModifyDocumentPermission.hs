@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Share a document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify /All/ as the account ID.
+--
+--
 module Network.AWS.SSM.ModifyDocumentPermission
     (
     -- * Creating a Request
@@ -56,13 +58,13 @@ data ModifyDocumentPermission = ModifyDocumentPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdpAccountIdsToAdd'
+-- * 'mdpAccountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
 --
--- * 'mdpAccountIdsToRemove'
+-- * 'mdpAccountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 --
--- * 'mdpName'
+-- * 'mdpName' - The name of the document that you want to share.
 --
--- * 'mdpPermissionType'
+-- * 'mdpPermissionType' - The permission type for the document. The permission type can be /Share/ .
 modifyDocumentPermission
     :: Text -- ^ 'mdpName'
     -> DocumentPermissionType -- ^ 'mdpPermissionType'
@@ -75,11 +77,11 @@ modifyDocumentPermission pName_ pPermissionType_ =
     , _mdpPermissionType = pPermissionType_
     }
 
--- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/.
+-- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
 mdpAccountIdsToAdd :: Lens' ModifyDocumentPermission [Text]
 mdpAccountIdsToAdd = lens _mdpAccountIdsToAdd (\ s a -> s{_mdpAccountIdsToAdd = a}) . _Default . _Coerce;
 
--- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/. This action has a higher priority than /AccountIdsToAdd/. If you specify an account ID to add and the same ID to remove, the system removes access to the document.
+-- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 mdpAccountIdsToRemove :: Lens' ModifyDocumentPermission [Text]
 mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsToRemove = a}) . _Default . _Coerce;
 
@@ -87,7 +89,7 @@ mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsTo
 mdpName :: Lens' ModifyDocumentPermission Text
 mdpName = lens _mdpName (\ s a -> s{_mdpName = a});
 
--- | The permission type for the document. The permission type can be /Share/.
+-- | The permission type for the document. The permission type can be /Share/ .
 mdpPermissionType :: Lens' ModifyDocumentPermission DocumentPermissionType
 mdpPermissionType = lens _mdpPermissionType (\ s a -> s{_mdpPermissionType = a});
 
@@ -138,7 +140,7 @@ newtype ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdprsResponseStatus'
+-- * 'mdprsResponseStatus' - -- | The response status code.
 modifyDocumentPermissionResponse
     :: Int -- ^ 'mdprsResponseStatus'
     -> ModifyDocumentPermissionResponse
@@ -147,7 +149,7 @@ modifyDocumentPermissionResponse pResponseStatus_ =
     { _mdprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 mdprsResponseStatus :: Lens' ModifyDocumentPermissionResponse Int
 mdprsResponseStatus = lens _mdprsResponseStatus (\ s a -> s{_mdprsResponseStatus = a});
 

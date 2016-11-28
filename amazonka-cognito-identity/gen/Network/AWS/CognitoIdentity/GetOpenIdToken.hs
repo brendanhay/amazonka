@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by < GetId>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.
+-- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by 'GetId' . You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.
+--
 --
 -- The OpenId token is valid for 15 minutes.
 --
 -- This is a public API. You do not need any credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
     -- * Creating a Request
@@ -60,9 +62,9 @@ data GetOpenIdToken = GetOpenIdToken'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goitLogins'
+-- * 'goitLogins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
 --
--- * 'goitIdentityId'
+-- * 'goitIdentityId' - A unique identifier in the format REGION:GUID.
 getOpenIdToken
     :: Text -- ^ 'goitIdentityId'
     -> GetOpenIdToken
@@ -72,7 +74,7 @@ getOpenIdToken pIdentityId_ =
     , _goitIdentityId = pIdentityId_
     }
 
--- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider\'s authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
+-- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
@@ -130,11 +132,11 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goitrsToken'
+-- * 'goitrsToken' - An OpenID token, valid for 15 minutes.
 --
--- * 'goitrsIdentityId'
+-- * 'goitrsIdentityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
 --
--- * 'goitrsResponseStatus'
+-- * 'goitrsResponseStatus' - -- | The response status code.
 getOpenIdTokenResponse
     :: Int -- ^ 'goitrsResponseStatus'
     -> GetOpenIdTokenResponse
@@ -153,7 +155,7 @@ goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
 goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});
 

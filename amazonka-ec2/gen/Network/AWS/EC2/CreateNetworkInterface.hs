@@ -20,7 +20,9 @@
 --
 -- Creates a network interface in the specified subnet.
 --
--- For more information about network interfaces, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about network interfaces, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateNetworkInterface
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkInterface.
 --
+--
+--
 -- /See:/ 'createNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
     { _cniGroups                         :: !(Maybe [Text])
@@ -67,19 +71,19 @@ data CreateNetworkInterface = CreateNetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cniGroups'
+-- * 'cniGroups' - The IDs of one or more security groups.
 --
--- * 'cniPrivateIPAddresses'
+-- * 'cniPrivateIPAddresses' - One or more private IP addresses.
 --
--- * 'cniPrivateIPAddress'
+-- * 'cniPrivateIPAddress' - The primary private IP address of the network interface. If you don't specify an IP address, Amazon EC2 selects one for you from the subnet range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
 --
--- * 'cniSecondaryPrivateIPAddressCount'
+-- * 'cniSecondaryPrivateIPAddressCount' - The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ . The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'cniDescription'
+-- * 'cniDescription' - A description for the network interface.
 --
--- * 'cniDryRun'
+-- * 'cniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cniSubnetId'
+-- * 'cniSubnetId' - The ID of the subnet to associate with the network interface.
 createNetworkInterface
     :: Text -- ^ 'cniSubnetId'
     -> CreateNetworkInterface
@@ -102,13 +106,11 @@ cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default . _Coerce;
 cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
 cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a}) . _Default . _Coerce;
 
--- | The primary private IP address of the network interface. If you don\'t specify an IP address, Amazon EC2 selects one for you from the subnet range. If you specify an IP address, you cannot indicate any IP addresses specified in 'privateIpAddresses' as primary (only one IP address can be designated as primary).
+-- | The primary private IP address of the network interface. If you don't specify an IP address, Amazon EC2 selects one for you from the subnet range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
 cniPrivateIPAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cniPrivateIPAddress = lens _cniPrivateIPAddress (\ s a -> s{_cniPrivateIPAddress = a});
 
--- | The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can\'t specify this option and specify more than one private IP address using 'privateIpAddresses'.
---
--- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ . The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic Compute Cloud User Guide/ .
 cniSecondaryPrivateIPAddressCount :: Lens' CreateNetworkInterface (Maybe Int)
 cniSecondaryPrivateIPAddressCount = lens _cniSecondaryPrivateIPAddressCount (\ s a -> s{_cniSecondaryPrivateIPAddressCount = a});
 
@@ -116,7 +118,7 @@ cniSecondaryPrivateIPAddressCount = lens _cniSecondaryPrivateIPAddressCount (\ s
 cniDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cniDescription = lens _cniDescription (\ s a -> s{_cniDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cniDryRun :: Lens' CreateNetworkInterface (Maybe Bool)
 cniDryRun = lens _cniDryRun (\ s a -> s{_cniDryRun = a});
 
@@ -163,6 +165,8 @@ instance ToQuery CreateNetworkInterface where
 
 -- | Contains the output of CreateNetworkInterface.
 --
+--
+--
 -- /See:/ 'createNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
@@ -173,9 +177,9 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnirsNetworkInterface'
+-- * 'cnirsNetworkInterface' - Information about the network interface.
 --
--- * 'cnirsResponseStatus'
+-- * 'cnirsResponseStatus' - -- | The response status code.
 createNetworkInterfaceResponse
     :: Int -- ^ 'cnirsResponseStatus'
     -> CreateNetworkInterfaceResponse
@@ -189,7 +193,7 @@ createNetworkInterfaceResponse pResponseStatus_ =
 cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInterface = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cnirsResponseStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirsResponseStatus = lens _cnirsResponseStatus (\ s a -> s{_cnirsResponseStatus = a});
 

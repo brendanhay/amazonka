@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the findings that are specified by the ARNs of the findings.
+--
+--
 module Network.AWS.Inspector.DescribeFindings
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeFindings = DescribeFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfLocale'
+-- * 'dfLocale' - The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
 --
--- * 'dfFindingARNs'
+-- * 'dfFindingARNs' - The ARN that specifies the finding that you want to describe.
 describeFindings
     :: NonEmpty Text -- ^ 'dfFindingARNs'
     -> DescribeFindings
@@ -121,11 +123,11 @@ data DescribeFindingsResponse = DescribeFindingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfrsResponseStatus'
+-- * 'dfrsResponseStatus' - -- | The response status code.
 --
--- * 'dfrsFindings'
+-- * 'dfrsFindings' - Information about the finding.
 --
--- * 'dfrsFailedItems'
+-- * 'dfrsFailedItems' - Finding details that cannot be described. An error code is provided for each failed item.
 describeFindingsResponse
     :: Int -- ^ 'dfrsResponseStatus'
     -> DescribeFindingsResponse
@@ -136,7 +138,7 @@ describeFindingsResponse pResponseStatus_ =
     , _dfrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dfrsResponseStatus :: Lens' DescribeFindingsResponse Int
 dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
 

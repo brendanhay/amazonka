@@ -51,7 +51,7 @@ newtype GetBucketTagging = GetBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbtBucket'
+-- * 'gbtBucket' - Undocumented member.
 getBucketTagging
     :: BucketName -- ^ 'gbtBucket'
     -> GetBucketTagging
@@ -98,9 +98,9 @@ data GetBucketTaggingResponse = GetBucketTaggingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbtrsResponseStatus'
+-- * 'gbtrsResponseStatus' - -- | The response status code.
 --
--- * 'gbtrsTagSet'
+-- * 'gbtrsTagSet' - Undocumented member.
 getBucketTaggingResponse
     :: Int -- ^ 'gbtrsResponseStatus'
     -> GetBucketTaggingResponse
@@ -110,7 +110,7 @@ getBucketTaggingResponse pResponseStatus_ =
     , _gbtrsTagSet = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
 gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a});
 

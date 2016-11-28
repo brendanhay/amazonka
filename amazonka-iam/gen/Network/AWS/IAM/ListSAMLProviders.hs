@@ -20,7 +20,7 @@
 --
 -- Lists the SAML provider resource objects defined in IAM in the account.
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Creating a Request
@@ -81,7 +81,9 @@ instance ToQuery ListSAMLProviders where
                  ["Action" =: ("ListSAMLProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < ListSAMLProviders> request.
+-- | Contains the response to a successful 'ListSAMLProviders' request.
+--
+--
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
@@ -93,9 +95,9 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsamlprsSAMLProviderList'
+-- * 'lsamlprsSAMLProviderList' - The list of SAML provider resource objects defined in IAM for this AWS account.
 --
--- * 'lsamlprsResponseStatus'
+-- * 'lsamlprsResponseStatus' - -- | The response status code.
 listSAMLProvidersResponse
     :: Int -- ^ 'lsamlprsResponseStatus'
     -> ListSAMLProvidersResponse
@@ -109,7 +111,7 @@ listSAMLProvidersResponse pResponseStatus_ =
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsamlprsResponseStatus :: Lens' ListSAMLProvidersResponse Int
 lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a});
 

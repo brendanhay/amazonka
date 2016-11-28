@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the user pool client.
+--
+--
 module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to create a user pool client.
 --
+--
+--
 -- /See:/ 'createUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
     { _cupcRefreshTokenValidity :: !(Maybe Nat)
@@ -65,19 +69,19 @@ data CreateUserPoolClient = CreateUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupcRefreshTokenValidity'
+-- * 'cupcRefreshTokenValidity' - Refreshes the token validity.
 --
--- * 'cupcExplicitAuthFlows'
+-- * 'cupcExplicitAuthFlows' - The explicit authentication flows.
 --
--- * 'cupcGenerateSecret'
+-- * 'cupcGenerateSecret' - Boolean to specify whether you want to generate a secret for the user pool client being created.
 --
--- * 'cupcWriteAttributes'
+-- * 'cupcWriteAttributes' - The write attributes.
 --
--- * 'cupcReadAttributes'
+-- * 'cupcReadAttributes' - The read attributes.
 --
--- * 'cupcUserPoolId'
+-- * 'cupcUserPoolId' - The user pool ID for the user pool where you want to create a user pool client.
 --
--- * 'cupcClientName'
+-- * 'cupcClientName' - The client name for the user pool client you would like to create.
 createUserPoolClient
     :: Text -- ^ 'cupcUserPoolId'
     -> Text -- ^ 'cupcClientName'
@@ -166,6 +170,8 @@ instance ToQuery CreateUserPoolClient where
 
 -- | Represents the response from the server to create a user pool client.
 --
+--
+--
 -- /See:/ 'createUserPoolClientResponse' smart constructor.
 data CreateUserPoolClientResponse = CreateUserPoolClientResponse'
     { _cupcrsUserPoolClient :: !(Maybe UserPoolClientType)
@@ -176,9 +182,9 @@ data CreateUserPoolClientResponse = CreateUserPoolClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupcrsUserPoolClient'
+-- * 'cupcrsUserPoolClient' - The user pool client that was just created.
 --
--- * 'cupcrsResponseStatus'
+-- * 'cupcrsResponseStatus' - -- | The response status code.
 createUserPoolClientResponse
     :: Int -- ^ 'cupcrsResponseStatus'
     -> CreateUserPoolClientResponse
@@ -192,7 +198,7 @@ createUserPoolClientResponse pResponseStatus_ =
 cupcrsUserPoolClient :: Lens' CreateUserPoolClientResponse (Maybe UserPoolClientType)
 cupcrsUserPoolClient = lens _cupcrsUserPoolClient (\ s a -> s{_cupcrsUserPoolClient = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cupcrsResponseStatus :: Lens' CreateUserPoolClientResponse Int
 cupcrsResponseStatus = lens _cupcrsResponseStatus (\ s a -> s{_cupcrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.
+--
+--
 module Network.AWS.SSM.DeleteActivation
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeleteActivation = DeleteActivation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daActivationId'
+-- * 'daActivationId' - The ID of the activation that you want to delete.
 deleteActivation
     :: Text -- ^ 'daActivationId'
     -> DeleteActivation
@@ -105,7 +107,7 @@ newtype DeleteActivationResponse = DeleteActivationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsResponseStatus'
+-- * 'daarsResponseStatus' - -- | The response status code.
 deleteActivationResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DeleteActivationResponse
@@ -114,7 +116,7 @@ deleteActivationResponse pResponseStatus_ =
     { _daarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 daarsResponseStatus :: Lens' DeleteActivationResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 

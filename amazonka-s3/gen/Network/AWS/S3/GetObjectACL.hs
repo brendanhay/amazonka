@@ -59,13 +59,13 @@ data GetObjectACL = GetObjectACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goaVersionId'
+-- * 'goaVersionId' - VersionId used to reference a specific version of the object.
 --
--- * 'goaRequestPayer'
+-- * 'goaRequestPayer' - Undocumented member.
 --
--- * 'goaBucket'
+-- * 'goaBucket' - Undocumented member.
 --
--- * 'goaKey'
+-- * 'goaKey' - Undocumented member.
 getObjectACL
     :: BucketName -- ^ 'goaBucket'
     -> ObjectKey -- ^ 'goaKey'
@@ -135,13 +135,13 @@ data GetObjectACLResponse = GetObjectACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goarsRequestCharged'
+-- * 'goarsRequestCharged' - Undocumented member.
 --
--- * 'goarsGrants'
+-- * 'goarsGrants' - A list of grants.
 --
--- * 'goarsOwner'
+-- * 'goarsOwner' - Undocumented member.
 --
--- * 'goarsResponseStatus'
+-- * 'goarsResponseStatus' - -- | The response status code.
 getObjectACLResponse
     :: Int -- ^ 'goarsResponseStatus'
     -> GetObjectACLResponse
@@ -165,7 +165,7 @@ goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default . _Coe
 goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 
--- | The response status code.
+-- | -- | The response status code.
 goarsResponseStatus :: Lens' GetObjectACLResponse Int
 goarsResponseStatus = lens _goarsResponseStatus (\ s a -> s{_goarsResponseStatus = a});
 

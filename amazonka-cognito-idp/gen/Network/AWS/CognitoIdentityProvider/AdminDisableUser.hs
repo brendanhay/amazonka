@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the specified user as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminDisableUser
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to disable any user as an administrator.
 --
+--
+--
 -- /See:/ 'adminDisableUser' smart constructor.
 data AdminDisableUser = AdminDisableUser'
     { _aduUserPoolId :: !Text
@@ -54,9 +58,9 @@ data AdminDisableUser = AdminDisableUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aduUserPoolId'
+-- * 'aduUserPoolId' - The user pool ID for the user pool where you want to disable the user.
 --
--- * 'aduUsername'
+-- * 'aduUsername' - The user name of the user you wish to disable.
 adminDisableUser
     :: Text -- ^ 'aduUserPoolId'
     -> Text -- ^ 'aduUsername'
@@ -112,6 +116,8 @@ instance ToQuery AdminDisableUser where
 
 -- | Represents the response received from the server to disable the user as an administrator.
 --
+--
+--
 -- /See:/ 'adminDisableUserResponse' smart constructor.
 newtype AdminDisableUserResponse = AdminDisableUserResponse'
     { _adursResponseStatus :: Int
@@ -121,7 +127,7 @@ newtype AdminDisableUserResponse = AdminDisableUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adursResponseStatus'
+-- * 'adursResponseStatus' - -- | The response status code.
 adminDisableUserResponse
     :: Int -- ^ 'adursResponseStatus'
     -> AdminDisableUserResponse
@@ -130,7 +136,7 @@ adminDisableUserResponse pResponseStatus_ =
     { _adursResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 adursResponseStatus :: Lens' AdminDisableUserResponse Int
 adursResponseStatus = lens _adursResponseStatus (\ s a -> s{_adursResponseStatus = a});
 

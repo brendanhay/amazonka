@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Forgets the device, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Sends the forgot device request, as an administrator.
 --
+--
+--
 -- /See:/ 'adminForgetDevice' smart constructor.
 data AdminForgetDevice = AdminForgetDevice'
     { _afdUserPoolId :: !Text
@@ -54,11 +58,11 @@ data AdminForgetDevice = AdminForgetDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afdUserPoolId'
+-- * 'afdUserPoolId' - The user pool ID.
 --
--- * 'afdUsername'
+-- * 'afdUsername' - The user name.
 --
--- * 'afdDeviceKey'
+-- * 'afdDeviceKey' - The device key.
 adminForgetDevice
     :: Text -- ^ 'afdUserPoolId'
     -> Text -- ^ 'afdUsername'

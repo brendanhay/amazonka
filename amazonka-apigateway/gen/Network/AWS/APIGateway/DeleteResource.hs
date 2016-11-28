@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a < Resource> resource.
+-- Deletes a 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteResource
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete a < Resource>.
+-- | Request to delete a 'Resource' .
+--
+--
 --
 -- /See:/ 'deleteResource' smart constructor.
 data DeleteResource = DeleteResource'
@@ -52,9 +56,9 @@ data DeleteResource = DeleteResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRestAPIId'
+-- * 'drRestAPIId' - The 'RestApi' identifier for the 'Resource' resource.
 --
--- * 'drResourceId'
+-- * 'drResourceId' - The identifier of the 'Resource' resource.
 deleteResource
     :: Text -- ^ 'drRestAPIId'
     -> Text -- ^ 'drResourceId'
@@ -65,11 +69,11 @@ deleteResource pRestAPIId_ pResourceId_ =
     , _drResourceId = pResourceId_
     }
 
--- | The < RestApi> identifier for the < Resource> resource.
+-- | The 'RestApi' identifier for the 'Resource' resource.
 drRestAPIId :: Lens' DeleteResource Text
 drRestAPIId = lens _drRestAPIId (\ s a -> s{_drRestAPIId = a});
 
--- | The identifier of the < Resource> resource.
+-- | The identifier of the 'Resource' resource.
 drResourceId :: Lens' DeleteResource Text
 drResourceId = lens _drResourceId (\ s a -> s{_drResourceId = a});
 

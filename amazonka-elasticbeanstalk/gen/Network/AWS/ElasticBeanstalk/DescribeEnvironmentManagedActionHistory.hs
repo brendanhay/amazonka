@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists an environment\'s completed and failed managed actions.
+-- Lists an environment's completed and failed managed actions.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Request to list completed and failed managed actions.
 --
+--
+--
 -- /See:/ 'describeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
     { _demahNextToken       :: !(Maybe Text)
@@ -60,13 +64,13 @@ data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionH
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demahNextToken'
+-- * 'demahNextToken' - The pagination token returned by a previous request.
 --
--- * 'demahEnvironmentName'
+-- * 'demahEnvironmentName' - The name of the target environment.
 --
--- * 'demahMaxItems'
+-- * 'demahMaxItems' - The maximum number of items to return for a single request.
 --
--- * 'demahEnvironmentId'
+-- * 'demahEnvironmentId' - The environment ID of the target environment.
 describeEnvironmentManagedActionHistory
     :: DescribeEnvironmentManagedActionHistory
 describeEnvironmentManagedActionHistory =
@@ -137,6 +141,8 @@ instance ToQuery
 
 -- | A result message containing a list of completed and failed managed actions.
 --
+--
+--
 -- /See:/ 'describeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
     { _demahrsManagedActionHistoryItems :: !(Maybe (List1 ManagedActionHistoryItem))
@@ -148,11 +154,11 @@ data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManage
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demahrsManagedActionHistoryItems'
+-- * 'demahrsManagedActionHistoryItems' - A list of completed and failed managed actions.
 --
--- * 'demahrsNextToken'
+-- * 'demahrsNextToken' - A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
 --
--- * 'demahrsResponseStatus'
+-- * 'demahrsResponseStatus' - -- | The response status code.
 describeEnvironmentManagedActionHistoryResponse
     :: Int -- ^ 'demahrsResponseStatus'
     -> DescribeEnvironmentManagedActionHistoryResponse
@@ -167,11 +173,11 @@ describeEnvironmentManagedActionHistoryResponse pResponseStatus_ =
 demahrsManagedActionHistoryItems :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe (NonEmpty ManagedActionHistoryItem))
 demahrsManagedActionHistoryItems = lens _demahrsManagedActionHistoryItems (\ s a -> s{_demahrsManagedActionHistoryItems = a}) . mapping _List1;
 
--- | A pagination token that you pass to < DescribeEnvironmentManagedActionHistory> to get the next page of results.
+-- | A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
 demahrsNextToken :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe Text)
 demahrsNextToken = lens _demahrsNextToken (\ s a -> s{_demahrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 demahrsResponseStatus :: Lens' DescribeEnvironmentManagedActionHistoryResponse Int
 demahrsResponseStatus = lens _demahrsResponseStatus (\ s a -> s{_demahrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Describes the load balancers for the specified Auto Scaling group.
 --
--- Note that this operation describes only Classic load balancers. If you have Application load balancers, use < DescribeLoadBalancerTargetGroups> instead.
+--
+-- Note that this operation describes only Classic load balancers. If you have Application load balancers, use 'DescribeLoadBalancerTargetGroups' instead.
+--
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbNextToken            :: !(Maybe Text)
@@ -60,11 +64,11 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbNextToken'
+-- * 'dlbNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbMaxRecords'
+-- * 'dlbMaxRecords' - The maximum number of items to return with this call.
 --
--- * 'dlbAutoScalingGroupName'
+-- * 'dlbAutoScalingGroupName' - The name of the group.
 describeLoadBalancers
     :: Text -- ^ 'dlbAutoScalingGroupName'
     -> DescribeLoadBalancers
@@ -121,6 +125,8 @@ instance ToQuery DescribeLoadBalancers where
 
 -- | Contains the output of DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers  :: !(Maybe [LoadBalancerState])
@@ -132,11 +138,11 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbrsLoadBalancers'
+-- * 'dlbrsLoadBalancers' - The load balancers.
 --
--- * 'dlbrsNextToken'
+-- * 'dlbrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dlbrsResponseStatus'
+-- * 'dlbrsResponseStatus' - -- | The response status code.
 describeLoadBalancersResponse
     :: Int -- ^ 'dlbrsResponseStatus'
     -> DescribeLoadBalancersResponse
@@ -155,7 +161,7 @@ dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = 
 dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
 

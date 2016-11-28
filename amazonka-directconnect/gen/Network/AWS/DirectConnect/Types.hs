@@ -153,7 +153,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2012-10-25' of the Amazon Direct Connect SDK configuration.
+-- | API version @2012-10-25@ of the Amazon Direct Connect SDK configuration.
 directConnect :: Service
 directConnect =
     Service
@@ -188,11 +188,15 @@ directConnect =
       | otherwise = Nothing
 
 -- | The API was called with invalid parameters. The error message will contain additional details about the cause.
+--
+--
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectClientException =
     _ServiceError . hasCode "DirectConnectClientException"
 
 -- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
+--
+--
 _DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectServerException =
     _ServiceError . hasCode "DirectConnectServerException"

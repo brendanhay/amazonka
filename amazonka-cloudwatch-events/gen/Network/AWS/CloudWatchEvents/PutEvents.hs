@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+--
+--
 module Network.AWS.CloudWatchEvents.PutEvents
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < PutEvents> operation.
+-- | Container for the parameters to the 'PutEvents' operation.
+--
+--
 --
 -- /See:/ 'putEvents' smart constructor.
 newtype PutEvents = PutEvents'
@@ -54,7 +58,7 @@ newtype PutEvents = PutEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peEntries'
+-- * 'peEntries' - The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 putEvents
     :: NonEmpty PutEventsRequestEntry -- ^ 'peEntries'
     -> PutEvents
@@ -101,7 +105,9 @@ instance ToPath PutEvents where
 instance ToQuery PutEvents where
         toQuery = const mempty
 
--- | The result of the < PutEvents> operation.
+-- | The result of the 'PutEvents' operation.
+--
+--
 --
 -- /See:/ 'putEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
@@ -114,11 +120,11 @@ data PutEventsResponse = PutEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'persFailedEntryCount'
+-- * 'persFailedEntryCount' - The number of failed entries.
 --
--- * 'persEntries'
+-- * 'persEntries' - A list of successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry will have the event ID in it. If not, then the ErrorCode and ErrorMessage can be used to identify the problem with the entry.
 --
--- * 'persResponseStatus'
+-- * 'persResponseStatus' - -- | The response status code.
 putEventsResponse
     :: Int -- ^ 'persResponseStatus'
     -> PutEventsResponse
@@ -137,7 +143,7 @@ persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCo
 persEntries :: Lens' PutEventsResponse [PutEventsResultEntry]
 persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 persResponseStatus :: Lens' PutEventsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
 

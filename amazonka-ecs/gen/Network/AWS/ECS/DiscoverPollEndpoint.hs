@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
---
 -- Returns an endpoint for the Amazon EC2 Container Service agent to poll for updates.
+--
+--
 module Network.AWS.ECS.DiscoverPollEndpoint
     (
     -- * Creating a Request
@@ -56,9 +56,9 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpeCluster'
+-- * 'dpeCluster' - The cluster that the container instance belongs to.
 --
--- * 'dpeContainerInstance'
+-- * 'dpeContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 discoverPollEndpoint
     :: DiscoverPollEndpoint
 discoverPollEndpoint =
@@ -71,7 +71,7 @@ discoverPollEndpoint =
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 
--- | The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the 'arn:aws:ecs' namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the 'container-instance' namespace, and then the container instance ID. For example, 'arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID '.
+-- | The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
 
@@ -124,11 +124,11 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpersTelemetryEndpoint'
+-- * 'dpersTelemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
 --
--- * 'dpersEndpoint'
+-- * 'dpersEndpoint' - The endpoint for the Amazon ECS agent to poll.
 --
--- * 'dpersResponseStatus'
+-- * 'dpersResponseStatus' - -- | The response status code.
 discoverPollEndpointResponse
     :: Int -- ^ 'dpersResponseStatus'
     -> DiscoverPollEndpointResponse
@@ -147,7 +147,7 @@ dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetr
 dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dpersResponseStatus :: Lens' DiscoverPollEndpointResponse Int
 dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a});
 

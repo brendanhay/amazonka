@@ -63,15 +63,15 @@ data UpdateJob = UpdateJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujAPIVersion'
+-- * 'ujAPIVersion' - Undocumented member.
 --
--- * 'ujJobId'
+-- * 'ujJobId' - Undocumented member.
 --
--- * 'ujManifest'
+-- * 'ujManifest' - Undocumented member.
 --
--- * 'ujJobType'
+-- * 'ujJobType' - Undocumented member.
 --
--- * 'ujValidateOnly'
+-- * 'ujValidateOnly' - Undocumented member.
 updateJob
     :: Text -- ^ 'ujJobId'
     -> Text -- ^ 'ujManifest'
@@ -153,13 +153,13 @@ data UpdateJobResponse = UpdateJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujrsSuccess'
+-- * 'ujrsSuccess' - Undocumented member.
 --
--- * 'ujrsWarningMessage'
+-- * 'ujrsWarningMessage' - Undocumented member.
 --
--- * 'ujrsArtifactList'
+-- * 'ujrsArtifactList' - Undocumented member.
 --
--- * 'ujrsResponseStatus'
+-- * 'ujrsResponseStatus' - -- | The response status code.
 updateJobResponse
     :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
@@ -183,7 +183,7 @@ ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = 
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
 

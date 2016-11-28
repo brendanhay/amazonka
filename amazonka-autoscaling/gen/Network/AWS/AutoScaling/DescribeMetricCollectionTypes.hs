@@ -20,7 +20,9 @@
 --
 -- Describes the available CloudWatch metrics for Auto Scaling.
 --
--- Note that the 'GroupStandbyInstances' metric is not returned by default. You must explicitly request this metric when calling < EnableMetricsCollection>.
+--
+-- Note that the @GroupStandbyInstances@ metric is not returned by default. You must explicitly request this metric when calling 'EnableMetricsCollection' .
+--
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
     -- * Creating a Request
@@ -92,6 +94,8 @@ instance ToQuery DescribeMetricCollectionTypes where
 
 -- | Contains the output of DescribeMetricsCollectionTypes.
 --
+--
+--
 -- /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics        :: !(Maybe [MetricCollectionType])
@@ -103,11 +107,11 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmctrsMetrics'
+-- * 'dmctrsMetrics' - One or more metrics.
 --
--- * 'dmctrsGranularities'
+-- * 'dmctrsGranularities' - The granularities for the metrics.
 --
--- * 'dmctrsResponseStatus'
+-- * 'dmctrsResponseStatus' - -- | The response status code.
 describeMetricCollectionTypesResponse
     :: Int -- ^ 'dmctrsResponseStatus'
     -> DescribeMetricCollectionTypesResponse
@@ -126,7 +130,7 @@ dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default 
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a});
 

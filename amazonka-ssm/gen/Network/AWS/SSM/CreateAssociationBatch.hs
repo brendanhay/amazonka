@@ -20,9 +20,11 @@
 --
 -- Associates the specified SSM document with the specified instances.
 --
+--
 -- When you associate an SSM document with an instance, the configuration agent on the instance (SSM agent for Linux and EC2Config service for Windows) processes the document and configures the instance as specified.
 --
 -- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
+--
 module Network.AWS.SSM.CreateAssociationBatch
     (
     -- * Creating a Request
@@ -56,7 +58,7 @@ newtype CreateAssociationBatch = CreateAssociationBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cabEntries'
+-- * 'cabEntries' - One or more associations.
 createAssociationBatch
     :: CreateAssociationBatch
 createAssociationBatch =
@@ -115,11 +117,11 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cabrsSuccessful'
+-- * 'cabrsSuccessful' - Information about the associations that succeeded.
 --
--- * 'cabrsFailed'
+-- * 'cabrsFailed' - Information about the associations that failed.
 --
--- * 'cabrsResponseStatus'
+-- * 'cabrsResponseStatus' - -- | The response status code.
 createAssociationBatchResponse
     :: Int -- ^ 'cabrsResponseStatus'
     -> CreateAssociationBatchResponse
@@ -138,7 +140,7 @@ cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _De
 cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
 cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a});
 

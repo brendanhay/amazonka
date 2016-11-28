@@ -64,23 +64,23 @@ data PutBucketACL = PutBucketACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbaGrantReadACP'
+-- * 'pbaGrantReadACP' - Allows grantee to read the bucket ACL.
 --
--- * 'pbaGrantWriteACP'
+-- * 'pbaGrantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
--- * 'pbaGrantRead'
+-- * 'pbaGrantRead' - Allows grantee to list the objects in the bucket.
 --
--- * 'pbaGrantFullControl'
+-- * 'pbaGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'pbaContentMD5'
+-- * 'pbaContentMD5' - Undocumented member.
 --
--- * 'pbaAccessControlPolicy'
+-- * 'pbaAccessControlPolicy' - Undocumented member.
 --
--- * 'pbaGrantWrite'
+-- * 'pbaGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
--- * 'pbaACL'
+-- * 'pbaACL' - The canned ACL to apply to the bucket.
 --
--- * 'pbaBucket'
+-- * 'pbaBucket' - Undocumented member.
 putBucketACL
     :: BucketName -- ^ 'pbaBucket'
     -> PutBucketACL

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Availability Zones that have available AWS CloudHSM capacity.
+--
+--
 module Network.AWS.CloudHSM.ListAvailableZones
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < ListAvailableZones> action.
+-- | Contains the inputs for the 'ListAvailableZones' action.
+--
+--
 --
 -- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones =
@@ -96,9 +100,9 @@ data ListAvailableZonesResponse = ListAvailableZonesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lazrsAZList'
+-- * 'lazrsAZList' - The list of Availability Zones that have available AWS CloudHSM capacity.
 --
--- * 'lazrsResponseStatus'
+-- * 'lazrsResponseStatus' - -- | The response status code.
 listAvailableZonesResponse
     :: Int -- ^ 'lazrsResponseStatus'
     -> ListAvailableZonesResponse
@@ -112,7 +116,7 @@ listAvailableZonesResponse pResponseStatus_ =
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
 lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a});
 

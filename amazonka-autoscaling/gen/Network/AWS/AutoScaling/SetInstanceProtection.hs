@@ -20,7 +20,9 @@
 --
 -- Updates the instance protection settings of the specified instances.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetInstanceProtection.
 --
+--
+--
 -- /See:/ 'setInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
     { _sipInstanceIds          :: ![Text]
@@ -58,11 +62,11 @@ data SetInstanceProtection = SetInstanceProtection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sipInstanceIds'
+-- * 'sipInstanceIds' - One or more instance IDs.
 --
--- * 'sipAutoScalingGroupName'
+-- * 'sipAutoScalingGroupName' - The name of the group.
 --
--- * 'sipProtectedFromScaleIn'
+-- * 'sipProtectedFromScaleIn' - Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
 setInstanceProtection
     :: Text -- ^ 'sipAutoScalingGroupName'
     -> Bool -- ^ 'sipProtectedFromScaleIn'
@@ -118,6 +122,8 @@ instance ToQuery SetInstanceProtection where
 
 -- | Contains the output of SetInstanceProtection.
 --
+--
+--
 -- /See:/ 'setInstanceProtectionResponse' smart constructor.
 newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
     { _siprsResponseStatus :: Int
@@ -127,7 +133,7 @@ newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siprsResponseStatus'
+-- * 'siprsResponseStatus' - -- | The response status code.
 setInstanceProtectionResponse
     :: Int -- ^ 'siprsResponseStatus'
     -> SetInstanceProtectionResponse
@@ -136,7 +142,7 @@ setInstanceProtectionResponse pResponseStatus_ =
     { _siprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 siprsResponseStatus :: Lens' SetInstanceProtectionResponse Int
 siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a});
 

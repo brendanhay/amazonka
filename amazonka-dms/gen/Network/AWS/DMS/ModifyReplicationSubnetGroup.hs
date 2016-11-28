@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the settings for the specified replication subnet group.
+--
+--
 module Network.AWS.DMS.ModifyReplicationSubnetGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
     { _mrsgReplicationSubnetGroupDescription :: !(Maybe Text)
@@ -57,11 +61,11 @@ data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrsgReplicationSubnetGroupDescription'
+-- * 'mrsgReplicationSubnetGroupDescription' - The description of the replication instance subnet group.
 --
--- * 'mrsgReplicationSubnetGroupIdentifier'
+-- * 'mrsgReplicationSubnetGroupIdentifier' - The name of the replication instance subnet group.
 --
--- * 'mrsgSubnetIds'
+-- * 'mrsgSubnetIds' - A list of subnet IDs.
 modifyReplicationSubnetGroup
     :: Text -- ^ 'mrsgReplicationSubnetGroupIdentifier'
     -> ModifyReplicationSubnetGroup
@@ -129,6 +133,8 @@ instance ToQuery ModifyReplicationSubnetGroup where
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
     { _mrsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
@@ -139,9 +145,9 @@ data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrsgrsReplicationSubnetGroup'
+-- * 'mrsgrsReplicationSubnetGroup' - The modified replication subnet group.
 --
--- * 'mrsgrsResponseStatus'
+-- * 'mrsgrsResponseStatus' - -- | The response status code.
 modifyReplicationSubnetGroupResponse
     :: Int -- ^ 'mrsgrsResponseStatus'
     -> ModifyReplicationSubnetGroupResponse
@@ -155,7 +161,7 @@ modifyReplicationSubnetGroupResponse pResponseStatus_ =
 mrsgrsReplicationSubnetGroup :: Lens' ModifyReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
 mrsgrsReplicationSubnetGroup = lens _mrsgrsReplicationSubnetGroup (\ s a -> s{_mrsgrsReplicationSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mrsgrsResponseStatus :: Lens' ModifyReplicationSubnetGroupResponse Int
 mrsgrsResponseStatus = lens _mrsgrsResponseStatus (\ s a -> s{_mrsgrsResponseStatus = a});
 

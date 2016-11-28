@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new custom action that can be used in all pipelines associated with the AWS account. Only used for custom actions.
+--
+--
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create custom action operation.
 --
+--
+--
 -- /See:/ 'createCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
     { _ccatSettings                :: !(Maybe ActionTypeSettings)
@@ -65,19 +69,19 @@ data CreateCustomActionType = CreateCustomActionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatSettings'
+-- * 'ccatSettings' - Undocumented member.
 --
--- * 'ccatConfigurationProperties'
+-- * 'ccatConfigurationProperties' - The configuration properties for the custom action.
 --
--- * 'ccatCategory'
+-- * 'ccatCategory' - The category of the custom action, such as a source action or a build action.
 --
--- * 'ccatProvider'
+-- * 'ccatProvider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 --
--- * 'ccatVersion'
+-- * 'ccatVersion' - The version number of the custom action.
 --
--- * 'ccatInputArtifactDetails'
+-- * 'ccatInputArtifactDetails' - Undocumented member.
 --
--- * 'ccatOutputArtifactDetails'
+-- * 'ccatOutputArtifactDetails' - Undocumented member.
 createCustomActionType
     :: ActionCategory -- ^ 'ccatCategory'
     -> Text -- ^ 'ccatProvider'
@@ -101,14 +105,10 @@ ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
 ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
 -- | The configuration properties for the custom action.
---
--- You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
 ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 
 -- | The category of the custom action, such as a source action or a build action.
---
--- Although Source is listed as a valid value, it is not currently functional. This value is reserved for future use.
 ccatCategory :: Lens' CreateCustomActionType ActionCategory
 ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 
@@ -177,6 +177,8 @@ instance ToQuery CreateCustomActionType where
 
 -- | Represents the output of a create custom action operation.
 --
+--
+--
 -- /See:/ 'createCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
     { _ccatrsResponseStatus :: !Int
@@ -187,9 +189,9 @@ data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatrsResponseStatus'
+-- * 'ccatrsResponseStatus' - -- | The response status code.
 --
--- * 'ccatrsActionType'
+-- * 'ccatrsActionType' - Undocumented member.
 createCustomActionTypeResponse
     :: Int -- ^ 'ccatrsResponseStatus'
     -> ActionType -- ^ 'ccatrsActionType'
@@ -200,7 +202,7 @@ createCustomActionTypeResponse pResponseStatus_ pActionType_ =
     , _ccatrsActionType = pActionType_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
 ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseStatus = a});
 

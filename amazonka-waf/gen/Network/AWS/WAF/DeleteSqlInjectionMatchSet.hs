@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a < SqlInjectionMatchSet>. You can\'t delete a 'SqlInjectionMatchSet' if it\'s still used in any 'Rules' or if it still contains any < SqlInjectionMatchTuple> objects.
+-- Permanently deletes a 'SqlInjectionMatchSet' . You can't delete a @SqlInjectionMatchSet@ if it's still used in any @Rules@ or if it still contains any 'SqlInjectionMatchTuple' objects.
 --
--- If you just want to remove a 'SqlInjectionMatchSet' from a 'Rule', use < UpdateRule>.
 --
--- To permanently delete a 'SqlInjectionMatchSet' from AWS WAF, perform the following steps:
+-- If you just want to remove a @SqlInjectionMatchSet@ from a @Rule@ , use 'UpdateRule' .
 --
--- 1.  Update the 'SqlInjectionMatchSet' to remove filters, if any. For more information, see < UpdateSqlInjectionMatchSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteSqlInjectionMatchSet' request.
--- 3.  Submit a 'DeleteSqlInjectionMatchSet' request.
+-- To permanently delete a @SqlInjectionMatchSet@ from AWS WAF, perform the following steps:
+--
+--     * Update the @SqlInjectionMatchSet@ to remove filters, if any. For more information, see 'UpdateSqlInjectionMatchSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSqlInjectionMatchSet@ request.    * Submit a @DeleteSqlInjectionMatchSet@ request.
+--
 module Network.AWS.WAF.DeleteSqlInjectionMatchSet
     (
     -- * Creating a Request
@@ -51,7 +51,9 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to delete a < SqlInjectionMatchSet> from AWS WAF.
+-- | A request to delete a 'SqlInjectionMatchSet' from AWS WAF.
+--
+--
 --
 -- /See:/ 'deleteSqlInjectionMatchSet' smart constructor.
 data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
@@ -63,9 +65,9 @@ data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsimsSqlInjectionMatchSetId'
+-- * 'dsimsSqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 --
--- * 'dsimsChangeToken'
+-- * 'dsimsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 deleteSqlInjectionMatchSet
     :: Text -- ^ 'dsimsSqlInjectionMatchSetId'
     -> Text -- ^ 'dsimsChangeToken'
@@ -76,11 +78,11 @@ deleteSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
     , _dsimsChangeToken = pChangeToken_
     }
 
--- | The 'SqlInjectionMatchSetId' of the < SqlInjectionMatchSet> that you want to delete. 'SqlInjectionMatchSetId' is returned by < CreateSqlInjectionMatchSet> and by < ListSqlInjectionMatchSets>.
+-- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to delete. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 dsimsSqlInjectionMatchSetId :: Lens' DeleteSqlInjectionMatchSet Text
 dsimsSqlInjectionMatchSetId = lens _dsimsSqlInjectionMatchSetId (\ s a -> s{_dsimsSqlInjectionMatchSetId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 dsimsChangeToken :: Lens' DeleteSqlInjectionMatchSet Text
 dsimsChangeToken = lens _dsimsChangeToken (\ s a -> s{_dsimsChangeToken = a});
 
@@ -123,7 +125,9 @@ instance ToPath DeleteSqlInjectionMatchSet where
 instance ToQuery DeleteSqlInjectionMatchSet where
         toQuery = const mempty
 
--- | The response to a request to delete a < SqlInjectionMatchSet> from AWS WAF.
+-- | The response to a request to delete a 'SqlInjectionMatchSet' from AWS WAF.
+--
+--
 --
 -- /See:/ 'deleteSqlInjectionMatchSetResponse' smart constructor.
 data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
@@ -135,9 +139,9 @@ data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsimsrsChangeToken'
+-- * 'dsimsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'dsimsrsResponseStatus'
+-- * 'dsimsrsResponseStatus' - -- | The response status code.
 deleteSqlInjectionMatchSetResponse
     :: Int -- ^ 'dsimsrsResponseStatus'
     -> DeleteSqlInjectionMatchSetResponse
@@ -147,11 +151,11 @@ deleteSqlInjectionMatchSetResponse pResponseStatus_ =
     , _dsimsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteSqlInjectionMatchSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @DeleteSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dsimsrsChangeToken :: Lens' DeleteSqlInjectionMatchSetResponse (Maybe Text)
 dsimsrsChangeToken = lens _dsimsrsChangeToken (\ s a -> s{_dsimsrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsimsrsResponseStatus :: Lens' DeleteSqlInjectionMatchSetResponse Int
 dsimsrsResponseStatus = lens _dsimsrsResponseStatus (\ s a -> s{_dsimsrsResponseStatus = a});
 

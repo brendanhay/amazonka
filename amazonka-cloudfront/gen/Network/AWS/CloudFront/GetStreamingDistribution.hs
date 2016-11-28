@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to get a streaming distribution\'s information.
+-- | The request to get a streaming distribution's information.
 --
 -- /See:/ 'getStreamingDistribution' smart constructor.
 newtype GetStreamingDistribution = GetStreamingDistribution'
@@ -54,7 +54,7 @@ newtype GetStreamingDistribution = GetStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdId'
+-- * 'gsdId' - The streaming distribution's id.
 getStreamingDistribution
     :: Text -- ^ 'gsdId'
     -> GetStreamingDistribution
@@ -63,7 +63,7 @@ getStreamingDistribution pId_ =
     { _gsdId = pId_
     }
 
--- | The streaming distribution\'s id.
+-- | The streaming distribution's id.
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
@@ -106,11 +106,11 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdrsETag'
+-- * 'gsdrsETag' - The current version of the streaming distribution's information. For example: E2QWRUHAPOMQZL.
 --
--- * 'gsdrsStreamingDistribution'
+-- * 'gsdrsStreamingDistribution' - The streaming distribution's information.
 --
--- * 'gsdrsResponseStatus'
+-- * 'gsdrsResponseStatus' - -- | The response status code.
 getStreamingDistributionResponse
     :: Int -- ^ 'gsdrsResponseStatus'
     -> GetStreamingDistributionResponse
@@ -121,15 +121,15 @@ getStreamingDistributionResponse pResponseStatus_ =
     , _gsdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the streaming distribution\'s information. For example: E2QWRUHAPOMQZL.
+-- | The current version of the streaming distribution's information. For example: E2QWRUHAPOMQZL.
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 
--- | The streaming distribution\'s information.
+-- | The streaming distribution's information.
 gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
 gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
 gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
 

@@ -73,17 +73,17 @@ data ListObjects = ListObjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loPrefix'
+-- * 'loPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'loEncodingType'
+-- * 'loEncodingType' - Undocumented member.
 --
--- * 'loMarker'
+-- * 'loMarker' - Specifies the key to start with when listing objects in a bucket.
 --
--- * 'loMaxKeys'
+-- * 'loMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'loDelimiter'
+-- * 'loDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'loBucket'
+-- * 'loBucket' - Undocumented member.
 listObjects
     :: BucketName -- ^ 'loBucket'
     -> ListObjects
@@ -193,27 +193,27 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lorsContents'
+-- * 'lorsContents' - Undocumented member.
 --
--- * 'lorsPrefix'
+-- * 'lorsPrefix' - Undocumented member.
 --
--- * 'lorsCommonPrefixes'
+-- * 'lorsCommonPrefixes' - Undocumented member.
 --
--- * 'lorsEncodingType'
+-- * 'lorsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lorsName'
+-- * 'lorsName' - Undocumented member.
 --
--- * 'lorsMarker'
+-- * 'lorsMarker' - Undocumented member.
 --
--- * 'lorsNextMarker'
+-- * 'lorsNextMarker' - When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
 --
--- * 'lorsMaxKeys'
+-- * 'lorsMaxKeys' - Undocumented member.
 --
--- * 'lorsIsTruncated'
+-- * 'lorsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
 --
--- * 'lorsDelimiter'
+-- * 'lorsDelimiter' - Undocumented member.
 --
--- * 'lorsResponseStatus'
+-- * 'lorsResponseStatus' - -- | The response status code.
 listObjectsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListObjectsResponse
@@ -272,7 +272,7 @@ lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
 lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lorsResponseStatus :: Lens' ListObjectsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 

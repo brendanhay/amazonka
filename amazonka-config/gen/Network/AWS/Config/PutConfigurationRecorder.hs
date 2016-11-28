@@ -20,11 +20,9 @@
 --
 -- Creates a new configuration recorder to record the selected resource configurations.
 --
--- You can use this action to change the role 'roleARN' and\/or the 'recordingGroup' of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
--- Currently, you can specify only one configuration recorder per account.
+-- You can use this action to change the role @roleARN@ and/or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 --
--- If 'ConfigurationRecorder' does not have the __recordingGroup__ parameter specified, the default is to record all supported resource types.
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request
@@ -45,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < PutConfigurationRecorder> action.
+-- | The input for the 'PutConfigurationRecorder' action.
+--
+--
 --
 -- /See:/ 'putConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
@@ -56,7 +56,7 @@ newtype PutConfigurationRecorder = PutConfigurationRecorder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcrConfigurationRecorder'
+-- * 'pcrConfigurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
 putConfigurationRecorder
     :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
     -> PutConfigurationRecorder

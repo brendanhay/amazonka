@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A feature of the Amazon API Gateway control service for creating a new API from an external API definition file.
+--
+--
 module Network.AWS.APIGateway.ImportRestAPI
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | A POST request to import an API to Amazon API Gateway using an input of an API definition file.
 --
+--
+--
 -- /See:/ 'importRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
     { _iraFailOnWarnings :: !(Maybe Bool)
@@ -60,11 +64,11 @@ data ImportRestAPI = ImportRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iraFailOnWarnings'
+-- * 'iraFailOnWarnings' - A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'iraParameters'
+-- * 'iraParameters' - Custom header parameters as part of the request.
 --
--- * 'iraBody'
+-- * 'iraBody' - The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
 importRestAPI
     :: HashMap Text Value -- ^ 'iraBody'
     -> ImportRestAPI
@@ -75,7 +79,7 @@ importRestAPI pBody_ =
     , _iraBody = pBody_
     }
 
--- | A query parameter to indicate whether to rollback the API creation ('true') or not ('false') when a warning is encountered. The default value is 'false'.
+-- | A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 iraFailOnWarnings :: Lens' ImportRestAPI (Maybe Bool)
 iraFailOnWarnings = lens _iraFailOnWarnings (\ s a -> s{_iraFailOnWarnings = a});
 

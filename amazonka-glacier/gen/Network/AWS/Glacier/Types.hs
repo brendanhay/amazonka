@@ -145,7 +145,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2012-06-01' of the Amazon Glacier SDK configuration.
+-- | API version @2012-06-01@ of the Amazon Glacier SDK configuration.
 glacier :: Service
 glacier =
     Service
@@ -179,37 +179,51 @@ glacier =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if a retrieval job would exceed the current data policy\'s retrieval rate limit. For more information about data retrieval policies,
+-- | Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,
+--
+--
 _PolicyEnforcedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyEnforcedException =
     _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException"
 
 -- | Returned if a parameter of the request is incorrectly specified.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
 -- | Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
+--
+--
 _RequestTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTimeoutException =
     _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException"
 
 -- | Returned if the service cannot complete the request.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
 
 -- | Returned if the specified resource, such as a vault, upload ID, or job ID, does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | Returned if the request results in a vault or account limit being exceeded.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
 -- | Returned if a required header or parameter is missing from the request.
+--
+--
 _MissingParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException"

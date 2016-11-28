@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the device status as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The request to update the device status, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateDeviceStatus' smart constructor.
 data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
     { _audsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
@@ -58,13 +62,13 @@ data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'audsDeviceRememberedStatus'
+-- * 'audsDeviceRememberedStatus' - The status indicating whether a device has been remembered or not.
 --
--- * 'audsUserPoolId'
+-- * 'audsUserPoolId' - The user pool ID>
 --
--- * 'audsUsername'
+-- * 'audsUsername' - The user name.
 --
--- * 'audsDeviceKey'
+-- * 'audsDeviceKey' - The device key.
 adminUpdateDeviceStatus
     :: Text -- ^ 'audsUserPoolId'
     -> Text -- ^ 'audsUsername'
@@ -136,6 +140,8 @@ instance ToQuery AdminUpdateDeviceStatus where
 
 -- | The status response from the request to update the device, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUpdateDeviceStatusResponse' smart constructor.
 newtype AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
     { _audsrsResponseStatus :: Int
@@ -145,7 +151,7 @@ newtype AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'audsrsResponseStatus'
+-- * 'audsrsResponseStatus' - -- | The response status code.
 adminUpdateDeviceStatusResponse
     :: Int -- ^ 'audsrsResponseStatus'
     -> AdminUpdateDeviceStatusResponse
@@ -154,7 +160,7 @@ adminUpdateDeviceStatusResponse pResponseStatus_ =
     { _audsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 audsrsResponseStatus :: Lens' AdminUpdateDeviceStatusResponse Int
 audsrsResponseStatus = lens _audsrsResponseStatus (\ s a -> s{_audsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows the developer to update the specified user pool client and password policy.
+--
+--
 module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to update the user pool client.
 --
+--
+--
 -- /See:/ 'updateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
     { _uupcRefreshTokenValidity :: !(Maybe Nat)
@@ -65,19 +69,19 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupcRefreshTokenValidity'
+-- * 'uupcRefreshTokenValidity' - The validity of the refresh token.
 --
--- * 'uupcExplicitAuthFlows'
+-- * 'uupcExplicitAuthFlows' - Explicit authentication flows.
 --
--- * 'uupcWriteAttributes'
+-- * 'uupcWriteAttributes' - The writeable attributes of the user pool.
 --
--- * 'uupcReadAttributes'
+-- * 'uupcReadAttributes' - The read-only attributes of the user pool.
 --
--- * 'uupcClientName'
+-- * 'uupcClientName' - The client name from the update user pool client request.
 --
--- * 'uupcUserPoolId'
+-- * 'uupcUserPoolId' - The user pool ID for the user pool where you want to update the user pool client.
 --
--- * 'uupcClientId'
+-- * 'uupcClientId' - The ID of the client associated with the user pool.
 updateUserPoolClient
     :: Text -- ^ 'uupcUserPoolId'
     -> Text -- ^ 'uupcClientId'
@@ -166,6 +170,8 @@ instance ToQuery UpdateUserPoolClient where
 
 -- | Represents the response from the server to the request to update the user pool client.
 --
+--
+--
 -- /See:/ 'updateUserPoolClientResponse' smart constructor.
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
     { _uupcrsUserPoolClient :: !(Maybe UserPoolClientType)
@@ -176,9 +182,9 @@ data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupcrsUserPoolClient'
+-- * 'uupcrsUserPoolClient' - The user pool client value from the response from the server when an update user pool client request is made.
 --
--- * 'uupcrsResponseStatus'
+-- * 'uupcrsResponseStatus' - -- | The response status code.
 updateUserPoolClientResponse
     :: Int -- ^ 'uupcrsResponseStatus'
     -> UpdateUserPoolClientResponse
@@ -192,7 +198,7 @@ updateUserPoolClientResponse pResponseStatus_ =
 uupcrsUserPoolClient :: Lens' UpdateUserPoolClientResponse (Maybe UserPoolClientType)
 uupcrsUserPoolClient = lens _uupcrsUserPoolClient (\ s a -> s{_uupcrsUserPoolClient = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uupcrsResponseStatus :: Lens' UpdateUserPoolClientResponse Int
 uupcrsResponseStatus = lens _uupcrsResponseStatus (\ s a -> s{_uupcrsResponseStatus = a});
 

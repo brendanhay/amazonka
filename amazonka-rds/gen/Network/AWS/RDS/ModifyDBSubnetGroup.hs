@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region.
+--
+--
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyDBSubnetGroup' smart constructor.
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
     { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
@@ -57,11 +61,11 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdsgDBSubnetGroupDescription'
+-- * 'mdsgDBSubnetGroupDescription' - The description for the DB subnet group.
 --
--- * 'mdsgDBSubnetGroupName'
+-- * 'mdsgDBSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 --
--- * 'mdsgSubnetIds'
+-- * 'mdsgSubnetIds' - The EC2 subnet IDs for the DB subnet group.
 modifyDBSubnetGroup
     :: Text -- ^ 'mdsgDBSubnetGroupName'
     -> ModifyDBSubnetGroup
@@ -76,11 +80,7 @@ modifyDBSubnetGroup pDBSubnetGroupName_ =
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
 
--- | The name for the DB subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
---
--- Example: 'mySubnetgroup'
+-- | The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a});
 
@@ -129,9 +129,9 @@ data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdsgrsDBSubnetGroup'
+-- * 'mdsgrsDBSubnetGroup' - Undocumented member.
 --
--- * 'mdsgrsResponseStatus'
+-- * 'mdsgrsResponseStatus' - -- | The response status code.
 modifyDBSubnetGroupResponse
     :: Int -- ^ 'mdsgrsResponseStatus'
     -> ModifyDBSubnetGroupResponse
@@ -145,7 +145,7 @@ modifyDBSubnetGroupResponse pResponseStatus_ =
 mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
 mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AD Connector to connect to an on-premises directory.
+--
+--
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < ConnectDirectory> operation.
+-- | Contains the inputs for the 'ConnectDirectory' operation.
+--
+--
 --
 -- /See:/ 'connectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
@@ -63,17 +67,17 @@ data ConnectDirectory = ConnectDirectory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdShortName'
+-- * 'cdShortName' - The NetBIOS name of the on-premises directory, such as @CORP@ .
 --
--- * 'cdDescription'
+-- * 'cdDescription' - A textual description for the directory.
 --
--- * 'cdName'
+-- * 'cdName' - The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
 --
--- * 'cdPassword'
+-- * 'cdPassword' - The password for the on-premises user account.
 --
--- * 'cdSize'
+-- * 'cdSize' - The size of the directory.
 --
--- * 'cdConnectSettings'
+-- * 'cdConnectSettings' - A 'DirectoryConnectSettings' object that contains additional information for the operation.
 connectDirectory
     :: Text -- ^ 'cdName'
     -> Text -- ^ 'cdPassword'
@@ -90,7 +94,7 @@ connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
     , _cdConnectSettings = pConnectSettings_
     }
 
--- | The NetBIOS name of the on-premises directory, such as 'CORP'.
+-- | The NetBIOS name of the on-premises directory, such as @CORP@ .
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
 cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 
@@ -98,7 +102,7 @@ cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 cdDescription :: Lens' ConnectDirectory (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The fully-qualified name of the on-premises directory, such as 'corp.example.com'.
+-- | The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
 cdName :: Lens' ConnectDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -110,7 +114,7 @@ cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 cdSize :: Lens' ConnectDirectory DirectorySize
 cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
--- | A < DirectoryConnectSettings> object that contains additional information for the operation.
+-- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
@@ -154,7 +158,9 @@ instance ToPath ConnectDirectory where
 instance ToQuery ConnectDirectory where
         toQuery = const mempty
 
--- | Contains the results of the < ConnectDirectory> operation.
+-- | Contains the results of the 'ConnectDirectory' operation.
+--
+--
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
@@ -166,9 +172,9 @@ data ConnectDirectoryResponse = ConnectDirectoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDirectoryId'
+-- * 'cdrsDirectoryId' - The identifier of the new directory.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 connectDirectoryResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> ConnectDirectoryResponse
@@ -182,7 +188,7 @@ connectDirectoryResponse pResponseStatus_ =
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 

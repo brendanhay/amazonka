@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a < Deployments> collection.
+-- Gets information about a 'Deployments' collection.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDeployments
@@ -48,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a < Deployments> collection.
+-- | Requests Amazon API Gateway to get information about a 'Deployments' collection.
+--
+--
 --
 -- /See:/ 'getDeployments' smart constructor.
 data GetDeployments = GetDeployments'
@@ -61,11 +65,11 @@ data GetDeployments = GetDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdLimit'
+-- * 'gdLimit' - The maximum number of 'Deployment' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'gdPosition'
+-- * 'gdPosition' - The position of the current 'Deployment' resource in the collection to get information about.
 --
--- * 'gdRestAPIId'
+-- * 'gdRestAPIId' - The identifier of the 'RestApi' resource for the collection of 'Deployment' resources to get information about.
 getDeployments
     :: Text -- ^ 'gdRestAPIId'
     -> GetDeployments
@@ -76,15 +80,15 @@ getDeployments pRestAPIId_ =
     , _gdRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of < Deployment> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of 'Deployment' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
 gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a});
 
--- | The position of the current < Deployment> resource in the collection to get information about.
+-- | The position of the current 'Deployment' resource in the collection to get information about.
 gdPosition :: Lens' GetDeployments (Maybe Text)
 gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
 
--- | The identifier of the < RestApi> resource for the collection of < Deployment> resources to get information about.
+-- | The identifier of the 'RestApi' resource for the collection of 'Deployment' resources to get information about.
 gdRestAPIId :: Lens' GetDeployments Text
 gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
 
@@ -127,9 +131,8 @@ instance ToQuery GetDeployments where
 
 -- | Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.
 --
--- To create a new deployment of a < RestApi>, make a 'POST' request against this resource. To view, update, or delete an existing deployment, make a 'GET', 'PATCH', or 'DELETE' request, respectively, on a specified < Deployment> resource.
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploying an API>, <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html AWS CLI>, <https://aws.amazon.com/tools/ AWS SDKs>
+-- To create a new deployment of a 'RestApi' , make a @POST@ request against this resource. To view, update, or delete an existing deployment, make a @GET@ , @PATCH@ , or @DELETE@ request, respectively, on a specified 'Deployment' resource.<http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploying an API> , <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html AWS CLI> , <https://aws.amazon.com/tools/ AWS SDKs>
 --
 -- /See:/ 'getDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'
@@ -142,11 +145,11 @@ data GetDeploymentsResponse = GetDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsItems'
+-- * 'gdrsItems' - The current page of any 'Deployment' resources in the collection of deployment resources.
 --
--- * 'gdrsPosition'
+-- * 'gdrsPosition' - Undocumented member.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDeploymentsResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeploymentsResponse
@@ -157,7 +160,7 @@ getDeploymentsResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < Deployment> resources in the collection of deployment resources.
+-- | The current page of any 'Deployment' resources in the collection of deployment resources.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
 gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;
 
@@ -165,7 +168,7 @@ gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;
 gdrsPosition :: Lens' GetDeploymentsResponse (Maybe Text)
 gdrsPosition = lens _gdrsPosition (\ s a -> s{_gdrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentsResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

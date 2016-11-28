@@ -20,7 +20,9 @@
 --
 -- Uploads a part in a multipart upload.
 --
+--
 -- __Note:__ After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
+--
 module Network.AWS.S3.UploadPart
     (
     -- * Creating a Request
@@ -78,27 +80,27 @@ data UploadPart = UploadPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upContentLength'
+-- * 'upContentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 --
--- * 'upSSECustomerAlgorithm'
+-- * 'upSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'upSSECustomerKey'
+-- * 'upSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
 --
--- * 'upRequestPayer'
+-- * 'upRequestPayer' - Undocumented member.
 --
--- * 'upSSECustomerKeyMD5'
+-- * 'upSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'upContentMD5'
+-- * 'upContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
 --
--- * 'upBucket'
+-- * 'upBucket' - Name of the bucket to which the multipart upload was initiated.
 --
--- * 'upKey'
+-- * 'upKey' - Object key for which the multipart upload was initiated.
 --
--- * 'upPartNumber'
+-- * 'upPartNumber' - Part number of part being uploaded. This is a positive integer between 1 and 10,000.
 --
--- * 'upUploadId'
+-- * 'upUploadId' - Upload ID identifying the multipart upload whose part is being uploaded.
 --
--- * 'upBody'
+-- * 'upBody' - Object data.
 uploadPart
     :: BucketName -- ^ 'upBucket'
     -> ObjectKey -- ^ 'upKey'
@@ -225,19 +227,19 @@ data UploadPartResponse = UploadPartResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uprsRequestCharged'
+-- * 'uprsRequestCharged' - Undocumented member.
 --
--- * 'uprsETag'
+-- * 'uprsETag' - Entity tag for the uploaded object.
 --
--- * 'uprsSSECustomerAlgorithm'
+-- * 'uprsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'uprsSSECustomerKeyMD5'
+-- * 'uprsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'uprsSSEKMSKeyId'
+-- * 'uprsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'uprsServerSideEncryption'
+-- * 'uprsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'uprsResponseStatus'
+-- * 'uprsResponseStatus' - -- | The response status code.
 uploadPartResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UploadPartResponse
@@ -276,7 +278,7 @@ uprsSSEKMSKeyId = lens _uprsSSEKMSKeyId (\ s a -> s{_uprsSSEKMSKeyId = a}) . map
 uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uprsResponseStatus :: Lens' UploadPartResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 

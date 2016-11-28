@@ -20,9 +20,9 @@
 --
 -- Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.
 --
--- Send a 'DELETE' request to the '\/Amazon Route 53 API version\/trafficpolicy\/traffic policy instance ID ' resource.
 --
--- In the Amazon Route 53 console, traffic policy instances are known as policy records.
+-- Send a @DELETE@ request to the @//Amazon Route 53 API version/ /trafficpolicy//traffic policy instance ID/ @ resource.
+--
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -47,6 +47,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy instance that you want to delete.
 --
+--
+--
 -- /See:/ 'deleteTrafficPolicyInstance' smart constructor.
 newtype DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
     { _dtpiId :: Text
@@ -56,7 +58,7 @@ newtype DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtpiId'
+-- * 'dtpiId' - The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
 deleteTrafficPolicyInstance
     :: Text -- ^ 'dtpiId'
     -> DeleteTrafficPolicyInstance
@@ -65,9 +67,7 @@ deleteTrafficPolicyInstance pId_ =
     { _dtpiId = pId_
     }
 
--- | The ID of the traffic policy instance that you want to delete.
---
--- When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
+-- | The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
 dtpiId :: Lens' DeleteTrafficPolicyInstance Text
 dtpiId = lens _dtpiId (\ s a -> s{_dtpiId = a});
 
@@ -98,6 +98,8 @@ instance ToQuery DeleteTrafficPolicyInstance where
 
 -- | An empty element.
 --
+--
+--
 -- /See:/ 'deleteTrafficPolicyInstanceResponse' smart constructor.
 newtype DeleteTrafficPolicyInstanceResponse = DeleteTrafficPolicyInstanceResponse'
     { _dtpirsResponseStatus :: Int
@@ -107,7 +109,7 @@ newtype DeleteTrafficPolicyInstanceResponse = DeleteTrafficPolicyInstanceRespons
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtpirsResponseStatus'
+-- * 'dtpirsResponseStatus' - -- | The response status code.
 deleteTrafficPolicyInstanceResponse
     :: Int -- ^ 'dtpirsResponseStatus'
     -> DeleteTrafficPolicyInstanceResponse
@@ -116,7 +118,7 @@ deleteTrafficPolicyInstanceResponse pResponseStatus_ =
     { _dtpirsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtpirsResponseStatus :: Lens' DeleteTrafficPolicyInstanceResponse Int
 dtpirsResponseStatus = lens _dtpirsResponseStatus (\ s a -> s{_dtpirsResponseStatus = a});
 

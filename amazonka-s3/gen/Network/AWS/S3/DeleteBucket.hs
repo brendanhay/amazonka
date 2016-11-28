@@ -48,7 +48,7 @@ newtype DeleteBucket = DeleteBucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBucket'
+-- * 'dbBucket' - Undocumented member.
 deleteBucket
     :: BucketName -- ^ 'dbBucket'
     -> DeleteBucket

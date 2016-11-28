@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides a description of the certificate.
+--
+--
 module Network.AWS.DMS.DescribeCertificates
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeCertificates = DescribeCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dFilters'
+-- * 'dFilters' - Filters applied to the certificate described in the form of key-value pairs.
 --
--- * 'dMarker'
+-- * 'dMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dMaxRecords'
+-- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 10
 describeCertificates
     :: DescribeCertificates
 describeCertificates =
@@ -74,13 +76,11 @@ describeCertificates =
 dFilters :: Lens' DescribeCertificates [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dMarker :: Lens' DescribeCertificates (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 10
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 10
 dMaxRecords :: Lens' DescribeCertificates (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
@@ -135,11 +135,11 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsCertificates'
+-- * 'dcrsCertificates' - The SSL certificates associated with the replication instance.
 --
--- * 'dcrsMarker'
+-- * 'dcrsMarker' - The pagination token.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeCertificatesResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificatesResponse
@@ -158,7 +158,7 @@ dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . 
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

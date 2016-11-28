@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specific dataset. The dataset will be deleted permanently, and the action can\'t be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.
+-- Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.
+--
 --
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
+--
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Creating a Request
@@ -59,11 +61,11 @@ data DeleteDataset = DeleteDataset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delIdentityPoolId'
+-- * 'delIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'delIdentityId'
+-- * 'delIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'delDatasetName'
+-- * 'delDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 deleteDataset
     :: Text -- ^ 'delIdentityPoolId'
     -> Text -- ^ 'delIdentityId'
@@ -84,7 +86,7 @@ delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a})
 delIdentityId :: Lens' DeleteDataset Text
 delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 delDatasetName :: Lens' DeleteDataset Text
 delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
 
@@ -130,9 +132,9 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDataset'
+-- * 'drsDataset' - A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteDatasetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteDatasetResponse
@@ -142,11 +144,11 @@ deleteDatasetResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don\'t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteDatasetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

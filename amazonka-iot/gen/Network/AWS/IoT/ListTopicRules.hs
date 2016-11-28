@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the rules for the specific topic.
+--
+--
 module Network.AWS.IoT.ListTopicRules
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListTopicRules operation.
 --
+--
+--
 -- /See:/ 'listTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
     { _ltrRuleDisabled :: !(Maybe Bool)
@@ -60,13 +64,13 @@ data ListTopicRules = ListTopicRules'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrRuleDisabled'
+-- * 'ltrRuleDisabled' - Specifies whether the rule is disabled.
 --
--- * 'ltrTopic'
+-- * 'ltrTopic' - The topic.
 --
--- * 'ltrNextToken'
+-- * 'ltrNextToken' - A token used to retrieve the next value.
 --
--- * 'ltrMaxResults'
+-- * 'ltrMaxResults' - The maximum number of results to return.
 listTopicRules
     :: ListTopicRules
 listTopicRules =
@@ -122,6 +126,8 @@ instance ToQuery ListTopicRules where
 
 -- | The output from the ListTopicRules operation.
 --
+--
+--
 -- /See:/ 'listTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
     { _ltrrsRules          :: !(Maybe [TopicRuleListItem])
@@ -133,11 +139,11 @@ data ListTopicRulesResponse = ListTopicRulesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrrsRules'
+-- * 'ltrrsRules' - The rules.
 --
--- * 'ltrrsNextToken'
+-- * 'ltrrsNextToken' - A token used to retrieve the next value.
 --
--- * 'ltrrsResponseStatus'
+-- * 'ltrrsResponseStatus' - -- | The response status code.
 listTopicRulesResponse
     :: Int -- ^ 'ltrrsResponseStatus'
     -> ListTopicRulesResponse
@@ -156,7 +162,7 @@ ltrrsRules = lens _ltrrsRules (\ s a -> s{_ltrrsRules = a}) . _Default . _Coerce
 ltrrsNextToken :: Lens' ListTopicRulesResponse (Maybe Text)
 ltrrsNextToken = lens _ltrrsNextToken (\ s a -> s{_ltrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ltrrsResponseStatus :: Lens' ListTopicRulesResponse Int
 ltrrsResponseStatus = lens _ltrrsResponseStatus (\ s a -> s{_ltrrsResponseStatus = a});
 

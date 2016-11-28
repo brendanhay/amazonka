@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> .
 --
--- Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
+--
+-- /Important:/ Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
+--
 module Network.AWS.IAM.DeleteRole
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeleteRole = DeleteRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRoleName'
+-- * 'drRoleName' - The name of the role to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteRole
     :: Text -- ^ 'drRoleName'
     -> DeleteRole
@@ -59,9 +61,7 @@ deleteRole pRoleName_ =
     { _drRoleName = pRoleName_
     }
 
--- | The name of the role to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the role to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
 

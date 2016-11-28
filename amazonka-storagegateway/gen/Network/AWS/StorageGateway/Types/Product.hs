@@ -37,21 +37,21 @@ data CachediSCSIVolume = CachediSCSIVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cscsivVolumeiSCSIAttributes'
+-- * 'cscsivVolumeiSCSIAttributes' - Undocumented member.
 --
--- * 'cscsivVolumeStatus'
+-- * 'cscsivVolumeStatus' - Undocumented member.
 --
--- * 'cscsivSourceSnapshotId'
+-- * 'cscsivSourceSnapshotId' - Undocumented member.
 --
--- * 'cscsivVolumeARN'
+-- * 'cscsivVolumeARN' - Undocumented member.
 --
--- * 'cscsivVolumeProgress'
+-- * 'cscsivVolumeProgress' - Undocumented member.
 --
--- * 'cscsivVolumeSizeInBytes'
+-- * 'cscsivVolumeSizeInBytes' - Undocumented member.
 --
--- * 'cscsivVolumeId'
+-- * 'cscsivVolumeId' - Undocumented member.
 --
--- * 'cscsivVolumeType'
+-- * 'cscsivVolumeType' - Undocumented member.
 cachediSCSIVolume
     :: CachediSCSIVolume
 cachediSCSIVolume =
@@ -118,6 +118,8 @@ instance NFData CachediSCSIVolume
 
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.
 --
+--
+--
 -- /See:/ 'chapInfo' smart constructor.
 data ChapInfo = ChapInfo'
     { _ciTargetARN                     :: !(Maybe Text)
@@ -130,13 +132,13 @@ data ChapInfo = ChapInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciTargetARN'
+-- * 'ciTargetARN' - The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
--- * 'ciSecretToAuthenticateInitiator'
+-- * 'ciSecretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
 --
--- * 'ciInitiatorName'
+-- * 'ciInitiatorName' - The iSCSI initiator that connects to the target.
 --
--- * 'ciSecretToAuthenticateTarget'
+-- * 'ciSecretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
 chapInfo
     :: ChapInfo
 chapInfo =
@@ -147,9 +149,7 @@ chapInfo =
     , _ciSecretToAuthenticateTarget = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the volume.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\ s a -> s{_ciTargetARN = a});
 
@@ -181,6 +181,8 @@ instance NFData ChapInfo
 
 -- | Lists iSCSI information about a VTL device.
 --
+--
+--
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
     { _dscsiaTargetARN            :: !(Maybe Text)
@@ -193,13 +195,13 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscsiaTargetARN'
+-- * 'dscsiaTargetARN' - Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
 --
--- * 'dscsiaChapEnabled'
+-- * 'dscsiaChapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
 --
--- * 'dscsiaNetworkInterfaceId'
+-- * 'dscsiaNetworkInterfaceId' - The network interface identifier of the VTL device.
 --
--- * 'dscsiaNetworkInterfacePort'
+-- * 'dscsiaNetworkInterfacePort' - The port used to communicate with iSCSI VTL device targets.
 deviceiSCSIAttributes
     :: DeviceiSCSIAttributes
 deviceiSCSIAttributes =
@@ -254,19 +256,19 @@ data Disk = Disk'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDiskAllocationResource'
+-- * 'dDiskAllocationResource' - Undocumented member.
 --
--- * 'dDiskAllocationType'
+-- * 'dDiskAllocationType' - Undocumented member.
 --
--- * 'dDiskNode'
+-- * 'dDiskNode' - Undocumented member.
 --
--- * 'dDiskPath'
+-- * 'dDiskPath' - Undocumented member.
 --
--- * 'dDiskSizeInBytes'
+-- * 'dDiskSizeInBytes' - Undocumented member.
 --
--- * 'dDiskStatus'
+-- * 'dDiskStatus' - Undocumented member.
 --
--- * 'dDiskId'
+-- * 'dDiskId' - Undocumented member.
 disk
     :: Disk
 disk =
@@ -327,6 +329,8 @@ instance NFData Disk
 
 -- | Describes a gateway object.
 --
+--
+--
 -- /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
@@ -340,15 +344,15 @@ data GatewayInfo = GatewayInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giGatewayARN'
+-- * 'giGatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
--- * 'giGatewayOperationalState'
+-- * 'giGatewayOperationalState' - The state of the gateway. Valid Values: DISABLED or ACTIVE
 --
--- * 'giGatewayName'
+-- * 'giGatewayName' - The name of the gateway.
 --
--- * 'giGatewayId'
+-- * 'giGatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 --
--- * 'giGatewayType'
+-- * 'giGatewayType' - The type of the gateway.
 gatewayInfo
     :: GatewayInfo
 gatewayInfo =
@@ -360,13 +364,11 @@ gatewayInfo =
     , _giGatewayType = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the < ListGateways> operation to return a list of gateways for your account and region.
+-- | The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 giGatewayARN :: Lens' GatewayInfo (Maybe Text)
 giGatewayARN = lens _giGatewayARN (\ s a -> s{_giGatewayARN = a});
 
--- | The state of the gateway.
---
--- Valid Values: DISABLED or ACTIVE
+-- | The state of the gateway. Valid Values: DISABLED or ACTIVE
 giGatewayOperationalState :: Lens' GatewayInfo (Maybe Text)
 giGatewayOperationalState = lens _giGatewayOperationalState (\ s a -> s{_giGatewayOperationalState = a});
 
@@ -397,7 +399,9 @@ instance Hashable GatewayInfo
 
 instance NFData GatewayInfo
 
--- | Describes a gateway\'s network interface.
+-- | Describes a gateway's network interface.
+--
+--
 --
 -- /See:/ 'networkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
@@ -410,11 +414,11 @@ data NetworkInterface = NetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'niIPv6Address'
+-- * 'niIPv6Address' - The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
 --
--- * 'niMACAddress'
+-- * 'niMACAddress' - The Media Access Control (MAC) address of the interface.
 --
--- * 'niIPv4Address'
+-- * 'niIPv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
 networkInterface
     :: NetworkInterface
 networkInterface =
@@ -424,13 +428,11 @@ networkInterface =
     , _niIPv4Address = Nothing
     }
 
--- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/.
+-- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
 niIPv6Address :: Lens' NetworkInterface (Maybe Text)
 niIPv6Address = lens _niIPv6Address (\ s a -> s{_niIPv6Address = a});
 
 -- | The Media Access Control (MAC) address of the interface.
---
--- This is currently unsupported and will not be returned in output.
 niMACAddress :: Lens' NetworkInterface (Maybe Text)
 niMACAddress = lens _niMACAddress (\ s a -> s{_niMACAddress = a});
 
@@ -468,25 +470,25 @@ data StorediSCSIVolume = StorediSCSIVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sscsivVolumeiSCSIAttributes'
+-- * 'sscsivVolumeiSCSIAttributes' - Undocumented member.
 --
--- * 'sscsivVolumeStatus'
+-- * 'sscsivVolumeStatus' - Undocumented member.
 --
--- * 'sscsivSourceSnapshotId'
+-- * 'sscsivSourceSnapshotId' - Undocumented member.
 --
--- * 'sscsivPreservedExistingData'
+-- * 'sscsivPreservedExistingData' - Undocumented member.
 --
--- * 'sscsivVolumeARN'
+-- * 'sscsivVolumeARN' - Undocumented member.
 --
--- * 'sscsivVolumeProgress'
+-- * 'sscsivVolumeProgress' - Undocumented member.
 --
--- * 'sscsivVolumeSizeInBytes'
+-- * 'sscsivVolumeSizeInBytes' - Undocumented member.
 --
--- * 'sscsivVolumeId'
+-- * 'sscsivVolumeId' - Undocumented member.
 --
--- * 'sscsivVolumeDiskId'
+-- * 'sscsivVolumeDiskId' - Undocumented member.
 --
--- * 'sscsivVolumeType'
+-- * 'sscsivVolumeType' - Undocumented member.
 storediSCSIVolume
     :: StorediSCSIVolume
 storediSCSIVolume =
@@ -573,9 +575,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - Undocumented member.
 --
--- * 'tagValue'
+-- * 'tagValue' - Undocumented member.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -612,6 +614,8 @@ instance ToJSON Tag where
 
 -- | Describes a virtual tape object.
 --
+--
+--
 -- /See:/ 'tape' smart constructor.
 data Tape = Tape'
     { _tTapeBarcode     :: !(Maybe Text)
@@ -626,17 +630,17 @@ data Tape = Tape'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tTapeBarcode'
+-- * 'tTapeBarcode' - The barcode that identifies a specific virtual tape.
 --
--- * 'tTapeStatus'
+-- * 'tTapeStatus' - The current state of the virtual tape.
 --
--- * 'tTapeARN'
+-- * 'tTapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
 --
--- * 'tProgress'
+-- * 'tProgress' - For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete. Range: 0 (not started) to 100 (complete).
 --
--- * 'tTapeSizeInBytes'
+-- * 'tTapeSizeInBytes' - The size, in bytes, of the virtual tape.
 --
--- * 'tVTLDevice'
+-- * 'tVTLDevice' - The virtual tape library (VTL) device that the virtual tape is associated with.
 tape
     :: Tape
 tape =
@@ -661,9 +665,7 @@ tTapeStatus = lens _tTapeStatus (\ s a -> s{_tTapeStatus = a});
 tTapeARN :: Lens' Tape (Maybe Text)
 tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
 
--- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
---
--- Range: 0 (not started) to 100 (complete).
+-- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete. Range: 0 (not started) to 100 (complete).
 tProgress :: Lens' Tape (Maybe Double)
 tProgress = lens _tProgress (\ s a -> s{_tProgress = a});
 
@@ -692,6 +694,8 @@ instance NFData Tape
 
 -- | Represents a virtual tape that is archived in the virtual tape shelf (VTS).
 --
+--
+--
 -- /See:/ 'tapeArchive' smart constructor.
 data TapeArchive = TapeArchive'
     { _taTapeBarcode     :: !(Maybe Text)
@@ -706,17 +710,17 @@ data TapeArchive = TapeArchive'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'taTapeBarcode'
+-- * 'taTapeBarcode' - The barcode that identifies the archived virtual tape.
 --
--- * 'taTapeStatus'
+-- * 'taTapeStatus' - The current state of the archived virtual tape.
 --
--- * 'taTapeARN'
+-- * 'taTapeARN' - The Amazon Resource Name (ARN) of an archived virtual tape.
 --
--- * 'taTapeSizeInBytes'
+-- * 'taTapeSizeInBytes' - The size, in bytes, of the archived virtual tape.
 --
--- * 'taCompletionTime'
+-- * 'taCompletionTime' - The time that the archiving of the virtual tape was completed. The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 --
--- * 'taRetrievedTo'
+-- * 'taRetrievedTo' - The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
 tapeArchive
     :: TapeArchive
 tapeArchive =
@@ -745,15 +749,11 @@ taTapeARN = lens _taTapeARN (\ s a -> s{_taTapeARN = a});
 taTapeSizeInBytes :: Lens' TapeArchive (Maybe Integer)
 taTapeSizeInBytes = lens _taTapeSizeInBytes (\ s a -> s{_taTapeSizeInBytes = a});
 
--- | The time that the archiving of the virtual tape was completed.
---
--- The string format of the completion time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
+-- | The time that the archiving of the virtual tape was completed. The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 taCompletionTime :: Lens' TapeArchive (Maybe UTCTime)
 taCompletionTime = lens _taCompletionTime (\ s a -> s{_taCompletionTime = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to.
---
--- The virtual tape is retrieved from the virtual tape shelf (VTS).
+-- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
 taRetrievedTo :: Lens' TapeArchive (Maybe Text)
 taRetrievedTo = lens _taRetrievedTo (\ s a -> s{_taRetrievedTo = a});
 
@@ -774,6 +774,8 @@ instance NFData TapeArchive
 
 -- | Describes a virtual tape.
 --
+--
+--
 -- /See:/ 'tapeInfo' smart constructor.
 data TapeInfo = TapeInfo'
     { _tiTapeBarcode     :: !(Maybe Text)
@@ -787,15 +789,15 @@ data TapeInfo = TapeInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tiTapeBarcode'
+-- * 'tiTapeBarcode' - The barcode that identifies a specific virtual tape.
 --
--- * 'tiTapeStatus'
+-- * 'tiTapeStatus' - The status of the tape.
 --
--- * 'tiTapeARN'
+-- * 'tiTapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
 --
--- * 'tiGatewayARN'
+-- * 'tiGatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
--- * 'tiTapeSizeInBytes'
+-- * 'tiTapeSizeInBytes' - The size, in bytes, of a virtual tape.
 tapeInfo
     :: TapeInfo
 tapeInfo =
@@ -819,7 +821,7 @@ tiTapeStatus = lens _tiTapeStatus (\ s a -> s{_tiTapeStatus = a});
 tiTapeARN :: Lens' TapeInfo (Maybe Text)
 tiTapeARN = lens _tiTapeARN (\ s a -> s{_tiTapeARN = a});
 
--- | The Amazon Resource Name (ARN) of the gateway. Use the < ListGateways> operation to return a list of gateways for your account and region.
+-- | The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 tiGatewayARN :: Lens' TapeInfo (Maybe Text)
 tiGatewayARN = lens _tiGatewayARN (\ s a -> s{_tiGatewayARN = a});
 
@@ -843,6 +845,8 @@ instance NFData TapeInfo
 
 -- | Describes a recovery point.
 --
+--
+--
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
     { _trpiTapeStatus            :: !(Maybe Text)
@@ -855,13 +859,13 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trpiTapeStatus'
+-- * 'trpiTapeStatus' - Undocumented member.
 --
--- * 'trpiTapeRecoveryPointTime'
+-- * 'trpiTapeRecoveryPointTime' - The time when the point-in-time view of the virtual tape was replicated for later recovery. The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 --
--- * 'trpiTapeARN'
+-- * 'trpiTapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
 --
--- * 'trpiTapeSizeInBytes'
+-- * 'trpiTapeSizeInBytes' - The size, in bytes, of the virtual tapes to recover.
 tapeRecoveryPointInfo
     :: TapeRecoveryPointInfo
 tapeRecoveryPointInfo =
@@ -876,9 +880,7 @@ tapeRecoveryPointInfo =
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\ s a -> s{_trpiTapeStatus = a});
 
--- | The time when the point-in-time view of the virtual tape was replicated for later recovery.
---
--- The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
+-- | The time when the point-in-time view of the virtual tape was replicated for later recovery. The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 trpiTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe UTCTime)
 trpiTapeRecoveryPointTime = lens _trpiTapeRecoveryPointTime (\ s a -> s{_trpiTapeRecoveryPointTime = a}) . mapping _Time;
 
@@ -906,6 +908,8 @@ instance NFData TapeRecoveryPointInfo
 
 -- | Represents a device object associated with a gateway-VTL.
 --
+--
+--
 -- /See:/ 'vTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
     { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
@@ -919,15 +923,15 @@ data VTLDevice = VTLDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtldDeviceiSCSIAttributes'
+-- * 'vtldDeviceiSCSIAttributes' - A list of iSCSI information about a VTL device.
 --
--- * 'vtldVTLDeviceVendor'
+-- * 'vtldVTLDeviceVendor' - Undocumented member.
 --
--- * 'vtldVTLDeviceARN'
+-- * 'vtldVTLDeviceARN' - Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
 --
--- * 'vtldVTLDeviceType'
+-- * 'vtldVTLDeviceType' - Undocumented member.
 --
--- * 'vtldVTLDeviceProductIdentifier'
+-- * 'vtldVTLDeviceProductIdentifier' - Undocumented member.
 vTLDevice
     :: VTLDevice
 vTLDevice =
@@ -976,6 +980,8 @@ instance NFData VTLDevice
 
 -- | Describes a storage volume object.
 --
+--
+--
 -- /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
     { _viGatewayARN        :: !(Maybe Text)
@@ -990,17 +996,17 @@ data VolumeInfo = VolumeInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'viGatewayARN'
+-- * 'viGatewayARN' - Undocumented member.
 --
--- * 'viVolumeARN'
+-- * 'viVolumeARN' - The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
--- * 'viVolumeSizeInBytes'
+-- * 'viVolumeSizeInBytes' - The size, in bytes, of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
--- * 'viVolumeId'
+-- * 'viVolumeId' - The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
--- * 'viGatewayId'
+-- * 'viGatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
--- * 'viVolumeType'
+-- * 'viVolumeType' - Undocumented member.
 volumeInfo
     :: VolumeInfo
 volumeInfo =
@@ -1017,29 +1023,19 @@ volumeInfo =
 viGatewayARN :: Lens' VolumeInfo (Maybe Text)
 viGatewayARN = lens _viGatewayARN (\ s a -> s{_viGatewayARN = a});
 
--- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:
---
--- 'arn:aws:storagegateway:us-east-1:111122223333:gateway\/sgw-12A3456B\/volume\/vol-1122AABB'
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viVolumeARN :: Lens' VolumeInfo (Maybe Text)
 viVolumeARN = lens _viVolumeARN (\ s a -> s{_viVolumeARN = a});
 
--- | The size, in bytes, of the volume.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The size, in bytes, of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viVolumeSizeInBytes :: Lens' VolumeInfo (Maybe Integer)
 viVolumeSizeInBytes = lens _viVolumeSizeInBytes (\ s a -> s{_viVolumeSizeInBytes = a});
 
--- | The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viVolumeId :: Lens' VolumeInfo (Maybe Text)
 viVolumeId = lens _viVolumeId (\ s a -> s{_viVolumeId = a});
 
--- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viGatewayId :: Lens' VolumeInfo (Maybe Text)
 viGatewayId = lens _viGatewayId (\ s a -> s{_viGatewayId = a});
 
@@ -1074,13 +1070,13 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vrpiVolumeRecoveryPointTime'
+-- * 'vrpiVolumeRecoveryPointTime' - Undocumented member.
 --
--- * 'vrpiVolumeARN'
+-- * 'vrpiVolumeARN' - Undocumented member.
 --
--- * 'vrpiVolumeSizeInBytes'
+-- * 'vrpiVolumeSizeInBytes' - Undocumented member.
 --
--- * 'vrpiVolumeUsageInBytes'
+-- * 'vrpiVolumeUsageInBytes' - Undocumented member.
 volumeRecoveryPointInfo
     :: VolumeRecoveryPointInfo
 volumeRecoveryPointInfo =
@@ -1123,6 +1119,8 @@ instance NFData VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 --
+--
+--
 -- /See:/ 'volumeiSCSIAttributes' smart constructor.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
     { _vscsiaLunNumber            :: !(Maybe Nat)
@@ -1136,15 +1134,15 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vscsiaLunNumber'
+-- * 'vscsiaLunNumber' - The logical disk number.
 --
--- * 'vscsiaTargetARN'
+-- * 'vscsiaTargetARN' - The Amazon Resource Name (ARN) of the volume target.
 --
--- * 'vscsiaChapEnabled'
+-- * 'vscsiaChapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
 --
--- * 'vscsiaNetworkInterfaceId'
+-- * 'vscsiaNetworkInterfaceId' - The network interface identifier.
 --
--- * 'vscsiaNetworkInterfacePort'
+-- * 'vscsiaNetworkInterfacePort' - The port used to communicate with iSCSI targets.
 volumeiSCSIAttributes
     :: VolumeiSCSIAttributes
 volumeiSCSIAttributes =

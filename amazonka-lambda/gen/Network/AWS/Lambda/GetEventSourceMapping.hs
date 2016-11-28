@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns configuration information for the specified event source mapping (see < CreateEventSourceMapping>).
+-- Returns configuration information for the specified event source mapping (see 'CreateEventSourceMapping' ).
 --
--- This operation requires permission for the 'lambda:GetEventSourceMapping' action.
+--
+-- This operation requires permission for the @lambda:GetEventSourceMapping@ action.
+--
 module Network.AWS.Lambda.GetEventSourceMapping
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'getEventSourceMapping' smart constructor.
 newtype GetEventSourceMapping = GetEventSourceMapping'
     { _gesmUUId :: Text
@@ -61,7 +65,7 @@ newtype GetEventSourceMapping = GetEventSourceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gesmUUId'
+-- * 'gesmUUId' - The AWS Lambda assigned ID of the event source mapping.
 getEventSourceMapping
     :: Text -- ^ 'gesmUUId'
     -> GetEventSourceMapping

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces all triggers for a repository. This can be used to create or delete triggers.
+--
+--
 module Network.AWS.CodeCommit.PutRepositoryTriggers
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input ofa put repository triggers operation.
 --
+--
+--
 -- /See:/ 'putRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
     { _prtTriggers       :: !(Maybe [RepositoryTrigger])
@@ -55,9 +59,9 @@ data PutRepositoryTriggers = PutRepositoryTriggers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtTriggers'
+-- * 'prtTriggers' - The JSON block of configuration information for each trigger.
 --
--- * 'prtRepositoryName'
+-- * 'prtRepositoryName' - The name of the repository where you want to create or update the trigger.
 putRepositoryTriggers
     :: PutRepositoryTriggers
 putRepositoryTriggers =
@@ -113,6 +117,8 @@ instance ToQuery PutRepositoryTriggers where
 
 -- | Represents the output of a put repository triggers operation.
 --
+--
+--
 -- /See:/ 'putRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
     { _prtrsConfigurationId :: !(Maybe Text)
@@ -123,9 +129,9 @@ data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtrsConfigurationId'
+-- * 'prtrsConfigurationId' - The system-generated unique ID for the create or update operation.
 --
--- * 'prtrsResponseStatus'
+-- * 'prtrsResponseStatus' - -- | The response status code.
 putRepositoryTriggersResponse
     :: Int -- ^ 'prtrsResponseStatus'
     -> PutRepositoryTriggersResponse
@@ -139,7 +145,7 @@ putRepositoryTriggersResponse pResponseStatus_ =
 prtrsConfigurationId :: Lens' PutRepositoryTriggersResponse (Maybe Text)
 prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfigurationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prtrsResponseStatus :: Lens' PutRepositoryTriggersResponse Int
 prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a});
 

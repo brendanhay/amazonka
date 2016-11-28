@@ -20,17 +20,20 @@
 --
 -- Modifies the attributes of the specified load balancer.
 --
--- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you can modify the load balancer attribute 'ConnectionSettings' by specifying an idle connection timeout value for your load balancer.
 --
--- For more information, see the following in the /Classic Load Balancers Guide/:
+-- You can modify the load balancer attributes, such as @AccessLogs@ , @ConnectionDraining@ , and @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can modify the load balancer attribute @ConnectionSettings@ by specifying an idle connection timeout value for your load balancer.
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
+-- For more information, see the following in the /Classic Load Balancers Guide/ :
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
 --
--- -   <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
+--
+--     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
+--
+--
 --
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
@@ -59,6 +62,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName       :: !Text
@@ -69,9 +74,9 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbaLoadBalancerName'
+-- * 'mlbaLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbaLoadBalancerAttributes'
+-- * 'mlbaLoadBalancerAttributes' - The attributes of the load balancer.
 modifyLoadBalancerAttributes
     :: Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
@@ -126,6 +131,8 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerName       :: !(Maybe Text)
@@ -137,11 +144,11 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbarsLoadBalancerName'
+-- * 'mlbarsLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbarsLoadBalancerAttributes'
+-- * 'mlbarsLoadBalancerAttributes' - Undocumented member.
 --
--- * 'mlbarsResponseStatus'
+-- * 'mlbarsResponseStatus' - -- | The response status code.
 modifyLoadBalancerAttributesResponse
     :: Int -- ^ 'mlbarsResponseStatus'
     -> ModifyLoadBalancerAttributesResponse
@@ -160,7 +167,7 @@ mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBal
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
 

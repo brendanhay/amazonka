@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a gateway\'s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway\'s time zone.
+-- Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone.
+--
+--
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request
@@ -47,11 +49,14 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --
--- -   < UpdateMaintenanceStartTimeInput>DayOfWeek>
 --
--- -   < UpdateMaintenanceStartTimeInput>HourOfDay>
+--     * 'UpdateMaintenanceStartTimeInput$DayOfWeek'
 --
--- -   < UpdateMaintenanceStartTimeInput>MinuteOfHour>
+--     * 'UpdateMaintenanceStartTimeInput$HourOfDay'
+--
+--     * 'UpdateMaintenanceStartTimeInput$MinuteOfHour'
+--
+--
 --
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
@@ -66,13 +71,13 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umstGatewayARN'
+-- * 'umstGatewayARN' - Undocumented member.
 --
--- * 'umstHourOfDay'
+-- * 'umstHourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 --
--- * 'umstMinuteOfHour'
+-- * 'umstMinuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 --
--- * 'umstDayOfWeek'
+-- * 'umstDayOfWeek' - The maintenance start time day of the week.
 updateMaintenanceStartTime
     :: Text -- ^ 'umstGatewayARN'
     -> Natural -- ^ 'umstHourOfDay'
@@ -91,11 +96,11 @@ updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
 
--- | The hour component of the maintenance start time represented as /hh/, where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+-- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
 umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
 
--- | The minute component of the maintenance start time represented as /mm/, where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+-- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
 
@@ -144,6 +149,8 @@ instance ToQuery UpdateMaintenanceStartTime where
 
 -- | A JSON object containing the of the gateway whose maintenance start time is updated.
 --
+--
+--
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
     { _umstrsGatewayARN     :: !(Maybe Text)
@@ -154,9 +161,9 @@ data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umstrsGatewayARN'
+-- * 'umstrsGatewayARN' - Undocumented member.
 --
--- * 'umstrsResponseStatus'
+-- * 'umstrsResponseStatus' - -- | The response status code.
 updateMaintenanceStartTimeResponse
     :: Int -- ^ 'umstrsResponseStatus'
     -> UpdateMaintenanceStartTimeResponse
@@ -170,7 +177,7 @@ updateMaintenanceStartTimeResponse pResponseStatus_ =
 umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
 

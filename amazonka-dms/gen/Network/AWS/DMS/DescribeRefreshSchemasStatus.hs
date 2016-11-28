@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the status of the RefreshSchemas operation.
+--
+--
 module Network.AWS.DMS.DescribeRefreshSchemasStatus
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeRefreshSchemasStatus' smart constructor.
 newtype DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
     { _drssEndpointARN :: Text
@@ -53,7 +57,7 @@ newtype DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drssEndpointARN'
+-- * 'drssEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 describeRefreshSchemasStatus
     :: Text -- ^ 'drssEndpointARN'
     -> DescribeRefreshSchemasStatus
@@ -106,6 +110,8 @@ instance ToQuery DescribeRefreshSchemasStatus where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
     { _drssrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
@@ -116,9 +122,9 @@ data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drssrsRefreshSchemasStatus'
+-- * 'drssrsRefreshSchemasStatus' - The status of the schema.
 --
--- * 'drssrsResponseStatus'
+-- * 'drssrsResponseStatus' - -- | The response status code.
 describeRefreshSchemasStatusResponse
     :: Int -- ^ 'drssrsResponseStatus'
     -> DescribeRefreshSchemasStatusResponse
@@ -132,7 +138,7 @@ describeRefreshSchemasStatusResponse pResponseStatus_ =
 drssrsRefreshSchemasStatus :: Lens' DescribeRefreshSchemasStatusResponse (Maybe RefreshSchemasStatus)
 drssrsRefreshSchemasStatus = lens _drssrsRefreshSchemasStatus (\ s a -> s{_drssrsRefreshSchemasStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drssrsResponseStatus :: Lens' DescribeRefreshSchemasStatusResponse Int
 drssrsResponseStatus = lens _drssrsResponseStatus (\ s a -> s{_drssrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client\'s HSM in order to store and retrieve the keys used to encrypt the cluster databases.
+-- Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
+--
 --
 -- The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
+--
 module Network.AWS.Redshift.CreateHSMClientCertificate
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createHSMClientCertificate' smart constructor.
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
     { _chccTags                           :: !(Maybe [Tag])
@@ -57,9 +61,9 @@ data CreateHSMClientCertificate = CreateHSMClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chccTags'
+-- * 'chccTags' - A list of tag instances.
 --
--- * 'chccHSMClientCertificateIdentifier'
+-- * 'chccHSMClientCertificateIdentifier' - The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
 createHSMClientCertificate
     :: Text -- ^ 'chccHSMClientCertificateIdentifier'
     -> CreateHSMClientCertificate
@@ -119,9 +123,9 @@ data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chccrsHSMClientCertificate'
+-- * 'chccrsHSMClientCertificate' - Undocumented member.
 --
--- * 'chccrsResponseStatus'
+-- * 'chccrsResponseStatus' - -- | The response status code.
 createHSMClientCertificateResponse
     :: Int -- ^ 'chccrsResponseStatus'
     -> CreateHSMClientCertificateResponse
@@ -135,7 +139,7 @@ createHSMClientCertificateResponse pResponseStatus_ =
 chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
 chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
 
--- | The response status code.
+-- | -- | The response status code.
 chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
 chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a});
 

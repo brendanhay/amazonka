@@ -20,7 +20,9 @@
 --
 -- Gets the number of traffic policy instances that are associated with the current AWS account.
 --
--- To get the number of traffic policy instances, send a 'GET' request to the '\/2013-04-01\/trafficpolicyinstancecount' resource.
+--
+-- To get the number of traffic policy instances, send a @GET@ request to the @/2013-04-01/trafficpolicyinstancecount@ resource.
+--
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your traffic policy instances, send a 'GET' request to the '\/2013-04-01\/trafficpolicyinstancecount' resource.
+-- | To retrieve a count of all your traffic policy instances, send a @GET@ request to the @/2013-04-01/trafficpolicyinstancecount@ resource.
+--
+--
 --
 -- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount =
@@ -84,6 +88,8 @@ instance ToQuery GetTrafficPolicyInstanceCount where
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
+--
+--
 -- /See:/ 'getTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
     { _gtpicrsResponseStatus             :: !Int
@@ -94,9 +100,9 @@ data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpicrsResponseStatus'
+-- * 'gtpicrsResponseStatus' - -- | The response status code.
 --
--- * 'gtpicrsTrafficPolicyInstanceCount'
+-- * 'gtpicrsTrafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the current AWS account.
 getTrafficPolicyInstanceCountResponse
     :: Int -- ^ 'gtpicrsResponseStatus'
     -> Int -- ^ 'gtpicrsTrafficPolicyInstanceCount'
@@ -107,7 +113,7 @@ getTrafficPolicyInstanceCountResponse pResponseStatus_ pTrafficPolicyInstanceCou
     , _gtpicrsTrafficPolicyInstanceCount = pTrafficPolicyInstanceCount_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gtpicrsResponseStatus :: Lens' GetTrafficPolicyInstanceCountResponse Int
 gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\ s a -> s{_gtpicrsResponseStatus = a});
 

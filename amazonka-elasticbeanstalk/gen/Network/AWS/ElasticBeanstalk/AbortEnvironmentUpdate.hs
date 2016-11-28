@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels in-progress environment configuration update or application version deployment.
+--
+--
 module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'abortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
     { _aeuEnvironmentName :: !(Maybe Text)
@@ -52,9 +56,9 @@ data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aeuEnvironmentName'
+-- * 'aeuEnvironmentName' - This specifies the name of the environment with the in-progress update that you want to cancel.
 --
--- * 'aeuEnvironmentId'
+-- * 'aeuEnvironmentId' - This specifies the ID of the environment with the in-progress update that you want to cancel.
 abortEnvironmentUpdate
     :: AbortEnvironmentUpdate
 abortEnvironmentUpdate =

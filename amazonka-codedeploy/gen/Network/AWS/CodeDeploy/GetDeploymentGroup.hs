@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment group.
+--
+--
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get deployment group operation.
 --
+--
+--
 -- /See:/ 'getDeploymentGroup' smart constructor.
 data GetDeploymentGroup = GetDeploymentGroup'
     { _gdgApplicationName     :: !Text
@@ -55,9 +59,9 @@ data GetDeploymentGroup = GetDeploymentGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdgApplicationName'
+-- * 'gdgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'gdgDeploymentGroupName'
+-- * 'gdgDeploymentGroupName' - The name of an existing deployment group for the specified application.
 getDeploymentGroup
     :: Text -- ^ 'gdgApplicationName'
     -> Text -- ^ 'gdgDeploymentGroupName'
@@ -117,6 +121,8 @@ instance ToQuery GetDeploymentGroup where
 
 -- | Represents the output of a get deployment group operation.
 --
+--
+--
 -- /See:/ 'getDeploymentGroupResponse' smart constructor.
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
@@ -127,9 +133,9 @@ data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdgrsDeploymentGroupInfo'
+-- * 'gdgrsDeploymentGroupInfo' - Information about the deployment group.
 --
--- * 'gdgrsResponseStatus'
+-- * 'gdgrsResponseStatus' - -- | The response status code.
 getDeploymentGroupResponse
     :: Int -- ^ 'gdgrsResponseStatus'
     -> GetDeploymentGroupResponse
@@ -143,7 +149,7 @@ getDeploymentGroupResponse pResponseStatus_ =
 gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdgrsResponseStatus :: Lens' GetDeploymentGroupResponse Int
 gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});
 

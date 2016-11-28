@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains the manual snapshot limits for a directory.
+--
+--
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < GetSnapshotLimits> operation.
+-- | Contains the inputs for the 'GetSnapshotLimits' operation.
+--
+--
 --
 -- /See:/ 'getSnapshotLimits' smart constructor.
 newtype GetSnapshotLimits = GetSnapshotLimits'
@@ -53,7 +57,7 @@ newtype GetSnapshotLimits = GetSnapshotLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslDirectoryId'
+-- * 'gslDirectoryId' - Contains the identifier of the directory to obtain the limits for.
 getSnapshotLimits
     :: Text -- ^ 'gslDirectoryId'
     -> GetSnapshotLimits
@@ -100,7 +104,9 @@ instance ToPath GetSnapshotLimits where
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty
 
--- | Contains the results of the < GetSnapshotLimits> operation.
+-- | Contains the results of the 'GetSnapshotLimits' operation.
+--
+--
 --
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
@@ -112,9 +118,9 @@ data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslrsSnapshotLimits'
+-- * 'gslrsSnapshotLimits' - A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 --
--- * 'gslrsResponseStatus'
+-- * 'gslrsResponseStatus' - -- | The response status code.
 getSnapshotLimitsResponse
     :: Int -- ^ 'gslrsResponseStatus'
     -> GetSnapshotLimitsResponse
@@ -124,11 +130,11 @@ getSnapshotLimitsResponse pResponseStatus_ =
     , _gslrsResponseStatus = pResponseStatus_
     }
 
--- | A < SnapshotLimits> object that contains the manual snapshot limits for the specified directory.
+-- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
 

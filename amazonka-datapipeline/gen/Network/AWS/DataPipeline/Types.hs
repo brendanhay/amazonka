@@ -131,7 +131,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2012-10-29' of the Amazon Data Pipeline SDK configuration.
+-- | API version @2012-10-29@ of the Amazon Data Pipeline SDK configuration.
 dataPipeline :: Service
 dataPipeline =
     Service
@@ -165,23 +165,33 @@ dataPipeline =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven\'t exceeded any of the service limits for your account.
+-- | The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | An internal service error occurred.
+--
+--
 _InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceError = _ServiceError . hasCode "InternalServiceError"
 
 -- | The specified pipeline has been deleted.
+--
+--
 _PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException"
 
 -- | The specified pipeline was not found. Verify that you used the correct user and account identifiers.
+--
+--
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The specified task was not found.
+--
+--
 _TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException"

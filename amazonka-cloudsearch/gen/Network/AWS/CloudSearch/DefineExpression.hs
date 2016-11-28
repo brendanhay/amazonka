@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an 'Expression' for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
+-- Configures an @'Expression' @ for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DefineExpression' operation. Specifies the name of the domain you want to update and the expression you want to configure.
+-- | Container for the parameters to the @'DefineExpression' @ operation. Specifies the name of the domain you want to update and the expression you want to configure.
+--
+--
 --
 -- /See:/ 'defineExpression' smart constructor.
 data DefineExpression = DefineExpression'
@@ -55,9 +59,9 @@ data DefineExpression = DefineExpression'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDomainName'
+-- * 'dDomainName' - Undocumented member.
 --
--- * 'dExpression'
+-- * 'dExpression' - Undocumented member.
 defineExpression
     :: Text -- ^ 'dDomainName'
     -> Expression -- ^ 'dExpression'
@@ -103,7 +107,9 @@ instance ToQuery DefineExpression where
                "DomainName" =: _dDomainName,
                "Expression" =: _dExpression]
 
--- | The result of a 'DefineExpression' request. Contains the status of the newly-configured expression.
+-- | The result of a @DefineExpression@ request. Contains the status of the newly-configured expression.
+--
+--
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
@@ -115,9 +121,9 @@ data DefineExpressionResponse = DefineExpressionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 --
--- * 'dersExpression'
+-- * 'dersExpression' - Undocumented member.
 defineExpressionResponse
     :: Int -- ^ 'dersResponseStatus'
     -> ExpressionStatus -- ^ 'dersExpression'
@@ -128,7 +134,7 @@ defineExpressionResponse pResponseStatus_ pExpression_ =
     , _dersExpression = pExpression_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DefineExpressionResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

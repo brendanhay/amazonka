@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a list of your reusable delegation sets, send a 'GET' request to the '\/2013-04-01\/delegationset' resource. The response to this request includes a 'DelegationSets' element with zero, one, or multiple 'DelegationSet' child elements. By default, the list of delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the 'MaxItems' parameter. You can use the 'Marker' parameter to control the delegation set that the list begins with.
+-- To retrieve a list of your reusable delegation sets, send a @GET@ request to the @/2013-04-01/delegationset@ resource. The response to this request includes a @DelegationSets@ element with zero, one, or multiple @DelegationSet@ child elements. By default, the list of delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the delegation set that the list begins with.
 --
--- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value greater than 100, Amazon Route 53 returns only the first 100.
+--
 module Network.AWS.Route53.ListReusableDelegationSets
     (
     -- * Creating a Request
@@ -49,9 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a list of your reusable delegation sets, send a 'GET' request to the '\/2013-04-01\/delegationset' resource. The response to this request includes a 'DelegationSets' element with zero or more 'DelegationSet' child elements. By default, the list of reusable delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the 'MaxItems' parameter. You can use the 'Marker' parameter to control the delegation set that the list begins with.
+-- | To retrieve a list of your reusable delegation sets, send a @GET@ request to the @/2013-04-01/delegationset@ resource. The response to this request includes a @DelegationSets@ element with zero or more @DelegationSet@ child elements. By default, the list of reusable delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the delegation set that the list begins with.
 --
--- Amazon Route 53 returns a maximum of 100 items. If you set 'MaxItems' to a value greater than 100, Amazon Route 53 returns only the first 100.
+--
 --
 -- /See:/ 'listReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'
@@ -63,9 +63,9 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrdsMarker'
+-- * 'lrdsMarker' - If you're making the second or subsequent call to @ListReusableDelegationSets@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
 --
--- * 'lrdsMaxItems'
+-- * 'lrdsMaxItems' - The value that you specified for the @maxitems@ parameter in the request that produced the current response.
 listReusableDelegationSets
     :: ListReusableDelegationSets
 listReusableDelegationSets =
@@ -74,11 +74,11 @@ listReusableDelegationSets =
     , _lrdsMaxItems = Nothing
     }
 
--- | If you\'re making the second or subsequent call to 'ListReusableDelegationSets', the 'Marker' element matches the value that you specified in the 'marker' parameter in the previous request.
+-- | If you're making the second or subsequent call to @ListReusableDelegationSets@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
 lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMarker = lens _lrdsMarker (\ s a -> s{_lrdsMarker = a});
 
--- | The value that you specified for the 'maxitems' parameter in the request that produced the current response.
+-- | The value that you specified for the @maxitems@ parameter in the request that produced the current response.
 lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMaxItems = lens _lrdsMaxItems (\ s a -> s{_lrdsMaxItems = a});
 
@@ -115,6 +115,8 @@ instance ToQuery ListReusableDelegationSets where
 
 -- | A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.
 --
+--
+--
 -- /See:/ 'listReusableDelegationSetsResponse' smart constructor.
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     { _lrdsrsNextMarker     :: !(Maybe Text)
@@ -129,17 +131,17 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrdsrsNextMarker'
+-- * 'lrdsrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first reusable delegation set in the next group of @maxitems@ reusable delegation sets. Call @ListReusableDelegationSets@ again and specify the value of @NextMarker@ in the @marker@ parameter.
 --
--- * 'lrdsrsResponseStatus'
+-- * 'lrdsrsResponseStatus' - -- | The response status code.
 --
--- * 'lrdsrsDelegationSets'
+-- * 'lrdsrsDelegationSets' - A complex type that contains one @DelegationSet@ element for each reusable delegation set that was created by the current AWS account.
 --
--- * 'lrdsrsMarker'
+-- * 'lrdsrsMarker' - For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
 --
--- * 'lrdsrsIsTruncated'
+-- * 'lrdsrsIsTruncated' - A flag that indicates whether there are more reusable delegation sets to be listed. If the response is truncated, you can get the next group of @maxitems@ reusable delegation sets by calling @ListReusableDelegationSets@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
 --
--- * 'lrdsrsMaxItems'
+-- * 'lrdsrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListReusableDelegationSets@ that produced the current response.
 listReusableDelegationSetsResponse
     :: Int -- ^ 'lrdsrsResponseStatus'
     -> Text -- ^ 'lrdsrsMarker'
@@ -156,27 +158,27 @@ listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxI
     , _lrdsrsMaxItems = pMaxItems_
     }
 
--- | If 'IsTruncated' is 'true', the value of 'NextMarker' identifies the first reusable delegation set in the next group of 'maxitems' reusable delegation sets. Call 'ListReusableDelegationSets' again and specify the value of 'NextMarker' in the 'marker' parameter.
+-- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first reusable delegation set in the next group of @maxitems@ reusable delegation sets. Call @ListReusableDelegationSets@ again and specify the value of @NextMarker@ in the @marker@ parameter.
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrdsrsResponseStatus :: Lens' ListReusableDelegationSetsResponse Int
 lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseStatus = a});
 
--- | A complex type that contains one 'DelegationSet' element for each reusable delegation set that was created by the current AWS account.
+-- | A complex type that contains one @DelegationSet@ element for each reusable delegation set that was created by the current AWS account.
 lrdsrsDelegationSets :: Lens' ListReusableDelegationSetsResponse [DelegationSet]
 lrdsrsDelegationSets = lens _lrdsrsDelegationSets (\ s a -> s{_lrdsrsDelegationSets = a}) . _Coerce;
 
--- | For the second and subsequent calls to 'ListReusableDelegationSets', 'Marker' is the value that you specified for the marker parameter in the request that produced the current response.
+-- | For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
 lrdsrsMarker :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMarker = lens _lrdsrsMarker (\ s a -> s{_lrdsrsMarker = a});
 
--- | A flag that indicates whether there are more reusable delegation sets to be listed. If the response is truncated, you can get the next group of 'maxitems' reusable delegation sets by calling 'ListReusableDelegationSets' again and specifying the value of the 'NextMarker' element in the 'marker' parameter.
+-- | A flag that indicates whether there are more reusable delegation sets to be listed. If the response is truncated, you can get the next group of @maxitems@ reusable delegation sets by calling @ListReusableDelegationSets@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
 lrdsrsIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
 lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a});
 
--- | The value that you specified for the 'maxitems' parameter in the call to 'ListReusableDelegationSets' that produced the current response.
+-- | The value that you specified for the @maxitems@ parameter in the call to @ListReusableDelegationSets@ that produced the current response.
 lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});
 

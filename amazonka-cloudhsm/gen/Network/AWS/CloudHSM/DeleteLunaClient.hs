@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a client.
+--
+--
 module Network.AWS.CloudHSM.DeleteLunaClient
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DeleteLunaClient = DeleteLunaClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dClientARN'
+-- * 'dClientARN' - The ARN of the client to delete.
 deleteLunaClient
     :: Text -- ^ 'dClientARN'
     -> DeleteLunaClient
@@ -108,9 +110,9 @@ data DeleteLunaClientResponse = DeleteLunaClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcrsResponseStatus'
+-- * 'dlcrsResponseStatus' - -- | The response status code.
 --
--- * 'dlcrsStatus'
+-- * 'dlcrsStatus' - The status of the action.
 deleteLunaClientResponse
     :: Int -- ^ 'dlcrsResponseStatus'
     -> Text -- ^ 'dlcrsStatus'
@@ -121,7 +123,7 @@ deleteLunaClientResponse pResponseStatus_ pStatus_ =
     , _dlcrsStatus = pStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DeleteLunaClientResponse Int
 dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
 

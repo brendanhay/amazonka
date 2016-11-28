@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.
+--
+--
 module Network.AWS.EC2.DisableVPCClassicLink
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisableVpcClassicLink.
 --
+--
+--
 -- /See:/ 'disableVPCClassicLink' smart constructor.
 data DisableVPCClassicLink = DisableVPCClassicLink'
     { _dvpcclDryRun :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data DisableVPCClassicLink = DisableVPCClassicLink'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcclDryRun'
+-- * 'dvpcclDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpcclVPCId'
+-- * 'dvpcclVPCId' - The ID of the VPC.
 disableVPCClassicLink
     :: Text -- ^ 'dvpcclVPCId'
     -> DisableVPCClassicLink
@@ -67,7 +71,7 @@ disableVPCClassicLink pVPCId_ =
     , _dvpcclVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
 dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a});
 
@@ -104,6 +108,8 @@ instance ToQuery DisableVPCClassicLink where
 
 -- | Contains the output of DisableVpcClassicLink.
 --
+--
+--
 -- /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn         :: !(Maybe Bool)
@@ -114,9 +120,9 @@ data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcclrsReturn'
+-- * 'dvpcclrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dvpcclrsResponseStatus'
+-- * 'dvpcclrsResponseStatus' - -- | The response status code.
 disableVPCClassicLinkResponse
     :: Int -- ^ 'dvpcclrsResponseStatus'
     -> DisableVPCClassicLinkResponse
@@ -126,11 +132,11 @@ disableVPCClassicLinkResponse pResponseStatus_ =
     , _dvpcclrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
 dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvpcclrsResponseStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a});
 

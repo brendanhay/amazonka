@@ -20,7 +20,9 @@
 --
 -- Describe specified users.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeUserProfiles
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype DescribeUserProfiles = DescribeUserProfiles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARNs'
+-- * 'dupIAMUserARNs' - An array of IAM user ARNs that identify the users to be described.
 describeUserProfiles
     :: DescribeUserProfiles
 describeUserProfiles =
@@ -101,7 +103,9 @@ instance ToPath DescribeUserProfiles where
 instance ToQuery DescribeUserProfiles where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeUserProfiles' request.
+-- | Contains the response to a @DescribeUserProfiles@ request.
+--
+--
 --
 -- /See:/ 'describeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
@@ -113,9 +117,9 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duprsUserProfiles'
+-- * 'duprsUserProfiles' - A @Users@ object that describes the specified users.
 --
--- * 'duprsResponseStatus'
+-- * 'duprsResponseStatus' - -- | The response status code.
 describeUserProfilesResponse
     :: Int -- ^ 'duprsResponseStatus'
     -> DescribeUserProfilesResponse
@@ -125,11 +129,11 @@ describeUserProfilesResponse pResponseStatus_ =
     , _duprsResponseStatus = pResponseStatus_
     }
 
--- | A 'Users' object that describes the specified users.
+-- | A @Users@ object that describes the specified users.
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
 

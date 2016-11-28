@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the specified rule.
+--
+--
 module Network.AWS.IoT.EnableTopicRule
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | The input for the EnableTopicRuleRequest operation.
 --
+--
+--
 -- /See:/ 'enableTopicRule' smart constructor.
 newtype EnableTopicRule = EnableTopicRule'
     { _etrRuleName :: Text
@@ -50,7 +54,7 @@ newtype EnableTopicRule = EnableTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etrRuleName'
+-- * 'etrRuleName' - The name of the topic rule to enable.
 enableTopicRule
     :: Text -- ^ 'etrRuleName'
     -> EnableTopicRule

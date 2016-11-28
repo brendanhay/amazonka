@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new project.
+--
+--
 module Network.AWS.DeviceFarm.CreateProject
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the create project operation.
 --
+--
+--
 -- /See:/ 'createProject' smart constructor.
 newtype CreateProject = CreateProject'
     { _cpName :: Text
@@ -53,7 +57,7 @@ newtype CreateProject = CreateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpName'
+-- * 'cpName' - The project's name.
 createProject
     :: Text -- ^ 'cpName'
     -> CreateProject
@@ -62,7 +66,7 @@ createProject pName_ =
     { _cpName = pName_
     }
 
--- | The project\'s name.
+-- | The project's name.
 cpName :: Lens' CreateProject Text
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
@@ -100,6 +104,8 @@ instance ToQuery CreateProject where
 
 -- | Represents the result of a create project request.
 --
+--
+--
 -- /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
     { _cprsProject        :: !(Maybe Project)
@@ -110,9 +116,9 @@ data CreateProjectResponse = CreateProjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsProject'
+-- * 'cprsProject' - The newly created project.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createProjectResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreateProjectResponse
@@ -126,7 +132,7 @@ createProjectResponse pResponseStatus_ =
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
 cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

@@ -54,7 +54,7 @@ newtype GetDistributionConfig = GetDistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcId'
+-- * 'gdcId' - The distribution's id.
 getDistributionConfig
     :: Text -- ^ 'gdcId'
     -> GetDistributionConfig
@@ -63,7 +63,7 @@ getDistributionConfig pId_ =
     { _gdcId = pId_
     }
 
--- | The distribution\'s id.
+-- | The distribution's id.
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
@@ -106,11 +106,11 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcrsETag'
+-- * 'gdcrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'gdcrsDistributionConfig'
+-- * 'gdcrsDistributionConfig' - The distribution's configuration information.
 --
--- * 'gdcrsResponseStatus'
+-- * 'gdcrsResponseStatus' - -- | The response status code.
 getDistributionConfigResponse
     :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDistributionConfigResponse
@@ -125,11 +125,11 @@ getDistributionConfigResponse pResponseStatus_ =
 gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
 
--- | The distribution\'s configuration information.
+-- | The distribution's configuration information.
 gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
 gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
 

@@ -23,6 +23,8 @@ import           Network.AWS.SDB.Types.Sum
 
 -- |
 --
+--
+--
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
     { _aAlternateValueEncoding :: !(Maybe Text)
@@ -35,13 +37,13 @@ data Attribute = Attribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aAlternateValueEncoding'
+-- * 'aAlternateValueEncoding' -
 --
--- * 'aAlternateNameEncoding'
+-- * 'aAlternateNameEncoding' -
 --
--- * 'aName'
+-- * 'aName' - The name of the attribute.
 --
--- * 'aValue'
+-- * 'aValue' - The value of the attribute.
 attribute
     :: Text -- ^ 'aName'
     -> Text -- ^ 'aValue'
@@ -100,9 +102,9 @@ data DeletableItem = DeletableItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diAttributes'
+-- * 'diAttributes' - Undocumented member.
 --
--- * 'diName'
+-- * 'diName' - Undocumented member.
 deletableItem
     :: Text -- ^ 'diName'
     -> DeletableItem
@@ -132,6 +134,8 @@ instance ToQuery DeletableItem where
 
 -- |
 --
+--
+--
 -- /See:/ 'item' smart constructor.
 data Item = Item'
     { _iAlternateNameEncoding :: !(Maybe Text)
@@ -143,11 +147,11 @@ data Item = Item'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iAlternateNameEncoding'
+-- * 'iAlternateNameEncoding' -
 --
--- * 'iName'
+-- * 'iName' - The name of the item.
 --
--- * 'iAttributes'
+-- * 'iAttributes' - A list of attributes.
 item
     :: Text -- ^ 'iName'
     -> Item
@@ -182,6 +186,8 @@ instance NFData Item
 
 -- |
 --
+--
+--
 -- /See:/ 'replaceableAttribute' smart constructor.
 data ReplaceableAttribute = ReplaceableAttribute'
     { _raReplace :: !(Maybe Bool)
@@ -193,11 +199,11 @@ data ReplaceableAttribute = ReplaceableAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raReplace'
+-- * 'raReplace' - @false@
 --
--- * 'raName'
+-- * 'raName' - The name of the replaceable attribute.
 --
--- * 'raValue'
+-- * 'raValue' - The value of the replaceable attribute.
 replaceableAttribute
     :: Text -- ^ 'raName'
     -> Text -- ^ 'raValue'
@@ -209,7 +215,7 @@ replaceableAttribute pName_ pValue_ =
     , _raValue = pValue_
     }
 
--- | A flag specifying whether or not to replace the attribute\/value pair or to add a new attribute\/value pair. The default setting is 'false'.
+-- | @false@
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace = lens _raReplace (\ s a -> s{_raReplace = a});
 
@@ -233,6 +239,8 @@ instance ToQuery ReplaceableAttribute where
 
 -- |
 --
+--
+--
 -- /See:/ 'replaceableItem' smart constructor.
 data ReplaceableItem = ReplaceableItem'
     { _riName       :: !Text
@@ -243,9 +251,9 @@ data ReplaceableItem = ReplaceableItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riName'
+-- * 'riName' - The name of the replaceable item.
 --
--- * 'riAttributes'
+-- * 'riAttributes' - The list of attributes for a replaceable item.
 replaceableItem
     :: Text -- ^ 'riName'
     -> ReplaceableItem
@@ -273,7 +281,9 @@ instance ToQuery ReplaceableItem where
               ["ItemName" =: _riName,
                toQueryList "Attribute" _riAttributes]
 
--- | Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn\'t exist.
+-- | Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist.
+--
+--
 --
 -- /See:/ 'updateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
@@ -286,11 +296,11 @@ data UpdateCondition = UpdateCondition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucExists'
+-- * 'ucExists' - A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
 --
--- * 'ucValue'
+-- * 'ucValue' - The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
 --
--- * 'ucName'
+-- * 'ucName' - The name of the attribute involved in the condition.
 updateCondition
     :: UpdateCondition
 updateCondition =
@@ -300,11 +310,11 @@ updateCondition =
     , _ucName = Nothing
     }
 
--- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied. Specify 'false' if the attribute should not exist in order for the update condition to be satisfied.
+-- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\ s a -> s{_ucExists = a});
 
--- | The value of an attribute. This value can only be specified when the 'Exists' parameter is equal to 'true'.
+-- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\ s a -> s{_ucValue = a});
 

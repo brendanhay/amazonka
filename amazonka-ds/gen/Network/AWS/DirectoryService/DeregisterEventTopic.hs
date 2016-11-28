@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified directory as a publisher to the specified SNS topic.
+--
+--
 module Network.AWS.DirectoryService.DeregisterEventTopic
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Removes the specified directory as a publisher to the specified SNS topic.
 --
+--
+--
 -- /See:/ 'deregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
     { _detDirectoryId :: !Text
@@ -54,9 +58,9 @@ data DeregisterEventTopic = DeregisterEventTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detDirectoryId'
+-- * 'detDirectoryId' - The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
 --
--- * 'detTopicName'
+-- * 'detTopicName' - The name of the SNS topic from which to remove the directory as a publisher.
 deregisterEventTopic
     :: Text -- ^ 'detDirectoryId'
     -> Text -- ^ 'detTopicName'
@@ -114,6 +118,8 @@ instance ToQuery DeregisterEventTopic where
 
 -- | The result of a DeregisterEventTopic request.
 --
+--
+--
 -- /See:/ 'deregisterEventTopicResponse' smart constructor.
 newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
     { _derrsResponseStatus :: Int
@@ -123,7 +129,7 @@ newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derrsResponseStatus'
+-- * 'derrsResponseStatus' - -- | The response status code.
 deregisterEventTopicResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeregisterEventTopicResponse
@@ -132,7 +138,7 @@ deregisterEventTopicResponse pResponseStatus_ =
     { _derrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 

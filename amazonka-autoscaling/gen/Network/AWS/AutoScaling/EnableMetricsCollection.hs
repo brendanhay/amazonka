@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables group metrics for the specified Auto Scaling group. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html Monitoring Your Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/.
+-- Enables group metrics for the specified Auto Scaling group. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html Monitoring Your Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
+--
+--
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EnableMetricsCollection.
 --
+--
+--
 -- /See:/ 'enableMetricsCollection' smart constructor.
 data EnableMetricsCollection = EnableMetricsCollection'
     { _emcMetrics              :: !(Maybe [Text])
@@ -54,11 +58,11 @@ data EnableMetricsCollection = EnableMetricsCollection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emcMetrics'
+-- * 'emcMetrics' - One or more of the following metrics. If you omit this parameter, all metrics are enabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 --
--- * 'emcAutoScalingGroupName'
+-- * 'emcAutoScalingGroupName' - The name or ARN of the Auto Scaling group.
 --
--- * 'emcGranularity'
+-- * 'emcGranularity' - The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
 enableMetricsCollection
     :: Text -- ^ 'emcAutoScalingGroupName'
     -> Text -- ^ 'emcGranularity'
@@ -70,24 +74,7 @@ enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
     , _emcGranularity = pGranularity_
     }
 
--- | One or more of the following metrics. If you omit this parameter, all metrics are enabled.
---
--- -   'GroupMinSize'
---
--- -   'GroupMaxSize'
---
--- -   'GroupDesiredCapacity'
---
--- -   'GroupInServiceInstances'
---
--- -   'GroupPendingInstances'
---
--- -   'GroupStandbyInstances'
---
--- -   'GroupTerminatingInstances'
---
--- -   'GroupTotalInstances'
---
+-- | One or more of the following metrics. If you omit this parameter, all metrics are enabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce;
 
@@ -95,7 +82,7 @@ emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
 emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a});
 
--- | The granularity to associate with the metrics to collect. The only valid value is '1Minute'.
+-- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
 

@@ -54,7 +54,7 @@ newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdcId'
+-- * 'gsdcId' - The streaming distribution's id.
 getStreamingDistributionConfig
     :: Text -- ^ 'gsdcId'
     -> GetStreamingDistributionConfig
@@ -63,7 +63,7 @@ getStreamingDistributionConfig pId_ =
     { _gsdcId = pId_
     }
 
--- | The streaming distribution\'s id.
+-- | The streaming distribution's id.
 gsdcId :: Lens' GetStreamingDistributionConfig Text
 gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
 
@@ -109,11 +109,11 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdcrsStreamingDistributionConfig'
+-- * 'gsdcrsStreamingDistributionConfig' - The streaming distribution's configuration information.
 --
--- * 'gsdcrsETag'
+-- * 'gsdcrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'gsdcrsResponseStatus'
+-- * 'gsdcrsResponseStatus' - -- | The response status code.
 getStreamingDistributionConfigResponse
     :: Int -- ^ 'gsdcrsResponseStatus'
     -> GetStreamingDistributionConfigResponse
@@ -124,7 +124,7 @@ getStreamingDistributionConfigResponse pResponseStatus_ =
     , _gsdcrsResponseStatus = pResponseStatus_
     }
 
--- | The streaming distribution\'s configuration information.
+-- | The streaming distribution's configuration information.
 gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
 gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s a -> s{_gsdcrsStreamingDistributionConfig = a});
 
@@ -132,7 +132,7 @@ gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s
 gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsdcrsResponseStatus :: Lens' GetStreamingDistributionConfigResponse Int
 gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a});
 

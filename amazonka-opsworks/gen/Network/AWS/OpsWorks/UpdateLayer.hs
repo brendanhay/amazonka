@@ -20,7 +20,9 @@
 --
 -- Updates a specified layer.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateLayer
     (
     -- * Creating a Request
@@ -80,37 +82,37 @@ data UpdateLayer = UpdateLayer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulCustomInstanceProfileARN'
+-- * 'ulCustomInstanceProfileARN' - The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'ulCustomSecurityGroupIds'
+-- * 'ulCustomSecurityGroupIds' - An array containing the layer's custom security group IDs.
 --
--- * 'ulInstallUpdatesOnBoot'
+-- * 'ulInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 --
--- * 'ulLifecycleEventConfiguration'
+-- * 'ulLifecycleEventConfiguration' -
 --
--- * 'ulShortname'
+-- * 'ulShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorksand by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 --
--- * 'ulCustomRecipes'
+-- * 'ulCustomRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 --
--- * 'ulCustomJSON'
+-- * 'ulCustomJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
 --
--- * 'ulVolumeConfigurations'
+-- * 'ulVolumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
 --
--- * 'ulEnableAutoHealing'
+-- * 'ulEnableAutoHealing' - Whether to disable auto healing for the layer.
 --
--- * 'ulPackages'
+-- * 'ulPackages' - An array of @Package@ objects that describe the layer's packages.
 --
--- * 'ulAttributes'
+-- * 'ulAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
 --
--- * 'ulName'
+-- * 'ulName' - The layer name, which is used by the console.
 --
--- * 'ulAutoAssignPublicIPs'
+-- * 'ulAutoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 --
--- * 'ulUseEBSOptimizedInstances'
+-- * 'ulUseEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
 --
--- * 'ulAutoAssignElasticIPs'
+-- * 'ulAutoAssignElasticIPs' - Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 --
--- * 'ulLayerId'
+-- * 'ulLayerId' - The layer ID.
 updateLayer
     :: Text -- ^ 'ulLayerId'
     -> UpdateLayer
@@ -134,17 +136,15 @@ updateLayer pLayerId_ =
     , _ulLayerId = pLayerId_
     }
 
--- | The ARN of an IAM profile to be used for all of the layer\'s EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
 ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCustomInstanceProfileARN = a});
 
--- | An array containing the layer\'s custom security group IDs.
+-- | An array containing the layer's custom security group IDs.
 ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
 ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | Whether to install operating system and package updates when the instance boots. The default value is 'true'. To control when updates are installed, set this value to 'false'. You must then update your instances manually by using < CreateDeployment> to run the 'update_dependencies' stack command or manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the instances.
---
--- We strongly recommend using the default value of 'true', to ensure that your instances have the latest security updates.
+-- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
 
@@ -152,21 +152,19 @@ ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpda
 ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
 ulLifecycleEventConfiguration = lens _ulLifecycleEventConfiguration (\ s a -> s{_ulLifecycleEventConfiguration = a});
 
--- | For custom layers only, use this parameter to specify the layer\'s short name, which is used internally by AWS OpsWorksand by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.
---
--- The built-in layers\' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+-- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorksand by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 ulShortname :: Lens' UpdateLayer (Maybe Text)
 ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a});
 
--- | A 'LayerCustomRecipes' object that specifies the layer\'s custom recipes.
+-- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
 ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 
--- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer\'s instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+-- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
 ulCustomJSON :: Lens' UpdateLayer (Maybe Text)
 ulCustomJSON = lens _ulCustomJSON (\ s a -> s{_ulCustomJSON = a});
 
--- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS volumes.
+-- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
 
@@ -174,11 +172,11 @@ ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfi
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
 ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing = a});
 
--- | An array of 'Package' objects that describe the layer\'s packages.
+-- | An array of @Package@ objects that describe the layer's packages.
 ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce;
 
--- | One or more user-defined key\/value pairs to be added to the stack attributes.
+-- | One or more user-defined key/value pairs to be added to the stack attributes.
 ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
 ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map;
 
@@ -186,7 +184,7 @@ ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _
 ulName :: Lens' UpdateLayer (Maybe Text)
 ulName = lens _ulName (\ s a -> s{_ulName = a});
 
--- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer\'s instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+-- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 ulAutoAssignPublicIPs :: Lens' UpdateLayer (Maybe Bool)
 ulAutoAssignPublicIPs = lens _ulAutoAssignPublicIPs (\ s a -> s{_ulAutoAssignPublicIPs = a});
 
@@ -194,7 +192,7 @@ ulAutoAssignPublicIPs = lens _ulAutoAssignPublicIPs (\ s a -> s{_ulAutoAssignPub
 ulUseEBSOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
 ulUseEBSOptimizedInstances = lens _ulUseEBSOptimizedInstances (\ s a -> s{_ulUseEBSOptimizedInstances = a});
 
--- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer\'s instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+-- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 ulAutoAssignElasticIPs :: Lens' UpdateLayer (Maybe Bool)
 ulAutoAssignElasticIPs = lens _ulAutoAssignElasticIPs (\ s a -> s{_ulAutoAssignElasticIPs = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your clusters.
+--
+--
 module Network.AWS.ECS.DescribeClusters
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeClusters = DescribeClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcClusters'
+-- * 'dcClusters' - A space-separated list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 describeClusters
     :: DescribeClusters
 describeClusters =
@@ -111,11 +113,11 @@ data DescribeClustersResponse = DescribeClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsFailures'
+-- * 'dcrsFailures' - Any failures associated with the call.
 --
--- * 'dcrsClusters'
+-- * 'dcrsClusters' - The list of clusters.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeClustersResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
@@ -134,7 +136,7 @@ dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

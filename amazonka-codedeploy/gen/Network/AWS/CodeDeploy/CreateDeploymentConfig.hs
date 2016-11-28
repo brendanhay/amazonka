@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a deployment configuration.
+--
+--
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create deployment configuration operation.
 --
+--
+--
 -- /See:/ 'createDeploymentConfig' smart constructor.
 data CreateDeploymentConfig = CreateDeploymentConfig'
     { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
@@ -55,9 +59,9 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcMinimumHealthyHosts'
+-- * 'cdcMinimumHealthyHosts' - The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value. The type parameter takes either of the following values:     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.    * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. The value parameter takes an integer. For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
 --
--- * 'cdcDeploymentConfigName'
+-- * 'cdcDeploymentConfigName' - The name of the deployment configuration to create.
 createDeploymentConfig
     :: Text -- ^ 'cdcDeploymentConfigName'
     -> CreateDeploymentConfig
@@ -67,16 +71,7 @@ createDeploymentConfig pDeploymentConfigName_ =
     , _cdcDeploymentConfigName = pDeploymentConfigName_
     }
 
--- | The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
---
--- The type parameter takes either of the following values:
---
--- -   HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.
--- -   FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
---
--- The value parameter takes an integer.
---
--- For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
+-- | The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value. The type parameter takes either of the following values:     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.    * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. The value parameter takes an integer. For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
 cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
 cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\ s a -> s{_cdcMinimumHealthyHosts = a});
 
@@ -126,6 +121,8 @@ instance ToQuery CreateDeploymentConfig where
 
 -- | Represents the output of a create deployment configuration operation.
 --
+--
+--
 -- /See:/ 'createDeploymentConfigResponse' smart constructor.
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId :: !(Maybe Text)
@@ -136,9 +133,9 @@ data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcrsDeploymentConfigId'
+-- * 'cdcrsDeploymentConfigId' - A unique deployment configuration ID.
 --
--- * 'cdcrsResponseStatus'
+-- * 'cdcrsResponseStatus' - -- | The response status code.
 createDeploymentConfigResponse
     :: Int -- ^ 'cdcrsResponseStatus'
     -> CreateDeploymentConfigResponse
@@ -152,7 +149,7 @@ createDeploymentConfigResponse pResponseStatus_ =
 cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploymentConfigId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDeploymentConfigResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
 

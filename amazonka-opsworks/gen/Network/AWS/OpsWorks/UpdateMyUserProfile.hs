@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a user\'s SSH public key.
+-- Updates a user's SSH public key.
 --
--- __Required Permissions__: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateMyUserProfile
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype UpdateMyUserProfile = UpdateMyUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umupSSHPublicKey'
+-- * 'umupSSHPublicKey' - The user's SSH public key.
 updateMyUserProfile
     :: UpdateMyUserProfile
 updateMyUserProfile =
@@ -58,7 +60,7 @@ updateMyUserProfile =
     { _umupSSHPublicKey = Nothing
     }
 
--- | The user\'s SSH public key.
+-- | The user's SSH public key.
 umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
 

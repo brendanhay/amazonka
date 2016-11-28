@@ -20,7 +20,7 @@
 --
 -- Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 --
--- You cannot take snapshots of AD Connector directories.
+--
 module Network.AWS.DirectoryService.CreateSnapshot
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateSnapshot> operation.
+-- | Contains the inputs for the 'CreateSnapshot' operation.
+--
+--
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
@@ -57,9 +59,9 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csName'
+-- * 'csName' - The descriptive name to apply to the snapshot.
 --
--- * 'csDirectoryId'
+-- * 'csDirectoryId' - The identifier of the directory of which to take a snapshot.
 createSnapshot
     :: Text -- ^ 'csDirectoryId'
     -> CreateSnapshot
@@ -113,7 +115,9 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the < CreateSnapshot> operation.
+-- | Contains the results of the 'CreateSnapshot' operation.
+--
+--
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
@@ -125,9 +129,9 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csrsSnapshotId'
+-- * 'csrsSnapshotId' - The identifier of the snapshot that was created.
 --
--- * 'csrsResponseStatus'
+-- * 'csrsResponseStatus' - -- | The response status code.
 createSnapshotResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateSnapshotResponse
@@ -141,7 +145,7 @@ createSnapshotResponse pResponseStatus_ =
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 

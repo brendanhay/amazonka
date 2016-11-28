@@ -118,7 +118,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2012-08-10' of the Amazon DynamoDB Streams SDK configuration.
+-- | API version @2012-08-10@ of the Amazon DynamoDB Streams SDK configuration.
 dynamoDBStreams :: Service
 dynamoDBStreams =
     Service
@@ -153,30 +153,41 @@ dynamoDBStreams =
       | otherwise = Nothing
 
 -- | The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the /GetShardIterator/ action.
+--
+--
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
 
 -- | An error occurred on the server side.
+--
+--
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | The operation attempted to read past the oldest stream record in a shard.
 --
+--
 -- In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:
 --
--- -   You request a shard iterator with a sequence number older than the trim point (24 hours).
+--     * You request a shard iterator with a sequence number older than the trim point (24 hours).
 --
--- -   You obtain a shard iterator, but before you use the iterator in a /GetRecords/ request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
+--     * You obtain a shard iterator, but before you use the iterator in a /GetRecords/ request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
+--
+--
 --
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrimmedDataAccessException =
     _ServiceError . hasCode "TrimmedDataAccessException"
 
 -- | The operation tried to access a nonexistent stream.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/.
+-- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/ .
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

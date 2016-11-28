@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets the specified user\'s password in a user pool as an administrator. Works on any user.
+-- Resets the specified user's password in a user pool as an administrator. Works on any user.
+--
 --
 -- When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.
+--
 module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the request to reset a user\'s password as an administrator.
+-- | Represents the request to reset a user's password as an administrator.
+--
+--
 --
 -- /See:/ 'adminResetUserPassword' smart constructor.
 data AdminResetUserPassword = AdminResetUserPassword'
@@ -56,9 +60,9 @@ data AdminResetUserPassword = AdminResetUserPassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arupUserPoolId'
+-- * 'arupUserPoolId' - The user pool ID for the user pool where you want to reset the user's password.
 --
--- * 'arupUsername'
+-- * 'arupUsername' - The user name of the user whose password you wish to reset.
 adminResetUserPassword
     :: Text -- ^ 'arupUserPoolId'
     -> Text -- ^ 'arupUsername'
@@ -69,7 +73,7 @@ adminResetUserPassword pUserPoolId_ pUsername_ =
     , _arupUsername = _Sensitive # pUsername_
     }
 
--- | The user pool ID for the user pool where you want to reset the user\'s password.
+-- | The user pool ID for the user pool where you want to reset the user's password.
 arupUserPoolId :: Lens' AdminResetUserPassword Text
 arupUserPoolId = lens _arupUserPoolId (\ s a -> s{_arupUserPoolId = a});
 
@@ -116,6 +120,8 @@ instance ToQuery AdminResetUserPassword where
 
 -- | Represents the response from the server to reset a user password as an administrator.
 --
+--
+--
 -- /See:/ 'adminResetUserPasswordResponse' smart constructor.
 newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
     { _aruprsResponseStatus :: Int
@@ -125,7 +131,7 @@ newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aruprsResponseStatus'
+-- * 'aruprsResponseStatus' - -- | The response status code.
 adminResetUserPasswordResponse
     :: Int -- ^ 'aruprsResponseStatus'
     -> AdminResetUserPasswordResponse
@@ -134,7 +140,7 @@ adminResetUserPasswordResponse pResponseStatus_ =
     { _aruprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aruprsResponseStatus :: Lens' AdminResetUserPasswordResponse Int
 aruprsResponseStatus = lens _aruprsResponseStatus (\ s a -> s{_aruprsResponseStatus = a});
 

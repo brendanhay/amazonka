@@ -20,7 +20,9 @@
 --
 -- Deletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Input to the DeleteIdentityPool action.
 --
+--
+--
 -- /See:/ 'deleteIdentityPool' smart constructor.
 newtype DeleteIdentityPool = DeleteIdentityPool'
     { _dIdentityPoolId :: Text
@@ -52,7 +56,7 @@ newtype DeleteIdentityPool = DeleteIdentityPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dIdentityPoolId'
+-- * 'dIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 deleteIdentityPool
     :: Text -- ^ 'dIdentityPoolId'
     -> DeleteIdentityPool

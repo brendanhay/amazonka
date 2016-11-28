@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration response.
+--
+--
 module Network.AWS.APIGateway.DeleteIntegrationResponse
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a delete integration response request.
 --
+--
+--
 -- /See:/ 'deleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
     { _diRestAPIId  :: !Text
@@ -56,13 +60,13 @@ data DeleteIntegrationResponse = DeleteIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diRestAPIId'
+-- * 'diRestAPIId' - Specifies a delete integration response request's API identifier.
 --
--- * 'diResourceId'
+-- * 'diResourceId' - Specifies a delete integration response request's resource identifier.
 --
--- * 'diHttpMethod'
+-- * 'diHttpMethod' - Specifies a delete integration response request's HTTP method.
 --
--- * 'diStatusCode'
+-- * 'diStatusCode' - Specifies a delete integration response request's status code.
 deleteIntegrationResponse
     :: Text -- ^ 'diRestAPIId'
     -> Text -- ^ 'diResourceId'
@@ -77,19 +81,19 @@ deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _diStatusCode = pStatusCode_
     }
 
--- | Specifies a delete integration response request\'s API identifier.
+-- | Specifies a delete integration response request's API identifier.
 diRestAPIId :: Lens' DeleteIntegrationResponse Text
 diRestAPIId = lens _diRestAPIId (\ s a -> s{_diRestAPIId = a});
 
--- | Specifies a delete integration response request\'s resource identifier.
+-- | Specifies a delete integration response request's resource identifier.
 diResourceId :: Lens' DeleteIntegrationResponse Text
 diResourceId = lens _diResourceId (\ s a -> s{_diResourceId = a});
 
--- | Specifies a delete integration response request\'s HTTP method.
+-- | Specifies a delete integration response request's HTTP method.
 diHttpMethod :: Lens' DeleteIntegrationResponse Text
 diHttpMethod = lens _diHttpMethod (\ s a -> s{_diHttpMethod = a});
 
--- | Specifies a delete integration response request\'s status code.
+-- | Specifies a delete integration response request's status code.
 diStatusCode :: Lens' DeleteIntegrationResponse Text
 diStatusCode = lens _diStatusCode (\ s a -> s{_diStatusCode = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the replication instance types that can be created in the specified region.
+--
+--
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
     { _doriMarker     :: !(Maybe Text)
@@ -56,9 +60,9 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doriMarker'
+-- * 'doriMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'doriMaxRecords'
+-- * 'doriMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeOrderableReplicationInstances
     :: DescribeOrderableReplicationInstances
 describeOrderableReplicationInstances =
@@ -67,15 +71,11 @@ describeOrderableReplicationInstances =
     , _doriMaxRecords = Nothing
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 doriMarker :: Lens' DescribeOrderableReplicationInstances (Maybe Text)
 doriMarker = lens _doriMarker (\ s a -> s{_doriMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 doriMaxRecords :: Lens' DescribeOrderableReplicationInstances (Maybe Int)
 doriMaxRecords = lens _doriMaxRecords (\ s a -> s{_doriMaxRecords = a});
 
@@ -126,6 +126,8 @@ instance ToQuery
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
     { _dorirsMarker                        :: !(Maybe Text)
@@ -137,11 +139,11 @@ data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicatio
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorirsMarker'
+-- * 'dorirsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dorirsOrderableReplicationInstances'
+-- * 'dorirsOrderableReplicationInstances' - The order-able replication instances available.
 --
--- * 'dorirsResponseStatus'
+-- * 'dorirsResponseStatus' - -- | The response status code.
 describeOrderableReplicationInstancesResponse
     :: Int -- ^ 'dorirsResponseStatus'
     -> DescribeOrderableReplicationInstancesResponse
@@ -152,7 +154,7 @@ describeOrderableReplicationInstancesResponse pResponseStatus_ =
     , _dorirsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dorirsMarker :: Lens' DescribeOrderableReplicationInstancesResponse (Maybe Text)
 dorirsMarker = lens _dorirsMarker (\ s a -> s{_dorirsMarker = a});
 
@@ -160,7 +162,7 @@ dorirsMarker = lens _dorirsMarker (\ s a -> s{_dorirsMarker = a});
 dorirsOrderableReplicationInstances :: Lens' DescribeOrderableReplicationInstancesResponse [OrderableReplicationInstance]
 dorirsOrderableReplicationInstances = lens _dorirsOrderableReplicationInstances (\ s a -> s{_dorirsOrderableReplicationInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
 dorirsResponseStatus = lens _dorirsResponseStatus (\ s a -> s{_dorirsResponseStatus = a});
 

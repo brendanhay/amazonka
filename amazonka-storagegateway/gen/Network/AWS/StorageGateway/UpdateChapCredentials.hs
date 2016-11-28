@@ -20,7 +20,9 @@
 --
 -- Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for added security, you might use it.
 --
--- When you update CHAP credentials, all existing connections on the target are closed and initiators must reconnect with the new credentials.
+--
+-- /Important:/ When you update CHAP credentials, all existing connections on the target are closed and initiators must reconnect with the new credentials.
+--
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Creating a Request
@@ -50,13 +52,16 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < UpdateChapCredentialsInput>InitiatorName>
 --
--- -   < UpdateChapCredentialsInput>SecretToAuthenticateInitiator>
+--     * 'UpdateChapCredentialsInput$InitiatorName'
 --
--- -   < UpdateChapCredentialsInput>SecretToAuthenticateTarget>
+--     * 'UpdateChapCredentialsInput$SecretToAuthenticateInitiator'
 --
--- -   < UpdateChapCredentialsInput>TargetARN>
+--     * 'UpdateChapCredentialsInput$SecretToAuthenticateTarget'
+--
+--     * 'UpdateChapCredentialsInput$TargetARN'
+--
+--
 --
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
@@ -71,13 +76,13 @@ data UpdateChapCredentials = UpdateChapCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uccSecretToAuthenticateTarget'
+-- * 'uccSecretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client). Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 --
--- * 'uccTargetARN'
+-- * 'uccTargetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 --
--- * 'uccSecretToAuthenticateInitiator'
+-- * 'uccSecretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
 --
--- * 'uccInitiatorName'
+-- * 'uccInitiatorName' - The iSCSI initiator that connects to the target.
 updateChapCredentials
     :: Text -- ^ 'uccTargetARN'
     -> Text -- ^ 'uccSecretToAuthenticateInitiator'
@@ -91,21 +96,15 @@ updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName
     , _uccInitiatorName = pInitiatorName_
     }
 
--- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
---
--- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
---
--- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
+-- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client). Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the < DescribeStorediSCSIVolumes> operation to return the TargetARN for specified VolumeARN.
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});
 
 -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
---
--- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
 uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
 uccSecretToAuthenticateInitiator = lens _uccSecretToAuthenticateInitiator (\ s a -> s{_uccSecretToAuthenticateInitiator = a});
 
@@ -158,6 +157,8 @@ instance ToQuery UpdateChapCredentials where
 
 -- | A JSON object containing the following fields:
 --
+--
+--
 -- /See:/ 'updateChapCredentialsResponse' smart constructor.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
     { _uccrsTargetARN      :: !(Maybe Text)
@@ -169,11 +170,11 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uccrsTargetARN'
+-- * 'uccrsTargetARN' - The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
 --
--- * 'uccrsInitiatorName'
+-- * 'uccrsInitiatorName' - The iSCSI initiator that connects to the target. This is the same initiator name specified in the request.
 --
--- * 'uccrsResponseStatus'
+-- * 'uccrsResponseStatus' - -- | The response status code.
 updateChapCredentialsResponse
     :: Int -- ^ 'uccrsResponseStatus'
     -> UpdateChapCredentialsResponse
@@ -192,7 +193,7 @@ uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a});
 uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uccrsResponseStatus :: Lens' UpdateChapCredentialsResponse Int
 uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds the specified user to the specified group.
+--
+--
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Creating a Request
@@ -50,9 +52,9 @@ data AddUserToGroup = AddUserToGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'autgGroupName'
+-- * 'autgGroupName' - The name of the group to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'autgUserName'
+-- * 'autgUserName' - The name of the user to add. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 addUserToGroup
     :: Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
@@ -63,15 +65,11 @@ addUserToGroup pGroupName_ pUserName_ =
     , _autgUserName = pUserName_
     }
 
--- | The name of the group to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the group to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 autgGroupName :: Lens' AddUserToGroup Text
 autgGroupName = lens _autgGroupName (\ s a -> s{_autgGroupName = a});
 
--- | The name of the user to add.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user to add. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
 

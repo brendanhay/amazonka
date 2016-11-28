@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the fleet ID that a specified alias is currently pointing to.
+--
+--
 module Network.AWS.GameLift.ResolveAlias
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'resolveAlias' smart constructor.
 newtype ResolveAlias = ResolveAlias'
     { _raAliasId :: Text
@@ -53,7 +57,7 @@ newtype ResolveAlias = ResolveAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raAliasId'
+-- * 'raAliasId' - Unique identifier for the alias you want to resolve.
 resolveAlias
     :: Text -- ^ 'raAliasId'
     -> ResolveAlias
@@ -100,6 +104,8 @@ instance ToQuery ResolveAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'resolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
     { _rarsFleetId        :: !(Maybe Text)
@@ -110,9 +116,9 @@ data ResolveAliasResponse = ResolveAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarsFleetId'
+-- * 'rarsFleetId' - Fleet ID associated with the requested alias.
 --
--- * 'rarsResponseStatus'
+-- * 'rarsResponseStatus' - -- | The response status code.
 resolveAliasResponse
     :: Int -- ^ 'rarsResponseStatus'
     -> ResolveAliasResponse
@@ -126,7 +132,7 @@ resolveAliasResponse pResponseStatus_ =
 rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
 rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rarsResponseStatus :: Lens' ResolveAliasResponse Int
 rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
 

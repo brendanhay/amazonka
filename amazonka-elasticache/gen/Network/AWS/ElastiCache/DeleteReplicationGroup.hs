@@ -20,7 +20,9 @@
 --
 -- The /DeleteReplicationGroup/ action deletes an existing replication group. By default, this action deletes the entire replication group, including the primary cluster and all of the read replicas. You can optionally delete only the read replicas, while retaining the primary cluster.
 --
+--
 -- When you receive a successful response from this action, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this action.
+--
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteReplicationGroup/ action.
 --
+--
+--
 -- /See:/ 'deleteReplicationGroup' smart constructor.
 data DeleteReplicationGroup = DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier :: !(Maybe Text)
@@ -59,11 +63,11 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgFinalSnapshotIdentifier'
+-- * 'drgFinalSnapshotIdentifier' - The name of a final node group snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the cluster is immediately deleted.
 --
--- * 'drgRetainPrimaryCluster'
+-- * 'drgRetainPrimaryCluster' - If set to /true/ , all of the read replicas will be deleted, but the primary node will be retained.
 --
--- * 'drgReplicationGroupId'
+-- * 'drgReplicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case sensitive.
 deleteReplicationGroup
     :: Text -- ^ 'drgReplicationGroupId'
     -> DeleteReplicationGroup
@@ -78,7 +82,7 @@ deleteReplicationGroup pReplicationGroupId_ =
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a});
 
--- | If set to /true/, all of the read replicas will be deleted, but the primary node will be retained.
+-- | If set to /true/ , all of the read replicas will be deleted, but the primary node will be retained.
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a});
 
@@ -127,9 +131,9 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsReplicationGroup'
+-- * 'delrsReplicationGroup' - Undocumented member.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteReplicationGroupResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteReplicationGroupResponse
@@ -143,7 +147,7 @@ deleteReplicationGroupResponse pResponseStatus_ =
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

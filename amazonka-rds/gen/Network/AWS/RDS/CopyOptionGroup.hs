@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified option group.
+--
+--
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'copyOptionGroup' smart constructor.
 data CopyOptionGroup = CopyOptionGroup'
     { _cTags                         :: !(Maybe [Tag])
@@ -59,13 +63,13 @@ data CopyOptionGroup = CopyOptionGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cTags'
+-- * 'cTags' - Undocumented member.
 --
--- * 'cSourceOptionGroupIdentifier'
+-- * 'cSourceOptionGroupIdentifier' - The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid option group.     * If the source option group is in the same region as the copy, specify a valid option group identifier, for example @my-option-group@ , or a valid ARN.     * If the source option group is in a different region than the copy, specify a valid option group ARN, for example @arn:aws:rds:us-west-2:123456789012:og:special-options@ .
 --
--- * 'cTargetOptionGroupIdentifier'
+-- * 'cTargetOptionGroupIdentifier' - The identifier for the copied option group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-option-group@
 --
--- * 'cTargetOptionGroupDescription'
+-- * 'cTargetOptionGroupDescription' - The description for the copied option group.
 copyOptionGroup
     :: Text -- ^ 'cSourceOptionGroupIdentifier'
     -> Text -- ^ 'cTargetOptionGroupIdentifier'
@@ -83,32 +87,11 @@ copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTar
 cTags :: Lens' CopyOptionGroup [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
--- | The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
---
--- Constraints:
---
--- -   Must specify a valid option group.
---
--- -   If the source option group is in the same region as the copy, specify a valid option group identifier, for example 'my-option-group', or a valid ARN.
---
--- -   If the source option group is in a different region than the copy, specify a valid option group ARN, for example 'arn:aws:rds:us-west-2:123456789012:og:special-options'.
---
+-- | The identifier or ARN for the source option group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid option group.     * If the source option group is in the same region as the copy, specify a valid option group identifier, for example @my-option-group@ , or a valid ARN.     * If the source option group is in a different region than the copy, specify a valid option group ARN, for example @arn:aws:rds:us-west-2:123456789012:og:special-options@ .
 cSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_cSourceOptionGroupIdentifier = a});
 
--- | The identifier for the copied option group.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
---
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-option-group'
+-- | The identifier for the copied option group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-option-group@
 cTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cTargetOptionGroupIdentifier = lens _cTargetOptionGroupIdentifier (\ s a -> s{_cTargetOptionGroupIdentifier = a});
 
@@ -158,9 +141,9 @@ data CopyOptionGroupResponse = CopyOptionGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cogrsOptionGroup'
+-- * 'cogrsOptionGroup' - Undocumented member.
 --
--- * 'cogrsResponseStatus'
+-- * 'cogrsResponseStatus' - -- | The response status code.
 copyOptionGroupResponse
     :: Int -- ^ 'cogrsResponseStatus'
     -> CopyOptionGroupResponse
@@ -174,7 +157,7 @@ copyOptionGroupResponse pResponseStatus_ =
 cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cogrsResponseStatus :: Lens' CopyOptionGroupResponse Int
 cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a});
 

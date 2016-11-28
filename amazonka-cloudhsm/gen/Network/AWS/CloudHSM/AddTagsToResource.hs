@@ -20,7 +20,9 @@
 --
 -- Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
 --
+--
 -- Each tag consists of a key and a value. Tag keys must be unique to each resource.
+--
 module Network.AWS.CloudHSM.AddTagsToResource
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceARN'
+-- * 'attrResourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
 --
--- * 'attrTagList'
+-- * 'attrTagList' - One or more tags.
 addTagsToResource
     :: Text -- ^ 'attrResourceARN'
     -> AddTagsToResource
@@ -121,9 +123,9 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 --
--- * 'attrrsStatus'
+-- * 'attrrsStatus' - The status of the operation.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> Text -- ^ 'attrrsStatus'
@@ -134,7 +136,7 @@ addTagsToResourceResponse pResponseStatus_ pStatus_ =
     , _attrrsStatus = pStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 

@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Information about agents that were instructed to start collecting data. Information includes the agent ID, a description of the operation, and whether or not the agent configuration was updated.
 --
+--
+--
 -- /See:/ 'agentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
     { _acsAgentId            :: !(Maybe Text)
@@ -34,11 +36,11 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsAgentId'
+-- * 'acsAgentId' - The agent ID.
 --
--- * 'acsOperationSucceeded'
+-- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
 --
--- * 'acsDescription'
+-- * 'acsDescription' - A description of the operation performed.
 agentConfigurationStatus
     :: AgentConfigurationStatus
 agentConfigurationStatus =
@@ -52,7 +54,7 @@ agentConfigurationStatus =
 acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
 acsAgentId = lens _acsAgentId (\ s a -> s{_acsAgentId = a});
 
--- | Information about the status of the 'StartDataCollection' and 'StopDataCollection' operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
+-- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
 acsOperationSucceeded :: Lens' AgentConfigurationStatus (Maybe Bool)
 acsOperationSucceeded = lens _acsOperationSucceeded (\ s a -> s{_acsOperationSucceeded = a});
 
@@ -74,6 +76,8 @@ instance NFData AgentConfigurationStatus
 
 -- | Information about agents associated with the user’s AWS account. Information includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, hostname where the agent resides, and agent version for each agent.
 --
+--
+--
 -- /See:/ 'agentInfo' smart constructor.
 data AgentInfo = AgentInfo'
     { _aiHostName             :: !(Maybe Text)
@@ -88,17 +92,17 @@ data AgentInfo = AgentInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiHostName'
+-- * 'aiHostName' - The name of the host where the agent resides. The host can be a server or virtual machine.
 --
--- * 'aiAgentNetworkInfoList'
+-- * 'aiAgentNetworkInfoList' - Network details about the host where the agent resides.
 --
--- * 'aiConnectorId'
+-- * 'aiConnectorId' - This data type is currently not valid.
 --
--- * 'aiHealth'
+-- * 'aiHealth' - The health of the agent.
 --
--- * 'aiAgentId'
+-- * 'aiAgentId' - The agent ID.
 --
--- * 'aiVersion'
+-- * 'aiVersion' - The agent version.
 agentInfo
     :: AgentInfo
 agentInfo =
@@ -153,6 +157,8 @@ instance NFData AgentInfo
 
 -- | Network details about the host where the agent resides.
 --
+--
+--
 -- /See:/ 'agentNetworkInfo' smart constructor.
 data AgentNetworkInfo = AgentNetworkInfo'
     { _aniIpAddress  :: !(Maybe Text)
@@ -163,9 +169,9 @@ data AgentNetworkInfo = AgentNetworkInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aniIpAddress'
+-- * 'aniIpAddress' - The IP address for the host where the agent resides.
 --
--- * 'aniMacAddress'
+-- * 'aniMacAddress' - The MAC address for the host where the agent resides.
 agentNetworkInfo
     :: AgentNetworkInfo
 agentNetworkInfo =
@@ -195,6 +201,8 @@ instance NFData AgentNetworkInfo
 
 -- | Tags for a configuration item. Tags are metadata that help you categorize IT assets.
 --
+--
+--
 -- /See:/ 'configurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
     { _ctTimeOfCreation    :: !(Maybe POSIX)
@@ -208,15 +216,15 @@ data ConfigurationTag = ConfigurationTag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctTimeOfCreation'
+-- * 'ctTimeOfCreation' - The time the configuration tag was created in Coordinated Universal Time (UTC).
 --
--- * 'ctConfigurationId'
+-- * 'ctConfigurationId' - The configuration ID for the item you want to tag. You can specify a list of keys and values.
 --
--- * 'ctConfigurationType'
+-- * 'ctConfigurationType' - A type of IT asset that you want to tag.
 --
--- * 'ctValue'
+-- * 'ctValue' - A value to filter on. For example /key = serverType/ and /value = web server/ .
 --
--- * 'ctKey'
+-- * 'ctKey' - A type of tag to filter on. For example, /serverType/ .
 configurationTag
     :: ConfigurationTag
 configurationTag =
@@ -240,11 +248,11 @@ ctConfigurationId = lens _ctConfigurationId (\ s a -> s{_ctConfigurationId = a})
 ctConfigurationType :: Lens' ConfigurationTag (Maybe ConfigurationItemType)
 ctConfigurationType = lens _ctConfigurationType (\ s a -> s{_ctConfigurationType = a});
 
--- | A value to filter on. For example /key = serverType/ and /value = web server/.
+-- | A value to filter on. For example /key = serverType/ and /value = web server/ .
 ctValue :: Lens' ConfigurationTag (Maybe Text)
 ctValue = lens _ctValue (\ s a -> s{_ctValue = a});
 
--- | A type of tag to filter on. For example, /serverType/.
+-- | A type of tag to filter on. For example, /serverType/ .
 ctKey :: Lens' ConfigurationTag (Maybe Text)
 ctKey = lens _ctKey (\ s a -> s{_ctKey = a});
 
@@ -265,6 +273,8 @@ instance NFData ConfigurationTag
 
 -- | Information regarding the export status of the discovered data. The value is an array of objects.
 --
+--
+--
 -- /See:/ 'exportInfo' smart constructor.
 data ExportInfo = ExportInfo'
     { _eiConfigurationsDownloadURL :: !(Maybe Text)
@@ -278,15 +288,15 @@ data ExportInfo = ExportInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiConfigurationsDownloadURL'
+-- * 'eiConfigurationsDownloadURL' - A URL for an Amazon S3 bucket where you can review the configuration data. The URL is displayed only if the export succeeded.
 --
--- * 'eiExportId'
+-- * 'eiExportId' - A unique identifier that you can use to query the export.
 --
--- * 'eiExportStatus'
+-- * 'eiExportStatus' - The status of the configuration data export. The status can succeed, fail, or be in-progress.
 --
--- * 'eiStatusMessage'
+-- * 'eiStatusMessage' - Helpful status messages for API callers. For example: Too many exports in the last 6 hours. Export in progress. Export was successful.
 --
--- * 'eiExportRequestTime'
+-- * 'eiExportRequestTime' - The time the configuration data export was initiated.
 exportInfo
     :: Text -- ^ 'eiExportId'
     -> ExportStatus -- ^ 'eiExportStatus'
@@ -339,6 +349,8 @@ instance NFData ExportInfo
 
 -- | A filter that can use conditional operators.
 --
+--
+--
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName      :: !Text
@@ -350,11 +362,11 @@ data Filter = Filter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fName'
+-- * 'fName' - The name of the filter. The following filter names are allowed for @SERVER@ configuration items. __Server__      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.configurationid@      * @server.agentid@  The name of the filter. The following filter names are allowed for @PROCESS@ configuration items. __Process__      * @process.configurationid@      * @process.name@      * @process.commandLine@      * @server.configurationid@      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.agentId@  The name of the filter. The following filter names are allowed for @CONNECTION@ configuration items. __Connection__      * @connection.sourceIp@      * @connection.destinationIp@      * @connection.destinationPort@      * @sourceProcess.configurationId@      * @sourceProcess.name@      * @sourceProcess.commandLine@      * @destinationProcess.configurationId@      * @destinationProcess.name@      * @destinationProcess.commandLine@      * @sourceServer.configurationId@      * @sourceServer.hostName@      * @sourceServer.osName@      * @sourceServer.osVersion@      * @sourceServer.agentId@      * @destinationServer.configurationId@      * @destinationServer.hostName@      * @destinationServer.osName@      * @destinationServer.osVersion@      * @destinationServer.agentId@
 --
--- * 'fValues'
+-- * 'fValues' - A string value that you want to filter on. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 --
--- * 'fCondition'
+-- * 'fCondition' - A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 filter'
     :: Text -- ^ 'fName'
     -> Text -- ^ 'fCondition'
@@ -366,90 +378,15 @@ filter' pName_ pCondition_ =
     , _fCondition = pCondition_
     }
 
--- | The name of the filter. The following filter names are allowed for 'SERVER' configuration items.
---
--- __Server__
---
--- -   'server.hostName'
---
--- -   'server.osName'
---
--- -   'server.osVersion'
---
--- -   'server.configurationid'
---
--- -   'server.agentid'
---
--- The name of the filter. The following filter names are allowed for 'PROCESS' configuration items.
---
--- __Process__
---
--- -   'process.configurationid'
---
--- -   'process.name'
---
--- -   'process.commandLine'
---
--- -   'server.configurationid'
---
--- -   'server.hostName'
---
--- -   'server.osName'
---
--- -   'server.osVersion'
---
--- -   'server.agentId'
---
--- The name of the filter. The following filter names are allowed for 'CONNECTION' configuration items.
---
--- __Connection__
---
--- -   'connection.sourceIp'
---
--- -   'connection.destinationIp'
---
--- -   'connection.destinationPort'
---
--- -   'sourceProcess.configurationId'
---
--- -   'sourceProcess.name'
---
--- -   'sourceProcess.commandLine'
---
--- -   'destinationProcess.configurationId'
---
--- -   'destinationProcess.name'
---
--- -   'destinationProcess.commandLine'
---
--- -   'sourceServer.configurationId'
---
--- -   'sourceServer.hostName'
---
--- -   'sourceServer.osName'
---
--- -   'sourceServer.osVersion'
---
--- -   'sourceServer.agentId'
---
--- -   'destinationServer.configurationId'
---
--- -   'destinationServer.hostName'
---
--- -   'destinationServer.osName'
---
--- -   'destinationServer.osVersion'
---
--- -   'destinationServer.agentId'
---
+-- | The name of the filter. The following filter names are allowed for @SERVER@ configuration items. __Server__      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.configurationid@      * @server.agentid@  The name of the filter. The following filter names are allowed for @PROCESS@ configuration items. __Process__      * @process.configurationid@      * @process.name@      * @process.commandLine@      * @server.configurationid@      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.agentId@  The name of the filter. The following filter names are allowed for @CONNECTION@ configuration items. __Connection__      * @connection.sourceIp@      * @connection.destinationIp@      * @connection.destinationPort@      * @sourceProcess.configurationId@      * @sourceProcess.name@      * @sourceProcess.commandLine@      * @destinationProcess.configurationId@      * @destinationProcess.name@      * @destinationProcess.commandLine@      * @sourceServer.configurationId@      * @sourceServer.hostName@      * @sourceServer.osName@      * @sourceServer.osVersion@      * @sourceServer.agentId@      * @destinationServer.configurationId@      * @destinationServer.hostName@      * @destinationServer.osName@      * @destinationServer.osVersion@      * @destinationServer.agentId@
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
--- | A string value that you want to filter on. For example, if you choose the 'destinationServer.osVersion' filter name, you could specify 'Ubuntu' for the value.
+-- | A string value that you want to filter on. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
--- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/. If you specify multiple values for a particular filter, the system differentiates the values using /OR/. Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
+-- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 fCondition :: Lens' Filter Text
 fCondition = lens _fCondition (\ s a -> s{_fCondition = a});
 
@@ -467,6 +404,8 @@ instance ToJSON Filter where
 
 -- | Metadata that help you categorize IT assets.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -477,9 +416,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - A type of tag to filter on.
 --
--- * 'tagValue'
+-- * 'tagValue' - A value for a tag key to filter on.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -509,7 +448,9 @@ instance ToJSON Tag where
                  [Just ("key" .= _tagKey),
                   Just ("value" .= _tagValue)])
 
--- | The name of a tag filter. Valid names are: 'tagKey', 'tagValue', 'configurationId'.
+-- | The name of a tag filter. Valid names are: @tagKey@ , @tagValue@ , @configurationId@ .
+--
+--
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
@@ -521,9 +462,9 @@ data TagFilter = TagFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tfName'
+-- * 'tfName' - A name of a tag filter.
 --
--- * 'tfValues'
+-- * 'tfValues' - Values of a tag filter.
 tagFilter
     :: Text -- ^ 'tfName'
     -> TagFilter

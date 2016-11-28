@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the specified job. Note that you can only cancel a job before its 'JobState' value changes to 'PreparingAppliance'. Requesting the 'ListJobs' or 'DescribeJob' action will return a job\'s 'JobState' as part of the response element data returned.
+-- Cancels the specified job. Note that you can only cancel a job before its @JobState@ value changes to @PreparingAppliance@ . Requesting the @ListJobs@ or @DescribeJob@ action will return a job's @JobState@ as part of the response element data returned.
+--
+--
 module Network.AWS.Snowball.CancelJob
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype CancelJob = CancelJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjJobId'
+-- * 'cjJobId' - The 39 character job ID for the job that you want to cancel, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 cancelJob
     :: Text -- ^ 'cjJobId'
     -> CancelJob
@@ -59,7 +61,7 @@ cancelJob pJobId_ =
     { _cjJobId = pJobId_
     }
 
--- | The 39 character job ID for the job that you want to cancel, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The 39 character job ID for the job that you want to cancel, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 cjJobId :: Lens' CancelJob Text
 cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a});
 
@@ -104,7 +106,7 @@ newtype CancelJobResponse = CancelJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 cancelJobResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CancelJobResponse
@@ -113,7 +115,7 @@ cancelJobResponse pResponseStatus_ =
     { _crsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CancelJobResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

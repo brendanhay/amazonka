@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns all of the properties of a subscription.
+--
+--
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for GetSubscriptionAttributes.
 --
+--
+--
 -- /See:/ 'getSubscriptionAttributes' smart constructor.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
     { _gsaSubscriptionARN :: Text
@@ -53,7 +57,7 @@ newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsaSubscriptionARN'
+-- * 'gsaSubscriptionARN' - The ARN of the subscription whose properties you want to get.
 getSubscriptionAttributes
     :: Text -- ^ 'gsaSubscriptionARN'
     -> GetSubscriptionAttributes
@@ -98,6 +102,8 @@ instance ToQuery GetSubscriptionAttributes where
 
 -- | Response for GetSubscriptionAttributes action.
 --
+--
+--
 -- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     { _gsarsAttributes     :: !(Maybe (Map Text Text))
@@ -108,9 +114,9 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsarsAttributes'
+-- * 'gsarsAttributes' - A map of the subscription's attributes. Attributes in this map include the following:     * @SubscriptionArn@ -- the subscription's ARN     * @TopicArn@ -- the topic ARN that the subscription is associated with     * @Owner@ -- the AWS account ID of the subscription's owner     * @ConfirmationWasAuthenticated@ -- true if the subscription confirmation request was authenticated     * @DeliveryPolicy@ -- the JSON serialization of the subscription's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults
 --
--- * 'gsarsResponseStatus'
+-- * 'gsarsResponseStatus' - -- | The response status code.
 getSubscriptionAttributesResponse
     :: Int -- ^ 'gsarsResponseStatus'
     -> GetSubscriptionAttributesResponse
@@ -120,24 +126,11 @@ getSubscriptionAttributesResponse pResponseStatus_ =
     , _gsarsResponseStatus = pResponseStatus_
     }
 
--- | A map of the subscription\'s attributes. Attributes in this map include the following:
---
--- -   'SubscriptionArn' -- the subscription\'s ARN
---
--- -   'TopicArn' -- the topic ARN that the subscription is associated with
---
--- -   'Owner' -- the AWS account ID of the subscription\'s owner
---
--- -   'ConfirmationWasAuthenticated' -- true if the subscription confirmation request was authenticated
---
--- -   'DeliveryPolicy' -- the JSON serialization of the subscription\'s delivery policy
---
--- -   'EffectiveDeliveryPolicy' -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults
---
+-- | A map of the subscription's attributes. Attributes in this map include the following:     * @SubscriptionArn@ -- the subscription's ARN     * @TopicArn@ -- the topic ARN that the subscription is associated with     * @Owner@ -- the AWS account ID of the subscription's owner     * @ConfirmationWasAuthenticated@ -- true if the subscription confirmation request was authenticated     * @DeliveryPolicy@ -- the JSON serialization of the subscription's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults
 gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 gsarsResponseStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarsResponseStatus = lens _gsarsResponseStatus (\ s a -> s{_gsarsResponseStatus = a});
 

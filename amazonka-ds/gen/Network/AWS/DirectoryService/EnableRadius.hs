@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
+--
+--
 module Network.AWS.DirectoryService.EnableRadius
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < EnableRadius> operation.
+-- | Contains the inputs for the 'EnableRadius' operation.
+--
+--
 --
 -- /See:/ 'enableRadius' smart constructor.
 data EnableRadius = EnableRadius'
@@ -54,9 +58,9 @@ data EnableRadius = EnableRadius'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erDirectoryId'
+-- * 'erDirectoryId' - The identifier of the directory for which to enable MFA.
 --
--- * 'erRadiusSettings'
+-- * 'erRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
 enableRadius
     :: Text -- ^ 'erDirectoryId'
     -> RadiusSettings -- ^ 'erRadiusSettings'
@@ -71,7 +75,7 @@ enableRadius pDirectoryId_ pRadiusSettings_ =
 erDirectoryId :: Lens' EnableRadius Text
 erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS server.
+-- | A 'RadiusSettings' object that contains information about the RADIUS server.
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
 
@@ -110,7 +114,9 @@ instance ToPath EnableRadius where
 instance ToQuery EnableRadius where
         toQuery = const mempty
 
--- | Contains the results of the < EnableRadius> operation.
+-- | Contains the results of the 'EnableRadius' operation.
+--
+--
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'
@@ -121,7 +127,7 @@ newtype EnableRadiusResponse = EnableRadiusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'errsResponseStatus'
+-- * 'errsResponseStatus' - -- | The response status code.
 enableRadiusResponse
     :: Int -- ^ 'errsResponseStatus'
     -> EnableRadiusResponse
@@ -130,7 +136,7 @@ enableRadiusResponse pResponseStatus_ =
     { _errsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 errsResponseStatus :: Lens' EnableRadiusResponse Int
 errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a});
 

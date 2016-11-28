@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an application.
+--
+--
 module Network.AWS.CodeDeploy.CreateApplication
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create application operation.
 --
+--
+--
 -- /See:/ 'createApplication' smart constructor.
 newtype CreateApplication = CreateApplication'
     { _caApplicationName :: Text
@@ -53,7 +57,7 @@ newtype CreateApplication = CreateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caApplicationName'
+-- * 'caApplicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
 createApplication
     :: Text -- ^ 'caApplicationName'
     -> CreateApplication
@@ -103,6 +107,8 @@ instance ToQuery CreateApplication where
 
 -- | Represents the output of a create application operation.
 --
+--
+--
 -- /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
     { _carsApplicationId  :: !(Maybe Text)
@@ -113,9 +119,9 @@ data CreateApplicationResponse = CreateApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsApplicationId'
+-- * 'carsApplicationId' - A unique application ID.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 createApplicationResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateApplicationResponse
@@ -129,7 +135,7 @@ createApplicationResponse pResponseStatus_ =
 carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 

@@ -281,7 +281,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2011-01-01' of the Amazon Auto Scaling SDK configuration.
+-- | API version @2011-01-01@ of the Amazon Auto Scaling SDK configuration.
 autoScaling :: Service
 autoScaling =
     Service
@@ -316,27 +316,39 @@ autoScaling =
       | otherwise = Nothing
 
 -- | You already have an Auto Scaling group or launch configuration with this name.
+--
+--
 _AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
--- | You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see < DescribeAccountLimits>.
+-- | You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see 'DescribeAccountLimits' .
+--
+--
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
--- | The operation can\'t be performed because the resource is in use.
+-- | The operation can't be performed because the resource is in use.
+--
+--
 _ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
--- | The 'NextToken' value is not valid.
+-- | The @NextToken@ value is not valid.
+--
+--
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
--- | The operation can\'t be performed because there are scaling activities in progress.
+-- | The operation can't be performed because there are scaling activities in progress.
+--
+--
 _ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ScalingActivityInProgressFault =
     _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
 
 -- | You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load balancer).
+--
+--
 _ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceContentionFault =
     _ServiceError . hasStatus 500 . hasCode "ResourceContention"

@@ -20,7 +20,9 @@
 --
 -- Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.
 --
--- This operation requires permission for the 'lambda:DeleteEventSourceMapping' action.
+--
+-- This operation requires permission for the @lambda:DeleteEventSourceMapping@ action.
+--
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEventSourceMapping' smart constructor.
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
     { _desmUUId :: Text
@@ -61,7 +65,7 @@ newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desmUUId'
+-- * 'desmUUId' - The event source mapping ID.
 deleteEventSourceMapping
     :: Text -- ^ 'desmUUId'
     -> DeleteEventSourceMapping

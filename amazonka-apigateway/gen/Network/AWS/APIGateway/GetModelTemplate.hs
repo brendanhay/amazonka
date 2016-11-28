@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates a sample mapping template that can be used to transform a payload into the structure of a model.
+--
+--
 module Network.AWS.APIGateway.GetModelTemplate
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Request to generate a sample mapping template used to transform the payload.
 --
+--
+--
 -- /See:/ 'getModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
     { _gmtRestAPIId :: !Text
@@ -55,9 +59,9 @@ data GetModelTemplate = GetModelTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmtRestAPIId'
+-- * 'gmtRestAPIId' - The ID of the 'RestApi' under which the model exists.
 --
--- * 'gmtModelName'
+-- * 'gmtModelName' - The name of the model for which to generate a template.
 getModelTemplate
     :: Text -- ^ 'gmtRestAPIId'
     -> Text -- ^ 'gmtModelName'
@@ -68,7 +72,7 @@ getModelTemplate pRestAPIId_ pModelName_ =
     , _gmtModelName = pModelName_
     }
 
--- | The ID of the < RestApi> under which the model exists.
+-- | The ID of the 'RestApi' under which the model exists.
 gmtRestAPIId :: Lens' GetModelTemplate Text
 gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a});
 
@@ -106,6 +110,7 @@ instance ToQuery GetModelTemplate where
 
 -- | Represents a mapping template used to transform a payload.
 --
+--
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
 --
 -- /See:/ 'getModelTemplateResponse' smart constructor.
@@ -118,9 +123,9 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmtrsValue'
+-- * 'gmtrsValue' - The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 --
--- * 'gmtrsResponseStatus'
+-- * 'gmtrsResponseStatus' - -- | The response status code.
 getModelTemplateResponse
     :: Int -- ^ 'gmtrsResponseStatus'
     -> GetModelTemplateResponse
@@ -134,7 +139,7 @@ getModelTemplateResponse pResponseStatus_ =
 gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
 gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gmtrsResponseStatus :: Lens' GetModelTemplateResponse Int
 gmtrsResponseStatus = lens _gmtrsResponseStatus (\ s a -> s{_gmtrsResponseStatus = a});
 

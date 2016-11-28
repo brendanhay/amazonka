@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action can be used only with Windows stacks.
---
 -- Grants RDP access to a Windows instance for a specified time period.
+--
+--
 module Network.AWS.OpsWorks.GrantAccess
     (
     -- * Creating a Request
@@ -55,9 +55,9 @@ data GrantAccess = GrantAccess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaValidForInMinutes'
+-- * 'gaValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 --
--- * 'gaInstanceId'
+-- * 'gaInstanceId' - The instance's AWS OpsWorks ID.
 grantAccess
     :: Text -- ^ 'gaInstanceId'
     -> GrantAccess
@@ -71,7 +71,7 @@ grantAccess pInstanceId_ =
 gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
 gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
 
--- | The instance\'s AWS OpsWorks ID.
+-- | The instance's AWS OpsWorks ID.
 gaInstanceId :: Lens' GrantAccess Text
 gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 
@@ -111,7 +111,9 @@ instance ToPath GrantAccess where
 instance ToQuery GrantAccess where
         toQuery = const mempty
 
--- | Contains the response to a 'GrantAccess' request.
+-- | Contains the response to a @GrantAccess@ request.
+--
+--
 --
 -- /See:/ 'grantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
@@ -123,9 +125,9 @@ data GrantAccessResponse = GrantAccessResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsTemporaryCredential'
+-- * 'garsTemporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 grantAccessResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GrantAccessResponse
@@ -135,11 +137,11 @@ grantAccessResponse pResponseStatus_ =
     , _garsResponseStatus = pResponseStatus_
     }
 
--- | A 'TemporaryCredential' object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
+-- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GrantAccessResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 

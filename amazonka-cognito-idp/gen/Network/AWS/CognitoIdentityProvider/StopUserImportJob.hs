@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops the user import job.
+--
+--
 module Network.AWS.CognitoIdentityProvider.StopUserImportJob
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to stop the user import job.
 --
+--
+--
 -- /See:/ 'stopUserImportJob' smart constructor.
 data StopUserImportJob = StopUserImportJob'
     { _sUserPoolId :: !Text
@@ -55,9 +59,9 @@ data StopUserImportJob = StopUserImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sUserPoolId'
+-- * 'sUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'sJobId'
+-- * 'sJobId' - The job ID for the user import job.
 stopUserImportJob
     :: Text -- ^ 'sUserPoolId'
     -> Text -- ^ 'sJobId'
@@ -114,6 +118,8 @@ instance ToQuery StopUserImportJob where
 
 -- | Represents the response from the server to the request to stop the user import job.
 --
+--
+--
 -- /See:/ 'stopUserImportJobResponse' smart constructor.
 data StopUserImportJobResponse = StopUserImportJobResponse'
     { _srsUserImportJob  :: !(Maybe UserImportJobType)
@@ -124,9 +130,9 @@ data StopUserImportJobResponse = StopUserImportJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsUserImportJob'
+-- * 'srsUserImportJob' - The job object that represents the user import job.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopUserImportJobResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopUserImportJobResponse
@@ -140,7 +146,7 @@ stopUserImportJobResponse pResponseStatus_ =
 srsUserImportJob :: Lens' StopUserImportJobResponse (Maybe UserImportJobType)
 srsUserImportJob = lens _srsUserImportJob (\ s a -> s{_srsUserImportJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopUserImportJobResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

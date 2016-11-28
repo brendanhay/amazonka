@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Initiates the authentication flow, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Initiates the authorization request, as an administrator.
 --
+--
+--
 -- /See:/ 'adminInitiateAuth' smart constructor.
 data AdminInitiateAuth = AdminInitiateAuth'
     { _aiaClientMetadata :: !(Maybe (Map Text Text))
@@ -64,15 +68,15 @@ data AdminInitiateAuth = AdminInitiateAuth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiaClientMetadata'
+-- * 'aiaClientMetadata' - The client app metadata.
 --
--- * 'aiaAuthParameters'
+-- * 'aiaAuthParameters' - The authentication parameters.
 --
--- * 'aiaUserPoolId'
+-- * 'aiaUserPoolId' - The ID of the Amazon Cognito user pool.
 --
--- * 'aiaClientId'
+-- * 'aiaClientId' - The client app ID.
 --
--- * 'aiaAuthFlow'
+-- * 'aiaAuthFlow' - The authentication flow.
 adminInitiateAuth
     :: Text -- ^ 'aiaUserPoolId'
     -> Text -- ^ 'aiaClientId'
@@ -152,6 +156,8 @@ instance ToQuery AdminInitiateAuth where
 
 -- | Initiates the authentication response, as an administrator.
 --
+--
+--
 -- /See:/ 'adminInitiateAuthResponse' smart constructor.
 data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
     { _aiarsChallengeName        :: !(Maybe ChallengeNameType)
@@ -165,15 +171,15 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiarsChallengeName'
+-- * 'aiarsChallengeName' - The name of the challenge.
 --
--- * 'aiarsChallengeParameters'
+-- * 'aiarsChallengeParameters' - The challenge parameters.
 --
--- * 'aiarsAuthenticationResult'
+-- * 'aiarsAuthenticationResult' - Undocumented member.
 --
--- * 'aiarsSession'
+-- * 'aiarsSession' - The session.
 --
--- * 'aiarsResponseStatus'
+-- * 'aiarsResponseStatus' - -- | The response status code.
 adminInitiateAuthResponse
     :: Int -- ^ 'aiarsResponseStatus'
     -> AdminInitiateAuthResponse
@@ -202,7 +208,7 @@ aiarsAuthenticationResult = lens _aiarsAuthenticationResult (\ s a -> s{_aiarsAu
 aiarsSession :: Lens' AdminInitiateAuthResponse (Maybe Text)
 aiarsSession = lens _aiarsSession (\ s a -> s{_aiarsSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 aiarsResponseStatus :: Lens' AdminInitiateAuthResponse Int
 aiarsResponseStatus = lens _aiarsResponseStatus (\ s a -> s{_aiarsResponseStatus = a});
 

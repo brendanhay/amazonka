@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a metric filter associated with the specified log group.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
     -- * Creating a Request
@@ -50,9 +52,9 @@ data DeleteMetricFilter = DeleteMetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delLogGroupName'
+-- * 'delLogGroupName' - The name of the log group that is associated with the metric filter to delete.
 --
--- * 'delFilterName'
+-- * 'delFilterName' - The name of the metric filter to delete.
 deleteMetricFilter
     :: Text -- ^ 'delLogGroupName'
     -> Text -- ^ 'delFilterName'

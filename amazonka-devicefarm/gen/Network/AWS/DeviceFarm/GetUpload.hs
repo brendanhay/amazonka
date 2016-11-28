@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an upload.
+--
+--
 module Network.AWS.DeviceFarm.GetUpload
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get upload operation.
 --
+--
+--
 -- /See:/ 'getUpload' smart constructor.
 newtype GetUpload = GetUpload'
     { _guArn :: Text
@@ -53,7 +57,7 @@ newtype GetUpload = GetUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guArn'
+-- * 'guArn' - The upload's ARN.
 getUpload
     :: Text -- ^ 'guArn'
     -> GetUpload
@@ -62,7 +66,7 @@ getUpload pArn_ =
     { _guArn = pArn_
     }
 
--- | The upload\'s ARN.
+-- | The upload's ARN.
 guArn :: Lens' GetUpload Text
 guArn = lens _guArn (\ s a -> s{_guArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetUpload where
 
 -- | Represents the result of a get upload request.
 --
+--
+--
 -- /See:/ 'getUploadResponse' smart constructor.
 data GetUploadResponse = GetUploadResponse'
     { _gursUpload         :: !(Maybe Upload)
@@ -110,9 +116,9 @@ data GetUploadResponse = GetUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gursUpload'
+-- * 'gursUpload' - Undocumented member.
 --
--- * 'gursResponseStatus'
+-- * 'gursResponseStatus' - -- | The response status code.
 getUploadResponse
     :: Int -- ^ 'gursResponseStatus'
     -> GetUploadResponse
@@ -126,7 +132,7 @@ getUploadResponse pResponseStatus_ =
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
 gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gursResponseStatus :: Lens' GetUploadResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 

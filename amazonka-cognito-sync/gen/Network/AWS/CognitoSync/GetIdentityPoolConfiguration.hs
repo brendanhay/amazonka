@@ -20,7 +20,9 @@
 --
 -- Gets the configuration settings of an identity pool.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
+--
+--
 -- /See:/ 'getIdentityPoolConfiguration' smart constructor.
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
     { _gipcIdentityPoolId :: Text
@@ -57,7 +61,7 @@ newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gipcIdentityPoolId'
+-- * 'gipcIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
 getIdentityPoolConfiguration
     :: Text -- ^ 'gipcIdentityPoolId'
     -> GetIdentityPoolConfiguration
@@ -105,6 +109,8 @@ instance ToQuery GetIdentityPoolConfiguration where
 
 -- | The output for the GetIdentityPoolConfiguration operation.
 --
+--
+--
 -- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
     { _gipcrsIdentityPoolId :: !(Maybe Text)
@@ -117,13 +123,13 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gipcrsIdentityPoolId'
+-- * 'gipcrsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 --
--- * 'gipcrsCognitoStreams'
+-- * 'gipcrsCognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 --
--- * 'gipcrsPushSync'
+-- * 'gipcrsPushSync' - Options to apply to this identity pool for push synchronization.
 --
--- * 'gipcrsResponseStatus'
+-- * 'gipcrsResponseStatus' - -- | The response status code.
 getIdentityPoolConfigurationResponse
     :: Int -- ^ 'gipcrsResponseStatus'
     -> GetIdentityPoolConfigurationResponse
@@ -147,7 +153,7 @@ gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStre
 gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gipcrsResponseStatus :: Lens' GetIdentityPoolConfigurationResponse Int
 gipcrsResponseStatus = lens _gipcrsResponseStatus (\ s a -> s{_gipcrsResponseStatus = a});
 

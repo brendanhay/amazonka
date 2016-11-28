@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a gateway\'s metadata, which includes the gateway\'s name and time zone. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
+-- Updates a gateway's metadata, which includes the gateway's name and time zone. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- For Gateways activated after September 2, 2015, the gateway\'s ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway\'s ARN.
+--
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request
@@ -58,11 +58,11 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugiGatewayName'
+-- * 'ugiGatewayName' - Undocumented member.
 --
--- * 'ugiGatewayTimezone'
+-- * 'ugiGatewayTimezone' - Undocumented member.
 --
--- * 'ugiGatewayARN'
+-- * 'ugiGatewayARN' - Undocumented member.
 updateGatewayInformation
     :: Text -- ^ 'ugiGatewayARN'
     -> UpdateGatewayInformation
@@ -126,6 +126,8 @@ instance ToQuery UpdateGatewayInformation where
 
 -- | A JSON object containing the ARN of the gateway that was updated.
 --
+--
+--
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
     { _ugirsGatewayARN     :: !(Maybe Text)
@@ -137,11 +139,11 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugirsGatewayARN'
+-- * 'ugirsGatewayARN' - Undocumented member.
 --
--- * 'ugirsGatewayName'
+-- * 'ugirsGatewayName' - Undocumented member.
 --
--- * 'ugirsResponseStatus'
+-- * 'ugirsResponseStatus' - -- | The response status code.
 updateGatewayInformationResponse
     :: Int -- ^ 'ugirsResponseStatus'
     -> UpdateGatewayInformationResponse
@@ -160,7 +162,7 @@ ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
 ugirsGatewayName :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int
 ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a});
 

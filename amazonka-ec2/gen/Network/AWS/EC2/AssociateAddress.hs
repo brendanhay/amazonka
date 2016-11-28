@@ -20,13 +20,15 @@
 --
 -- Associates an Elastic IP address with an instance or a network interface.
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance.
 --
--- [VPC in an EC2-Classic account] If you don\'t specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation.
+-- [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation.
 --
--- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
+-- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+--
 module Network.AWS.EC2.AssociateAddress
     (
     -- * Creating a Request
@@ -58,6 +60,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AssociateAddress.
 --
+--
+--
 -- /See:/ 'associateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
     { _aasInstanceId         :: !(Maybe Text)
@@ -73,19 +77,19 @@ data AssociateAddress = AssociateAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aasInstanceId'
+-- * 'aasInstanceId' - The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 --
--- * 'aasAllocationId'
+-- * 'aasAllocationId' - [EC2-VPC] The allocation ID. This is required for EC2-VPC.
 --
--- * 'aasNetworkInterfaceId'
+-- * 'aasNetworkInterfaceId' - [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
 --
--- * 'aasAllowReassociation'
+-- * 'aasAllowReassociation' - [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
 --
--- * 'aasPrivateIPAddress'
+-- * 'aasPrivateIPAddress' - [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 --
--- * 'aasPublicIP'
+-- * 'aasPublicIP' - The Elastic IP address. This is required for EC2-Classic.
 --
--- * 'aasDryRun'
+-- * 'aasDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 associateAddress
     :: AssociateAddress
 associateAddress =
@@ -123,7 +127,7 @@ aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress
 aasPublicIP :: Lens' AssociateAddress (Maybe Text)
 aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aasDryRun :: Lens' AssociateAddress (Maybe Bool)
 aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 
@@ -160,6 +164,8 @@ instance ToQuery AssociateAddress where
 
 -- | Contains the output of AssociateAddress.
 --
+--
+--
 -- /See:/ 'associateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
     { _arsAssociationId  :: !(Maybe Text)
@@ -170,9 +176,9 @@ data AssociateAddressResponse = AssociateAddressResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arsAssociationId'
+-- * 'arsAssociationId' - [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
 --
--- * 'arsResponseStatus'
+-- * 'arsResponseStatus' - -- | The response status code.
 associateAddressResponse
     :: Int -- ^ 'arsResponseStatus'
     -> AssociateAddressResponse
@@ -186,7 +192,7 @@ associateAddressResponse pResponseStatus_ =
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 arsResponseStatus :: Lens' AssociateAddressResponse Int
 arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
 

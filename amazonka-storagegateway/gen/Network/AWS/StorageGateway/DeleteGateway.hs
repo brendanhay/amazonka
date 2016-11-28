@@ -20,9 +20,11 @@
 --
 -- Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name (ARN) of the gateway in your request. The operation deletes the gateway; however, it does not delete the gateway virtual machine (VM) from your host computer.
 --
+--
 -- After you delete a gateway, you cannot reactivate it. Completed snapshots of the gateway volumes are not deleted upon deleting the gateway, however, pending snapshots will not complete. After you delete a gateway, your next step is to remove it from your environment.
 --
--- You no longer pay software charges after the gateway is deleted; however, your existing Amazon EBS snapshots persist and you will continue to be billed for these snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you can delete your snapshots using the Amazon EC2 console. For more information, see the <http://aws.amazon.com/storagegateway AWS Storage Gateway Detail Page>.
+-- /Important:/ You no longer pay software charges after the gateway is deleted; however, your existing Amazon EBS snapshots persist and you will continue to be billed for these snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you can delete your snapshots using the Amazon EC2 console. For more information, see the <http://aws.amazon.com/storagegateway AWS Storage Gateway Detail Page> .
+--
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the id of the gateway to delete.
 --
+--
+--
 -- /See:/ 'deleteGateway' smart constructor.
 newtype DeleteGateway = DeleteGateway'
     { _dgGatewayARN :: Text
@@ -57,7 +61,7 @@ newtype DeleteGateway = DeleteGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGatewayARN'
+-- * 'dgGatewayARN' - Undocumented member.
 deleteGateway
     :: Text -- ^ 'dgGatewayARN'
     -> DeleteGateway
@@ -106,6 +110,8 @@ instance ToQuery DeleteGateway where
 
 -- | A JSON object containing the id of the deleted gateway.
 --
+--
+--
 -- /See:/ 'deleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
     { _dgrsGatewayARN     :: !(Maybe Text)
@@ -116,9 +122,9 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgrsGatewayARN'
+-- * 'dgrsGatewayARN' - Undocumented member.
 --
--- * 'dgrsResponseStatus'
+-- * 'dgrsResponseStatus' - -- | The response status code.
 deleteGatewayResponse
     :: Int -- ^ 'dgrsResponseStatus'
     -> DeleteGatewayResponse
@@ -132,7 +138,7 @@ deleteGatewayResponse pResponseStatus_ =
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
 dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
 

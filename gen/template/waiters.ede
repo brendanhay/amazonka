@@ -14,7 +14,7 @@ import {{ import.value }}
 {% endfor %}
 {% for waiter in waiters %}
 
-{{ waiter.value.constructor.documentation }}
+-- | {{ waiter.value.constructor.documentation }}
 {{ waiter.value.constructor.signature }}
 {{ waiter.value.constructor.declaration }}
 {% endfor %}

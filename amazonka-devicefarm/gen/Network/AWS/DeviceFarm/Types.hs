@@ -387,7 +387,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-06-23' of the Amazon Device Farm SDK configuration.
+-- | API version @2015-06-23@ of the Amazon Device Farm SDK configuration.
 deviceFarm :: Service
 deviceFarm =
     Service
@@ -422,25 +422,37 @@ deviceFarm =
       | otherwise = Nothing
 
 -- | Exception gets thrown when a user is not eligible to perform the specified transaction.
+--
+--
 _NotEligibleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotEligibleException = _ServiceError . hasCode "NotEligibleException"
 
 -- | An entity with the same name already exists.
+--
+--
 _IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotencyException = _ServiceError . hasCode "IdempotencyException"
 
 -- | An invalid argument was specified.
+--
+--
 _ArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _ArgumentException = _ServiceError . hasCode "ArgumentException"
 
 -- | The specified entity was not found.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasCode "NotFoundException"
 
 -- | There was a problem with the service account.
+--
+--
 _ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceAccountException = _ServiceError . hasCode "ServiceAccountException"
 
 -- | A limit was exceeded.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

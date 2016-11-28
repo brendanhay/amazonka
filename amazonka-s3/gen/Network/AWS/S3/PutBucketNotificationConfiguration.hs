@@ -50,9 +50,9 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbncBucket'
+-- * 'pbncBucket' - Undocumented member.
 --
--- * 'pbncNotificationConfiguration'
+-- * 'pbncNotificationConfiguration' - Undocumented member.
 putBucketNotificationConfiguration
     :: BucketName -- ^ 'pbncBucket'
     -> NotificationConfiguration -- ^ 'pbncNotificationConfiguration'

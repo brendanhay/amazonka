@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+--
+--
 module Network.AWS.IoT.CreateTopicRule
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreateTopicRule operation.
 --
+--
+--
 -- /See:/ 'createTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
     { _ctrRuleName         :: !Text
@@ -52,9 +56,9 @@ data CreateTopicRule = CreateTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrRuleName'
+-- * 'ctrRuleName' - The name of the rule.
 --
--- * 'ctrTopicRulePayload'
+-- * 'ctrTopicRulePayload' - The rule payload.
 createTopicRule
     :: Text -- ^ 'ctrRuleName'
     -> TopicRulePayload -- ^ 'ctrTopicRulePayload'

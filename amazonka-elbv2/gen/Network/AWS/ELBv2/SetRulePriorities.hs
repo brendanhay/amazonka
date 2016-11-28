@@ -20,7 +20,9 @@
 --
 -- Sets the priorities of the specified rules.
 --
+--
 -- You can reorder the rules as long as there are no priority conflicts in the new order. Any existing rules that you do not specify retain their current priority.
+--
 module Network.AWS.ELBv2.SetRulePriorities
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetRulePriorities.
 --
+--
+--
 -- /See:/ 'setRulePriorities' smart constructor.
 newtype SetRulePriorities = SetRulePriorities'
     { _srpRulePriorities :: [RulePriorityPair]
@@ -55,7 +59,7 @@ newtype SetRulePriorities = SetRulePriorities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srpRulePriorities'
+-- * 'srpRulePriorities' - The rule priorities.
 setRulePriorities
     :: SetRulePriorities
 setRulePriorities =
@@ -98,6 +102,8 @@ instance ToQuery SetRulePriorities where
 
 -- | Contains the output of SetRulePriorities.
 --
+--
+--
 -- /See:/ 'setRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
     { _srprsRules          :: !(Maybe [Rule])
@@ -108,9 +114,9 @@ data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srprsRules'
+-- * 'srprsRules' - Information about the rules.
 --
--- * 'srprsResponseStatus'
+-- * 'srprsResponseStatus' - -- | The response status code.
 setRulePrioritiesResponse
     :: Int -- ^ 'srprsResponseStatus'
     -> SetRulePrioritiesResponse
@@ -124,7 +130,7 @@ setRulePrioritiesResponse pResponseStatus_ =
 srprsRules :: Lens' SetRulePrioritiesResponse [Rule]
 srprsRules = lens _srprsRules (\ s a -> s{_srprsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 srprsResponseStatus :: Lens' SetRulePrioritiesResponse Int
 srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
 

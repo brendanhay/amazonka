@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn\'t apply to security groups for use in EC2-Classic. The values that you specify in the revoke request (for example, ports) must match the existing rule\'s values for the rule to be revoked.
+-- [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be revoked.
+--
 --
 -- Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
 --
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
+--
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RevokeSecurityGroupEgress.
 --
+--
+--
 -- /See:/ 'revokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     { _rsgeFromPort                   :: !(Maybe Int)
@@ -70,23 +74,23 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsgeFromPort'
+-- * 'rsgeFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'rsgeIPPermissions'
+-- * 'rsgeIPPermissions' - A set of IP permissions. You can't specify a destination security group and a CIDR IP address range.
 --
--- * 'rsgeIPProtocol'
+-- * 'rsgeIPProtocol' - The IP protocol name or number. We recommend that you specify the protocol in a set of IP permissions instead.
 --
--- * 'rsgeToPort'
+-- * 'rsgeToPort' - The end of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'rsgeCIdRIP'
+-- * 'rsgeCIdRIP' - The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
 --
--- * 'rsgeSourceSecurityGroupOwnerId'
+-- * 'rsgeSourceSecurityGroupOwnerId' - The AWS account number for a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
--- * 'rsgeSourceSecurityGroupName'
+-- * 'rsgeSourceSecurityGroupName' - The name of a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
--- * 'rsgeDryRun'
+-- * 'rsgeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rsgeGroupId'
+-- * 'rsgeGroupId' - The ID of the security group.
 revokeSecurityGroupEgress
     :: Text -- ^ 'rsgeGroupId'
     -> RevokeSecurityGroupEgress
@@ -107,7 +111,7 @@ revokeSecurityGroupEgress pGroupId_ =
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 
--- | A set of IP permissions. You can\'t specify a destination security group and a CIDR IP address range.
+-- | A set of IP permissions. You can't specify a destination security group and a CIDR IP address range.
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
 rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
 
@@ -131,7 +135,7 @@ rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\ s a -> 
 rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsgeSourceSecurityGroupName = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
 rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a});
 

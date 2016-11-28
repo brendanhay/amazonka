@@ -20,7 +20,9 @@
 --
 -- Removes the specified tags from the specified resource.
 --
--- To list the current tags for your resources, use < DescribeTags>.
+--
+-- To list the current tags for your resources, use 'DescribeTags' .
+--
 module Network.AWS.ELBv2.RemoveTags
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtResourceARNs :: ![Text]
@@ -56,9 +60,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtResourceARNs'
+-- * 'rtResourceARNs' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'rtTagKeys'
+-- * 'rtTagKeys' - The tag keys for the tags to remove.
 removeTags
     :: RemoveTags
 removeTags =
@@ -104,6 +108,8 @@ instance ToQuery RemoveTags where
 
 -- | Contains the output of RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
@@ -113,7 +119,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
@@ -122,7 +128,7 @@ removeTagsResponse pResponseStatus_ =
     { _rtrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

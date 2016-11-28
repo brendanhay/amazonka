@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an application.
+--
+--
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete application operation.
 --
+--
+--
 -- /See:/ 'deleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
     { _daApplicationName :: Text
@@ -50,7 +54,7 @@ newtype DeleteApplication = DeleteApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationName'
+-- * 'daApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 deleteApplication
     :: Text -- ^ 'daApplicationName'
     -> DeleteApplication

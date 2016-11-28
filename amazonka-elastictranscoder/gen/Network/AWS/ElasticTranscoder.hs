@@ -11,9 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Elastic Transcoder Service
+-- __AWS Elastic Transcoder Service__
 --
 -- The AWS Elastic Transcoder Service.
+--
 module Network.AWS.ElasticTranscoder
     (
     -- * Service Configuration

@@ -20,9 +20,9 @@
 --
 -- Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, AWS Config sends following notifications using an Amazon SNS topic that you have specified.
 --
--- -   Notification of starting the delivery.
--- -   Notification of delivery completed, if the delivery was successfully completed.
--- -   Notification of delivery failure, if the delivery failed to complete.
+--
+--     * Notification of starting the delivery.    * Notification of delivery completed, if the delivery was successfully completed.    * Notification of delivery failure, if the delivery failed to complete.
+--
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DeliverConfigSnapshot> action.
+-- | The input for the 'DeliverConfigSnapshot' action.
+--
+--
 --
 -- /See:/ 'deliverConfigSnapshot' smart constructor.
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
@@ -57,7 +59,7 @@ newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsDeliveryChannelName'
+-- * 'dcsDeliveryChannelName' - The name of the delivery channel through which the snapshot is delivered.
 deliverConfigSnapshot
     :: Text -- ^ 'dcsDeliveryChannelName'
     -> DeliverConfigSnapshot
@@ -107,7 +109,9 @@ instance ToPath DeliverConfigSnapshot where
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty
 
--- | The output for the < DeliverConfigSnapshot> action in JSON format.
+-- | The output for the 'DeliverConfigSnapshot' action in JSON format.
+--
+--
 --
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
@@ -119,9 +123,9 @@ data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsrsConfigSnapshotId'
+-- * 'dcsrsConfigSnapshotId' - The ID of the snapshot that is being created.
 --
--- * 'dcsrsResponseStatus'
+-- * 'dcsrsResponseStatus' - -- | The response status code.
 deliverConfigSnapshotResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DeliverConfigSnapshotResponse
@@ -135,7 +139,7 @@ deliverConfigSnapshotResponse pResponseStatus_ =
 dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 

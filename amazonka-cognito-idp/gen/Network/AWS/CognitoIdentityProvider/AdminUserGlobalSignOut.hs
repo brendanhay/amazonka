@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The request to sign out of all devices, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUserGlobalSignOut' smart constructor.
 data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
     { _augsoUserPoolId :: !Text
@@ -54,9 +58,9 @@ data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'augsoUserPoolId'
+-- * 'augsoUserPoolId' - The user pool ID.
 --
--- * 'augsoUsername'
+-- * 'augsoUsername' - The user name.
 adminUserGlobalSignOut
     :: Text -- ^ 'augsoUserPoolId'
     -> Text -- ^ 'augsoUsername'
@@ -114,6 +118,8 @@ instance ToQuery AdminUserGlobalSignOut where
 
 -- | The global sign-out response, as an administrator.
 --
+--
+--
 -- /See:/ 'adminUserGlobalSignOutResponse' smart constructor.
 newtype AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
     { _augsorsResponseStatus :: Int
@@ -123,7 +129,7 @@ newtype AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'augsorsResponseStatus'
+-- * 'augsorsResponseStatus' - -- | The response status code.
 adminUserGlobalSignOutResponse
     :: Int -- ^ 'augsorsResponseStatus'
     -> AdminUserGlobalSignOutResponse
@@ -132,7 +138,7 @@ adminUserGlobalSignOutResponse pResponseStatus_ =
     { _augsorsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 augsorsResponseStatus :: Lens' AdminUserGlobalSignOutResponse Int
 augsorsResponseStatus = lens _augsorsResponseStatus (\ s a -> s{_augsorsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < ApiKey> resource.
+-- Deletes the 'ApiKey' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteAPIKey
     (
     -- * Creating a Request
@@ -39,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the < ApiKey> resource.
+-- | A request to delete the 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'deleteAPIKey' smart constructor.
 newtype DeleteAPIKey = DeleteAPIKey'
@@ -50,7 +54,7 @@ newtype DeleteAPIKey = DeleteAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakApiKey'
+-- * 'dakApiKey' - The identifier of the 'ApiKey' resource to be deleted.
 deleteAPIKey
     :: Text -- ^ 'dakApiKey'
     -> DeleteAPIKey
@@ -59,7 +63,7 @@ deleteAPIKey pApiKey_ =
     { _dakApiKey = pApiKey_
     }
 
--- | The identifier of the < ApiKey> resource to be deleted.
+-- | The identifier of the 'ApiKey' resource to be deleted.
 dakApiKey :: Lens' DeleteAPIKey Text
 dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
 

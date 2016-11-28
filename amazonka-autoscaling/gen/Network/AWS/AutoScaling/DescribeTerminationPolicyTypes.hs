@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the termination policies supported by Auto Scaling.
+--
+--
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Creating a Request
@@ -86,6 +88,8 @@ instance ToQuery DescribeTerminationPolicyTypes where
 
 -- | Contains the output of DescribeTerminationPolicyTypes.
 --
+--
+--
 -- /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
@@ -96,9 +100,9 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtptrsTerminationPolicyTypes'
+-- * 'dtptrsTerminationPolicyTypes' - The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
 --
--- * 'dtptrsResponseStatus'
+-- * 'dtptrsResponseStatus' - -- | The response status code.
 describeTerminationPolicyTypesResponse
     :: Int -- ^ 'dtptrsResponseStatus'
     -> DescribeTerminationPolicyTypesResponse
@@ -108,11 +112,11 @@ describeTerminationPolicyTypesResponse pResponseStatus_ =
     , _dtptrsResponseStatus = pResponseStatus_
     }
 
--- | The termination policies supported by Auto Scaling ('OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default').
+-- | The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
 dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a});
 

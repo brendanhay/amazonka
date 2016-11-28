@@ -33,7 +33,7 @@ newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aimuDaysAfterInitiation'
+-- * 'aimuDaysAfterInitiation' - Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload.
 abortIncompleteMultipartUpload
     :: AbortIncompleteMultipartUpload
 abortIncompleteMultipartUpload =
@@ -68,7 +68,7 @@ newtype AccelerateConfiguration = AccelerateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acStatus'
+-- * 'acStatus' - The accelerate configuration of the bucket.
 accelerateConfiguration
     :: AccelerateConfiguration
 accelerateConfiguration =
@@ -98,9 +98,9 @@ data AccessControlPolicy = AccessControlPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acpGrants'
+-- * 'acpGrants' - A list of grants.
 --
--- * 'acpOwner'
+-- * 'acpOwner' - Undocumented member.
 accessControlPolicy
     :: AccessControlPolicy
 accessControlPolicy =
@@ -138,9 +138,9 @@ data Bucket = Bucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bCreationDate'
+-- * 'bCreationDate' - Date the bucket was created.
 --
--- * 'bName'
+-- * 'bName' - The name of the bucket.
 bucket
     :: UTCTime -- ^ 'bCreationDate'
     -> BucketName -- ^ 'bName'
@@ -176,7 +176,7 @@ newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'blcRules'
+-- * 'blcRules' - Undocumented member.
 bucketLifecycleConfiguration
     :: BucketLifecycleConfiguration
 bucketLifecycleConfiguration =
@@ -205,7 +205,7 @@ newtype BucketLoggingStatus = BucketLoggingStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'blsLoggingEnabled'
+-- * 'blsLoggingEnabled' - Undocumented member.
 bucketLoggingStatus
     :: BucketLoggingStatus
 bucketLoggingStatus =
@@ -234,7 +234,7 @@ newtype CORSConfiguration = CORSConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccCORSRules'
+-- * 'ccCORSRules' - Undocumented member.
 corsConfiguration
     :: CORSConfiguration
 corsConfiguration =
@@ -267,15 +267,15 @@ data CORSRule = CORSRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crMaxAgeSeconds'
+-- * 'crMaxAgeSeconds' - The time in seconds that your browser is to cache the preflight response for the specified resource.
 --
--- * 'crAllowedHeaders'
+-- * 'crAllowedHeaders' - Specifies which headers are allowed in a pre-flight OPTIONS request.
 --
--- * 'crExposeHeaders'
+-- * 'crExposeHeaders' - One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
 --
--- * 'crAllowedMethods'
+-- * 'crAllowedMethods' - Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
 --
--- * 'crAllowedOrigins'
+-- * 'crAllowedOrigins' - One or more origins you want customers to be able to access the bucket from.
 corsRule
     :: CORSRule
 corsRule =
@@ -299,7 +299,7 @@ crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . 
 crExposeHeaders :: Lens' CORSRule [Text]
 crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default . _Coerce;
 
--- | Identifies HTTP methods that the domain\/origin specified in the rule is allowed to execute.
+-- | Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.
 crAllowedMethods :: Lens' CORSRule [Text]
 crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Coerce;
 
@@ -340,7 +340,7 @@ newtype CommonPrefix = CommonPrefix'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPrefix'
+-- * 'cpPrefix' - Undocumented member.
 commonPrefix
     :: CommonPrefix
 commonPrefix =
@@ -368,7 +368,7 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmuParts'
+-- * 'cmuParts' - Undocumented member.
 completedMultipartUpload
     :: CompletedMultipartUpload
 completedMultipartUpload =
@@ -398,9 +398,9 @@ data CompletedPart = CompletedPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPartNumber'
+-- * 'cpPartNumber' - Part number that identifies the part. This is a positive integer between 1 and 10,000.
 --
--- * 'cpETag'
+-- * 'cpETag' - Entity tag returned when the part was uploaded.
 completedPart
     :: Int -- ^ 'cpPartNumber'
     -> ETag -- ^ 'cpETag'
@@ -438,9 +438,9 @@ data Condition = Condition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cKeyPrefixEquals'
+-- * 'cKeyPrefixEquals' - The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
 --
--- * 'cHTTPErrorCodeReturnedEquals'
+-- * 'cHTTPErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.
 condition
     :: Condition
 condition =
@@ -449,7 +449,7 @@ condition =
     , _cHTTPErrorCodeReturnedEquals = Nothing
     }
 
--- | The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs\/, the key prefix will be \/docs, which identifies all objects in the docs\/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+-- | The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
 cKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cKeyPrefixEquals = lens _cKeyPrefixEquals (\ s a -> s{_cKeyPrefixEquals = a});
 
@@ -484,9 +484,9 @@ data CopyObjectResult = CopyObjectResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'corETag'
+-- * 'corETag' - Undocumented member.
 --
--- * 'corLastModified'
+-- * 'corLastModified' - Undocumented member.
 copyObjectResult
     :: CopyObjectResult
 copyObjectResult =
@@ -522,9 +522,9 @@ data CopyPartResult = CopyPartResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprETag'
+-- * 'cprETag' - Entity tag of the object.
 --
--- * 'cprLastModified'
+-- * 'cprLastModified' - Date and time at which the object was uploaded.
 copyPartResult
     :: CopyPartResult
 copyPartResult =
@@ -559,7 +559,7 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbcLocationConstraint'
+-- * 'cbcLocationConstraint' - Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
 createBucketConfiguration
     :: CreateBucketConfiguration
 createBucketConfiguration =
@@ -567,7 +567,7 @@ createBucketConfiguration =
     { _cbcLocationConstraint = Nothing
     }
 
--- | Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
+-- | Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
 
@@ -590,9 +590,9 @@ data Delete = Delete'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dQuiet'
+-- * 'dQuiet' - Element to enable quiet mode for the request. When you add this element, you must set its value to true.
 --
--- * 'dObjects'
+-- * 'dObjects' - Undocumented member.
 delete'
     :: Delete
 delete' =
@@ -631,15 +631,15 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmeVersionId'
+-- * 'dmeVersionId' - Version ID of an object.
 --
--- * 'dmeIsLatest'
+-- * 'dmeIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
 --
--- * 'dmeOwner'
+-- * 'dmeOwner' - Undocumented member.
 --
--- * 'dmeKey'
+-- * 'dmeKey' - The object key.
 --
--- * 'dmeLastModified'
+-- * 'dmeLastModified' - Date and time the object was last modified.
 deleteMarkerEntry
     :: DeleteMarkerEntry
 deleteMarkerEntry =
@@ -695,13 +695,13 @@ data DeletedObject = DeletedObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVersionId'
+-- * 'dVersionId' - Undocumented member.
 --
--- * 'dDeleteMarker'
+-- * 'dDeleteMarker' - Undocumented member.
 --
--- * 'dDeleteMarkerVersionId'
+-- * 'dDeleteMarkerVersionId' - Undocumented member.
 --
--- * 'dKey'
+-- * 'dKey' - Undocumented member.
 deletedObject
     :: DeletedObject
 deletedObject =
@@ -749,9 +749,9 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dStorageClass'
+-- * 'dStorageClass' - The class of storage used to store the object.
 --
--- * 'dBucket'
+-- * 'dBucket' - Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 destination
     :: BucketName -- ^ 'dBucket'
     -> Destination
@@ -793,7 +793,7 @@ newtype ErrorDocument = ErrorDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edKey'
+-- * 'edKey' - The object key name to use when a 4XX class error occurs.
 errorDocument
     :: ObjectKey -- ^ 'edKey'
     -> ErrorDocument
@@ -828,9 +828,9 @@ data FilterRule = FilterRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'frValue'
+-- * 'frValue' - Undocumented member.
 --
--- * 'frName'
+-- * 'frName' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 filterRule
     :: FilterRule
 filterRule =
@@ -843,7 +843,7 @@ filterRule =
 frValue :: Lens' FilterRule (Maybe Text)
 frValue = lens _frValue (\ s a -> s{_frValue = a});
 
--- | Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the Amazon Simple Storage Service Developer Guide.
+-- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 frName :: Lens' FilterRule (Maybe FilterRuleName)
 frName = lens _frName (\ s a -> s{_frName = a});
 
@@ -869,9 +869,9 @@ data Grant = Grant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gPermission'
+-- * 'gPermission' - Specifies the permission given to the grantee.
 --
--- * 'gGrantee'
+-- * 'gGrantee' - Undocumented member.
 grant
     :: Grant
 grant =
@@ -916,15 +916,15 @@ data Grantee = Grantee'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gURI'
+-- * 'gURI' - URI of the grantee group.
 --
--- * 'gEmailAddress'
+-- * 'gEmailAddress' - Email address of the grantee.
 --
--- * 'gDisplayName'
+-- * 'gDisplayName' - Screen name of the grantee.
 --
--- * 'gId'
+-- * 'gId' - The canonical user ID of the grantee.
 --
--- * 'gType'
+-- * 'gType' - Type of grantee
 grantee
     :: Type -- ^ 'gType'
     -> Grantee
@@ -985,7 +985,7 @@ newtype IndexDocument = IndexDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'idSuffix'
+-- * 'idSuffix' - A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
 indexDocument
     :: Text -- ^ 'idSuffix'
     -> IndexDocument
@@ -994,7 +994,7 @@ indexDocument pSuffix_ =
     { _idSuffix = pSuffix_
     }
 
--- | A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket\/images\/ the data that is returned will be for the object with the key name images\/index.html) The suffix must not be empty and must not include a slash character.
+-- | A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
 idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\ s a -> s{_idSuffix = a});
 
@@ -1019,9 +1019,9 @@ data Initiator = Initiator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iDisplayName'
+-- * 'iDisplayName' - Name of the Principal.
 --
--- * 'iId'
+-- * 'iId' - If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
 initiator
     :: Initiator
 initiator =
@@ -1061,13 +1061,13 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfcId'
+-- * 'lfcId' - Undocumented member.
 --
--- * 'lfcFilter'
+-- * 'lfcFilter' - Undocumented member.
 --
--- * 'lfcLambdaFunctionARN'
+-- * 'lfcLambdaFunctionARN' - Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.
 --
--- * 'lfcEvents'
+-- * 'lfcEvents' - Undocumented member.
 lambdaFunctionConfiguration
     :: Text -- ^ 'lfcLambdaFunctionARN'
     -> LambdaFunctionConfiguration
@@ -1124,11 +1124,11 @@ data LifecycleExpiration = LifecycleExpiration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'leDays'
+-- * 'leDays' - Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 --
--- * 'leDate'
+-- * 'leDate' - Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 --
--- * 'leExpiredObjectDeleteMarker'
+-- * 'leExpiredObjectDeleteMarker' - Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 lifecycleExpiration
     :: LifecycleExpiration
 lifecycleExpiration =
@@ -1183,21 +1183,21 @@ data LifecycleRule = LifecycleRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrTransitions'
+-- * 'lrTransitions' - Undocumented member.
 --
--- * 'lrNoncurrentVersionExpiration'
+-- * 'lrNoncurrentVersionExpiration' - Undocumented member.
 --
--- * 'lrNoncurrentVersionTransitions'
+-- * 'lrNoncurrentVersionTransitions' - Undocumented member.
 --
--- * 'lrExpiration'
+-- * 'lrExpiration' - Undocumented member.
 --
--- * 'lrId'
+-- * 'lrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
 --
--- * 'lrAbortIncompleteMultipartUpload'
+-- * 'lrAbortIncompleteMultipartUpload' - Undocumented member.
 --
--- * 'lrPrefix'
+-- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies.
 --
--- * 'lrStatus'
+-- * 'lrStatus' - If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 lifecycleRule
     :: Text -- ^ 'lrPrefix'
     -> ExpirationStatus -- ^ 'lrStatus'
@@ -1242,7 +1242,7 @@ lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\ s a
 lrPrefix :: Lens' LifecycleRule Text
 lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
 
--- | If \'Enabled\', the rule is currently being applied. If \'Disabled\', the rule is not currently being applied.
+-- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 lrStatus :: Lens' LifecycleRule ExpirationStatus
 lrStatus = lens _lrStatus (\ s a -> s{_lrStatus = a});
 
@@ -1288,11 +1288,11 @@ data LoggingEnabled = LoggingEnabled'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'leTargetBucket'
+-- * 'leTargetBucket' - Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
 --
--- * 'leTargetGrants'
+-- * 'leTargetGrants' - Undocumented member.
 --
--- * 'leTargetPrefix'
+-- * 'leTargetPrefix' - This element lets you specify a prefix for the keys that the log files will be stored under.
 loggingEnabled
     :: LoggingEnabled
 loggingEnabled =
@@ -1348,17 +1348,17 @@ data MultipartUpload = MultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'muInitiated'
+-- * 'muInitiated' - Date and time at which the multipart upload was initiated.
 --
--- * 'muInitiator'
+-- * 'muInitiator' - Identifies who initiated the multipart upload.
 --
--- * 'muOwner'
+-- * 'muOwner' - Undocumented member.
 --
--- * 'muKey'
+-- * 'muKey' - Key of the object for which the multipart upload was initiated.
 --
--- * 'muStorageClass'
+-- * 'muStorageClass' - The class of storage used to store the object.
 --
--- * 'muUploadId'
+-- * 'muUploadId' - Upload ID that identifies the multipart upload.
 multipartUpload
     :: MultipartUpload
 multipartUpload =
@@ -1408,7 +1408,7 @@ instance Hashable MultipartUpload
 
 instance NFData MultipartUpload
 
--- | Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
+-- | Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
 --
 -- /See:/ 'noncurrentVersionExpiration' smart constructor.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
@@ -1419,7 +1419,7 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nveNoncurrentDays'
+-- * 'nveNoncurrentDays' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 noncurrentVersionExpiration
     :: Int -- ^ 'nveNoncurrentDays'
     -> NoncurrentVersionExpiration
@@ -1428,7 +1428,7 @@ noncurrentVersionExpiration pNoncurrentDays_ =
     { _nveNoncurrentDays = pNoncurrentDays_
     }
 
--- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
+-- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
 nveNoncurrentDays = lens _nveNoncurrentDays (\ s a -> s{_nveNoncurrentDays = a});
 
@@ -1445,7 +1445,7 @@ instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
           = mconcat ["NoncurrentDays" @= _nveNoncurrentDays]
 
--- | Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object\'s lifetime.
+-- | Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
@@ -1457,9 +1457,9 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nvtNoncurrentDays'
+-- * 'nvtNoncurrentDays' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 --
--- * 'nvtStorageClass'
+-- * 'nvtStorageClass' - The class of storage used to store the object.
 noncurrentVersionTransition
     :: Int -- ^ 'nvtNoncurrentDays'
     -> TransitionStorageClass -- ^ 'nvtStorageClass'
@@ -1470,7 +1470,7 @@ noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
     , _nvtStorageClass = pStorageClass_
     }
 
--- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
+-- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
 nvtNoncurrentDays = lens _nvtNoncurrentDays (\ s a -> s{_nvtNoncurrentDays = a});
 
@@ -1506,11 +1506,11 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncQueueConfigurations'
+-- * 'ncQueueConfigurations' - Undocumented member.
 --
--- * 'ncTopicConfigurations'
+-- * 'ncTopicConfigurations' - Undocumented member.
 --
--- * 'ncLambdaFunctionConfigurations'
+-- * 'ncLambdaFunctionConfigurations' - Undocumented member.
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
@@ -1557,7 +1557,7 @@ instance ToXML NotificationConfiguration where
                  (toXMLList "CloudFunctionConfiguration" <$>
                     _ncLambdaFunctionConfigurations)]
 
--- | Container for object key name filtering rules. For information about key name filtering, go to <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the Amazon Simple Storage Service Developer Guide.
+-- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 --
 -- /See:/ 'notificationConfigurationFilter' smart constructor.
 newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
@@ -1568,7 +1568,7 @@ newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncfKey'
+-- * 'ncfKey' - Undocumented member.
 notificationConfigurationFilter
     :: NotificationConfigurationFilter
 notificationConfigurationFilter =
@@ -1608,17 +1608,17 @@ data Object = Object'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oOwner'
+-- * 'oOwner' - Undocumented member.
 --
--- * 'oETag'
+-- * 'oETag' - Undocumented member.
 --
--- * 'oSize'
+-- * 'oSize' - Undocumented member.
 --
--- * 'oKey'
+-- * 'oKey' - Undocumented member.
 --
--- * 'oStorageClass'
+-- * 'oStorageClass' - The class of storage used to store the object.
 --
--- * 'oLastModified'
+-- * 'oLastModified' - Undocumented member.
 object'
     :: ETag -- ^ 'oETag'
     -> Int -- ^ 'oSize'
@@ -1682,9 +1682,9 @@ data ObjectIdentifier = ObjectIdentifier'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oiVersionId'
+-- * 'oiVersionId' - VersionId for the specific version of the object to delete.
 --
--- * 'oiKey'
+-- * 'oiKey' - Key name of the object to delete.
 objectIdentifier
     :: ObjectKey -- ^ 'oiKey'
     -> ObjectIdentifier
@@ -1727,21 +1727,21 @@ data ObjectVersion = ObjectVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ovETag'
+-- * 'ovETag' - Undocumented member.
 --
--- * 'ovVersionId'
+-- * 'ovVersionId' - Version ID of an object.
 --
--- * 'ovSize'
+-- * 'ovSize' - Size in bytes of the object.
 --
--- * 'ovIsLatest'
+-- * 'ovIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
 --
--- * 'ovOwner'
+-- * 'ovOwner' - Undocumented member.
 --
--- * 'ovKey'
+-- * 'ovKey' - The object key.
 --
--- * 'ovStorageClass'
+-- * 'ovStorageClass' - The class of storage used to store the object.
 --
--- * 'ovLastModified'
+-- * 'ovLastModified' - Date and time the object was last modified.
 objectVersion
     :: ObjectVersion
 objectVersion =
@@ -1813,9 +1813,9 @@ data Owner = Owner'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oDisplayName'
+-- * 'oDisplayName' - Undocumented member.
 --
--- * 'oId'
+-- * 'oId' - Undocumented member.
 owner
     :: Owner
 owner =
@@ -1857,13 +1857,13 @@ data Part = Part'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pETag'
+-- * 'pETag' - Entity tag returned when the part was uploaded.
 --
--- * 'pSize'
+-- * 'pSize' - Size of the uploaded part data.
 --
--- * 'pPartNumber'
+-- * 'pPartNumber' - Part number identifying the part. This is a positive integer between 1 and 10,000.
 --
--- * 'pLastModified'
+-- * 'pLastModified' - Date and time at which the part was uploaded.
 part
     :: Part
 part =
@@ -1915,13 +1915,13 @@ data QueueConfiguration = QueueConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qcId'
+-- * 'qcId' - Undocumented member.
 --
--- * 'qcFilter'
+-- * 'qcFilter' - Undocumented member.
 --
--- * 'qcQueueARN'
+-- * 'qcQueueARN' - Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.
 --
--- * 'qcEvents'
+-- * 'qcEvents' - Undocumented member.
 queueConfiguration
     :: Text -- ^ 'qcQueueARN'
     -> QueueConfiguration
@@ -1978,15 +1978,15 @@ data Redirect = Redirect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rHostName'
+-- * 'rHostName' - The host name to use in the redirect request.
 --
--- * 'rProtocol'
+-- * 'rProtocol' - Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
 --
--- * 'rHTTPRedirectCode'
+-- * 'rHTTPRedirectCode' - The HTTP redirect code to use on the response. Not required if one of the siblings is present.
 --
--- * 'rReplaceKeyWith'
+-- * 'rReplaceKeyWith' - The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.
 --
--- * 'rReplaceKeyPrefixWith'
+-- * 'rReplaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
 redirect
     :: Redirect
 redirect =
@@ -2014,7 +2014,7 @@ rHTTPRedirectCode = lens _rHTTPRedirectCode (\ s a -> s{_rHTTPRedirectCode = a})
 rReplaceKeyWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyWith = lens _rReplaceKeyWith (\ s a -> s{_rReplaceKeyWith = a});
 
--- | The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs\/ (objects in the docs\/ folder) to documents\/, you can set a condition block with KeyPrefixEquals set to docs\/ and in the Redirect set ReplaceKeyPrefixWith to \/documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
+-- | The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.
 rReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyPrefixWith = lens _rReplaceKeyPrefixWith (\ s a -> s{_rReplaceKeyPrefixWith = a});
 
@@ -2048,9 +2048,9 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rartProtocol'
+-- * 'rartProtocol' - Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
 --
--- * 'rartHostName'
+-- * 'rartHostName' - Name of the host where requests will be redirected.
 redirectAllRequestsTo
     :: Text -- ^ 'rartHostName'
     -> RedirectAllRequestsTo
@@ -2095,9 +2095,9 @@ data ReplicationConfiguration = ReplicationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcRole'
+-- * 'rcRole' - Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.
 --
--- * 'rcRules'
+-- * 'rcRules' - Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.
 replicationConfiguration
     :: Text -- ^ 'rcRole'
     -> ReplicationConfiguration
@@ -2141,13 +2141,13 @@ data ReplicationRule = ReplicationRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrId'
+-- * 'rrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
 --
--- * 'rrPrefix'
+-- * 'rrPrefix' - Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
 --
--- * 'rrStatus'
+-- * 'rrStatus' - The rule is ignored if status is not Enabled.
 --
--- * 'rrDestination'
+-- * 'rrDestination' - Undocumented member.
 replicationRule
     :: Text -- ^ 'rrPrefix'
     -> ReplicationRuleStatus -- ^ 'rrStatus'
@@ -2203,7 +2203,7 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpcPayer'
+-- * 'rpcPayer' - Specifies who pays for the download and request fees.
 requestPaymentConfiguration
     :: Payer -- ^ 'rpcPayer'
     -> RequestPaymentConfiguration
@@ -2233,7 +2233,7 @@ newtype RestoreRequest = RestoreRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrDays'
+-- * 'rrDays' - Lifetime of the active copy in days
 restoreRequest
     :: Int -- ^ 'rrDays'
     -> RestoreRequest
@@ -2264,9 +2264,9 @@ data RoutingRule = RoutingRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrCondition'
+-- * 'rrCondition' - A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 --
--- * 'rrRedirect'
+-- * 'rrRedirect' - Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
 routingRule
     :: Redirect -- ^ 'rrRedirect'
     -> RoutingRule
@@ -2276,7 +2276,7 @@ routingRule pRedirect_ =
     , _rrRedirect = pRedirect_
     }
 
--- | A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the \/docs folder, redirect to the \/documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+-- | A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 rrCondition :: Lens' RoutingRule (Maybe Condition)
 rrCondition = lens _rrCondition (\ s a -> s{_rrCondition = a});
 
@@ -2310,7 +2310,7 @@ newtype S3KeyFilter = S3KeyFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'skfFilterRules'
+-- * 'skfFilterRules' - Undocumented member.
 s3KeyFilter
     :: S3KeyFilter
 s3KeyFilter =
@@ -2348,13 +2348,13 @@ data S3ServiceError = S3ServiceError'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sseVersionId'
+-- * 'sseVersionId' - Undocumented member.
 --
--- * 'sseKey'
+-- * 'sseKey' - Undocumented member.
 --
--- * 'sseCode'
+-- * 'sseCode' - Undocumented member.
 --
--- * 'sseMessage'
+-- * 'sseMessage' - Undocumented member.
 s3ServiceError
     :: S3ServiceError
 s3ServiceError =
@@ -2402,9 +2402,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - Name of the tag.
 --
--- * 'tagValue'
+-- * 'tagValue' - Value of the tag.
 tag
     :: ObjectKey -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -2443,7 +2443,7 @@ newtype Tagging = Tagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tTagSet'
+-- * 'tTagSet' - Undocumented member.
 tagging
     :: Tagging
 tagging =
@@ -2473,9 +2473,9 @@ data TargetGrant = TargetGrant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tgPermission'
+-- * 'tgPermission' - Logging permissions assigned to the Grantee for the bucket.
 --
--- * 'tgGrantee'
+-- * 'tgGrantee' - Undocumented member.
 targetGrant
     :: TargetGrant
 targetGrant =
@@ -2521,13 +2521,13 @@ data TopicConfiguration = TopicConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcId'
+-- * 'tcId' - Undocumented member.
 --
--- * 'tcFilter'
+-- * 'tcFilter' - Undocumented member.
 --
--- * 'tcTopicARN'
+-- * 'tcTopicARN' - Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.
 --
--- * 'tcEvents'
+-- * 'tcEvents' - Undocumented member.
 topicConfiguration
     :: Text -- ^ 'tcTopicARN'
     -> TopicConfiguration
@@ -2582,11 +2582,11 @@ data Transition = Transition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tDays'
+-- * 'tDays' - Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 --
--- * 'tDate'
+-- * 'tDate' - Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 --
--- * 'tStorageClass'
+-- * 'tStorageClass' - The class of storage used to store the object.
 transition
     :: Transition
 transition =
@@ -2634,9 +2634,9 @@ data VersioningConfiguration = VersioningConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcStatus'
+-- * 'vcStatus' - The versioning state of the bucket.
 --
--- * 'vcMFADelete'
+-- * 'vcMFADelete' - Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 versioningConfiguration
     :: VersioningConfiguration
 versioningConfiguration =
@@ -2674,13 +2674,13 @@ data WebsiteConfiguration = WebsiteConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wcRedirectAllRequestsTo'
+-- * 'wcRedirectAllRequestsTo' - Undocumented member.
 --
--- * 'wcErrorDocument'
+-- * 'wcErrorDocument' - Undocumented member.
 --
--- * 'wcIndexDocument'
+-- * 'wcIndexDocument' - Undocumented member.
 --
--- * 'wcRoutingRules'
+-- * 'wcRoutingRules' - Undocumented member.
 websiteConfiguration
     :: WebsiteConfiguration
 websiteConfiguration =

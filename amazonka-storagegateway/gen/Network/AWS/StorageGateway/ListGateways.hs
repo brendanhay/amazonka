@@ -20,9 +20,11 @@
 --
 -- Lists gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).
 --
+--
 -- By default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.
 --
 -- If you have more gateways than are returned in a response (that is, the response returns only a truncated list of your gateways), the response contains a marker that you can specify in your next request to fetch the next page of gateways.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
@@ -53,9 +55,12 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
--- -   < ListGatewaysInput>Limit>
 --
--- -   < ListGatewaysInput>Marker>
+--     * 'ListGatewaysInput$Limit'
+--
+--     * 'ListGatewaysInput$Marker'
+--
+--
 --
 --
 -- /See:/ 'listGateways' smart constructor.
@@ -68,9 +73,9 @@ data ListGateways = ListGateways'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgMarker'
+-- * 'lgMarker' - An opaque string that indicates the position at which to begin the returned list of gateways.
 --
--- * 'lgLimit'
+-- * 'lgLimit' - Specifies that the list of gateways returned be limited to the specified number of items.
 listGateways
     :: ListGateways
 listGateways =
@@ -142,11 +147,11 @@ data ListGatewaysResponse = ListGatewaysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgrsMarker'
+-- * 'lgrsMarker' - Undocumented member.
 --
--- * 'lgrsGateways'
+-- * 'lgrsGateways' - Undocumented member.
 --
--- * 'lgrsResponseStatus'
+-- * 'lgrsResponseStatus' - -- | The response status code.
 listGatewaysResponse
     :: Int -- ^ 'lgrsResponseStatus'
     -> ListGatewaysResponse
@@ -165,7 +170,7 @@ lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 

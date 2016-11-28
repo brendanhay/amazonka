@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a collection of < DomainName> resources.
+-- Represents a collection of 'DomainName' resources.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDomainNames
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a collection of < DomainName> resources.
+-- | Request to describe a collection of 'DomainName' resources.
+--
+--
 --
 -- /See:/ 'getDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
@@ -59,9 +63,9 @@ data GetDomainNames = GetDomainNames'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnLimit'
+-- * 'gdnLimit' - The maximum number of 'DomainName' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'gdnPosition'
+-- * 'gdnPosition' - The position of the current domain names to get information about.
 getDomainNames
     :: GetDomainNames
 getDomainNames =
@@ -70,7 +74,7 @@ getDomainNames =
     , _gdnPosition = Nothing
     }
 
--- | The maximum number of < DomainName> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of 'DomainName' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
 gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a});
 
@@ -113,7 +117,8 @@ instance ToQuery GetDomainNames where
           = mconcat
               ["limit" =: _gdnLimit, "position" =: _gdnPosition]
 
--- | Represents a collection of < DomainName> resources.
+-- | Represents a collection of 'DomainName' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
 --
@@ -128,11 +133,11 @@ data GetDomainNamesResponse = GetDomainNamesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnrsItems'
+-- * 'gdnrsItems' - The current page of any 'DomainName' resources in the collection of 'DomainName' resources.
 --
--- * 'gdnrsPosition'
+-- * 'gdnrsPosition' - Undocumented member.
 --
--- * 'gdnrsResponseStatus'
+-- * 'gdnrsResponseStatus' - -- | The response status code.
 getDomainNamesResponse
     :: Int -- ^ 'gdnrsResponseStatus'
     -> GetDomainNamesResponse
@@ -143,7 +148,7 @@ getDomainNamesResponse pResponseStatus_ =
     , _gdnrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < DomainName> resources in the collection of < DomainName> resources.
+-- | The current page of any 'DomainName' resources in the collection of 'DomainName' resources.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
 gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce;
 
@@ -151,7 +156,7 @@ gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce
 gdnrsPosition :: Lens' GetDomainNamesResponse (Maybe Text)
 gdnrsPosition = lens _gdnrsPosition (\ s a -> s{_gdnrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdnrsResponseStatus :: Lens' GetDomainNamesResponse Int
 gdnrsResponseStatus = lens _gdnrsResponseStatus (\ s a -> s{_gdnrsResponseStatus = a});
 

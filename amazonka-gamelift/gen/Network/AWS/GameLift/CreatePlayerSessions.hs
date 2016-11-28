@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a group of players to a game session. Similar to < CreatePlayerSession>, this action allows you to add multiple players in a single call, which is useful for games that provide party and\/or matchmaking features. A game session must be in an 'ACTIVE' status, have a creation policy of 'ALLOW_ALL', and have an open player slot before players can be added to the session.
+-- Adds a group of players to a game session. Similar to 'CreatePlayerSession' , this action allows you to add multiple players in a single call, which is useful for games that provide party and/or matchmaking features. A game session must be in an @ACTIVE@ status, have a creation policy of @ALLOW_ALL@ , and have an open player slot before players can be added to the session.
 --
--- To create player sessions, specify a game session ID and a list of player IDs. If successful, the players are added to the game session and a set of new < PlayerSession> objects is returned.
+--
+-- To create player sessions, specify a game session ID and a list of player IDs. If successful, the players are added to the game session and a set of new 'PlayerSession' objects is returned.
+--
 module Network.AWS.GameLift.CreatePlayerSessions
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSessions' smart constructor.
 data CreatePlayerSessions = CreatePlayerSessions'
     { _cpsGameSessionId :: !Text
@@ -57,9 +61,9 @@ data CreatePlayerSessions = CreatePlayerSessions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpsGameSessionId'
+-- * 'cpsGameSessionId' - Unique identifier for a game session.
 --
--- * 'cpsPlayerIds'
+-- * 'cpsPlayerIds' - List of unique identifiers for the players to be added.
 createPlayerSessions
     :: Text -- ^ 'cpsGameSessionId'
     -> NonEmpty Text -- ^ 'cpsPlayerIds'
@@ -117,6 +121,8 @@ instance ToQuery CreatePlayerSessions where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'createPlayerSessionsResponse' smart constructor.
 data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
     { _crsPlayerSessions :: !(Maybe [PlayerSession])
@@ -127,9 +133,9 @@ data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsPlayerSessions'
+-- * 'crsPlayerSessions' - Collection of player session objects created for the added players.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createPlayerSessionsResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreatePlayerSessionsResponse
@@ -143,7 +149,7 @@ createPlayerSessionsResponse pResponseStatus_ =
 crsPlayerSessions :: Lens' CreatePlayerSessionsResponse [PlayerSession]
 crsPlayerSessions = lens _crsPlayerSessions (\ s a -> s{_crsPlayerSessions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreatePlayerSessionsResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

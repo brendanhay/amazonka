@@ -20,6 +20,8 @@
 --
 -- This operation returns the operation IDs of operations that are not yet complete.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The ListOperations request includes the following elements.
 --
+--
+--
 -- /See:/ 'listOperations' smart constructor.
 data ListOperations = ListOperations'
     { _loMarker   :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListOperations = ListOperations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loMarker'
+-- * 'loMarker' - For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Required: No
 --
--- * 'loMaxItems'
+-- * 'loMaxItems' - Number of domains to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
 listOperations
     :: ListOperations
 listOperations =
@@ -70,25 +74,11 @@ listOperations =
     , _loMaxItems = Nothing
     }
 
--- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for 'MaxItems', you can use 'Marker' to return additional operations. Get the value of 'NextPageMarker' from the previous response, and submit another request that includes the value of 'NextPageMarker' in the 'Marker' element.
---
--- Type: String
---
--- Default: None
---
--- Required: No
+-- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element. Type: String Default: None Required: No
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
--- | Number of domains to be returned.
---
--- Type: Integer
---
--- Default: 20
---
--- Constraints: A value between 1 and 100.
---
--- Required: No
+-- | Number of domains to be returned. Type: Integer Default: 20 Constraints: A value between 1 and 100. Required: No
 loMaxItems :: Lens' ListOperations (Maybe Int)
 loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
@@ -138,6 +128,8 @@ instance ToQuery ListOperations where
 
 -- | The ListOperations response includes the following elements.
 --
+--
+--
 -- /See:/ 'listOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
     { _lorsNextPageMarker :: !(Maybe Text)
@@ -149,11 +141,11 @@ data ListOperationsResponse = ListOperationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lorsNextPageMarker'
+-- * 'lorsNextPageMarker' - If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
 --
--- * 'lorsResponseStatus'
+-- * 'lorsResponseStatus' - -- | The response status code.
 --
--- * 'lorsOperations'
+-- * 'lorsOperations' - Lists summaries of the operations. Type: Complex type containing a list of operation summaries Children: @OperationId@ , @Status@ , @SubmittedDate@ , @Type@
 listOperationsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListOperationsResponse
@@ -164,23 +156,15 @@ listOperationsResponse pResponseStatus_ =
     , _lorsOperations = mempty
     }
 
--- | If there are more operations than you specified for 'MaxItems' in the request, submit another request and include the value of 'NextPageMarker' in the value of 'Marker'.
---
--- Type: String
---
--- Parent: 'Operations'
+-- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ . Type: String Parent: @Operations@
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lorsResponseStatus :: Lens' ListOperationsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
--- | Lists summaries of the operations.
---
--- Type: Complex type containing a list of operation summaries
---
--- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
+-- | Lists summaries of the operations. Type: Complex type containing a list of operation summaries Children: @OperationId@ , @Status@ , @SubmittedDate@ , @Type@
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the state of a pipeline, including the stages and actions.
+--
+--
 module Network.AWS.CodePipeline.GetPipelineState
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get pipeline state action.
 --
+--
+--
 -- /See:/ 'getPipelineState' smart constructor.
 newtype GetPipelineState = GetPipelineState'
     { _gpsName :: Text
@@ -57,7 +61,7 @@ newtype GetPipelineState = GetPipelineState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpsName'
+-- * 'gpsName' - The name of the pipeline about which you want to get information.
 getPipelineState
     :: Text -- ^ 'gpsName'
     -> GetPipelineState
@@ -109,6 +113,8 @@ instance ToQuery GetPipelineState where
 
 -- | Represents the output of a get pipeline state action.
 --
+--
+--
 -- /See:/ 'getPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
     { _gpsrsPipelineName    :: !(Maybe Text)
@@ -123,17 +129,17 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpsrsPipelineName'
+-- * 'gpsrsPipelineName' - The name of the pipeline for which you want to get the state.
 --
--- * 'gpsrsCreated'
+-- * 'gpsrsCreated' - The date and time the pipeline was created, in timestamp format.
 --
--- * 'gpsrsStageStates'
+-- * 'gpsrsStageStates' - A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
 --
--- * 'gpsrsPipelineVersion'
+-- * 'gpsrsPipelineVersion' - The version number of the pipeline.
 --
--- * 'gpsrsUpdated'
+-- * 'gpsrsUpdated' - The date and time the pipeline was last updated, in timestamp format.
 --
--- * 'gpsrsResponseStatus'
+-- * 'gpsrsResponseStatus' - -- | The response status code.
 getPipelineStateResponse
     :: Int -- ^ 'gpsrsResponseStatus'
     -> GetPipelineStateResponse
@@ -160,8 +166,6 @@ gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
 gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce;
 
 -- | The version number of the pipeline.
---
--- A newly-created pipeline is always assigned a version number of '1'.
 gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
 gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
 
@@ -169,7 +173,7 @@ gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVers
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
 gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});
 

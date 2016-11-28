@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures scaling parameters for a domain. A domain\'s scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/.
+-- Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateScalingParameters' operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
+-- | Container for the parameters to the @'UpdateScalingParameters' @ operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
+--
+--
 --
 -- /See:/ 'updateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
@@ -55,9 +59,9 @@ data UpdateScalingParameters = UpdateScalingParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uspDomainName'
+-- * 'uspDomainName' - Undocumented member.
 --
--- * 'uspScalingParameters'
+-- * 'uspScalingParameters' - Undocumented member.
 updateScalingParameters
     :: Text -- ^ 'uspDomainName'
     -> ScalingParameters -- ^ 'uspScalingParameters'
@@ -105,7 +109,9 @@ instance ToQuery UpdateScalingParameters where
                "DomainName" =: _uspDomainName,
                "ScalingParameters" =: _uspScalingParameters]
 
--- | The result of a 'UpdateScalingParameters' request. Contains the status of the newly-configured scaling parameters.
+-- | The result of a @UpdateScalingParameters@ request. Contains the status of the newly-configured scaling parameters.
+--
+--
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
@@ -117,9 +123,9 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usprsResponseStatus'
+-- * 'usprsResponseStatus' - -- | The response status code.
 --
--- * 'usprsScalingParameters'
+-- * 'usprsScalingParameters' - Undocumented member.
 updateScalingParametersResponse
     :: Int -- ^ 'usprsResponseStatus'
     -> ScalingParametersStatus -- ^ 'usprsScalingParameters'
@@ -130,7 +136,7 @@ updateScalingParametersResponse pResponseStatus_ pScalingParameters_ =
     , _usprsScalingParameters = pScalingParameters_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 usprsResponseStatus :: Lens' UpdateScalingParametersResponse Int
 usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus = a});
 

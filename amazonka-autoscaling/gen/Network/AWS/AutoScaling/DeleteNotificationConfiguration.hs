@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified notification.
+--
+--
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteNotificationConfiguration.
 --
+--
+--
 -- /See:/ 'deleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName :: !Text
@@ -52,9 +56,9 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncAutoScalingGroupName'
+-- * 'dncAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dncTopicARN'
+-- * 'dncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
 deleteNotificationConfiguration
     :: Text -- ^ 'dncAutoScalingGroupName'
     -> Text -- ^ 'dncTopicARN'

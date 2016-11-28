@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the queue specified by the __queue URL__, regardless of whether the queue is empty. If the specified queue does not exist, Amazon SQS returns a successful response.
+-- Deletes the queue specified by the __queue URL__ , regardless of whether the queue is empty. If the specified queue does not exist, Amazon SQS returns a successful response.
 --
--- Use 'DeleteQueue' with care; once you delete your queue, any messages in the queue are no longer available.
 --
--- When you delete a queue, the deletion process takes up to 60 seconds. Requests you send involving that queue during the 60 seconds might succeed. For example, a < SendMessage> request might succeed, but after the 60 seconds, the queue and that message you sent no longer exist. Also, when you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.
+-- /Important:/ Use @DeleteQueue@ with care; once you delete your queue, any messages in the queue are no longer available.
 --
--- We reserve the right to delete queues that have had no activity for more than 30 days. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work> in the /Amazon SQS Developer Guide/.
+-- When you delete a queue, the deletion process takes up to 60 seconds. Requests you send involving that queue during the 60 seconds might succeed. For example, a 'SendMessage' request might succeed, but after the 60 seconds, the queue and that message you sent no longer exist. Also, when you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.
+--
+-- We reserve the right to delete queues that have had no activity for more than 30 days. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work> in the /Amazon SQS Developer Guide/ .
+--
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteQueue' smart constructor.
 newtype DeleteQueue = DeleteQueue'
     { _dqQueueURL :: Text
@@ -56,7 +60,7 @@ newtype DeleteQueue = DeleteQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dqQueueURL'
+-- * 'dqQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
 deleteQueue
     :: Text -- ^ 'dqQueueURL'
     -> DeleteQueue
@@ -65,9 +69,7 @@ deleteQueue pQueueURL_ =
     { _dqQueueURL = pQueueURL_
     }
 
--- | The URL of the Amazon SQS queue to take action on.
---
--- Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
 dqQueueURL :: Lens' DeleteQueue Text
 dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
 

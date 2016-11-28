@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches a virtual private gateway to a VPC. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- Attaches a virtual private gateway to a VPC. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.AttachVPNGateway
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachVpnGateway.
 --
+--
+--
 -- /See:/ 'attachVPNGateway' smart constructor.
 data AttachVPNGateway = AttachVPNGateway'
     { _avgDryRun       :: !(Maybe Bool)
@@ -57,11 +61,11 @@ data AttachVPNGateway = AttachVPNGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avgDryRun'
+-- * 'avgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'avgVPNGatewayId'
+-- * 'avgVPNGatewayId' - The ID of the virtual private gateway.
 --
--- * 'avgVPCId'
+-- * 'avgVPCId' - The ID of the VPC.
 attachVPNGateway
     :: Text -- ^ 'avgVPNGatewayId'
     -> Text -- ^ 'avgVPCId'
@@ -73,7 +77,7 @@ attachVPNGateway pVPNGatewayId_ pVPCId_ =
     , _avgVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
 avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
 
@@ -115,6 +119,8 @@ instance ToQuery AttachVPNGateway where
 
 -- | Contains the output of AttachVpnGateway.
 --
+--
+--
 -- /See:/ 'attachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrsVPCAttachment  :: !(Maybe VPCAttachment)
@@ -125,9 +131,9 @@ data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avgrsVPCAttachment'
+-- * 'avgrsVPCAttachment' - Information about the attachment.
 --
--- * 'avgrsResponseStatus'
+-- * 'avgrsResponseStatus' - -- | The response status code.
 attachVPNGatewayResponse
     :: Int -- ^ 'avgrsResponseStatus'
     -> AttachVPNGatewayResponse
@@ -141,7 +147,7 @@ attachVPNGatewayResponse pResponseStatus_ =
 avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
 
--- | The response status code.
+-- | -- | The response status code.
 avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});
 

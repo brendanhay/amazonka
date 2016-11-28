@@ -510,7 +510,7 @@ import           Network.AWS.OpsWorks.Types.Sum
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2013-02-18' of the Amazon OpsWorks SDK configuration.
+-- | API version @2013-02-18@ of the Amazon OpsWorks SDK configuration.
 opsWorks :: Service
 opsWorks =
     Service
@@ -545,10 +545,14 @@ opsWorks =
       | otherwise = Nothing
 
 -- | Indicates that a request was not valid.
+--
+--
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | Indicates that a resource was not found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

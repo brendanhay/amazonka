@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified DB cluster parameter group.
+--
+--
 module Network.AWS.RDS.CopyDBClusterParameterGroup
     (
     -- * Creating a Request
@@ -57,13 +59,13 @@ data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbcpgTags'
+-- * 'cdbcpgTags' - Undocumented member.
 --
--- * 'cdbcpgSourceDBClusterParameterGroupIdentifier'
+-- * 'cdbcpgSourceDBClusterParameterGroupIdentifier' - The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB cluster parameter group.     * If the source DB cluster parameter group is in the same region as the copy, specify a valid DB parameter group identifier, for example @my-db-cluster-param-group@ , or a valid ARN.     * If the source DB parameter group is in a different region than the copy, specify a valid DB cluster parameter group ARN, for example @arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1@ .
 --
--- * 'cdbcpgTargetDBClusterParameterGroupIdentifier'
+-- * 'cdbcpgTargetDBClusterParameterGroupIdentifier' - The identifier for the copied DB cluster parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster-param-group1@
 --
--- * 'cdbcpgTargetDBClusterParameterGroupDescription'
+-- * 'cdbcpgTargetDBClusterParameterGroupDescription' - A description for the copied DB cluster parameter group.
 copyDBClusterParameterGroup
     :: Text -- ^ 'cdbcpgSourceDBClusterParameterGroupIdentifier'
     -> Text -- ^ 'cdbcpgTargetDBClusterParameterGroupIdentifier'
@@ -81,32 +83,11 @@ copyDBClusterParameterGroup pSourceDBClusterParameterGroupIdentifier_ pTargetDBC
 cdbcpgTags :: Lens' CopyDBClusterParameterGroup [Tag]
 cdbcpgTags = lens _cdbcpgTags (\ s a -> s{_cdbcpgTags = a}) . _Default . _Coerce;
 
--- | The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
---
--- Constraints:
---
--- -   Must specify a valid DB cluster parameter group.
---
--- -   If the source DB cluster parameter group is in the same region as the copy, specify a valid DB parameter group identifier, for example 'my-db-cluster-param-group', or a valid ARN.
---
--- -   If the source DB parameter group is in a different region than the copy, specify a valid DB cluster parameter group ARN, for example 'arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1'.
---
+-- | The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB cluster parameter group.     * If the source DB cluster parameter group is in the same region as the copy, specify a valid DB parameter group identifier, for example @my-db-cluster-param-group@ , or a valid ARN.     * If the source DB parameter group is in a different region than the copy, specify a valid DB cluster parameter group ARN, for example @arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1@ .
 cdbcpgSourceDBClusterParameterGroupIdentifier :: Lens' CopyDBClusterParameterGroup Text
 cdbcpgSourceDBClusterParameterGroupIdentifier = lens _cdbcpgSourceDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgSourceDBClusterParameterGroupIdentifier = a});
 
--- | The identifier for the copied DB cluster parameter group.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
---
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-cluster-param-group1'
+-- | The identifier for the copied DB cluster parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster-param-group1@
 cdbcpgTargetDBClusterParameterGroupIdentifier :: Lens' CopyDBClusterParameterGroup Text
 cdbcpgTargetDBClusterParameterGroupIdentifier = lens _cdbcpgTargetDBClusterParameterGroupIdentifier (\ s a -> s{_cdbcpgTargetDBClusterParameterGroupIdentifier = a});
 
@@ -161,9 +142,9 @@ data CopyDBClusterParameterGroupResponse = CopyDBClusterParameterGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcpgrsDBClusterParameterGroup'
+-- * 'cdcpgrsDBClusterParameterGroup' - Undocumented member.
 --
--- * 'cdcpgrsResponseStatus'
+-- * 'cdcpgrsResponseStatus' - -- | The response status code.
 copyDBClusterParameterGroupResponse
     :: Int -- ^ 'cdcpgrsResponseStatus'
     -> CopyDBClusterParameterGroupResponse
@@ -177,7 +158,7 @@ copyDBClusterParameterGroupResponse pResponseStatus_ =
 cdcpgrsDBClusterParameterGroup :: Lens' CopyDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
 cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdcpgrsResponseStatus :: Lens' CopyDBClusterParameterGroupResponse Int
 cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
 

@@ -20,11 +20,11 @@
 --
 -- Deletes the specified receipt rule set and all of the receipt rules it contains.
 --
--- The currently active rule set cannot be deleted.
 --
--- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DeleteReceiptRuleSet
     (
     -- * Creating a Request
@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'deleteReceiptRuleSet' smart constructor.
 newtype DeleteReceiptRuleSet = DeleteReceiptRuleSet'
@@ -58,7 +60,7 @@ newtype DeleteReceiptRuleSet = DeleteReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRuleSetName'
+-- * 'dRuleSetName' - The name of the receipt rule set to delete.
 deleteReceiptRuleSet
     :: Text -- ^ 'dRuleSetName'
     -> DeleteReceiptRuleSet
@@ -100,6 +102,8 @@ instance ToQuery DeleteReceiptRuleSet where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'deleteReceiptRuleSetResponse' smart constructor.
 newtype DeleteReceiptRuleSetResponse = DeleteReceiptRuleSetResponse'
     { _drrsrsResponseStatus :: Int
@@ -109,7 +113,7 @@ newtype DeleteReceiptRuleSetResponse = DeleteReceiptRuleSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsrsResponseStatus'
+-- * 'drrsrsResponseStatus' - -- | The response status code.
 deleteReceiptRuleSetResponse
     :: Int -- ^ 'drrsrsResponseStatus'
     -> DeleteReceiptRuleSetResponse
@@ -118,7 +122,7 @@ deleteReceiptRuleSetResponse pResponseStatus_ =
     { _drrsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drrsrsResponseStatus :: Lens' DeleteReceiptRuleSetResponse Int
 drrsrsResponseStatus = lens _drrsrsResponseStatus (\ s a -> s{_drrsrsResponseStatus = a});
 

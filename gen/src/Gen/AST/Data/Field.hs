@@ -21,17 +21,20 @@ module Gen.AST.Data.Field where
 import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens
+
 import           Data.Function                (on)
-import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (elemIndex, sortBy)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
 import           Data.Text.Manipulate
-import           Gen.Types.TypeOf
+
 import           Gen.Types
+
 import           Language.Haskell.Exts.Syntax (Name (..))
+
+import qualified Data.HashMap.Strict          as Map
+import qualified Data.Text                    as Text
 
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
@@ -141,11 +144,10 @@ fieldHelp f =
     ann _              = mempty
 
     base64 =
-        "\n\n/Note:/ This 'Lens' automatically encodes and decodes Base64 data,\n\
-        \despite what the AWS documentation might say.\n\
-        \The underlying isomorphism will encode to Base64 representation during\n\
-        \serialisation, and decode from Base64 representation during deserialisation.\n\
-        \This 'Lens' accepts and returns only raw unencoded data."
+        "--\n-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.\n\
+        \-- The underlying isomorphism will encode to Base64 representation during\n\
+        \-- serialisation, and decode from Base64 representation during deserialisation.\n\
+        \-- This 'Lens' accepts and returns only raw unencoded data."
 
     def = "Undocumented member."
 

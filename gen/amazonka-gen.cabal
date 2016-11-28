@@ -65,6 +65,7 @@ executable amazonka-gen
         , bytestring
         , case-insensitive
         , comonad
+        , containers
         , data-default-class
         , directory-tree
         , ede
@@ -74,10 +75,10 @@ executable amazonka-gen
         , hashable
         , haskell-src-exts
         , hindent
+        , html-conduit
         , lens
         , mtl
         , optparse-applicative
-        , pandoc
         , parsec
         , scientific
         , semigroups
@@ -92,3 +93,4 @@ executable amazonka-gen
         , transformers
         , unexceptionalio
         , unordered-containers
+        , xml-conduit

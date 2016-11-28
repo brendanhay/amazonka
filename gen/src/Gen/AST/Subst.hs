@@ -72,7 +72,7 @@ substitute svc@Service{..} = do
         out <- subst Output (name Output _opName) _opOutput
         return $! o
             { _opDocumentation =
-                _opDocumentation .! "Undocumented operation."
+                _opDocumentation .! "-- | Undocumented operation."
             , _opHTTP          = http _opHTTP
             , _opInput         = Identity inp
             , _opOutput        = Identity out
@@ -152,7 +152,7 @@ addStatus Output = go
 
     ref = emptyRef n
         & refLocation      ?~ StatusCode
-        & refDocumentation ?~ "The response status code."
+        & refDocumentation ?~ "-- | The response status code."
         & refAnn           .~
             Related n mempty :< Lit emptyInfo Int
 

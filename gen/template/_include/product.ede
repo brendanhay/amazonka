@@ -1,5 +1,5 @@
 {% if shape.documentation %}
-{{ shape.documentation }}
+-- | {{ shape.documentation }}
 --
 -- /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% else %}
@@ -8,7 +8,7 @@
 {{ shape.declaration }}
 
 {% if shape.constructor.documentation %}
-{{ shape.constructor.documentation }}
+-- | {{ shape.constructor.documentation }}
 --
 {% endif %}
 {% for lens in shape.lenses %}
@@ -16,7 +16,7 @@
 -- Use one of the following lenses to modify other fields as desired:
   {% endif %}
 --
--- * '{{ lens.value.name }}'
+-- * '{{ lens.value.name }}' - {{ lens.value.documentation }}
 {% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}

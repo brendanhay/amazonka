@@ -31,29 +31,34 @@ module Gen.Types.Config where
 
 import           Control.Error
 import           Control.Lens              hiding ((.=))
+
 import           Data.Aeson
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
 import           Data.Text                 (Text)
-import qualified Data.Text.Lazy            as LText
-import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
-import qualified Filesystem.Path.CurrentOS as Path
+
 import           Formatting
+
 import           Gen.Text
 import           Gen.TH
 import           Gen.Types.Ann
 import           Gen.Types.Data
-import           Gen.Types.Help
 import           Gen.Types.Id
 import           Gen.Types.Map
 import           Gen.Types.NS
 import           Gen.Types.Service
 import           Gen.Types.TypeOf
+
 import           GHC.Generics              (Generic)
 import           GHC.TypeLits
+
 import           Text.EDE                  (Template)
+
+import qualified Data.Text.Lazy            as LText
+import qualified Data.Text.Lazy.Builder    as Build
+import qualified Filesystem.Path.CurrentOS as Path
 
 uniq :: Ord a => [a] -> [a]
 uniq = sort . nub
@@ -177,11 +182,10 @@ instance ToJSON Library where
       where
         Object y = toJSON (l ^. metadata)
         Object x = object
-            [ "plainDescription"  .= Desc 0 (l ^. documentation)
-            , "cabalDescription"  .= Desc 4 (l ^. documentation)
-            , "documentation"     .= (l ^. documentation)
+            [ "documentation"     .= (l ^. documentation)
             , "libraryName"       .= (l ^. libraryName)
             , "libraryNamespace"  .= (l ^. libraryNS)
+            , "libraryHyphenated" .= nsHyphenate (l ^. libraryNS)
             , "libraryVersion"    .= (l ^. libraryVersion)
             , "clientVersion"     .= (l ^. clientVersion)
             , "coreVersion"       .= (l ^. coreVersion)
